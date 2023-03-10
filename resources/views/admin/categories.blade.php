@@ -134,11 +134,7 @@
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                        </tr>  
-    
-                       <tr>
-                      <td>sub</td>
-                     <td><input type="date" value="2022-05-10"></td>      
-                      </tr>  
+      
                                </table>
                             
                            </div>
