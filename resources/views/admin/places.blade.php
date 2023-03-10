@@ -24,7 +24,7 @@ Add place
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+      <table style=" width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
                   <td>Name </td>
