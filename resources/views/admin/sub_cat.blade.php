@@ -4,37 +4,56 @@
 <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">Sub_Categories</h1>
+    <h3 class="app-content-headerText pl-5">[cat name]</h3>
+
+
       <button class="mode-switch" title="Switch Theme">
         <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
           <defs></defs>
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
-      <button class="app-content-headerButton">Add Category</button>
+ <!-- add -->
+ <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+ Add sub-cat
+</button>
+
+<!-- Modal -->
+<div class="modal fade " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content toggle">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal3Label">New sub-cat</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+               
+              <tr>
+                  <td>name </td>
+                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></th>      
+              </tr>  
+              <tr>
+                  <td >image </td>
+                  <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
+              </tr>     
+      </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="app-content-headerButton">Save</button>
+      </div>
     </div>
+  </div>
+</div>
+    </div>
+    <!-- end add -->
+
     <div class="app-content-actions">
       <input class="search-bar" placeholder="Search..." type="text">
-      <div class="app-content-actions-wrapper">
-        <div class="filter-button-wrapper">
-          <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
-          <div class="filter-menu">
-            <label>Category</label>
-            <select>
-              <option>All Categories</option>
-              <option>Furniture</option>       
-              <option>Decoration</option>
-              <option>Kitchen</option>
-              <option>Bathroom</option>
-            </select>
-            
-            <div class="filter-menu-buttons">
 
-              <button class="filter-button apply">
-                Apply
-              </button>
-            </div>
-          </div>
-        </div>
+      <div class="app-content-actions-wrapper">
+     
         <button class="action-button list active" title="List View">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
         </button>
@@ -47,7 +66,7 @@
       <div class="products-header">
         <div class="product-cell">Name</div>
         <div class="product-cell image ">Image</div>
-        <div class="product-cell image ">Category</div>
+        <div class="product-cell ">Actions</div>
 
 
       
@@ -64,8 +83,78 @@
             <img src="img/omayyad.jpg" alt="product">
           </div>
           <div class="product-cell">
-            <span>دينية</span>
-          </div>
+     <!-- start action -->
+<div class="p-3">
+
+                 <!-- delete -->
+                 <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Are you shure that you want to delete This sub-cat ?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
+                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <!-- end delete -->
+
+                     <!-- edit -->
+                     <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
+
+                          <!-- Modal -->
+                     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                             </button>
+                           </div>
+                           <div class="modal-body">
+                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
+                          
+                       <tr> 
+                         <td>name</td>
+                         <td ><input type="text" class="toggle text-primary in" value="مساجد"></td>  
+                           
+                  </tr>      
+                        
+    
+                       <tr>
+                       <td>Image </td>
+                       <td ><input type="file" hidden id="img"> 
+                            <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
+                       </tr>  
+      
+                               </table>
+                            
+                           </div>
+                           <div class="modal-footer">
+                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
+                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
+                       </div>
+                     <!-- end edit -->
+   
+</div>
+  <!-- end action -->
+      
+
+      </div>
 
 
       </div>

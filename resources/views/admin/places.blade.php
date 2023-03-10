@@ -121,6 +121,7 @@ Add place
     <div class="app-content-actions">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
+        <!-- filter -->
         <div class="filter-button-wrapper">
           <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
@@ -233,7 +234,7 @@ Add place
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This Event ?
+                                      Are you shure that you want to delete This place ?
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active" data-dismiss="modal">Close</button>
@@ -269,7 +270,7 @@ Add place
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                        </tr>
        <tr>
-                  <td>Place </td>
+                  <td>city </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     liki
@@ -284,7 +285,7 @@ Add place
                 </div></th>      
               </tr>  
               <tr>
-                  <td>Service </td>
+                  <td>District </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     ---
@@ -296,28 +297,55 @@ Add place
                     <a class="dropdown-item" href="#">----</a>
           
                   </div>
-                </div></th>      
+                </div></td>      
               </tr>  
+              <tr>
+                  <td>subcat </td>
+                  <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                    ---
+                  </lable>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">--</a>
+                    <a class="dropdown-item" href="#">--</a>
+                    <a class="dropdown-item" href="#">---</a>
+                    <a class="dropdown-item" href="#">----</a>
+          
+                  </div>
+                </div></td>      
+              </tr>  
+              <tr> 
+                         <td>location</td>
+                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
+                           
+                  </tr>
                   <tr> 
                          <td>Description</td>
                          <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
                            
                   </tr>
                   <tr> 
+                  
+                         <td>email</td>
+                         <td ><input type="email" class="toggle text-primary in" value="@gmail.com"></td>  
+                           
+                  </tr> 
+                  <tr> 
+                         <td>phone</td>
+                         <td ><input type="number" class="toggle text-primary in" value="09123456789"></td>  
+                           
+                  </tr> 
+                  <tr> 
+                         <td>url</td>
+                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
+                           
+                  </tr>
+                  <tr>
                          <td>cost</td>
                          <td ><input type="number" class="toggle text-primary in" value="100000"></td>  
                            
                   </tr> 
-                  <tr> 
-                         <td>Start date</td>
-                         <td ><input type="date" class="toggle text-primary in" value="2023-10-11"></td>  
-                           
-                  </tr> 
-                  <tr> 
-                         <td>end date</td>
-                         <td ><input type="date" class="toggle text-primary in" value="2023-10-10"></td>  
-                           
-                  </tr> 
+                  
                                </table>
                             
                            </div>

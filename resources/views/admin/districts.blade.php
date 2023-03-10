@@ -30,21 +30,7 @@
                   <td>Name</td>
                   <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>      
               </tr>      
-              <!-- <tr>
-                  <td>City </td>
-                  <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
-                    
-                  </lable>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Aleppo</a>
-                    <a class="dropdown-item" href="#">hama</a>
-                    <a class="dropdown-item" href="#">Latakia</a>
-                    <a class="dropdown-item" href="#">damascuse</a>
-          
-                  </div>
-                </div></th>      
-              </tr>   -->
+             
               <tr>
                   <td >Location </td>
                   <td><input type="text" class="toggle text-primary in"  name="location" required style="width: 100%;"></th>      
@@ -64,6 +50,7 @@
     <div class="app-content-actions">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
+        <!-- filter -->
         <div class="filter-button-wrapper">
           <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
@@ -85,6 +72,7 @@
             </div>
           </div>
         </div>
+        <!-- end filter -->
         <button class="action-button list active" title="List View">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
         </button>
