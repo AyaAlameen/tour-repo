@@ -11,16 +11,16 @@
         </svg>
       </button>
         <!-- add -->
-<button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
 Add Group
 </button>
 
 <!-- Modal -->
-<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Group</h5>
+        <h5 class="modal-title" id="exampleModal3Label">New Group</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -117,6 +117,8 @@ Add Group
         <div class="product-cell">Description</div>
         <div class="product-cell">People count</div>
         <div class="product-cell">cost</div>
+        <div class="product-cell ">Actions</div>
+
 
 
  
@@ -144,6 +146,94 @@ Add Group
           <div class="product-cell">
             <span>200000</span>
           </div>
+          <div class="product-cell">
+     <!-- start action -->
+<div class="p-3">
+
+                 <!-- delete -->
+                 <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Are you shure that you want to delete This Group ?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
+                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <!-- end delete -->
+
+                     <!-- edit -->
+                     <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
+
+                          <!-- Modal -->
+                     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                             </button>
+                           </div>
+                           <div class="modal-body">
+                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
+                        <tr> 
+                         <td>Group number</td>
+                         <td ><input type="number" class="toggle text-primary in" value="1"></td>                   
+                  </tr> 
+                  <tr>
+                       <td>Image </td>
+                       <td ><input type="file" hidden id="img"> 
+                            <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
+                       </tr>
+                  <tr> 
+                         <td>Tourist Guide</td>
+                         <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>                   
+                  </tr> 
+                  <tr> 
+                         <td>Description</td>
+                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
+                           
+                   </tr>
+                   <tr> 
+                         <td>People count</td>
+                         <td ><input type="number" class="toggle text-primary in" value="15"></td>                   
+                  </tr> 
+                  <tr> 
+                         <td>Cost</td>
+                         <td ><input type="number" class="toggle text-primary in" value="100000"></td>                   
+                  </tr> 
+
+     
+      
+                               </table>
+                            
+                           </div>
+                           <div class="modal-footer">
+                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
+                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
+                       </div>
+                     <!-- end edit -->
+   
+</div>
+  <!-- end action -->
+      
+
+      </div>
       </div>
       </div>
     </div>
