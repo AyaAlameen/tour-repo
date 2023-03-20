@@ -1,7 +1,7 @@
 @extends('adminLayout.master')
 @section('admincontent')
 
-<div class="app-content">
+<div class="app-content" style="overflow-y: scroll;">
     <div class="app-content-header">
       <h1 class="app-content-headerText">Cities</h1>
       <button class="mode-switch" title="Switch Theme">
@@ -72,7 +72,8 @@
  
 
       </div>
-      <div class="products-row">
+      <!-- output rows -->
+      <div class="products-row" >
         <button class="cell-more-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
         </button>
@@ -163,7 +164,11 @@
 
       </div>
       </div>
+
+      
+      <!-- end output rows -->
       </div>
     </div>
   </div>
 @endsection
+سسسسسسسسسسس

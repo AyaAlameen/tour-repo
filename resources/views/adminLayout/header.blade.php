@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                     <a href="index.html" class="nav-item nav-link active">DashBoard</a>
-                        <a href="{{route('userhome')}}" class="nav-item nav-link text-primary">Home</a>
+                        <a href="{{ route ('userhome') }}" class="nav-item nav-link text-primary">Home</a>
                         <a href="about.html" class="nav-item nav-link text-primary">About</a>
                         <a href="service.html" class="nav-item nav-link text-primary">Services</a>
                         <a href="package.html" class="nav-item nav-link text-primary">Tour Packages</a>
