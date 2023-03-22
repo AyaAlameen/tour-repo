@@ -8,7 +8,7 @@
              <div class="row align-items-center justify-content-center">
                 
            <div class="col-md-12">
-            <div class="form-block mx-auto">
+            <div style="max-width:400px" class="form-block mx-auto">
             <div class="text-center mb-5">
               <h3 style="color:var(--navi);">Login to <strong style="color:var(--bambi);">traveler</strong></h3>
               </div>
