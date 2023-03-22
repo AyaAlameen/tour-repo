@@ -15,10 +15,10 @@ class CreateTransportCompaniesTable extends Migration
     {
         Schema::create('transport_companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            // $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->string('address');
+            // $table->string('address');
             $table->timestamps();
             $table->softDeletes();
         });

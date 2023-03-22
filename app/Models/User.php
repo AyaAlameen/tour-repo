@@ -11,6 +11,7 @@ use App\Models\Permission;
 use App\Models\Place;
 use App\Models\EmployeeProfile;
 use App\Models\Rating;
+use App\Models\Translation;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
@@ -27,7 +28,6 @@ class User extends Authenticatable
         'email',
         'password',
         'is_employee',
-        'full_name',
         'phone',
     ];
 
@@ -65,5 +65,10 @@ class User extends Authenticatable
 
     public function ratings() {
         return $this->hasMany(Rating::class);
+    }
+
+    public function translations()
+    {
+        return $this->morphMany(Translation::class, 'model');
     }
 }

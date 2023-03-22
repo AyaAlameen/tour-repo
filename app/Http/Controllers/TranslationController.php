@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Translation;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class TranslationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        
-        return view('admin.categories', ['categories' => $categories]);
+        //
     }
 
     /**
@@ -37,32 +35,16 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->input();
-        //validation:
-        $request->validate([
-            'name' => 'required',
-            'image' =>'required',
-        ]);
-        $category = new Category;
-
-        if($request->has('image')){
-            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
-            $request->image->move('uploads/categoryImage', $upload_image_name);
-            $category->image = 'uploads/categoryImage/'.$upload_image_name;
-        }
-        $category->name = $request->name;
-        $category->save();
-       
-        return redirect()->route('category');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Translation  $translation
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show(Translation $translation)
     {
         //
     }
@@ -70,10 +52,10 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Translation  $translation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Group $group)
+    public function edit(Translation $translation)
     {
         //
     }
@@ -82,10 +64,10 @@ class CategoriesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Translation  $translation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Group $group)
+    public function update(Request $request, Translation $translation)
     {
         //
     }
@@ -93,10 +75,10 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Translation  $translation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy(Translation $translation)
     {
         //
     }
