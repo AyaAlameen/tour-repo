@@ -9,10 +9,10 @@
                 
            <div class="col-md-12">
             <div style="max-width:400px" class="form-block mx-auto">
-            <div class="text-center mb-5">
+            <div class="text-center mb-2">
               <h3 style="color:var(--navi);">Login to <strong style="color:var(--bambi);">traveler</strong></h3>
               </div>
-                    
+                    <hr>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -59,7 +59,7 @@
                                     @if (Route::has('password.request'))
                                     <span class="ml-auto"> 
                                         <a class="forgot-pass" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Password') }}
+                                        {{ __('Forgot Password?') }}
                                     </a>
                                     </span>
                                    

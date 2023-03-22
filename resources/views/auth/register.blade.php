@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="d-md-flex half">
-<div class="bg" style="background-image: url('img/ححح.jpg');"></div>   
+<div class="bg" style="background-image: url('../img/ححح.jpg');"></div>   
 
     <div class="contents">
         <div class="container">
