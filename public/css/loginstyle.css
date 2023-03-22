@@ -1,3 +1,16 @@
+:root {
+  --navi:#2B3467;
+  --bambi:#EB455F;
+  --blueLight:#BAD7E9;
+  --light: #FCFFE7;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Poppins", sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 body {
   font-family: "Roboto", sans-serif;
   background-color: #fff; }
@@ -60,12 +73,21 @@ h2 {
 .half a {
   color: #888;
   text-decoration: underline; }
-
+  .half a:hover {
+    color: #888;
+    text-decoration: underline !important; }
+  
 .half .btn {
   height: 54px;
   padding-left: 30px;
-  padding-right: 30px; }
+  padding-right: 30px; 
+border-radius: 3px;}
 
+  .half .btn:hover {
+background-color: var(--navi);
+border-color: var(--navi);
+  }
+  
 .half .forgot-pass {
   position: relative;
   top: 2px;
@@ -115,11 +137,11 @@ h2 {
   background: #ccc; }
 
 .control input:checked ~ .control__indicator {
-  background: #fb771a; }
+  background: var(--bambi); }
 
 .control:hover input:not([disabled]):checked ~ .control__indicator,
 .control input:checked:focus ~ .control__indicator {
-  background: #fb8633; }
+  background: var(--bambi); }
 
 .control input:disabled ~ .control__indicator {
   background: #e6e6e6;

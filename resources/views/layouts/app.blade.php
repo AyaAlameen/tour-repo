@@ -18,11 +18,12 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
     <!-- Styles -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="{{ asset('css/loginstyle.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="css/loginstyle.css" >
+    <link href="css/style.css" rel="stylesheet">
     
 
 

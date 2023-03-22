@@ -3,20 +3,20 @@
 @section('content')
 <div class="d-md-flex half" id="app">
     <div class="bg" style="background-image: url('img/ححح.jpg');"></div>   
-      <div class="content">
+      <div class="contents">
           <div class="container">
              <div class="row align-items-center justify-content-center">
                 
            <div class="col-md-12">
             <div class="form-block mx-auto">
             <div class="text-center mb-5">
-              <h3>Login to <strong>traveler</strong></h3>
+              <h3 style="color:var(--navi);">Login to <strong style="color:var(--bambi);">traveler</strong></h3>
               </div>
                     
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group first">
+                        <div class="form-group  first">
                             <label for="email">{{ __('Email') }}</label>
 
                         
@@ -70,7 +70,12 @@
                                 <button type="submit" class="btn btn-block btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                                <span class="d-flex justify-content-center mt-3"> 
+                                        <a class="forgot-pass " href="{{ route('register') }}">
+                                        {{ __('Not Register yet ? ') }}
+                                    </a>
+                                    </span>
+                                   
               
                     </form>
                 
