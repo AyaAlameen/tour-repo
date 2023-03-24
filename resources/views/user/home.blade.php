@@ -93,7 +93,7 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 mb-5">
         <div class="container pt-5">
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
-                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
+                    <div style="box-shadow:#ced4da -3px -3px 6px 2px;" class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
                         <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
@@ -398,10 +398,10 @@
 
 
     <!-- Registration Start -->
-    <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
+    <div class="container-fluid bg-registration py-5" style="margin: 90px 0; height:700px;">
         <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-7 mb-5 mb-lg-0">
+            <div class="row align-items-center" style="flex-wrap:nowrap;">
+                <div class="col-lg-7" style="margin-bottom:350px;">
                     <div class="mb-4">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Mega Offer</h6>
                         <h1 class="text-white"><span class="text-primary">30% OFF</span> For Honeymoon</h1>
@@ -415,34 +415,87 @@
                         <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.</li>
                     </ul>
                 </div>
-                <div class="col-lg-5">
-                    <div class="card border-0">
-                        <div class="card-header bg-primary text-center p-4">
-                            <h1 class="text-white m-0">Sign Up Now</h1>
+                <div class="d-md-flex half">
+
+                <div class="contents" style="background-color:#0d6dfd00;">
+        <div class="container">
+
+            <div style="width:500px;" class="align-items-center justify-content-center">
+            <div  class="form-block mx-auto">
+       
+            <div style="background-color:var(--bambi); width:100%;  height:50px;" class="text-center mb-4">
+              <h3 style="color:#fff;" class="pt-2" > Signup Now !</h3>
+              </div>
+            
+                <div class="col-md-12">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+
+                        <div class="form-group d-flex first align-items-center">
+                            <label for="name"   class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+
+                            
+                                <input id="name" placeholder="eg.Aya Alameen" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            
                         </div>
-                        <div class="card-body rounded-bottom bg-white p-5">
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Your name" required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control p-4" placeholder="Your email" required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Select a destination</option>
-                                        <option value="1">destination 1</option>
-                                        <option value="2">destination 1</option>
-                                        <option value="3">destination 1</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <button class="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
-                                </div>
-                            </form>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+
+                            
+                                <input id="email" placeholder="your-email@gmail.com" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            
                         </div>
-                    </div>
-                </div>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label for="password"   class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                           
+                                <input id="password" placeholder="Your Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                         
+                        </div>
+
+                        <div class="form-group last d-flex align-items-center">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                       
+                        </div>
+
+                        <div class="row mb-0 mt-3 justify-content-center">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-block btn-primary">
+                                    {{ __('Signup') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+        </div>
+        </div>
+        </div>
+
+        </div>
+        </div>
+          </div>
             </div>
         </div>
     </div>

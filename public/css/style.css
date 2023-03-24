@@ -6,8 +6,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --navi:#2B3467;
-  --bambi:#EB455F;
+  --navi:rgb(43, 52, 103);
+  --bambi:rgb(235, 69, 95);
   --blueLight:#BAD7E9;
   --light: #FCFFE7;
   --breakpoint-xs: 0;
