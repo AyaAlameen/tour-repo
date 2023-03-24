@@ -15,10 +15,10 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            // $table->string('name');
             $table->foreignId('tourist_guide_id');
             $table->integer('people_count');
-            $table->string('description');
+            // $table->string('description');
             $table->decimal('cost', 8, 0);
             $table->timestamps();
             $table->softDeletes();

@@ -15,11 +15,11 @@ class CreateTouristGuidesTable extends Migration
     {
         Schema::create('tourist_guides', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
+            // $table->string('first_name');
+            // $table->string('last_name');
             $table->string('image');
-            $table->text('description');
-            $table->text('certificates');
+            // $table->text('description');
+            // $table->text('certificates');
             $table->string('phone');
             $table->string('email');
             $table->timestamps();

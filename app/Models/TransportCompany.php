@@ -5,9 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Translation;
 
 class TransportCompany extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['name', 'email', 'phone', 'address'];
+    protected $fillable = ['email', 'phone'];
+
+    public function translations()
+    {
+        return $this->morphMany(Translation::class, 'model');
+    }
 }

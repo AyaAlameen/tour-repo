@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Place;
 use App\Models\Offer;
+use App\Models\Translation;
 
 class Service extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'place_id', 'cost', 'description', 'is_additional'];
+    protected $fillable = ['place_id', 'cost', 'is_additional'];
 
     public function place() {
         return $this->belongsTo(Place::class);
@@ -20,5 +21,10 @@ class Service extends Model
 
     public function offers() {
         return $this->hasMany(Offer::class);
+    }
+
+    public function translations()
+    {
+        return $this->morphMany(Translation::class, 'model');
     }
 }

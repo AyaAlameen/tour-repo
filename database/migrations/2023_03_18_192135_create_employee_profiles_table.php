@@ -18,8 +18,8 @@ class CreateEmployeeProfilesTable extends Migration
             $table->foreignId('user_id');
             $table->integer('salary');
             $table->string('identifier');
-            $table->string('job');
-            $table->string('address');
+            // $table->string('job');
+            // $table->string('address');
             $table->timestamps();
             $table->softDeletes();
         });

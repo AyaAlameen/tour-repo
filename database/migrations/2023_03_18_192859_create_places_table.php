@@ -15,10 +15,10 @@ class CreatePlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            // $table->string('name');
             $table->foreignId('sub_category_id');
             $table->foreignId('district_id');
-            $table->text('description');
+            // $table->text('description');
             $table->string('location');
             $table->string('email');
             $table->string('phone');

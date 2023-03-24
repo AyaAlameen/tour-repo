@@ -15,10 +15,10 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            // $table->string('name');
             $table->foreignId('place_id');
             $table->decimal('cost', 8, 0);
-            $table->string('description');
+            // $table->string('description');
             $table->boolean('is_additional');
             $table->timestamps();
             $table->softDeletes();

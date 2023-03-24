@@ -11,13 +11,14 @@ use App\Models\Rating;
 use App\Models\Event;
 use App\Models\Service;
 use App\Models\Offer;
+use App\Models\Translation;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Place extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable =['name', 'sub_category_id', 'district_id', 'description', 'location', 'email', 'phone', 'url', 'cost'];
+    protected $fillable =['sub_category_id', 'district_id', 'location', 'email', 'phone', 'url', 'cost'];
 
     public function subCategory() {
         return $this->belongsTo(SubCategory::class);
@@ -49,5 +50,10 @@ class Place extends Model
 
     public function offers() {
         return $this->hasMany(Offer::class);
+    }
+
+    public function translations()
+    {
+        return $this->morphMany(Translation::class, 'model');
     }
 }
