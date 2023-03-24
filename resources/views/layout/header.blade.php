@@ -47,25 +47,80 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                         <a href="{{route('userhome')}}" class="nav-item nav-link active">Home</a>
-                        <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-                        <a href="service" class="nav-item nav-link">Services</a>
-                        <a href="package" class="nav-item nav-link">Tour Packages</a>
+                     
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Syria</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog" class="dropdown-item">Blog Grid</a>
-                                <a href="single" class="dropdown-item">Blog Detail</a>
-                                <a href="destination" class="dropdown-item">Destination</a>
-                                <a href="guide" class="dropdown-item">Travel Guides</a>
-                                <a href="testimonial" class="dropdown-item">Testimonial</a>
+                                <a href="blog" class="dropdown-item">Visit Syria</a>
+                                <a href="blog" class="dropdown-item">Governorates of Syria</a>
+                                <a href="single" class="dropdown-item">Syria Hotels</a>
+                                <a href="destination" class="dropdown-item">Syria Restaurants</a>
+                                <a href="guide" class="dropdown-item">Historical places in Syria</a>
+                                <a href="guide" class="dropdown-item">Trip groups</a>
+                                <a href="testimonial" class="dropdown-item">Photographs from Syria</a>
                             </div>
                         </div>
+                        <a href="{{route('about')}}" class="nav-item nav-link">About</a>
+
+                       
                         <a href="contact" class="nav-item nav-link">Contact</a>
+                       <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+<!-- 
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif -->
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                       <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite" onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
+
                     </div>
                 </div>
             </nav>
         </div>
     </div>
+
+
+    <!-- favorite --> 
+ 
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h3 id="offcanvasRightLabel" class="text-primary">Favorites :</h3>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;"/>
+    <p class="text-body px-3 text-center mt-4">choose your favorite places</p>
+
+  </div>
+</div>
+ <!-- end favorite -->
+
     <!-- Navbar End -->
 
 

@@ -7,7 +7,7 @@
  */
 :root {
   --navi:rgb(43, 52, 103);
-  --bambi:rgb(235, 69, 95);
+  --bambi:#eb455f;
   --blueLight:#BAD7E9;
   --light: #FCFFE7;
   --breakpoint-xs: 0;
@@ -9248,7 +9248,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: var(--navi) ;
+  color: var(--navi) !important ;
 }
 
 a.text-primary:hover, a.text-primary:focus {

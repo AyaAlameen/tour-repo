@@ -400,7 +400,7 @@
     <!-- Registration Start -->
     <div class="container-fluid bg-registration py-5" style="margin: 90px 0; height:700px;">
         <div class="container py-5">
-            <div class="row align-items-center" style="flex-wrap:nowrap;">
+            <div class="row align-items-center" style="flex-wrap:nowrap; width:700px;">
                 <div class="col-lg-7" style="margin-bottom:350px;">
                     <div class="mb-4">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Mega Offer</h6>
@@ -420,7 +420,7 @@
                 <div class="contents" style="background-color:#0d6dfd00;">
         <div class="container">
 
-            <div style="width:500px;" class="align-items-center justify-content-center">
+            <div style="width:500px; margin-left:200px;" class="align-items-center justify-content-center">
             <div  class="form-block mx-auto">
        
             <div style="background-color:var(--bambi); width:100%;  height:50px;" class="text-center mb-4">
