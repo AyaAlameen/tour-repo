@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone');
             $table->string('image');
-            $table->boolean('is_employee');
+            $table->boolean('is_employee')->default(false);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

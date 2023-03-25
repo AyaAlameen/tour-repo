@@ -19,10 +19,11 @@ class CreatePlacesTable extends Migration
             $table->foreignId('sub_category_id');
             $table->foreignId('district_id');
             // $table->text('description');
-            $table->string('location');
+            $table->string('geolocation');
+            // $table->string('address');
             $table->string('email');
             $table->string('phone');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->decimal('cost', 8, 0);
             $table->timestamps();
             $table->softDeletes();
