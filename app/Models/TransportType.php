@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Translation;
+use App\Models\CompanyTransportType;
 
 class TransportType extends Model
 {
@@ -16,5 +17,9 @@ class TransportType extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'model');
+    }
+
+    public function companyTransportTypes() {
+        return $this->hasMany(CompanyTransportType::class);
     }
 }

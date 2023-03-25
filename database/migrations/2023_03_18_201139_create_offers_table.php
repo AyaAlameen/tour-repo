@@ -20,8 +20,8 @@ class CreateOffersTable extends Migration
             $table->foreignId('place_id')->nullable();
             $table->decimal('cost', 8, 0);
             // $table->string('description');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('start_date')->useCurrent();
+            $table->timestamp('end_date')->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });
