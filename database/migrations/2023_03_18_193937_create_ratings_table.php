@@ -17,8 +17,8 @@ class CreateRatingsTable extends Migration
             $table->id();
             $table->foreignId('place_id');
             $table->foreignId('user_id');
-            $table->integer('stars');
-            $table->string('reviews');
+            $table->integer('stars')->nullable();
+            $table->string('reviews')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
