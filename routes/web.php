@@ -73,7 +73,7 @@ use App\Http\Controllers\CategoryController;
 // }) -> name('groupe');
 
 
-//admin routes part Arabuc
+//admin routes part Arabic
 
 
 Route::get('/', function () {
