@@ -1,4 +1,4 @@
-@extends('adminLayout.master')
+@extends('adminLayout-Ar.master')
 @section('admincontent')
 <div class="app-content" >
     <div class="app-content-header" >

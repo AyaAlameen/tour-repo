@@ -1,4 +1,4 @@
-@extends('adminLayout.master')
+@extends('adminLayout-En.master')
 @section('admincontent')
 
 <!-- <div class="app-content">

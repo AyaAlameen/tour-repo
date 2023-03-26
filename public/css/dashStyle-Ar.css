@@ -75,6 +75,7 @@ body {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   max-width: 2000px;
   margin: 0 auto;
+  flex-direction: row-reverse;
 }
 .toggle{
   background-color: var(--header) !important;
@@ -108,7 +109,7 @@ a.text-primary:hover, a.text-primary:focus {
 .sidebar-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 16px;
 }
 .sidebar-list {
@@ -127,16 +128,16 @@ a.text-primary:hover, a.text-primary:focus {
   padding: 10px 16px;
   color: var(--sidebar-link);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 24px;
-  
+  flex-direction: row-reverse;
 
 }
 .sidebar-list-item a:hover{
   text-decoration: none;
 }
 .sidebar-list-item svg {
-  margin-right: 8px;
+  margin-left: 8px;
 }
 .sidebar-list-item:hover {
   background-color: var(--sidebar-hover-link);
@@ -237,6 +238,8 @@ a.text-primary:hover, a.text-primary:focus {
   align-items: center;
   justify-content: space-between;
   padding: 0 4px;
+  margin-left: 20px;
+  flex-direction: row-reverse;
 }
 .app-content-headerText {
   color: var(--title-color);
@@ -247,7 +250,7 @@ a.text-primary:hover, a.text-primary:focus {
 .app-content-headerButton {
   background-color: var(--navi);
   color: #fff;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 24px;
   border: none;
   border-radius: 4px;
@@ -264,11 +267,12 @@ a.text-primary:hover, a.text-primary:focus {
   justify-content: space-between;
   align-items: center;
   padding: 16px 4px;
+  flex-direction: row-reverse;
 }
 .app-content-actions-wrapper {
   display: flex;
   align-items: center;
-  margin-left: auto;
+  margin-right: auto;
 }
 @media screen and (max-width: 520px) {
   .app-content-actions {
@@ -283,7 +287,10 @@ a.text-primary:hover, a.text-primary:focus {
     order: 1;
   }
 }
-
+.search-bar::placeholder{
+  text-align: right;
+  font-size: 16px;
+}
 .search-bar {
   background-color: var(--app-content-secondary-color);
   border: 1px solid var(--app-content-secondary-color);
@@ -325,7 +332,7 @@ a.text-primary:hover, a.text-primary:focus {
   display: flex;
   align-items: center;
   color: var(--app-content-main-color);
-  font-size: 14px;
+  font-size: 17px;
   margin-left: 8px;
   cursor: pointer;
 }
@@ -449,11 +456,13 @@ a.text-primary:hover, a.text-primary:focus {
   background-color: var(--app-content-secondary-color);
   position: sticky;
   top: 0;
+  flex-direction: row-reverse;
 }
 .tableView .products-row {
   display: flex;
   align-items: center;
   border-radius: 4px;
+  flex-direction: row-reverse;
 }
 .tableView .products-row:hover {
   box-shadow: var(--filter-shadow);
@@ -466,7 +475,7 @@ a.text-primary:hover, a.text-primary:focus {
   flex: 1;
   padding: 8px 16px;
   color: var(--app-content-main-color);
-  font-size: 14px;
+  font-size: 17px;
   display: flex;
   align-items: center;
   justify-content: center;

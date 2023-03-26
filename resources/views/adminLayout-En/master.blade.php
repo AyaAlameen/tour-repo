@@ -26,9 +26,9 @@
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashStyle.css">
+<!-- English styles -->
+    <link href="css/style-En.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashStyle-En.css">
  <link href="{{asset('css/table.css')}}" rel="stylesheet" />
 
 <!-- bootstarp -->
@@ -37,9 +37,9 @@
 
 <body>
 
-        @include('adminLayout.header')
+        @include('adminLayout-En.header')
         @yield('admincontent')
-        @include('adminLayout.footer')
+        @include('adminLayout-En.footer')
 
 
 
