@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +87,9 @@ Route::get('/employee', function () {
 Route::get('/cat', function () {
     return view('admin-Ar.categories');
 }) -> name('category');
+
+Route::post('/category', [CategoryController::class, 'store'])->name('addCategory');
+
 
 Route::get('/sub_cat', function () {
     return view('admin-Ar.sub_cat');
