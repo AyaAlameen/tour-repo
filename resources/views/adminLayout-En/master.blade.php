@@ -27,8 +27,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
 <!-- English styles -->
-    <link href="css/style-En.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashStyle-En.css">
+<link href="css/style-En.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashStyle-En.css"> 
  <link href="{{asset('css/table.css')}}" rel="stylesheet" />
 
 <!-- bootstarp -->

@@ -3,11 +3,11 @@
 
 <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Events</h1>
+      <h1 class="app-content-headerText">الأحداث</h1>
 
         <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-Add Event
+إضافة حدث
 </button>
 
 <!-- Modal -->
@@ -15,22 +15,22 @@ Add Event
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">New Event</h5>
+        <h5 class="modal-title" id="exampleModal3Label">حدث جديد</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>Name </td>
+                  <td>الاسم </td>
                   <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th>      
               </tr>  
               <tr>
-                  <td >image </td>
+                  <td >الصورة </td>
                   <td><input type="file" class="toggle text-primary in"  name="event_image" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Place</td>
+                  <td>المكان</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -46,7 +46,7 @@ Add Event
                 </div></td>      
               </tr>
               <tr>
-                  <td>Service</td>
+                  <td>الخدمة</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -61,19 +61,19 @@ Add Event
                 </div></td>    
               </tr>  
               <tr>
-                  <td>Description</td>
+                  <td>وصف</td>
                   <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Cost</td>
+                  <td>الكلفة</td>
                   <td ><input class="toggle text-primary in" type="text" name="event_cost" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Start Date</td>
+                  <td>تاريخ البداية</td>
                   <td ><input class="toggle text-primary in" type="date" name="event_start_date" required style="width: 100%;"></th>      
               </tr>
               <tr>
-                  <td>End Date</td>
+                  <td>تاريخ النهاية</td>
                   <td ><input class="toggle text-primary in" type="date" name="event_end_date" required style="width: 100%;"></th>      
               </tr>
  
@@ -96,7 +96,7 @@ Add Event
         <div class="filter-button-wrapper">
           <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
-            <label>Place</label>
+            <label>الأماكن</label>
             <select>
               <option>All Places</option>
               <option>Furniture</option>       
@@ -108,7 +108,7 @@ Add Event
             <div class="filter-menu-buttons">
 
               <button class="filter-button apply">
-                Apply
+                أوافق
               </button>
             </div>
           </div>
@@ -126,18 +126,26 @@ Add Event
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
+      <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"> اللغة</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('event_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('event_en')}}" class="dropdown-item">الانجليزية </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     <div class="products-area-wrapper tableView">
       <div class="products-header">
-        <div class="product-cell">Name</div>
-        <div class="product-cell image ">Image</div>
-        <div class="product-cell">Place</div>
-        <div class="product-cell">Service</div>
-        <div class="product-cell">Description</div>
-        <div class="product-cell">cost</div>
-        <div class="product-cell">Start Date</div>
-        <div class="product-cell">End Date</div>
+        <div class="product-cell">الاسم</div>
+        <div class="product-cell image ">الصورة</div>
+        <div class="product-cell">المكان</div>
+        <div class="product-cell">الخدمة</div>
+        <div class="product-cell">وصف</div>
+        <div class="product-cell">الكلفة</div>
+        <div class="product-cell">تاريخ البداية</div>
+        <div class="product-cell">تاريخ النهاية</div>
         <div class="product-cell ">Actions</div>
 
       </div>
@@ -187,11 +195,11 @@ Add Event
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This Event ?
+                                      هل أنت متأكد من أنك تريد حذف هذا الحدث؟
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                      <button type="submit" class="app-content-headerButton">نعم</button>
                                     </div>
                                     </div>
                                   </div>
@@ -214,16 +222,16 @@ Add Event
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
                         <tr> 
-                         <td>name</td>
+                         <td>الاسم</td>
                          <td ><input type="text" class="toggle text-primary in" value="حلب"></td>                   
                   </tr> 
                   <tr>
-                       <td>Image </td>
+                       <td>الصورة </td>
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                        </tr>
        <tr>
-                  <td>Place </td>
+                  <td>المكان </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     liki
@@ -238,7 +246,7 @@ Add Event
                 </div></th>      
               </tr>  
               <tr>
-                  <td>Service </td>
+                  <td>الخدمة </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     ---
@@ -253,22 +261,22 @@ Add Event
                 </div></th>      
               </tr>  
                   <tr> 
-                         <td>Description</td>
+                         <td>وصف</td>
                          <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
                            
                   </tr>
                   <tr> 
-                         <td>cost</td>
+                         <td>الكلفة</td>
                          <td ><input type="number" class="toggle text-primary in" value="100000"></td>  
                            
                   </tr> 
                   <tr> 
-                         <td>Start date</td>
+                         <td>تاريخ البداية</td>
                          <td ><input type="date" class="toggle text-primary in" value="2023-10-11"></td>  
                            
                   </tr> 
                   <tr> 
-                         <td>end date</td>
+                         <td>تاريخ النهاية</td>
                          <td ><input type="date" class="toggle text-primary in" value="2023-10-10"></td>  
                            
                   </tr> 
@@ -276,8 +284,8 @@ Add Event
                             
                            </div>
                            <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
                        </div>

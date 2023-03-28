@@ -3,11 +3,11 @@
 
 <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Employees</h1>
+      <h1 class="app-content-headerText">الموظفين</h1>
      
             <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-Add employee
+إضافة موظف
 </button>
 
 <!-- Modal -->
@@ -15,53 +15,53 @@ Add employee
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">New Employee</h5>
+        <h5 class="modal-title" id="exampleModal3Label">موظف جديد</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>Full name </td>
+                  <td>الاسم الكامل </td>
                   <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></th>      
               </tr>  
               <tr>
-                  <td >image </td>
+                  <td >الصورة </td>
                   <td><input type="file" class="toggle text-primary in"  name="emp_image" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Username</td>
+                  <td>اسم المستخدم</td>
                   <td ><input class="toggle text-primary in" type="text" name="username" required style="width: 100%;"></th>      
               </tr>
               <tr>
-                  <td>Email</td>
+                  <td>الايميل</td>
                   <td ><input class="toggle text-primary in" type="email" name="emp-email" required style="width: 100%;"></th>      
               </tr>  
               <tr>
-                  <td>Phone</td>
+                  <td>الهاتف</td>
                   <td ><input class="toggle text-primary in" type="number" name="emp_phone" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Address</td>
+                  <td>العنوان</td>
                   <td ><input class="toggle text-primary in" type="text" name="emp_address" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Salary</td>
+                  <td>الراتب</td>
                   <td ><input class="toggle text-primary in" type="number" name="emp_salary" required style="width: 100%;"></th>      
               </tr>
               <tr>
-                  <td>Jop</td>
+                  <td>العمل</td>
                   <td ><input class="toggle text-primary in" type="text" name="jop" required style="width: 100%;"></th>      
               </tr>
               <tr>
-                  <td>Identifier</td>
+                  <td>الرقم الوطني</td>
                   <td ><input class="toggle text-primary in" type="number" name="emp_id" required style="width: 100%;"></th>      
               </tr>
       </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="app-content-headerButton">Save</button>
+        <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@ Add employee
         <div class="filter-button-wrapper">
           <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
-            <label>Jop</label>
+            <label>العمل</label>
             <select>
               <option>All Jops</option>
               <option>Drivers</option>       
@@ -88,7 +88,7 @@ Add employee
             <div class="filter-menu-buttons">
 
               <button class="filter-button apply">
-                Apply
+                أوافق
               </button>
             </div>
           </div>
@@ -106,21 +106,29 @@ Add employee
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
+      <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"></a>اللغة</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('employee_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('employee_en')}}" class="dropdown-item">الانجليزية </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     <div class="products-area-wrapper tableView">
       <div class="products-header">
-        <div class="product-cell"> Full Name</div>
-        <div class="product-cell image ">Image</div>
+        <div class="product-cell"> الاسم الكامل</div>
+        <div class="product-cell image ">الصورة</div>
 
-        <div class="product-cell "> user Name</div>
+        <div class="product-cell "> اسم المستخدم</div>
 
-        <div class="product-cell category">Email</div>
-        <div class="product-cell status-cell">Phone</div>
-        <div class="product-cell sales">Address</div>
-        <div class="product-cell stock">Salary</div>
-        <div class="product-cell ">Jop</div>
-        <div class="product-cell ">Identifier</div>
+        <div class="product-cell category">الايميل</div>
+        <div class="product-cell status-cell">الهاتف</div>
+        <div class="product-cell sales">العنوان</div>
+        <div class="product-cell stock">الراتب</div>
+        <div class="product-cell ">العمل</div>
+        <div class="product-cell ">الرقم الوطني</div>
         <div class="product-cell ">Actions</div>
 
 
@@ -159,11 +167,11 @@ Add employee
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This Employee ?
+                                      هل أنت متأكد من أنك تريد حذف هذا الموظف؟
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                      <button type="submit" class="app-content-headerButton">نعم</button>
                                     </div>
                                     </div>
                                   </div>
@@ -187,48 +195,48 @@ Add employee
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
 
                        <tr> 
-                         <td>Full name</td>
+                         <td>الاسم الكامل</td>
                          <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>  
                            
                   </tr>      
                     
                        <tr>
-                       <td>Image </td>
+                       <td>الصورة </td>
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                        </tr>  
       
                        <tr> 
-                         <td>username</td>
+                         <td>اسم المستخدم</td>
                          <td ><input type="text" class="toggle text-primary in" value="ahmad11"></td>                          
                   </tr>     
                   <tr> 
-                         <td>email</td>
+                         <td>الايميل</td>
                          <td ><input type="email" class="toggle text-primary in" value="ahmad@gmail.com"></td>  
                            
                   </tr>     
                   <tr> 
-                         <td>Phone</td>
+                         <td>الهاتف</td>
                          <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
                            
                   </tr>     
                   <tr> 
-                         <td>Address</td>
+                         <td>العنوان</td>
                          <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
                            
                   </tr>     
                   <tr> 
-                         <td>Salary</td>
+                         <td>الراتب</td>
                          <td ><input type="number" class="toggle text-primary in" value="2000000"></td>  
                            
                   </tr>     
                   <tr> 
-                         <td>jop</td>
+                         <td>العمل</td>
                          <td ><input type="text" class="toggle text-primary in" value="manager"></td>  
                            
                   </tr>     
                   <tr> 
-                         <td>Identifier</td>
+                         <td>الرقم الوطني</td>
                          <td ><input type="number" class="toggle text-primary in" value="021234567890"></td>  
                            
                   </tr>     
@@ -236,8 +244,8 @@ Add employee
                             
                            </div>
                            <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
                        </div>

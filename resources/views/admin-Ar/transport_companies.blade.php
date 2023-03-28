@@ -3,11 +3,11 @@
 
 <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Transport Companies</h1>
+      <h1 class="app-content-headerText">شركات النقل</h1>
    
  <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
- Add transport company
+ إضافة شركة نقل
 </button>
 
 <!-- Modal -->
@@ -15,29 +15,28 @@
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">New company</h5>
+        <h5 class="modal-title" id="exampleModal3Label">شركة جديدة</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
      
-              <tr>
-                  <td>name </td>
+              <tr>الاسم </td>
                   <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th>      
               </tr>  
               <tr>
-                  <td>email</td>
+                  <td>الايميل</td>
                   <td ><input class="toggle text-primary in" type="email" name="company_email" required style="width: 100%;"></th>      
               </tr>     
               <tr>
-                  <td>phone</td>
+                  <td>الهاتف</td>
                   <td ><input class="toggle text-primary in" type="number" name="company_phone" required style="width: 100%;"></th>      
               </tr> 
       </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="app-content-headerButton">Save</button>
+        <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
   </div>
@@ -61,13 +60,21 @@
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
+      <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"> اللغة</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('transport_company_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('transport_company_en')}}" class="dropdown-item">الانجليزية </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     <div class="products-area-wrapper tableView">
       <div class="products-header">
-        <div class="product-cell">Name</div>
-        <div class="product-cell">Email</div>
-        <div class="product-cell">Phone</div>
+        <div class="product-cell">الاسم</div>
+        <div class="product-cell">الايميل</div>
+        <div class="product-cell">الهاتف</div>
         <div class="product-cell ">Actions</div>
 
 
@@ -105,11 +112,11 @@
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This City ?
+                                  هل أنت متأكد من أنك تريد حذف شركة النقل هذه؟
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                      <button type="submit" class="app-content-headerButton">نعم</button>
                                     </div>
                                     </div>
                                   </div>
@@ -133,19 +140,19 @@
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
                          
                        <tr> 
-                         <td>name</td>
+                         <td>الاسم</td>
                          <td ><input type="text" class="toggle text-primary in" value="الأمير"></td>  
                            
                   </tr>      
                         
     
                   <tr> 
-                         <td>email</td>
+                         <td>الايميل</td>
                          <td ><input type="email" class="toggle text-primary in" value="@gmail.com"></td>  
                            
                   </tr>     
                   <tr> 
-                         <td>Phone</td>
+                         <td>الهاتف</td>
                          <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
                            
                   </tr>     
@@ -154,8 +161,8 @@
                             
                            </div>
                            <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
                        </div>

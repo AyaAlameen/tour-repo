@@ -3,7 +3,7 @@
 <div class="app-content" >
     <div class="app-content-header" >
 
-    <h1 class="app-content-headerText">Home</h1>
+    <h1 class="app-content-headerText">الرئيسة</h1>
       
   
     </div>
@@ -22,6 +22,14 @@
         <button class="action-button grid" title="Grid View">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </button>
+        <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"> اللغة</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('home_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('home_en')}}" class="dropdown-item">الانجليزية </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     

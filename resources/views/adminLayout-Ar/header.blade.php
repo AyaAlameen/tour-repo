@@ -15,7 +15,7 @@
                         </a>
           
                         <a class="text-primary px-3" href="">
-                            <i class="fab fa-instagram "></i>
+                            <i class="fab fa-instagram " id="sss"></i>
                         </a>
                         <a class="text-primary pl-3" href="">
                             <i class="fab fa-youtube "></i>
@@ -40,14 +40,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                    <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">اختر اللغة</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog" class="dropdown-item"> العربية</a>
-                                <a href="blog" class="dropdown-item">الانجليزية </a>
                     
-                            </div>
-                        </div>
                         <a href="contact.html" class="nav-item nav-link text-primary">اتصل بنا</a>
                         <a href="about.html" class="nav-item nav-link text-primary">حولنا</a>
                         <a href="{{ route ('userhome') }}" class="nav-item nav-link text-primary">الرئيسة</a>
@@ -82,104 +75,96 @@
     </div>
     <ul class="sidebar-list">
       <li  class="sidebar-list-item active" onclick="active_part()" >
-        <a href="{{route('home')}}" class="text-light">
+        <a href="{{route('home_ar')}}" class="text-light">
           <svg  xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span >الرئيسة</span>
         </a>
       </li>
       <li  class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('employee')}}">
+        <a href="{{route('employee_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>الموظفين</span>
         </a>
       </li>
 
       <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('booking')}}">
+        <a href="{{route('booking_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>الحجوزات</span>
         </a>
       </li>
       <li class="sidebar-list-item "  onclick="active_part()">
-        <a href="{{route('city')}}">
+        <a href="{{route('city_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>المدن</span>
         </a>
       </li>
       <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('dist')}}">
+        <a href="{{route('dist_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>النواحي</span>
         </a>
       </li>  
       <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('category')}}">
+        <a href="{{route('category_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>الأصناف</span>
         </a>
       </li>
       <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('place')}}">
+        <a href="{{route('place_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>الأماكن</span>
         </a>
       </li>
 
       <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('event')}}">
+        <a href="{{route('event_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>الأحداث</span>
         </a>
       </li>
 
           <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('service')}}">
+        <a href="{{route('service_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>الخدمات</span>
         </a>
       </li>   
          <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('offer')}}">
+        <a href="{{route('offer_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>العروض</span>
         </a>
       </li>  
           <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('tourist_guide')}}">
+        <a href="{{route('tourist_guide_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>الدليل السياحي</span>
         </a>
       </li>    
    
         <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('groupe')}}">
+        <a href="{{route('groupe_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>الجروبات السياحية</span>
         </a>
       </li>    
       <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('transport_company')}}">
+        <a href="{{route('transport_company_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>شركات النقل</span>
         </a>
       </li>  
        <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('city')}}">
+        <a href="{{route('city_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>المدن</span>
         </a>
       </li>
 
     </ul>
-    <div class="account-info">
-      <div class="account-info-picture">
-        <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="Account">
-      </div>
-      <div class="account-info-name">Monica G.</div>
-      <button class="account-info-more">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-      </button>
-    </div>
+    
   </div>
  
 

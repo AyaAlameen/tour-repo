@@ -3,11 +3,11 @@
 
 <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Places</h1>
+      <h1 class="app-content-headerText">الأماكن</h1>
      
       <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-Add place
+إضافة مكان
 </button>
 
 <!-- Modal -->
@@ -15,22 +15,22 @@ Add place
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">New place</h5>
+        <h5 class="modal-title" id="exampleModal3Label">مكان جديد</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table style=" width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>Name </td>
+                  <td>الاسم </td>
                   <td ><input type="text" class="toggle text-primary in" name="place_name" required style="width: 100%;"></th>      
               </tr>  
               <tr>
-                  <td >image </td>
+                  <td >الصورة </td>
                   <td><input type="file" class="toggle text-primary in"  name="place_image" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>City</td>
+                  <td>المدينة</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -46,7 +46,7 @@ Add place
                 </div></td>      
               </tr>
               <tr>
-                  <td>District</td>
+                  <td>الناحية</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -62,7 +62,7 @@ Add place
                 </div></td>      
               </tr>
               <tr>
-                  <td>subcat</td>
+                  <td>الصنف الابن</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -77,20 +77,20 @@ Add place
                 </div></td>    
               </tr>  
               <tr>
-                  <td>location</td>
+                  <td>الموقع</td>
                   <td ><input class="toggle text-primary in" type="text" name="place-location" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Description</td>
+                  <td>وصف</td>
                   <td ><input class="toggle text-primary in" type="text" name="place-description" required style="width: 100%;"></th>      
               </tr> 
               
               <tr>
-                  <td>email</td>
+                  <td>الايميل</td>
                   <td ><input class="toggle text-primary in" type="email" name="place-email" required style="width: 100%;"></th>      
               </tr>
               <tr>
-                  <td>phone</td>
+                  <td>الهاتف</td>
                   <td ><input class="toggle text-primary in" type="number" name="place-phone" required style="width: 100%;"></th>      
               </tr>
               <tr>
@@ -98,14 +98,14 @@ Add place
                   <td ><input class="toggle text-primary in" type="text" name="place-url" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Cost</td>
+                  <td>الكلفة</td>
                   <td ><input class="toggle text-primary in" type="text" name="place_cost" required style="width: 100%;"></th>      
               </tr> 
       </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="app-content-headerButton">Save</button>
+        <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
   </div>
@@ -120,7 +120,7 @@ Add place
         <div class="filter-button-wrapper">
           <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
-          <label>City</label>
+          <label>المدينة</label>
             <select>
             <option>كل المدن</option>
               <option>حلب</option>
@@ -166,21 +166,29 @@ Add place
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
+      <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"> اللغة</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('place_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('place_en')}}" class="dropdown-item">الانجليزية </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     <div class="products-area-wrapper tableView">
       <div class="products-header">
-        <div class="product-cell">Name</div>
-        <div class="product-cell image ">Image</div>
-        <div class="product-cell">City</div>
-        <div class="product-cell">District</div>
-        <div class="product-cell">Sub_category</div>
-        <div class="product-cell">location</div>
-        <div class="product-cell">Description</div>
-        <div class="product-cell">Email</div>
-        <div class="product-cell">Phone</div>
+        <div class="product-cell">الاسم</div>
+        <div class="product-cell image ">الصورة</div>
+        <div class="product-cell">المدينة</div>
+        <div class="product-cell">الناحية</div>
+        <div class="product-cell">الصنف الابن</div>
+        <div class="product-cell">الموقع</div>
+        <div class="product-cell">وصف</div>
+        <div class="product-cell">الايميل</div>
+        <div class="product-cell">الهاتف</div>
         <div class="product-cell">URL</div>
-        <div class="product-cell">cost</div>
+        <div class="product-cell">الكلفة</div>
 
       </div>
       <div class="products-row">
@@ -236,11 +244,11 @@ Add place
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This place ?
+                                  هل أنت متأكد من أنك تريد حذف هذا المكان؟
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                      <button type="submit" class="app-content-headerButton">نعم</button>
                                     </div>
                                     </div>
                                   </div>
@@ -263,19 +271,19 @@ Add place
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
                         <tr> 
-                         <td>name</td>
+                         <td>الاسم</td>
                          <td ><input type="text" class="toggle text-primary in" value="حلب"></td>                   
                   </tr> 
                   <tr>
-                       <td>Image </td>
+                       <td>الصورة </td>
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                        </tr>
        <tr>
-                  <td>city </td>
+                  <td>المدينة </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
-                    liki
+                    حلب
                   </lable>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">--</a>
@@ -287,7 +295,7 @@ Add place
                 </div></th>      
               </tr>  
               <tr>
-                  <td>District </td>
+                  <td>الناحية </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     ---
@@ -302,7 +310,7 @@ Add place
                 </div></td>      
               </tr>  
               <tr>
-                  <td>subcat </td>
+                  <td>الصنف الابن </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     ---
@@ -317,23 +325,23 @@ Add place
                 </div></td>      
               </tr>  
               <tr> 
-                         <td>location</td>
+                         <td>الموقع</td>
                          <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
                            
                   </tr>
                   <tr> 
-                         <td>Description</td>
+                         <td>وصف</td>
                          <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
                            
                   </tr>
                   <tr> 
                   
-                         <td>email</td>
+                         <td>الايميل</td>
                          <td ><input type="email" class="toggle text-primary in" value="@gmail.com"></td>  
                            
                   </tr> 
                   <tr> 
-                         <td>phone</td>
+                         <td>الهاتف</td>
                          <td ><input type="number" class="toggle text-primary in" value="09123456789"></td>  
                            
                   </tr> 
@@ -343,7 +351,7 @@ Add place
                            
                   </tr>
                   <tr>
-                         <td>cost</td>
+                         <td>الكلفة</td>
                          <td ><input type="number" class="toggle text-primary in" value="100000"></td>  
                            
                   </tr> 
@@ -352,8 +360,8 @@ Add place
                             
                            </div>
                            <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
                        </div>

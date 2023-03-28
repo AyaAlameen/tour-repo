@@ -23,11 +23,11 @@
       
               <tr>
                   <td >الاسم </td>
-                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></th>      
+                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></td>      
               </tr>  
               <tr>
                   <td >الصورة </td>
-                  <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
+                  <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></td>      
               </tr>     
       </table>
       </div>
@@ -57,6 +57,14 @@
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
+      <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"></a> اللغة</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('category_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('category_en')}}" class="dropdown-item">الانجليزية </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     <div class="products-area-wrapper tableView">
@@ -79,7 +87,7 @@
           <div class="product-cell">
             <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="product">
           </div>
-        <div class="product-cell"><button class="app-content-headerButton"><a href="{{route ('sub_category')}}"style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button></div>
+        <div class="product-cell"><button class="app-content-headerButton"><a href="{{route ('sub_category_ar')}}"style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button></div>
         <div class="product-cell">
      <!-- start action -->
 <div class="p-3">

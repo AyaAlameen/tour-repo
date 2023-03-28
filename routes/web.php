@@ -16,130 +16,130 @@ use App\Http\Controllers\CategoryController;
 
 //admin routes part English
 
-// Route::get('/', function () {
-//     return view('admin-En.dashboared');
-// })-> name('home');
+Route::get('/home_en', function () {
+    return view('admin-En.dashboared');
+})-> name('home_en');
 
-// Route::get('/employee', function () {
-//     return view('admin-En.employee');
-// }) -> name('employee');
+Route::get('/employee_en', function () {
+    return view('admin-En.employee');
+}) -> name('employee_en');
 
-// Route::get('/cat', function () {
-//     return view('admin-En.categories');
-// }) -> name('category');
+Route::get('/cat_en', function () {
+    return view('admin-En.categories');
+}) -> name('category_en');
 
-// Route::get('/sub_cat', function () {
-//     return view('admin-En.sub_cat');
-// }) -> name('sub_category');
+Route::get('/sub_cat_en', function () {
+    return view('admin-En.sub_cat');
+}) -> name('sub_category_en');
 
-// Route::get('/place', function () {
-//     return view('admin-En.places');
-// }) -> name('place');
+Route::get('/place_en', function () {
+    return view('admin-En.places');
+}) -> name('place_en');
 
-// Route::get('/cities', function () {
-//     return view('admin-En.cities');
-// }) -> name('city');
+Route::get('/cities_en', function () {
+    return view('admin-En.cities');
+}) -> name('city_en');
 
-// Route::get('/offers', function () {
-//     return view('admin-En.offers');
-// }) -> name('offer');
+Route::get('/offers_en', function () {
+    return view('admin-En.offers');
+}) -> name('offer_en');
 
-// Route::get('/services', function () {
-//     return view('admin-En.services');
-// }) -> name('service');
+Route::get('/services_en', function () {
+    return view('admin-En.services');
+}) -> name('service_en');
 
-// Route::get('/dist', function () {
-//     return view('admin-En.districts');
-// }) -> name('dist');
+Route::get('/dist_en', function () {
+    return view('admin-En.districts');
+}) -> name('dist_en');
 
-// Route::get('/events', function () {
-//     return view('admin-En.events');
-// }) -> name('event');
+Route::get('/events_en', function () {
+    return view('admin-En.events');
+}) -> name('event_en');
 
-// Route::get('/booking', function () {
-//     return view('admin-En.bookings');
-// }) -> name('booking');
+Route::get('/booking_en', function () {
+    return view('admin-En.bookings');
+}) -> name('booking_en');
 
-// Route::get('/tourist_guide', function () {
-//     return view('admin-En.tourist_guide');
-// }) -> name('tourist_guide');
+Route::get('/tourist_guide_en', function () {
+    return view('admin-En.tourist_guide');
+}) -> name('tourist_guide_en');
 
-// Route::get('/transport_companies', function () {
-//     return view('admin-En.transport_companies');
-// }) -> name('transport_company');
+Route::get('/transport_companies_en', function () {
+    return view('admin-En.transport_companies');
+}) -> name('transport_company_en');
 
-// Route::get('/groups', function () {
-//     return view('admin-En.groups');
-// }) -> name('groupe');
+Route::get('/groups_en', function () {
+    return view('admin-En.groups');
+}) -> name('groupe_en');
 
 
 //admin routes part Arabic
 
 
-Route::get('/', function () {
+Route::get('/home_ar', function () {
     return view('admin-Ar.dashboared');
-})-> name('home');
+})-> name('home_ar');
 
-Route::get('/employee', function () {
+Route::get('/employee_ar', function () {
     return view('admin-Ar.employee');
-}) -> name('employee');
+}) -> name('employee_ar');
 
-Route::get('/cat', function () {
+Route::get('/cat_ar', function () {
     return view('admin-Ar.categories');
-}) -> name('category');
+}) -> name('category_ar');
 
 Route::post('/category', [CategoryController::class, 'store'])->name('addCategory');
 
 
-Route::get('/sub_cat', function () {
+Route::get('/sub_cat_ar', function () {
     return view('admin-Ar.sub_cat');
-}) -> name('sub_category');
+}) -> name('sub_category_ar');
 
-Route::get('/place', function () {
+Route::get('/place_ar', function () {
     return view('admin-Ar.places');
-}) -> name('place');
+}) -> name('place_ar');
 
-Route::get('/cities', function () {
+Route::get('/cities_ar', function () {
     return view('admin-Ar.cities');
-}) -> name('city');
+}) -> name('city_ar');
 
-Route::get('/offers', function () {
+Route::get('/offers_ar', function () {
     return view('admin-Ar.offers');
-}) -> name('offer');
+}) -> name('offer_ar');
 
-Route::get('/services', function () {
+Route::get('/services_ar', function () {
     return view('admin-Ar.services');
-}) -> name('service');
+}) -> name('service_ar');
 
-Route::get('/dist', function () {
+Route::get('/dist_ar', function () {
     return view('admin-Ar.districts');
-}) -> name('dist');
+}) -> name('dist_ar');
 
-Route::get('/events', function () {
+Route::get('/events_ar', function () {
     return view('admin-Ar.events');
-}) -> name('event');
+}) -> name('event_ar');
 
-Route::get('/booking', function () {
+Route::get('/booking_ar', function () {
     return view('admin-Ar.bookings');
-}) -> name('booking');
+}) -> name('booking_ar');
 
-Route::get('/tourist_guide', function () {
+Route::get('/tourist_guide_ar', function () {
     return view('admin-Ar.tourist_guide');
-}) -> name('tourist_guide');
+}) -> name('tourist_guide_ar');
 
-Route::get('/transport_companies', function () {
+Route::get('/transport_companies_ar', function () {
     return view('admin-Ar.transport_companies');
-}) -> name('transport_company');
+}) -> name('transport_company_ar');
 
-Route::get('/groups', function () {
+Route::get('/groups_ar', function () {
     return view('admin-Ar.groups');
-}) -> name('groupe');
+}) -> name('groupe_ar');
 
 
 //user routes part
 
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('user.home');
 })-> name('userhome');
 

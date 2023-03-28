@@ -59,6 +59,14 @@
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
+      <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"> Language</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('city_en')}}"  class="dropdown-item"> English</a>
+                                <a href="{{route('city_ar')}}" class="dropdown-item">Arabic </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     <div class="products-area-wrapper tableView">

@@ -3,11 +3,11 @@
 
 <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Tourist Guides</h1>
+      <h1 class="app-content-headerText">الدليل السياحي</h1>
       
             <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-Add Tourist Guide
+إضافة دليل ياحي
 </button>
 
 <!-- Modal -->
@@ -15,46 +15,46 @@ Add Tourist Guide
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">New Tourist Guide</h5>
+        <h5 class="modal-title" id="exampleModal3Label">دليل سياحي جديد</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table style=" width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>name </td>
+                  <td>الاسم </td>
                   <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>      
               </tr>  
               <tr>
-                  <td >image </td>
+                  <td >الصورة </td>
                   <td><input type="file" class="toggle text-primary in"  name="tour_image" required style="width: 100%;"></th>      
               </tr> 
                
               <tr>
-                  <td>Phone</td>
+                  <td>الهاتف</td>
                   <td ><input class="toggle text-primary in" type="number" name="tour_phone" required style="width: 100%;"></th>      
               </tr>
                   
               <tr>
-                  <td>Email</td>
+                  <td>الايميل</td>
                   <td ><input class="toggle text-primary in" type="email" name="tour-email" required style="width: 100%;"></th>      
               </tr>  
  
               <
               <tr>
-                  <td>Salary</td>
+                  <td>الراتب</td>
                   <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></th>      
               </tr>
               <tr>
-                  <td>certificate</td>
+                  <td>المهارات</td>
                   <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
               </tr>
              
       </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="app-content-headerButton">Save</button>
+        <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
   </div>
@@ -78,16 +78,24 @@ Add Tourist Guide
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
+      <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"> اللغة</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('tourist_guide_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('tourist_guide_en')}}" class="dropdown-item">الانجليزية </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     <div class="products-area-wrapper tableView">
       <div class="products-header">
-        <div class="product-cell">Name</div>
-        <div class="product-cell image ">Image</div>
-        <div class="product-cell">Phone</div>
-        <div class="product-cell">Email</div>
-        <div class="product-cell">Salary</div>
-        <div class="product-cell">Cetificate</div>
+        <div class="product-cell">الاسم</div>
+        <div class="product-cell image ">الصورة</div>
+        <div class="product-cell">الهاتف</div>
+        <div class="product-cell">الايميل</div>
+        <div class="product-cell">الراتب</div>
+        <div class="product-cell">المهارات</div>
         <div class="product-cell ">Actions</div>
 
 
@@ -133,11 +141,11 @@ Add Tourist Guide
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This Tourist Guide ?
+                                    هل أنت متأكد من أنك تريد حذف هذا الدليل السياحي؟
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                      <button type="submit" class="app-content-headerButton">نعم</button>
                                     </div>
                                     </div>
                                   </div>
@@ -161,36 +169,36 @@ Add Tourist Guide
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
 
                        <tr> 
-                         <td>name</td>
+                         <td>الاسم</td>
                          <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>  
                            
                   </tr>      
                     
                        <tr>
-                       <td>Image </td>
+                       <td>الصورة </td>
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                        </tr>  
       
                        
                     <tr> 
-                         <td>Phone</td>
+                         <td>الهاتف</td>
                          <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
                            
                   </tr>     
                   <tr> 
-                         <td>email</td>
+                         <td>الايميل</td>
                          <td ><input type="email" class="toggle text-primary in" value="ahmad@gmail.com"></td>  
                            
                   </tr>     
                   
                   <tr> 
-                         <td>Salary</td>
+                         <td>الراتب</td>
                          <td ><input type="number" class="toggle text-primary in" value="2000000"></td>  
                            
                   </tr>     
                   <tr> 
-                         <td>certificate</td>
+                         <td>المهارات</td>
                          <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
                            
                   </tr>     
@@ -199,8 +207,8 @@ Add Tourist Guide
                             
                            </div>
                            <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                <button type="button" class="action-button active" data-dismiss="modal">لإغلاق</button>
+                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
                        </div>

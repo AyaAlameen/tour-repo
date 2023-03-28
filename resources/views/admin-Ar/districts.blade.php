@@ -3,12 +3,12 @@
 
 <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Districts</h1>
+      <h1 class="app-content-headerText">النواحي</h1>
       
 
           <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
- Add District
+ إضافة ناحية
 </button>
 
 <!-- Modal -->
@@ -22,12 +22,12 @@
       <div class="modal-body">
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
               <tr>
-                  <td>Name</td>
+                  <td>الاسم</td>
                   <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>      
               </tr>      
              
               <tr>
-                  <td >Location </td>
+                  <td >الموقع </td>
                   <td><input type="text" class="toggle text-primary in"  name="location" required style="width: 100%;"></th>      
               </tr>     
       </table>
@@ -49,20 +49,20 @@
         <div class="filter-button-wrapper">
           <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
-            <label>Cyties</label>
+            <label>المدن</label>
             <select>
-              <option>All Cities</option>
-              <option>Aleppo</option>
-              <option>Damaskuse</option>       
-              <option>Latakia</option>
-              <option>Hama</option>
-              <option>Homs</option>
+              <option>جميع المدن</option>
+              <option>حلب</option>
+              <option>دمشق</option>       
+              <option>اللاذقية</option>
+              <option>حماة</option>
+              <option>حمص</option>
             </select>
             
             <div class="filter-menu-buttons">
     
               <button class="filter-button apply">
-                Apply
+                موافق
               </button>
             </div>
           </div>
@@ -80,13 +80,21 @@
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
+      <div class="nav-item dropdown">
+                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"> اللغة</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('dist_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('dist_en')}}" class="dropdown-item">الانجليزية </a>
+                    
+                            </div>
+                        </div>
       </div>
     </div>
     <div class="products-area-wrapper tableView">
       <div class="products-header">
-        <div class="product-cell">Name</div>
-        <div class="product-cell  ">City</div>
-        <div class="product-cell">location</div>
+        <div class="product-cell">الاسم</div>
+        <div class="product-cell  ">المدينة</div>
+        <div class="product-cell">الموقع</div>
         <div class="product-cell ">Actions</div>
         
 
@@ -120,11 +128,11 @@
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This District ?
+                                      هل أنت متأ:د من أنك تريد حذف هذه المدينة؟
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                      <button type="submit" class="app-content-headerButton">نعم</button>
                                     </div>
                                     </div>
                                   </div>
@@ -147,12 +155,12 @@
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
                         <tr> 
-                         <td>name</td>
+                         <td>الاسم</td>
                          <td ><input type="text" class="toggle text-primary in" value="حلب"></td>                   
                   </tr> 
      
                   <tr> 
-                         <td>location</td>
+                         <td>الموقع</td>
                          <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
                            
 </tr>
@@ -162,8 +170,8 @@
                             
                            </div>
                            <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
                        </div>
