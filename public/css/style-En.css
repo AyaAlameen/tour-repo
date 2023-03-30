@@ -3002,7 +3002,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-toggle:empty::after {
-  margin-left: 0;
+  margin-left: 2px ;
 }
 
 .dropdown-menu {

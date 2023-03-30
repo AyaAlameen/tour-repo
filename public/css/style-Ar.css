@@ -26,7 +26,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: 'rawy-thin';
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -38,7 +38,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'rawy-thin';
   font-size: 17px;
   font-weight: 400;
   line-height: 1.5;
@@ -2986,6 +2986,7 @@ input[type="button"].btn-block {
 .dropdown,
 .dropleft {
   position: relative;
+ 
 }
 
 .dropdown-toggle {
@@ -3004,7 +3005,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-toggle:empty::after {
-  margin-left: 0;
+  margin-left: 2px;
 }
 
 .dropdown-menu {

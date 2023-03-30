@@ -58,7 +58,7 @@ body, html {
 
 body {
   overflow: hidden;
-  font-family: "Poppins", sans-serif;
+  font-family: 'rawy-thin' ;
   background-color: var(--app-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -356,7 +356,6 @@ a.text-primary:hover, a.text-primary:focus {
   background-color: var(--app-content-secondary-color);
   position: absolute;
   top: calc(100% + 16px);
-  right: -74px;
   border-radius: 4px;
   padding: 8px;
   width: 220px;
