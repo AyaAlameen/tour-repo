@@ -136,7 +136,7 @@ Route::get('/groups_ar', function () {
 }) -> name('groupe_ar');
 
 
-//user routes part
+//user routes part English
 
 
 Route::get('/', function () {
@@ -146,6 +146,17 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('user.about');
 })-> name('about');
+
+//user routes part Arabic
+
+
+Route::get('/user_home_arabic', function () {
+    return view('user-ar.home');
+})-> name('userhome-ar');
+
+Route::get('/about-ar', function () {
+    return view('user-ar.about');
+})-> name('about-ar');
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

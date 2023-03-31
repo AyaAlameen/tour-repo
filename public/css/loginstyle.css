@@ -84,8 +84,8 @@ h2 {
 border-radius: 3px;}
 
   .half .btn:hover {
-background-color: var(--navi);
-border-color: var(--navi);
+background-color: var(--navi) !important;
+border-color: var(--navi) !important;
   }
   
 .half .forgot-pass {

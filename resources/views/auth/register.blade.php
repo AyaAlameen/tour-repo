@@ -68,7 +68,7 @@
 
                         <div class="row mb-0 mt-3 justify-content-center">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-block btn-primary">
+                                <button type="submit" class="btn btn-block text-light" style="background-color:var(--bambi);">
                                     {{ __('Register') }}
                                 </button>
                             </div>

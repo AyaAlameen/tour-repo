@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="d-md-flex half" id="app">
-    <div class="bg" style="background-image: url('img/ححح.jpg');"></div>   
+    <div class="bg" style="background-image: url('img/valkommen-till-syrien.jpg'); width:500px;"></div>   
       <div class="contents">
           <div class="container">
              <div class="row align-items-center justify-content-center">
@@ -67,7 +67,7 @@
                         </div>
 
                    
-                                <button type="submit" class="btn btn-block btn-primary">
+                                <button type="submit" class="btn btn-block text-light" style="background-color:var(--bambi);">
                                     {{ __('Login') }}
                                 </button>
                                 <span class="d-flex justify-content-center mt-3"> 

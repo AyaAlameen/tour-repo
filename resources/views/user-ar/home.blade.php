@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout-ar.master')
 @section('content')
 
 <!-- Carousel Start -->
