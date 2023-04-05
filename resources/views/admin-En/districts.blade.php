@@ -20,14 +20,19 @@
       <div class="modal-body">
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
               <tr>
-                  <td>Name</td>
+                  <td>Name(Arabic)</td>
                   <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>      
-              </tr>      
+              </tr>  
+              <tr>
+                  <td>name(English)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>      
+              </tr>    
              
               <tr>
                   <td >Location </td>
                   <td><input type="text" class="toggle text-primary in"  name="location" required style="width: 100%;"></th>      
               </tr>     
+              
       </table>
       </div>
       <div class="modal-footer">

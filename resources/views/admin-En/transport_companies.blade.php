@@ -22,7 +22,11 @@
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
      
               <tr>
-                  <td>name </td>
+                  <td>Name(Arabic) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th>      
+              </tr>  
+              <tr>
+                  <td>Name(English) </td>
                   <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th>      
               </tr>  
               <tr>

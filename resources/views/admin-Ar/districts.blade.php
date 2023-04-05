@@ -16,20 +16,28 @@
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">New District</h5>
+        <h5 class="modal-title" id="exampleModal3Label">ناحية جديدة</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
               <tr>
-                  <td>الاسم</td>
-                  <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>      
-              </tr>      
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>  
+                  <td>الاسم(العربية)</td>    
+              </tr>   
+              <tr>
+                 
+                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></td> 
+                  <td >الاسم(الانكليزي)</td>     
+              </tr>    
              
               <tr>
-                  <td >الموقع </td>
-                  <td><input type="text" class="toggle text-primary in"  name="location" required style="width: 100%;"></th>      
-              </tr>     
+                  
+                  <td><input type="text" class="toggle text-primary in"  name="location" required style="width: 100%;"></th> 
+                  <td >الموقع </td>     
+              </tr>  
+                
       </table>
       </div>
       <div class="modal-footer">

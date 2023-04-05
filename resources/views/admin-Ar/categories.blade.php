@@ -22,12 +22,19 @@
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td >الاسم </td>
-                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></td>      
+                 
+                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></td> 
+                  <td >الاسم(العربية)</td>     
               </tr>  
               <tr>
-                  <td >الصورة </td>
-                  <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></td>      
+                 
+                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></td> 
+                  <td >الاسم(الانكليزي)</td>     
+              </tr> 
+              <tr>
+                
+                  <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></td>   
+                  <td >الصورة </td>   
               </tr>     
       </table>
       </div>

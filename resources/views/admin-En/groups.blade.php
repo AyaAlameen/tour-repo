@@ -45,9 +45,14 @@ Add Group
                   </div>
                 </div></th>      
               </tr>
+             
 
               <tr>
-                  <td>Description</td>
+                  <td>Description(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
+              </tr> 
+              <tr>
+                  <td>Description(English)</td>
                   <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
               </tr>    
               <tr>

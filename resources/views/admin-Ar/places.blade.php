@@ -22,15 +22,22 @@
       <table style=" width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>الاسم </td>
-                  <td ><input type="text" class="toggle text-primary in" name="place_name" required style="width: 100%;"></th>      
+                  
+                  <td ><input type="text" class="toggle text-primary in" name="place_name" required style="width: 100%;"></th>   
+                  <td>الاسم(العربية)</td>   
               </tr>  
               <tr>
-                  <td >الصورة </td>
-                  <td><input type="file" class="toggle text-primary in"  name="place_image" required style="width: 100%;"></th>      
+                  
+                  <td ><input type="text" class="toggle text-primary in" name="place_name" required style="width: 100%;"></th>   
+                  <td>(الانكليزية)الاسم </td>   
+              </tr>
+              <tr>
+                  
+                  <td><input type="file" class="toggle text-primary in"  name="place_image" required style="width: 100%;"></th>  
+                  <td >الصورة </td>    
               </tr> 
               <tr>
-                  <td>المدينة</td>
+                  
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -43,10 +50,12 @@
                  
                
                   </div>
-                </div></td>      
+                </div></td>     
+                <td>المدينة</td> 
               </tr>
+             
               <tr>
-                  <td>الناحية</td>
+                  
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -59,10 +68,12 @@
                  
                
                   </div>
-                </div></td>      
+                </div></td>  
+                <td>الناحية</td>    
               </tr>
+          
               <tr>
-                  <td>الصنف الابن</td>
+                  
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -74,32 +85,46 @@
                     <a class="dropdown-item" href="#">---</a>
                 
                   </div>
-                </div></td>    
+                </div></td>   
+                <td>الصنف الابن</td> 
               </tr>  
+             
               <tr>
-                  <td>الموقع</td>
-                  <td ><input class="toggle text-primary in" type="text" name="place-location" required style="width: 100%;"></th>      
-              </tr> 
-              <tr>
-                  <td>وصف</td>
-                  <td ><input class="toggle text-primary in" type="text" name="place-description" required style="width: 100%;"></th>      
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="place-location" required style="width: 100%;"></th> 
+                  <td>الموقع</td>     
               </tr> 
               
               <tr>
-                  <td>الايميل</td>
-                  <td ><input class="toggle text-primary in" type="email" name="place-email" required style="width: 100%;"></th>      
-              </tr>
-              <tr>
-                  <td>الهاتف</td>
-                  <td ><input class="toggle text-primary in" type="number" name="place-phone" required style="width: 100%;"></th>      
-              </tr>
-              <tr>
-                  <td>Url</td>
-                  <td ><input class="toggle text-primary in" type="text" name="place-url" required style="width: 100%;"></th>      
+                 
+                  <td ><input class="toggle text-primary in" type="text" name="place-description" required style="width: 100%;"></th> 
+                  <td>وصف(العربية)</td>     
               </tr> 
               <tr>
-                  <td>الكلفة</td>
-                  <td ><input class="toggle text-primary in" type="text" name="place_cost" required style="width: 100%;"></th>      
+                 
+                  <td ><input class="toggle text-primary in" type="text" name="place-description" required style="width: 100%;"></th> 
+                  <td>(الانكليزية)وصف</td>     
+              </tr> 
+              
+              <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="email" name="place-email" required style="width: 100%;"></th> 
+                  <td>الايميل</td>     
+              </tr>
+              <tr>
+                 
+                  <td ><input class="toggle text-primary in" type="number" name="place-phone" required style="width: 100%;"></th> 
+                  <td>الهاتف</td>     
+              </tr>
+              <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="place-url" required style="width: 100%;"></th>  
+                  <td>Url</td>    
+              </tr> 
+              <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="place_cost" required style="width: 100%;"></th> 
+                  <td>الكلفة</td>     
               </tr> 
       </table>
       </div>

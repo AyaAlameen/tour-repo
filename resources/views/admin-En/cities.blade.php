@@ -25,9 +25,13 @@
                   <td ><input class="toggle text-primary in" type="number" name="number" required style="width: 100%;"></th>      
               </tr>      
               <tr>
-                  <td>name </td>
+                  <td>name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></th>      
               </tr>  
+              <tr>
+                  <td>name(English) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></th>      
+              </tr>
               <tr>
                   <td >image </td>
                   <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      

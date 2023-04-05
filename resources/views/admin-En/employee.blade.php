@@ -22,9 +22,14 @@ Add employee
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>Full name </td>
+                  <td>Full name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></th>      
               </tr>  
+              <tr>
+                  <td>FullName(English)</td>
+                  <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></th>      
+              </tr> 
+             
               <tr>
                   <td >image </td>
                   <td><input type="file" class="toggle text-primary in"  name="emp_image" required style="width: 100%;"></th>      
@@ -33,6 +38,7 @@ Add employee
                   <td>Username</td>
                   <td ><input class="toggle text-primary in" type="text" name="username" required style="width: 100%;"></th>      
               </tr>
+              
               <tr>
                   <td>Email</td>
                   <td ><input class="toggle text-primary in" type="email" name="emp-email" required style="width: 100%;"></th>      
@@ -42,7 +48,11 @@ Add employee
                   <td ><input class="toggle text-primary in" type="number" name="emp_phone" required style="width: 100%;"></th>      
               </tr> 
               <tr>
-                  <td>Address</td>
+                  <td>Address(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="emp_address" required style="width: 100%;"></th>      
+              </tr> 
+              <tr>
+                  <td>Address(English)</td>
                   <td ><input class="toggle text-primary in" type="text" name="emp_address" required style="width: 100%;"></th>      
               </tr> 
               <tr>
@@ -50,7 +60,11 @@ Add employee
                   <td ><input class="toggle text-primary in" type="number" name="emp_salary" required style="width: 100%;"></th>      
               </tr>
               <tr>
-                  <td>Jop</td>
+                  <td>Jop(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="jop" required style="width: 100%;"></th>      
+              </tr>
+              <tr>
+                  <td>Jop(English)</td>
                   <td ><input class="toggle text-primary in" type="text" name="jop" required style="width: 100%;"></th>      
               </tr>
               <tr>

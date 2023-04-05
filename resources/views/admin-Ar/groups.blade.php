@@ -22,15 +22,17 @@
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>رقم الجروب</td>
-                  <td ><input type="number" class="toggle text-primary in" name="group_number" required style="width: 100%;"></th>      
+                  
+                  <td ><input type="number" class="toggle text-primary in" name="group_number" required style="width: 100%;"></th>  
+                  <td>رقم الجروب</td>    
               </tr>  
               <tr>
-                  <td >الصورة </td>
-                  <td><input type="file" class="toggle text-primary in"  name="group_image" required style="width: 100%;"></th>      
+                  
+                  <td><input type="file" class="toggle text-primary in"  name="group_image" required style="width: 100%;"></th>  
+                  <td >الصورة </td>    
               </tr> 
               <tr>
-                  <td>الدليل السياحي</td>
+                  
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -43,20 +45,30 @@
                  
                
                   </div>
-                </div></th>      
+                </div></td>    
+                <td>الدليل السياحي</td>  
               </tr>
+             
 
               <tr>
-                  <td>وصف</td>
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
-              </tr>    
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th> 
+                  <td>وصف(العربية)</td>     
+              </tr>  
               <tr>
-                  <td>عدد الأشخاص</td>
-                  <td ><input class="toggle text-primary in" type="number" name="people_cont" required style="width: 100%;"></th>      
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th> 
+                  <td>(الانكليزية)وصف</td>     
+              </tr>   
+              <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="number" name="people_cont" required style="width: 100%;"></th> 
+                  <td>عدد الأشخاص</td>     
               </tr>
               <tr>
-                  <td>الكلفة</td>
-                  <td ><input class="toggle text-primary in" type="number" name="group_cost" required style="width: 100%;"></th>      
+                 
+                  <td ><input class="toggle text-primary in" type="number" name="group_cost" required style="width: 100%;"></th>   
+                  <td>الكلفة</td>   
               </tr> 
 
 

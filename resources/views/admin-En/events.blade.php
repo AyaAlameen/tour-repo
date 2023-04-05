@@ -22,9 +22,13 @@ Add Event
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>Name </td>
+                  <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th>      
               </tr>  
+              <tr>
+                  <td>Name(English) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th>      
+              </tr> 
               <tr>
                   <td >image </td>
                   <td><input type="file" class="toggle text-primary in"  name="event_image" required style="width: 100%;"></th>      
@@ -45,6 +49,7 @@ Add Event
                   </div>
                 </div></td>      
               </tr>
+             
               <tr>
                   <td>Service</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
@@ -60,10 +65,15 @@ Add Event
                   </div>
                 </div></td>    
               </tr>  
+               
               <tr>
-                  <td>Description</td>
+                  <td>Description(Arabic)</td>
                   <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>      
               </tr> 
+              <tr>
+                  <td>Description(English)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>      
+              </tr>
               <tr>
                   <td>Cost</td>
                   <td ><input class="toggle text-primary in" type="text" name="event_cost" required style="width: 100%;"></th>      

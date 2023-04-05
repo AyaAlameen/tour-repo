@@ -23,9 +23,13 @@ Add Tourist Guide
       <table style=" width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>name </td>
+                  <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>      
-              </tr>  
+              </tr>
+              <tr>
+                  <td>Name(English) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>      
+              </tr>   
               <tr>
                   <td >image </td>
                   <td><input type="file" class="toggle text-primary in"  name="tour_image" required style="width: 100%;"></th>      
@@ -47,7 +51,11 @@ Add Tourist Guide
                   <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></th>      
               </tr>
               <tr>
-                  <td>certificate</td>
+                  <td>Certificate(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
+              </tr>
+              <tr>
+                  <td>Certificate(English)</td>
                   <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
               </tr>
              

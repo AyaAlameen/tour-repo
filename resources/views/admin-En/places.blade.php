@@ -22,9 +22,13 @@ Add place
       <table style=" width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>Name </td>
+                  <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="place_name" required style="width: 100%;"></th>      
-              </tr>  
+              </tr> 
+              <tr>
+                  <td>Name(English) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="place_name" required style="width: 100%;"></th>      
+              </tr> 
               <tr>
                   <td >image </td>
                   <td><input type="file" class="toggle text-primary in"  name="place_image" required style="width: 100%;"></th>      
@@ -45,6 +49,7 @@ Add place
                   </div>
                 </div></td>      
               </tr>
+              
               <tr>
                   <td>District</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
@@ -61,6 +66,7 @@ Add place
                   </div>
                 </div></td>      
               </tr>
+             
               <tr>
                   <td>subcat</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
@@ -76,12 +82,18 @@ Add place
                   </div>
                 </div></td>    
               </tr>  
+                
               <tr>
                   <td>location</td>
                   <td ><input class="toggle text-primary in" type="text" name="place-location" required style="width: 100%;"></th>      
               </tr> 
+             
               <tr>
-                  <td>Description</td>
+                  <td>Description(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="place-description" required style="width: 100%;"></th>      
+              </tr> 
+              <tr>
+                  <td>Description(English)</td>
                   <td ><input class="toggle text-primary in" type="text" name="place-description" required style="width: 100%;"></th>      
               </tr> 
               

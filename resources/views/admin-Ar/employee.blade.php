@@ -22,40 +22,64 @@
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                  <td>الاسم الكامل </td>
-                  <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></th>      
+                  
+                  <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></th>  
+                  <td>الاسم الكامل (العربية)</td>    
               </tr>  
               <tr>
-                  <td >الصورة </td>
-                  <td><input type="file" class="toggle text-primary in"  name="emp_image" required style="width: 100%;"></th>      
-              </tr> 
-              <tr>
-                  <td>اسم المستخدم</td>
-                  <td ><input class="toggle text-primary in" type="text" name="username" required style="width: 100%;"></th>      
-              </tr>
-              <tr>
-                  <td>الايميل</td>
-                  <td ><input class="toggle text-primary in" type="email" name="emp-email" required style="width: 100%;"></th>      
+                 
+                  <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></td> 
+                  <td >(الانكليزية)الاسم الكامل</td>     
               </tr>  
               <tr>
-                  <td>الهاتف</td>
-                  <td ><input class="toggle text-primary in" type="number" name="emp_phone" required style="width: 100%;"></th>      
+                  
+                  <td><input type="file" class="toggle text-primary in"  name="emp_image" required style="width: 100%;"></th>  
+                  <td >الصورة </td>    
               </tr> 
               <tr>
-                  <td>العنوان</td>
-                  <td ><input class="toggle text-primary in" type="text" name="emp_address" required style="width: 100%;"></th>      
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="username" required style="width: 100%;"></th>  
+                  <td>اسم المستخدم</td>    
+              </tr>
+              
+              <tr>
+                  <td ><input class="toggle text-primary in" type="email" name="emp-email" required style="width: 100%;"></th> 
+                  <td>الايميل</td>     
+              </tr>  
+              <tr>
+                 
+                  <td ><input class="toggle text-primary in" type="number" name="emp_phone" required style="width: 100%;"></th>  
+                  <td>الهاتف</td>    
               </tr> 
               <tr>
-                  <td>الراتب</td>
-                  <td ><input class="toggle text-primary in" type="number" name="emp_salary" required style="width: 100%;"></th>      
+                 
+                  <td ><input class="toggle text-primary in" type="text" name="emp_address" required style="width: 100%;"></th> 
+                  <td>العنوان (العربية)</td>     
+              </tr> 
+              <tr>
+                 
+                 <td ><input class="toggle text-primary in" type="text" name="emp_address" required style="width: 100%;"></th> 
+                 <td>(الانكليزية)العنوان</td>     
+             </tr> 
+              <tr>
+                 
+                  <td ><input class="toggle text-primary in" type="number" name="emp_salary" required style="width: 100%;"></th>  
+                  <td>الراتب</td>    
               </tr>
               <tr>
-                  <td>العمل</td>
-                  <td ><input class="toggle text-primary in" type="text" name="jop" required style="width: 100%;"></th>      
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="jop" required style="width: 100%;"></th>     
+                  <td>العمل(العربية)</td> 
               </tr>
               <tr>
-                  <td>الرقم الوطني</td>
-                  <td ><input class="toggle text-primary in" type="number" name="emp_id" required style="width: 100%;"></th>      
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="jop" required style="width: 100%;"></th>     
+                  <td>(الانكليزية)العمل</td> 
+              </tr>
+              <tr>
+                 
+                  <td ><input class="toggle text-primary in" type="number" name="emp_id" required style="width: 100%;"></th>   
+                  <td>الرقم الوطني</td>   
               </tr>
       </table>
       </div>
