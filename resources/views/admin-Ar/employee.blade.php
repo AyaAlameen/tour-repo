@@ -23,12 +23,12 @@
       
               <tr>
                   
-                  <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></th>  
+                  <td ><input type="text" class="toggle text-primary in" name="full_name_ar" required style="width: 100%;"></th>  
                   <td>الاسم الكامل (العربية)</td>    
               </tr>  
               <tr>
                  
-                  <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></td> 
+                  <td ><input type="text" class="toggle text-primary in" name="full_name_en" required style="width: 100%;"></td> 
                   <td >(الانكليزية)الاسم الكامل</td>     
               </tr>  
               <tr>

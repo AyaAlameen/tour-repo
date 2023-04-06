@@ -45,6 +45,7 @@
     color: var(--navi);
     text-align: left;
     background-color: #fff;
+    
   }
   
   [tabindex="-1"]:focus:not(:focus-visible) {
@@ -619,6 +620,8 @@
     margin-right: -15px;
     margin-left: -15px;
     flex-direction: row-reverse;
+    justify-content: space-around;
+    
   }
   
   .no-gutters {
@@ -1146,43 +1149,44 @@
       order: 12;
     }
     .offset-md-0 {
-      margin-left: 0;
+      margin-right: 0;
     }
     .offset-md-1 {
-      margin-left: 8.33333%;
+      margin-right: 8.33333%;
     }
     .offset-md-2 {
-      margin-left: 16.66667%;
+      margin-right: 16.66667%;
     }
     .offset-md-3 {
-      margin-left: 25%;
+      margin-right: 25%;
     }
     .offset-md-4 {
-      margin-left: 33.33333%;
+      margin-right: 33.33333%;
     }
     .offset-md-5 {
-      margin-left: 41.66667%;
+      margin-right: 41.66667%;
     }
     .offset-md-6 {
-      margin-left: 50%;
+      margin-right: 50%;
     }
     .offset-md-7 {
-      margin-left: 58.33333%;
+      margin-right: 58.33333%;
     }
     .offset-md-8 {
-      margin-left: 66.66667%;
+      margin-right: 66.66667%;
     }
     .offset-md-9 {
-      margin-left: 75%;
+      margin-right: 75%;
     }
     .offset-md-10 {
-      margin-left: 83.33333%;
+      margin-right: 83.33333%;
     }
     .offset-md-11 {
-      margin-left: 91.66667%;
+      margin-right: 91.66667%;
+      
     }
   }
-  
+
   @media (min-width: 992px) {
     .col-lg {
       flex-basis: 0;
@@ -3629,6 +3633,7 @@
     background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
     border: 1px solid #ced4da;
     border-radius: 0;
+    text-align: center;
     appearance: none;
   }
   
@@ -6330,8 +6335,11 @@
   
   .d-flex {
     display: flex !important;
+    flex-direction: row-reverse;
   }
-  
+  input::placeholder{
+    text-align: end;
+  }
   .d-inline-flex {
     display: inline-flex !important;
   }
@@ -7393,7 +7401,7 @@
   
   .mr-3,
   .mx-3 {
-    margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
   
   .mb-3,
@@ -9558,7 +9566,7 @@
   
   @media (min-width: 992px) {
     .about-text {
-      margin-left: -120px;
+      margin-right: -120px;
     }
   }
   
@@ -9765,4 +9773,7 @@
   .myTable
   {
       border-color: gray !important;
+  }
+  .datetimepicker-input{
+    text-align: center;
   }
