@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        
-        return view('admin.categories', ['categories' => $categories]);
+        $categories = Category::with('translations')->get();
+        // dd($categories);
+        return view('admin-Ar.categories', ['categories' => $categories]);
     }
 
     /**
@@ -40,8 +40,9 @@ class CategoriesController extends Controller
         $data=$request->input();
         //validation:
         $request->validate([
-            'name' => 'required',
-            'image' =>'required',
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
         $category = new Category;
 
@@ -50,10 +51,13 @@ class CategoriesController extends Controller
             $request->image->move('uploads/categoryImage', $upload_image_name);
             $category->image = 'uploads/categoryImage/'.$upload_image_name;
         }
-        $category->name = $request->name;
         $category->save();
+
+        $category->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
+        $category->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
+        
        
-        return redirect()->route('category');
+        return redirect()->route('category_ar');
     }
 
     /**

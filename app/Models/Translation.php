@@ -9,7 +9,7 @@ class Translation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['model_id', 'model', 'locale', 'name', 'description', 'address', 'first_name', 'last_name', 'certificates', 'type', 'full_name', 'job'];
+    protected $fillable = ['model_id', 'model_type', 'locale', 'name', 'description', 'address', 'first_name', 'last_name', 'certificates', 'type', 'full_name', 'job'];
 
     public function model()
     {

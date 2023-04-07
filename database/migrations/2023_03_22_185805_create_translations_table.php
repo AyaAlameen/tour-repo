@@ -16,7 +16,7 @@ class CreateTranslationsTable extends Migration
         Schema::create('translations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('model_id');
-            $table->string('model');
+            $table->string('model_type');
             $table->enum('locale', ['en', 'ar']);
             $table->string('name')->nullable();
             $table->string('description')->nullable();
