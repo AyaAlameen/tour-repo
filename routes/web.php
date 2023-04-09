@@ -84,12 +84,12 @@ Route::get('/employee_ar', function () {
     return view('admin-Ar.employee');
 }) -> name('employee_ar');
 
-// Route::get('/cat_ar', function () {
-//     return view('admin-Ar.categories');
-// }) -> name('category_ar');
+Route::get('/cat_ar', function () {
+    return view('admin-Ar.categories');
+}) -> name('category_ar');
 
 
-Route::get('/cat_ar', [CategoryController::class, 'index']) -> name('category_ar');
+Route::get('/ar/categories', [CategoryController::class, 'index']) -> name('getCategories');
 Route::post('/cat_ar', [CategoryController::class, 'store']) -> name('addCategory');
 
 // Route::post('/category', [CategoryController::class, 'store'])->name('addCategory');

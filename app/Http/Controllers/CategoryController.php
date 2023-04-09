@@ -16,7 +16,10 @@ class CategoryController extends Controller
     {
         $categories = Category::with('translations')->get();
         // dd($categories);
-        return view('admin-Ar.categories', ['categories' => $categories]);
+        // return view("admin-Ar.sections.category-section")->with(['categories' => $categories]);
+        // return view("admin-Ar.categories")->with(['categories' => $categories]);
+        return view('admin-Ar.sections.category-section', compact('categories'));
+
     }
 
     /**
@@ -55,9 +58,13 @@ class CategoryController extends Controller
 
         $category->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
         $category->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
-        
-       
-        return redirect()->route('category_ar');
+        $categories = Category::with('translations')->get();
+        // dd($categories);
+        return view("admin-Ar.sections.category-section")->with(['categories' => $categories]);
+        // return response()->json(['status'=>'Success']);
+        // return view('admin-Ar.categories', compact('categories'));
+
+
     }
 
     /**
