@@ -102,7 +102,7 @@
 
 <script>
     function addCategory(formId){
-        $("#add-category-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i> ... تحميل ');
+        $("#add-category-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         var form = $(`#${formId}`);
         var formData = new FormData(document.getElementById('add-form'));
         $.ajax({
@@ -129,6 +129,42 @@
             });
     }
 //----------------------------------------------------------
+
+function editCategory(formId, id){
+        $("#edit-category-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        console.log(formData.entries());
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "{{route('editCategory', "id")}}" ,
+            type: "PUT",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data)
+            {   
+              alert('تمت العملية بنجاح');
+
+                $("#categories-data").empty();
+                $("#categories-data").append(data);
+                $('.close').click();
+            })
+        .fail(function()
+            {
+                alert('فشلت العملية');
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-category-btn").attr("disabled", false).html('حفظ');
+            });
+    }
+
+    //---------------------------------------------------------------
     window.onload = (event) => {
         $.ajax({
                 url: "{{route('getCategories')}}" ,

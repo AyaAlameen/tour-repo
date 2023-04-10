@@ -59,10 +59,8 @@ class CategoryController extends Controller
         $category->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
         $category->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
         $categories = Category::with('translations')->get();
-        // dd($categories);
+        
         return view("admin-Ar.sections.category-section")->with(['categories' => $categories]);
-        // return response()->json(['status'=>'Success']);
-        // return view('admin-Ar.categories', compact('categories'));
 
 
     }
@@ -70,10 +68,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Category  $Category
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show(Category $Category)
     {
         //
     }
@@ -81,10 +79,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Category  $group
      * @return \Illuminate\Http\Response
      */
-    public function edit(Group $group)
+    public function edit(Category $category)
     {
         //
     }
@@ -93,21 +91,42 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Group $group)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $data=$request->input();
+        dd($data);
+        $request->validate([
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        $category = Category::find($request->categoryId);
+
+        if($request->files->has('image')){
+            $image_name = $request->files->get('image');
+            $org_name = $image_name->getClientOriginalName();
+            $upload_image_name = time().'_'.$org_name;
+            $image_name->move('uploads/categoryImage', $upload_image_name);
+            $category->image = 'uploads/categoryImage/'.$upload_image_name;
+        }
+        
+        $category->update();
+        
+        return redirect()->route('category');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy(Category $category)
     {
         //
     }
