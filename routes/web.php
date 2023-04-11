@@ -91,7 +91,7 @@ Route::get('/cat_ar', function () {
 
 Route::get('/ar/categories', [CategoryController::class, 'index']) -> name('getCategories');
 Route::post('/cat_ar', [CategoryController::class, 'store']) -> name('addCategory');
-Route::put('/cat_ar/{id}', [CategoryController::class, 'update']) -> name('editCategory');
+Route::put('/cat_ar', [CategoryController::class, 'update']) -> name('editCategory');
 
 // Route::post('/category', [CategoryController::class, 'store'])->name('addCategory');
 

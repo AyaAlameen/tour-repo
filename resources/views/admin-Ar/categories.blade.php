@@ -132,16 +132,17 @@
 
 function editCategory(formId, id){
         $("#edit-category-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-
-        var formData = new FormData(document.getElementById(formId));
-        console.log(formData.entries());
+        
+        var formData = new FormData();
+        formData.append("name_ar", "khjjh");
+        
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            url: "{{route('editCategory', "id")}}" ,
+            url: "{{route('editCategory')}}" ,
             type: "PUT",
-            data: formData,
+            data: {formData: 'formData', id: 'id'},
             processData: false, 
             cache: false,
             contentType: false,

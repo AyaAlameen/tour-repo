@@ -94,11 +94,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
+        dd($request->input());
         $data=$request->input();
-        dd($data);
+        
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
