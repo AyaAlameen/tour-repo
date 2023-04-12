@@ -29,7 +29,7 @@
     <!-- Customized Bootstrap Stylesheet -->
 <!-- English styles -->
 <link href="{{asset('css/style-En.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/dashStyle-En.css)}}"> 
+    <link rel="stylesheet" href="{{asset('css/dashStyle-En.css')}}"> 
  <link href="{{asset('css/table.css')}}" rel="stylesheet" />
 
 <!-- bootstarp -->

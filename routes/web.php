@@ -28,6 +28,10 @@ Route::get('/cat_en', function () {
     return view('admin-En.categories');
 }) -> name('category_en');
 
+Route::get('/en/categories', [CategoryController::class, 'indexEn']) -> name('getCategoriesEn');
+Route::post('/cat_en', [CategoryController::class, 'storeEn']) -> name('addCategoryEn');
+
+
 Route::get('/sub_cat_en', function () {
     return view('admin-En.sub_cat');
 }) -> name('sub_category_en');
@@ -89,9 +93,9 @@ Route::get('/cat_ar', function () {
 }) -> name('category_ar');
 
 
-Route::get('/ar/categories', [CategoryController::class, 'index']) -> name('getCategories');
-Route::post('/cat_ar', [CategoryController::class, 'store']) -> name('addCategory');
-Route::put('/cat_ar', [CategoryController::class, 'update']) -> name('editCategory');
+Route::get('/ar/categories', [CategoryController::class, 'indexAr']) -> name('getCategoriesAr');
+Route::post('/cat_ar', [CategoryController::class, 'storeAr']) -> name('addCategoryAr');
+Route::put('/cat_ar', [CategoryController::class, 'updateAr']) -> name('editCategoryAr');
 
 // Route::post('/category', [CategoryController::class, 'store'])->name('addCategory');
 

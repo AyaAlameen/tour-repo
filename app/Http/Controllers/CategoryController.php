@@ -12,13 +12,17 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexAr()
     {
         $categories = Category::with('translations')->get();
-        // dd($categories);
-        // return view("admin-Ar.sections.category-section")->with(['categories' => $categories]);
-        // return view("admin-Ar.categories")->with(['categories' => $categories]);
         return view('admin-Ar.sections.category-section', compact('categories'));
+
+    }
+    
+    public function indexEn()
+    {
+        $categories = Category::with('translations')->get();
+        return view('admin-En.sections.category-section', compact('categories'));
 
     }
 
@@ -38,7 +42,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeAr(Request $request)
     {
         $data=$request->input();
         //validation:
@@ -61,6 +65,33 @@ class CategoryController extends Controller
         $categories = Category::with('translations')->get();
         
         return view("admin-Ar.sections.category-section")->with(['categories' => $categories]);
+
+
+    }
+
+    public function storeEn(Request $request)
+    {
+        $data=$request->input();
+        //validation:
+        $request->validate([
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+        ]);
+        $category = new Category;
+
+        if($request->has('image')){
+            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move('uploads/categoryImage', $upload_image_name);
+            $category->image = 'uploads/categoryImage/'.$upload_image_name;
+        }
+        $category->save();
+
+        $category->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
+        $category->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
+        $categories = Category::with('translations')->get();
+        
+        return view("admin-En.sections.category-section")->with(['categories' => $categories]);
 
 
     }
@@ -94,7 +125,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function updateAr(Request $request)
     {
         dd($request->input());
         $data=$request->input();
