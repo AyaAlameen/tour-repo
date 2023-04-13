@@ -1,6 +1,5 @@
 
 <?php $i = 1; ?>
-
 @foreach($categories as $category)
     @if($loop->last)
     <div class="products-row">
@@ -84,7 +83,7 @@
                         </form>
                         <div class="modal-footer">
                             <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                            <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
+                            <button type="submit" id="edit-category-btn-{{$category->id}}" class="app-content-headerButton">حفظ التغييرات</button>
                         </div>
                     </div>
                 </div>
@@ -151,6 +150,8 @@
                         <form id="edit-form-{{$category->id}}" action="" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+                                <!-- <input type="hidden" name="_method" value="PUT">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
                             <div class="modal-body">
                                 <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
                                     <tr> 
@@ -175,7 +176,7 @@
                         </form>
                         <div class="modal-footer">
                             <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                            <button type="submit" onclick="editCategory('edit-form-{{$category->id}}', {{$category->id}})" class="app-content-headerButton">حفظ التغييرات</button>
+                            <button type="submit" id="edit-category-btn-{{$category->id}}" onclick="editCategory('edit-form-{{$category->id}}', {{$category->id}})" class="app-content-headerButton">حفظ التغييرات</button>
                         </div>
                     </div>
                 </div>

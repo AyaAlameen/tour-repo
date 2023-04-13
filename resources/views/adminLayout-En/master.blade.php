@@ -28,9 +28,15 @@
 
     <!-- Customized Bootstrap Stylesheet -->
 <!-- English styles -->
+<<<<<<< HEAD
 <link href="css/style-En.css" rel="stylesheet">
     <link rel="stylesheet" href="css/dashStyle-En.css"> 
  <link href="css/tablestyle.css" rel="stylesheet" />
+=======
+<link href="{{asset('css/style-En.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/dashStyle-En.css')}}"> 
+ <link href="{{asset('css/table.css')}}" rel="stylesheet" />
+>>>>>>> 465147c0e46ad40b0a72f35e27f781d067a18a33
 
 <!-- bootstarp -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

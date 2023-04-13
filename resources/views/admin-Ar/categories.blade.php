@@ -106,7 +106,7 @@
         var form = $(`#${formId}`);
         var formData = new FormData(document.getElementById('add-form'));
         $.ajax({
-            url: "{{route('addCategory')}}" ,
+            url: "{{route('addCategoryAr')}}" ,
             type: "POST",
             data: formData,
             processData: false, 
@@ -133,19 +133,19 @@
 function editCategory(formId, id){
         $("#edit-category-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         
-        var formData = new FormData();
-        formData.append("name_ar", "khjjh");
+        var formData = new FormData(document.getElementById(formId));
         
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            url: "{{route('editCategory')}}" ,
+            url: "{{route('editCategoryAr')}}" ,
             type: "PUT",
-            data: {formData: 'formData', id: 'id'},
+            data: {formData: formData, id: id},
             processData: false, 
             cache: false,
             contentType: false,
+            enctype: 'multipart/form-data',
         })
         .done(function(data)
             {   
@@ -168,7 +168,7 @@ function editCategory(formId, id){
     //---------------------------------------------------------------
     window.onload = (event) => {
         $.ajax({
-                url: "{{route('getCategories')}}" ,
+                url: "{{route('getCategoriesAr')}}" ,
                 type: "GET",
                 processData: false, 
                 cache: false,
