@@ -35,11 +35,15 @@
     <h5 class="card-title" style="color:var(--title-color);" >user name1</h5>
     <h6 class="card-subtitle mb-2 text-muted">useremail@gmail.com</h6>
     <p class="card-text" style="color:var(--title-color);" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   <div class="d-flex align-items-center">
+   <div class="d-flex" style="justify-content: space-between;">
+     <div class="d-flex align-items-center">
    <input class="mr-1" type="checkbox" id="1"/>
    <lable class="mr-4" for="1" >seen</lable>
    <input class="mr-1" type="checkbox" id="2"/>
    <lable for="2" >post</lable>
+   </div>
+   <button class="app-content-headerButton" >Delete</button>
+
    </div>
    
   </div>
@@ -53,12 +57,16 @@
     <h5 class="card-title" style="color:var(--title-color);" >user name2</h5>
     <h6 class="card-subtitle mb-2 text-muted">useremail@gmail.com</h6>
     <p class="card-text" style="color:var(--title-color);" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   <div class="d-flex align-items-center">
+    <div class="d-flex" style="justify-content: space-between;">
+     <div class="d-flex align-items-center">
    <input class="mr-1" type="checkbox" id="1"/>
    <lable class="mr-4" for="1" >seen</lable>
    <input class="mr-1" type="checkbox" id="2"/>
    <lable for="2" >post</lable>
    </div>
+   <button class="app-content-headerButton" >Delete</button>
+
+   </div>>
    
   </div>
 </div>
@@ -71,13 +79,16 @@
     <h5 class="card-title" style="color:var(--title-color);" >user name3</h5>
     <h6 class="card-subtitle mb-2 text-muted">useremail@gmail.com</h6>
     <p class="card-text" style="color:var(--title-color);" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   <div class="d-flex align-items-center">
+    <div class="d-flex" style="justify-content: space-between;">
+     <div class="d-flex align-items-center">
    <input class="mr-1" type="checkbox" id="1"/>
    <lable class="mr-4" for="1" >seen</lable>
    <input class="mr-1" type="checkbox" id="2"/>
    <lable for="2" >post</lable>
    </div>
-   
+   <button class="app-content-headerButton" >Delete</button>
+
+   </div>
   </div>
 </div>
 <!-- endcard -->
@@ -107,8 +118,8 @@
                             <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas far fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{route('category_en')}}"  class="dropdown-item">English</a>
-                                <a href="{{route('category_ar')}}" class="dropdown-item">Arabic </a>
+                                <a href="{{route('home_en')}}"  class="dropdown-item">English</a>
+                                <a href="{{route('home_ar')}}" class="dropdown-item">Arabic </a>
                     
                             </div>
                         </div>

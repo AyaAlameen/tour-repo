@@ -28,9 +28,9 @@
 
     <!-- Customized Bootstrap Stylesheet -->
 <!-- English styles -->
-<link href="{{asset('css/style-En.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/dashStyle-En.css)}}"> 
- <link href="{{asset('css/table.css')}}" rel="stylesheet" />
+<link href="css/style-En.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashStyle-En.css"> 
+ <link href="css/tablestyle.css" rel="stylesheet" />
 
 <!-- bootstarp -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -38,11 +38,11 @@
 
 <body>
 
-        @include('adminLayout-En.header')
-        @yield('admincontent')
-        @include('adminLayout-En.footer')
 
 
+@include ('adminLayout-En.header')
+        @yield ('admincontent')
+        @include ('adminLayout-En.footer')
 
  <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
@@ -51,38 +51,23 @@
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset('lib/easing/easing.min.js')}}"></script>
-<script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
-<script src="{{asset('lib/tempusdominus/js/moment.min.js')}}"></script>
-<script src="{{asset('lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
-<script src="{{asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/tempusdominus/js/moment.min.js"></script>
+<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
 <!-- Contact Javascript File -->
-<script src="{{asset('mail/jqBootstrapValidation.min.js')}}"></script>
-<script src="{{asset('mail/contact.js')}}"></script>
+<script src="mail/jqBootstrapValidation.min.js"></script>
+<script src="mail/contact.js"></script>
 
 <!-- Template Javascript -->
-<script src="{{asset('js/main.js')}}"></script>
-<script  src="{{asset('js/dashScript.js')}}"></script>
+<script src="js/main.js"></script>
+<script  src="js/dashScript.js"></script>
 <!-- bootsrap -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<!-- <script>
-      function active_part() {
-      console.log(part)
-         var  list= document.getElementsByClassName('sidebar-list-item') ;
-      console.log(list)
-      console.log('juhu')
-          for (let index = 0; index < list.length; index++) {
-                      if (list[index].classList.contains('active')) {
-                    list[index].classList.remove('active');
-                    list[index].style.color='red';
-                   }
-                   else if(!(list[part].classList.contains('active'))){
-                     list[index].classList.add('active') }
-                    
-                    } }
-</script> -->
+
 
 </body>
 
