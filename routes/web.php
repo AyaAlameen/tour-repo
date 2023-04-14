@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,13 @@ Route::post('/cat_en', [CategoryController::class, 'storeEn']) -> name('addCateg
 Route::post('/cat_en/edit', [CategoryController::class, 'updateEn']) -> name('editCategoryEn');
 Route::post('/cat_en/delete', [CategoryController::class, 'destroyEn']) -> name('deleteCategoryEn');
 
+Route::get('/cities_en', function () {
+    return view('admin-En.cities');
+}) -> name('city_en');
+Route::get('/en/cities', [CityController::class, 'indexEn']) -> name('getCitiesEn');
+Route::post('/city_en', [CityController::class, 'storeEn']) -> name('addCityEn');
+Route::post('/city_en/edit', [CityController::class, 'updateEn']) -> name('editCityEn');
+Route::post('/city_en/delete', [CityController::class, 'destroyEn']) -> name('deleteCityEn');
 
 
 Route::get('/sub_cat_en', function () {
@@ -43,9 +51,7 @@ Route::get('/place_en', function () {
     return view('admin-En.places');
 }) -> name('place_en');
 
-Route::get('/cities_en', function () {
-    return view('admin-En.cities');
-}) -> name('city_en');
+
 
 Route::get('/offers_en', function () {
     return view('admin-En.offers');
@@ -94,14 +100,20 @@ Route::get('/employee_ar', function () {
 Route::get('/cat_ar', function () {
     return view('admin-Ar.categories');
 }) -> name('category_ar');
-
-
 Route::get('/ar/categories', [CategoryController::class, 'indexAr']) -> name('getCategoriesAr');
 Route::post('/cat_ar', [CategoryController::class, 'storeAr']) -> name('addCategoryAr');
 Route::post('/cat_ar/edit', [CategoryController::class, 'updateAr']) -> name('editCategoryAr');
 Route::post('/cat_ar/delete', [CategoryController::class, 'destroyAr']) -> name('deleteCategoryAr');
 
-// Route::post('/category', [CategoryController::class, 'store'])->name('addCategory');
+
+Route::get('/cities_ar', function () {
+    return view('admin-Ar.cities');
+}) -> name('city_ar');
+Route::get('/ar/cities', [CityController::class, 'indexAr']) -> name('getCitiesAr');
+Route::post('/city_ar', [CityController::class, 'storeAr']) -> name('addCityAr');
+Route::post('/city_ar/edit', [CityController::class, 'updateAr']) -> name('editCityAr');
+Route::post('/city_ar/delete', [CityController::class, 'destroyAr']) -> name('deleteCityAr');
+
 
 Route::get('/sub_cat_ar', function () {
     return view('admin-Ar.sub_cat');
@@ -111,9 +123,6 @@ Route::get('/place_ar', function () {
     return view('admin-Ar.places');
 }) -> name('place_ar');
 
-Route::get('/cities_ar', function () {
-    return view('admin-Ar.cities');
-}) -> name('city_ar');
 
 Route::get('/offers_ar', function () {
     return view('admin-Ar.offers');

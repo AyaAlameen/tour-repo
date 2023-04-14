@@ -67,12 +67,12 @@
                                     <tr> 
                                         <td>الاسم(العربية)</td>
                                         <td ><input type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                                        <span style="color: red">@error('name'){{$message}}@enderror</span>
+                                        <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
                                     </tr>      
                                     <tr> 
                                         <td>الاسم(الإنجليزية)</td>
                                         <td ><input type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
-                                        <span style="color: red">@error('name'){{$message}}@enderror</span>
+                                        <span style="color: red">@error('name_en'){{$message}}@enderror</span>
                                     </tr>      
                                     <tr>
                                         <td>الصورة </td>

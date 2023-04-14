@@ -112,26 +112,24 @@
             cache: false,
             contentType: false,
         })
-        .done(function(data)
-            {   
-                $("#categories-data").empty();
-                $("#categories-data").append(data);
-                $('.close').click();
-            })
-        .fail(function()
-            {
-                alert('فشلت العملية');
-            })
-            .always(function() {
-                // Re-enable the submit button and hide the loading spinner
-                $("#add-category-btn").attr("disabled", false).html('حفظ');
-            });
+        .done(function(data){   
+            $("#categories-data").empty();
+            $("#categories-data").append(data);
+            $('.close').click();
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#add-category-btn").attr("disabled", false).html('حفظ');
+        });
     }
-//----------------------------------------------------------
+    //----------------------------------------------------------
 
-function editCategory(formId, id){
-      $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-        
+    function editCategory(formId, id){
+
+        $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         var formData = new FormData(document.getElementById(formId));
         formData.append('id', id);
         $.ajax({
@@ -142,29 +140,26 @@ function editCategory(formId, id){
             cache: false,
             contentType: false,
         })
-        .done(function(data)
-            {   
-                $("#categories-data").empty();
-                $("#categories-data").append(data);
-                $('.close').click();
-            })
-        .fail(function()
-            {
-                alert('فشلت العملية');
-            })
-            .always(function() {
-                // Re-enable the submit button and hide the loading spinner
-                $("#edit-category-btn-"+id).attr("disabled", false).html('حفظ');
-            });
+        .done(function(data){   
+            $("#categories-data").empty();
+            $("#categories-data").append(data);
+            $('.close').click();
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#edit-category-btn-"+id).attr("disabled", false).html('حفظ');
+        });
     }
 
     //---------------------------------------------------------------
     function deleteCategory(formId, id){
-      $("#delete-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        $("#delete-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
-      var formData = new FormData(document.getElementById(formId));
-        
-      $.ajax({
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
             url: `{{route('deleteCategoryAr')}}` ,
             type: "POST",
             data: formData,
@@ -172,39 +167,35 @@ function editCategory(formId, id){
             cache: false,
             contentType: false,
         })
-        .done(function(data)
-            {   
-                $("#categories-data").empty();
-                $("#categories-data").append(data);
-                $('.close').click();
-            })
-        .fail(function()
-            {
-                alert('فشلت العملية');
-            })
-            .always(function() {
-                // Re-enable the submit button and hide the loading spinner
-                $("#delete-category-btn-"+id).attr("disabled", false).html('نعم');
-            });
+        .done(function(data){   
+            $("#categories-data").empty();
+            $("#categories-data").append(data);
+            $('.close').click();
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#delete-category-btn-"+id).attr("disabled", false).html('نعم');
+        });
     }
 
     //---------------------------------------------------------------
     window.onload = (event) => {
         $.ajax({
-                url: "{{route('getCategoriesAr')}}" ,
-                type: "GET",
-                processData: false, 
-                cache: false,
-                contentType: false,
-            }) 
-            .done(function(data)
-                {
-                    $("#categories-data").append(data);
-                })
-            .fail(function()
-                {
-                    alert('فشلت العملية');
-                });
+            url: "{{route('getCategoriesAr')}}" ,
+            type: "GET",
+            processData: false, 
+            cache: false,
+            contentType: false,
+        }) 
+        .done(function(data){
+            $("#categories-data").append(data);
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        });
     };
 //--------------------------------------------
 </script>

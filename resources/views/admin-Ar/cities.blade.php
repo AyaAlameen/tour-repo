@@ -18,32 +18,35 @@
         <h5 class="modal-title" id="exampleModal3Label">مدينة جديدة</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      
+      <form id="add-form" action="" method="post" enctype="multipart/form-data">
+        @csrf
       <div class="modal-body">
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+            
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="number" name="number" required style="width: 100%;"></th> 
-                  <td>#</td>     
-              </tr>      
-              <tr>
-                  
-                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></th> 
+                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th> 
                   <td>الاسم(العربية)</td>     
+                  <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
               </tr>  
               <tr>
-                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></td> 
+                  <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
                   <td >الاسم(الانكليزي)</td>     
+                  <span style="color: red">@error('name_en'){{$message}}@enderror</span>
               </tr> 
               <tr>
                   
                   <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>   
                   <td >الصورة </td>   
+                  <span style="color: red">@error('image'){{$message}}@enderror</span>
               </tr>     
       </table>
       </div>
+      </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
-        <button type="button" class="app-content-headerButton">حفظ</button>
+        <button type="button" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" id="add-city-btn" onclick="addCity('add-form')" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
   </div>
@@ -65,8 +68,8 @@
                             <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas far fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{route('category_ar')}}"  class="dropdown-item"> العربية</a>
-                                <a href="{{route('category_en')}}" class="dropdown-item">الانجليزية </a>
+                                <a href="{{route('city_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('city_en')}}" class="dropdown-item">الانجليزية </a>
                     
                             </div>
                         </div>
@@ -92,97 +95,8 @@
 
       </div>
       <!-- output rows -->
-      <div class="products-row" >
-        <button class="cell-more-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-        </button>
-        <div class="product-cell">
-            <span>1</span>
-          </div>
-          <div class="product-cell">
-            <span>حلب</span>
-          </div>
-          <div class="product-cell image">
-            <img src="img/ALEPPO458976.gif"  alt="product">
-          </div>
-          <div class="product-cell">
-     <!-- start action -->
-<div class="p-3">
-
-                 <!-- delete -->
-                 <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
-                              <!-- Modal -->
-                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                    </div>
-                                    <div class="modal-body">
-                                     هل أنت متأكد من أنك تريد حذف هذه المدينة؟
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                                      <button type="submit" class="app-content-headerButton">نعم</button>
-                                    </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            <!-- end delete -->
-
-                     <!-- edit -->
-                     <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
-
-                          <!-- Modal -->
-                     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                       <div class="modal-dialog">
-                         <div class="modal-content">
-                           <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                               <span aria-hidden="true">&times;</span>
-                             </button>
-                           </div>
-                           <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
-                           <tr> 
-                         <td>رقم المدينة</td>
-                         <td ><input type="number" class="toggle text-primary in" value="1"></td>  
-                           
-                  </tr> 
-                       <tr> 
-                         <td>الاسم</td>
-                         <td ><input type="text" class="toggle text-primary in" value="حلب"></td>  
-                           
-                  </tr>      
-                        
-    
-                       <tr>
-                       <td>الصورة </td>
-                       <td ><input type="file" hidden id="img"> 
-                            <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                       </tr>  
-      
-                               </table>
-                            
-                           </div>
-                           <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
-                           </div>
-                         </div>
-                       </div>
-                       </div>
-                     <!-- end edit -->
-   
-</div>
-  <!-- end action -->
-      
-
-      </div>
-      </div>
+     
+      <div id="cities-data"></div>
 
       
       <!-- end output rows -->
@@ -190,3 +104,103 @@
     </div>
   </div>
 @endsection
+
+<script>
+    function addCity(formId){
+        $("#add-city-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-form'));
+        $.ajax({
+            url: "{{route('addCityAr')}}" ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#cities-data").empty();
+            $("#cities-data").append(data);
+            $('.close').click();
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#add-city-btn").attr("disabled", false).html('حفظ');
+        });
+    }
+    //----------------------------------------------------------
+
+    function editCity(formId, id){
+
+        $("#edit-city-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        $.ajax({
+            url: `{{route('editCityAr')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#cities-data").empty();
+            $("#cities-data").append(data);
+            $('.close').click();
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#edit-city-btn-"+id).attr("disabled", false).html('حفظ');
+        });
+    }
+
+    //---------------------------------------------------------------
+    function deleteCity(formId, id){
+        $("#delete-city-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+            url: `{{route('deleteCityAr')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#cities-data").empty();
+            $("#cities-data").append(data);
+            $('.close').click();
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#delete-city-btn-"+id).attr("disabled", false).html('نعم');
+        });
+    }
+
+    //---------------------------------------------------------------
+    window.onload = (event) => {
+        $.ajax({
+            url: "{{route('getCitiesAr')}}" ,
+            type: "GET",
+            processData: false, 
+            cache: false,
+            contentType: false,
+        }) 
+        .done(function(data){
+            $("#cities-data").append(data);
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        });
+    };
+//--------------------------------------------
+</script>

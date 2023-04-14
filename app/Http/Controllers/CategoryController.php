@@ -134,7 +134,6 @@ class CategoryController extends Controller
             'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
         $category = Category::find($data['id']);
@@ -169,7 +168,6 @@ class CategoryController extends Controller
             'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
         $category = Category::find($data['id']);

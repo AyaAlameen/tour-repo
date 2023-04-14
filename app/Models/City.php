@@ -10,7 +10,7 @@ use App\Models\Translation;
 class City extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['id'];
+    protected $fillable = ['image'];
 
     public function translations()
     {
