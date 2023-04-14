@@ -127,16 +127,17 @@ class CategoryController extends Controller
      */
     public function updateAr(Request $request)
     {
-        dd($request->input());
+
         $data=$request->input();
         
         $request->validate([
+            'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
             'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
-        $category = Category::find($request->categoryId);
+        $category = Category::find($data['id']);
 
         if($request->files->has('image')){
             $image_name = $request->files->get('image');
@@ -145,10 +146,54 @@ class CategoryController extends Controller
             $image_name->move('uploads/categoryImage', $upload_image_name);
             $category->image = 'uploads/categoryImage/'.$upload_image_name;
         }
+
+        $category->translations()->where('locale', 'en')->update([
+            'name'=>  $data['name_en']
+        ]);
+        $category->translations()->where('locale', 'ar')->update([
+            'name'=>  $data['name_ar']
+        ]);
         
         $category->update();
         
-        return redirect()->route('category');
+        $categories = Category::with('translations')->get();
+        
+        return view("admin-Ar.sections.category-section")->with(['categories' => $categories]);
+    }
+
+    public function updateEn(Request $request)
+    {
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        $category = Category::find($data['id']);
+
+        if($request->files->has('image')){
+            $image_name = $request->files->get('image');
+            $org_name = $image_name->getClientOriginalName();
+            $upload_image_name = time().'_'.$org_name;
+            $image_name->move('uploads/categoryImage', $upload_image_name);
+            $category->image = 'uploads/categoryImage/'.$upload_image_name;
+        }
+
+        $category->translations()->where('locale', 'en')->update([
+            'name'=>  $data['name_en']
+        ]);
+        $category->translations()->where('locale', 'ar')->update([
+            'name'=>  $data['name_ar']
+        ]);
+        
+        $category->update();
+        
+        $categories = Category::with('translations')->get();
+        
+        return view("admin-En.sections.category-section")->with(['categories' => $categories]);
     }
 
     /**
@@ -157,8 +202,29 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroyAr(Request $request)
     {
-        //
+        $data=$request->input();
+
+        $category = Category::find($data['id']);
+        $category->translations()->delete();
+        $category->delete();
+
+        $categories = Category::with('translations')->get();
+        
+        return view("admin-Ar.sections.category-section")->with(['categories' => $categories]);
+    }
+
+    public function destroyEn(Request $request)
+    {
+        $data=$request->input();
+
+        $category = Category::find($data['id']);
+        $category->translations()->delete();
+        $category->delete();
+
+        $categories = Category::with('translations')->get();
+        
+        return view("admin-En.sections.category-section")->with(['categories' => $categories]);
     }
 }

@@ -120,32 +120,25 @@
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#add-category-btn").attr("disabled", false).html('حفظ');
+                $("#add-category-btn").attr("disabled", false).html('Save Changes');
             });
     }
-//----------------------------------------------------------
+//-------------------------------------------------
+    function deleteCategory(formId, id){
+      $("#delete-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
-function editCategory(formId, id){
-        $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+      var formData = new FormData(document.getElementById(formId));
         
-        var formData = new FormData(document.getElementById(formId));
-        
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: "{{route('editCategoryAr')}}" ,
-            type: "PUT",
-            data: {formData: formData, id: id},
+      $.ajax({
+            url: `{{route('deleteCategoryEn')}}` ,
+            type: "POST",
+            data: formData,
             processData: false, 
             cache: false,
             contentType: false,
-            enctype: 'multipart/form-data',
         })
         .done(function(data)
             {   
-              alert('تمت العملية بنجاح');
-
                 $("#categories-data").empty();
                 $("#categories-data").append(data);
                 $('.close').click();
@@ -156,7 +149,37 @@ function editCategory(formId, id){
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#add-category-btn").attr("disabled", false).html('حفظ');
+                $("#delete-category-btn-"+id).attr("disabled", false).html('Yes');
+            });
+    }
+//----------------------------------------------------------
+
+function editCategory(formId, id){
+      $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        $.ajax({
+            url: `{{route('editCategoryEn')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data)
+            {   
+                $("#categories-data").empty();
+                $("#categories-data").append(data);
+                $('.close').click();
+            })
+        .fail(function()
+            {
+                alert('فشلت العملية');
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#edit-category-btn-"+id).attr("disabled", false).html('Save Changes');
             });
     }
 

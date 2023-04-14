@@ -28,6 +28,8 @@ class CreateTranslationsTable extends Migration
             $table->string('full_name')->nullable();
             $table->string('job')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

@@ -30,6 +30,9 @@ Route::get('/cat_en', function () {
 
 Route::get('/en/categories', [CategoryController::class, 'indexEn']) -> name('getCategoriesEn');
 Route::post('/cat_en', [CategoryController::class, 'storeEn']) -> name('addCategoryEn');
+Route::post('/cat_en/edit', [CategoryController::class, 'updateEn']) -> name('editCategoryEn');
+Route::post('/cat_en/delete', [CategoryController::class, 'destroyEn']) -> name('deleteCategoryEn');
+
 
 
 Route::get('/sub_cat_en', function () {
@@ -95,7 +98,8 @@ Route::get('/cat_ar', function () {
 
 Route::get('/ar/categories', [CategoryController::class, 'indexAr']) -> name('getCategoriesAr');
 Route::post('/cat_ar', [CategoryController::class, 'storeAr']) -> name('addCategoryAr');
-Route::put('/cat_ar', [CategoryController::class, 'updateAr']) -> name('editCategoryAr');
+Route::post('/cat_ar/edit', [CategoryController::class, 'updateAr']) -> name('editCategoryAr');
+Route::post('/cat_ar/delete', [CategoryController::class, 'destroyAr']) -> name('deleteCategoryAr');
 
 // Route::post('/category', [CategoryController::class, 'store'])->name('addCategory');
 
