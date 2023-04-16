@@ -63,11 +63,11 @@
         </button>
         
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas far fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{route('category_ar')}}"  class="dropdown-item"> العربية</a>
-                                <a href="{{route('category_en')}}" class="dropdown-item">الانجليزية </a>
+                                <a href="{{route('transport_company_ar')}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route('transport_company_en')}}" class="dropdown-item">الانجليزية </a>
                     
                             </div>
                         </div>
@@ -77,14 +77,7 @@
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
-      <div class="nav-item dropdown">
-                            <a href="#" class="text-primary text-decoration-none dropdown-toggle" data-toggle="dropdown"> اللغة</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{route('transport_company_ar')}}"  class="dropdown-item"> العربية</a>
-                                <a href="{{route('transport_company_en')}}" class="dropdown-item">الانجليزية </a>
-                    
-                            </div>
-                        </div>
+      
       </div>
     </div>
     <div class="products-area-wrapper tableView">

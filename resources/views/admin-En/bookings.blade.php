@@ -18,7 +18,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </button>
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas far fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="{{route('booking_ar')}}"  class="dropdown-item">English</a>
