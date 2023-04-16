@@ -26,8 +26,8 @@
                             <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas far fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{route('category_en')}}"  class="dropdown-item">English</a>
-                                <a href="{{route('category_ar')}}" class="dropdown-item">Arabic </a>
+                                <a href="{{route('booking_en')}}"  class="dropdown-item">English</a>
+                                <a href="{{route('booking_ar')}}" class="dropdown-item">Arabic </a>
                     
                             </div>
                         </div>
