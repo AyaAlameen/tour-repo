@@ -187,40 +187,51 @@
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
 
-                       <tr> 
-                         <td>الاسم</td>
-                         <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>  
-                           
-                  </tr>      
+                           <tr>
+                 
+                 <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
+                 <td>الاسم(العربية)</td>   
+             </tr>  
+             <tr>
+                
+                <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
+                <td>(الانكليزية)الاسم </td>   
+            </tr>   
                     
                        <tr>
-                       <td>الصورة </td>
+                       
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                       </tr>  
+                            <td>الصورة </td>
+                          </tr>  
       
                        
                     <tr> 
-                         <td>الهاتف</td>
+                         
                          <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
-                           
+                         <td>الهاتف</td>
                   </tr>     
                   <tr> 
-                         <td>الايميل</td>
+                         
                          <td ><input type="email" class="toggle text-primary in" value="ahmad@gmail.com"></td>  
-                           
+                         <td>الايميل</td>
                   </tr>     
                   
                   <tr> 
-                         <td>الراتب</td>
+                        
                          <td ><input type="number" class="toggle text-primary in" value="2000000"></td>  
-                           
+                         <td>الراتب</td>
                   </tr>     
-                  <tr> 
-                         <td>المهارات</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-                  </tr>     
+                  <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
+                  <td>المهارات(العربية)</td>     
+              </tr>
+              <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
+                  <td>(الانكليزية)المهارات</td>     
+              </tr>    
                   
                                </table>
                             

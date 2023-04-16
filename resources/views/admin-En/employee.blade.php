@@ -210,11 +210,14 @@ Add employee
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
 
-                       <tr> 
-                         <td>Full name</td>
-                         <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>  
-                           
-                  </tr>      
+                           <tr>
+                  <td>Full name(Arabic) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></th>      
+              </tr>  
+              <tr>
+                  <td>FullName(English)</td>
+                  <td ><input type="text" class="toggle text-primary in" name="full_name" required style="width: 100%;"></th>      
+              </tr>      
                     
                        <tr>
                        <td>Image </td>
@@ -236,21 +239,27 @@ Add employee
                          <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
                            
                   </tr>     
-                  <tr> 
-                         <td>Address</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-                  </tr>     
+                  <tr>
+                  <td>Address(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="emp_address" required style="width: 100%;"></th>      
+              </tr> 
+              <tr>
+                  <td>Address(English)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="emp_address" required style="width: 100%;"></th>      
+              </tr>     
                   <tr> 
                          <td>Salary</td>
                          <td ><input type="number" class="toggle text-primary in" value="2000000"></td>  
                            
                   </tr>     
-                  <tr> 
-                         <td>jop</td>
-                         <td ><input type="text" class="toggle text-primary in" value="manager"></td>  
-                           
-                  </tr>     
+                  <tr>
+                  <td>Jop(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="jop" required style="width: 100%;"></th>      
+              </tr>
+              <tr>
+                  <td>Jop(English)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="jop" required style="width: 100%;"></th>      
+              </tr>     
                   <tr> 
                          <td>Identifier</td>
                          <td ><input type="number" class="toggle text-primary in" value="021234567890"></td>  

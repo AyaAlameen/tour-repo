@@ -159,23 +159,24 @@
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
                          <input type="text" hidden name="caegory_id" class="toggle text-primary in" value="{{$category->id}}">
                           
-                       <tr> 
-                         <td>الاسم(العربية)</td>
-                         <td ><input type="text" name="name_ar" class="toggle text-primary in" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                          
-                      </tr>      
-                       <tr> 
-                         <td>(الإنجليزية)الاسم</td>
-                         <td ><input type="text" name="name_en" class="toggle text-primary in" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></td>  
-                          
-                      </tr>      
+                         <tr>
+                  
+                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>  
+                  <td>الاسم(العربية)</td>    
+              </tr>  
+              <tr>
+                  
+                  <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>  
+                  <td>(الإنجليزية)الاسم</td>    
+              </tr>     
                         
     
                        <tr>
-                       <td>الصورة </td>
+                       
                        <td ><input type="file" name="image" id="img"> 
                             <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                       </tr>  
+                            <td>الصورة </td>
+                          </tr>  
       
                                </table>
                             

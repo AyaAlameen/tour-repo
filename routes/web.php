@@ -171,7 +171,14 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('user.about');
 })-> name('about');
+Route::get('/contact', function () {
+    return view('user.contact');
+})-> name('contact');
 
+
+Route::get('/contact-ar', function () {
+    return view('user-ar.contact');
+})-> name('contact-ar');
 //user routes part Arabic
 
 

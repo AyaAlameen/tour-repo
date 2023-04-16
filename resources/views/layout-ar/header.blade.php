@@ -63,7 +63,7 @@
                         <a href="{{route('about')}}" class="nav-item nav-link">حولنا</a>
 
                        
-                        <a href="contact" class="nav-item nav-link">تواصل معنا</a>
+                        <a href="{{route('contact-ar')}}" class="nav-item nav-link">تواصل معنا</a>
                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

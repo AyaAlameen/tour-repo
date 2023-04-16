@@ -149,21 +149,25 @@
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
                          
-                       <tr> 
-                         <td>الاسم</td>
-                         <td ><input type="text" class="toggle text-primary in" value="الأمير"></td>  
-                           
-                  </tr>      
+                           <tr>
+                  <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th> 
+                  <td>الاسم(العربية)</td>     
+              </tr>  
+              <tr>
+                  <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th> 
+                  <td>(الانكليزية)الاسم </td>     
+              </tr>     
                         
     
                   <tr> 
-                         <td>الايميل</td>
+                         
                          <td ><input type="email" class="toggle text-primary in" value="@gmail.com"></td>  
-                           
+                         <td>الايميل</td>
                   </tr>     
                   <tr> 
-                         <td>الهاتف</td>
+                        
                          <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
+                         <td>الهاتف</td>
                            
                   </tr>     
       

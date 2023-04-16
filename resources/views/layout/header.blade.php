@@ -63,7 +63,7 @@
                         <a href="{{route('about')}}" class="nav-item nav-link">About</a>
 
                        
-                        <a href="contact" class="nav-item nav-link">Contact</a>
+                        <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

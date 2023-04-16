@@ -41,8 +41,8 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                     
-                        <a href="contact.html" class="nav-item nav-link text-primary">اتصل بنا</a>
-                        <a href="about.html" class="nav-item nav-link text-primary">حولنا</a>
+                        <a href="{{route('contact-ar')}}" class="nav-item nav-link text-primary">اتصل بنا</a>
+                        <a href="{{route('about')}}" class="nav-item nav-link text-primary">حولنا</a>
                         <a href="{{ route ('userhome') }}" class="nav-item nav-link text-primary">الرئيسة</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">سوريا</a>

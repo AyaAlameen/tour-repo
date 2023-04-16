@@ -237,10 +237,14 @@ Add Offer
                            </div>
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
-                        <tr> 
-                         <td>name</td>
-                         <td ><input type="text" class="toggle text-primary in" value="حلب"></td>                   
-                  </tr> 
+                           <tr>
+                  <td>Name(Arabic) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th>      
+              </tr>  
+              <tr>
+                  <td>Name(English) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th>      
+              </tr>
                   <tr>
                        <td>Image </td>
                        <td ><input type="file" hidden id="img"> 
@@ -276,11 +280,14 @@ Add Offer
                   </div>
                 </div></th>      
               </tr>  
-                  <tr> 
-                         <td>Description</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-                  </tr>
+              <tr>
+                  <td>Description(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>      
+              </tr> 
+              <tr>
+                  <td>Description(English)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>      
+              </tr> 
                   <tr> 
                          <td>cost</td>
                          <td ><input type="number" class="toggle text-primary in" value="100000"></td>  

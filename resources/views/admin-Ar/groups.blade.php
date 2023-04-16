@@ -215,30 +215,40 @@
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
                         <tr> 
-                         <td>رقم الجروب</td>
-                         <td ><input type="number" class="toggle text-primary in" value="1"></td>                   
+                         
+                         <td ><input type="number" class="toggle text-primary in" value="1"></td> 
+                         <td>رقم الجروب</td>                  
                   </tr> 
                   <tr>
-                       <td>الصورة </td>
+                       
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                       </tr>
+                            <td>الصورة </td>
+                          </tr>
                   <tr> 
-                         <td>الدليل السياحي</td>
-                         <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>                   
+                        
+                         <td ><input type="text" class="toggle text-primary in" value="ahmad"></td> 
+                         <td>الدليل السياحي</td>                  
                   </tr> 
-                  <tr> 
-                         <td>وصف</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-                   </tr>
+                  <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th> 
+                  <td>وصف(العربية)</td>     
+              </tr>  
+              <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th> 
+                  <td>(الانكليزية)وصف</td>     
+              </tr> 
                    <tr> 
-                         <td>عدد الأشخاص</td>
-                         <td ><input type="number" class="toggle text-primary in" value="15"></td>                   
+                        
+                         <td ><input type="number" class="toggle text-primary in" value="15"></td>    
+                         <td>عدد الأشخاص</td>               
                   </tr> 
                   <tr> 
-                         <td>الكلفة</td>
-                         <td ><input type="number" class="toggle text-primary in" value="100000"></td>                   
+                        
+                         <td ><input type="number" class="toggle text-primary in" value="100000"></td>    
+                         <td>الكلفة</td>               
                   </tr> 
 
      

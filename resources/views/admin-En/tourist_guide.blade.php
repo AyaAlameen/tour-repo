@@ -179,11 +179,14 @@ Add Tourist Guide
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
 
-                       <tr> 
-                         <td>name</td>
-                         <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>  
-                           
-                  </tr>      
+                           <tr>
+                  <td>Name(Arabic) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>      
+              </tr>
+              <tr>
+                  <td>Name(English) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>      
+              </tr>     
                     
                        <tr>
                        <td>Image </td>
@@ -208,11 +211,14 @@ Add Tourist Guide
                          <td ><input type="number" class="toggle text-primary in" value="2000000"></td>  
                            
                   </tr>     
-                  <tr> 
-                         <td>certificate</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-                  </tr>     
+                  <tr>
+                  <td>Certificate(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
+              </tr>
+              <tr>
+                  <td>Certificate(English)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
+              </tr>     
                   
                                </table>
                             

@@ -219,11 +219,14 @@ Add Group
                          <td>Tourist Guide</td>
                          <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>                   
                   </tr> 
-                  <tr> 
-                         <td>Description</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-                   </tr>
+                  <tr>
+                  <td>Description(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
+              </tr> 
+              <tr>
+                  <td>Description(English)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
+              </tr>  
                    <tr> 
                          <td>People count</td>
                          <td ><input type="number" class="toggle text-primary in" value="15"></td>                   

@@ -165,16 +165,23 @@
                            </div>
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
-                        <tr> 
-                         <td>الاسم</td>
-                         <td ><input type="text" class="toggle text-primary in" value="حلب"></td>                   
-                  </tr> 
+                           <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>  
+                  <td>الاسم(العربية)</td>    
+              </tr>   
+              <tr>
+                 
+                  <td ><input type="text" class="toggle text-primary in" name="name" required style="width: 100%;"></td> 
+                  <td >الاسم(الانكليزي)</td>     
+              </tr> 
      
                   <tr> 
-                         <td>الموقع</td>
+                       
                          <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
+                         <td>الموقع</td>
                            
-</tr>
+                  </tr>
      
       
                                </table>

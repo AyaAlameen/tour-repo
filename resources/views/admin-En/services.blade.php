@@ -216,11 +216,15 @@ Add service
                            </div>
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
-                        <tr> 
-                         <td>name</td>
-                         <td ><input type="text" class="toggle text-primary in" value="حلب"></td>                   
-                  </tr> 
-                  tr>
+                           <tr>
+                  <td>Name(Arabic) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="service_name" required style="width: 100%;"></th>      
+              </tr>  
+              <tr>
+                  <td>Name(English) </td>
+                  <td ><input type="text" class="toggle text-primary in" name="service_name" required style="width: 100%;"></th>      
+              </tr> 
+                  <tr>
                        <td>Image </td>
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
@@ -240,11 +244,14 @@ Add service
                   </div>
                 </div></td>      
               </tr>  
-                  <<tr> 
-                         <td>Description</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-                  </tr>
+              <tr>
+                  <td>Description(Arabic)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>      
+              </tr> 
+              <tr>
+                  <td>Description(English)</td>
+                  <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>      
+              </tr> 
                   <tr> 
                          <td>cost</td>
                          <td ><input type="number" class="toggle text-primary in" value="100000"></td>  

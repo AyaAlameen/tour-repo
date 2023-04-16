@@ -225,17 +225,24 @@
                            </div>
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
-                        <tr> 
-                         <td>الاسم</td>
-                         <td ><input type="text" class="toggle text-primary in" value="حلب"></td>                   
-                  </tr> 
-                  tr>
-                       <td>الصورة </td>
+                           <tr>
+                  
+                  <td ><input type="text" class="toggle text-primary in" name="service_name" required style="width: 100%;"></th> 
+                  <td>الاسم(العربية)</td>     
+              </tr>  
+              <tr>
+                  
+                  <td ><input type="text" class="toggle text-primary in" name="service_name" required style="width: 100%;"></th> 
+                  <td>(الانكليزية)الاسم </td>     
+              </tr> 
+                  <tr>
+                      
                        <td ><input type="file" hidden id="img"> 
                             <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                       </tr>
+                            <td>الصورة </td>
+                          </tr>
        <tr>
-                  <td>المكان </td>
+                  
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     liki
@@ -247,21 +254,27 @@
                     <a class="dropdown-item" href="#">----</a>
           
                   </div>
-                </div></td>      
+                </div></td>  
+                <td>المكان </td>    
               </tr>  
-                  <<tr> 
-                         <td>وصف</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-                  </tr>
+              <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>   
+                  <td>وصف(العربية)</td>   
+              </tr> 
+              <tr>
+                  
+                  <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>   
+                  <td>(الانكليزية)وصف</td>   
+              </tr> 
                   <tr> 
-                         <td>الكلفة</td>
+                        
                          <td ><input type="number" class="toggle text-primary in" value="100000"></td>  
-                           
+                         <td>الكلفة</td>
                   </tr> 
      
                   <tr> 
-                         <td>إضافية؟</td>
+                         
                     <td> <div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     نعم
@@ -270,7 +283,8 @@
                     <a class="dropdown-item" href="#">نعم</a>
                     <a class="dropdown-item" href="#">لا</a>
                   </div>
-                </div></td>            
+                </div></td>  
+                <td>إضافية؟</td>          
                            
                   </tr> 
                                </table>
