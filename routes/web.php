@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +106,14 @@ Route::post('/cat_ar', [CategoryController::class, 'storeAr']) -> name('addCateg
 Route::post('/cat_ar/edit', [CategoryController::class, 'updateAr']) -> name('editCategoryAr');
 Route::post('/cat_ar/delete', [CategoryController::class, 'destroyAr']) -> name('deleteCategoryAr');
 
+// Route::get('/sub_cat_ar', function () {
+//     return view('admin-Ar.sub_cat');
+// }) -> name('sub_category_ar');
+
+Route::get('/sub_category_ar/{id}', [SubCategoryController::class, 'indexAr']) -> name('getSubCategoriesAr');
+Route::post('/sub_category_ar', [SubCategoryController::class, 'storeAr']) -> name('addSubCategoryAr');
+Route::post('/sub_category_ar/edit', [SubCategoryController::class, 'updateAr']) -> name('editSubCategoryAr');
+
 
 Route::get('/cities_ar', function () {
     return view('admin-Ar.cities');
@@ -113,11 +122,6 @@ Route::get('/ar/cities', [CityController::class, 'indexAr']) -> name('getCitiesA
 Route::post('/city_ar', [CityController::class, 'storeAr']) -> name('addCityAr');
 Route::post('/city_ar/edit', [CityController::class, 'updateAr']) -> name('editCityAr');
 Route::post('/city_ar/delete', [CityController::class, 'destroyAr']) -> name('deleteCityAr');
-
-
-Route::get('/sub_cat_ar', function () {
-    return view('admin-Ar.sub_cat');
-}) -> name('sub_category_ar');
 
 Route::get('/place_ar', function () {
     return view('admin-Ar.places');
