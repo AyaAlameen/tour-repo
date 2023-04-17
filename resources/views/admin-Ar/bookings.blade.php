@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
 
-<div class="app-content">
+<!-- <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">Bookings</h1>
       <button class="mode-switch" title="Switch Theme">
@@ -69,5 +69,5 @@
       </div>
       </div>
     </div>
-  </div> 
+  </div>  -->
 @endsection

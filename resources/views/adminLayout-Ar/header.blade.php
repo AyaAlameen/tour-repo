@@ -87,31 +87,51 @@
         </a>
       </li>
 
-      <!-- <li class="sidebar-list-item " onclick="active_part()">
-        <a href="{{route('booking_ar')}}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span>الحجوزات</span>
-        </a>
-      </li> -->
       <li class="accordion accordion-flush sidebar-list-item" id="accordionFlushExample">
   <div class="accordion-item ">
     <h2 class="accordion-header " id="flush-headingOne">
-      <button class="accordion-button collapsed pr-3 sidebar-list-item border-none"  style="flex-direction:row-reverse;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+      <button class="accordion-button collapsed pr-3 sidebar-list-item" id="accBtn" onclick="accordion()"  style="flex-direction:row-reverse; outline:none; box-shadow:none;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOnee"  aria-controls="flush-collapseOnee">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>  
       الحجوزات
+      <img id="arrow" src="../img/upload.png" width="18" height="18" class="mr-5">
       </button>
+      
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body p-0">
-      <a href="{{route('city_ar')}}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span>حجوزات الأماكن</span>
-        </a>
+        <hr class="m-0">
+        <ul class="sidebar-list">
+        <li class="sidebar-list-item"  onclick="active_part()">
         <a href="{{route('city_ar')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span>حجوزات العروض</span>
         </a>
-        <hr>
+      </li>
+
+      <li class="sidebar-list-item"  onclick="active_part()">
+        <a href="{{route('city_ar')}}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span>حجوزات الخدمات</span>
+        </a>
+      </li>
+
+      <li class="sidebar-list-item"  onclick="active_part()">
+        <a href="{{route('city_ar')}}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span>حجوزات الأماكن</span>
+        </a>
+      </li>
+
+      <li class="sidebar-list-item"  onclick="active_part()">
+        <a href="{{route('city_ar')}}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span>حجوزات الأحداث</span>
+        </a>
+      </li>
+     
+        </ul>
+        
+        <hr class="m-0">
       </div>
     </div>
 </div>
@@ -189,6 +209,6 @@
     </ul>
     
   </div>
- 
 
+  
 <!-- partial -->

@@ -39,10 +39,10 @@
    <button class="app-content-headerButton" >حذف</button>
 
    <div class="d-flex align-items-center">
-   <input class="mr-1" type="checkbox" id="1"/>
-   <lable class="mr-4" for="1" >رأيت</lable>
-   <input class="mr-1" type="checkbox" id="2"/>
-   <lable for="2" >نشر</lable>
+   <lable class="ml-4" for="1" >رأيت</lable>
+   <input class="ml-1" type="checkbox" id="1"/>
+   <lable class="ml-3" for="2" >نشر</lable>
+   <input class="ml-1" type="checkbox" id="2"/>
    </div>
    </div>
    
@@ -62,10 +62,10 @@
    <button class="app-content-headerButton" >حذف</button>
 
    <div class="d-flex align-items-center">
-   <input class="mr-1" type="checkbox" id="1"/>
-   <lable class="mr-4" for="1" >رأيت</lable>
-   <input class="mr-1" type="checkbox" id="2"/>
-   <lable for="2" >نشر</lable>
+   <lable class="ml-4" for="1" >رأيت</lable>
+   <input class="ml-1" type="checkbox" id="1"/>
+   <lable class="ml-3" for="2" >نشر</lable>
+   <input class="ml-1" type="checkbox" id="2"/>
    </div>
    </div>
    
@@ -85,10 +85,10 @@
    <button class="app-content-headerButton" >حذف</button>
 
    <div class="d-flex align-items-center">
-   <input class="mr-1" type="checkbox" id="1"/>
-   <lable class="mr-4" for="1" >رأيت</lable>
-   <input class="mr-1" type="checkbox" id="2"/>
-   <lable for="2" >نشر</lable>
+   <lable class="ml-4" for="1" >رأيت</lable>
+   <input class="ml-1" type="checkbox" id="1"/>
+   <lable class="ml-3" for="2" >نشر</lable>
+   <input class="ml-1" type="checkbox" id="2"/>
    </div>
    </div>
   </div>

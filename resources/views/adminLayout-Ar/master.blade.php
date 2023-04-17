@@ -13,13 +13,7 @@
     <link href="../img/favicon.ico" rel="icon">
     <!-- bootstrap -->
 <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-
-
-
     
-
     <!-- Font Awesome -->
     <link href="../css/all.min.css" rel="stylesheet">
 
@@ -27,12 +21,13 @@
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
+
 <!-- Arabic styles -->
 <link href="../css/style-Ar.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashStyle-Ar.css"> 
  <link href="../css/tablestyle.css" rel="stylesheet" />
-
+ 
+<!-- arabic font -->
 <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=rawy-thin" />
 
 
@@ -73,6 +68,41 @@
 <script  src="../js/dashScript.js"></script>
 <!-- fontawesome -->
 <script src="../js/all.min.js"></script>
+
+<script>
+  function accordion() {
+  var btn = document.getElementById("arrow");
+  console.log(btn)
+  var flush =document.getElementById("flush-collapseOne")
+  if (flush.classList.contains("show")) {
+  flush.classList.remove("show");
+  flush.classList.add("collapsing");
+
+  btn.src="../img/upload.png";
+
+
+  console.log(flush.classList)
+
+  }
+  
+ else 
+ {
+  if (!(flush.classList.contains("show"))) {
+
+    flush.classList.add("show");
+  flush.classList.remove("collapsing");
+
+  btn.src="../img/down-arrow (1).png";
+
+
+
+    console.log(flush.classList)
+
+  }
+}
+  }
+</script>
+
 </body>
 
 </html>
