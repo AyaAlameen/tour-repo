@@ -68,7 +68,7 @@ class SubCategoryController extends Controller
         $subCategories = SubCategory::with('translations')->where('category_id', $request->input('category_id'))->get();
         $category = Category::find($request->input('category_id'));
         
-        return view("admin-Ar.sections.sub-category-section")->with(['subCategories' => $subCategories, '$category' => $category]);
+        return view("admin-Ar.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
 
 
     }
@@ -98,7 +98,7 @@ class SubCategoryController extends Controller
         $subCategories = SubCategory::with('translations')->where('category_id', $request->input('category_id'))->get();
         $category = Category::find($request->input('category_id'));
         
-        return view("admin-En.sections.sub-category-section")->with(['subCategories' => $subCategories, '$category' => $category]);
+        return view("admin-En.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
 
 
     }
@@ -141,6 +141,7 @@ class SubCategoryController extends Controller
             'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
+            'category_id' => 'required',
         ]);
 
         $subCategory = SubCategory::find($data['id']);
@@ -159,13 +160,14 @@ class SubCategoryController extends Controller
         $subCategory->translations()->where('locale', 'ar')->update([
             'name'=>  $data['name_ar']
         ]);
+        $subCategory->category_id = $request->input('category_id');
         
         $subCategory->update();
         
         $subCategories = SubCategory::with('translations')->where('category_id', $request->input('category_id'))->get();
         $category = Category::find($request->input('category_id'));
         
-        return view("admin-Ar.sections.sub-category-section")->with(['subCategories' => $subCategories, '$category' => $category]);
+        return view("admin-Ar.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
 
     }
 
@@ -177,6 +179,7 @@ class SubCategoryController extends Controller
             'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
+            'category_id' => 'required',
         ]);
 
         $subCategory = SubCategory::find($data['id']);
@@ -196,12 +199,13 @@ class SubCategoryController extends Controller
             'name'=>  $data['name_ar']
         ]);
         
+        $subCategory->category_id = $request->input('category_id');
         $subCategory->update();
         
         $subCategories = SubCategory::with('translations')->where('category_id', $request->input('category_id'))->get();
         $category = Category::find($request->input('category_id'));
         
-        return view("admin-En.sections.sub-category-section")->with(['subCategories' => $subCategories, '$category' => $category]);
+        return view("admin-En.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
 
     }
 
@@ -212,8 +216,43 @@ class SubCategoryController extends Controller
      * @param  \App\Models\SubCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SubCategory $subCategory)
+    public function destroyAr(Request $request)
     {
-        //
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'category_id' => 'required',
+        ]);
+
+        $subCategory = SubCategory::find($data['id']);
+        $subCategory->translations()->delete();
+        $subCategory->delete();
+
+        $subCategories = SubCategory::with('translations')->where('category_id', $request->input('category_id'))->get();
+        $category = Category::find($request->input('category_id'));
+        
+        return view("admin-Ar.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
+
+    }
+
+    public function destroyEn(Request $request)
+    {
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'category_id' => 'required',
+        ]);
+
+        $subCategory = SubCategory::find($data['id']);
+        $subCategory->translations()->delete();
+        $subCategory->delete();
+
+        $subCategories = SubCategory::with('translations')->where('category_id', $request->input('category_id'))->get();
+        $category = Category::find($request->input('category_id'));
+        
+        return view("admin-En.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
+
     }
 }
