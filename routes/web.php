@@ -73,9 +73,21 @@ Route::get('/events_en', function () {
     return view('admin-En.events');
 }) -> name('event_en');
 
-Route::get('/booking_en', function () {
-    return view('admin-En.bookings');
-}) -> name('booking_en');
+Route::get('/places_booking_en', function () {
+    return view('admin-En.places_bookings');
+}) -> name('places_booking_en');
+
+Route::get('/offers_booking_en', function () {
+    return view('admin-En.offers_bookings');
+}) -> name('offers_booking_en');
+
+Route::get('/services_booking_en', function () {
+    return view('admin-En.services_bookings');
+}) -> name('services_booking_en');
+
+Route::get('/events_booking_en', function () {
+    return view('admin-En.events_bookings');
+}) -> name('events_booking_en');
 
 Route::get('/tourist_guide_en', function () {
     return view('admin-En.tourist_guide');
@@ -148,9 +160,21 @@ Route::get('/events_ar', function () {
     return view('admin-Ar.events');
 }) -> name('event_ar');
 
-Route::get('/booking_ar', function () {
-    return view('admin-Ar.bookings');
-}) -> name('booking_ar');
+Route::get('/places_booking_ar', function () {
+    return view('admin-Ar.places_bookings');
+}) -> name('places_booking_ar');
+
+Route::get('/offers_booking_ar', function () {
+    return view('admin-Ar.offers_bookings');
+}) -> name('offers_booking_ar');
+
+Route::get('/services_booking_ar', function () {
+    return view('admin-Ar.services_bookings');
+}) -> name('services_booking_ar');
+
+Route::get('/events_booking_ar', function () {
+    return view('admin-Ar.events_bookings');
+}) -> name('events_booking_ar');
 
 Route::get('/tourist_guide_ar', function () {
     return view('admin-Ar.tourist_guide');
