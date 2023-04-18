@@ -15,7 +15,7 @@
         <div class="product-cell" >
             <img style="height: 75px !important;" src="{{ asset(str_replace(app_path(),'',$category -> image))}}" alt="product">
         </div>
-        <div class="product-cell"><button class="app-content-headerButton"><a href="{{route ('getSubCategoriesAr', ['id' => $category->id])}}"style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button>
+        <div class="product-cell"><button class="app-content-headerButton"><a href="{{route ('getSubCategoriesAr', ['id' => $category->id])}}" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button>
         </div>
         <div class="product-cell">
             <!-- start action -->

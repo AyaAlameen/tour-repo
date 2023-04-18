@@ -22,9 +22,9 @@
     <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     
 <!-- English styles -->
-<link href="css/style-En.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashStyle-En.css"> 
- <link href="css/tablestyle.css" rel="stylesheet" />
+<link href="../css/style-En.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashStyle-En.css"> 
+ <link href="../css/tablestyle.css" rel="stylesheet" />
 
  <!-- Google Web Fonts -->
  <link rel="preconnect" href="https://fonts.gstatic.com">

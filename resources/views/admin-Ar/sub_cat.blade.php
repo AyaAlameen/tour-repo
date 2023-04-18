@@ -137,7 +137,7 @@
                                       هل أنت متأكد من أنك تريد حذف هذا الصنف الفرعي (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                       </div>
                                       <div class="modal-footer">
-                                        <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                        <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
                                         <button type="submit" id="delete-sub-category-btn-{{$subCategory->id}}" onclick="deleteSubCategory(`delete-form-{{$subCategory->id}}`, {{$subCategory->id}})" class="app-content-headerButton">نعم</button>
                                       </div>
                                     </form>

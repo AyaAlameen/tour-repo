@@ -46,6 +46,7 @@ Route::post('/city_en/delete', [CityController::class, 'destroyEn']) -> name('de
 Route::get('/sub_category_en/{id}', [SubCategoryController::class, 'indexEn']) -> name('getSubCategoriesEn');
 Route::post('/sub_category_en', [SubCategoryController::class, 'storeEn']) -> name('addSubCategoryEn');
 Route::post('/sub_category_en/edit', [SubCategoryController::class, 'updateEn']) -> name('editSubCategoryEn');
+Route::post('/sub_category_en/delete', [SubCategoryController::class, 'destroyEn']) -> name('deleteSubCategoryEn');
 
 // Route::get('/sub_cat_en', function () {
 //     return view('admin-En.sub_cat');
