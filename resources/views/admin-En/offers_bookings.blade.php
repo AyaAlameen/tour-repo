@@ -42,29 +42,49 @@
     </div>
     <div class="products-area-wrapper tableView">
       <div class="products-header">
-        <div class="product-cell">Name</div>
-        <div class="product-cell image ">Image</div>
-        <div class="product-cell">location</div>
-        <div class="product-cell">Description</div>
-        <div class="product-cell">Email</div>
-        <div class="product-cell">Phone</div>
-        <div class="product-cell">URL</div>
+      <div class="product-cell">the offer</div>
+        <div class="product-cell">offer type </div>
+        <div class="product-cell image "> client</div>
+        <div class="product-cell">people count</div>
+        <div class="product-cell">place</div>
         <div class="product-cell">cost</div>
-
+        <div class="product-cell">booking cost </div>
+        <div class="product-cell">start date </div>
+        <div class="product-cell">end date </div>
 
  
 
       </div>
       <div class="products-row">
-        <button class="cell-more-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-        </button>
-          <div class="product-cell">
-            <span>الجامع الأموي</span>
+          <!-- بداية البيانات -->
+       <div class="product-cell">
+            <span>Bolman Alshahba  </span>
           </div>
           <div class="product-cell">
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="product">
-          </div>
+          <span>Service booking</span>
+        </div>
+          <div class="product-cell">
+          <span>Bayan</span>
+        </div>
+        <div class="product-cell">
+          <span>5</span>
+        </div>
+        <div class="product-cell">
+          <span> بولمان الشهباء</span>
+        </div>
+        <div class="product-cell">
+          <span>6</span>
+        </div>
+        <div class="product-cell">
+          <span>30</span>
+        </div>
+        <div class="product-cell">
+          <span>6-6-2023</span>
+        </div>
+        <div class="product-cell">
+          <span>8-6-2023</span>
+        </div>
+        <!-- نهاية البيانات -->
         
       </div>
       </div>

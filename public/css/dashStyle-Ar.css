@@ -663,3 +663,6 @@ a.text-primary:hover, a.text-primary:focus {
   table tr:hover {
 color: var(--title-color) !important;
   }
+  .product-cell span{
+    text-align: center;
+  }
