@@ -43,10 +43,13 @@ Route::post('/city_en', [CityController::class, 'storeEn']) -> name('addCityEn')
 Route::post('/city_en/edit', [CityController::class, 'updateEn']) -> name('editCityEn');
 Route::post('/city_en/delete', [CityController::class, 'destroyEn']) -> name('deleteCityEn');
 
+Route::get('/sub_category_en/{id}', [SubCategoryController::class, 'indexEn']) -> name('getSubCategoriesEn');
+Route::post('/sub_category_en', [SubCategoryController::class, 'storeEn']) -> name('addSubCategoryEn');
+Route::post('/sub_category_en/edit', [SubCategoryController::class, 'updateEn']) -> name('editSubCategoryEn');
 
-Route::get('/sub_cat_en', function () {
-    return view('admin-En.sub_cat');
-}) -> name('sub_category_en');
+// Route::get('/sub_cat_en', function () {
+//     return view('admin-En.sub_cat');
+// }) -> name('sub_category_en');
 
 Route::get('/place_en', function () {
     return view('admin-En.places');
@@ -113,6 +116,7 @@ Route::post('/cat_ar/delete', [CategoryController::class, 'destroyAr']) -> name(
 Route::get('/sub_category_ar/{id}', [SubCategoryController::class, 'indexAr']) -> name('getSubCategoriesAr');
 Route::post('/sub_category_ar', [SubCategoryController::class, 'storeAr']) -> name('addSubCategoryAr');
 Route::post('/sub_category_ar/edit', [SubCategoryController::class, 'updateAr']) -> name('editSubCategoryAr');
+Route::post('/sub_category_ar/delete', [SubCategoryController::class, 'destroyAr']) -> name('deleteSubCategoryAr');
 
 
 Route::get('/cities_ar', function () {

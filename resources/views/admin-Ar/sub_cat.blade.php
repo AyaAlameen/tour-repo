@@ -118,9 +118,9 @@
 <div class="p-3">
 
                  <!-- delete -->
-                 <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                 <a href="#" class="delete" data-toggle="modal" data-target="#deleteSubCategory{{$subCategory->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                               <!-- Modal -->
-                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                              <div class="modal fade" id="deleteSubCategory{{$subCategory->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -128,13 +128,19 @@
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
-                                    <div class="modal-body">
-                                  هل أنت متأكد من أنك تريد هذف هذا الصنف الفرعي؟
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                                      <button type="submit" class="app-content-headerButton">نعم</button>
-                                    </div>
+                                    <form id="delete-form-{{$subCategory->id}}" action="" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                          <input type="text" name="id" value="{{$subCategory->id}}" hidden>
+                                          <input type="text" name="category_id" value="{{$category->id}}" hidden>
+
+                                      <div class="modal-body">
+                                      هل أنت متأكد من أنك تريد حذف هذا الصنف الفرعي (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                        <button type="submit" id="delete-sub-category-btn-{{$subCategory->id}}" onclick="deleteSubCategory(`delete-form-{{$subCategory->id}}`, {{$subCategory->id}})" class="app-content-headerButton">نعم</button>
+                                      </div>
+                                    </form>
                                     </div>
                                   </div>
                                 </div>
@@ -157,16 +163,16 @@
                             @csrf
                            <div class="modal-body">
                            <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
-                         <input type="text" hidden name="caegory_id" class="toggle text-primary in" value="{{$category->id}}">
+                         <input type="text" hidden name="category_id" class="toggle text-primary in" value="{{$category->id}}">
                           
                          <tr>
                   
-                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>  
+                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></th>  
                   <td>الاسم(العربية)</td>    
               </tr>  
               <tr>
                   
-                  <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>  
+                  <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></th>  
                   <td>(الإنجليزية)الاسم</td>    
               </tr>     
                         
@@ -263,31 +269,31 @@
     }
 
     //---------------------------------------------------------------
-    // function deleteCategory(formId, id){
-    //     $("#delete-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+    function deleteSubCategory(formId, id){
+        $("#delete-sub-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
-    //     var formData = new FormData(document.getElementById(formId));
-    //     $.ajax({
-    //         url: `{{route('deleteCategoryAr')}}` ,
-    //         type: "POST",
-    //         data: formData,
-    //         processData: false, 
-    //         cache: false,
-    //         contentType: false,
-    //     })
-    //     .done(function(data){   
-    //         $("#categories-data").empty();
-    //         $("#categories-data").append(data);
-    //         $('.close').click();
-    //     })
-    //     .fail(function(){
-    //         alert('فشلت العملية');
-    //     })
-    //     .always(function() {
-    //         // Re-enable the submit button and hide the loading spinner
-    //         $("#delete-category-btn-"+id).attr("disabled", false).html('نعم');
-    //     });
-    // }
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+            url: `{{route('deleteSubCategoryAr')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#sub-categories-data").empty();
+            $("#sub-categories-data").append(data);
+            $('.close').click();
+        })
+        .fail(function(){
+            alert('فشلت العملية');
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#delete-sub-category-btn-"+id).attr("disabled", false).html('نعم');
+        });
+    }
 
     //---------------------------------------------------------------
     // window.onload = (event) => {
