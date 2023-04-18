@@ -18,6 +18,8 @@
         <h5 class="modal-title" id="exampleModal3Label">جروب جديد</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form id="add-form" action="" method="post" enctype="multipart/form-data">
+        @csrf
       <div class="modal-body">
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
@@ -75,6 +77,7 @@
  
       </table>
       </div>
+      </form>
       <div class="modal-footer">
         <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
         <button type="button" class="app-content-headerButton">حفظ</button>

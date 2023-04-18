@@ -29,7 +29,7 @@
               <tr>
                  
                  <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
-                 <td>(الانكليزية)الاسم </td>   
+                 <td>(الإنجليزية)الاسم </td>   
              </tr> 
               <tr>
                  
@@ -48,8 +48,7 @@
                   <td ><input class="toggle text-primary in" type="email" name="tour-email" required style="width: 100%;"></th>
                   <td>الايميل</td>      
               </tr>  
- 
-              <
+
               <tr>
                  
                   <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></th>  
@@ -63,7 +62,7 @@
               <tr>
                   
                   <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
-                  <td>(الانكليزية)المهارات</td>     
+                  <td>(الإنجليزية)المهارات</td>     
               </tr>
              
       </table>
@@ -94,7 +93,7 @@
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="{{route('tourist_guide_ar')}}"  class="dropdown-item"> العربية</a>
-                                <a href="{{route('tourist_guige_en')}}" class="dropdown-item">الانجليزية </a>
+                                <a href="{{route('tourist_guide_en')}}" class="dropdown-item">الانجليزية </a>
                     
                             </div>
                         </div>
@@ -195,7 +194,7 @@
              <tr>
                 
                 <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
-                <td>(الانكليزية)الاسم </td>   
+                <td>(الإنجليزية)الاسم </td>   
             </tr>   
                     
                        <tr>
@@ -230,7 +229,7 @@
               <tr>
                   
                   <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
-                  <td>(الانكليزية)المهارات</td>     
+                  <td>(الإنجليزية)المهارات</td>     
               </tr>    
                   
                                </table>
