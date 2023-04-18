@@ -32,7 +32,7 @@
    
 </head>
 
-<body>
+<body >
 
 
 
@@ -97,8 +97,15 @@
   }
 }
   }
+  
+  
 </script>
 
+
+<script>
+//   function active_part() {
+//   }
+// </script>
 </body>
 
 </html>
