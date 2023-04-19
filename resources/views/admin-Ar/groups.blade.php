@@ -52,22 +52,22 @@
 
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></td> 
                   <td>وصف(العربية)</td>     
               </tr>  
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></td> 
                   <td>(الانكليزية)وصف</td>     
               </tr>   
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="number" name="people_cont" required style="width: 100%;"></th> 
+                  <td ><input class="toggle text-primary in" type="number" name="people_cont" required style="width: 100%;"></td> 
                   <td>عدد الأشخاص</td>     
               </tr>
               <tr>
                  
-                  <td ><input class="toggle text-primary in" type="number" name="group_cost" required style="width: 100%;"></th>   
+                  <td ><input class="toggle text-primary in" type="number" name="group_cost" required style="width: 100%;"></td>   
                   <td>الكلفة</td>   
               </tr> 
 
@@ -232,12 +232,12 @@
                   </tr> 
                   <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">----</textarea></th> 
                   <td>وصف(العربية)</td>     
               </tr>  
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">----</textarea></th> 
                   <td>(الانكليزية)وصف</td>     
               </tr> 
                    <tr> 

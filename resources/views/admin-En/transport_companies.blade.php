@@ -40,7 +40,7 @@
       </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="action-button active " data-bs-dismiss="modal">Close</button>
         <button type="button" class="app-content-headerButton">Save</button>
       </div>
     </div>
@@ -158,12 +158,12 @@
     
                   <tr> 
                          <td>email</td>
-                         <td ><input type="email" class="toggle text-primary in" value="@gmail.com"></td>  
+                         <td ><input type="email" class="toggle text-primary in" value="@gmail.com" style="width: 100%;"></td>  
                            
                   </tr>     
                   <tr> 
                          <td>Phone</td>
-                         <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
+                         <td ><input type="number" class="toggle text-primary in" value="0963272332" style="width: 100%;"></td>  
                            
                   </tr>     
       
@@ -171,7 +171,7 @@
                             
                            </div>
                            <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">Close</button>
+                <button type="button" class="action-button active " data-dismiss="modal">Close</button>
                              <button type="submit" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>

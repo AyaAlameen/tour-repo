@@ -49,7 +49,6 @@
                   <td>الايميل</td>      
               </tr>  
  
-              <
               <tr>
                  
                   <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></th>  
@@ -57,12 +56,12 @@
               </tr>
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>المهارات(العربية)</td>     
               </tr>
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>(الانكليزية)المهارات</td>     
               </tr>
              
@@ -94,7 +93,7 @@
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="{{route('tourist_guide_ar')}}"  class="dropdown-item"> العربية</a>
-                                <a href="{{route('tourist_guige_en')}}" class="dropdown-item">الانجليزية </a>
+                                <a href="{{route('tourist_guide_en')}}" class="dropdown-item">الانجليزية </a>
                     
                             </div>
                         </div>
@@ -224,12 +223,12 @@
                   </tr>     
                   <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></td> 
                   <td>المهارات(العربية)</td>     
               </tr>
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></td> 
                   <td>(الانكليزية)المهارات</td>     
               </tr>    
                   

@@ -5,6 +5,7 @@
 
 :root {
   --radius: 4px;
+  --inputBorder:#fff;
   --header:#fff;
   --app-bg: #fff;
   --sidebar-main-color: #fff;
@@ -33,7 +34,7 @@
 .light:root {
   --header:rgba(21, 30, 47,1);
   --radius: 0px;
-
+  --inputBorder:#fff;
   --title-color:#fff;
   --app-bg: #101827;
   --sidebar: rgba(21, 30, 47,1);
@@ -337,8 +338,8 @@ a.text-primary:hover, a.text-primary:focus {
 }
 .action-button:focus, .action-button.active {
   outline: none;
-  color: var(--navi);
-  border-color: #21212121;
+  color: var(--title-color);
+  border-color: var(--sidebar-link);
 }
 
 .filter-button-wrapper {
@@ -650,8 +651,9 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 .in{
-  border: none !important;
+  border: 1px solid var(--inputBorder) !important;
   }
+
   table tr:hover {
 color: var(--title-color) !important;
   }

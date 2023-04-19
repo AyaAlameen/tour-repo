@@ -49,11 +49,11 @@ Add Group
 
               <tr>
                   <td>Description(Arabic)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></th>      
               </tr> 
               <tr>
                   <td>Description(English)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></th>      
               </tr>    
               <tr>
                   <td>People Count</td>
@@ -221,19 +221,19 @@ Add Group
                   </tr> 
                   <tr>
                   <td>Description(Arabic)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></th>      
               </tr> 
               <tr>
                   <td>Description(English)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="_group_description" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></th>      
               </tr>  
                    <tr> 
                          <td>People count</td>
-                         <td ><input type="number" class="toggle text-primary in" value="15"></td>                   
+                         <td ><input type="number" class="toggle text-primary in" value="15" style="width: 100%;"></td>                   
                   </tr> 
                   <tr> 
                          <td>Cost</td>
-                         <td ><input type="number" class="toggle text-primary in" value="100000"></td>                   
+                         <td ><input type="number" class="toggle text-primary in" value="100000" style="width: 100%;"></td>                   
                   </tr> 
 
      

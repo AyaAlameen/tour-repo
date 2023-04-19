@@ -29,9 +29,22 @@
               </tr>    
              
               <tr>
-                  <td >Location </td>
-                  <td><input type="text" class="toggle text-primary in"  name="location" required style="width: 100%;"></th>      
-              </tr>     
+                <td>City</td>   
+                  
+                  <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
+                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                    
+                  </lable>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">--</a>
+                    <a class="dropdown-item" href="#">---</a>
+                    <a class="dropdown-item" href="#">---</a>
+                    <a class="dropdown-item" href="#">---</a>
+                 
+               
+                  </div>
+                </div></td>   
+              </tr> 
               
       </table>
       </div>
@@ -99,7 +112,6 @@
       <div class="products-header">
         <div class="product-cell">Name</div>
         <div class="product-cell  ">City</div>
-        <div class="product-cell">location</div>
         <div class="product-cell ">Actions</div>
         
 
@@ -114,9 +126,7 @@
           <div class="product-cell">
             <span>حلب</span>
             </div>
-            <div class="product-cell">
-            <span>سسسسسسسسسسس</span>
-            </div>
+
             <div class="product-cell">
      <!-- start action -->
 <div class="p-3">
@@ -168,11 +178,23 @@
                   <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>      
               </tr>  
      
-                  <tr> 
-                         <td>location</td>
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                           
-</tr>
+              <tr>
+                <td>City</td>   
+                  
+                  <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
+                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                    Hama
+                  </lable>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">--</a>
+                    <a class="dropdown-item" href="#">---</a>
+                    <a class="dropdown-item" href="#">---</a>
+                    <a class="dropdown-item" href="#">---</a>
+                 
+               
+                  </div>
+                </div></td>   
+              </tr>
      
       
                                </table>

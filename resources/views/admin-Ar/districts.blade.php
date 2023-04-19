@@ -34,15 +34,27 @@
              
               <tr>
                   
-                  <td><input type="text" class="toggle text-primary in"  name="location" required style="width: 100%;"></th> 
-                  <td >الموقع </td>     
-              </tr>  
+                  <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
+                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                    
+                  </lable>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">حلب</a>
+                    <a class="dropdown-item" href="#">حماة</a>
+                    <a class="dropdown-item" href="#">حمص</a>
+                    <a class="dropdown-item" href="#">دمشق</a>
+                 
+               
+                  </div>
+                </div></td>   
+                <td>المدينة</td>   
+              </tr>
                 
       </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="app-content-headerButton">Save</button>
+        <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
   </div>
@@ -105,7 +117,6 @@
       <div class="products-header">
         <div class="product-cell">الاسم</div>
         <div class="product-cell  ">المدينة</div>
-        <div class="product-cell">الموقع</div>
         <div class="product-cell ">الأحداث</div>
         
 
@@ -119,9 +130,6 @@
           </div>
           <div class="product-cell">
             <span>حلب</span>
-            </div>
-            <div class="product-cell">
-            <span>سسسسسسسسسسس</span>
             </div>
             <div class="product-cell">
      <!-- start action -->
@@ -139,7 +147,7 @@
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      هل أنت متأ:د من أنك تريد حذف هذه المدينة؟
+                                      هل أنت متأ:د من أنك تريد حذف هذه الناحية؟
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
@@ -176,12 +184,23 @@
                   <td >الاسم(الانكليزي)</td>     
               </tr> 
      
-                  <tr> 
-                       
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                         <td>الموقع</td>
-                           
-                  </tr>
+              <tr>
+                  
+                  <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
+                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                    حلب
+                  </lable>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">--</a>
+                    <a class="dropdown-item" href="#">---</a>
+                    <a class="dropdown-item" href="#">---</a>
+                    <a class="dropdown-item" href="#">---</a>
+                 
+               
+                  </div>
+                </div></td>   
+                <td>المدينة</td>   
+              </tr>
      
       
                                </table>

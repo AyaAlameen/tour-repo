@@ -29,7 +29,7 @@
 
 
       <!-- Navbar Start -->
-      <div class="container-fluid position-relative nav-bar p-0">
+      <div class="container-fluid position-relative nav-bar p-0" style="background-color:var(--header);">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
@@ -142,7 +142,7 @@
       <li class="accordion accordion-flush sidebar-list-item" id="accordionFlushExample">
   <div class="accordion-item ">
     <h2 class="accordion-header " id="flush-headingOne">    
-    <button class="accordion-button collapsed pl-3 sidebar-list-item" id="accBtn" onclick="accordion()"  style="flex-direction:row; outline:none; box-shadow:none;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOnee"  aria-controls="flush-collapseOnee">
+    <button class="accordion-button collapsed pl-3 sidebar-list-item" id="accBtn" onclick="accordion()"  style="flex-direction:row; font-size:14px; outline:none; box-shadow:none;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOnee"  aria-controls="flush-collapseOnee">
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       Bookings
     <img id="arrow" src="../img/upload.png" width="18" height="18" class="ml-4">      

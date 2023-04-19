@@ -37,26 +37,25 @@ Add Tourist Guide
                
               <tr>
                   <td>Phone</td>
-                  <td ><input class="toggle text-primary in" type="number" name="tour_phone" required style="width: 100%;"></th>      
+                  <td ><input class="toggle text-primary in" type="number" name="tour_phone" required style="width: 100%;"></td>      
               </tr>
                   
               <tr>
                   <td>Email</td>
-                  <td ><input class="toggle text-primary in" type="email" name="tour-email" required style="width: 100%;"></th>      
+                  <td ><input class="toggle text-primary in" type="email" name="tour-email" required style="width: 100%;"></td>      
               </tr>  
  
-              <
               <tr>
                   <td>Salary</td>
-                  <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></th>      
+                  <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></td>      
               </tr>
               <tr>
                   <td>Certificate(Arabic)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></td>      
               </tr>
               <tr>
                   <td>Certificate(English)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></td>      
               </tr>
              
       </table>
@@ -165,10 +164,10 @@ Add Tourist Guide
                             <!-- end delete -->
 
                      <!-- edit -->
-                     <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
+                     <a href="#" class="edit"  data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
 
                           <!-- Modal -->
-                     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal" class="app-content-headerButton" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
@@ -197,27 +196,27 @@ Add Tourist Guide
                        
                     <tr> 
                          <td>Phone</td>
-                         <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
+                         <td ><input type="number" class="toggle text-primary in" value="0963272332" style="width: 100%;"></td>  
                            
                   </tr>     
                   <tr> 
                          <td>email</td>
-                         <td ><input type="email" class="toggle text-primary in" value="ahmad@gmail.com"></td>  
+                         <td ><input type="email" class="toggle text-primary in" value="ahmad@gmail.com" style="width: 100%;"></td>  
                            
                   </tr>     
                   
                   <tr> 
                          <td>Salary</td>
-                         <td ><input type="number" class="toggle text-primary in" value="2000000"></td>  
+                         <td ><input type="number" class="toggle text-primary in" value="2000000" style="width: 100%;"></td>  
                            
                   </tr>     
                   <tr>
                   <td>Certificate(Arabic)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></td>      
               </tr>
               <tr>
                   <td>Certificate(English)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></td>      
               </tr>     
                   
                                </table>
@@ -225,7 +224,7 @@ Add Tourist Guide
                            </div>
                            <div class="modal-footer">
                 <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                             <button type="submit" class="app-content-headerButton">Save changes</button>
+                             <button type="submit" >Save changes</button>
                            </div>
                          </div>
                        </div>

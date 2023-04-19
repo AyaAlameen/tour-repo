@@ -204,11 +204,12 @@ Route::get('/contact', function () {
 })-> name('contact');
 
 
+
+//user routes part Arabic
+
 Route::get('/contact-ar', function () {
     return view('user-ar.contact');
 })-> name('contact-ar');
-//user routes part Arabic
-
 
 Route::get('/user_home_arabic', function () {
     return view('user-ar.home');

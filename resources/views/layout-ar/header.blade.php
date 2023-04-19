@@ -60,7 +60,7 @@
                                 <a href="testimonial" class="dropdown-item">صور فوتوغرافية لسوريا</a>
                             </div>
                         </div>
-                        <a href="{{route('about')}}" class="nav-item nav-link">حولنا</a>
+                        <a href="{{route('about-ar')}}" class="nav-item nav-link">حولنا</a>
 
                        
                         <a href="{{route('contact-ar')}}" class="nav-item nav-link">تواصل معنا</a>
@@ -98,11 +98,10 @@
                         @endguest
                        <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="المفضلة" onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
                        <div class="nav-item dropdown " >
-                            <a class="action-button list nav-link dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas far fa-globe "  ></i> </a>
-                           
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{route('category_ar')}}"  class="dropdown-item"> العربية</a>
-                                <a href="{{route('category_en')}}" class="dropdown-item">الانجليزية </a>
+                            <a class="action-button list nav-link dropdown-toggle"  data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </a>                           
+                            <div id="langList" class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href=""  onclick="getURLAr()" class="dropdown-item" style="cursor:pointer;"> العربية</a>
+                                <a href="" onclick="getURLEn()" class="dropdown-item" style="cursor:pointer;">الانجليزية </a>
                     
                             </div>
                         </div>
