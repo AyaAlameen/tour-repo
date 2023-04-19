@@ -69,7 +69,7 @@
         <div class="nav-item dropdown" >
                             <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
                            
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                            <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route ('getSubCategoriesEn', ['id' => $category->id])}}"  class="dropdown-item">English</a>
                                 <a href="{{route ('getSubCategoriesAr', ['id' => $category->id])}}" class="dropdown-item">Arabic </a>
                     

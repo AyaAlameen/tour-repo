@@ -98,10 +98,10 @@
                         @endguest
                        <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite" onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
                        <div class="nav-item dropdown " >
-                            <a class="action-button list nav-link dropdown-toggle"  data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </a>                           
+                            <a class="action-button list nav-link dropdown-toggle" style="cursor:pointer;"  data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </a>                           
                             <div id="langList" class="dropdown-menu border-0 rounded-0 m-0">
-                                <a  onclick="getURLAr()" class="dropdown-item"> Arabic</a>
-                                <a onclick="getURLEn()" class="dropdown-item">English </a>
+                                <a  onclick="getURLAr()" class="dropdown-item" style="cursor:pointer;"> Arabic</a>
+                                <a onclick="getURLEn()" class="dropdown-item" style="cursor:pointer;">English </a>
                     
                             </div>
                         </div>

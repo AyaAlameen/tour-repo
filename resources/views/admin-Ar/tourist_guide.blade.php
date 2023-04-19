@@ -48,11 +48,7 @@
                   <td ><input class="toggle text-primary in" type="email" name="tour-email" required style="width: 100%;"></th>
                   <td>الايميل</td>      
               </tr>  
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 260bac7d042b15e3eadba31f393c0946886250f5
               <tr>
                  
                   <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></th>  
@@ -65,13 +61,8 @@
               </tr>
               <tr>
                   
-<<<<<<< HEAD
                   <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>(الانكليزية)المهارات</td>     
-=======
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
-                  <td>(الإنجليزية)المهارات</td>     
->>>>>>> 260bac7d042b15e3eadba31f393c0946886250f5
               </tr>
              
       </table>
@@ -100,7 +91,7 @@
         <div class="nav-item dropdown" >
                             <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
                            
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                            <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('tourist_guide_ar')}}"  class="dropdown-item"> العربية</a>
                                 <a href="{{route('tourist_guide_en')}}" class="dropdown-item">الانجليزية </a>
                     

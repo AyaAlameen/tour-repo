@@ -88,12 +88,12 @@
         <div class="container pt-5">
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
-                    <div class="position-relative h-100"  style="right:450px">
+                    <div class="position-relative h-100"  style="right:550px">
                         <img class="position-absolute w-100 h-100" src="img/beit-zafran-hotel-de.jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-4 pt-5 pb-lg-5">
-                    <div style="box-shadow:#ced4da 3px 3px 6px 2px; left:200px;" class="about-text bg-white p-4 p-lg-5 my-lg-5 position-relative">
+                    <div style="box-shadow:#ced4da 3px 3px 6px 2px; left:100px;" class="about-text bg-white p-4 p-lg-5 my-lg-5 position-relative">
                         <h2 class="text-primary text-uppercase">حولنا</h2>
                         <h1 class="mb-3">نعمل لتأمين أفضل الرحلات لك بما يناسب ميزانيتك</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
@@ -105,7 +105,7 @@
                                 <img class="img-fluid" src="img/latakia.jpg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1 float-left">احجز الآن</a>
+                        <a href="" class="btn btn-primary position-relative float-left" style="bottom:5px;">احجز الآن</a>
                     </div>
                 </div>
             </div>

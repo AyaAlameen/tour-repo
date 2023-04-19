@@ -52,7 +52,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل الدخول') }}</a>
+                                    <a class="nav-link text-primary" href="{{ route('register') }}">{{ __('تسجيل الدخول') }}</a>
                                 </li>
                             @endif 
                         @else
@@ -79,8 +79,8 @@
                         <a href="{{route('about')}}" class="nav-item nav-link text-primary">حولنا</a>
                         <a href="{{ route ('userhome') }}" class="nav-item nav-link text-primary">الرئيسة</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">سوريا</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                            <a href="#" class="nav-link dropdown-toggle text-primary" data-toggle="dropdown">سوريا</a>
+                            <div class="dropdown-menu toggle border-0 rounded-0 m-0">
                                 <a href="blog" class="dropdown-item">زيارة سوريا</a>
                                 <a href="blog" class="dropdown-item">المحافظات السورية</a>
                                 <a href="single" class="dropdown-item">فنادق سوريا</a>

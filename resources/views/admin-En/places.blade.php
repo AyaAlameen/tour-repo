@@ -175,7 +175,7 @@ Add place
         <div class="nav-item dropdown" >
                             <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
                            
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                            <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('place_en')}}"  class="dropdown-item">English</a>
                                 <a href="{{route('place_ar')}}" class="dropdown-item">Arabic </a>
                     
