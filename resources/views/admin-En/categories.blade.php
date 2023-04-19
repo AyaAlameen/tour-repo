@@ -49,7 +49,7 @@
     <!-- end add -->
 
     <div class="app-content-actions">
-      <input class="search-bar" placeholder="Search..." type="text">
+      <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="Search By Name..." type="text">
       <div class="app-content-actions-wrapper">
 
         <button class="action-button list " title="List View">
@@ -76,7 +76,7 @@
       
       </div>
     </div>
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView" id="categoriesTable">
       <div class="products-header">
         <div class="product-cell">#</div>
         <div class="product-cell">Name</div>
@@ -209,6 +209,34 @@ function editCategory(formId, id){
 
                 });
     };
+    //----------------------------------------------------------
+ 
+
+    function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("categoriesTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
+                
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                if(txtValue){
+
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
 //--------------------------------------------
 </script>
 

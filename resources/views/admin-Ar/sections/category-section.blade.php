@@ -10,7 +10,7 @@
             <span>{{$i++}}</span>
         </div>
         <div class="product-cell">
-            <span>{{$category->translations()->where('locale', 'ar')->first()->name}}</span>
+            <span class="search-value">{{$category->translations()->where('locale', 'ar')->first()->name}}</span>
         </div>
         <div class="product-cell" >
             <img style="height: 75px !important;" src="{{ asset(str_replace(app_path(),'',$category -> image))}}" alt="product">
@@ -104,7 +104,7 @@
             <span>{{$i++}}</span>
         </div>
         <div class="product-cell">
-            <span>{{$category->translations()->where('locale', 'ar')->first()->name}}</span>
+            <span class="search-value">{{$category->translations()->where('locale', 'ar')->first()->name}}</span>
         </div>
         <div class="product-cell" >
             <img style="height: 75px !important;" src="{{ asset(str_replace(app_path(),'',$category -> image))}}" alt="product">

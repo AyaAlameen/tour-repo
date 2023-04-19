@@ -228,13 +228,8 @@
               </tr>
               <tr>
                   
-<<<<<<< HEAD
                   <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></td> 
                   <td>(الانكليزية)المهارات</td>     
-=======
-                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
-                  <td>(الإنجليزية)المهارات</td>     
->>>>>>> 260bac7d042b15e3eadba31f393c0946886250f5
               </tr>    
                   
                                </table>
