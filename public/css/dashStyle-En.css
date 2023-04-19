@@ -652,6 +652,7 @@ a.text-primary:hover, a.text-primary:focus {
 
 .in{
   border: 1px solid var(--inputBorder) !important;
+  width: 100% !important;
   }
 
   table tr:hover {

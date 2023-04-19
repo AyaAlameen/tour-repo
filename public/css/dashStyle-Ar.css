@@ -656,9 +656,9 @@ a.text-primary:hover, a.text-primary:focus {
 .gridView .cell-label {
   opacity: 0.6;
 }
-
 .in{
-  border: none !important;
+  border: 1px solid var(--inputBorder) !important;
+  width: 100% !important;
   }
   table tr:hover {
 color: var(--title-color) !important;
