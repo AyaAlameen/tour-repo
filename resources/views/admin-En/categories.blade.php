@@ -82,7 +82,7 @@
         <div class="product-cell">Name</div>
         <div class="product-cell image ">Image</div>
 
-    	<div class="product-cell ">Sub-cat</div>
+    	<div class="product-cell ">Sub Categories</div>
         <div class="product-cell ">Actions</div>
 
 

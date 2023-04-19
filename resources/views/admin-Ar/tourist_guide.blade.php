@@ -29,7 +29,7 @@
               <tr>
                  
                  <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
-                 <td>(الانكليزية)الاسم </td>   
+                 <td>(الإنجليزية)الاسم </td>   
              </tr> 
               <tr>
                  
@@ -48,7 +48,11 @@
                   <td ><input class="toggle text-primary in" type="email" name="tour-email" required style="width: 100%;"></th>
                   <td>الايميل</td>      
               </tr>  
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 260bac7d042b15e3eadba31f393c0946886250f5
               <tr>
                  
                   <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></th>  
@@ -61,8 +65,13 @@
               </tr>
               <tr>
                   
+<<<<<<< HEAD
                   <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>(الانكليزية)المهارات</td>     
+=======
+                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
+                  <td>(الإنجليزية)المهارات</td>     
+>>>>>>> 260bac7d042b15e3eadba31f393c0946886250f5
               </tr>
              
       </table>
@@ -194,7 +203,7 @@
              <tr>
                 
                 <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
-                <td>(الانكليزية)الاسم </td>   
+                <td>(الإنجليزية)الاسم </td>   
             </tr>   
                     
                        <tr>
@@ -228,8 +237,13 @@
               </tr>
               <tr>
                   
+<<<<<<< HEAD
                   <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></td> 
                   <td>(الانكليزية)المهارات</td>     
+=======
+                  <td ><input class="toggle text-primary in" type="text" name="certificate" required style="width: 100%;"></th> 
+                  <td>(الإنجليزية)المهارات</td>     
+>>>>>>> 260bac7d042b15e3eadba31f393c0946886250f5
               </tr>    
                   
                                </table>

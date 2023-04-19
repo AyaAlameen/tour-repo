@@ -45,6 +45,7 @@ Add Tourist Guide
                   <td ><input class="toggle text-primary in" type="email" name="tour-email" required style="width: 100%;"></td>      
               </tr>  
  
+              <
               <tr>
                   <td>Salary</td>
                   <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></td>      
