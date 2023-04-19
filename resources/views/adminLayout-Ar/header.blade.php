@@ -40,7 +40,41 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                    
+                    <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="المفضلة" onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
+
+                      <!-- Authentication Links -->
+                      @guest
+                            <!-- @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif -->
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل الدخول') }}</a>
+                                </li>
+                            @endif 
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+
                         <a href="{{route('contact-ar')}}" class="nav-item nav-link text-primary">اتصل بنا</a>
                         <a href="{{route('about')}}" class="nav-item nav-link text-primary">حولنا</a>
                         <a href="{{ route ('userhome') }}" class="nav-item nav-link text-primary">الرئيسة</a>
@@ -210,5 +244,19 @@
     
   </div>
 
-  
+      <!-- favorite --> 
+ 
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header" style="flex-direction: row-reverse;">
+    <h3 id="offcanvasRightLabel " class="text-primary " >:المفضلة</h3>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;"/>
+    <p class="text-body px-3 text-center mt-4">اختر أماكنك المفضلة</p>
+
+  </div>
+</div>
+ <!-- end favorite -->
 <!-- partial -->

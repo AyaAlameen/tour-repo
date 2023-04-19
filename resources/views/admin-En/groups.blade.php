@@ -26,10 +26,6 @@ Add Group
                   <td ><input type="number" class="toggle text-primary in" name="group_number" required style="width: 100%;"></th>      
               </tr>  
               <tr>
-                  <td >image </td>
-                  <td><input type="file" class="toggle text-primary in"  name="group_image" required style="width: 100%;"></th>      
-              </tr> 
-              <tr>
                   <td>Tourist Guide</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
@@ -130,7 +126,6 @@ Add Group
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">#</div>
-        <div class="product-cell image ">Image</div>
         <div class="product-cell">Tourist Guide</div>
         <div class="product-cell">Description</div>
         <div class="product-cell">People count</div>
@@ -149,9 +144,7 @@ Add Group
           <div class="product-cell">
             <span>1</span>
           </div>
-          <div class="product-cell">
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="product">
-          </div>
+
           <div class="product-cell">
             <span>Ahmad</span>
           </div>
@@ -167,6 +160,10 @@ Add Group
           <div class="product-cell">
      <!-- start action -->
 <div class="p-3">
+  <!-- destination -->
+<a href="#" class="delete mr-3" title="destinations" data-toggle="tooltip"><i class="fas fa-map-location-dot"></i></a>
+<!-- transport -->
+<a href="#" class="delete mr-3"  title="Transportation" data-toggle="tooltip"><i class="fas fa-bus"></i></a>
 
                  <!-- delete -->
                  <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
@@ -210,11 +207,7 @@ Add Group
                          <td>Group number</td>
                          <td ><input type="number" class="toggle text-primary in" value="1"></td>                   
                   </tr> 
-                  <tr>
-                       <td>Image </td>
-                       <td ><input type="file" hidden id="img"> 
-                            <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                       </tr>
+
                   <tr> 
                          <td>Tourist Guide</td>
                          <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>                   
