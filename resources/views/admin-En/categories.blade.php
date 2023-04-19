@@ -113,10 +113,13 @@
                 $("#categories-data").empty();
                 $("#categories-data").append(data);
                 $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
             })
         .fail(function()
             {
-                alert('فشلت العملية');
+              $('.parent').attr("hidden", false);
+
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
@@ -142,10 +145,12 @@
                 $("#categories-data").empty();
                 $("#categories-data").append(data);
                 $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
             })
         .fail(function()
             {
-                alert('فشلت العملية');
+              $('.parent').attr("hidden", false);
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
@@ -172,10 +177,12 @@ function editCategory(formId, id){
                 $("#categories-data").empty();
                 $("#categories-data").append(data);
                 $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
             })
         .fail(function()
             {
-                alert('فشلت العملية');
+              $('.parent').attr("hidden", false);
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
@@ -198,7 +205,8 @@ function editCategory(formId, id){
                 })
             .fail(function()
                 {
-                    alert('فشلت العملية');
+                  $('.parent').attr("hidden", false);
+
                 });
     };
 //--------------------------------------------

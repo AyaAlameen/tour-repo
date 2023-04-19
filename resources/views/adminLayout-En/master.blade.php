@@ -97,7 +97,11 @@
   }
 }
   }
-  
+  function hide() {
+     $('.parent').hide();  
+     $('.parentTrue').hide();   
+
+    }
   
 </script>
 

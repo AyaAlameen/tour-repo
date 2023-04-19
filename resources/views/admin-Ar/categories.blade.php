@@ -101,6 +101,7 @@
 @endsection
 
 <script>
+ 
     function addCategory(formId){
         $("#add-category-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         var formData = new FormData(document.getElementById('add-form'));
@@ -116,9 +117,13 @@
             $("#categories-data").empty();
             $("#categories-data").append(data);
             $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
         })
         .fail(function(){
-            alert('فشلت العملية');
+            $('.parent').attr("hidden", false);
+
+
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -144,9 +149,14 @@
             $("#categories-data").empty();
             $("#categories-data").append(data);
             $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
+
         })
         .fail(function(){
-            alert('فشلت العملية');
+            $('.parent').attr("hidden", false);
+
+            
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -171,9 +181,12 @@
             $("#categories-data").empty();
             $("#categories-data").append(data);
             $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
         })
         .fail(function(){
-            alert('فشلت العملية');
+            $('.parent').attr("hidden", false);
+
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -194,9 +207,12 @@
             $("#categories-data").append(data);
         })
         .fail(function(){
-            alert('فشلت العملية');
+            $('.parent').attr("hidden", false);
+
+
         });
     };
+    
 //--------------------------------------------
 </script>
 

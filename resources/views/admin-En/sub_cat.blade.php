@@ -220,9 +220,12 @@
             $("#sub-categories-data").empty();
             $("#sub-categories-data").append(data);
             $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
         })
         .fail(function(){
-            alert('فشلت العملية');
+          $('.parent').attr("hidden", false);
+
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -248,6 +251,8 @@
             $("#sub-categories-data").empty();
             $("#sub-categories-data").append(data);
             $('.close').click();
+            $('.parent').attr("hidden", false);
+
         })
         .fail(function(){
             alert('فشلت العملية');
@@ -275,9 +280,12 @@
             $("#sub-categories-data").empty();
             $("#sub-categories-data").append(data);
             $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
         })
         .fail(function(){
-            alert('فشلت العملية');
+          $('.parent').attr("hidden", false);
+
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -298,7 +306,8 @@
     //         $("#categories-data").append(data);
     //     })
     //     .fail(function(){
-    //         alert('فشلت العملية');
+    //     $('.parent').attr("hidden", false);
+    //         
     //     });
     // };
 //--------------------------------------------

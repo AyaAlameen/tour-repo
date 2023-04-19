@@ -3052,7 +3052,7 @@ input[type="button"].btn-block {
   color: #656565;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: var(--sidebar);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
@@ -3215,15 +3215,14 @@ input[type="button"].btn-block {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #212529;
+  color: var(--sidebar-link) !important;
   text-align: inherit;
   white-space: nowrap;
-  background-color: transparent;
+  background-color: var(--sidebar) !important;
   border: 0;
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #16181b;
   text-decoration: none;
   background-color: #f8f9fa;
 }
@@ -4054,6 +4053,7 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  align-items: center;
 }
 
 .navbar-nav .nav-link {
@@ -9530,7 +9530,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link {
   padding: 30px 15px;
-  color: var(--navi);
+  color: var(--sidebar-link);
   font-weight: 500;
   outline: none;
 }

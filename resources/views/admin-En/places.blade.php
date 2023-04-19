@@ -203,6 +203,7 @@ Add place
         <div class="product-cell">Phone</div>
         <div class="product-cell">URL</div>
         <div class="product-cell">cost</div>
+        <div class="product-cell">actions</div>
 
       </div>
       <div class="products-row">

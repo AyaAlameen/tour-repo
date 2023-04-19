@@ -259,4 +259,28 @@
   </div>
 </div>
  <!-- end favorite -->
+
+
+ <!-- alert message false-->
+<div id="popup"  class="parent " hidden="true" >
+  <div class="popup">
+    <img src="img/false.png">
+    <h3>فشلت العملية</h3>
+    
+    <button type="button" onclick='hide()'>"حسنا</button>
+  </div>
+  </div>
+  <!-- end alert message -->
+
+
+  <!-- alert message true-->
+<div id="popuptrue"  class="parenttrue" hidden="true" >
+  <div class="popuptrue">
+    <img src="img/true.png">
+    <h3>نجحت العملية</h3>
+    
+    <button type="button" onclick='hide()'>"حسنا</button>
+  </div>
+  </div>
+  <!-- end alert message -->
 <!-- partial -->
