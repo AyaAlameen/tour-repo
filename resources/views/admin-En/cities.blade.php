@@ -1,7 +1,7 @@
 @extends('adminLayout-En.master')
 @section('admincontent')
 
-<div class="app-content" style="overflow-y: scroll;">
+<div class="app-content" >
     <div class="app-content-header">
       <h1 class="app-content-headerText">Cities</h1>
       
@@ -117,6 +117,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
         })
         .always(function() {
@@ -147,6 +148,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         })
@@ -177,6 +179,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         })
@@ -199,6 +202,7 @@
             $("#cities-data").append(data);
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         });

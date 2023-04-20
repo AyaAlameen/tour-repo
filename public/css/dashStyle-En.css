@@ -55,6 +55,7 @@ body, html {
   padding: 0;
   height: 100%;
   width: 100%;
+
 }
 
 body {
@@ -444,6 +445,7 @@ a.text-primary:hover, a.text-primary:focus {
   max-height: 100%;
   overflow: auto;
   padding: 0 4px;
+  overflow-y: scroll;
 }
 
 .tableView .products-header {

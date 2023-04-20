@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
 
-<div class="app-content" style="overflow-y: scroll;">
+<div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">المدن</h1>
       

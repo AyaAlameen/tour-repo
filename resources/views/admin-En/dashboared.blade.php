@@ -66,7 +66,7 @@
    </div>
    <button class="app-content-headerButton" >Delete</button>
 
-   </div>>
+   </div>
    
   </div>
 </div>

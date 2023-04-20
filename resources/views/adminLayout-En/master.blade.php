@@ -98,9 +98,8 @@
 }
   }
   function hide() {
-     $('.parent').hide();  
-     $('.parentTrue').hide();   
-
+    $('.parent').attr("hidden", true);
+    $('.parenttrue').attr("hidden", true);
     }
   
 </script>
