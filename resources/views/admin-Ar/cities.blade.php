@@ -16,7 +16,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">مدينة جديدة</h5>
-        <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close m-0 " data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       
       <form id="add-form" action="" method="post" enctype="multipart/form-data">
@@ -125,6 +125,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         })
@@ -156,6 +157,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
         })
         .always(function() {
@@ -185,6 +187,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         })

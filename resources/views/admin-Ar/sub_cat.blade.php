@@ -233,6 +233,7 @@
             $('.parenttrue').attr("hidden", false);
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         })
@@ -263,6 +264,7 @@
             $('.parenttrue').attr("hidden", false);
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         })
@@ -292,6 +294,7 @@
             $('.parenttrue').attr("hidden", false);
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
         })
         .always(function() {

@@ -121,6 +121,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
             $('.parent').attr("hidden", false);
 
 
@@ -154,6 +155,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
             $('.parent').attr("hidden", false);
 
             
@@ -185,6 +187,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
             $('.parent').attr("hidden", false);
 
         })

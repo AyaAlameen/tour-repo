@@ -224,6 +224,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         })
@@ -255,7 +256,8 @@
 
         })
         .fail(function(){
-            alert('فشلت العملية');
+          $('.close').click();
+          $('.parent').attr("hidden", false);
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -284,6 +286,7 @@
 
         })
         .fail(function(){
+          $('.close').click();
           $('.parent').attr("hidden", false);
 
         })

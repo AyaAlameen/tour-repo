@@ -9782,3 +9782,16 @@ h6,
     border-color: gray !important;
 }
 
+.fa-pen
+{
+  color: green !important;
+}
+.fa-map-location-dot{
+  color: blue !important;
+}
+.fa-bus{
+  color: orange !important;
+}
+.fa-trash{
+  color: red !important;
+}

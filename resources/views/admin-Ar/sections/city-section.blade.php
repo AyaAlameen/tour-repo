@@ -91,7 +91,7 @@
                            </div>
                         </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
                              <button id="edit-city-btn-{{$city->id}}" onclick="editCity(`edit-form-{{$city->id}}`, {{$city->id}})" type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>

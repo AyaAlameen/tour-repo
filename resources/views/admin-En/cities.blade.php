@@ -202,7 +202,6 @@
             $("#cities-data").append(data);
         })
         .fail(function(){
-          $('.close').click();
           $('.parent').attr("hidden", false);
 
         });

@@ -118,6 +118,7 @@
             })
         .fail(function()
             {
+              $('.close').click();
               $('.parent').attr("hidden", false);
 
             })
@@ -150,6 +151,7 @@
             })
         .fail(function()
             {
+              $('.close').click();
               $('.parent').attr("hidden", false);
             })
             .always(function() {
@@ -177,11 +179,12 @@ function editCategory(formId, id){
                 $("#categories-data").empty();
                 $("#categories-data").append(data);
                 $('.close').click();
-            $('.parenttrue').attr("hidden", false);
+                $('.parenttrue').attr("hidden", false);
 
             })
         .fail(function()
             {
+              $('.close').click();
               $('.parent').attr("hidden", false);
             })
             .always(function() {
