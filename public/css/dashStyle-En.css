@@ -59,7 +59,7 @@ body, html {
 }
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: "Poppins", sans-serif;
   background-color: var(--app-bg);
   -webkit-font-smoothing: antialiased;
@@ -100,12 +100,14 @@ a.text-primary:hover, a.text-primary:focus {
   background:var(--header) !important ;
 }
 .sidebar {
+  overflow-y: scroll;
   flex-basis: 200px;
   max-width: 200px;
   flex-shrink: 0;
   background-color: var(--sidebar);
   display: flex;
   flex-direction: column;
+  
 }
 .sidebar-header {
   display: flex;
@@ -445,7 +447,7 @@ a.text-primary:hover, a.text-primary:focus {
   max-height: 100%;
   overflow: auto;
   padding: 0 4px;
-  overflow-y: scroll;
+  
 }
 
 .tableView .products-header {
