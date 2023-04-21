@@ -31,6 +31,20 @@
                             
                         </div>
 
+                        <div class="form-group d-flex first align-items-center">
+                            <label for="user_name"   class="col-md-4 col-form-label text-md-end">{{ __('username') }}</label>
+
+                            
+                                <input id="user_name" placeholder="eg.aya-alameen" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name">
+
+                                @error('user_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            
+                        </div>
+
                         <div class="form-group d-flex align-items-center">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
