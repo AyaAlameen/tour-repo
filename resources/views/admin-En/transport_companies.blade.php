@@ -7,7 +7,7 @@
     
  <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
- Add transport company
+ Add Transport Company
 </button>
 
 <!-- Modal -->
@@ -15,33 +15,36 @@
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">New company</h5>
+        <h5 class="modal-title" id="exampleModal3Label">New Company</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form id="add-form" action="" method="post" enctype="multipart/form-data">
+        @csrf
       <div class="modal-body">
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
      
               <tr>
                   <td>Name(Arabic) </td>
-                  <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th>      
+                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>      
               </tr>  
               <tr>
                   <td>Name(English) </td>
-                  <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th>      
+                  <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>      
               </tr>  
               <tr>
                   <td>email</td>
-                  <td ><input class="toggle text-primary in" type="email" name="company_email" required style="width: 100%;"></th>      
+                  <td ><input class="toggle text-primary in" type="email" name="email" required style="width: 100%;"></th>      
               </tr>     
               <tr>
                   <td>phone</td>
-                  <td ><input class="toggle text-primary in" type="number" name="company_phone" required style="width: 100%;"></th>      
+                  <td ><input class="toggle text-primary in" type="number" name="phone" required style="width: 100%;"></th>      
               </tr> 
       </table>
       </div>
+      </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active " data-bs-dismiss="modal">Close</button>
-        <button type="button" class="app-content-headerButton">Save</button>
+        <button type="button" class="action-button active close" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="add-company-btn" onclick="addCompany('add-form')" class="app-content-headerButton">Save</button>
       </div>
     </div>
   </div>
@@ -50,7 +53,7 @@
     <!-- end add -->
  
     <div class="app-content-actions">
-      <input class="search-bar" placeholder="Search..." type="text">
+      <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="Search By Name ..." type="text">
       <div class="app-content-actions-wrapper">
 
         <button class="action-button list" title="List View">
@@ -77,115 +80,166 @@
      
       </div>
     </div>
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView" id="companiesTable">
       <div class="products-header">
+        <div class="product-cell">#</div>
         <div class="product-cell">Name</div>
         <div class="product-cell">Email</div>
         <div class="product-cell">Phone</div>
         <div class="product-cell ">Actions</div>
-
-
-
-
- 
-
       </div>
-      <div class="products-row">
-        <button class="cell-more-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-        </button>
-          <div class="product-cell">
-            <span>الأمير</span>
-          </div>
-          <div class="product-cell">
-            @gmail.com
-        </div>
-        <div class="product-cell">
-          09673628268
-        </div>
-        <div class="product-cell">
-     <!-- start action -->
-<div class="p-3">
-
-                 <!-- delete -->
-                 <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
-                              <!-- Modal -->
-                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                    </div>
-                                    <div class="modal-body">
-                                      Are you shure that you want to delete This City ?
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="app-content-headerButton">Yes</button>
-                                    </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            <!-- end delete -->
-
-                     <!-- edit -->
-                     <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
-
-                          <!-- Modal -->
-                     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                       <div class="modal-dialog">
-                         <div class="modal-content">
-                           <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                               <span aria-hidden="true">&times;</span>
-                             </button>
-                           </div>
-                           <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
-                         
-                           <tr>
-                  <td>Name(Arabic) </td>
-                  <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th>      
-              </tr>  
-              <tr>
-                  <td>Name(English) </td>
-                  <td ><input type="text" class="toggle text-primary in" name="company_name" required style="width: 100%;"></th>      
-              </tr>    
-                        
-    
-                  <tr> 
-                         <td>email</td>
-                         <td ><input type="email" class="toggle text-primary in" value="@gmail.com" style="width: 100%;"></td>  
-                           
-                  </tr>     
-                  <tr> 
-                         <td>Phone</td>
-                         <td ><input type="number" class="toggle text-primary in" value="0963272332" style="width: 100%;"></td>  
-                           
-                  </tr>     
-      
-                               </table>
-                            
-                           </div>
-                           <div class="modal-footer">
-                <button type="button" class="action-button active " data-dismiss="modal">Close</button>
-                             <button type="submit" class="app-content-headerButton">Save changes</button>
-                           </div>
-                         </div>
-                       </div>
-                       </div>
-                     <!-- end edit -->
-   
-</div>
-  <!-- end action -->
-      
-
-      </div>
-      </div>
+      <div id="companies-data">
+        
       </div>
     </div>
   </div>
+</div>
+</div>
 @endsection
+
+<script>
+    function addCompany(formId){
+        $("#add-company-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-form'));
+        $.ajax({
+            url: "{{route('addTransportCompanyEn')}}" ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#companies-data").empty();
+            $("#companies-data").append(data);
+            $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
+        })
+        .fail(function(){
+          $('.close').click();
+            $('.parent').attr("hidden", false);
+
+
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#add-company-btn").attr("disabled", false).html('Save');
+        });
+    }
+    //----------------------------------------------------------
+
+    function editCompany(formId, id){
+
+        $("#edit-company-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        $.ajax({
+            url: `{{route('editTransportCompanyEn')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#companies-data").empty();
+            $("#companies-data").append(data);
+            $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
+
+        })
+        .fail(function(){
+          $('.close').click();
+            $('.parent').attr("hidden", false);
+
+            
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#edit-company-btn-"+id).attr("disabled", false).html('Save Changes');
+        });
+    }
+
+    //---------------------------------------------------------------
+    function deleteCompany(formId, id){
+        $("#delete-company-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+            url: `{{route('deleteTransportCompanyEn')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#companies-data").empty();
+            $("#companies-data").append(data);
+            $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
+        })
+        .fail(function(){
+          $('.close').click();
+            $('.parent').attr("hidden", false);
+
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#delete-company-btn-"+id).attr("disabled", false).html('Yes');
+        });
+    }
+
+    //---------------------------------------------------------------
+    window.onload = (event) => {
+        $.ajax({
+            url: "{{route('getTransportCompaniesEn')}}" ,
+            type: "GET",
+            processData: false, 
+            cache: false,
+            contentType: false,
+        }) 
+        .done(function(data){
+            $("#companies-data").append(data);
+        })
+        .fail(function(){
+            $('.parent').attr("hidden", false);
+
+
+        });
+    };
+    //--------------------------------------------------------
+
+    function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value;
+        table = document.getElementById("companiesTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
+                
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                
+                if(txtValue){
+
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+    
+//--------------------------------------------
+</script>

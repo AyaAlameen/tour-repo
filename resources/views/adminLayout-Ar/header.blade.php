@@ -277,7 +277,7 @@
     <img src="img/false.png">
     <h3>فشلت العملية</h3>
     
-    <button type="button" onclick='hide()'>"حسنا</button>
+    <button type="button" onclick='hide()'>ًحسنا</button>
   </div>
   </div>
   <!-- end alert message -->
@@ -289,7 +289,7 @@
     <img src="img/true.png">
     <h3>نجحت العملية</h3>
     
-    <button type="button" onclick='hide()'>"حسنا</button>
+    <button type="button" onclick='hide()'>ًحسنا</button>
   </div>
   </div>
   <!-- end alert message -->

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\TransportCompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,12 @@ Route::get('/transport_companies_en', function () {
     return view('admin-En.transport_companies');
 }) -> name('transport_company_en');
 
+Route::get('/en/transport_companies', [TransportCompanyController::class, 'indexEn']) -> name('getTransportCompaniesEn');
+Route::post('/transport_companies_en', [TransportCompanyController::class, 'storeEn']) -> name('addTransportCompanyEn');
+Route::post('/transport_companies_en/edit', [TransportCompanyController::class, 'updateEn']) -> name('editTransportCompanyEn');
+Route::post('/transport_companies_en/delete', [TransportCompanyController::class, 'destroyEn']) -> name('deleteTransportCompanyEn');
+
+
 Route::get('/groups_en', function () {
     return view('admin-En.groups');
 }) -> name('groupe_en');
@@ -184,6 +191,12 @@ Route::get('/tourist_guide_ar', function () {
 Route::get('/transport_companies_ar', function () {
     return view('admin-Ar.transport_companies');
 }) -> name('transport_company_ar');
+
+Route::get('/ar/transport_companies', [TransportCompanyController::class, 'indexAr']) -> name('getTransportCompaniesAr');
+Route::post('/transport_companies_ar', [TransportCompanyController::class, 'storeAr']) -> name('addTransportCompanyAr');
+Route::post('/transport_companies_ar/edit', [TransportCompanyController::class, 'updateAr']) -> name('editTransportCompanyAr');
+Route::post('/transport_companies_ar/delete', [TransportCompanyController::class, 'destroyAr']) -> name('deleteTransportCompanyAr');
+
 
 Route::get('/groups_ar', function () {
     return view('admin-Ar.groups');
