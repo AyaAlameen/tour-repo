@@ -32,7 +32,7 @@
    
 </head>
 
-<body onbeforeunload="switch_mode()" >
+<body>
 
 
 

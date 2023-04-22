@@ -79,6 +79,7 @@
       <div class="product-cell">#</div>
         <div class="product-cell">Name</div>
         <div class="product-cell image ">Image</div>
+        <div class="product-cell">Districts</div>
         <div class="product-cell ">Actions</div>
 
 

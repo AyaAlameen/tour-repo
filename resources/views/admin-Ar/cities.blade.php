@@ -87,6 +87,7 @@
       <div class="product-cell">#</div>
         <div class="product-cell">الاسم</div>
         <div class="product-cell image ">الصورة</div>
+        <div class="product-cell">النواحي</div>
         <div class="product-cell ">الأحداث</div>
 
 

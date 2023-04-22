@@ -57,7 +57,7 @@ body, html {
 }
 
 body {
-  /* overflow: hidden; */
+  overflow: scroll;
   font-family: 'rawy-thin' ;
   background-color: var(--app-bg);
   -webkit-font-smoothing: antialiased;
@@ -202,7 +202,7 @@ a.text-primary:hover, a.text-primary:focus {
 }
 .account-info-name {
   font-size: 14px;
-  color: var(--navi);
+  color: var(--sidebar-link);
   margin: 0 8px;
   overflow: hidden;
   max-width: 100%;
@@ -210,7 +210,7 @@ a.text-primary:hover, a.text-primary:focus {
   white-space: nowrap;
 }
 .account-info-more {
-  color: var(--navi);
+  color: var(--sidebar-link);
   padding: 0;
   border: none;
   background-color: transparent;
