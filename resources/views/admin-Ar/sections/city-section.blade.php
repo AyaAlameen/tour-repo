@@ -15,7 +15,7 @@
             <img src="{{ asset(str_replace(app_path(),'',$city -> image))}}"  alt="product">
           </div>
           <div class="product-cell">
-            <button class="app-content-headerButton"><a href="" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button></div>
+            <button class="app-content-headerButton"><a href="{{route ('getDistrictsAr', ['id' => $city->id])}}" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button></div>
 
           <div class="product-cell">
      <!-- start action -->
@@ -123,7 +123,7 @@
             <img src="{{ asset(str_replace(app_path(),'',$city -> image))}}"  alt="product">
           </div>
           <div class="product-cell">
-            <button class="app-content-headerButton"><a href="" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button></div>
+            <button class="app-content-headerButton"><a href="{{route ('getDistrictsAr', ['id' => $city->id])}}" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button></div>
 
           <div class="product-cell">
      <!-- start action -->

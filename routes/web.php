@@ -6,6 +6,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\TransportCompanyController;
 use App\Http\Controllers\TouristGuideController;
+use App\Http\Controllers\DistrictController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,9 +69,15 @@ Route::get('/services_en', function () {
     return view('admin-En.services');
 }) -> name('service_en');
 
-Route::get('/dist_en', function () {
-    return view('admin-En.districts');
-}) -> name('dist_en');
+// Route::get('/dist_en', function () {
+//     return view('admin-En.districts');
+// }) -> name('dist_en');
+
+Route::get('/dist_en/{id}', [DistrictController::class, 'indexEn']) -> name('getDistrictsEn');
+Route::post('/districts_en', [DistrictController::class, 'storeEn']) -> name('addDistrictEn');
+Route::post('/districts_en/edit', [DistrictController::class, 'updateEn']) -> name('editDistrictEn');
+Route::post('/districts_en/delete', [DistrictController::class, 'destroyEn']) -> name('deleteDistrictEn');
+
 
 Route::get('/events_en', function () {
     return view('admin-En.events');
@@ -167,9 +174,16 @@ Route::get('/services_ar', function () {
     return view('admin-Ar.services');
 }) -> name('service_ar');
 
-Route::get('/dist_ar', function () {
-    return view('admin-Ar.districts');
-}) -> name('dist_ar');
+// Route::get('/dist_ar', function () {
+//     return view('admin-Ar.districts');
+// }) -> name('dist_ar');
+
+Route::get('/dist_ar/{id}', [DistrictController::class, 'indexAr']) -> name('getDistrictsAr');
+Route::post('/districts_ar', [DistrictController::class, 'storeAr']) -> name('addDistrictAr');
+Route::post('/districts_ar/edit', [DistrictController::class, 'updateAr']) -> name('editDistrictAr');
+Route::post('/districts_ar/delete', [DistrictController::class, 'destroyAr']) -> name('deleteDistrictAr');
+
+
 
 Route::get('/events_ar', function () {
     return view('admin-Ar.events');

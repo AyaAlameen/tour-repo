@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\District;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class DistrictController extends Controller
@@ -12,9 +13,18 @@ class DistrictController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexAr($id)
     {
-        //
+        $districts = District::with('translations')->where('city_id', $id)->get();
+        $city = City::find($id);
+        return view('admin-Ar.districts', ['districts' => $districts, 'city' => $city]);
+    }
+
+    public function indexEn($id)
+    {
+        $districts = District::with('translations')->where('city_id', $id)->get();
+        $city = City::find($id);
+        return view('admin-En.districts', ['districts' => $districts, 'city' => $city]);
     }
 
     /**
@@ -33,9 +43,55 @@ class DistrictController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeAr(Request $request)
     {
-        //
+        $data=$request->input();
+        //validation:
+        $request->validate([
+            'city_id' => 'required',
+            'name_ar' => 'required',
+            'name_en' => 'required',
+        ]);
+        $district = new District;
+
+        $district->city_id = $request->input('city_id');
+        $district->save();
+
+        $district->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
+        $district->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
+
+        $districts = District::with('translations')->where('city_id', $request->input('city_id'))->get();
+        $city = City::find($request->input('city_id'));
+        
+        return view("admin-Ar.sections.district-section")->with(['districts' => $districts, 'city' => $city]);
+
+
+    }
+
+    public function storeEn(Request $request)
+    {
+        $data=$request->input();
+        //validation:
+        $request->validate([
+            'city_id' => 'required',
+            'name_ar' => 'required',
+            'name_en' => 'required',
+        ]);
+        $district = new District;
+
+        $district->city_id = $request->input('city_id');
+        $district->save();
+
+        $district->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
+        $district->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
+
+        $districts = District::with('translations')->where('city_id', $request->input('city_id'))->get();
+        $city = City::find($request->input('city_id'));
+        
+        return view("admin-En.sections.district-section")->with(['districts' => $districts, 'city' => $city]);
+
+
+
     }
 
     /**
@@ -67,10 +123,69 @@ class DistrictController extends Controller
      * @param  \App\Models\District  $district
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, District $district)
+    public function updateAr(Request $request)
     {
-        //
+
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'city_id' => 'required',
+        ]);
+
+        $district = District::find($data['id']);
+
+
+        $district->translations()->where('locale', 'en')->update([
+            'name'=>  $data['name_en']
+        ]);
+        $district->translations()->where('locale', 'ar')->update([
+            'name'=>  $data['name_ar']
+        ]);
+        $district->city_id = $request->input('city_id');
+        
+        $district->update();
+        
+        $districts = District::with('translations')->where('city_id', $request->input('city_id'))->get();
+        $city = City::find($request->input('city_id'));
+        
+        return view("admin-Ar.sections.district-section")->with(['districts' => $districts, 'city' => $city]);
+
     }
+
+    public function updateEn(Request $request)
+    {
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'city_id' => 'required',
+        ]);
+
+        $district = District::find($data['id']);
+
+
+        $district->translations()->where('locale', 'en')->update([
+            'name'=>  $data['name_en']
+        ]);
+        $district->translations()->where('locale', 'ar')->update([
+            'name'=>  $data['name_ar']
+        ]);
+        $district->city_id = $request->input('city_id');
+        
+        $district->update();
+        
+        $districts = District::with('translations')->where('city_id', $request->input('city_id'))->get();
+        $city = City::find($request->input('city_id'));
+        
+        return view("admin-En.sections.district-section")->with(['districts' => $districts, 'city' => $city]);
+
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -78,8 +193,43 @@ class DistrictController extends Controller
      * @param  \App\Models\District  $district
      * @return \Illuminate\Http\Response
      */
-    public function destroy(District $district)
+    public function destroyAr(Request $request)
     {
-        //
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'city_id' => 'required',
+        ]);
+
+        $district = District::find($data['id']);
+        $district->translations()->delete();
+        $district->delete();
+
+        $districts = District::with('translations')->where('city_id', $request->input('city_id'))->get();
+        $city = City::find($request->input('city_id'));
+        
+        return view("admin-Ar.sections.district-section")->with(['districts' => $districts, 'city' => $city]);
+
+    }
+
+    public function destroyEn(Request $request)
+    {
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'city_id' => 'required',
+        ]);
+
+        $district = District::find($data['id']);
+        $district->translations()->delete();
+        $district->delete();
+
+        $districts = District::with('translations')->where('city_id', $request->input('city_id'))->get();
+        $city = City::find($request->input('city_id'));
+        
+        return view("admin-En.sections.district-section")->with(['districts' => $districts, 'city' => $city]);
+
     }
 }
