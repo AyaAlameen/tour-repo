@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\TransportCompanyController;
+use App\Http\Controllers\TouristGuideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +95,12 @@ Route::get('/events_booking_en', function () {
 Route::get('/tourist_guide_en', function () {
     return view('admin-En.tourist_guide');
 }) -> name('tourist_guide_en');
+
+Route::get('/en/tourist_guide', [TouristGuideController::class, 'indexEn']) -> name('getTouristGuideEn');
+Route::post('/tourist_guide_en', [TouristGuideController::class, 'storeEn']) -> name('addTouristGuideEn');
+Route::post('/tourist_guide_en/edit', [TouristGuideController::class, 'updateEn']) -> name('editTouristGuideEn');
+Route::post('/tourist_guide_en/delete', [TouristGuideController::class, 'destroyEn']) -> name('deleteTouristGuideEn');
+
 
 Route::get('/transport_companies_en', function () {
     return view('admin-En.transport_companies');
@@ -187,6 +194,13 @@ Route::get('/events_booking_ar', function () {
 Route::get('/tourist_guide_ar', function () {
     return view('admin-Ar.tourist_guide');
 }) -> name('tourist_guide_ar');
+
+Route::get('/ar/tourist_guide', [TouristGuideController::class, 'indexAr']) -> name('getTouristGuideAr');
+Route::post('/tourist_guide_ar', [TouristGuideController::class, 'storeAr']) -> name('addTouristGuideAr');
+Route::post('/tourist_guide_ar/edit', [TouristGuideController::class, 'updateAr']) -> name('editTouristGuideAr');
+Route::post('/tourist_guide_ar/delete', [TouristGuideController::class, 'destroyAr']) -> name('deleteTouristGuideAr');
+
+
 
 Route::get('/transport_companies_ar', function () {
     return view('admin-Ar.transport_companies');

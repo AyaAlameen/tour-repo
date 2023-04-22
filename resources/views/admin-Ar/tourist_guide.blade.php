@@ -7,7 +7,7 @@
       
             <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-إضافة دليل ياحي
+إضافة دليل سياحي
 </button>
 
 <!-- Modal -->
@@ -18,58 +18,63 @@
         <h5 class="modal-title" id="exampleModal3Label">دليل سياحي جديد</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form id="add-form" action="" method="post" enctype="multipart/form-data">
+        @csrf
       <div class="modal-body">
       <table style=" width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
-                 
-                  <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
+                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>   
                   <td>الاسم(العربية)</td>   
               </tr>  
               <tr>
-                 
-                 <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
+                 <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>   
                  <td>(الإنجليزية)الاسم </td>   
              </tr> 
               <tr>
-                 
-                  <td><input type="file" class="toggle text-primary in"  name="tour_image" required style="width: 100%;"></th>    
+                  <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>    
                   <td >الصورة </td>  
               </tr> 
                
               <tr>
-                  
-                  <td ><input class="toggle text-primary in" type="number" name="tour_phone" required style="width: 100%;"></th> 
+                  <td ><input class="toggle text-primary in" type="number" name="phone" required style="width: 100%;"></th> 
                   <td>الهاتف</td>     
               </tr>
                   
               <tr>
-                  
-                  <td ><input class="toggle text-primary in" type="email" name="tour-email" required style="width: 100%;"></th>
+                  <td ><input class="toggle text-primary in" type="email" name="email" required style="width: 100%;"></th>
                   <td>الايميل</td>      
               </tr>  
  
               <tr>
-                 
-                  <td ><input class="toggle text-primary in" type="number" name="tour_salary" required style="width: 100%;"></th>  
+                  <td ><input class="toggle text-primary in" type="number" name="salary" required style="width: 100%;"></th>  
                   <td>الراتب</td>    
               </tr>
               <tr>
-                  
-                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>المهارات(العربية)</td>     
               </tr>
               <tr>
-                  
-                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></th> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="description_en" style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>(الانكليزية)المهارات</td>     
+              </tr>
+
+              <tr>
+                  <td ><textarea class="toggle text-primary in mt-2"  name="certificates_ar" style="width: 100%; height:27.5px;"></textarea></th> 
+                  <td>(العربية)الشهادات</td>     
+              </tr>
+
+              <tr>
+                  <td ><textarea class="toggle text-primary in mt-2"  name="certificates_en" style="width: 100%; height:27.5px;"></textarea></th> 
+                  <td>(الإنجليزية)الشهادات</td>     
               </tr>
              
       </table>
       </div>
+      </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
-        <button type="button" class="app-content-headerButton">حفظ</button>
+        <button type="button" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" id="add-guide-btn" onclick="addGuide('add-form')" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
   </div>
@@ -78,7 +83,7 @@
     <!-- end add -->
   
     <div class="app-content-actions">
-      <input class="search-bar" placeholder="...ابحث" type="text">
+      <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم" type="text">
       <div class="app-content-actions-wrapper">
 
         <button class="action-button list" title="عرض جدول">
@@ -106,151 +111,173 @@
       
       </div>
     </div>
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView" id="guidesTable">
       <div class="products-header">
+        <div class="product-cell">#</div>
         <div class="product-cell">الاسم</div>
         <div class="product-cell image ">الصورة</div>
         <div class="product-cell">الهاتف</div>
         <div class="product-cell">الايميل</div>
         <div class="product-cell">الراتب</div>
         <div class="product-cell">المهارات</div>
+        <div class="product-cell">الشهادات</div>
         <div class="product-cell ">الأحداث</div>
-
-
-
- 
-
       </div>
-      <div class="products-row">
-        <button class="cell-more-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-        </button>
-          <div class="product-cell">
-            <span>أحمد</span>
-          </div>
-          <div class="product-cell">
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="product">
-          </div>
-          <div class="product-cell">
-            <span>0949049921</span>
-          </div>
-          <div class="product-cell">
-            <span>@gmail.com</span>
-          </div>
-          <div class="product-cell">
-            <span>500000</span>
-          </div>
-          <div class="product-cell">
-            <span>----</span>
-          </div>
-          <div class="product-cell">
-     <!-- start action -->
-<div class="p-3">
+      <div id="guides-data">
 
-                 <!-- delete -->
-                 <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
-                              <!-- Modal -->
-                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                    </div>
-                                    <div class="modal-body">
-                                    هل أنت متأكد من أنك تريد حذف هذا الدليل السياحي؟
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                                      <button type="submit" class="app-content-headerButton">نعم</button>
-                                    </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            <!-- end delete -->
-
-                     <!-- edit -->
-                     <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
-
-                          <!-- Modal -->
-                     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                       <div class="modal-dialog">
-                         <div class="modal-content">
-                           <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                               <span aria-hidden="true">&times;</span>
-                             </button>
-                           </div>
-                           <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
-
-                           <tr>
-                 
-                 <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
-                 <td>الاسم(العربية)</td>   
-             </tr>  
-             <tr>
-                
-                <td ><input type="text" class="toggle text-primary in" name="tour_name" required style="width: 100%;"></th>   
-                <td>(الإنجليزية)الاسم </td>   
-            </tr>   
-                    
-                       <tr>
-                       
-                       <td ><input type="file" hidden id="img"> 
-                            <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                            <td>الصورة </td>
-                          </tr>  
       
-                       
-                    <tr> 
-                         
-                         <td ><input type="number" class="toggle text-primary in" value="0963272332"></td>  
-                         <td>الهاتف</td>
-                  </tr>     
-                  <tr> 
-                         
-                         <td ><input type="email" class="toggle text-primary in" value="ahmad@gmail.com"></td>  
-                         <td>الايميل</td>
-                  </tr>     
-                  
-                  <tr> 
-                        
-                         <td ><input type="number" class="toggle text-primary in" value="2000000"></td>  
-                         <td>الراتب</td>
-                  </tr>     
-                  <tr>
-                  
-                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></td> 
-                  <td>المهارات(العربية)</td>     
-              </tr>
-              <tr>
-                  
-                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">---</textarea></td> 
-                  <td>(الانكليزية)المهارات</td>     
-              </tr>    
-                  
-                               </table>
-                            
-                           </div>
-                           <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">لإغلاق</button>
-                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
-                           </div>
-                         </div>
-                       </div>
-                       </div>
-                     <!-- end edit -->
-   
-</div>
-  <!-- end action -->
-      
-
-      </div>
       </div>
       </div>
     </div>
   </div>
+  </div>
 @endsection
+
+<script>
+ 
+    function addGuide(formId){
+        $("#add-guide-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-form'));
+        $.ajax({
+            url: "{{route('addTouristGuideAr')}}" ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#guides-data").empty();
+            $("#guides-data").append(data);
+            $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
+        })
+        .fail(function(){
+          $('.close').click();
+            $('.parent').attr("hidden", false);
+
+
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#add-guide-btn").attr("disabled", false).html('حفظ');
+        });
+    }
+    //----------------------------------------------------------
+
+    function editGuide(formId, id){
+
+        $("#edit-guide-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        $.ajax({
+            url: `{{route('editTouristGuideAr')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#guides-data").empty();
+            $("#guides-data").append(data);
+            $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
+
+        })
+        .fail(function(){
+          $('.close').click();
+            $('.parent').attr("hidden", false);
+
+            
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#edit-guide-btn-"+id).attr("disabled", false).html('حفظ');
+        });
+    }
+
+    //---------------------------------------------------------------
+    function deleteGuide(formId, id){
+        $("#delete-guide-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+            url: `{{route('deleteTouristGuideAr')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data){   
+            $("#guides-data").empty();
+            $("#guides-data").append(data);
+            $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
+        })
+        .fail(function(){
+          $('.close').click();
+            $('.parent').attr("hidden", false);
+
+        })
+        .always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#delete-guide-btn-"+id).attr("disabled", false).html('نعم');
+        });
+    }
+
+    //---------------------------------------------------------------
+    window.onload = (event) => {
+        $.ajax({
+            url: "{{route('getTouristGuideAr')}}" ,
+            type: "GET",
+            processData: false, 
+            cache: false,
+            contentType: false,
+        }) 
+        .done(function(data){
+            $("#guides-data").append(data);
+        })
+        .fail(function(){
+            $('.parent').attr("hidden", false);
+
+
+        });
+    };
+    //--------------------------------------------------------
+
+    function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value;
+        table = document.getElementById("guidesTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        console.log(tr);
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
+                
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                console.log(i, td[0],td[0].textContent);
+                if(txtValue){
+                    console.log(txtValue, filter);
+
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+    
+//--------------------------------------------
+</script>
