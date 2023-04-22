@@ -39,7 +39,51 @@
         @include('adminLayout-Ar.header')
         @yield('admincontent')
         @include('adminLayout-Ar.footer')
+<script>
+  //switch and save mode
+const modeElement =document.querySelector('.mode-switch');
+console.log(modeElement)
+var isDarkMode= false;
+console.log(isDarkMode)
+modeElement.addEventListener('click', function () {       
+  if (isDarkMode){
+  document.documentElement.classList.remove('light');
+  modeElement.classList.remove("active")
+  isDarkMode=false;
+  console.log(isDarkMode)
+}
+else{
+  document.documentElement.classList.add('light');
+  modeElement.classList.add("active")
+  isDarkMode=true;
+  console.log(isDarkMode)
 
+}
+if(isDarkMode){
+  localStorage.setItem('myTheme','light')
+}
+else{
+  localStorage.setItem('myTheme','dark')
+}
+  });
+  console.log(isDarkMode)
+
+
+//get mode
+
+const  savedTheme=localStorage.getItem('myTheme');
+console.log("store : "+localStorage.getItem('myTheme'))
+if(savedTheme=='light'){
+  document.documentElement.classList.add('light');
+  modeElement.classList.add("active")
+  isDarkMode=true;
+}
+else{
+  document.documentElement.classList.remove('light');
+  modeElement.classList.remove("active")
+  isDarkMode=false;
+}
+</script>
 <!-- bootsrap -->
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>

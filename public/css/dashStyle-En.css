@@ -69,14 +69,13 @@ body {
 .app-container {
   border-radius: var(--radius);
   width: 100%;
-  height: 100%;
-  max-height: 100%;
   max-width: 1280px;
   display: flex;
   overflow: hidden;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   max-width: 2000px;
   margin: 0 auto;
+background-color: var(--app-bg);
 }
 .toggle{
   background-color: var(--header) !important;
@@ -100,7 +99,6 @@ a.text-primary:hover, a.text-primary:focus {
   background:var(--header) !important ;
 }
 .sidebar {
-  overflow-y: scroll;
   flex-basis: 200px;
   max-width: 200px;
   flex-shrink: 0;
@@ -445,7 +443,6 @@ a.text-primary:hover, a.text-primary:focus {
 .products-area-wrapper {
   width: 100%;
   max-height: 100%;
-  overflow: auto;
   padding: 0 4px;
   
 }
