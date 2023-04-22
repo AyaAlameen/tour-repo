@@ -10,7 +10,7 @@ use App\Models\Translation;
 class TouristGuide extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['image', 'phone', 'email'];
+    protected $fillable = ['image', 'phone', 'email', 'salary'];
 
     public function translations()
     {

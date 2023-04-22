@@ -22,6 +22,7 @@ class CreateTouristGuidesTable extends Migration
             // $table->text('certificates');
             $table->string('phone');
             $table->string('email');
+            $table->integer('salary');
             $table->timestamps();
             $table->softDeletes();
         });

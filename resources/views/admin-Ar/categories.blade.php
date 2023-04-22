@@ -93,7 +93,9 @@
                 <div class="product-cell ">الأحداث</div>
             </div>
             
-            <div id="categories-data"></div>
+            <div id="categories-data">
+              
+            </div>
 </div>
       </div>
     </div>
