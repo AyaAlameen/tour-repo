@@ -38,8 +38,31 @@
     <h6 class="card-subtitle mb-2 text-muted" style="text-align:end;">useremail@gmail.com</h6>
     <p class="card-text" style="color:var(--title-color); text-align:end;" >كان الموقع جميل و مفيد و اطلعنا على حضارة سورية و ثقافتها </p>
     <div class="d-flex" style="justify-content: space-between;">
-    
-   <button class="app-content-headerButton" >حذف</button>
+     <!-- delete -->
+   <button class="app-content-headerButton"style="font-size:14px;" data-toggle="modal" data-target="#exampleModal2"  data-toggle="tooltip" >حذف</button>
+
+
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                     هل أنت متأكد من أنك تريد حذف هذه الرسالة؟
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                                      <button type="submit" class="app-content-headerButton">نعم</button>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                  
+                            <!-- end delete -->
 
    <div class="d-flex align-items-center">
    <lable class="ml-4" for="1" >رأيت</lable>
@@ -53,27 +76,7 @@
 </div>
 <!-- endcard -->
 
-       <!-- startcard -->
-       <div class="card w-auto mb-4" style="padding-inline:80px; background-color:var(--header);">
-  <div class="card-body">
-    <h5 class="card-title" style="color:var(--title-color); text-align:end;" >المستخدم الثاني</h5>
-    <h6 class="card-subtitle mb-2 text-muted" style="text-align:end;">useremail@gmail.com</h6>
-    <p class="card-text" style="color:var(--title-color); text-align:end;" >كان الموقع جميل و مفيد و اطلعنا على حضارة سورية و ثقافتها </p>
-    <div class="d-flex" style="justify-content: space-between;">
-    
-   <button class="app-content-headerButton" >حذف</button>
-
-   <div class="d-flex align-items-center">
-   <lable class="ml-4" for="1" >رأيت</lable>
-   <input class="ml-1" type="checkbox" id="1"/>
-   <lable class="ml-3" for="2" >نشر</lable>
-   <input class="ml-1" type="checkbox" id="2"/>
-   </div>
-   </div>
    
-  </div>
-</div>
-<!-- endcard -->
       </div>
     </div>
   </div> 

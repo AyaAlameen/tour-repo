@@ -44,34 +44,36 @@
    <input class="mr-1" type="checkbox" id="2"/>
    <lable for="2" >post</lable>
    </div>
-   <button class="app-content-headerButton" >Delete</button>
-
+                 <!-- delete -->
+   <button data-toggle="modal" data-target="#exampleModal2" ata-toggle="tooltip" class="app-content-headerButton" >Delete</button>
+                 
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Are you shure that you want to delete This message ?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="action-button active" data-dismiss="modal">Close</button>
+                                      <button type="submit" class="app-content-headerButton">Yes</button>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <!-- end delete -->
    </div>
    
   </div>
 </div>
 <!-- endcard -->
 
-  <!-- startcard -->
-  <div class="card w-auto" style="padding-inline:80px; background-color:var(--header);">
-  <div class="card-body">
-    <h5 class="card-title" style="color:var(--title-color);" >user name1</h5>
-    <h6 class="card-subtitle mb-2 text-muted">useremail@gmail.com</h6>
-    <p class="card-text" style="color:var(--title-color);" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   <div class="d-flex" style="justify-content: space-between;">
-     <div class="d-flex align-items-center">
-   <input class="mr-1" type="checkbox" id="1"/>
-   <lable class="mr-4" for="1" >seen</lable>
-   <input class="mr-1" type="checkbox" id="2"/>
-   <lable for="2" >post</lable>
-   </div>
-   <button class="app-content-headerButton" >Delete</button>
-
-   </div>
-   
-  </div>
-</div>
-<!-- endcard -->
       </div>
     </div>
   </div>

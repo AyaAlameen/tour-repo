@@ -4,7 +4,7 @@
 <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">النواحي</h1>
-    <h3 class="app-content-headerText pl-5">[{{$city->translations()->where('locale', 'ar')->first()->name}}]</h3>
+    <h3 class="app-content-headerText">"{{$city->translations()->where('locale', 'ar')->first()->name}}"</h3>
       
 
           <!-- add -->
