@@ -4,7 +4,7 @@
 <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">Sub_Categories</h1>
-    <h3 class="app-content-headerText pl-5">[{{$category->translations()->where('locale', 'en')->first()->name}}]</h3>
+    <h3 class="app-content-headerText">"{{$category->translations()->where('locale', 'en')->first()->name}}"</h3>
 
 
     

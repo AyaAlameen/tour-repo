@@ -4,7 +4,7 @@
 <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">الصنف الفرعي</h1>
-    <h3 class="app-content-headerText pl-5">[{{$category->translations()->where('locale', 'ar')->first()->name}}]</h3>
+    <h3 class="app-content-headerText ">"{{$category->translations()->where('locale', 'ar')->first()->name}}"</h3>
  <!-- add -->
  <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
  إضافة صنف فرعي

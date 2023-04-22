@@ -50,9 +50,9 @@ Route::post('/sub_category_en', [SubCategoryController::class, 'storeEn']) -> na
 Route::post('/sub_category_en/edit', [SubCategoryController::class, 'updateEn']) -> name('editSubCategoryEn');
 Route::post('/sub_category_en/delete', [SubCategoryController::class, 'destroyEn']) -> name('deleteSubCategoryEn');
 
-// Route::get('/sub_cat_en', function () {
-//     return view('admin-En.sub_cat');
-// }) -> name('sub_category_en');
+Route::get('/message_en', function () {
+    return view('admin-En.messages');
+}) -> name('message_en');
 
 Route::get('/place_en', function () {
     return view('admin-En.places');
@@ -136,9 +136,9 @@ Route::post('/cat_ar', [CategoryController::class, 'storeAr']) -> name('addCateg
 Route::post('/cat_ar/edit', [CategoryController::class, 'updateAr']) -> name('editCategoryAr');
 Route::post('/cat_ar/delete', [CategoryController::class, 'destroyAr']) -> name('deleteCategoryAr');
 
-// Route::get('/sub_cat_ar', function () {
-//     return view('admin-Ar.sub_cat');
-// }) -> name('sub_category_ar');
+Route::get('/message_ar', function () {
+    return view('admin-Ar.messages');
+}) -> name('message_ar');
 
 Route::get('/sub_category_ar/{id}', [SubCategoryController::class, 'indexAr']) -> name('getSubCategoriesAr');
 Route::post('/sub_category_ar', [SubCategoryController::class, 'storeAr']) -> name('addSubCategoryAr');

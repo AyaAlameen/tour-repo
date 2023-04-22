@@ -4,6 +4,8 @@
 <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">Districts</h1>
+    <h3 class="app-content-headerText">"Aleppo"</h3>
+
           <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
  Add District
@@ -28,23 +30,7 @@
                   <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>      
               </tr>    
              
-              <tr>
-                <td>City</td>   
-                  
-                  <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
-                    
-                  </lable>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">--</a>
-                    <a class="dropdown-item" href="#">---</a>
-                    <a class="dropdown-item" href="#">---</a>
-                    <a class="dropdown-item" href="#">---</a>
-                 
-               
-                  </div>
-                </div></td>   
-              </tr> 
+
               
       </table>
       </div>
@@ -61,29 +47,7 @@
     <div class="app-content-actions">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
-        <!-- filter -->
-        <div class="filter-button-wrapper">
-          <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
-          <div class="filter-menu">
-            <label>Cyties</label>
-            <select>
-              <option>All Cities</option>
-              <option>Aleppo</option>
-              <option>Damaskuse</option>       
-              <option>Latakia</option>
-              <option>Hama</option>
-              <option>Homs</option>
-            </select>
-            
-            <div class="filter-menu-buttons">
-    
-              <button class="filter-button apply">
-                Apply
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- end filter -->
+
         <button class="action-button list" title="List View">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
         </button>
@@ -111,7 +75,6 @@
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">Name</div>
-        <div class="product-cell  ">City</div>
         <div class="product-cell ">Actions</div>
         
 
@@ -123,9 +86,7 @@
           <div class="product-cell">
             <span> الفرقان</span>
           </div>
-          <div class="product-cell">
-            <span>حلب</span>
-            </div>
+
 
             <div class="product-cell">
      <!-- start action -->
@@ -178,23 +139,6 @@
                   <td ><input class="toggle text-primary in" type="text" name="distrectName" required style="width: 100%;"></th>      
               </tr>  
      
-              <tr>
-                <td>City</td>   
-                  
-                  <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
-                    Hama
-                  </lable>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">--</a>
-                    <a class="dropdown-item" href="#">---</a>
-                    <a class="dropdown-item" href="#">---</a>
-                    <a class="dropdown-item" href="#">---</a>
-                 
-               
-                  </div>
-                </div></td>   
-              </tr>
      
       
                                </table>
