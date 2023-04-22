@@ -93,9 +93,6 @@
         <div class="product-cell image ">الصورة</div>
         <div class="product-cell ">الأحداث</div>
 
-
-      
-
       </div>
       <div id="sub-categories-data">
         <?php $i = 1 ?>
