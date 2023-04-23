@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -46,11 +47,23 @@ class CategoryController extends Controller
     {
         $data=$request->input();
         //validation:
+        // $request->validate([
+        //     'name_ar' => 'required',
+        //     'name_en' => 'required',
+        //     'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+        // ]);
+
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
+            'image.required' => 'حقل الصورة مطلوب',
         ]);
+        
+
         $category = new Category;
 
         if($request->has('image')){
@@ -73,11 +86,21 @@ class CategoryController extends Controller
     {
         $data=$request->input();
         //validation:
+        // $request->validate([
+        //     'name_ar' => 'required',
+        //     'name_en' => 'required',
+        //     'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+        // ]);
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
+            'image.required' => 'حقل الصورة مطلوب',
         ]);
+
         $category = new Category;
 
         if($request->has('image')){
@@ -130,12 +153,37 @@ class CategoryController extends Controller
 
         $data=$request->input();
         
+        // $request->validate([
+        //     'id' => 'required',
+        //     'name_ar' => 'required',
+        //     'name_en' => 'required',
+        // ]);
+
         $request->validate([
             'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
         ]);
 
+        // dd($test);
+        // $validator = Validator::make($request->all(), [
+        //     'id' => 'required',
+        //     'name_ar' => 'required',
+        //     'name_en' => 'required',
+        //     'image' => 'required',
+        // ], [
+        //     'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+        //     'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
+        //     'image.required' => 'حقل الصورة مطلوب',
+        // ]);
+            // if ($validator->fails()) {
+            //     // dd($validator->errors());
+            //     // return view('your-view')->withErrors($validator);
+            //     return $validator->errors();
+            // }
         $category = Category::find($data['id']);
 
         if($request->files->has('image')){

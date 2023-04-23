@@ -67,20 +67,23 @@
                                     <tr> 
                                         <td>الاسم(العربية)</td>
                                         <td ><input type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                                        <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
-                                    </tr>      
+                                    </tr> 
+                                    <tr>
+                                        <td><span style="color: red" class="name_ar_error_edit"></span></td>
+                                      </tr>     
                                     <tr> 
                                         <td>الاسم(الإنجليزية)</td>
                                         <td ><input type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
-                                        <span style="color: red">@error('name_en'){{$message}}@enderror</span>
-                                    </tr>      
+                                    </tr> 
+                                    <tr>
+                                        <td><span style="color: red" class="name_en_error_edit"></span></td>
+                                      </tr>     
                                     <tr>
                                         <td>الصورة </td>
                                         <td ><input type="file" name="image" id="img"> 
                                         <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$category -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                                        <span style="color: red">@error('image'){{$message}}@enderror</span>
                                     
-                                    </tr>  
+                                    </tr> 
                                 </table>
                             </div>
                         </form>
@@ -159,22 +162,29 @@
                             <div class="modal-body">
                                 <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
                                     <tr> 
+                                        
                                         <td>الاسم(العربية)</td>
                                         <td ><input id="name_ar_{{$category->id}}" name="name_ar" type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                                        <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
-                                    </tr>      
+                                        
+                                    </tr>  
+                                    <tr>
+                                        <td><span style="color: red" class="name_ar_error_edit"></span></td>
+                                      </tr>     
                                     <tr> 
                                         <td>الاسم(الإنجليزية)</td>
                                         <td ><input id="name_en_{{$category->id}}" name="name_en" type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
-                                        <span style="color: red">@error('name_en'){{$message}}@enderror</span>
-                                    </tr>      
+                                        
+                                    </tr> 
+                                    <tr>
+                                        <td><span style="color: red" class="name_en_error_edit"></span></td>
+                                      </tr>      
                                     <tr>
                                         <td>الصورة </td>
                                         <td ><input id="image_{{$category->id}}" name="image" type="file"> 
                                         <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$category -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                                        <span style="color: red">@error('image'){{$message}}@enderror</span>
                                     
                                     </tr>
+                                    
                                 </table>
                             </div>
                         </form>

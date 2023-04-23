@@ -4,7 +4,6 @@
 <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">الأصناف</h1>
-      
             <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
  إضافة صنف
@@ -16,7 +15,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">صنف جديد</h5>
-        <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form id="add-form" action="" method="post" enctype="multipart/form-data">
         @csrf
@@ -27,25 +26,42 @@
                  
                   <td ><input type="text" id="name_ar" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></td> 
                   <td >الاسم(العربية)</td>    
-                  <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
-              </tr>  
+                  {{-- <td><span style="color: red" id="name_ar_error"></span></td> --}}
+                  
+                </tr>  
+              <tr>
+                 
+                  {{-- <td><input type="text" id="name_ar" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></td> 
+                  <td >الاسم(العربية)</td>     --}}
+                  <td><span style="color: red" id="name_ar_error"></span></td>
+                  
+                </tr>  
               <tr>
                  
                   <td ><input type="text" id="name_en"  class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
                   <td >الاسم(الإنجليزية)</td>   
-                  <span style="color: red">@error('name_en'){{$message}}@enderror</span>
+                  {{-- <span style="color: red" id="name_en_error"></span> --}}
+              </tr> 
+              <tr>
+                 
+                  {{-- <td ><input type="text" id="name_en"  class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
+                  <td >الاسم(الإنجليزية)</td>    --}}
+                  <td><span style="color: red" id="name_en_error"></span></td>
               </tr> 
               <tr>
                 
                   <td><input type="file" multiple id="image" class="toggle text-primary in"  name="image" required style="width: 100%;"></td>   
                   <td >الصورة </td>   
-                  <span style="color: red">@error('image'){{$message}}@enderror</span>
+                  {{-- <span style="color: red" id="image_error"></span> --}}
+              </tr>     
+              <tr>
+                <td><span style="color: red" id="image_error"></span></td>
               </tr>     
       </table>
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" onclick="clear()" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
         <button type="button" id="add-category-btn" onclick="addCategory('add-form')" class="app-content-headerButton">حفظ</button>
       </div>
     
@@ -120,13 +136,29 @@
             $("#categories-data").append(data);
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
+            // clearInput();
+            document.getElementById(formId).reset();
+            
 
         })
-        .fail(function(){
-          $('.close').click();
-            $('.parent').attr("hidden", false);
+        .fail(function(data){
+          // $('.close').click();
+          // $('.parent').attr("hidden", false);
+          if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
 
+            }
+            if(data.responseJSON.errors.name_en){
 
+              document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
+            if(data.responseJSON.errors.image){
+
+              document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+
+            }
+          
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -153,14 +185,23 @@
             $("#categories-data").append(data);
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
-
-
+            // clearInput();
         })
-        .fail(function(){
-          $('.close').click();
-            $('.parent').attr("hidden", false);
+        .fail(function(data){
+          console.log(data.responseJSON.errors);
+            // $('.close').click();
+            // $('.parent').attr("hidden", false);
+            if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
 
-            
+            }
+            if(data.responseJSON.errors.name_en){
+              console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+
+              document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
+
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -186,7 +227,7 @@
             $("#categories-data").append(data);
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
-
+            // clearInput();
         })
         .fail(function(){
           $('.close').click();
@@ -227,16 +268,13 @@
         table = document.getElementById("categoriesTable");
         // tr = table.getElementsByTagName("tr");
         tr = table.getElementsByClassName("products-row");
-        console.log(tr);
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByClassName("search-value");
                 
             if (td) {
                 txtValue = td[0].textContent || td[0].innerText;
-                console.log(i, td[0],td[0].textContent);
                 if(txtValue){
-                    console.log(txtValue, filter);
 
                     if (txtValue.indexOf(filter) > -1) {
                         tr[i].style.display = "";
@@ -247,7 +285,19 @@
             }
         }
     }
-    
+
+//----------------------------------------------
+  function clear(){
+    console.log('aa');
+    document.getElementById('name_ar_error').innerHTML = ''; 
+    document.getElementById('name_en_error').innerHTML = ''; 
+    document.getElementById('image_error').innerHTML = ''; 
+    document.querySelectorAll('.name_ar_error_edit').innerHTML = ''; 
+    document.querySelectorAll('.name_en_error_edit').innerHTML = ''; 
+    document.querySelectorAll('.image_error_edit').innerHTML = ''; 
+  }
 //--------------------------------------------
+
+
 </script>
 
