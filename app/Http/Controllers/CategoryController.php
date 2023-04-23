@@ -96,9 +96,9 @@ class CategoryController extends Controller
             'name_en' => 'required',
             'image' => 'required',
         ], [
-            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
-            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
-            'image.required' => 'حقل الصورة مطلوب',
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
+            'image.required' => 'Image feild is required',
         ]);
 
         $category = new Category;
@@ -216,6 +216,9 @@ class CategoryController extends Controller
             'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
         ]);
 
         $category = Category::find($data['id']);
