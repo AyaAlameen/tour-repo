@@ -116,7 +116,7 @@
       <span class="account-info-picture">
         <img src="../img/p1.jpg" alt="Account">
 </span>
-      <span class="account-info-name">آية الأمين</span>
+      <span class="account-info-name">Aya Alameen</span>
       <!-- account form -->
       <button class="account-info-more" title="معلومات الحساب" data-bs-toggle="modal" data-bs-target="#exampleModal4">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
@@ -142,7 +142,7 @@
             <i class="fas fa-user "></i>
             <h6>اسم المستخدم</h6>
           </div>
-        <input disabled class="m-auto p-1" type="text" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;" value="آية الأمين"/>
+        <input disabled class="m-auto p-1" type="text" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;" value="Aya Alameen"/>
        
         <div class="d-flex  pt-5 ">
             <i class="fas fa-envelope "></i>
