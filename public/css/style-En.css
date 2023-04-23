@@ -5499,6 +5499,8 @@ a.close.disabled {
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
+  color: var(--sidebar-link);
+
 }
 
 .modal-body {

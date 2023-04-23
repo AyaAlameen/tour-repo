@@ -117,9 +117,62 @@
         <img src="../img/p1.jpg" alt="Account">
 </span>
       <span class="account-info-name">آية الأمين</span>
-      <button class="account-info-more">
+      <!-- account form -->
+      <button class="account-info-more" title="معلومات الحساب" data-bs-toggle="modal" data-bs-target="#exampleModal4">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
       </button>
+<!-- Modal -->
+<div class="modal fade " id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content toggle">
+      <div class="modal-header" style="direction:ltr;">
+        <h5 class="modal-title" id="exampleModal3Label">معلومات الحساب</h5>
+        <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="acc-pic position-relative m-auto">
+      <img src="../img/p1.jpg" alt="Account" class="" width="150px" height="150px" style="border-radius:50%; margin:auto; margin-block:40px;" >
+     <input type="file" style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;" > 
+     <span class="position-absolute translate-middle badge rounded-pill mr-3" style="left:90%; background-color:var(--navi);top:70%; width:35px; height:35px;">
+      <i class="fas fa-pen" style="color:#fff !important; padding-top:7px; padding-right:7px;">
+    </i></span>
+      </div>
+      <hr class="w-50 m-auto">
+        <div class="acc-info pt-5 pr-5">
+          <div class="d-flex ">
+            <i class="fas fa-user "></i>
+            <h6>اسم المستخدم</h6>
+          </div>
+        <input disabled class="m-auto p-1" type="text" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;" value="آية الأمين"/>
+       
+        <div class="d-flex  pt-5 ">
+            <i class="fas fa-envelope "></i>
+            <h6>الايميل</h6>
+          </div>
+        <input disabled class="m-auto p-1" type="email" value="aya@gmail.com" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;" value="Aya Alameen"/>
+        
+       
+        <div class="d-flex  pt-5">
+            <i class="fas fa-lock "></i>
+            <h6>كلمة السر</h6>
+          </div>
+        <input disabled="true" id="password" class="m-auto p-1 " type="password" value="12345678" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:70px !important; border-radius:5px;" value="Aya Alameen"/>
+        <i class="fas fa-pen" onclick="ablePassword()" style="color:var(--title)!important; font-size:14px; position:relative; left:98px;"></i>
+     <div id="confirmPassword" hidden="true">
+     <div class="d-flex pt-5"  >
+            <i class="fas fa-lock "></i>
+            <h6>تأكيد كلمة السر</h6>
+          </div>
+        <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;" value="Aya Alameen"/>        
+     </div>
+        
+      </div>
+      <div class="modal-footer mt-5" style="direction:ltr;">
+        <button type="button" id="add-guide-btn"  class="app-content-headerButton">حفظ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end account form -->
 </span>
 </span>
       </li>
@@ -294,3 +347,20 @@
   </div>
   <!-- end alert message -->
 <!-- partial -->
+<script>
+  function ablePassword() {
+  var pass=  document.getElementById("password").disabled;
+   var con =  document.getElementById("confirmPassword").hidden;
+   console.log(pass)
+  console.log(con)
+   if(pass & con){
+    document.getElementById("password").disabled=false;
+    document.getElementById("confirmPassword").hidden=false;
+   }
+   if(!(pass & con)){
+    document.getElementById("password").disabled=true;
+    document.getElementById("confirmPassword").hidden=true;
+   }
+
+  }
+</script>

@@ -783,3 +783,9 @@ z-index: 999;
   .modal-body{
     color: var(--sidebar-link);
   }
+  .acc-info h6{
+    color:var(--sidebar-link)
+  }
+  input:disabled{
+    background-color: #fff;
+  }
