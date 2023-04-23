@@ -25,7 +25,7 @@
                         @csrf
 
                         <div class="form-group d-flex first align-items-center">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-start">{{ __('Email Address') }}</label>
 
                             
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -41,7 +41,7 @@
                         
                             <div class="row mb-0 mt-3 justify-content-center">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-block p-0 text-light" style="background-color:var(--bambi);">
+                                <button type="submit" class="btn btn-block p-2 text-light" style="background-color:var(--bambi);">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                               </div>

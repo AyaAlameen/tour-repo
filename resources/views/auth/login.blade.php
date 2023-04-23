@@ -16,7 +16,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group  first">
+                        <div class="form-group  first mb-3">
                             <label for="email">{{ __('Email') }}</label>
 
                         
@@ -44,7 +44,7 @@
                             
                         </div>
 
-                        <div class="d-sm-flex mb-5 align-items-center">
+                        <div class="d-sm-flex mb-5 align-items-center" style="justify-content:space-between;">
                             
                                 
 
@@ -67,7 +67,7 @@
                         </div>
 
                    
-                                <button type="submit" class="btn btn-block text-light" style="background-color:var(--bambi);">
+                                <button type="submit" class="btn btn-block text-light w-100 " style=" background-color:var(--bambi);">
                                     {{ __('Login') }}
                                 </button>
                                 <span class="d-flex justify-content-center mt-3"> 

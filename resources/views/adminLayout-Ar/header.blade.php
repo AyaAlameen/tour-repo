@@ -157,7 +157,16 @@
           </div>
         <input disabled="true" id="password" class="m-auto p-1 " type="password" value="12345678" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:70px !important; border-radius:5px;" value="Aya Alameen"/>
         <i class="fas fa-pen" onclick="ablePassword()" style="color:var(--title)!important; font-size:14px; position:relative; left:98px;"></i>
-     <div id="confirmPassword" hidden="true">
+  
+        <div id="NewPassword" hidden="true">
+     <div class="d-flex pt-5"  >
+            <i class="fas fa-lock "></i>
+            <h6> كلمة السر الجديدة</h6>
+          </div>
+        <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;" value="Aya Alameen"/>        
+     </div>
+  
+        <div id="confirmPassword" hidden="true">
      <div class="d-flex pt-5"  >
             <i class="fas fa-lock "></i>
             <h6>تأكيد كلمة السر</h6>
@@ -167,6 +176,7 @@
         
       </div>
       <div class="modal-footer mt-5" style="direction:ltr;">
+      <button type="button" class="action-button close" data-bs-dismiss="modal">إغلاق</button>
         <button type="button" id="add-guide-btn"  class="app-content-headerButton">حفظ</button>
       </div>
     </div>
@@ -176,7 +186,12 @@
 </span>
 </span>
       </li>
-      
+      <li  class="sidebar-list-item" onclick="active_part()" >
+        <a href="{{route('register')}}" >
+        <i class="fas fa-plus "></i>
+          <span  >إنشاء حساب جديد</span>
+        </a>
+      </li>  
       <li  class="sidebar-list-item" onclick="active_part()" >
         <a href="{{route('home_ar')}}" >
           <svg  xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -349,17 +364,17 @@
 <!-- partial -->
 <script>
   function ablePassword() {
-  var pass=  document.getElementById("password").disabled;
-   var con =  document.getElementById("confirmPassword").hidden;
-   console.log(pass)
+    var con =  document.getElementById("confirmPassword").hidden; 
+   var newpass =document.getElementById("NewPassword").hidden;
   console.log(con)
-   if(pass & con){
-    document.getElementById("password").disabled=false;
+   if(newpass & con){
+
     document.getElementById("confirmPassword").hidden=false;
+    document.getElementById("NewPassword").hidden=false;
    }
-   if(!(pass & con)){
-    document.getElementById("password").disabled=true;
+   if(!(newpass & con)){
     document.getElementById("confirmPassword").hidden=true;
+    document.getElementById("NewPassword").hidden=true;
    }
 
   }

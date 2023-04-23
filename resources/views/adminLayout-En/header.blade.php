@@ -171,7 +171,16 @@
           </div>
         <input disabled="true" id="password" class="m-auto p-1 " type="password" value="12345678" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>
         <i class="fas fa-pen" onclick="ablePassword()" style="color:var(--title)!important; font-size:14px; position:relative; right:28px;"></i>
-     <div id="confirmPassword" hidden="true">
+     
+        <div id="NewPassword" hidden="true">
+     <div class="d-flex pt-5"  >
+            <i class="fas fa-lock "></i>
+            <h6>New Password</h6>
+          </div>
+        <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>        
+     </div>
+     
+        <div id="confirmPassword" hidden="true">
      <div class="d-flex pt-5"  >
             <i class="fas fa-lock "></i>
             <h6>Confirm Password</h6>
@@ -181,6 +190,7 @@
         
       </div>
       <div class="modal-footer mt-5">
+      <button type="button" class="action-button close" data-bs-dismiss="modal">Close</button>
         <button type="button" id="add-guide-btn"  class="app-content-headerButton">Save</button>
       </div>
     </div>
@@ -189,6 +199,12 @@
 <!-- end account form -->
 </span>
       </li>
+      <li  class="sidebar-list-item" onclick="active_part()" >
+        <a href="{{route('register')}}" >
+        <i class="fas fa-plus "></i>
+          <span  >Create New Account</span>
+        </a>
+      </li>  
       <li  class="sidebar-list-item " onclick="active_part()" >
         <a href="{{route('home_en')}}" id="sss">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -348,17 +364,17 @@
 <!-- partial -->
 <script>
   function ablePassword() {
-  var pass=  document.getElementById("password").disabled;
-   var con =  document.getElementById("confirmPassword").hidden;
-   console.log(pass)
+   var con =  document.getElementById("confirmPassword").hidden; 
+   var newpass =document.getElementById("NewPassword").hidden;
   console.log(con)
-   if(pass & con){
-    document.getElementById("password").disabled=false;
+   if(newpass & con){
+
     document.getElementById("confirmPassword").hidden=false;
+    document.getElementById("NewPassword").hidden=false;
    }
-   if(!(pass & con)){
-    document.getElementById("password").disabled=true;
+   if(!(newpass & con)){
     document.getElementById("confirmPassword").hidden=true;
+    document.getElementById("NewPassword").hidden=true;
    }
 
   }
