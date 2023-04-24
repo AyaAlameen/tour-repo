@@ -47,10 +47,14 @@ class DistrictController extends Controller
     {
         $data=$request->input();
         //validation:
+        
         $request->validate([
             'city_id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
         ]);
         $district = new District;
 
@@ -76,6 +80,14 @@ class DistrictController extends Controller
             'city_id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
+        ]);
+        $request->validate([
+            'city_id' => 'required',
+            'name_ar' => 'required',
+            'name_en' => 'required',
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
         ]);
         $district = new District;
 
@@ -133,6 +145,9 @@ class DistrictController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'city_id' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
         ]);
 
         $district = District::find($data['id']);
@@ -164,6 +179,9 @@ class DistrictController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'city_id' => 'required',
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
         ]);
 
         $district = District::find($data['id']);

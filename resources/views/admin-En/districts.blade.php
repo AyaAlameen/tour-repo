@@ -17,7 +17,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">New District</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close m-0 close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -25,23 +25,25 @@
         @csrf
       <div class="modal-body">
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
-            <tr>
+            <tr hidden>
                 <td ><input type="text" class="toggle text-primary in" hidden name="city_id" value="{{$city->id}}" required style="width: 100%;"></th>  
             </tr>        
               <tr>
                   <td>Name(Arabic)</td>
                   <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;"></th>      
               </tr>  
+              <tr > <td colspan="2"><span class="text-danger p-1" id="name_ar_error"></span></td> </tr>
               <tr>
                   <td>name(English)</td>
                   <td ><input class="toggle text-primary in" type="text" name="name_en" required style="width: 100%;"></th>      
               </tr>    
+              <tr > <td colspan="2"><span class="text-danger p-1" id="name_en_error"></span></td> </tr>
               
       </table>
       </div>
     </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active close" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="action-button active close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal">Close</button>
         <button type="button" id="add-district-btn" onclick="addDistrict('add-form')" class="app-content-headerButton">Save</button>
       </div>
     </div>
@@ -113,7 +115,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -126,15 +128,17 @@
                               <td>Name(Arabic)</td>
                               <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;" value="{{$district->translations()->where('locale', 'ar')->first()->name}}"></th>      
                           </tr>  
-                          <tr>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
+                        <tr>
                               <td>name(English)</td>
                               <td ><input class="toggle text-primary in" type="text" name="name_en" required style="width: 100%;" value="{{$district->translations()->where('locale', 'en')->first()->name}}"></th>      
                           </tr>
-                        </table>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
+                      </table>
                       </div>
                     </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                              <button type="submit" id="edit-district-btn-{{$district->id}}" onclick="editDistrict('edit-form-{{$district->id}}', {{$district->id}})" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>
@@ -203,10 +207,27 @@
             $("#districts-data").append(data);
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
+            document.getElementById(formId).reset();
         })
-        .fail(function(){
-          $('.close').click();
-          $('.parent').attr("hidden", false);
+        .fail(function(data){
+          // $('.close').click();
+          // $('.parent').attr("hidden", false);
+          removeMessages();
+          
+          if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+
+              document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
+            if(data.responseJSON.errors.image){
+
+              document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+
+            }
 
         })
         .always(function() {
@@ -235,9 +256,22 @@
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
         })
-        .fail(function(){
-          $('.close').click();
-          $('.parent').attr("hidden", false);
+        .fail(function(data){
+          removeMessages();
+            // $('.close').click();
+            // $('.parent').attr("hidden", false);
+            if(data.responseJSON.errors.name_ar){
+              console.log(document.querySelector(`#${formId}`));
+
+              document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+              console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+
+              document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
 
         })
         .always(function() {
@@ -301,6 +335,22 @@
             }
         }
     }
+    //--------------------------------------------
+function removeMessages(){
+    document.getElementById('name_ar_error').innerHTML = ''; 
+    document.getElementById('name_en_error').innerHTML = ''; 
+
+    const name_ar = document.querySelectorAll('.name_ar_error_edit');
+    name_ar.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const name_en = document.querySelectorAll('.name_en_error_edit');
+    name_en.forEach(name => {
+      name.innerHTML = '';
+    });
+
+  }
     
 //--------------------------------------------
 </script>

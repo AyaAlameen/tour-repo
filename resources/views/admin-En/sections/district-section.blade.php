@@ -26,7 +26,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -39,15 +39,17 @@
                               <td>Name(Arabic)</td>
                               <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;" value="{{$district->translations()->where('locale', 'ar')->first()->name}}"></th>      
                           </tr>  
-                          <tr>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
+                        <tr>
                               <td>name(English)</td>
                               <td ><input class="toggle text-primary in" type="text" name="name_en" required style="width: 100%;" value="{{$district->translations()->where('locale', 'en')->first()->name}}"></th>      
                           </tr>
-                        </table>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
+                      </table>
                       </div>
                     </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                              <button type="submit" id="edit-district-btn-{{$district->id}}" onclick="editDistrict('edit-form-{{$district->id}}', {{$district->id}})" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>
@@ -115,7 +117,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -128,15 +130,17 @@
                               <td>Name(Arabic)</td>
                               <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;" value="{{$district->translations()->where('locale', 'ar')->first()->name}}"></th>      
                           </tr>  
-                          <tr>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
+                        <tr>
                               <td>name(English)</td>
                               <td ><input class="toggle text-primary in" type="text" name="name_en" required style="width: 100%;" value="{{$district->translations()->where('locale', 'en')->first()->name}}"></th>      
                           </tr>
-                        </table>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
+                      </table>
                       </div>
                     </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                              <button type="submit" id="edit-district-btn-{{$district->id}}" onclick="editDistrict('edit-form-{{$district->id}}', {{$district->id}})" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>
