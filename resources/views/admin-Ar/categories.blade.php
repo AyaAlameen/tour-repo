@@ -25,34 +25,27 @@
               <tr>
                  
                   <td ><input type="text" id="name_ar" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></td> 
-                  <td >الاسم(العربية)</td>    
-                  {{-- <td  colspan="2"class="text-end text-danger"><span id="name_ar_error"></span></td> --}}
-                  
-                </tr>  
-              <tr>
-                 
-                  {{-- <td><input type="text" id="name_ar" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></td> 
-                  <td >الاسم(العربية)</td>     --}}
-                  <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>
-                  
-                </tr>  
+                  <td >الاسم(العربية)</td>                      
+                </tr>
+
+              <tr>       
+                  <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>                
+                </tr> 
+
               <tr>
                  
                   <td ><input type="text" id="name_en"  class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
                   <td >الاسم(الإنجليزية)</td>   
-                  {{-- <span id="name_en_error"></span> --}}
+       
               </tr> 
               <tr>
                  
-                  {{-- <td ><input type="text" id="name_en"  class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
-                  <td >الاسم(الإنجليزية)</td>    --}}
                   <td colspan="2"  class="text-end text-danger p-1"><span  id="name_en_error"></span></td>
               </tr> 
               <tr>
                 
                   <td><input type="file" multiple id="image" class="toggle text-primary in"  name="image" required style="width: 100%;"></td>   
                   <td >الصورة </td>   
-                  {{-- <span id="image_error"></span> --}}
               </tr>     
               <tr>
                 <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span></td>
