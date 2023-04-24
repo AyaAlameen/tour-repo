@@ -789,3 +789,6 @@ z-index: 999;
   input:disabled{
     background-color: #fff;
   }
+td{
+  text-align: end;
+}

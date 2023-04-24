@@ -25,8 +25,11 @@
       
               <tr>
                   <td >Name(Arabic) </td>
-                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>      
+                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></td>   
               </tr> 
+              <tr > <td colspan="2"><span class="text-danger p-1">aaaaaaaaaaaaaaaaaaaaaaa</span></td> </tr>
+                
+
               <tr>
                   <td >Name(English) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>      

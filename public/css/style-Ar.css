@@ -1581,6 +1581,7 @@ pre code {
 .table-bordered td {
   border: 1px solid #21212121;
   padding-left: 10px;
+  text-align: right;
 }
 
 .table-bordered thead th,
@@ -5307,7 +5308,6 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .close {
   float: right;
-  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
   color: #fff;

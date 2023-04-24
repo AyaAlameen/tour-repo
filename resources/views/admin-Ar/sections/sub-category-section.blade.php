@@ -62,7 +62,7 @@
                            <form id="edit-form-{{$subCategory->id}}" action="" method="POST" enctype="multipart/form-data">
                             @csrf
                            <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
+                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px; direction:rtl;">
                            <input type="text" hidden name="category_id" class="toggle text-primary in" value="{{$category->id}}">
                           
                           <tr> 
@@ -163,7 +163,7 @@
                            <form id="edit-form-{{$subCategory->id}}" action="" method="POST" enctype="multipart/form-data">
                             @csrf
                            <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
+                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px; direction:rtl;">
                            <input type="text" hidden name="category_id" class="toggle text-primary in" value="{{$category->id}}">
                           
                           <tr> 

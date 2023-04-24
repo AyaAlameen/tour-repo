@@ -26,42 +26,42 @@
                  
                   <td ><input type="text" id="name_ar" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></td> 
                   <td >الاسم(العربية)</td>    
-                  {{-- <td><span style="color: red" id="name_ar_error"></span></td> --}}
+                  {{-- <td  colspan="2"class="text-end text-danger"><span id="name_ar_error"></span></td> --}}
                   
                 </tr>  
               <tr>
                  
                   {{-- <td><input type="text" id="name_ar" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></td> 
                   <td >الاسم(العربية)</td>     --}}
-                  <td><span style="color: red" id="name_ar_error"></span></td>
+                  <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>
                   
                 </tr>  
               <tr>
                  
                   <td ><input type="text" id="name_en"  class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
                   <td >الاسم(الإنجليزية)</td>   
-                  {{-- <span style="color: red" id="name_en_error"></span> --}}
+                  {{-- <span id="name_en_error"></span> --}}
               </tr> 
               <tr>
                  
                   {{-- <td ><input type="text" id="name_en"  class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
                   <td >الاسم(الإنجليزية)</td>    --}}
-                  <td><span style="color: red" id="name_en_error"></span></td>
+                  <td colspan="2"  class="text-end text-danger p-1"><span  id="name_en_error"></span></td>
               </tr> 
               <tr>
                 
                   <td><input type="file" multiple id="image" class="toggle text-primary in"  name="image" required style="width: 100%;"></td>   
                   <td >الصورة </td>   
-                  {{-- <span style="color: red" id="image_error"></span> --}}
+                  {{-- <span id="image_error"></span> --}}
               </tr>     
               <tr>
-                <td><span style="color: red" id="image_error"></span></td>
+                <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span></td>
               </tr>     
       </table>
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" onclick="clear()" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" onclick="removeMessages()" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
         <button type="button" id="add-category-btn" onclick="addCategory('add-form')" class="app-content-headerButton">حفظ</button>
       </div>
     
@@ -287,8 +287,7 @@
     }
 
 //----------------------------------------------
-  function clear(){
-    console.log('aa');
+  function removeMessages(){
     document.getElementById('name_ar_error').innerHTML = ''; 
     document.getElementById('name_en_error').innerHTML = ''; 
     document.getElementById('image_error').innerHTML = ''; 
