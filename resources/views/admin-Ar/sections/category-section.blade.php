@@ -56,7 +56,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -66,7 +66,7 @@
                                 <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
                                     <tr> 
                                      
-                                        <td ><input type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
+                                        <td ><input type="text" class="toggle text-primary in" name="name_ar" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
                                         <td>الاسم(العربية)</td>
                                     </tr> 
                                     <tr>
@@ -74,7 +74,7 @@
                                       </tr>     
                                     <tr> 
                                         
-                                 <td ><input type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
+                                 <td ><input type="text" class="toggle text-primary in" name="name_en" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
                                 <td>الاسم(الإنجليزية)</td>   
                              </tr> 
                                     <tr>
@@ -90,7 +90,7 @@
                             </div>
                         </form>
                         <div class="modal-footer">
-                            <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                            <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                             <button type="submit" id="edit-category-btn-{{$category->id}}" onclick="editCategory('edit-form-{{$category->id}}', {{$category->id}})" class="app-content-headerButton">حفظ التغييرات</button>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
         <div class="product-cell" >
             <img style="height: 75px !important;" src="{{ asset(str_replace(app_path(),'',$category -> image))}}" alt="product">
         </div>
-        <div class="product-cell"><button class="app-content-headerButton"><a href="{{route ('getSubCategoriesAr', ['id' => $category->id])}}"style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button>
+        <div class="product-cell"><button class="app-content-headerButton"><a href="{{route ('getSubCategoriesAr', ['id' => $category->id])}}" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button>
         </div>
         <div class="product-cell">
             <!-- start action -->
@@ -155,7 +155,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -164,34 +164,32 @@
                             <div class="modal-body">
                                 <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
                                     <tr> 
-                                        
+                                     
+                                        <td ><input type="text" class="toggle text-primary in" name="name_ar" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
                                         <td>الاسم(العربية)</td>
-                                        <td ><input id="name_ar_{{$category->id}}" name="name_ar" type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                                        
-                                    </tr>  
+                                    </tr> 
                                     <tr>
                                         <td><span style="color: red" class="name_ar_error_edit"></span></td>
                                       </tr>     
                                     <tr> 
-                                        <td>الاسم(الإنجليزية)</td>
-                                        <td ><input id="name_en_{{$category->id}}" name="name_en" type="text" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
                                         
-                                    </tr> 
+                                 <td ><input type="text" class="toggle text-primary in" name="name_en" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
+                                <td>الاسم(الإنجليزية)</td>   
+                             </tr> 
                                     <tr>
                                         <td><span style="color: red" class="name_en_error_edit"></span></td>
-                                      </tr>      
+                                      </tr>     
                                     <tr>
-                                        <td>الصورة </td>
-                                        <td ><input id="image_{{$category->id}}" name="image" type="file"> 
+                                       
+                                        <td ><input type="file" name="image" id="img"> 
                                         <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$category -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                                    
-                                    </tr>
-                                    
+                                     <td>الصورة</td>
+                                    </tr> 
                                 </table>
                             </div>
                         </form>
                         <div class="modal-footer">
-                            <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                            <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                             <button type="submit" id="edit-category-btn-{{$category->id}}" onclick="editCategory('edit-form-{{$category->id}}', {{$category->id}})" class="app-content-headerButton">حفظ التغييرات</button>
                         </div>
                     </div>

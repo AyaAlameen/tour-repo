@@ -168,22 +168,7 @@ class CategoryController extends Controller
             'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
         ]);
 
-        // dd($test);
-        // $validator = Validator::make($request->all(), [
-        //     'id' => 'required',
-        //     'name_ar' => 'required',
-        //     'name_en' => 'required',
-        //     'image' => 'required',
-        // ], [
-        //     'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
-        //     'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
-        //     'image.required' => 'حقل الصورة مطلوب',
-        // ]);
-            // if ($validator->fails()) {
-            //     // dd($validator->errors());
-            //     // return view('your-view')->withErrors($validator);
-            //     return $validator->errors();
-            // }
+        
         $category = Category::find($data['id']);
 
         if($request->files->has('image')){
