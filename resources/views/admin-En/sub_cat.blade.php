@@ -19,7 +19,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">New Subcategory</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close m-0 close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -36,19 +36,22 @@
                   <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="name_ar_error"></span></td> </tr>
               <tr>
                   <td>Name(English) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>      
-              </tr>   
+              </tr>  
+              <tr > <td colspan="2"><span class="text-danger p-1" id="name_en_error"></span></td> </tr> 
               <tr>
                   <td >image </td>
                   <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
-              </tr>     
+              </tr>  
+              <tr > <td colspan="2"><span class="text-danger p-1" id="image_error"></span></td> </tr>   
       </table>
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active close" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="action-button active close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal">Close</button>
         <button type="button" id="add-sub-category-btn" onclick="addSubCategory('add-form')" class="app-content-headerButton">Save</button>
       </div>
     </div>
@@ -58,7 +61,7 @@
     <!-- end add -->
 
     <div class="app-content-actions">
-      <input class="search-bar" placeholder="Search..." type="text">
+      <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="Search By Name..." type="text">
 
       <div class="app-content-actions-wrapper">
      
@@ -85,7 +88,7 @@
       </button>
       </div>
     </div>
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView" id="subCategoriesTable">
       <div class="products-header">
         <div class="product-cell">#</div>
         <div class="product-cell">Name</div>
@@ -107,7 +110,7 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>
+            <span class="search-value">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>
           </div>
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}" alt="product">
@@ -123,7 +126,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -137,12 +140,14 @@
                   <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></th>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
               <tr>
                   <td>Name(English) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></th>      
               </tr> 
     
-                       <tr>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
+                        <tr>
                        <td>Image </td>
                        <td ><input type="file" name="image" id="img"> 
                             <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}"  style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
@@ -153,7 +158,7 @@
                            </div>
                             </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                              <button id="edit-sub-category-btn-{{$subCategory->id}}" onclick="editSubCategory('edit-form-{{$subCategory->id}}', {{$subCategory->id}})" type="submit" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>
@@ -178,7 +183,7 @@
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
 
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This sub category (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                      Are you sure that you want to delete This sub category (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
@@ -223,11 +228,27 @@
             $("#sub-categories-data").append(data);
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
-
+            document.getElementById(formId).reset();
         })
-        .fail(function(){
-          $('.close').click();
-          $('.parent').attr("hidden", false);
+        .fail(function(data){
+          // $('.close').click();
+          // $('.parent').attr("hidden", false);
+          removeMessages();
+          
+          if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+
+              document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
+            if(data.responseJSON.errors.image){
+
+              document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+
+            }
 
         })
         .always(function() {
@@ -254,12 +275,25 @@
             $("#sub-categories-data").empty();
             $("#sub-categories-data").append(data);
             $('.close').click();
-            $('.parent').attr("hidden", false);
+            $('.parenttrue').attr("hidden", false);
 
         })
-        .fail(function(){
-          $('.close').click();
-          $('.parent').attr("hidden", false);
+        .fail(function(data){
+          removeMessages();
+            // $('.close').click();
+            // $('.parent').attr("hidden", false);
+            if(data.responseJSON.errors.name_ar){
+              console.log(document.querySelector(`#${formId}`));
+
+              document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+              console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+
+              document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -315,5 +349,54 @@
     //         
     //     });
     // };
+     //----------------------------------------------------------
+ 
+
+     function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("subCategoriesTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
+                
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                if(txtValue){
+
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+//--------------------------------------------
+function removeMessages(){
+    document.getElementById('name_ar_error').innerHTML = ''; 
+    document.getElementById('name_en_error').innerHTML = ''; 
+    document.getElementById('image_error').innerHTML = ''; 
+
+    const name_ar = document.querySelectorAll('.name_ar_error_edit');
+    name_ar.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const name_en = document.querySelectorAll('.name_en_error_edit');
+    name_en.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const images = document.querySelectorAll('.image_error_edit');
+    images.forEach(image => {
+      image.innerHTML = '';
+    });
+  }
 //--------------------------------------------
 </script>

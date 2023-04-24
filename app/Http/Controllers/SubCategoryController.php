@@ -51,7 +51,11 @@ class SubCategoryController extends Controller
             'category_id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
+            'image.required' => 'حقل الصورة مطلوب',
         ]);
         $subCategory = new SubCategory;
 
@@ -76,12 +80,17 @@ class SubCategoryController extends Controller
     public function storeEn(Request $request)
     {
         $data=$request->input();
+
         //validation:
         $request->validate([
             'category_id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'required',
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
+            'image.required' => 'Image feild is required',
         ]);
         $subCategory = new SubCategory;
 
@@ -139,9 +148,12 @@ class SubCategoryController extends Controller
         
         $request->validate([
             'id' => 'required',
+            'category_id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
-            'category_id' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
         ]);
 
         $subCategory = SubCategory::find($data['id']);
@@ -177,9 +189,12 @@ class SubCategoryController extends Controller
         
         $request->validate([
             'id' => 'required',
+            'category_id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
-            'category_id' => 'required',
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
         ]);
 
         $subCategory = SubCategory::find($data['id']);

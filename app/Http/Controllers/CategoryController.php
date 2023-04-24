@@ -85,12 +85,8 @@ class CategoryController extends Controller
     public function storeEn(Request $request)
     {
         $data=$request->input();
+        
         //validation:
-        // $request->validate([
-        //     'name_ar' => 'required',
-        //     'name_en' => 'required',
-        //     'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
-        // ]);
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
@@ -152,12 +148,6 @@ class CategoryController extends Controller
     {
 
         $data=$request->input();
-        
-        // $request->validate([
-        //     'id' => 'required',
-        //     'name_ar' => 'required',
-        //     'name_en' => 'required',
-        // ]);
 
         $request->validate([
             'id' => 'required',

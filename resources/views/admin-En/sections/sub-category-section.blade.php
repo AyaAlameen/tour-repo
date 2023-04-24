@@ -9,7 +9,7 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>
+            <span class="search-value">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>
           </div>
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}" alt="product">
@@ -25,7 +25,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" data-dismiss="modal" onclick="removeMessages()" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -39,12 +39,14 @@
                   <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></th>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
               <tr>
                   <td>Name(English) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></th>      
               </tr> 
     
-                       <tr>
+              <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
+              <tr>
                        <td>Image </td>
                        <td ><input type="file" name="image" id="img"> 
                             <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}"  style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
@@ -55,7 +57,7 @@
                            </div>
                             </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                              <button id="edit-sub-category-btn-{{$subCategory->id}}" onclick="editSubCategory('edit-form-{{$subCategory->id}}', {{$subCategory->id}})" type="submit" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>
@@ -80,7 +82,7 @@
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
 
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This sub category (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                      Are you sure that you want to delete This sub category (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
@@ -107,7 +109,7 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>
+            <span class="search-value">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>
           </div>
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}" alt="product">
@@ -123,7 +125,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -137,12 +139,14 @@
                   <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></th>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
               <tr>
                   <td>Name(English) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></th>      
               </tr> 
     
-                       <tr>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
+                        <tr>
                        <td>Image </td>
                        <td ><input type="file" name="image" id="img"> 
                             <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}"  style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
@@ -153,7 +157,7 @@
                            </div>
                             </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                              <button id="edit-sub-category-btn-{{$subCategory->id}}" onclick="editSubCategory('edit-form-{{$subCategory->id}}', {{$subCategory->id}})" type="submit" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>
@@ -178,7 +182,7 @@
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
 
                                     <div class="modal-body">
-                                      Are you shure that you want to delete This sub category (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                      Are you sure that you want to delete This sub category (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active close" data-dismiss="modal">Close</button>

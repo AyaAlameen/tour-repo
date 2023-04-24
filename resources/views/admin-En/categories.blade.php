@@ -152,39 +152,6 @@
             });
     }
 //-------------------------------------------------
-    function deleteCategory(formId, id){
-      $("#delete-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-
-      var formData = new FormData(document.getElementById(formId));
-        
-      $.ajax({
-            url: `{{route('deleteCategoryEn')}}` ,
-            type: "POST",
-            data: formData,
-            processData: false, 
-            cache: false,
-            contentType: false,
-        })
-        .done(function(data)
-            {   
-                $("#categories-data").empty();
-                $("#categories-data").append(data);
-                $('.close').click();
-            $('.parenttrue').attr("hidden", false);
-
-            })
-        .fail(function()
-            {
-              $('.close').click();
-              $('.parent').attr("hidden", false);
-            })
-            .always(function() {
-                // Re-enable the submit button and hide the loading spinner
-                $("#delete-category-btn-"+id).attr("disabled", false).html('Yes');
-            });
-    }
-//----------------------------------------------------------
-
 function editCategory(formId, id){
       $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         
@@ -231,6 +198,39 @@ function editCategory(formId, id){
     }
 
     //---------------------------------------------------------------
+    function deleteCategory(formId, id){
+      $("#delete-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+      var formData = new FormData(document.getElementById(formId));
+        
+      $.ajax({
+            url: `{{route('deleteCategoryEn')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data)
+            {   
+                $("#categories-data").empty();
+                $("#categories-data").append(data);
+                $('.close').click();
+            $('.parenttrue').attr("hidden", false);
+
+            })
+        .fail(function()
+            {
+              $('.close').click();
+              $('.parent').attr("hidden", false);
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#delete-category-btn-"+id).attr("disabled", false).html('Yes');
+            });
+    }
+//----------------------------------------------------------
+
     window.onload = (event) => {
         $.ajax({
                 url: "{{route('getCategoriesEn')}}" ,
