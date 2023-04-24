@@ -5302,11 +5302,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 .close {
   float: right;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
-  color: #000;
+  /* color: #000; */
   text-shadow: 0 1px 0 #fff;
-  opacity: .5;
 }
 
 @media (max-width: 1200px) {
@@ -5487,7 +5486,7 @@ a.close.disabled {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 7px 1rem;
   border-bottom: 1px solid #dee2e6;
 }
 
@@ -9572,7 +9571,7 @@ h6,
 }
 
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-2.jpg), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/contact.png), no-repeat center center;
   background-size: cover;
 }
 
@@ -9788,4 +9787,7 @@ h6,
 }
 .fa-trash{
   color: red !important;
+}
+input:disabled{
+  background-color: #fff !important;
 }

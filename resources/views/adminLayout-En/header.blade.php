@@ -40,7 +40,8 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="{{route('userhome')}}" class="nav-item nav-link active">Home</a>
+                    <a href="{{route('userhome')}}" class="nav-item nav-link active">Dashboard</a>
+                        <a href="{{route('userhome')}}" class="nav-item nav-link ">Home</a>
                      
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Syria</a>

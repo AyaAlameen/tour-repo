@@ -5308,11 +5308,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .close {
   float: right;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
-  color: #fff;
+  /* color: #fff; */
   text-shadow: 0 1px 0 #fff;
-  opacity: .5;
 }
 
 @media (max-width: 1200px) {
@@ -5492,7 +5491,7 @@ a.close.disabled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 7px 1rem;
   border-bottom: 1px solid #dee2e6;
   flex-direction: row-reverse;
 }

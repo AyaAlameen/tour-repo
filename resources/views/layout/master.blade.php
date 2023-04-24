@@ -69,7 +69,7 @@
         
         let origin = window.location.href;
          console.log(origin)
-         if (origin == "http://127.0.0.1:8000/user_home_arabic" || origin== "http://127.0.0.1:8000/about-ar"){
+         if (origin == "http://127.0.0.1:8000/user_home_arabic" || origin== "http://127.0.0.1:8000/about-ar" || origin== "http://127.0.0.1:8000/contact-ar"){
             console.log('aborted');
             event.preventDefault();
 
@@ -84,13 +84,18 @@
             if (origin == "http://127.0.0.1:8000/about") {
               event.target.href="http://127.0.0.1:8000/about-ar"
                 
-            }}
+            }
+            if (origin == "http://127.0.0.1:8000/contact-en") {
+              event.target.href="http://127.0.0.1:8000/contact-ar"
+                
+            }
+          }
     
 
 
     function getURLEn() {
     
-        if (origin == "http://127.0.0.1:8000/" || origin== "http://127.0.0.1:8000/about"){
+        if (origin == "http://127.0.0.1:8000/" || origin== "http://127.0.0.1:8000/about" || origin== "http://127.0.0.1:8000/contact-en"){
             console.log('aborted');
             event.preventDefault();
          }
@@ -101,6 +106,10 @@
             }
             if (origin == "http://127.0.0.1:8000/about-ar") {
               event.target.href="http://127.0.0.1:8000/about"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/contact-ar") {
+              event.target.href="http://127.0.0.1:8000/contact-en"
                 
             }
          }

@@ -245,6 +245,9 @@ Route::get('/contact', function () {
     return view('user.contact');
 })-> name('contact');
 
+Route::get('/contact-en', function () {
+    return view('user.contact');
+})-> name('contact-en');
 
 
 //user routes part Arabic

@@ -9571,7 +9571,7 @@
   }
   
   .page-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-2.jpg), no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/contact.png), no-repeat center center;
     background-size: cover;
   }
   
@@ -9776,4 +9776,7 @@
   }
   .datetimepicker-input{
     text-align: center;
+  }
+  input:disabled{
+    background-color: #fff !important;
   }

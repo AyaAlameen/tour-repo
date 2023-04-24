@@ -340,8 +340,9 @@ a.text-primary:hover, a.text-primary:focus {
 }
 .action-button:focus, .action-button.active {
   outline: none;
-  color: var(--title-color);
-  border-color: var(--sidebar-link);
+  color: var(--sidebar-link) !important;
+  border: 2px solid #56678762;
+  padding-inline: 4px;
 }
 
 .filter-button-wrapper {
@@ -777,6 +778,7 @@ z-index: 999;
   }
   .modal-body{
     color: var(--sidebar-link);
+    margin-top: 15px;
   }
 .acc-info h6{
   color:var(--sidebar-link)
@@ -784,3 +786,7 @@ z-index: 999;
 input:disabled{
   background-color: #fff;
 }
+.close span{
+  color: var(--sidebar-link);
+  font-size: 25px;
+  }
