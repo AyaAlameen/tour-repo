@@ -23,7 +23,9 @@
     <div class="modal-content m-auto h-100" style="width: 600px;  background-color:var(--header);" >
       <div class="modal-header">
         <h5 class="modal-title" style="color:var(--title-color);" id="exampleModalLabel">Messages received</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
       <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">

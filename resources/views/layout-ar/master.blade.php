@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="../css/loginstyle.css" >
     <link href="css/style-ar.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/user.css" >
+    <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=rawy-thin" />
 
 
 </head>
