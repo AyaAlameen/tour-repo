@@ -312,7 +312,7 @@
  <!-- alert message false-->
  <div id="popup"  class="parent" hidden="true" >
   <div class="popup">
-    <img src="img/false.png">
+    <img src="../img/false.png">
     <h3> Faild</h3>
     
     <button type="button" onclick='hide()'>Ok</button>
@@ -324,7 +324,7 @@
   <!-- alert message true-->
 <div id="popuptrue"  class="parenttrue" hidden="true" >
   <div class="popuptrue">
-    <img src="img/true.png">
+    <img src="../img/true.png">
     <h3> Succeeded</h3>
     
     <button type="button" onclick='hide()'>Ok</button>

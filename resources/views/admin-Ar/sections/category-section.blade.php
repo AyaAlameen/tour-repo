@@ -70,7 +70,7 @@
                                         <td>الاسم(العربية)</td>
                                     </tr> 
                                     <tr>
-                                        <td><span style="color: red" class="name_ar_error_edit"></span></td>
+                                        <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
                                       </tr>     
                                     <tr> 
                                         
@@ -78,7 +78,7 @@
                                 <td>الاسم(الإنجليزية)</td>   
                              </tr> 
                                     <tr>
-                                        <td><span style="color: red" class="name_en_error_edit"></span></td>
+                                        <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
                                       </tr>     
                                     <tr>
                                        
@@ -169,7 +169,7 @@
                                         <td>الاسم(العربية)</td>
                                     </tr> 
                                     <tr>
-                                        <td><span style="color: red" class="name_ar_error_edit"></span></td>
+                                        <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
                                       </tr>     
                                     <tr> 
                                         
@@ -177,7 +177,7 @@
                                 <td>الاسم(الإنجليزية)</td>   
                              </tr> 
                                     <tr>
-                                        <td><span style="color: red" class="name_en_error_edit"></span></td>
+                                        <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
                                       </tr>     
                                     <tr>
                                        

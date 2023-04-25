@@ -32,6 +32,7 @@
                   <td>الاسم(العربية)</td>     
                   
               </tr>  
+      
               <tr>       
                 <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>                
               </tr>
@@ -41,7 +42,7 @@
                   
               </tr> 
               <tr>       
-                <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span></td>                
+                <td colspan="2" class="text-end text-danger"><span id="name_en_error"></span></td>                
               </tr>
               <tr>
                   

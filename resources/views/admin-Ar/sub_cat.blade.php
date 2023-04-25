@@ -25,11 +25,11 @@
       <div class="modal-body">
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
                
-              <tr>
+            
                   
-                  <td ><input type="text" class="toggle text-primary in" hidden name="category_id" value="{{$category->id}}" required style="width: 100%;"></th>  
+                <input type="text" class="toggle text-primary in" hidden name="category_id" value="{{$category->id}}" required style="width: 100%;">
                   
-              </tr>  
+            
               
               <tr>
                   
@@ -182,7 +182,7 @@
                             <td>الاسم(العربية)</td>    
                         </tr>  
                         <tr>
-                          <td><span style="color: red" class="name_ar_error_edit"></span></td>
+                          <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
                         </tr>
                         <tr>
                             
@@ -190,7 +190,7 @@
                             <td>(الإنجليزية)الاسم</td>    
                         </tr>     
                         <tr>
-                          <td><span style="color: red" class="name_en_error_edit"></span></td>
+                          <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
                         </tr>
     
                        <tr>

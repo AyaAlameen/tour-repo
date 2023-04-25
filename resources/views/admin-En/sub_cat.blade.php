@@ -27,11 +27,11 @@
         @csrf
       <div class="modal-body">
       <table style="width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
-              <tr>
+            
                   
-                  <td ><input type="text" class="toggle text-primary in" hidden name="category_id" value="{{$category->id}}" required style="width: 100%;"></th>  
+                  <input type="text" class="toggle text-primary in" hidden name="category_id" value="{{$category->id}}" required style="width: 100%;">
                   
-              </tr>
+              
               <tr>
                   <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>      

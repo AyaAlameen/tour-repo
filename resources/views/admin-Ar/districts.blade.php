@@ -25,17 +25,14 @@
       <form id="add-form" action="" method="post" enctype="multipart/form-data">
         @csrf
       <div class="modal-body">
-      <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
-                <tr>
-                  
-                  <td ><input type="text" class="toggle text-primary in" hidden name="city_id" value="{{$city->id}}" required style="width: 100%;"></th>  
-                  
-              </tr> 
-              
+      <table style="color: rgb(22, 22, 22); width: 400px; " class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+       
+      <input type="text" hidden="true" name="city_id" class="toggle text-primary in" value="{{$city->id}}">
+
               <tr>
-                  
+                        
                   <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;"></th>  
-                  <td>الاسم(العربية)</td>    
+                 <td style="width: 35%;">الاسم(العربية)</td>  
               </tr>  
               <tr>       
                 <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>                
@@ -43,7 +40,7 @@
               <tr>
                  
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
-                  <td >الاسم(الإنجليزية)</td>     
+                  <td style="width: 35%;">الاسم(الإنجليزية)</td> 
               </tr>
               <tr>       
                 <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span></td>                
@@ -163,14 +160,14 @@
                               <input type="text" hidden name="city_id" class="toggle text-primary in" value="{{$city->id}}">
                               <tr>
                                   <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;" value="{{$district->translations()->where('locale', 'ar')->first()->name}}"></th>  
-                                  <td>الاسم(العربية)</td>    
+                                  <td style="width: 35%;">الاسم(العربية)</td>    
                                 </tr>   
                                 <tr>       
                                   <td colspan="2" class="text-end text-danger p-1"><span class="name_ar_error_edit"></span></td>                
                                 </tr>
                                 <tr>
                                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$district->translations()->where('locale', 'en')->first()->name}}"></td> 
-                                  <td >الاسم(الانكليزي)</td>     
+                                  <td style="width: 35%;" >الاسم(الانكليزي)</td>     
                                 </tr> 
                                 <tr>       
                                   <td colspan="2" class="text-end text-danger p-1"><span class="name_en_error_edit"></span></td>                

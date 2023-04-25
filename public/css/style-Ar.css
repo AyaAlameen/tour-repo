@@ -1580,7 +1580,7 @@ pre code {
 .table-bordered th,
 .table-bordered td {
   border: 1px solid #21212121;
-  padding-left: 10px;
+  padding-right: 10px;
   text-align: right;
 }
 
@@ -9794,4 +9794,10 @@ h6,
 }
 .fa-trash{
   color: red !important;
+}
+tr{
+  height: 27px;
+}
+td >span{
+  column-count: 1;
 }
