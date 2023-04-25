@@ -18,7 +18,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">ناحية جديدة</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close m-0 close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -31,22 +31,29 @@
                   <td ><input type="text" class="toggle text-primary in" hidden name="city_id" value="{{$city->id}}" required style="width: 100%;"></th>  
                   
               </tr> 
+              
               <tr>
                   
                   <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;"></th>  
                   <td>الاسم(العربية)</td>    
-              </tr>   
+              </tr>  
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>                
+              </tr> 
               <tr>
                  
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></td> 
                   <td >الاسم(الإنجليزية)</td>     
+              </tr>
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span></td>                
               </tr>
                 
       </table>
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="action-button active close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal">إغلاق</button>
         <button type="button" id="add-district-btn" onclick="addDistrict('add-form')" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
@@ -145,7 +152,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -158,15 +165,21 @@
                                   <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;" value="{{$district->translations()->where('locale', 'ar')->first()->name}}"></th>  
                                   <td>الاسم(العربية)</td>    
                                 </tr>   
+                                <tr>       
+                                  <td colspan="2" class="text-end text-danger p-1"><span class="name_ar_error_edit"></span></td>                
+                                </tr>
                                 <tr>
                                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$district->translations()->where('locale', 'en')->first()->name}}"></td> 
                                   <td >الاسم(الانكليزي)</td>     
                                 </tr> 
+                                <tr>       
+                                  <td colspan="2" class="text-end text-danger p-1"><span class="name_en_error_edit"></span></td>                
+                                </tr>
                             </table>
                           </div>
                         </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                              <button type="submit" id="edit-district-btn-{{$district->id}}" onclick="editDistrict('edit-form-{{$district->id}}', {{$district->id}})" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
@@ -206,10 +219,28 @@
             $("#districts-data").append(data);
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
+            document.getElementById(formId).reset();
+
         })
-        .fail(function(){
-          $('.close').click();
-          $('.parent').attr("hidden", false);
+        .fail(function(data){
+          // $('.close').click();
+          // $('.parent').attr("hidden", false);
+          removeMessages();
+          
+          if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+
+              document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
+            if(data.responseJSON.errors.image){
+
+              document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+
+            }
 
         })
         .always(function() {
@@ -238,10 +269,20 @@
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
         })
-        .fail(function(){
-          $('.close').click();
-          $('.parent').attr("hidden", false);
+        .fail(function(data){
+          removeMessages();
+            // $('.close').click();
+            // $('.parent').attr("hidden", false);
+            if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
 
+            }
+            if(data.responseJSON.errors.name_en){
+              console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+
+              document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -308,5 +349,21 @@
         }
     }
     
+//--------------------------------------------
+function removeMessages(){
+    document.getElementById('name_ar_error').innerHTML = ''; 
+    document.getElementById('name_en_error').innerHTML = ''; 
+
+    const name_ar = document.querySelectorAll('.name_ar_error_edit');
+    name_ar.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const name_en = document.querySelectorAll('.name_en_error_edit');
+    name_en.forEach(name => {
+      name.innerHTML = '';
+    });
+
+  }
 //--------------------------------------------
 </script>

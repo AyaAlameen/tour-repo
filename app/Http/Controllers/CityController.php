@@ -49,8 +49,13 @@ class CityController extends Controller
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
+            'image.required' => 'حقل الصورة مطلوب',
         ]);
+
         $city = new City;
 
         if($request->has('image')){
@@ -76,8 +81,13 @@ class CityController extends Controller
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'required',
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
+            'image.required' => 'Image feild is required',
         ]);
+
         $city = new City;
 
         if($request->has('image')){
@@ -134,6 +144,9 @@ class CityController extends Controller
             'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
         ]);
 
         $city = City::find($data['id']);
@@ -168,6 +181,9 @@ class CityController extends Controller
             'id' => 'required',
             'name_ar' => 'required',
             'name_en' => 'required',
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
         ]);
 
         $city = City::find($data['id']);

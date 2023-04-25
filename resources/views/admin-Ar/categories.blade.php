@@ -15,7 +15,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">صنف جديد</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close m-0 close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -56,7 +56,7 @@
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" onclick="removeMessages()" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" onclick="removeMessages(), document.getElementById('add-form').reset()" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
         <button type="button" id="add-category-btn" onclick="addCategory('add-form')" class="app-content-headerButton">حفظ</button>
       </div>
     
@@ -139,6 +139,8 @@
         .fail(function(data){
           // $('.close').click();
           // $('.parent').attr("hidden", false);
+          removeMessages();
+          
           if(data.responseJSON.errors.name_ar){
               document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
 
@@ -176,6 +178,7 @@
             contentType: false,
         })
         .done(function(data){   
+          
             $("#categories-data").empty();
             $("#categories-data").append(data);
             $('.close').click();
@@ -183,7 +186,7 @@
             // clearInput();
         })
         .fail(function(data){
-          console.log(data.responseJSON.errors);
+          removeMessages();
             // $('.close').click();
             // $('.parent').attr("hidden", false);
             if(data.responseJSON.errors.name_ar){
@@ -286,9 +289,21 @@
     document.getElementById('name_ar_error').innerHTML = ''; 
     document.getElementById('name_en_error').innerHTML = ''; 
     document.getElementById('image_error').innerHTML = ''; 
-    document.querySelectorAll('.name_ar_error_edit').innerHTML = ''; 
-    document.querySelectorAll('.name_en_error_edit').innerHTML = ''; 
-    document.querySelectorAll('.image_error_edit').innerHTML = ''; 
+
+    const name_ar = document.querySelectorAll('.name_ar_error_edit');
+    name_ar.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const name_en = document.querySelectorAll('.name_en_error_edit');
+    name_en.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const images = document.querySelectorAll('.image_error_edit');
+    images.forEach(image => {
+      image.innerHTML = '';
+    });
   }
 //--------------------------------------------
 

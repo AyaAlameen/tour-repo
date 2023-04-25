@@ -9,7 +9,7 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$city->translations()->where('locale', 'ar')->first()->name}}</span>
+            <span class="search-value">{{$city->translations()->where('locale', 'ar')->first()->name}}</span>
           </div>
           <div class="product-cell image">
             <img src="{{ asset(str_replace(app_path(),'',$city -> image))}}"  alt="product">
@@ -58,7 +58,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -70,23 +70,25 @@
                             <tr> 
                                 <td>الاسم(العربية)</td>
                                 <td ><input name="name_ar" type="text" class="toggle text-primary in" value="{{$city->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                                <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
                                 
                             </tr>      
-                            
+                            <tr>       
+                              <td colspan="2" class="text-end text-danger p-1"><span class="name_ar_error_edit"></span></td>                
+                            </tr>
                             <tr> 
                                 <td>الاسم(الإنجليزية)</td>
                                 <td ><input name="name_en" type="text" class="toggle text-primary in" value="{{$city->translations()->where('locale', 'en')->first()->name}}"></td>  
-                                <span style="color: red">@error('name_en'){{$message}}@enderror</span>
                                 
                             </tr>      
-                        
+                            <tr>       
+                              <td colspan="2" class="text-end text-danger p-1"><span class="name_en_error_edit"></span></td>                
+                            </tr>
     
                        <tr>
                        <td>الصورة </td>
                        <td ><input type="file" name="image" id="img"> 
                             <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$city -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                            <span style="color: red">@error('image'){{$message}}@enderror</span>
+                            
                        </tr>  
       
                                </table>
@@ -94,7 +96,7 @@
                            </div>
                         </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                              <button id="edit-city-btn-{{$city->id}}" onclick="editCity(`edit-form-{{$city->id}}`, {{$city->id}})" type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
@@ -117,7 +119,7 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$city->translations()->where('locale', 'ar')->first()->name}}</span>
+            <span class="search-value">{{$city->translations()->where('locale', 'ar')->first()->name}}</span>
           </div>
           <div class="product-cell image">
             <img src="{{ asset(str_replace(app_path(),'',$city -> image))}}"  alt="product">
@@ -166,7 +168,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -178,23 +180,27 @@
                             <tr> 
                                 <td>الاسم(العربية)</td>
                                 <td ><input name="name_ar" type="text" class="toggle text-primary in" value="{{$city->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                                <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
                                 
-                            </tr>      
+                            </tr>   
+                            <tr>       
+                              <td colspan="2" class="text-end text-danger p-1"><span class="name_ar_error_edit"></span></td>                
+                            </tr>  
                             
                             <tr> 
                                 <td>الاسم(الإنجليزية)</td>
                                 <td ><input name="name_en" type="text" class="toggle text-primary in" value="{{$city->translations()->where('locale', 'en')->first()->name}}"></td>  
-                                <span style="color: red">@error('name_en'){{$message}}@enderror</span>
                                 
-                            </tr>      
+                            </tr>
+                            <tr>       
+                              <td colspan="2" class="text-end text-danger p-1"><span class="name_en_error_edit"></span></td>                
+                            </tr>  
                         
     
                        <tr>
                        <td>الصورة </td>
                        <td ><input type="file" name="image" id="img"> 
                             <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$city -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                            <span style="color: red">@error('image'){{$message}}@enderror</span>
+                            
                        </tr>  
       
                                </table>
@@ -202,7 +208,7 @@
                            </div>
                         </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                              <button id="edit-city-btn-{{$city->id}}" onclick="editCity(`edit-form-{{$city->id}}`, {{$city->id}})" type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>

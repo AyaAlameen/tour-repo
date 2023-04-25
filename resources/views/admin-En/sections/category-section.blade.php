@@ -28,7 +28,7 @@
                         <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
@@ -41,13 +41,16 @@
                         <td>Name(Arabic)</td>
                         <td ><input type="text" name="name_ar" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
                         
-                        </tr>      
+                        </tr>
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
+
                         <tr> 
                         <td>Name(English)</td>
                         <td ><input type="text" name="name_en" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
                         
                         </tr>      
 
+                          <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
 
                         <tr>
                         <td>Image </td>
@@ -60,7 +63,7 @@
                         </div>
                         </form>
                         <div class="modal-footer">
-                        <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                        <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                         <button id="edit-category-btn-{{$category->id}}" type="submit" onclick="editCategory('edit-form-{{$category->id}}', {{$category->id}})" class="app-content-headerButton">Save changes</button>
                         </div>
                         </div>
@@ -82,7 +85,7 @@
                                         @csrf
                                         <input type="text" name="id" value="{{$category->id}}" hidden>
                                       <div class="modal-body">
-                                        Are you shure that you want to delete This Category (<span style="color: #EB455F;">{{$category->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                        Are you sure that you want to delete This Category (<span style="color: #EB455F;">{{$category->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
@@ -128,7 +131,7 @@
                         <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
@@ -141,12 +144,15 @@
                         <td>Name(Arabic)</td>
                         <td ><input type="text" name="name_ar" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'ar')->first()->name}}"></td>  
                         
-                        </tr>      
+                        </tr>   
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
+
                         <tr> 
                         <td>Name(English)</td>
                         <td ><input type="text" name="name_en" class="toggle text-primary in" value="{{$category->translations()->where('locale', 'en')->first()->name}}"></td>  
                         
                         </tr>      
+                        <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
 
 
                         <tr>
@@ -160,7 +166,7 @@
                         </div>
                         </form>
                         <div class="modal-footer">
-                        <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                        <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                         <button id="edit-category-btn-{{$category->id}}" type="submit" onclick="editCategory('edit-form-{{$category->id}}', {{$category->id}})" class="app-content-headerButton">Save changes</button>
                         </div>
                         </div>
@@ -182,7 +188,7 @@
                                         @csrf
                                         <input type="text" name="id" value="{{$category->id}}" hidden>
                                       <div class="modal-body">
-                                        Are you shure that you want to delete This Category (<span style="color: #EB455F;">{{$category->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                        Are you sure that you want to delete This Category (<span style="color: #EB455F;">{{$category->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">Close</button>

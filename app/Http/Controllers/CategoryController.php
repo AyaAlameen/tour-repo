@@ -47,11 +47,6 @@ class CategoryController extends Controller
     {
         $data=$request->input();
         //validation:
-        // $request->validate([
-        //     'name_ar' => 'required',
-        //     'name_en' => 'required',
-        //     'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
-        // ]);
 
         $request->validate([
             'name_ar' => 'required',
@@ -85,12 +80,8 @@ class CategoryController extends Controller
     public function storeEn(Request $request)
     {
         $data=$request->input();
+        
         //validation:
-        // $request->validate([
-        //     'name_ar' => 'required',
-        //     'name_en' => 'required',
-        //     'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
-        // ]);
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
@@ -152,12 +143,6 @@ class CategoryController extends Controller
     {
 
         $data=$request->input();
-        
-        // $request->validate([
-        //     'id' => 'required',
-        //     'name_ar' => 'required',
-        //     'name_en' => 'required',
-        // ]);
 
         $request->validate([
             'id' => 'required',
@@ -168,22 +153,7 @@ class CategoryController extends Controller
             'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
         ]);
 
-        // dd($test);
-        // $validator = Validator::make($request->all(), [
-        //     'id' => 'required',
-        //     'name_ar' => 'required',
-        //     'name_en' => 'required',
-        //     'image' => 'required',
-        // ], [
-        //     'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
-        //     'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
-        //     'image.required' => 'حقل الصورة مطلوب',
-        // ]);
-            // if ($validator->fails()) {
-            //     // dd($validator->errors());
-            //     // return view('your-view')->withErrors($validator);
-            //     return $validator->errors();
-            // }
+        
         $category = Category::find($data['id']);
 
         if($request->files->has('image')){

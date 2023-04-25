@@ -16,7 +16,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">صنف فرعي جديد</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close m-0 close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -30,26 +30,38 @@
                   <td ><input type="text" class="toggle text-primary in" hidden name="category_id" value="{{$category->id}}" required style="width: 100%;"></th>  
                   
               </tr>  
+              
               <tr>
                   
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>  
                   <td>الاسم(العربية)</td>    
               </tr>  
+
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>                
+              </tr> 
+
               <tr>
                   
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>  
                   <td>(الإنجليزية)الاسم</td>    
               </tr> 
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span></td>                
+              </tr> 
               <tr>
                   
                   <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>  
                   <td >الصورة </td>    
-              </tr>     
+              </tr>  
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span></td>                
+              </tr>    
       </table>
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="action-button active close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal">إغلاق</button>
         <button type="button" id="add-sub-category-btn" onclick="addSubCategory('add-form')" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
@@ -59,7 +71,7 @@
     <!-- end add -->
 
     <div class="app-content-actions">
-      <input class="search-bar" placeholder="...ابحث" type="text">
+      <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم" type="text">
 
       <div class="app-content-actions-wrapper">
      
@@ -88,7 +100,7 @@
       
       </div>
     </div>
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView" id="subCategoriesTable">
       <div class="products-header">
         <div class="product-cell">#</div>
         <div class="product-cell">الاسم</div>
@@ -107,7 +119,7 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>
+            <span class="search-value">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>
           </div>
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}" alt="product">
@@ -154,7 +166,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" data-dismiss="modal" onclick="removeMessages()" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -166,15 +178,20 @@
                           
                          <tr>
                   
-                  <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></th>  
-                  <td>الاسم(العربية)</td>    
-              </tr>  
-              <tr>
-                  
-                  <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></th>  
-                  <td>(الإنجليزية)الاسم</td>    
-              </tr>     
-                        
+                            <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></th>  
+                            <td>الاسم(العربية)</td>    
+                        </tr>  
+                        <tr>
+                          <td><span style="color: red" class="name_ar_error_edit"></span></td>
+                        </tr>
+                        <tr>
+                            
+                            <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></th>  
+                            <td>(الإنجليزية)الاسم</td>    
+                        </tr>     
+                        <tr>
+                          <td><span style="color: red" class="name_en_error_edit"></span></td>
+                        </tr>
     
                        <tr>
                        
@@ -188,7 +205,7 @@
                            </div>
                           </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                        <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                              <button type="submit" id="edit-sub-category-btn-{{$subCategory->id}}" onclick="editSubCategory('edit-form-{{$subCategory->id}}', {{$subCategory->id}})" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
@@ -230,10 +247,28 @@
             $("#sub-categories-data").append(data);
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
+            document.getElementById(formId).reset();
+
         })
-        .fail(function(){
-          $('.close').click();
-          $('.parent').attr("hidden", false);
+        .fail(function(data){
+          // $('.close').click();
+          // $('.parent').attr("hidden", false);
+          removeMessages();
+          
+          if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+
+              document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
+            if(data.responseJSON.errors.image){
+
+              document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+
+            }
 
         })
         .always(function() {
@@ -262,9 +297,20 @@
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
         })
-        .fail(function(){
-          $('.close').click();
-          $('.parent').attr("hidden", false);
+        .fail(function(data){
+          removeMessages();
+            // $('.close').click();
+            // $('.parent').attr("hidden", false);
+            if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+              console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+
+              document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
 
         })
         .always(function() {
@@ -319,5 +365,53 @@
 
     //     });
     // };
+       //--------------------------------------------------------
+
+       function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value;
+        table = document.getElementById("subCategoriesTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
+                
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                if(txtValue){
+
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+//--------------------------------------------
+function removeMessages(){
+    document.getElementById('name_ar_error').innerHTML = ''; 
+    document.getElementById('name_en_error').innerHTML = ''; 
+    document.getElementById('image_error').innerHTML = ''; 
+
+    const name_ar = document.querySelectorAll('.name_ar_error_edit');
+    name_ar.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const name_en = document.querySelectorAll('.name_en_error_edit');
+    name_en.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const images = document.querySelectorAll('.image_error_edit');
+    images.forEach(image => {
+      image.innerHTML = '';
+    });
+  }
 //--------------------------------------------
 </script>

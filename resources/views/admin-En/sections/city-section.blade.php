@@ -9,14 +9,14 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$city->translations()->where('locale', 'en')->first()->name}}</span>
+            <span class="search-value">{{$city->translations()->where('locale', 'en')->first()->name}}</span>
           </div>
           <div class="product-cell image">
             <img src="{{ asset(str_replace(app_path(),'',$city -> image))}}"  alt="product">
           </div>
           
         	<div class="product-cell">
-            <button class="app-content-headerButton"><a href="" style="color:var(--title ); text-decoration:none;">Details</a> </button></div>
+            <button class="app-content-headerButton"><a href="{{route ('getDistrictsEn', ['id' => $city->id])}}" style="color:var(--title ); text-decoration:none;">Details</a> </button></div>
 
           <div class="product-cell">
      <!-- start action -->
@@ -31,7 +31,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -43,14 +43,16 @@
                             <tr> 
                                 <td>Name(Arabic)</td>
                                 <td ><input type="text" name="name_ar" class="toggle text-primary in" value="{{$city->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                                <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
+                                
                             </tr> 
+                          <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
                                 
                             <tr> 
                                 <td>Name(English)</td>
                                 <td ><input type="text" name="name_en" class="toggle text-primary in" value="{{$city->translations()->where('locale', 'en')->first()->name}}"></td>  
-                                <span style="color: red">@error('name_en'){{$message}}@enderror</span>
+                                
                             </tr>      
+                            <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
                         
     
                             <tr>
@@ -65,7 +67,7 @@
                            </div>
                             </form>
                            <div class="modal-footer">
-                           <button type="button" class="action-button active" data-dismiss="modal">Close</button>
+                           <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                              <button type="submit" id="edit-city-btn-{{$city->id}}" onclick="editCity(`edit-form-{{$city->id}}`, {{$city->id}})" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>
@@ -116,13 +118,13 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$city->translations()->where('locale', 'en')->first()->name}}</span>
+            <span class="search-value">{{$city->translations()->where('locale', 'en')->first()->name}}</span>
           </div>
           <div class="product-cell image">
             <img src="{{ asset(str_replace(app_path(),'',$city -> image))}}"  alt="product">
           </div>
           <div class="product-cell">
-            <button class="app-content-headerButton"><a href="" style="color:var(--title ); text-decoration:none;">Details</a> </button></div>
+            <button class="app-content-headerButton"><a href="{{route ('getDistrictsEn', ['id' => $city->id])}}" style="color:var(--title ); text-decoration:none;">Details</a> </button></div>
 
           <div class="product-cell">
      <!-- start action -->
@@ -137,7 +139,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -149,21 +151,23 @@
                             <tr> 
                                 <td>Name(Arabic)</td>
                                 <td ><input type="text" name="name_ar" class="toggle text-primary in" value="{{$city->translations()->where('locale', 'ar')->first()->name}}"></td>  
-                                <span style="color: red">@error('name_ar'){{$message}}@enderror</span>
+                                
                             </tr> 
+                          <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
                                 
                             <tr> 
                                 <td>Name(English)</td>
                                 <td ><input type="text" name="name_en" class="toggle text-primary in" value="{{$city->translations()->where('locale', 'en')->first()->name}}"></td>  
-                                <span style="color: red">@error('name_en'){{$message}}@enderror</span>
+                                
                             </tr>      
+                            <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
                         
     
                             <tr>
                                 <td>Image </td>
                                 <td ><input type="file" name="image" id="img"> 
                                 <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$city -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                                <span style="color: red">@error('image'){{$message}}@enderror</span>
+                                
                             </tr>  
       
                                </table>
@@ -171,7 +175,7 @@
                            </div>
                             </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                              <button type="submit" id="edit-city-btn-{{$city->id}}" onclick="editCity(`edit-form-{{$city->id}}`, {{$city->id}})" class="app-content-headerButton">Save changes</button>
                            </div>
                          </div>

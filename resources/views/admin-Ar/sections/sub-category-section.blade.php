@@ -9,7 +9,7 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>
+            <span class="search-value">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>
           </div>
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}" alt="product">
@@ -55,7 +55,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -69,13 +69,18 @@
                             <td>الاسم(العربية)</td>
                             <td ><input type="text" name="name_ar" class="toggle text-primary in" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></td>  
                              
-                         </tr>      
+                         </tr>    
+                         <tr>
+                          <td><span style="color: red" class="name_ar_error_edit"></span></td>
+                        </tr>  
                           <tr> 
                             <td>(الإنجليزية)الاسم</td>
                             <td ><input type="text" name="name_en" class="toggle text-primary in" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></td>  
                              
                          </tr>      
-                        
+                         <tr>
+                          <td><span style="color: red" class="name_en_error_edit"></span></td>
+                        </tr>
     
                        <tr>
                        <td>الصورة </td>
@@ -88,7 +93,7 @@
                            </div>
                             </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                              <button type="submit" id="edit-sub-category-btn-{{$subCategory->id}}" onclick="editSubCategory('edit-form-{{$subCategory->id}}', {{$subCategory->id}})" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>
@@ -110,7 +115,7 @@
             <span>{{$i++}}</span>
           </div>
           <div class="product-cell">
-            <span>{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>
+            <span class="search-value">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>
           </div>
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$subCategory -> image))}}" alt="product">
@@ -156,7 +161,7 @@
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <button type="button" class="close" data-dismiss="modal" onclick="removeMessages()" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
@@ -170,13 +175,18 @@
                             <td>الاسم(العربية)</td>
                             <td ><input type="text" name="name_ar" class="toggle text-primary in" value="{{$subCategory->translations()->where('locale', 'ar')->first()->name}}"></td>  
                              
-                         </tr>      
+                         </tr> 
+                         <tr>
+                          <td><span style="color: red" class="name_ar_error_edit"></span></td>
+                        </tr>     
                           <tr> 
                             <td>(الإنجليزية)الاسم</td>
                             <td ><input type="text" name="name_en" class="toggle text-primary in" value="{{$subCategory->translations()->where('locale', 'en')->first()->name}}"></td>  
                              
                          </tr>      
-                        
+                         <tr>
+                          <td><span style="color: red" class="name_en_error_edit"></span></td>
+                        </tr>
     
                        <tr>
                        <td>الصورة </td>
@@ -189,7 +199,7 @@
                            </div>
                             </form>
                            <div class="modal-footer">
-                <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                              <button type="submit" id="edit-sub-category-btn-{{$subCategory->id}}" onclick="editSubCategory('edit-form-{{$subCategory->id}}', {{$subCategory->id}})" class="app-content-headerButton">حفظ التغييرات</button>
                            </div>
                          </div>

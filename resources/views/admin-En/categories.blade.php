@@ -16,7 +16,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">New Category</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close m-0 close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -28,23 +28,25 @@
               <tr>
                   <td >Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></td>   
-              </tr> 
-              <tr > <td colspan="2"><span class="text-danger p-1">aaaaaaaaaaaaaaaaaaaaaaa</span></td> </tr>
+              </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="name_ar_error"></span></td> </tr>
                 
 
               <tr>
                   <td >Name(English) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>      
-              </tr>  
+              </tr> 
+              <tr > <td colspan="2"><span class="text-danger p-1" id="name_en_error"></span></td> </tr> 
               <tr>
                   <td >Image </td>
                   <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
-              </tr>     
+              </tr>   
+              <tr > <td colspan="2"><span class="text-danger p-1" id="image_error"></span></td> </tr>  
       </table>
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active close" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="action-button active close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal">Close</button>
         <button type="button" id="add-category-btn" onclick="addCategory('add-form')" class="app-content-headerButton">Save</button>
       </div>
     </div>
@@ -119,12 +121,29 @@
                 $("#categories-data").append(data);
                 $('.close').click();
             $('.parenttrue').attr("hidden", false);
-
+            document.getElementById(formId).reset();
             })
-        .fail(function()
+        .fail(function(data)
             {
-              $('.close').click();
-              $('.parent').attr("hidden", false);
+              // $('.close').click();
+              // $('.parent').attr("hidden", false);
+
+              removeMessages();
+          
+          if(data.responseJSON.errors.name_ar){
+              document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+
+              document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
+            if(data.responseJSON.errors.image){
+
+              document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+
+            }
 
             })
             .always(function() {
@@ -133,6 +152,52 @@
             });
     }
 //-------------------------------------------------
+function editCategory(formId, id){
+      $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        $.ajax({
+            url: `{{route('editCategoryEn')}}` ,
+            type: "POST",
+            data: formData,
+            processData: false, 
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data)
+            {   
+                $("#categories-data").empty();
+                $("#categories-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+
+            })
+        .fail(function(data)
+            {
+              removeMessages();
+            // $('.close').click();
+            // $('.parent').attr("hidden", false);
+            if(data.responseJSON.errors.name_ar){
+              console.log(document.querySelector(`#${formId}`));
+
+              document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+            }
+            if(data.responseJSON.errors.name_en){
+              console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+
+              document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+            }
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#edit-category-btn-"+id).attr("disabled", false).html('Save Changes');
+            });
+    }
+
+    //---------------------------------------------------------------
     function deleteCategory(formId, id){
       $("#delete-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
@@ -166,39 +231,6 @@
     }
 //----------------------------------------------------------
 
-function editCategory(formId, id){
-      $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-        
-        var formData = new FormData(document.getElementById(formId));
-        formData.append('id', id);
-        $.ajax({
-            url: `{{route('editCategoryEn')}}` ,
-            type: "POST",
-            data: formData,
-            processData: false, 
-            cache: false,
-            contentType: false,
-        })
-        .done(function(data)
-            {   
-                $("#categories-data").empty();
-                $("#categories-data").append(data);
-                $('.close').click();
-                $('.parenttrue').attr("hidden", false);
-
-            })
-        .fail(function()
-            {
-              $('.close').click();
-              $('.parent').attr("hidden", false);
-            })
-            .always(function() {
-                // Re-enable the submit button and hide the loading spinner
-                $("#edit-category-btn-"+id).attr("disabled", false).html('Save Changes');
-            });
-    }
-
-    //---------------------------------------------------------------
     window.onload = (event) => {
         $.ajax({
                 url: "{{route('getCategoriesEn')}}" ,
@@ -245,6 +277,27 @@ function editCategory(formId, id){
             }
         }
     }
+//--------------------------------------------
+function removeMessages(){
+    document.getElementById('name_ar_error').innerHTML = ''; 
+    document.getElementById('name_en_error').innerHTML = ''; 
+    document.getElementById('image_error').innerHTML = ''; 
+
+    const name_ar = document.querySelectorAll('.name_ar_error_edit');
+    name_ar.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const name_en = document.querySelectorAll('.name_en_error_edit');
+    name_en.forEach(name => {
+      name.innerHTML = '';
+    });
+
+    const images = document.querySelectorAll('.image_error_edit');
+    images.forEach(image => {
+      image.innerHTML = '';
+    });
+  }
 //--------------------------------------------
 </script>
 
