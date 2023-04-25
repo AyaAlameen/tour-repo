@@ -40,7 +40,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -52,10 +52,13 @@
                                                 <td>Name(Arabic) </td>
                                                 <td><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;" value="{{$guide->translations()->where('locale', 'ar')->first()->name}}"></th>      
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
+                                            
                                             <tr>
                                                 <td>Name(English) </td>
                                                 <td><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$guide->translations()->where('locale', 'en')->first()->name}}"></th>      
                                             </tr>     
+                                            <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Image </td>
                                                 <td >
@@ -65,18 +68,23 @@
                                                     </label>
                                                 </td>      
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 image_error_edit"></span></td> </tr> 
+
                                             <tr> 
                                                 <td>Phone</td>
                                                 <td><input type="number" name="phone" class="toggle text-primary in"  style="width: 100%;" value="{{$guide->phone}}"></td>  
-                                            </tr>     
+                                            </tr> 
+                                            <tr > <td colspan="2"><span class="text-danger p-1 phone_error_edit"></span></td> </tr> 
                                             <tr> 
                                                 <td>email</td>
                                                 <td><input type="email" name="email" class="toggle text-primary in" style="width: 100%;" value="{{$guide->email}}"></td>  
-                                            </tr>     
+                                            </tr>    
+                                            <tr > <td colspan="2"><span class="text-danger p-1 email_error_edit"></span></td> </tr> 
                                             <tr> 
                                                 <td>Salary</td>
                                                 <td><input type="number" name="salary" class="toggle text-primary in" style="width: 100%;" value="{{$guide->salary}}"></td>  
                                             </tr>     
+                                            <tr > <td colspan="2"><span class="text-danger p-1 salary_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Description(Arabic)</td>
                                                 <td><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->description}}</textarea></td>      
@@ -97,7 +105,7 @@
                                     </div>
                                 </form>
                                 <div class="modal-footer">
-                                    <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                                    <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                                     <button type="submit" id="edit-guide-btn-{{$guide->id}}" onclick="editGuide('edit-form-{{$guide->id}}', {{$guide->id}})" class="app-content-headerButton">Save Changes</button>
                                 </div>
                             </div>
@@ -173,7 +181,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -185,10 +193,12 @@
                                                 <td>Name(Arabic) </td>
                                                 <td><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;" value="{{$guide->translations()->where('locale', 'ar')->first()->name}}"></th>      
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Name(English) </td>
                                                 <td><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$guide->translations()->where('locale', 'en')->first()->name}}"></th>      
-                                            </tr>     
+                                            </tr>   
+                                            <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Image </td>
                                                 <td >
@@ -198,18 +208,22 @@
                                                     </label>
                                                 </td>      
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 image_error_edit"></span></td> </tr> 
                                             <tr> 
                                                 <td>Phone</td>
                                                 <td><input type="number" name="phone" class="toggle text-primary in"  style="width: 100%;" value="{{$guide->phone}}"></td>  
-                                            </tr>     
+                                            </tr> 
+                                            <tr > <td colspan="2"><span class="text-danger p-1 phone_error_edit"></span></td> </tr> 
                                             <tr> 
                                                 <td>email</td>
                                                 <td><input type="email" name="email" class="toggle text-primary in" style="width: 100%;" value="{{$guide->email}}"></td>  
-                                            </tr>     
+                                            </tr>    
+                                            <tr > <td colspan="2"><span class="text-danger p-1 email_error_edit"></span></td> </tr> 
                                             <tr> 
                                                 <td>Salary</td>
                                                 <td><input type="number" name="salary" class="toggle text-primary in" style="width: 100%;" value="{{$guide->salary}}"></td>  
-                                            </tr>     
+                                            </tr> 
+                                            <tr > <td colspan="2"><span class="text-danger p-1 salary_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Description(Arabic)</td>
                                                 <td><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->description}}</textarea></td>      
@@ -230,7 +244,7 @@
                                     </div>
                                 </form>
                                 <div class="modal-footer">
-                                    <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
+                                    <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">Close</button>
                                     <button type="submit" id="edit-guide-btn-{{$guide->id}}" onclick="editGuide('edit-form-{{$guide->id}}', {{$guide->id}})" class="app-content-headerButton">Save Changes</button>
                                 </div>
                             </div>
