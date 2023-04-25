@@ -24,7 +24,7 @@
                     <a href="#" class="edit text-success m-3" data-toggle="modal" data-target="#editCategory{{$category->id}}" title="Edit"><i class="fas fa-pen"></i></a>
 
                         <!-- Modal -->
-                        <div class="modal" id="editCategory{{$category->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" data-bs-backdrop="static" id="editCategory{{$category->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -124,7 +124,7 @@
                     <a href="#" class="edit text-success m-3" data-toggle="modal" data-target="#editCategory{{$category->id}}" title="Edit"><i class="fas fa-pen"></i></a>
 
                         <!-- Modal -->
-                        <div class="modal" id="editCategory{{$category->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" data-bs-backdrop="static" id="editCategory{{$category->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">

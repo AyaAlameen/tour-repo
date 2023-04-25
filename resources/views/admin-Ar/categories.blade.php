@@ -5,12 +5,12 @@
     <div class="app-content-header">
       <h1 class="app-content-headerText">الأصناف</h1>
             <!-- add -->
-<button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+<button type="button" class="app-content-headerButton"  data-bs-toggle="modal" data-bs-target="#exampleModal3">
  إضافة صنف
 </button>
 
 <!-- Modal -->
-<div class="modal fade " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
+<div class="modal fade " id="exampleModal3" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModal3Label" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">

@@ -14,7 +14,7 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
+<div class="modal fade " data-bs-backdrop="static" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
@@ -119,7 +119,7 @@
                      <a href="#" class="edit text-success p-2" data-toggle="modal" data-target="#editSubCategory{{$subCategory->id}}" title="Edit"><i class="fas fa-pen"></i></a>
 
                           <!-- Modal -->
-                     <div class="modal" id="editSubCategory{{$subCategory->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal fade"  data-backdrop="static" id="editSubCategory{{$subCategory->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">

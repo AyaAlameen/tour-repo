@@ -1580,6 +1580,7 @@ pre code {
 .table-bordered td {
   border: 1px solid #21212121;
   padding-left: 10px;
+  text-align: left;
 }
 
 .table-bordered thead th,

@@ -36,7 +36,7 @@
                     <!-- edit -->
                     <a href="#" class="edit"  data-toggle="modal" data-target="#editGuide{{$guide->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
-                    <div class="modal" class="app-content-headerButton" id="editGuide{{$guide->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" data-bs-backdrop="static" class="app-content-headerButton" id="editGuide{{$guide->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -167,9 +167,9 @@
                 <!-- start action -->
                 <div class="p-3">
                     <!-- edit -->
-                    <a href="#" class="edit"  data-toggle="modal" data-target="#editGuide{{$guide->id}}" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="edit" data-bs-backdrop="static"  data-toggle="modal" data-target="#editGuide{{$guide->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
-                    <div class="modal" class="app-content-headerButton" id="editGuide{{$guide->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" class="app-content-headerButton" id="editGuide{{$guide->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

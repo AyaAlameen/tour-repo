@@ -6,7 +6,7 @@
       <h1 class="app-content-headerText">Places</h1>
      
       <!-- add -->
-<button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+<button type="button" data-bs-backdrop="static" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
 Add place
 </button>
 
@@ -277,7 +277,7 @@ Add place
                      <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
 
                           <!-- Modal -->
-                     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">

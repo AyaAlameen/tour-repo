@@ -52,7 +52,7 @@
                     <!-- edit -->
                     <a href="#" class="edit" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
-                    <div class="modal" id="editCompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="editCompany{{$company->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -154,7 +154,7 @@
                     <!-- edit -->
                     <a href="#" class="edit" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
-                    <div class="modal" id="editCompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="editCompany{{$company->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

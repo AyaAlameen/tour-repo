@@ -12,7 +12,7 @@ Add Tourist Guide
 </button>
 
 <!-- Modal -->
-<div class="modal fade " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
+<div class="modal fade " data-bs-backdrop="static" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">

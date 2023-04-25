@@ -62,7 +62,7 @@
                     <!-- edit -->
                     <a href="#" class="edit" data-toggle="modal" data-target="#editGuide{{$guide->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
-                    <div class="modal" id="editGuide{{$guide->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="editGuide{{$guide->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -195,7 +195,7 @@
                     <!-- edit -->
                     <a href="#" class="edit" data-toggle="modal" data-target="#editGuide{{$guide->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
-                    <div class="modal" id="editGuide{{$guide->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="editGuide{{$guide->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

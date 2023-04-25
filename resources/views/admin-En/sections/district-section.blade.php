@@ -22,7 +22,7 @@
                      <a href="#" class="edit p-2" data-toggle="modal" data-target="#editDistrict{{$district->id}}" title="Edit"><i class="fas fa-pen"></i></a>
 
                           <!-- Modal -->
-                     <div class="modal" id="editDistrict{{$district->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal fade" data-bs-backdrop="static" id="editDistrict{{$district->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
@@ -111,7 +111,7 @@
                      <a href="#" class="edit p-2" data-toggle="modal" data-target="#editDistrict{{$district->id}}" title="Edit"><i class="fas fa-pen"></i></a>
 
                           <!-- Modal -->
-                     <div class="modal" id="editDistrict{{$district->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal fade" data-bs-backdrop="static" id="editDistrict{{$district->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
                          <div class="modal-content">
                            <div class="modal-header">
