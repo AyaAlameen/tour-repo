@@ -7,6 +7,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\TransportCompanyController;
 use App\Http\Controllers\TouristGuideController;
 use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\EmployeeProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,6 +141,11 @@ Route::get('/employee_ar', function () {
     return view('admin-Ar.employee');
 }) -> name('employee_ar');
 
+Route::get('/ar/employees', [EmployeeProfileController::class, 'indexAr']) -> name('getEmployeesAr');
+Route::post('/employee_ar', [EmployeeProfileController::class, 'storeAr']) -> name('addEmployeeAr');
+Route::post('/employee_ar/edit', [EmployeeProfileController::class, 'updateAr']) -> name('editEmployeeAr');
+Route::post('/employee_ar/delete', [EmployeeProfileController::class, 'destroyAr']) -> name('deleteEmployeeAr');
+
 Route::get('/cat_ar', function () {
     return view('admin-Ar.categories');
 }) -> name('category_ar');
@@ -147,6 +153,7 @@ Route::get('/ar/categories', [CategoryController::class, 'indexAr']) -> name('ge
 Route::post('/cat_ar', [CategoryController::class, 'storeAr']) -> name('addCategoryAr');
 Route::post('/cat_ar/edit', [CategoryController::class, 'updateAr']) -> name('editCategoryAr');
 Route::post('/cat_ar/delete', [CategoryController::class, 'destroyAr']) -> name('deleteCategoryAr');
+
 
 Route::get('/message_ar', function () {
     return view('admin-Ar.messages');

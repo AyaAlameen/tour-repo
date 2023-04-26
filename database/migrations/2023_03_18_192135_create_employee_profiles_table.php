@@ -14,8 +14,7 @@ class CreateEmployeeProfilesTable extends Migration
     public function up()
     {
         Schema::create('employee_profiles', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->unique()->constrained();
             $table->integer('salary');
             $table->string('identifier');
             // $table->string('job');
