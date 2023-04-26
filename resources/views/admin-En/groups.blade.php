@@ -233,9 +233,9 @@ Add Group
       <tr>
           <td>Transport companies available</td>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
             
-          </lable>
+          </label>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="#">Alamir</a>
             <a class="dropdown-item" href="#">Alkadmous</a>

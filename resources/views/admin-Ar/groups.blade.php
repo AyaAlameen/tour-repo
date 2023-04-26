@@ -34,9 +34,9 @@
               <tr>
                   
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
-                  </lable>
+                  </label>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">ahmad</a>
                     <a class="dropdown-item" href="#">salem</a>
@@ -246,9 +246,9 @@
       
       <tr>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
             
-          </lable>
+          </label>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="#">الأمير</a>
             <a class="dropdown-item" href="#">القدموس</a>
@@ -259,9 +259,9 @@
       </tr>  
       <tr>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
             
-          </lable>
+          </label>
           <div class="dropdown-menu" style="width:200px;" aria-labelledby="dropdownMenuButton">
   
           <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
