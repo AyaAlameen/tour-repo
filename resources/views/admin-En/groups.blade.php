@@ -43,7 +43,10 @@ Add Group
                   </div>
                 </div></th>      
               </tr>
-             
+              <tr>
+                  <td>tour Duration</td>
+                  <td ><input class="toggle text-primary in" type="number" required style="width: 100%;"></th>      
+              </tr>
 
               <tr>
                   <td>Description(Arabic)</td>
@@ -129,6 +132,7 @@ Add Group
       <div class="products-header">
         <div class="product-cell">#</div>
         <div class="product-cell">Tourist Guide</div>
+        <div class="product-cell">Tour Duration</div>
         <div class="product-cell">Description</div>
         <div class="product-cell">People count</div>
         <div class="product-cell">cost</div>
@@ -151,6 +155,9 @@ Add Group
             <span>Ahmad</span>
           </div>
           <div class="product-cell">
+            <span>4 Days</span>
+          </div>
+          <div class="product-cell">
             <span>----</span>
           </div>
           <div class="product-cell">
@@ -163,9 +170,9 @@ Add Group
      <!-- start action -->
 <div class="p-3">
   <!-- destination -->
-<a href="#" class="delete mr-3" title="destinations" data-toggle="tooltip"><i class="fas fa-map-location-dot"></i></a>
+<a href="#" class="delete mr-2" title="destinations" data-toggle="tooltip"><i class="fas fa-map-location-dot"></i></a>
 <!-- transport -->
-<a href="#" class="delete mr-3"  title="Transportation" data-toggle="tooltip"><i class="fas fa-bus"></i></a>
+<a href="#" class="delete mr-2"  title="Transportation" data-toggle="tooltip"><i class="fas fa-bus"></i></a>
 
                  <!-- delete -->
                  <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
@@ -213,6 +220,10 @@ Add Group
                   <tr> 
                          <td>Tourist Guide</td>
                          <td ><input type="text" class="toggle text-primary in" value="ahmad"></td>                   
+                  </tr> 
+                  <tr> 
+                         <td>Tour Duration</td>
+                         <td ><input type="number" class="toggle text-primary in" value="4"></td>                   
                   </tr> 
                   <tr>
                   <td>Description(Arabic)</td>

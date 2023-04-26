@@ -91,6 +91,7 @@
         <div class="product-cell">الاسم</div>
         <div class="product-cell">الايميل</div>
         <div class="product-cell">الهاتف</div>
+        <div class="product-cell">وسائل النقل</div>
         <div class="product-cell ">الأحداث</div>
       </div>
       <div id="companies-data">

@@ -18,6 +18,11 @@
             <div class="product-cell">
                 {{$company->phone}}
             </div>
+             <div class="product-cell">
+            <button class="app-content-headerButton"><a href="" style="color:var(--title ); text-decoration:none;">Details</a> </button>
+        </div>
+         
+            
             <div class="product-cell">
                 <!-- start action -->
                 <div class="p-3">
@@ -110,6 +115,11 @@
             <div class="product-cell">
                 {{$company->phone}}
             </div>
+            <div class="product-cell">
+            <button class="app-content-headerButton"><a href="" style="color:var(--title ); text-decoration:none;">Details</a> </button>
+        </div>
+         
+            
             <div class="product-cell">
                 <!-- start action -->
                 <div class="p-3">

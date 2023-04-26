@@ -90,12 +90,14 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
       </button>
 <!-- Modal -->
-<div class="modal fade " id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
+<div class="modal fade " data-bs-backdrop="static" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header" style="direction:ltr;">
         <h5 class="modal-title" id="exampleModal3Label">معلومات الحساب</h5>
-        <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="acc-pic position-relative m-auto">
       <img src="../img/p1.jpg" alt="Account" class="" width="150px" height="150px" style="border-radius:50%; margin:auto; margin-block:40px;" >
@@ -173,10 +175,10 @@
         </a>
       </li>
 
-      <li class="accordion accordion-flush sidebar-list-item" id="accordionFlushExample">
+      <li class="accordion accordion-flush sidebar-list-item " id="accordionFlushExample">
   <div class="accordion-item ">
     <h2 class="accordion-header " id="flush-headingOne">
-      <button class="accordion-button collapsed pr-3 sidebar-list-item" id="accBtn" onclick="accordion()"  style="flex-direction:row; outline:none; box-shadow:none;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOnee"  aria-controls="flush-collapseOnee">
+      <button class="accordion-button  collapsed pr-3 sidebar-list-item" id="accBtn" onclick="accordion()"  style="flex-direction:row; outline:none; box-shadow:none;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOnee"  aria-controls="flush-collapseOnee">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>  
       الحجوزات
       <img id="arrow" src="../img/upload.png" width="18" height="18" class="mr-5">

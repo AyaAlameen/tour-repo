@@ -88,6 +88,7 @@
         <div class="product-cell">Name</div>
         <div class="product-cell">Email</div>
         <div class="product-cell">Phone</div>
+        <div class="product-cell">Transportation</div>   
         <div class="product-cell ">Actions</div>
       </div>
       <div id="companies-data">
