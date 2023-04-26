@@ -50,9 +50,20 @@ class TouristGuideController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'salary' => 'required|numeric',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'image' =>'required',
+            'email' => ['required', 'email'],
             'phone' => ['required', 'numeric', 'digits:10']
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
+            'image.required' => 'حقل الصورة مطلوب',
+            'salary.required' => 'حقل الراتب مطلوب',
+            'salary.numeric' => 'حقل الراتب يجب أن يتكون من أرقام فقط',
+            'email.required' => 'حقل الإيميل مطلوب',
+            'email.email' => 'حقل الإيميل يجب أن يحقق شروط شكل الإيميل',
+            'phone.required' => 'حقل الهاتف مطلوب',
+            'phone.numeric' => 'حقل الهاتف يجب أن يتكون من أرقام فقط',
+            'phone.digits' => 'حقل الهاتف يجب أن يتكون من 10 خانات',
         ]);
         $guide = new TouristGuide;
 
@@ -84,9 +95,20 @@ class TouristGuideController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'salary' => 'required|numeric',
-            'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'image' =>'required',
+            'email' => ['required', 'email'],
             'phone' => ['required', 'numeric', 'digits:10']
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
+            'image.required' => 'Image feild is required',
+            'salary.required' => 'Salary feild is required',
+            'salary.numeric' => 'Salary field must consist of numbers only',
+            'email.required' => 'Email feild is required',
+            'email.email' => 'Email field must meet the e-mail format requirements',
+            'phone.required' => 'Phone feild is required',
+            'phone.numeric' => 'Phone field must consist of numbers only',
+            'phone.digits' => 'Phone field must contain 10 characters',
         ]);
         $guide = new TouristGuide;
 
@@ -149,8 +171,18 @@ class TouristGuideController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'salary' => 'required|numeric',
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'email'],
             'phone' => ['required', 'numeric', 'digits:10']
+        ], [
+            'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
+            'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
+            'salary.required' => 'حقل الراتب مطلوب',
+            'salary.numeric' => 'حقل الراتب يجب أن يتكون من أرقام فقط',
+            'email.required' => 'حقل الإيميل مطلوب',
+            'email.email' => 'حقل الإيميل يجب أن يحقق شروط شكل الإيميل',
+            'phone.required' => 'حقل الهاتف مطلوب',
+            'phone.numeric' => 'حقل الهاتف يجب أن يتكون من أرقام فقط',
+            'phone.digits' => 'حقل الهاتف يجب أن يتكون من 10 خانات',
         ]);
 
         $guide = TouristGuide::find($data['id']);
@@ -190,8 +222,18 @@ class TouristGuideController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'salary' => 'required|numeric',
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'email'],
             'phone' => ['required', 'numeric', 'digits:10']
+        ], [
+            'name_ar.required' => 'Name(Arabic) feild is required',
+            'name_en.required' => 'Name(English) feild is required',
+            'salary.required' => 'Salary feild is required',
+            'salary.numeric' => 'Salary field must consist of numbers only',
+            'email.required' => 'Email feild is required',
+            'email.email' => 'Email field must meet the e-mail format requirements',
+            'phone.required' => 'Phone feild is required',
+            'phone.numeric' => 'Phone field must consist of numbers only',
+            'phone.digits' => 'Phone field must contain 10 characters',
         ]);
 
         $guide = TouristGuide::find($data['id']);

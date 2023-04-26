@@ -17,7 +17,7 @@ Add Tourist Guide
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">New Tourist Guide</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close m-0 close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -30,28 +30,34 @@ Add Tourist Guide
                   <td>Name(Arabic) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="name_ar_error"></span></td> </tr>
               <tr>
                   <td>Name(English) </td>
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th>      
               </tr>   
+              <tr > <td colspan="2"><span class="text-danger p-1" id="name_en_error"></span></td> </tr>
               <tr>
                   <td >image </td>
                   <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
               </tr> 
+              <tr > <td colspan="2"><span class="text-danger p-1" id="image_error"></span></td> </tr>
                
               <tr>
                   <td>Phone</td>
                   <td ><input class="toggle text-primary in" type="number" name="phone" required style="width: 100%;"></td>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="phone_error"></span></td> </tr>
                   
               <tr>
                   <td>Email</td>
                   <td ><input class="toggle text-primary in" type="email" name="email" required style="width: 100%;"></td>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="email_error"></span></td> </tr>
               <tr>
                   <td>Salary</td>
                   <td ><input class="toggle text-primary in" type="number" name="salary" required style="width: 100%;"></td>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="salary_error"></span></td> </tr>
               <tr>
                   <td>Description(Arabic)</td>
                   <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;"></textarea></td>      
@@ -73,7 +79,7 @@ Add Tourist Guide
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active close" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="action-button active close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal">Close</button>
         <button type="button" id="add-guide-btn" onclick="addGuide('add-form')" class="app-content-headerButton">Save</button>
       </div>
     </div>
@@ -148,11 +154,32 @@ Add Tourist Guide
             $("#guides-data").append(data);
             $('.close').click();
             $('.parenttrue').attr("hidden", false);
+            document.getElementById(formId).reset();
 
         })
-        .fail(function(){
-          $('.close').click();
-            $('.parent').attr("hidden", false);
+        .fail(function(data){
+        //     $('.close').click();
+        //     $('.parent').attr("hidden", false);
+        removeMessages();
+
+        if(data.responseJSON.errors.name_ar){
+            document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+        }
+        if(data.responseJSON.errors.name_en){
+            document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
+        }
+        if(data.responseJSON.errors.image){
+            document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+        }
+        if(data.responseJSON.errors.phone){
+            document.querySelector(`#${formId} #phone_error`).innerHTML = data.responseJSON.errors.phone[0]; 
+        }
+        if(data.responseJSON.errors.email){
+            document.querySelector(`#${formId} #email_error`).innerHTML = data.responseJSON.errors.email[0]; 
+        }
+        if(data.responseJSON.errors.salary){
+            document.querySelector(`#${formId} #salary_error`).innerHTML = data.responseJSON.errors.salary[0]; 
+        }
 
 
         })
@@ -184,11 +211,25 @@ Add Tourist Guide
 
 
         })
-        .fail(function(){
-          $('.close').click();
-            $('.parent').attr("hidden", false);
-
-            
+        .fail(function(data){
+            removeMessages();
+            // $('.close').click();
+            // $('.parent').attr("hidden", false);
+            if(data.responseJSON.errors.name_ar){
+                document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+            }
+            if(data.responseJSON.errors.name_en){
+                document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+            }
+            if(data.responseJSON.errors.phone){
+                document.querySelector(`#${formId} .phone_error_edit`).innerHTML = data.responseJSON.errors.phone[0]; 
+            }
+            if(data.responseJSON.errors.email){
+                document.querySelector(`#${formId} .email_error_edit`).innerHTML = data.responseJSON.errors.email[0]; 
+            }
+            if(data.responseJSON.errors.salary){
+                document.querySelector(`#${formId} .salary_error_edit`).innerHTML = data.responseJSON.errors.salary[0]; 
+            }
         })
         .always(function() {
             // Re-enable the submit button and hide the loading spinner
@@ -272,6 +313,44 @@ Add Tourist Guide
             }
         }
     }
-    
+//----------------------------------------------
+    function removeMessages(){
+        document.getElementById('name_ar_error').innerHTML = ''; 
+        document.getElementById('name_en_error').innerHTML = ''; 
+        document.getElementById('image_error').innerHTML = ''; 
+        document.getElementById('salary_error').innerHTML = ''; 
+        document.getElementById('phone_error').innerHTML = ''; 
+        document.getElementById('email_error').innerHTML = ''; 
+
+        const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        name_ar.forEach(name => {
+            name.innerHTML = '';
+        });
+
+        const name_en = document.querySelectorAll('.name_en_error_edit');
+        name_en.forEach(name => {
+            name.innerHTML = '';
+        });
+
+        const images = document.querySelectorAll('.image_error_edit');
+        images.forEach(image => {
+            image.innerHTML = '';
+        });
+
+        const emails = document.querySelectorAll('.email_error_edit');
+        emails.forEach(email => {
+            email.innerHTML = '';
+        });
+
+        const salaries = document.querySelectorAll('.salary_error_edit');
+        salaries.forEach(salary => {
+            salary.innerHTML = '';
+        });
+
+        const phones = document.querySelectorAll('.phone_error_edit');
+        phones.forEach(phone => {
+            phone.innerHTML = '';
+        });
+    }
 //--------------------------------------------
 </script>

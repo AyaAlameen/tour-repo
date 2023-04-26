@@ -66,7 +66,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -79,30 +79,48 @@
                                                 <td>الاسم(العربية)</td>   
                                             </tr>  
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$guide->translations()->where('locale', 'en')->first()->name}}"></th>   
                                                 <td>(الإنجليزية)الاسم </td>   
                                             </tr>
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
+                                              </tr> 
                                             <tr>
                                                 <td>
                                                     <input type="file" name="image" id="img"> 
                                                     <label for="img" >
                                                         <img src="{{ asset(str_replace(app_path(),'',$guide -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px">
                                                     </label>
-                                                </td>      
+                                                </td> 
+                                                <tr>
+                                                    <td colspan="2"><span style="color: red" class="image_error_edit"></span></td>
+                                                  </tr>      
                                                 <td>الصورة </td>
                                             </tr>
                                             <tr>
                                                 <td><input type="number" name="phone" class="toggle text-primary in" value="{{$guide->phone}}"></td>  
                                                 <td>الهاتف</td>
-                                            </tr>     
+                                            </tr>    
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="phone_error_edit"></span></td>
+                                              </tr>  
                                             <tr>
                                                 <td><input type="email" name="email" class="toggle text-primary in" value="{{$guide->email}}"></td>  
                                                 <td>الايميل</td>
                                             </tr>
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="email_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                     <td><input type="number" name="salary" class="toggle text-primary in" value="{{$guide->salary}}"></td>  
                                                     <td>الراتب</td>
-                                            </tr>     
+                                            </tr>  
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="salary_error_edit"></span></td>
+                                              </tr>    
                                             <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->description}}</textarea></td> 
                                                 <td>المهارات(العربية)</td>     
@@ -123,7 +141,7 @@
                                     </div>
                                 </form>
                                 <div class="modal-footer">
-                                    <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                                    <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                                     <button type="submit" id="edit-guide-btn-{{$guide->id}}" onclick="editGuide('edit-form-{{$guide->id}}', {{$guide->id}})"  class="app-content-headerButton">حفظ التغييرات</button>
                                 </div>
                             </div>
@@ -199,7 +217,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -212,9 +230,15 @@
                                                 <td>الاسم(العربية)</td>   
                                             </tr>  
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$guide->translations()->where('locale', 'en')->first()->name}}"></th>   
                                                 <td>(الإنجليزية)الاسم </td>   
                                             </tr>
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
+                                              </tr> 
                                             <tr>
                                                 <td>
                                                     <input type="file" name="image" id="img"> 
@@ -225,17 +249,29 @@
                                                 <td>الصورة </td>
                                             </tr>
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="image_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td><input type="number" name="phone" class="toggle text-primary in" value="{{$guide->phone}}"></td>  
                                                 <td>الهاتف</td>
-                                            </tr>     
+                                            </tr>  
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="phone_error_edit"></span></td>
+                                              </tr>    
                                             <tr>
                                                 <td><input type="email" name="email" class="toggle text-primary in" value="{{$guide->email}}"></td>  
                                                 <td>الايميل</td>
                                             </tr>
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="email_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                     <td><input type="number" name="salary" class="toggle text-primary in" value="{{$guide->salary}}"></td>  
                                                     <td>الراتب</td>
-                                            </tr>     
+                                            </tr>   
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="salary_error_edit"></span></td>
+                                              </tr>   
                                             <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->description}}</textarea></td> 
                                                 <td>المهارات(العربية)</td>     
@@ -256,7 +292,7 @@
                                     </div>
                                 </form>
                                 <div class="modal-footer">
-                                    <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                                    <button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
                                     <button type="submit" id="edit-guide-btn-{{$guide->id}}" onclick="editGuide('edit-form-{{$guide->id}}', {{$guide->id}})"  class="app-content-headerButton">حفظ التغييرات</button>
                                 </div>
                             </div>
