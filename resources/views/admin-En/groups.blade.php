@@ -188,12 +188,13 @@ Add Group
      <img src="../img/vehicles.png" class="m-3" style="width:150px; height:150px; opacity:0.5;" >
      <p class="text-body mb-4">No transportation has been added yet</p>
      <!-- هاد الشكل بحال كان ضايف وسائل -->
-      <!-- <table style="color: rgb(22, 22, 22); width: 700px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+      <!-- <table style="color: rgb(22, 22, 22); width: 750px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
         <tr>
           <td class="text-center">transport company</td>
           <td class="text-center">transportation</td>
-          <td class="text-center" style="width:150px;">count of passengers</td>
-          <td class="text-center" style="width:300px;">Specifications</td>
+          <td class="text-center" style="width:140px;">count of passengers</td>
+          <td class="text-center" style="width:290px;">Specifications</td>
+          <td>in date</td>
           <td></td>
         </tr>
         <tr>
@@ -202,6 +203,7 @@ Add Group
           <td class="text-center">12</td>
           <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
              ipsum perspiciatis debitis .</td>
+             <td>11-11-2023</td>
           <td> <a href="#" class="delete mr-3 ml-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
 
         </tr>
@@ -226,7 +228,7 @@ Add Group
         </button>
       </div>
       <div class="modal-body">
-      <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+      <table style="color: rgb(22, 22, 22); width: 450px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
       <tr>
           <td>Transport companies available</td>
@@ -273,7 +275,10 @@ Add Group
           </div>
         </div></td>      
       </tr>
-
+      <tr>
+           <td>The date of the day the transportation will be used</td>
+           <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+      </tr>
 </table>
       </div>
       <div class="modal-footer">

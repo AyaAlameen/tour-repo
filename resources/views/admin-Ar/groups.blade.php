@@ -205,8 +205,9 @@
         <tr>
           <td class="text-center">شركة النقل</td>
           <td class="text-center">وسيلة النقل</td>
-          <td class="text-center" style="width:150px;">عدد الركاب</td>
-          <td class="text-center" style="width:300px;">المواصفات</td>
+          <td class="text-center" style="width:90px;">عدد الركاب</td>
+          <td class="text-center" style="width:290px;">المواصفات</td>
+          <td>في تاريخ</td>
           <td></td>
         </tr>
         <tr>
@@ -214,7 +215,8 @@
           <td class="text-center">6913 حلب</td>
           <td class="text-center">12</td>
           <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .</td>
+             ipsum perspiciatis.</td>
+             <td>11-11-2023</td>
            <td> <a href="#" class="delete ml-2 mr-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
           
              
@@ -240,7 +242,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+      <table style="color: rgb(22, 22, 22); width: 450px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
       <tr>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
@@ -283,6 +285,11 @@
         
         <td>وسائل النقل المتاحة في هذه الشركة</td>
         
+      </tr>
+      <tr>
+     <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+        <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
+
       </tr>
 
 </table>
