@@ -13,7 +13,7 @@
     <link href="../img/favicon.ico" rel="icon">
     <!-- bootstrap -->
 <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    
+   
     <!-- Font Awesome -->
     <link href="../css/all.min.css" rel="stylesheet">
 
@@ -85,12 +85,14 @@ else{
   isDarkMode=false;
 }
         </script>
+        
  <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 <!-- bootsrap -->
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>
+
 
 <!-- JavaScript Libraries -->
 <script src="../js/jquery-3.4.1.min.js"></script>
@@ -152,9 +154,11 @@ else{
 
 
 <script>
-//   function active_part() {
-//   }
-// </script>
+  $(document).ready(function () {
+    $('[ data-bs-toggle="popover"]').popover();
+  });
+ </script>
+
 </body>
 
 </html>

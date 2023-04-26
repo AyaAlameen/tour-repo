@@ -152,7 +152,11 @@ else{
 
     }
 </script>
-
+<script>
+  $(document).ready(function () {
+    $('[ data-bs-toggle="popover"]').popover();
+  });
+ </script>
 </body>
 
 </html>

@@ -4,6 +4,10 @@
             <div class="col-lg-6 text-center text-md-center mb-3 mb-md-0">
                 <p class="m-0 text-50" style="color: var(--title)">&copy;  All Copyright Reserved.</a>
                 </p>
+
+
+                <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+
             </div>
         </div>
     </div>

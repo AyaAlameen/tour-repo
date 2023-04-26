@@ -172,12 +172,126 @@ Add Group
   <!-- destination -->
 <a href="#" class="delete mr-2" title="destinations" data-toggle="tooltip"><i class="fas fa-map-location-dot"></i></a>
 <!-- transport -->
-<a href="#" class="delete mr-2"  title="Transportation" data-toggle="tooltip"><i class="fas fa-bus"></i></a>
+<!-- first form -->
+<div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
+    <div class="modal-content" style="width:800px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Added transportation</h5>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- !!!بيان انتبهي  -->
+        <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
+     <img src="../img/vehicles.png" class="m-3" style="width:150px; height:150px; opacity:0.5;" >
+     <p class="text-body mb-4">No transportation has been added yet</p>
+     <!-- هاد الشكل بحال كان ضايف وسائل -->
+      <!-- <table style="color: rgb(22, 22, 22); width: 700px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+        <tr>
+          <td class="text-center">transport company</td>
+          <td class="text-center">transportation</td>
+          <td class="text-center" style="width:150px;">count of passengers</td>
+          <td class="text-center" style="width:300px;">Specifications</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="text-center">Alamir company</td>
+          <td class="text-center">6913 حلب</td>
+          <td class="text-center">12</td>
+          <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .</td>
+          <td> <a href="#" class="delete mr-3 ml-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
 
+        </tr>
+      </table> -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary"  style="border-radius:3px;" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add new transportation</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end first form -->
+
+<!-- second form -->
+<div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
+    <div class="modal-content" style="width:500px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel2">New transportation</h5>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+      
+      <tr>
+          <td>Transport companies available</td>
+          <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+          <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+            
+          </lable>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Alamir</a>
+            <a class="dropdown-item" href="#">Alkadmous</a>
+
+         
+       
+          </div>
+        </div></td>      
+      </tr>  
+      <tr>
+          <td>Transportation available in this company</td>
+          <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+          <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+            
+          </lable>
+          <div class="dropdown-menu" style="width:200px;" aria-labelledby="dropdownMenuButton">
+  
+          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+          <a class="dropdown-item" href="#">6913 حلب</a>
+          </span>
+      
+          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+          <a class="dropdown-item" href="#">6913 حلب</a>
+          </span>
+      
+          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+          <a class="dropdown-item" href="#">6913 حلب</a>
+          </span>
+      
+       
+          </div>
+        </div></td>      
+      </tr>
+
+</table>
+      </div>
+      <div class="modal-footer">
+        <button class="app-content-headerButton" style="border-radius:3px;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+        <button type="button" class="app-content-headerButton" style="background-color:var(--bambi);">Save</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end second form -->
+<a  class="delete mr-2" data-bs-toggle="modal" href="#exampleModalToggle"   title="Transportation" ><i class="fas fa-bus"></i></a>
+
+<!-- end transort -->
                  <!-- delete -->
                  <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                               <!-- Modal -->
-                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                              <div class="modal fade " id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -263,6 +377,8 @@ Add Group
       </div>
       </div>
       </div>
+      
     </div>
   </div>
-@endsection
+
+      @endsection
