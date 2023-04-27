@@ -792,3 +792,14 @@ input:disabled{
   color: var(--sidebar-link);
   font-size: 25px;
   }
+  .scroll-class{
+    overflow-x: scroll;
+    width: 84%;
+    display: grid;
+    position: absolute;
+    top: 37%;
+    right: 16%;
+    height: auto;
+    direction: rtl;
+    padding-bottom:10px;
+  }
