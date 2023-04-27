@@ -1,5 +1,5 @@
  <!-- Topbar Start -->
- <div class="container-fluid bg-light pt-3 d-none d-lg-block toggle">
+ <div class="container-fluid bg-light pt-3 pb-3 d-none d-lg-block toggle">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -58,7 +58,7 @@
                         <a href="{{route('about')}}" class="nav-item nav-link">About</a>
 
                        
-                        <a href="contact" class="nav-item nav-link">Contact</a>
+                        <a href="{{route('contact-en')}}" class="nav-item nav-link">Contact</a>
 
                        <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite" onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
 
@@ -80,7 +80,7 @@
         </button>
   </div>
   <div class="offcanvas-body">
-    <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;"/>
+    <img src="../img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;"/>
     <p class="text-body px-3 text-center mt-4">choose your favorite places</p>
 
   </div>

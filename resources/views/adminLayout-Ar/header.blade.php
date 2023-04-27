@@ -1,5 +1,5 @@
  <!-- Topbar Start -->
- <div class="container-fluid bg-light pt-3 d-none d-lg-block toggle">
+ <div class="container-fluid bg-light pt-3 pb-3 d-none d-lg-block toggle">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -303,7 +303,7 @@
         </button>
   </div>
   <div class="offcanvas-body">
-    <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;"/>
+    <img src="../img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;"/>
     <p class="text-body px-3 text-center mt-4">اختر أماكنك المفضلة</p>
 
   </div>
