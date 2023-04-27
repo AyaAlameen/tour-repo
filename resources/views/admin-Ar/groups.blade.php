@@ -141,6 +141,7 @@
      
       </div>
     </div>
+    <div class="scroll-class">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">#</div>
@@ -183,12 +184,12 @@
      <!-- start action -->
 <div>
  <!-- destination -->
- <a href="#" class="delete mr-3" title="الوجهات" style="font-size:14px;" data-toggle="tooltip"><i class="fas fa-map-location-dot"></i></a>
+ <a href="#" class="delete ml-3" title="الوجهات" style="font-size:14px;" data-toggle="tooltip"><i class="fas fa-map-location-dot"></i></a>
 <!-- transport -->
 <!-- first form -->
 <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
-    <div class="modal-content" style="width:800px;">
+    <div class="modal-content" style="width:800px; direction:ltr;">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalToggleLabel">إضافة وسيلة نقل</h5>
         <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
@@ -234,7 +235,7 @@
 <!-- second form -->
 <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
   <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
-    <div class="modal-content" style="width:500px;">
+    <div class="modal-content" style="width:500px; direction:ltr;">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalToggleLabel2">وسيلة نقل جديدة</h5>
         <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
@@ -303,7 +304,7 @@
   </div>
 </div>
 <!-- end second form -->
-<a  class="delete mr-2" data-bs-toggle="modal" href="#exampleModalToggle"   title="Transportation" ><i class="fas fa-bus"></i></a>
+<a  class="delete ml-2" data-bs-toggle="modal" href="#exampleModalToggle"   title="Transportation" ><i class="fas fa-bus"></i></a>
 
 <!-- end transort -->
                  <!-- delete -->
@@ -311,13 +312,13 @@
                               <!-- Modal -->
                               <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
+                                  <div class="modal-content"  style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body"  style="direction:rtl;">
                                      هل أنت متأكد من أنك تريد حذف هذا الجروب؟
                                     </div>
                                     <div class="modal-footer">
@@ -331,12 +332,12 @@
                             <!-- end delete -->
 
                      <!-- edit -->
-                     <a href="#" class="edit pl-3" style="font-size:14px;" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
+                     <a href="#" class="edit pr-3" style="font-size:14px;" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
 
                           <!-- Modal -->
                      <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
@@ -400,7 +401,7 @@
 </div>
   <!-- end action -->
       
-
+</div>
       </div>
       </div>
       </div>

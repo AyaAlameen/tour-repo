@@ -30,7 +30,7 @@
                     <!-- Modal -->
                     <div class="modal fade" id="deleteCompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">
+                            <div class="modal-content" style="direction:ltr;">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -40,7 +40,7 @@
                                     @csrf
                                     <input type="text" name="id" value="{{$company->id}}" hidden>
 
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="direction:rtl;">
                                         هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
@@ -54,11 +54,11 @@
                     <!-- end delete -->
 
                     <!-- edit -->
-                    <a href="#" class="edit" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="edit mr-2" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
                     <div class="modal fade" id="editCompany{{$company->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">
+                            <div class="modal-content" style="direction:ltr;">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -136,7 +136,7 @@
                     <!-- Modal -->
                     <div class="modal fade" id="deleteCompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">
+                            <div class="modal-content" style="direction:ltr;">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -146,7 +146,7 @@
                                     @csrf
                                     <input type="text" name="id" value="{{$company->id}}" hidden>
 
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="direction:rtl;">
                                         هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
@@ -160,11 +160,11 @@
                     <!-- end delete -->
 
                     <!-- edit -->
-                    <a href="#" class="edit" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="edit mr-2" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
                     <div class="modal fade" id="editCompany{{$company->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">
+                            <div class="modal-content" style="direction:ltr;">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>

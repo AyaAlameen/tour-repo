@@ -118,11 +118,7 @@
                   <td ><input class="toggle text-primary in" type="number" name="place-phone" required style="width: 100%;"></th> 
                   <td>الهاتف</td>     
               </tr>
-              <tr>
-                  
-                  <td ><input class="toggle text-primary in" type="text" name="place-url" required style="width: 100%;"></th>  
-                  <td>Url</td>    
-              </tr> 
+
               <tr>
                   
                   <td ><input class="toggle text-primary in" type="text" name="place_cost" required style="width: 100%;"></th> 
@@ -206,6 +202,7 @@
      
       </div>
     </div>
+    <div class="scroll-class">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">الاسم</div>
@@ -217,7 +214,6 @@
         <div class="product-cell">وصف</div>
         <div class="product-cell">الايميل</div>
         <div class="product-cell">الهاتف</div>
-        <div class="product-cell">URL</div>
         <div class="product-cell">الكلفة</div>
         <div class="product-cell">الأحداث</div>
 
@@ -254,9 +250,7 @@
           <div class="product-cell">
             <span>264837283</span>
           </div>
-          <div class="product-cell">
-            <span>----</span>
-          </div>
+
           <div class="product-cell">
             <span>----</span>
           </div>
@@ -269,13 +263,13 @@
                               <!-- Modal -->
                               <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
+                                  <div class="modal-content" style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="direction:rtl;">
                                   هل أنت متأكد من أنك تريد حذف هذا المكان؟
                                     </div>
                                     <div class="modal-footer">
@@ -294,14 +288,14 @@
                           <!-- Modal -->
                      <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                              </button>
                            </div>
                            <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
+                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="direction:ltr !important;"> 
                            <tr>
                   
                   <td ><input type="text" class="toggle text-primary in" name="place_name" required style="width: 100%;"></th>   
@@ -335,7 +329,7 @@
                 <td>المدينة </td>    
               </tr>  
               <tr>
-                  <td>الناحية </td>
+            
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     ---
@@ -348,7 +342,7 @@
           
                   </div>
                 </div></td>    
-                <td>الناحية </td>  
+                <td>الناحية </td>
               </tr>  
               <tr>
                   
@@ -393,11 +387,6 @@
                          <td ><input type="number" class="toggle text-primary in" value="09123456789"></td>  
                          <td>الهاتف</td>
                   </tr> 
-                  <tr> 
-                       
-                         <td ><input type="text" class="toggle text-primary in" value="-----"></td>  
-                         <td>url</td>
-                  </tr>
                   <tr>
                          
                          <td ><input type="number" class="toggle text-primary in" value="100000"></td>  
@@ -424,6 +413,7 @@
 
       </div>
       </div>
+</div>
     </div>
   </div>
 @endsection

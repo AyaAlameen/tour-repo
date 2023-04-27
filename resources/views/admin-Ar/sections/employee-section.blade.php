@@ -3,9 +3,7 @@
 @foreach($employees as $employee)
     @if($loop->last)
     <div class="products-row">
-        <button class="cell-more-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-        </button>
+
           <div class="product-cell">
             <span>{{$i++}}</span>
           </div>
@@ -15,14 +13,14 @@
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$employee -> image))}}" alt="product">
           </div>
-        <div class="product-cell"><span>{{$employee->user_name}}</span></div>
+        <div class="product-cell">{{$employee->user_name}}</div>
 
-        <div class="product-cell"><span>{{$employee->email}}</span></div>
-        <div class="product-cell status-cell"><span >{{$employee->phone}}</span> </div>
-        <div class="product-cell sales"><span>{{$employee->translations()->where('locale', 'ar')->first()->address}}</span></div>
-        <div class="product-cell stock"><span >{{$employee->employeeProfile->salary}}</span></div>
-        <div class="product-cell price"><span >{{$employee->translations()->where('locale', 'ar')->first()->job}}</span></div>
-        <div class="product-cell"><span>{{$employee->employeeProfile->identifier}}</span></div>
+        <div class="product-cell ">{{$employee->email}}</div>
+        <div class="product-cell ">{{$employee->phone}} </div>
+        <div class="product-cell ">{{$employee->employeeProfile->salary}}</div>
+        <div class="product-cell ">{{$employee->translations()->where('locale', 'ar')->first()->job}}</div>
+        <div class="product-cell ">{{$employee->translations()->where('locale', 'ar')->first()->address}}</div>
+        <div class="product-cell">{{$employee->employeeProfile->identifier}}</div>
         <div class="product-cell">
      <!-- start action -->
 <div class="p-3">
@@ -31,8 +29,8 @@
                  <a href="#" class="delete" data-toggle="modal" data-target="#deleteCategory{{$employee->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                               <!-- Modal -->
                               <div class="modal fade" id="deleteCategory{{$employee->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
+                                <div class="modal-dialog ">
+                                  <div class="modal-content" style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -61,7 +59,7 @@
                           <!-- Modal -->
                      <div class="modal fade" id="editEmployee{{$employee->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
@@ -70,7 +68,7 @@
                            <form id="edit-form-{{$employee->id}}" action="" method="POST" enctype="multipart/form-data">
                             @csrf
                            <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
+                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 450px;">
 
                            <tr>
                   
@@ -124,12 +122,12 @@
                               </tr>  
                             <tr>
                             
-                                <td ><input class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->address}}"></th> 
+                                <td ><textarea class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->address}}"></textarea></th> 
                                 <td>العنوان (العربية)</td>     
                             </tr> 
                             <tr>
                                 
-                                <td ><input class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->address}}"></th> 
+                                <td ><textarea class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->address}}"></textarea></th> 
                                 <td>(الانكليزية)العنوان</td>     
                             </tr>     
                             <tr> 
@@ -143,12 +141,12 @@
                               </tr>  
                             <tr>
                             
-                                <td ><input class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->job}}"></th>     
+                                <td ><textarea class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->job}}"></textarea></th>     
                                 <td>العمل(العربية)</td> 
                             </tr>
                             <tr>
                                 
-                                <td ><input class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->job}}"></th>     
+                                <td ><textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->job}}"></textarea></th>     
                                 <td>(الانكليزية)العمل</td> 
                             </tr>   
                             <tr> 
@@ -174,15 +172,14 @@
                      <!-- end edit -->
    
 </div>
+
   <!-- end action -->
       
 
       </div>
+      
     @else
     <div class="products-row">
-        <button class="cell-more-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-        </button>
           <div class="product-cell">
             <span>{{$i++}}</span>
           </div>
@@ -192,14 +189,13 @@
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$employee -> image))}}" alt="product">
           </div>
-        <div class="product-cell"><span>{{$employee->user_name}}</span></div>
-
-        <div class="product-cell"><span>{{$employee->email}}</span></div>
-        <div class="product-cell status-cell"><span >{{$employee->phone}}</span> </div>
-        <div class="product-cell sales"><span>{{$employee->translations()->where('locale', 'ar')->first()->address}}</span></div>
-        <div class="product-cell stock"><span >{{$employee->employeeProfile->salary}}</span></div>
-        <div class="product-cell price"><span >{{$employee->translations()->where('locale', 'ar')->first()->job}}</span></div>
-        <div class="product-cell"><span>{{$employee->employeeProfile->identifier}}</span></div>
+        <div class="product-cell">{{$employee->user_name}}</div>
+        <div class="product-cell">{{$employee->email}}</div>
+        <div class="product-cell ">{{$employee->phone}} </div>
+        <div class="product-cell ">{{$employee->employeeProfile->salary}}</div>
+        <div class="product-cell ">{{$employee->translations()->where('locale', 'ar')->first()->job}}</div>
+        <div class="product-cell ">{{$employee->translations()->where('locale', 'ar')->first()->address}}</div>
+        <div class="product-cell">{{$employee->employeeProfile->identifier}}</div>
         <div class="product-cell">
      <!-- start action -->
 <div class="p-3">
@@ -209,7 +205,7 @@
                               <!-- Modal -->
                               <div class="modal fade" id="deleteCategory{{$employee->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
+                                  <div class="modal-content" style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -238,7 +234,7 @@
                           <!-- Modal -->
                      <div class="modal fade" id="editEmployee{{$employee->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
@@ -247,7 +243,7 @@
                            <form id="edit-form-{{$employee->id}}" action="" method="POST" enctype="multipart/form-data">
                             @csrf
                            <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;">
+                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 450px;">
 
                            <tr>
                   
@@ -301,12 +297,12 @@
                               </tr>  
                             <tr>
                             
-                                <td ><input class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->address}}"></th> 
+                                <td ><textarea class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%; height:26.5px;" value="{{$employee->translations()->where('locale', 'ar')->first()->address}}"></textarea></th> 
                                 <td>العنوان (العربية)</td>     
                             </tr> 
                             <tr>
                                 
-                                <td ><input class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->address}}"></th> 
+                                <td ><textarea class="toggle text-primary in" type="text" name="address_en" required style="width: 100%; height:26.5px;" value="{{$employee->translations()->where('locale', 'en')->first()->address}}"></textarea></th> 
                                 <td>(الانكليزية)العنوان</td>     
                             </tr>     
                             <tr> 
@@ -320,12 +316,12 @@
                               </tr>  
                             <tr>
                             
-                                <td ><input class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->job}}"></th>     
+                                <td ><textarea class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%; height:26.5px;" value="{{$employee->translations()->where('locale', 'ar')->first()->job}}"></textarea></th>     
                                 <td>العمل(العربية)</td> 
                             </tr>
                             <tr>
                                 
-                                <td ><input class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->job}}"></th>     
+                                <td ><textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%; height:26.5px;" value="{{$employee->translations()->where('locale', 'en')->first()->job}}"></textarea></th>     
                                 <td>(الانكليزية)العمل</td> 
                             </tr>   
                             <tr> 
@@ -352,9 +348,9 @@
    
 </div>
   <!-- end action -->
-      
+            </div>
+            
 
-      </div>
     @endif
 @endforeach
 

@@ -26,7 +26,7 @@
                               <!-- Modal -->
                               <div class="modal fade" id="deleteCity{{$city->id}}"  tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
+                                  <div class="modal-content" style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -56,7 +56,7 @@
                           <!-- Modal -->
                      <div class="modal fade" id="editCity{{$city->id}}"  data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
@@ -136,7 +136,7 @@
                               <!-- Modal -->
                               <div class="modal fade"  id="deleteCity{{$city->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
+                                  <div class="modal-content" style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -166,7 +166,7 @@
                           <!-- Modal -->
                      <div class="modal fade" id="editCity{{$city->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>

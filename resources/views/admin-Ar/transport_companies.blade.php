@@ -85,6 +85,7 @@
       
       </div>
     </div>
+    <div class="scroll-class">
     <div class="products-area-wrapper tableView" id="companiesTable">
       <div class="products-header">
         <div class="product-cell">#</div>
@@ -100,6 +101,7 @@
 
       </div>
       </div>
+</div>
     </div>
   </div>
 @endsection

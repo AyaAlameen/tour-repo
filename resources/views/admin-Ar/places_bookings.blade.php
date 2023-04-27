@@ -35,6 +35,7 @@
       
       </div>
     </div>
+    <div class="scroll-class">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
       <div class="product-cell">المكان</div>
@@ -76,5 +77,6 @@
       </div>
       </div>
     </div>
+</div>
   </div> 
 @endsection

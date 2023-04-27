@@ -23,7 +23,7 @@
                               <!-- Modal -->
                               <div class="modal fade" id="deleteSubCategory{{$subCategory->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
+                                  <div class="modal-content" style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -33,7 +33,7 @@
                                         @csrf
                                           <input type="text" name="id" value="{{$subCategory->id}}" hidden>
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="direction:rtl;">
                                     هل أنت متأكد من أنك تريد حذف هذا الصنف الفرعي (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
@@ -53,7 +53,7 @@
                           <!-- Modal -->
                      <div class="modal fade" id="editSubCategory{{$subCategory->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
@@ -129,7 +129,7 @@
                               <!-- Modal -->
                               <div class="modal fade" id="deleteSubCategory{{$subCategory->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
+                                  <div class="modal-content" style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -139,7 +139,7 @@
                                         @csrf
                                           <input type="text" name="id" value="{{$subCategory->id}}" hidden>
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="direction:rtl;">
                                     هل أنت متأكد من أنك تريد حذف هذا الصنف الفرعي (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
@@ -159,7 +159,7 @@
                           <!-- Modal -->
                      <div class="modal fade" id="editSubCategory{{$subCategory->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal" onclick="removeMessages()" aria-label="Close">
                                <span aria-hidden="true">&times;</span>

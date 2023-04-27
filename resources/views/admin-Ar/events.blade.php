@@ -161,6 +161,7 @@
      
       </div>
     </div>
+    <div class="scroll-class">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">الاسم</div>
@@ -213,13 +214,13 @@
                               <!-- Modal -->
                               <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
+                                  <div class="modal-content" style="direction:ltr;">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="direction:rtl;">
                                       هل أنت متأكد من أنك تريد حذف هذا الحدث؟
                                     </div>
                                     <div class="modal-footer">
@@ -238,7 +239,7 @@
                           <!-- Modal -->
                      <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                        <div class="modal-dialog">
-                         <div class="modal-content">
+                         <div class="modal-content" style="direction:ltr;">
                            <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
@@ -338,7 +339,7 @@
       
 
       </div>
-
+</div>
       </div>
       </div>
     </div>

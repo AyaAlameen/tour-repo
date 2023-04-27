@@ -81,12 +81,12 @@
               </tr> 
               <tr>
                  
-                  <td ><input class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;"></th> 
+                  <td ><textarea class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%; height:26.5px;"></textarea></td> 
                   <td>العنوان (العربية)</td>     
               </tr> 
               <tr>
                  
-                 <td ><input class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;"></th> 
+                 <td ><textarea class="toggle text-primary in" type="text" name="address_en" required style="width: 100%; height:26.5px;"></textarea></th> 
                  <td>(الإنجليزية)العنوان</td>     
              </tr> 
               <tr>
@@ -99,12 +99,12 @@
               </tr>
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;"></th>     
+                  <td ><textarea class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%; height:26.5px;"></textarea></th>     
                   <td>العمل(العربية)</td> 
               </tr>
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;"></th>     
+                  <td ><textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%; height:26.5px;"></textarea></th>     
                   <td>(اللإنجليزية)العمل</td> 
               </tr>
               <tr>
@@ -178,6 +178,7 @@
       
       </div>
     </div>
+    <div class="scroll-class">
     <div class="products-area-wrapper tableView" id="employeesTable">
       <div class="products-header">
         <div class="product-cell">#</div>
@@ -188,22 +189,22 @@
 
         <div class="product-cell category">الايميل</div>
         <div class="product-cell status-cell">الهاتف</div>
-        <div class="product-cell sales">العنوان</div>
         <div class="product-cell stock">الراتب</div>
         <div class="product-cell ">العمل</div>
+        <div class="product-cell sales">العنوان</div>
         <div class="product-cell ">الرقم الوطني</div>
         <div class="product-cell ">الأحداث</div>
-
-
       </div>
-      
-      <div id="employees-data">
+
+      <div  id="employees-data">
               
       </div>
       
       </div>
       </div>
     </div>
+    </div>
+
   </div>
 @endsection
 
