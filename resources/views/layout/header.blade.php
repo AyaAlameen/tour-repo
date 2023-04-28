@@ -118,7 +118,9 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h3 id="offcanvasRightLabel" class="text-primary">Favorites :</h3>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close m-0 close" data-bs-dismiss="offcanvas" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
   </div>
   <div class="offcanvas-body">
     <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;"/>
