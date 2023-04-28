@@ -34,6 +34,9 @@
  <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
+<!-- bootsrap -->
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
 
 <!-- JavaScript Libraries -->
 <script src="../js/jquery-3.4.1.min.js"></script>
@@ -46,9 +49,6 @@
 
 <!-- Template Javascript -->
 <script src="../js/main.js"></script>
-<!-- bootsrap -->
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
 
 <script>
 
