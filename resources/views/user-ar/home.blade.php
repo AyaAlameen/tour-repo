@@ -87,13 +87,13 @@
     <div class="container py-5 mb-5">
         <div class="container pt-5">
             <div class="row">
-                <div class="col-lg-6" style="min-height: 500px;">
-                    <div class="position-relative h-100"  style="right:550px">
-                        <img class="position-absolute w-100 h-100" src="img/beit-zafran-hotel-de.jpg" style="object-fit: cover;">
+                <div class="col-lg-6">
+                    <div class="position-relative h-100"  style="right:500px">
+                        <img class="position-absolute w-100 h-100" src="img/caption (4).jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-4 pt-5 pb-lg-5">
-                    <div style="box-shadow:#ced4da 3px 3px 6px 2px; left:100px;" class="about-text bg-white p-4 p-lg-5 my-lg-5 position-relative">
+                    <div style="box-shadow:#64686c33  -3px -3px 6px 0.5px; left:100px;" class="about-text bg-white p-4 p-lg-5 my-lg-5 position-relative">
                         <h2 class="text-primary text-uppercase">حولنا</h2>
                         <h1 class="mb-3">نعمل لتأمين أفضل الرحلات لك بما يناسب ميزانيتك</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
@@ -105,7 +105,7 @@
                                 <img class="img-fluid" src="img/latakia.jpg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary position-relative float-left" style="bottom:5px;">احجز الآن</a>
+                        <div class="d-flex justify-content-end"><a href="" class="btn btn-primary mt-1">احجز الآن</a></div>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                             <i class="fa fa-2x fa-money-check-alt text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">أسعار منافسة</h5>
+                            <h5 class="">عروض منافسة</h5>
                             <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                             <i class="fa fa-2x fa-globe text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">تغطية شاملة للمعالم</h5>
+                            <h5 class="">تغطية شاملة</h5>
                             <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" >الوجهة</h6>
-                <h1>استكشف وجهتك</h1>
+                <h1>المحافظات السورية</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -230,7 +230,7 @@
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" >الخدمات</h6>
-                <h1>خدمات الرحلات و لاسفر </h1>
+                <h1>خدمات الرحلات و السفر </h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -251,6 +251,30 @@
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
                         <h5 class="mb-2">حجوزات فنادق</h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">                     
+                        <i class="fas fa-utensils mx-auto mb-4"></i>
+                        <h5 class="mb-2">حجوزات مطاعم</h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                        <i class="fa fa-2x fa-landmark mx-auto mb-4"></i>
+                        <h5 class="mb-2">رحلات لأماكن أثرية </h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                        <i class="fa fa-2x fa-car mx-auto mb-4"></i>
+                        <h5 class="mb-2">تأمين المواصلات</h5>
                         <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
                     </div>
                 </div>
@@ -277,11 +301,13 @@
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 أيام</small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 شخص</small>
                             </div>
-                            <a class="h5 text-decoration-none" href="">اكتشف افضل الأماكن معنا</a>
+                            <br>
+                            <a class="h5 text-decoration-none" href="">الوصف</a>
                             <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6>
-                                    <h5 class="m-0"> ل.س 350,000</h5>
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
+                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
+                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
                                 </div>
                             </div>
                         </div>
@@ -296,11 +322,13 @@
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>7 أيام</small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 شخص</small>
                             </div>
-                            <a class="h5 text-decoration-none" href="">شارك بأفضل الجروبات السياحية في حلب</a>
+                            <br>
+                            <a class="h5 text-decoration-none" href="">الوصف</a>
                             <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>6.5</h6>
-                                    <h5 class="m-0">900,000 ل.س</h5>
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
+                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
+                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
                                 </div>
                             </div>
                         </div>
@@ -315,11 +343,13 @@
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 أيام</small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 شخص</small>
                             </div>
-                            <a class="h5 text-decoration-none" href="">تمتح بأفضل الرحل والسفريات</a>
+                            <br>
+                            <a class="h5 text-decoration-none" href="">الوصف</a>
                             <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6>
-                                    <h5 class="m-0">550,000 ل.س</h5>
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
+                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
+                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
                                 </div>
                             </div>
                         </div>
@@ -334,11 +364,13 @@
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1 أيام</small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 شخص</small>
                             </div>
-                            <a class="h5 text-decoration-none" href="">استمتع بالرحل اليومية معنا واستغل وقتك</a>
+                            <br>
+                            <a class="h5 text-decoration-none" href="">الوصف</a>
                             <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6>
-                                    <h5 class="m-0">100,000 ل.س</h5>
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
+                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
+                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
                                 </div>
                             </div>
                         </div>
@@ -353,11 +385,13 @@
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 أيام</small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 شخص</small>
                             </div>
-                            <a class="h5 text-decoration-none" href="">شارك بالفعاليات المتجددة في كل مكان</a>
+                            <br>
+                            <a class="h5 text-decoration-none" href="">الوصف</a>
                             <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6>
-                                    <h5 class="m-0">200,000 ل.س</h5>
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
+                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
+                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
                                 </div>
                             </div>
                         </div>
@@ -372,11 +406,13 @@
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>6 أيام</small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>3 شخص</small>
                             </div>
-                            <a class="h5 text-decoration-none" href="">استمتع بالمناظر الخلابة في كل مكان</a>
+                            <br>
+                            <a class="h5 text-decoration-none" href="">الوصف</a>
                             <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6>
-                                    <h5 class="m-0">1,000,000 ل.س</h5>
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
+                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
+                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
                                 </div>
                             </div>
                         </div>
@@ -494,11 +530,11 @@
 
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-2">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guides</h6>
-                <h1>Our Travel Guides</h1>
+                <h6 class="text-primary text-uppercase" >فريقنا </h6>
+                <h1>أدلاءنا السياحيون</h1>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
@@ -513,8 +549,8 @@
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
+                            <h5 class="text-truncate">الاسم</h5>
+                            <p class="m-0">المهارات</p>
                         </div>
                     </div>
                 </div>
@@ -530,8 +566,8 @@
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
+                            <h5 class="text-truncate">الاسم</h5>
+                            <p class="m-0">المهارات</p>
                         </div>
                     </div>
                 </div>
@@ -547,8 +583,8 @@
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
+                            <h5 class="text-truncate">الاسم</h5>
+                            <p class="m-0">المهارات</p>
                         </div>
                     </div>
                 </div>
@@ -564,8 +600,8 @@
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
+                            <h5 class="text-truncate">الاسم</h5>
+                            <p class="m-0">المهارات</p>
                         </div>
                     </div>
                 </div>
@@ -579,12 +615,12 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h6>
-                <h1>What Say Our Clients</h1>
+                <h6 class="text-primary text-uppercase" >العروض</h6>
+                <h1>أفضل العروض</h1>
             </div>
             <div class="owl-carousel testimonial-carousel">
                 <div class="text-center pb-4">
-                    <img class="img-fluid mx-auto" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;" >
+                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
                         </p>
@@ -593,7 +629,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;" >
+                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
                         </p>
@@ -602,7 +638,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
+                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
                         </p>
@@ -611,7 +647,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-4.jpg" style="width: 100px; height: 100px;" >
+                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
                         </p>
@@ -624,6 +660,11 @@
     </div>
     <!-- Testimonial End -->
 
+
+
+<!-- offers -->
+
+<!-- end offers -->
 
     <!-- Blog Start -->
     <div class="container-fluid py-5">

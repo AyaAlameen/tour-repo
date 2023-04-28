@@ -40,7 +40,7 @@
     </div>
     <!-- Carousel End -->
  <!-- Booking Start -->
- <div class="container-fluid booking mt-5 pb-5">
+ <div class="container-fluid booking mt-5 pb-2">
         <div class="container pb-5">
             <div class="bg-light shadow" style="padding: 30px;">
                 <div class="row align-items-center" style="min-height: 60px;">
@@ -93,16 +93,16 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5 mb-5">
+    <div class="container-fluid py-5 ">
         <div class="container pt-5">
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/beit-zafran-hotel-de.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="img/caption (4).jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
-                    <div style="box-shadow:#ced4da -3px -3px 6px 2px;" class="about-text bg-white p-4 p-lg-5 my-lg-5">
+                    <div style="box-shadow:#64686c33  3px -3px 6px 0.5px;" class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
                         <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
@@ -114,7 +114,8 @@
                                 <img class="img-fluid" src="img/latakia.jpg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Book Now</a>
+                       <div class="d-flex justify-content-end"><a href="" class="btn btn-primary mt-1">Book Now</a></div>
+                        
                     </div>
                 </div>
             </div>
@@ -124,7 +125,7 @@
 
 
     <!-- Feature Start -->
-    <div class="container-fluid pb-5">
+    <div class="container-fluid pb-5 mt-5">
         <div class="container pb-5">
             <div class="row">
                 <div class="col-md-4">
@@ -133,7 +134,7 @@
                             <i class="fa fa-2x fa-money-check-alt text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Competitive Pricing</h5>
+                            <h5 class="">Competitive Offers</h5>
                             <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
                         </div>
                     </div>
@@ -167,11 +168,11 @@
 
 
     <!-- Destination Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-2">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
-                <h1>Explore Top Destination</h1>
+                <h1>Governorates of Syria</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -235,7 +236,7 @@
 
 
     <!-- Service Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-2">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Services</h6>
@@ -270,11 +271,11 @@
 
 
     <!-- Packages Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-2">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Packages</h6>
-                <h1>Pefect Tour Packages</h1>
+                <h1>Perfect Tour Packages</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -395,6 +396,68 @@
         </div>
     </div>
     <!-- Packages End -->
+
+
+ <!-- Gallery -->
+ <div id="projects" class="filterGallery">
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-2">
+                    <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Gallery</h6>
+                    <h1>Photographs from Syria</h1>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="grid">
+                        <div class="element-item development">
+                            <a class="popup-with-move-anim" href="#project-1"><div class="element-item-overlay"><span>Online Banking</span></div><img src="../img/8bb93ea296a2f66346711d1612113d4a.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item development">
+                            <a class="popup-with-move-anim" href="#project-2"><div class="element-item-overlay"><span>Classic Industry</span></div><img src="../img/a072ebd1e062a7b0e9dc1e1d92f768f1.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design development marketing">
+                            <a class="popup-with-move-anim" href="#project-3"><div class="element-item-overlay"><span>BoomBap Audio</span></div><img src="../img/1acbfbbed180ec5ee32543bbf5867530.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design development marketing">
+                            <a class="popup-with-move-anim" href="#project-4"><div class="element-item-overlay"><span>Van Moose</span></div><img src="../img/35d697ca091f4aba90c840adbb6f805f.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design development marketing seo">
+                            <a class="popup-with-move-anim" href="#project-5"><div class="element-item-overlay"><span>Joy Moments</span></div><img src="../img/26164e5a82973fc301a83b20a95b7676.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing seo">
+                            <a class="popup-with-move-anim" href="#project-6"><div class="element-item-overlay"><span>Spark Events</span></div><img src="../img/dfd68a72e216b1044c59840f0514b1ae.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing">
+                            <a class="popup-with-move-anim" href="#project-7"><div class="element-item-overlay"><span>Casual Wear</span></div><img src="../img/ada0abf73e807404f7ea9275831d5f93.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing">
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/1f629b3f65809e87b4de552e1a11e9df.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing">
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/ae3b92ed9bb301d4f55026dd35fd8bcc.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing">
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/65db68b9ce1dc3cac3fb4de2b272d74a.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing">
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/78e7ece2eb10a34ce9f21541978dd3cb.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing">
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/2d342eea70239214700de5be3440efea.jpg" alt="alternative"></a>
+                        </div>
+                    </div> <!-- end of grid -->
+                    <!-- end of filter -->
+                    
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+		</div> <!-- end of container -->
+    
+    <!-- end of Gallery -->
+
+
+
 
 
     <!-- Registration Start -->

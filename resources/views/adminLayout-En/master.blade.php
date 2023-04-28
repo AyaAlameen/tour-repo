@@ -26,10 +26,7 @@
     <link rel="stylesheet" href="../css/dashStyle-En.css"> 
  <link href="../css/tablestyle.css" rel="stylesheet" />
 
- <!-- Google Web Fonts -->
- <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
-   
+
 </head>
 
 <body>
@@ -103,12 +100,6 @@ else{
 <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
 <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-<!-- Contact Javascript File -->
-<script src="../mail/jqBootstrapValidation.min.js"></script>
-<script src="../mail/contact.js"></script>
-
-<!-- Template Javascript -->
-<script src="../js/main.js"></script>
 <script  src="../js/dashScript.js"></script>
 <!-- fontawesome -->
 <script src="../js/all.min.js"></script>
