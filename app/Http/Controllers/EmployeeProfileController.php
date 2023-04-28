@@ -53,7 +53,7 @@ class EmployeeProfileController extends Controller
             'full_name_en' => 'required',
             'image' => 'required',
             'user_name' => 'required',
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users'],
             'password' => [
                 'required',
                 'min:8',
@@ -70,6 +70,7 @@ class EmployeeProfileController extends Controller
             'user_name.required' => 'حقل اسم المستخدم مطلوب',
             'email.required' => 'حقل الإيميل مطلوب',
             'email.email' => 'حقل الإيميل يجب أن يحقق شروط شكل الإيميل',
+            'email.unique' => 'هذا الإيميل لديه حساب من قبل',
             'password.required' => 'حقل كلمة المرور مطلوب',
             'password.min' => 'حقل كلمة المرور يجب أن يكون من 8 أحرف أو أرقام على الأقل',
             // 'password.regex' => 'حقل كلمة المرور يجب أن يحوي أحرف كبيرة وصغيرة وأرقام',
@@ -136,7 +137,7 @@ class EmployeeProfileController extends Controller
             'full_name_en' => 'required',
             'image' => 'required',
             'user_name' => 'required',
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users'],
             'password' => [
                 'required',
                 'min:8',
@@ -153,6 +154,7 @@ class EmployeeProfileController extends Controller
             'user_name.required' => 'Username feild is required',
             'email.required' => 'Email feild is required',
             'email.email' => 'Email field must meet the e-mail format requirements',
+            'email.unique' => 'This email already has an account',
             'password.required' => 'Password feild is required',
             'password.min' => 'Password field must be at least 8 characters or numbers long',
             // 'password.regex' => 'حقل كلمة المرور يجب أن يحوي أحرف كبيرة وصغيرة وأرقام',
@@ -249,7 +251,7 @@ class EmployeeProfileController extends Controller
             'full_name_ar' => 'required',
             'full_name_en' => 'required',
             'user_name' => 'required',
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users,email,'.$request->input('id')],
             // 'password' => [
             //     'required',
             //     'min:8',
@@ -265,6 +267,7 @@ class EmployeeProfileController extends Controller
             'user_name.required' => 'حقل اسم المستخدم مطلوب',
             'email.required' => 'حقل الإيميل مطلوب',
             'email.email' => 'حقل الإيميل يجب أن يحقق شروط شكل الإيميل',
+            'email.unique' => 'هذا الإيميل لديه حساب من قبل',
             // 'password.required' => 'حقل كلمة المرور مطلوب',
             // 'password.min' => 'حقل كلمة المرور يجب أن يكون من 8 أحرف أو أرقام على الأقل',
             // 'password.regex' => 'حقل كلمة المرور يجب أن يحوي أحرف كبيرة وصغيرة وأرقام',
@@ -320,38 +323,79 @@ class EmployeeProfileController extends Controller
     public function updateEn(Request $request)
     {
         $data=$request->input();
-        
+
         $request->validate([
             'id' => 'required',
-            'name_ar' => 'required',
-            'name_en' => 'required',
+            'full_name_ar' => 'required',
+            'full_name_en' => 'required',
+            'user_name' => 'required',
+            'email' => ['required', 'email', 'unique:users,email,'.$request->input('id')],
+            // 'password' => [
+            //     'required',
+            //     'min:8',
+            //     // 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+            //     // 'confirmed'
+            // ],
+            'phone' => ['required', 'numeric', 'digits:10'],
+            'salary' => 'required|numeric',
+            'identifier' => ['required', 'numeric', 'digits:11'],
         ], [
-            'name_ar.required' => 'Name(Arabic) feild is required',
-            'name_en.required' => 'Name(English) feild is required',
+            'full_name_ar.required' => 'Full Name(Arabic) feild is required',
+            'full_name_en.required' => 'Full Name(English) feild is required',
+            'user_name.required' => 'Username feild is required',
+            'email.required' => 'Email feild is required',
+            'email.email' => 'Email field must meet the e-mail format requirements',
+            'email.unique' => 'This email already has an account',
+            // 'password.required' => 'Password feild is required',
+            // 'password.min' => 'Password field must be at least 8 characters or numbers long',
+            // 'password.regex' => 'حقل كلمة المرور يجب أن يحوي أحرف كبيرة وصغيرة وأرقام',
+            'phone.required' => 'Phone feild is required',
+            'phone.numeric' => 'Phone field must consist of numbers only',
+            'phone.digits' => 'Phone field must contain 10 characters',
+            'salary.required' => 'Salary feild is required',
+            'salary.numeric' => 'Salary field must consist of numbers only',
+            'identifier.required' => 'Identifier feild is required',
+            'identifier.numeric' => 'Identifier field must consist of numbers only',
+            'identifier.digits' => 'Identifier field must contain 11 characters',
         ]);
 
-        $category = Category::find($data['id']);
+        
+        $employee = User::find($data['id']);
 
         if($request->files->has('image')){
             $image_name = $request->files->get('image');
             $org_name = $image_name->getClientOriginalName();
             $upload_image_name = time().'_'.$org_name;
-            $image_name->move('uploads/categoryImage', $upload_image_name);
-            $category->image = 'uploads/categoryImage/'.$upload_image_name;
+            $image_name->move('uploads/employeeImage', $upload_image_name);
+            $employee->image = 'uploads/employeeImage/'.$upload_image_name;
         }
 
-        $category->translations()->where('locale', 'en')->update([
-            'name'=>  $data['name_en']
+        $employee->user_name = $request->input('user_name');
+        $employee->email = $request->input('email');
+        // $employee->password = $request->input('password');
+        $employee->phone = $request->input('phone');
+        $employee->is_employee = true;
+
+        $employee->employeeProfile()->where('user_id', $data['id'])->update([
+            'salary' => $request->input('salary'), 
+            'identifier' => $request->input('identifier')
         ]);
-        $category->translations()->where('locale', 'ar')->update([
-            'name'=>  $data['name_ar']
+
+        $employee->translations()->where('locale', 'en')->update([
+            'full_name'=>$request->input('full_name_en'), 
+            'job'=>$request->input('job_en'), 
+            'address'=>$request->input('address_en'),
+        ]);
+        $employee->translations()->where('locale', 'ar')->update([
+            'full_name'=>$request->input('full_name_ar'), 
+            'job'=>$request->input('job_ar'), 
+            'address'=>$request->input('address_ar'),
         ]);
         
-        $category->update();
+        $employee->update();
         
-        $categories = Category::with('translations')->get();
-        
-        return view("admin-En.sections.category-section")->with(['categories' => $categories]);
+        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
+        return view('admin-En.sections.employee-section', compact('employees'));
     }
 
     /**

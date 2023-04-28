@@ -30,6 +30,12 @@ Route::get('/employee_en', function () {
     return view('admin-En.employee');
 }) -> name('employee_en');
 
+Route::get('/en/employees', [EmployeeProfileController::class, 'indexEn']) -> name('getEmployeesEn');
+Route::post('/employee_en', [EmployeeProfileController::class, 'storeEn']) -> name('addEmployeeEn');
+Route::post('/employee_en/edit', [EmployeeProfileController::class, 'updateEn']) -> name('editEmployeeEn');
+Route::post('/employee_en/delete', [EmployeeProfileController::class, 'destroyEn']) -> name('deleteEmployeeEn');
+
+
 Route::get('/cat_en', function () {
     return view('admin-En.categories');
 }) -> name('category_en');
