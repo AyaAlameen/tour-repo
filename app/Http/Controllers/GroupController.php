@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\TouristGuide;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -12,9 +13,28 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexAr()
     {
-        //
+        $groups = Group::with('translations')->get();
+        $guides = TouristGuide::with('translations')->get();
+        return view('admin-Ar.sections.group-section', compact('groups', 'guides'));
+
+    }
+    
+    public function indexEn()
+    {
+        $groups = Group::with('translations')->get();
+        $guides = TouristGuide::with('translations')->get();
+
+        return view('admin-En.sections.group-section', compact('groups', 'guides'));
+    }
+
+    public function getGuidesAr()
+    {
+        
+        $guides = TouristGuide::with('translations')->get();
+
+        return view('admin-Ar.groups', compact('guides'));
     }
 
     /**

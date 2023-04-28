@@ -8,6 +8,7 @@ use App\Http\Controllers\TransportCompanyController;
 use App\Http\Controllers\TouristGuideController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\EmployeeProfileController;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -248,9 +249,13 @@ Route::get('/transportations_ar', function () {
 }) -> name('transportation_ar');
 
 
-Route::get('/groups_ar', function () {
-    return view('admin-Ar.groups');
-}) -> name('groupe_ar');
+Route::get('/groups_ar', [GroupController::class, 'getGuidesAr']) -> name('groupe_ar');
+
+
+Route::get('/ar/groups', [GroupController::class, 'indexAr']) -> name('getGroupsAr');
+Route::post('/group_ar', [GroupController::class, 'storeAr']) -> name('addGroupAr');
+Route::post('/group_ar/edit', [GroupController::class, 'updateAr']) -> name('editGroupAr');
+Route::post('/group_ar/delete', [GroupController::class, 'destroyAr']) -> name('deleteGroupAr');
 
 
 //user routes part English

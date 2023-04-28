@@ -1,6 +1,5 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
-
 <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">الجروبات</h1>
@@ -34,16 +33,17 @@
               <tr>
                   
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+                    
                   <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
                   </label>
+                  <span id="guide-name"></span>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">ahmad</a>
-                    <a class="dropdown-item" href="#">salem</a>
-                    <a class="dropdown-item" href="#">emad</a>
-                    <a class="dropdown-item" href="#">basem</a>
+                    @foreach ($guides as $guide)
+                      <option style="cursor: pointer;" class="dropdown-item" value="{{$guide->id}}" id="guide_{{$guide->id}}" onclick="setGuide({{$guide->id}}, '{{$guide->translations()->where('locale', 'ar')->first()->name}}', 'guide_{{$guide->id}}')" href="#">{{$guide->translations()->where('locale', 'ar')->first()->name}}</option>
+                    @endforeach
+                    <input type="text" id="guide_id" name="tourist_guide_id" hidden>
                  
-               
                   </div>
                 </div></td>    
                 <td>الدليل السياحي</td>  
@@ -138,7 +138,6 @@
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
-     
       </div>
     </div>
     <div class="scroll-class">
@@ -152,259 +151,222 @@
         <div class="product-cell">الكلفة</div>
         <div class="product-cell ">الأحداث</div>
 
-
-
- 
-
       </div>
-      <div class="products-row">
-        <button class="cell-more-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-        </button>
-          <div class="product-cell">
-            <span>1</span>
-          </div>
+      <div id="groups-data">
 
-          <div class="product-cell">
-            <span>Ahmad</span>
-          </div>
-          <div class="product-cell">
-            <span> 4 أيام </span>
-          </div>
-          <div class="product-cell">
-            <span>----</span>
-          </div>
-          <div class="product-cell">
-            <span>50</span>
-          </div>
-          <div class="product-cell">
-            <span>200000</span>
-          </div>
-          <div class="product-cell" >
-     <!-- start action -->
-<div>
- <!-- destination -->
- <a href="#" class="delete ml-3" title="الوجهات" style="font-size:14px;" data-toggle="tooltip"><i class="fas fa-map-location-dot"></i></a>
-<!-- transport -->
-<!-- first form -->
-<div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
-    <div class="modal-content" style="width:800px; direction:ltr;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel">إضافة وسيلة نقل</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- !!!بيان انتبهي  -->
-        <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-     <img src="../img/vehicles.png" class="m-3" style="width:150px; height:150px; opacity:0.5;" >
-     <p class="text-body mb-4">لا يوجد بعد وسئل نقل مضافة </p>
-     <!-- هاد الشكل بحال كان ضايف وسائل -->
-      <!-- <table style="color: rgb(22, 22, 22); width: 700px; direction:rtl;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
-        <tr>
-          <td class="text-center">شركة النقل</td>
-          <td class="text-center">وسيلة النقل</td>
-          <td class="text-center" style="width:90px;">عدد الركاب</td>
-          <td class="text-center" style="width:290px;">المواصفات</td>
-          <td>في تاريخ</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="text-center">شركة الأمير</td>
-          <td class="text-center">6913 حلب</td>
-          <td class="text-center">12</td>
-          <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis.</td>
-             <td>11-11-2023</td>
-           <td> <a href="#" class="delete ml-2 mr-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
-          
-             
-        </tr>
-      </table> -->
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary"  style="border-radius:3px;" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">إضافة وسيلة نقل جديدة</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end first form -->
-
-<!-- second form -->
-<div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-  <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
-    <div class="modal-content" style="width:500px; direction:ltr;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">وسيلة نقل جديدة</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <table style="color: rgb(22, 22, 22); width: 450px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
-      
-      <tr>
-          <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
-            
-          </label>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">الأمير</a>
-            <a class="dropdown-item" href="#">القدموس</a>
-          </div>
-        </div></td>     
-        <td>شركات النقل المتاحة</td>
-
-      </tr>  
-      <tr>
-          <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
-            
-          </label>
-          <div class="dropdown-menu" style="width:200px;" aria-labelledby="dropdownMenuButton">
-  
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-          data-bs-content='عدد الركاب  : (12) --------------------المواصفات : باص مع خدمة التكييف وإتاحة شبكة واي فاي مجانا لجميع الركاب'>
-              <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
-      
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-           data-bs-content='عدد الركاب  : (12) --------------------المواصفات : باص مع خدمة التكييف وإتاحة شبكة واي فاي مجانا لجميع الركاب'>
-          <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
-      
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-          data-bs-content='عدد الركاب  : (12) --------------------المواصفات : باص مع خدمة التكييف وإتاحة شبكة واي فاي مجانا لجميع الركاب'>
-              <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
-      
-       
-          </div>
-        </div></td>  
-        
-        <td>وسائل النقل المتاحة في هذه الشركة</td>
-        
-      </tr>
-      <tr>
-     <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
-        <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
-
-      </tr>
-
-</table>
-      </div>
-      <div class="modal-footer">
-        <button class="app-content-headerButton" style="border-radius:3px;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">عودة</button>
-        <button type="button" class="app-content-headerButton" style="background-color:var(--bambi);">حفظ</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end second form -->
-<a  class="delete ml-2" data-bs-toggle="modal" href="#exampleModalToggle"   title="Transportation" ><i class="fas fa-bus"></i></a>
-
-<!-- end transort -->
-                 <!-- delete -->
-                 <a href="#" class="delete" style="font-size:14px;" data-toggle="modal" data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
-                              <!-- Modal -->
-                              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content"  style="direction:ltr;">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                    </div>
-                                    <div class="modal-body"  style="direction:rtl;">
-                                     هل أنت متأكد من أنك تريد حذف هذا الجروب؟
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                                      <button type="submit" class="app-content-headerButton">نعم</button>
-                                    </div>
-                                    </div>
-                                  </div>
-                                </div>
-                  
-                            <!-- end delete -->
-
-                     <!-- edit -->
-                     <a href="#" class="edit pr-3" style="font-size:14px;" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
-
-                          <!-- Modal -->
-                     <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                       <div class="modal-dialog">
-                         <div class="modal-content" style="direction:ltr;">
-                           <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                               <span aria-hidden="true">&times;</span>
-                             </button>
-                           </div>
-                           <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
-                        <tr> 
-                         
-                         <td ><input type="number" class="toggle text-primary in" value="1"></td> 
-                         <td>رقم الجروب</td>                  
-                  </tr> 
-
-                  <tr> 
-                        
-                         <td ><input type="text" class="toggle text-primary in" value="ahmad"></td> 
-                         <td>الدليل السياحي</td>                  
-                  </tr> 
-
-                  <tr> 
-                         
-                         <td ><input type="number" class="toggle text-primary in" value="4"></td> 
-                         <td>مدة الرحلة</td>                  
-                  </tr> 
-                  <tr>
-                  
-                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">----</textarea></th> 
-                  <td>وصف(العربية)</td>     
-              </tr>  
-              <tr>
-                  
-                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;">----</textarea></th> 
-                  <td>(الانكليزية)وصف</td>     
-              </tr> 
-                   <tr> 
-                        
-                         <td ><input type="number" class="toggle text-primary in" value="15"></td>    
-                         <td>عدد الأشخاص</td>               
-                  </tr> 
-                  <tr> 
-                        
-                         <td ><input type="number" class="toggle text-primary in" value="100000"></td>    
-                         <td>الكلفة</td>               
-                  </tr> 
-
-     
-      
-                               </table>
-                            
-                           </div>
-                           <div class="modal-footer">
-                <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                             <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
-                           </div>
-                         </div>
-                       </div>
-                       </div>
-                     <!-- end edit -->
-   
-</div>
-</div>
-  <!-- end action -->
-      
-</div>
       </div>
       </div>
       </div>
     </div>
   </div>
 @endsection
+
+<script>
+ 
+  function addGroup(formId){
+      $("#add-group-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+      var formData = new FormData(document.getElementById('add-form'));
+      $.ajax({
+          url: "{{route('addGroupAr')}}" ,
+          type: "POST",
+          data: formData,
+          processData: false, 
+          cache: false,
+          contentType: false,
+      })
+      .done(function(data){   
+          $("#groups-data").empty();
+          $("#groups-data").append(data);
+          $('.close').click();
+          $('.parenttrue').attr("hidden", false);
+          // clearInput();
+          document.getElementById(formId).reset();
+          
+
+      })
+      .fail(function(data){
+        // $('.close').click();
+        // $('.parent').attr("hidden", false);
+        removeMessages();
+        
+        if(data.responseJSON.errors.name_ar){
+            document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+          }
+          if(data.responseJSON.errors.name_en){
+
+            document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+          }
+          if(data.responseJSON.errors.image){
+
+            document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+
+          }
+        
+      })
+      .always(function() {
+          // Re-enable the submit button and hide the loading spinner
+          $("#add-category-btn").attr("disabled", false).html('حفظ');
+      });
+  }
+  //----------------------------------------------------------
+
+  function editCategory(formId, id){
+
+      $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+      var formData = new FormData(document.getElementById(formId));
+      formData.append('id', id);
+      $.ajax({
+          url: `{{route('editCategoryAr')}}` ,
+          type: "POST",
+          data: formData,
+          processData: false, 
+          cache: false,
+          contentType: false,
+      })
+      .done(function(data){   
+        
+          $("#categories-data").empty();
+          $("#categories-data").append(data);
+          $('.close').click();
+          $('.parenttrue').attr("hidden", false);
+          // clearInput();
+      })
+      .fail(function(data){
+        removeMessages();
+          // $('.close').click();
+          // $('.parent').attr("hidden", false);
+          if(data.responseJSON.errors.name_ar){
+            document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+
+          }
+          if(data.responseJSON.errors.name_en){
+            console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+
+            document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+          }
+
+      })
+      .always(function() {
+          // Re-enable the submit button and hide the loading spinner
+          $("#edit-category-btn-"+id).attr("disabled", false).html('حفظ');
+      });
+  }
+
+  //---------------------------------------------------------------
+  function deleteCategory(formId, id){
+      $("#delete-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+      var formData = new FormData(document.getElementById(formId));
+      $.ajax({
+          url: `{{route('deleteCategoryAr')}}` ,
+          type: "POST",
+          data: formData,
+          processData: false, 
+          cache: false,
+          contentType: false,
+      })
+      .done(function(data){   
+          $("#categories-data").empty();
+          $("#categories-data").append(data);
+          $('.close').click();
+          $('.parenttrue').attr("hidden", false);
+          // clearInput();
+      })
+      .fail(function(){
+        $('.close').click();
+          $('.parent').attr("hidden", false);
+
+      })
+      .always(function() {
+          // Re-enable the submit button and hide the loading spinner
+          $("#delete-category-btn-"+id).attr("disabled", false).html('نعم');
+      });
+  }
+
+  //---------------------------------------------------------------
+  window.onload = (event) => {
+      $.ajax({
+          url: "{{route('getGroupsAr')}}" ,
+          type: "GET",
+          processData: false, 
+          cache: false,
+          contentType: false,
+      }) 
+      .done(function(data){
+          $("#groups-data").append(data);
+      })
+      .fail(function(){
+          $('.parent').attr("hidden", false);
+
+
+      });
+  };
+  //--------------------------------------------------------
+
+  function searchFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("search");
+      filter = input.value;
+      table = document.getElementById("categoriesTable");
+      // tr = table.getElementsByTagName("tr");
+      tr = table.getElementsByClassName("products-row");
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByClassName("search-value");
+              
+          if (td) {
+              txtValue = td[0].textContent || td[0].innerText;
+              if(txtValue){
+
+                  if (txtValue.indexOf(filter) > -1) {
+                      tr[i].style.display = "";
+                  } else {
+                      tr[i].style.display = "none";
+                  }
+              }
+          }
+      }
+  }
+
+//----------------------------------------------
+function removeMessages(){
+  document.getElementById('name_ar_error').innerHTML = ''; 
+  document.getElementById('name_en_error').innerHTML = ''; 
+  document.getElementById('image_error').innerHTML = ''; 
+
+  const name_ar = document.querySelectorAll('.name_ar_error_edit');
+  name_ar.forEach(name => {
+    name.innerHTML = '';
+  });
+
+  const name_en = document.querySelectorAll('.name_en_error_edit');
+  name_en.forEach(name => {
+    name.innerHTML = '';
+  });
+
+  const images = document.querySelectorAll('.image_error_edit');
+  images.forEach(image => {
+    image.innerHTML = '';
+  });
+}
+//--------------------------------------------
+function setGuide(guide_id, guide, option_id) {
+  var guides_options = document.querySelectorAll('[id^="guide_"]');
+  guides_options.forEach(option => {
+    option.style.setProperty("color", "#1f1c2e", "important");
+    
+  });
+  document.getElementById('guide-name').innerHTML  = guide;
+  document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
+  document.getElementById('guide_id').value = `${guide_id}`;
+}
+//--------------------------------------------
+
+
+</script>
+
+
