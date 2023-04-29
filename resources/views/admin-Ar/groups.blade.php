@@ -15,7 +15,7 @@
     <div class="modal-content toggle">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModal3Label">جروب جديد</h5>
-        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close m-0 close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -23,15 +23,35 @@
         @csrf
       <div class="modal-body">
       <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
-      
               <tr>
-                  
-                  <td ><input type="number" class="toggle text-primary in" name="group_number" required style="width: 100%;"></th>  
-                  <td>رقم الجروب</td>    
-              </tr>  
-
+                <td ><input class="toggle text-primary in" type="text" name="name_ar" required style="width: 100%;"></td>   
+                <td>الاسم(العربية)</td>   
+            </tr> 
+            <tr>       
+              <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>                
+            </tr> 
               <tr>
-                  
+                <td ><input class="toggle text-primary in" type="text" name="name_en" required style="width: 100%;"></td>   
+                <td>الاسم(الإنجليزية)</td>   
+            </tr> 
+            <tr>       
+              <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span></td>                
+            </tr> 
+              <tr>
+                <td ><input class="toggle text-primary in" type="date" name="start_date" required style="width: 100%;"></td>   
+                <td>تاريخ البداية</td>   
+              </tr> 
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="start_date_error"></span></td>                
+              </tr> 
+              <tr>
+                <td ><input class="toggle text-primary in" type="date" name="end_date" required style="width: 100%;"></td>   
+                <td>تاريخ النهاية</td>   
+            </tr> 
+            <tr>       
+              <td colspan="2" class="text-end text-danger p-1"><span id="end_date_error"></span></td>                
+            </tr> 
+                <tr>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                     
                   <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
@@ -48,32 +68,35 @@
                 </div></td>    
                 <td>الدليل السياحي</td>  
               </tr>
-             
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="guide_error"></span></td>                
+              </tr> 
+              
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="number"  required style="width: 100%;"></td> 
-                  <td>مدة الرحلة</td>     
-              </tr>
-
-              <tr>
-                  
-                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></td> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;"></textarea></td> 
                   <td>وصف(العربية)</td>     
               </tr>  
               <tr>
                   
-                  <td ><textarea class="toggle text-primary in mt-2"  name="_group_description" required style="width: 100%; height:27.5px;"></textarea></td> 
+                  <td ><textarea class="toggle text-primary in mt-2"  name="description_en" required style="width: 100%; height:27.5px;"></textarea></td> 
                   <td>(الانكليزية)وصف</td>     
               </tr>   
               <tr>
                   
-                  <td ><input class="toggle text-primary in" type="number" name="people_cont" required style="width: 100%;"></td> 
+                  <td ><input class="toggle text-primary in" type="number" name="people_count" required style="width: 100%;"></td> 
                   <td>عدد الأشخاص</td>     
               </tr>
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="people_count_error"></span></td>                
+              </tr> 
               <tr>
                  
-                  <td ><input class="toggle text-primary in" type="number" name="group_cost" required style="width: 100%;"></td>   
-                  <td>الكلفة</td>   
+                  <td ><input class="toggle text-primary in" type="number" name="cost" required style="width: 100%;"></td>   
+                  <td>التكلفة</td>   
+              </tr> 
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span></td>                
               </tr> 
 
 
@@ -82,8 +105,8 @@
       </div>
       </form>
       <div class="modal-footer">
-        <button type="button" class="action-button active" data-bs-dismiss="modal">إغلاق</button>
-        <button type="button" class="app-content-headerButton">حفظ</button>
+        <button type="button" onclick="removeMessages(), document.getElementById('add-form').reset()" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" id="add-group-btn" onclick="addGroup('add-form')" class="app-content-headerButton">حفظ</button>
       </div>
     </div>
   </div>
@@ -144,11 +167,13 @@
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">#</div>
+        <div class="product-cell">الاسم</div>
         <div class="product-cell">الدليل السياحي</div>
-        <div class="product-cell">مدة الرحلة </div>
-        <div class="product-cell">وصف</div>
+        <div class="product-cell">تاريخ البداية </div>
+        <div class="product-cell">تاريخ النهاية </div>
         <div class="product-cell"> عدد الأشخاص</div>
-        <div class="product-cell">الكلفة</div>
+        <div class="product-cell">التكلفة</div>
+        <div class="product-cell">وصف</div>
         <div class="product-cell ">الأحداث</div>
 
       </div>
@@ -198,27 +223,47 @@
             document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
 
           }
-          if(data.responseJSON.errors.image){
+          if(data.responseJSON.errors.start_date){
 
-            document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
+            document.querySelector(`#${formId} #start_date_error`).innerHTML = data.responseJSON.errors.start_date[0]; 
+
+          }
+          if(data.responseJSON.errors.end_date){
+
+            document.querySelector(`#${formId} #end_date_error`).innerHTML = data.responseJSON.errors.end_date[0]; 
+
+          }
+          if(data.responseJSON.errors.tourist_guide_id){
+
+            document.querySelector(`#${formId} #guide_error`).innerHTML = data.responseJSON.errors.tourist_guide_id[0]; 
+
+          }
+          if(data.responseJSON.errors.people_count){
+
+            document.querySelector(`#${formId} #people_count_error`).innerHTML = data.responseJSON.errors.people_count[0]; 
+
+          }
+          if(data.responseJSON.errors.cost){
+
+            document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0]; 
 
           }
         
       })
       .always(function() {
           // Re-enable the submit button and hide the loading spinner
-          $("#add-category-btn").attr("disabled", false).html('حفظ');
+          $("#add-group-btn").attr("disabled", false).html('حفظ');
       });
   }
   //----------------------------------------------------------
 
-  function editCategory(formId, id){
+  function editGroup(formId, id){
 
-      $("#edit-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+      $("#edit-group-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
       var formData = new FormData(document.getElementById(formId));
       formData.append('id', id);
       $.ajax({
-          url: `{{route('editCategoryAr')}}` ,
+          url: `{{route('editGroupAr')}}` ,
           type: "POST",
           data: formData,
           processData: false, 
@@ -227,8 +272,8 @@
       })
       .done(function(data){   
         
-          $("#categories-data").empty();
-          $("#categories-data").append(data);
+          $("#groups-data").empty();
+          $("#groups-data").append(data);
           $('.close').click();
           $('.parenttrue').attr("hidden", false);
           // clearInput();
@@ -242,16 +287,40 @@
 
           }
           if(data.responseJSON.errors.name_en){
-            console.log(document.querySelector(`#${formId} .name_en_error_edit`));
 
             document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+
+          }
+          if(data.responseJSON.errors.start_date){
+
+            document.querySelector(`#${formId} .start_date_error_edit`).innerHTML = data.responseJSON.errors.start_date[0]; 
+
+          }
+          if(data.responseJSON.errors.end_date){
+
+            document.querySelector(`#${formId} .end_date_error_edit`).innerHTML = data.responseJSON.errors.end_date[0]; 
+
+          }
+          if(data.responseJSON.errors.tourist_guide_id){
+
+            document.querySelector(`#${formId} .guide_error_edit`).innerHTML = data.responseJSON.errors.tourist_guide_id[0]; 
+
+          }
+          if(data.responseJSON.errors.people_count){
+
+            document.querySelector(`#${formId} .people_count_error_edit`).innerHTML = data.responseJSON.errors.people_count[0]; 
+
+          }
+          if(data.responseJSON.errors.cost){
+
+            document.querySelector(`#${formId} .cost_error_edit`).innerHTML = data.responseJSON.errors.cost[0]; 
 
           }
 
       })
       .always(function() {
           // Re-enable the submit button and hide the loading spinner
-          $("#edit-category-btn-"+id).attr("disabled", false).html('حفظ');
+          $("#edit-group-btn-"+id).attr("disabled", false).html('حفظ');
       });
   }
 
@@ -334,24 +403,24 @@
 
 //----------------------------------------------
 function removeMessages(){
-  document.getElementById('name_ar_error').innerHTML = ''; 
-  document.getElementById('name_en_error').innerHTML = ''; 
-  document.getElementById('image_error').innerHTML = ''; 
+  // document.getElementById('name_ar_error').innerHTML = ''; 
+  // document.getElementById('name_en_error').innerHTML = ''; 
+  // document.getElementById('image_error').innerHTML = ''; 
 
-  const name_ar = document.querySelectorAll('.name_ar_error_edit');
-  name_ar.forEach(name => {
-    name.innerHTML = '';
-  });
+  // const name_ar = document.querySelectorAll('.name_ar_error_edit');
+  // name_ar.forEach(name => {
+  //   name.innerHTML = '';
+  // });
 
-  const name_en = document.querySelectorAll('.name_en_error_edit');
-  name_en.forEach(name => {
-    name.innerHTML = '';
-  });
+  // const name_en = document.querySelectorAll('.name_en_error_edit');
+  // name_en.forEach(name => {
+  //   name.innerHTML = '';
+  // });
 
-  const images = document.querySelectorAll('.image_error_edit');
-  images.forEach(image => {
-    image.innerHTML = '';
-  });
+  // const images = document.querySelectorAll('.image_error_edit');
+  // images.forEach(image => {
+  //   image.innerHTML = '';
+  // });
 }
 //--------------------------------------------
 function setGuide(guide_id, guide, option_id) {
@@ -363,6 +432,17 @@ function setGuide(guide_id, guide, option_id) {
   document.getElementById('guide-name').innerHTML  = guide;
   document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
   document.getElementById('guide_id').value = `${guide_id}`;
+}
+//--------------------------------------------
+function setEditGuide(guide_id, group_id, guide, option_id) {
+  var guides_options = document.querySelectorAll('[id^="edit_guide_"]');
+  guides_options.forEach(option => {
+    option.style.setProperty("color", "#1f1c2e", "important");
+    
+  });
+  document.getElementById('guide-name-' + group_id).innerHTML  = guide;
+  document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
+  document.getElementById('edit_guide_id_' + group_id).value = `${guide_id}`;
 }
 //--------------------------------------------
 

@@ -13,7 +13,7 @@ class Group extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['tourist_guide_id', 'people_count', 'cost'];
+    protected $fillable = ['tourist_guide_id', 'start_date', 'end_date', 'people_count', 'cost'];
 
     public function touristGuide() {
         return $this->belongsTo(TouristGuide::class);

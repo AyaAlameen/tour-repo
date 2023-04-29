@@ -17,6 +17,8 @@ class CreateGroupsTable extends Migration
             $table->id();
             // $table->string('name');
             $table->foreignId('tourist_guide_id');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->integer('people_count');
             // $table->string('description');
             $table->decimal('cost', 8, 0);
