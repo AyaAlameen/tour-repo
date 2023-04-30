@@ -6,24 +6,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Translation;
-use App\Models\CompanyTransportType;
-use App\Models\Transportation;
+use App\Models\City;
+use App\Models\TransportCompany;
 
-class TransportCompany extends Model
+class Transportation extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['email', 'phone'];
+    protected $fillable = ['carId', 'city_id', 'transport_company_id', 'passengers_number'];
 
     public function translations()
     {
         return $this->morphMany(Translation::class, 'model');
     }
 
-    public function companyTransportTypes() {
-        return $this->hasMany(CompanyTransportType::class);
+    public function city() {
+        return $this->belongsTo(City::class);
     }
 
-    public function transportation() {
-        return $this->hasMany(Transportation::class);
+    public function transportCompany() {
+        return $this->belongsTo(TransportCompany::class);
     }
 }

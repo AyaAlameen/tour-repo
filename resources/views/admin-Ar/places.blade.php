@@ -124,6 +124,14 @@
                   <td ><input class="toggle text-primary in" type="text" name="place_cost" required style="width: 100%;"></th> 
                   <td>الكلفة</td>     
               </tr> 
+              <tr>
+                  
+                  <td style="width: 100%; height: 300px;">
+
+</td> 
+                  <td>المكان</td>     
+              </tr> 
+              
       </table>
       </div>
       <div class="modal-footer">
@@ -416,4 +424,5 @@
 </div>
     </div>
   </div>
+  <div id="map" style="width: 100%; height: 300px;"></div>
 @endsection

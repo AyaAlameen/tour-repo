@@ -25,7 +25,8 @@
 <link href="../css/style-En.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashStyle-En.css"> 
  <link href="../css/tablestyle.css" rel="stylesheet" />
-
+ <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
+ <script src="{{ asset('js/leaflet.js') }}"></script>
 
 </head>
 

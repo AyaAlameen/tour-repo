@@ -31,6 +31,7 @@
 <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=rawy-thin" />
 
 
+<link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
 
 </head>
 
@@ -94,6 +95,7 @@ else{
 
 
 <!-- JavaScript Libraries -->
+<script src="../js/leaflet.js"></script>
 
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -112,7 +114,6 @@ else{
 <script  src="../js/dashScript.js"></script>
 <!-- fontawesome -->
 <script src="../js/all.min.js"></script>
-
 <script>
   function accordion() {
   var btn = document.getElementById("arrow");

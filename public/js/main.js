@@ -65,6 +65,16 @@
             }
         }
     });
-    
+
+    //Leaflet Init
+    var map = L.map('map');
+
+    var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
+    map.fitBounds(syriaBounds);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(map);
 })(jQuery);
 

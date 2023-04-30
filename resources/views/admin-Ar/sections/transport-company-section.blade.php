@@ -19,7 +19,7 @@
                 {{$company->phone}}
             </div>
             <div class="product-cell">
-            <button class="app-content-headerButton"><a href="" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button>
+            <button class="app-content-headerButton"><a href="{{route ('getTransportationsAr', ['id' => $company->id])}}" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button>
          
             </div>
             <div class="product-cell">
