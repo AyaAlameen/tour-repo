@@ -111,7 +111,7 @@ Add Group
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </button>
         <div class="nav-item dropdown " >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('groupe_en')}}"  class="dropdown-item">English</a>
@@ -128,6 +128,7 @@ Add Group
      
       </div>
     </div>
+    <div class="scroll-class">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">#</div>
@@ -233,7 +234,7 @@ Add Group
       <tr>
           <td>Transport companies available</td>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
             
           </label>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -243,42 +244,53 @@ Add Group
          
        
           </div>
-        </div></td>      
+        </div></td>   
+   
       </tr>  
       <tr>
           <td>Transportation available in this company</td>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
             
           </label>
           <div class="dropdown-menu" style="width:200px;" aria-labelledby="dropdownMenuButton">
-  
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+  <ul>
+    <li>
+    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
            data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
              ipsum perspiciatis debitis .'>
           <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
+    </div>
+    </li>
+    <li>
+    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+          <a class="dropdown-item" href="#">6913 حلب</a>
+          </div>
+    </li>
+  </ul>
+   
       
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .'>
-          <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
+
       
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .'>
-          <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
+
       
        
           </div>
-        </div></td>      
+        </div></td>  
+         
       </tr>
+      <table style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
       <tr>
            <td>The date of the day the transportation will be used</td>
            <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+           <!-- بيانة هون وقت بكبس عالزائد بنضتف التاريخ اللي مدخلو وبيتفضا إنبوت التاريخ مشان يدخل تاريخ جديد -->
+           <td><i class="fas fa-plus pr-1" style="cursor:pointer;" title="add new date" ></i></td>
       </tr>
+      </table>
+
+
 </table>
       </div>
       <div class="modal-footer">
@@ -382,7 +394,7 @@ Add Group
       </div>
       </div>
       </div>
-      
+      </div>
     </div>
   </div>
 

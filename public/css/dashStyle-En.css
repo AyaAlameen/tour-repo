@@ -462,6 +462,8 @@ a.text-primary:hover, a.text-primary:focus {
   display: flex;
   align-items: center;
   border-radius: 4px;
+  flex-wrap: wrap;
+  position: relative;
 }
 .tableView .products-row:hover {
   box-shadow: var(--filter-shadow);
@@ -479,6 +481,8 @@ a.text-primary:hover, a.text-primary:focus {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-inline: 16px;
+  width: 150px;
 }
 .tableView .product-cell img {
   width: 75px;
@@ -794,12 +798,10 @@ input:disabled{
   }
   .scroll-class{
     overflow-x: scroll;
-    width: 84%;
+    width: 50%;
     display: grid;
-    position: absolute;
     top: 37%;
-    right: 16%;
+    left: 16%;
     height: auto;
-    direction: rtl;
     padding-bottom:10px;
   }

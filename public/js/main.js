@@ -39,7 +39,7 @@
     });
     $('.time').datetimepicker({
         format: 'LT'
-    });
+    }); 
 
 
     // Testimonials carousel

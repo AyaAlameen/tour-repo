@@ -16,15 +16,15 @@
           <div class="product-cell">
             <img src="{{ asset(str_replace(app_path(),'',$employee -> image))}}" alt="product">
           </div>
-        <div class="product-cell"><span>{{$employee->user_name}}</span></div>
+        <div class="product-cell">{{$employee->user_name}}</div>
 
-        <div class="product-cell"><span>{{$employee->email}}</span></div>
-        <div class="product-cell status-cell"><span >{{$employee->phone}}</span> </div>
-        <div class="product-cell stock"><span >{{$employee->employeeProfile->salary}}</span></div>
-        <div class="product-cell price"><span >{{$employee->translations()->where('locale', 'en')->first()->job}}</span></div>
-        <div class="product-cell sales"><span>{{$employee->translations()->where('locale', 'en')->first()->address}}</span></div>
+        <div class="product-cell">{{$employee->email}}</div>
+        <div class="product-cell ">{{$employee->phone}} </div>
+        <div class="product-cell">{{$employee->employeeProfile->salary}}</div>
+        <div class="product-cell ">{{$employee->translations()->where('locale', 'en')->first()->job}}</div>
+        <div class="product-cell ">{{$employee->translations()->where('locale', 'en')->first()->address}}</div>
         
-        <div class="product-cell"><span>{{$employee->employeeProfile->identifier}}</span></div>
+        <div class="product-cell">{{$employee->employeeProfile->identifier}}</div>
         <div class="product-cell">
      <!-- start action -->
 <div class="p-3">
@@ -83,11 +83,11 @@
                   <td colspan="2"><span style="color: red" class="phone_error_edit"></span></td>
                   <tr>
                   <td>Address(Arabic)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->address}}"></th>      
+                  <td ><textarea class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->address}}"></textarea></th>      
               </tr> 
               <tr>
                   <td>Address(English)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->address}}"></th>      
+                  <td ><textarea class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->address}}"></textarea></th>      
               </tr>     
                   <tr> 
                          <td>Salary</td>
@@ -97,11 +97,11 @@
                   <td colspan="2"><span style="color: red" class="salary_error_edit"></span></td>
                   <tr>
                   <td>Job(Arabic)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->job}}"></th>      
+                  <td ><textarea class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'ar')->first()->job}}"></textarea></th>      
               </tr>
               <tr>
                   <td>job(English)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->job}}"></th>      
+                  <td ><textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;" value="{{$employee->translations()->where('locale', 'en')->first()->job}}"></textarea></th>      
               </tr>     
                   <tr> 
                          <td>Identifier</td>

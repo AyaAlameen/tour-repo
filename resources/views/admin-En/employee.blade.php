@@ -64,11 +64,11 @@ Add employee
               <tr > <td colspan="2"><span class="text-danger p-1" id="phone_error"></span></td> </tr>
               <tr>
                   <td>Address(Arabic)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;"></textarea></th>      
               </tr> 
               <tr>
                   <td>Address(English)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;"></textarea></th>      
               </tr> 
               <tr>
                   <td>Salary</td>
@@ -77,11 +77,11 @@ Add employee
               <tr > <td colspan="2"><span class="text-danger p-1" id="salary_error"></span></td> </tr>
               <tr>
                   <td>Job(Arabic)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;"></textarea></th>      
               </tr>
               <tr>
                   <td>Job(English)</td>
-                  <td ><input class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;"></th>      
+                  <td ><textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;"></textarea></th>      
               </tr>
               <tr>
                   <td>Identifier</td>
@@ -133,7 +133,7 @@ Add employee
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </button>
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('employee_en')}}"  class="dropdown-item">English</a>
@@ -150,6 +150,7 @@ Add employee
      
       </div>
     </div>
+    <div class="scroll-class">
     <div class="products-area-wrapper tableView" id="employeesTable">
       <div class="products-header">
         <div class="product-cell"> #</div>
@@ -171,7 +172,7 @@ Add employee
       <div id="employees-data">
 
       </div>
-      
+      </div>
       </div>
       </div>
     </div>

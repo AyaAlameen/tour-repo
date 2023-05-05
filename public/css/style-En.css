@@ -29,9 +29,7 @@
   --light: #FCFFE7;
   --title-color:#2B3467;
 
-
-}
-
+ }
 .light:root {
   --header:rgba(21, 30, 47,1);
   --radius: 0px;
