@@ -4,7 +4,7 @@
 <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">وسائل النقل</h1>
-      <h3 class="app-content-headerText ">"شركة نقل الأمير"</h3>
+      <h3 class="app-content-headerText ">"{{$company->translations()->where('locale', 'ar')->first()->name}}"</h3>
 
         <!-- add -->
 <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
@@ -154,55 +154,73 @@
 					<!-- start action -->
 					<div class="p-3">
 						<!-- edit -->
-						<a href="#" class="edit p-2" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
+						<a href="#" class="edit p-2" data-toggle="modal" data-target="#editTransportation{{$transportation->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                         <!-- Modal -->
-						<div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal fade" data-backdrop="static" id="editTransportation{{$transportation->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content"  style="direction:ltr;">
 									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<button type="button" class="close"  onclick="removeMessages()" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
+									<form id="edit-form-{{$transportation->id}}" action="" method="POST" enctype="multipart/form-data">
+										@csrf
+										<input type="text" hidden name="transport_company_id" class="toggle text-primary in" value="{{$company->id}}">
+
 									<div class="modal-body">
 										<table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
 											<tr>   
-												<td ><input type="number" class="toggle text-primary in" value="12"></td>  
+												<td ><input type="number" name="carId" class="toggle text-primary in" value="{{$transportation->carId}}"></td>  
 												<td>رقم السيارة</td>
+											</tr> 
+											<tr>
+												<td colspan="2"><span style="color: red" class="carId_error_edit"></span></td>
+											  </tr>
+
+
+											<tr>
+												<td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+												  
+												<label  class="dropdown-toggle" type="button" id="dropdownMenuButtonEdit{{$transportation->id}}" data-toggle="dropdown" aria-expanded="false">  
+												  
+												</label>
+												<span id="city-name-{{$transportation->id}}">{{$transportation->city->translations()->where('locale', 'ar')->first()->name}}</span>
+												<div class="dropdown-menu" aria-labelledby="dropdownMenuButtonEdit{{$transportation->id}}">
+												  @foreach ($cities as $city)
+													<option style="cursor: pointer; @if($city->id == $transportation->city_id) color: #EB455F !important; @endif" class="dropdown-item" value="{{$city->id}}" id="edit_city_{{$transportation->id}}_{{$city->id}}" onclick="setEditCity({{$city->id}}, {{$transportation->id}}, '{{$city->translations()->where('locale', 'ar')->first()->name}}', 'edit_city_{{$transportation->id}}_{{$city->id}}')" href="#">{{$city->translations()->where('locale', 'ar')->first()->name}}</option>
+												  @endforeach
+												  <input type="text" id="edit_city_id_{{$transportation->id}}" name="city_id" value="{{$transportation->city_id}}" hidden>
+											  
+												</div>
+											  </div></td>    
+											  <td>المحافظة</td>  
 											</tr>
 											<tr>
-												<td >
-													<div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-														<label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
-															حلب
-														</label>
-														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-															<a class="dropdown-item" href="#">--</a>
-															<a class="dropdown-item" href="#">--</a>
-															<a class="dropdown-item" href="#">---</a>
-															<a class="dropdown-item" href="#">----</a>
-														</div>
-													</div>
-												</td>      
-												<td>المحافظة </td>
-											</tr>  
+												<td colspan="2"><span style="color: red" class="city_error_edit"></span></td>
+											  </tr>
+
 											<tr>   
-												<td ><input type="number" class="toggle text-primary in" value="12"></td>  
+												<td ><input type="number" class="toggle text-primary in" name="passengers_number" value="{{$transportation->passengers_number}}"></td>  
 												<td>عدد الركاب</td>
-											</tr>   
+											</tr> 
 											<tr>
-												<td ><input class="toggle text-primary in" type="text" value="----"  required style="width: 100%;"></th>  
+												<td colspan="2"><span style="color: red" class="passengers_number_error_edit"></span></td>
+											  </tr>  
+											<tr>
+												<td ><input class="toggle text-primary in" name="description_ar" type="text" value="{{$transportation->translations()->where('locale', 'ar')->first()->description}}"  required style="width: 100%;"></th>  
 												<td>المواصفات(العربية)</td>    
 											</tr> 
 											<tr>
-												<td ><input class="toggle text-primary in" type="text" value="----"  required style="width: 100%;"></th>  
+												<td ><input class="toggle text-primary in" name="description_en" type="text" value="{{$transportation->translations()->where('locale', 'en')->first()->description}}"  required style="width: 100%;"></th>  
 												<td>(الانكليزية)المواصفات</td>    
 											</tr>
 										</table>
 									</div>
+									</form>
 									<div class="modal-footer">
-										<button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-										<button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
+										<button type="button" class="action-button active close" onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
+										<button type="submit" id="edit-transportation-btn-{{$transportation->id}}" onclick="editTransportation('edit-form-{{$transportation->id}}', {{$transportation->id}})" class="app-content-headerButton">حفظ التغييرات</button>
 									</div>
 								</div>
 							</div>
@@ -240,11 +258,10 @@
 				</div>
 				<!-- end action -->
 			</div>
-		</div>
 		@endforeach
       </div>
       </div>
-
+	</div>
     </div>
   </div>
 @endsection
@@ -298,13 +315,13 @@
   }
   //----------------------------------------------------------
 
-  function editSubCategory(formId, id){
+  function editTransportation(formId, id){
 
-      $("#edit-sub-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+      $("#edit-transportation-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
       var formData = new FormData(document.getElementById(formId));
       formData.append('id', id);
       $.ajax({
-          url: `{{route('editSubCategoryAr')}}` ,
+          url: `{{route('editTransportationAr')}}` ,
           type: "POST",
           data: formData,
           processData: false, 
@@ -312,8 +329,8 @@
           contentType: false,
       })
       .done(function(data){   
-          $("#sub-categories-data").empty();
-          $("#sub-categories-data").append(data);
+          $("#transportations-data").empty();
+          $("#transportations-data").append(data);
           $('.close').click();
           $('.parenttrue').attr("hidden", false);
       })
@@ -321,21 +338,25 @@
         removeMessages();
           // $('.close').click();
           // $('.parent').attr("hidden", false);
-          if(data.responseJSON.errors.name_ar){
-            document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors.name_ar[0]; 
+          if(data.responseJSON.errors.carId){
+            document.querySelector(`#${formId} .carId_error_edit`).innerHTML = data.responseJSON.errors.carId[0]; 
 
           }
-          if(data.responseJSON.errors.name_en){
-            console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+          if(data.responseJSON.errors.city_id){
 
-            document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors.name_en[0]; 
+            document.querySelector(`#${formId} .city_error_edit`).innerHTML = data.responseJSON.errors.city_id[0]; 
+
+          }
+          if(data.responseJSON.errors.passengers_number){
+
+            document.querySelector(`#${formId} .passengers_number_error_edit`).innerHTML = data.responseJSON.errors.passengers_number[0]; 
 
           }
 
       })
       .always(function() {
           // Re-enable the submit button and hide the loading spinner
-          $("#edit-sub-category-btn-"+id).attr("disabled", false).html('حفظ');
+          $("#edit-transportation-btn-"+id).attr("disabled", false).html('حفظ');
       });
   }
 
@@ -443,6 +464,17 @@ function setCity(city_id, city, option_id) {
   document.getElementById('city-name').innerHTML  = city;
   document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
   document.getElementById('city_id').value = `${city_id}`;
+}
+//--------------------------------------------
+function setEditCity(city_id, transportation_id, city, option_id) {
+  var cities_options = document.querySelectorAll('[id^="edit_city_"]');
+  cities_options.forEach(option => {
+    option.style.setProperty("color", "#1f1c2e", "important");
+    
+  });
+  document.getElementById('city-name-' + transportation_id).innerHTML  = city;
+  document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
+  document.getElementById('edit_city_id_' + transportation_id).value = `${city_id}`;
 }
 //--------------------------------------------
 </script>
