@@ -281,17 +281,28 @@ Add Group
         </div></td>  
          
       </tr>
-      <table style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+      </table>
+      <table style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
       <tr>
            <td>The date of the day the transportation will be used</td>
            <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
            <!-- بيانة هون وقت بكبس عالزائد بنضتف التاريخ اللي مدخلو وبيتفضا إنبوت التاريخ مشان يدخل تاريخ جديد -->
-           <td><i class="fas fa-plus pr-1" style="cursor:pointer;" title="add new date" ></i></td>
+           <td><i class="fas fa-plus pr-1" onclick="addDate()"  style="cursor:pointer;" title="add new date" ></i></td>
       </tr>
+ 
       </table>
 
+      <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header" >
+  <strong class="m-auto">  Date added</strong>
+  <button type="button" class="btn-close m-0 close" data-bs-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
 
-</table>
+</div>
+
+
       </div>
       <div class="modal-footer">
         <button class="app-content-headerButton" style="border-radius:3px;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
