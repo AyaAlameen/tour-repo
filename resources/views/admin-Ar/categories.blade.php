@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header w-100">
       <h1 class="app-content-headerText">الأصناف</h1>
             <!-- add -->
 <button type="button" class="app-content-headerButton"  data-bs-toggle="modal" data-bs-target="#exampleModal3">
@@ -66,7 +66,7 @@
     </div>
     <!-- end add -->
 
-    <div class="app-content-actions">
+    <div class="app-content-actions w-100">
       <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم " type="text">
       <div class="app-content-actions-wrapper">
 
@@ -78,7 +78,7 @@
         </button>
      
                          <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('category_ar')}}"  class="dropdown-item"> العربية</a>
@@ -95,8 +95,8 @@
 
       </div>
     </div>
-    <div class="scroll-class">
-        <div class="products-area-wrapper tableView" id="categoriesTable">
+
+        <div class="products-area-wrapper tableView" style="direction:rtl;" id="categoriesTable">
             <div class="products-header">
                 <div class="product-cell">#</div>
                 <div class="product-cell">الاسم</div>
@@ -110,7 +110,7 @@
             </div>
 </div>
       </div>
-</div>
+
     </div>
   </div>
 @endsection

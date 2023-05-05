@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header" style="width:75%;">
       <h1 class="app-content-headerText">الأحداث</h1>
 
         <!-- add -->
@@ -111,7 +111,7 @@
     </div>
     <!-- end add -->
     
-    <div class="app-content-actions">
+    <div class="app-content-actions" style="width:75%;">
       <input class="search-bar" placeholder="...ابحث" type="text">
       <div class="app-content-actions-wrapper">
         <!-- filter -->
@@ -144,7 +144,7 @@
         </button>
         
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('event_ar')}}"  class="dropdown-item"> العربية</a>
@@ -160,8 +160,8 @@
       </button>
      
       </div>
-    </div>
-    <div class="scroll-class">
+    </div> 
+    <div class="scroll-class" style="width:74%;">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">الاسم</div>

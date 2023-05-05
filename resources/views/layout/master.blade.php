@@ -16,6 +16,7 @@
 <!-- Libraries Stylesheet -->
 <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
   <!-- Customized Bootstrap Stylesheet -->
 <link rel="stylesheet" href="../css/bootstrap.min.css"/>
 <link rel="stylesheet" href="../css/loginstyle.css" >
@@ -28,14 +29,6 @@
         @include('layout.header')
         @yield('content')
         @include('layout.footer')
-
-
-
-
-
-
-
-
 
  <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
@@ -52,10 +45,6 @@
 <script src="../lib/tempusdominus/js/moment.min.js"></script>
 <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
 <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-<!-- Template Javascript -->
-<script src="../js/main.js"></script>
-
 
 <script>
     function getURLAr() {

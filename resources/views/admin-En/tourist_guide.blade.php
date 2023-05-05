@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header" style="width:68%;">
       <h1 class="app-content-headerText">Tourist Guides</h1>
       
 
@@ -88,7 +88,7 @@ Add Tourist Guide
     </div>
     <!-- end add -->
   
-    <div class="app-content-actions">
+    <div class="app-content-actions"  style="width:68%;">
       <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="Search By Name..." type="text">
       <div class="app-content-actions-wrapper">
 
@@ -99,7 +99,7 @@ Add Tourist Guide
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </button>
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('tourist_guide_en')}}"  class="dropdown-item">English</a>
@@ -116,6 +116,7 @@ Add Tourist Guide
       
       </div>
     </div>
+    <div class="scroll-class" style="width:69%;">
     <div class="products-area-wrapper tableView" id="guidesTable">
       <div class="products-header">
       <div class="product-cell">#</div>
@@ -133,6 +134,7 @@ Add Tourist Guide
       </div>
       </div>
     </div>
+</div>
   </div>
   </div>
 @endsection

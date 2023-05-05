@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header w-100">
       <h1 class="app-content-headerText">النواحي</h1>
     <h3 class="app-content-headerText">"{{$city->translations()->where('locale', 'ar')->first()->name}}"</h3>
       
@@ -59,7 +59,7 @@
     </div>
     <!-- end add -->
     
-    <div class="app-content-actions">
+    <div class="app-content-actions w-100">
       <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم" type="text">
       <div class="app-content-actions-wrapper">
 
@@ -71,7 +71,7 @@
         </button>
         
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route ('getDistrictsAr', ['id' => $city->id])}}"  class="dropdown-item"> العربية</a>

@@ -7,7 +7,7 @@
       
   
     </div>
-    <div class="app-content-actions" >
+    <div class="app-content-actions w-100" >
       <input class="search-bar" placeholder="...ابحث" type="text">
       <div class="app-content-actions-wrapper">
       <button type="button" class="btn position-relative action-button mr-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -121,7 +121,7 @@
         </button>
         
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe"  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe"  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('home_ar')}}"  class="dropdown-item"> العربية</a>

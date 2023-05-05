@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header"    style="width:88%;">
       <h1 class="app-content-headerText">Services</h1>
    
        <!-- add -->
@@ -95,7 +95,7 @@ Add service
     </div>
     <!-- end add -->
     
-    <div class="app-content-actions">
+    <div class="app-content-actions" style="width:88%;">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
         <!-- filter -->
@@ -126,7 +126,7 @@ Add service
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </button>
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('service_en')}}"  class="dropdown-item">English</a>
@@ -143,6 +143,7 @@ Add service
      
       </div>
     </div>
+    <div class="scroll-class" style="width:87%;">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">Name</div>
@@ -293,6 +294,7 @@ Add service
       </div>
       </div>
     </div>
+</div>
   </div>
 </div>
 @endsection

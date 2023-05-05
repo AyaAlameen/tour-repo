@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header"  style="width:88%;">
       <h1 class="app-content-headerText">Groups</h1>
    
         <!-- add -->
@@ -79,7 +79,7 @@ Add Group
     </div>
     <!-- end add -->
     
-    <div class="app-content-actions">
+    <div class="app-content-actions" style="width:88%;">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
         <!-- filter -->
@@ -111,7 +111,7 @@ Add Group
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </button>
         <div class="nav-item dropdown " >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="Translate">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('groupe_en')}}"  class="dropdown-item">English</a>
@@ -128,6 +128,7 @@ Add Group
      
       </div>
     </div>
+    <div class="scroll-class" style="width:88%;">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">#</div>
@@ -170,7 +171,146 @@ Add Group
      <!-- start action -->
 <div class="p-3">
   <!-- destination -->
-<a href="#" class="delete mr-2" title="destinations" data-toggle="tooltip"><i class="fas fa-map-location-dot"></i></a>
+<!-- first form -->
+<div class="modal fade" data-bs-backdrop="static" id="exampleModalTogglee" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel" tabindex="-1">
+  <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
+    <div class="modal-content" style="width:800px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleeLabel">Added destinations</h5>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- !!!بيان انتبهي  -->
+        <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
+     <img src="../img/destination.png" class="m-3" style="width:150px; height:150px; opacity:0.5;" >
+     <p class="text-body mb-4">No destinations has been added yet</p>
+     <!-- هاد الشكل بحال كان ضايف وسائل -->
+      <!-- <table style="color: rgb(22, 22, 22); width: 750px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+        <tr>
+          <td class="text-center">transport company</td>
+          <td class="text-center">transportation</td>
+          <td class="text-center" style="width:140px;">count of passengers</td>
+          <td class="text-center" style="width:290px;">Specifications</td>
+          <td>in date</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="text-center">Alamir company</td>
+          <td class="text-center">6913 حلب</td>
+          <td class="text-center">12</td>
+          <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .</td>
+             <td>11-11-2023</td>
+          <td> <a href="#" class="delete mr-3 ml-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
+
+        </tr>
+      </table> -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary"  style="border-radius:3px;" data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal" data-bs-dismiss="modal">Add new destination</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end first form -->
+
+<!-- second form -->
+<div class="modal fade" data-bs-backdrop="static" id="exampleModalTogglee2" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel2" tabindex="-1">
+  <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
+    <div class="modal-content" style="width:500px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleeLabel2">New destination</h5>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table style="color: rgb(22, 22, 22); width: 450px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+      
+      <tr>
+          <td>Transport companies available</td>
+          <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
+            
+          </label>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Alamir</a>
+            <a class="dropdown-item" href="#">Alkadmous</a>
+
+         
+       
+          </div>
+        </div></td>   
+   
+      </tr>  
+      <tr>
+          <td>Transportation available in this company</td>
+          <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
+            
+          </label>
+          <div class="dropdown-menu" style="width:200px;" aria-labelledby="dropdownMenuButton">
+  <ul>
+    <li>
+    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+          <a class="dropdown-item" href="#">6913 حلب</a>
+    </div>
+    </li>
+    <li>
+    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+          <a class="dropdown-item" href="#">6913 حلب</a>
+          </div>
+    </li>
+  </ul>
+        
+          </div>
+        </div></td>  
+         
+      </tr>
+      </table>
+      <table style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+      <tr>
+           <td>The date of the day the transportation will be used</td>
+           <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+           <!-- بيانة هون وقت بكبس عالزائد بنضتف التاريخ اللي مدخلو وبيتفضا إنبوت التاريخ مشان يدخل تاريخ جديد -->
+           <td><i class="fas fa-plus pr-2" onclick="addDate()"  style="cursor:pointer;" title="add new date" ></i></td>
+      </tr>
+ 
+      </table>
+
+      <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header" >
+  <p class="m-auto text-body">  Date added</p>
+  <button type="button" class="btn-close m-0 close" data-bs-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
+
+</div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button class="app-content-headerButton" style="border-radius:3px;" data-bs-target="#exampleModalTogglee" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+        <button type="button" class="app-content-headerButton" style="background-color:var(--bambi);">Save</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end second form -->
+
+<a class="delete mr-2" title="destinations" data-bs-toggle="modal" href="#exampleModalTogglee" ><i class="fas fa-map-location-dot"></i></a>
+
+
+<!-- end destination -->
+
 <!-- transport -->
 <!-- first form -->
 <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -233,7 +373,7 @@ Add Group
       <tr>
           <td>Transport companies available</td>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
             
           </label>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -243,43 +383,59 @@ Add Group
          
        
           </div>
-        </div></td>      
+        </div></td>   
+   
       </tr>  
       <tr>
           <td>Transportation available in this company</td>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
             
           </label>
           <div class="dropdown-menu" style="width:200px;" aria-labelledby="dropdownMenuButton">
-  
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+  <ul>
+    <li>
+    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
            data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
              ipsum perspiciatis debitis .'>
           <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
-      
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+    </div>
+    </li>
+    <li>
+    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
            data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
              ipsum perspiciatis debitis .'>
           <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
-      
-          <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-           data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .'>
-          <a class="dropdown-item" href="#">6913 حلب</a>
-          </span>
-      
-       
           </div>
-        </div></td>      
+    </li>
+  </ul>
+        
+          </div>
+        </div></td>  
+         
       </tr>
+      </table>
+      <table style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
       <tr>
            <td>The date of the day the transportation will be used</td>
            <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+           <!-- بيانة هون وقت بكبس عالزائد بنضتف التاريخ اللي مدخلو وبيتفضا إنبوت التاريخ مشان يدخل تاريخ جديد -->
+           <td><i class="fas fa-plus pr-2" onclick="addDate()"  style="cursor:pointer;" title="add new date" ></i></td>
       </tr>
-</table>
+ 
+      </table>
+
+      <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header" >
+  <p class="m-auto text-body">  Date added</p>
+  <button type="button" class="btn-close m-0 close" data-bs-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
+
+</div>
+
+
       </div>
       <div class="modal-footer">
         <button class="app-content-headerButton" style="border-radius:3px;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
@@ -382,7 +538,7 @@ Add Group
       </div>
       </div>
       </div>
-      
+      </div>
     </div>
   </div>
 

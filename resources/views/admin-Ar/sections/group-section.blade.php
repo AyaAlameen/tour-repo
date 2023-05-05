@@ -248,13 +248,26 @@
         <td>وسائل النقل المتاحة في هذه الشركة</td>
         
       </tr>
+</table>
+      <table>
       <tr>
+      <td><i class="fas fa-plus pl-2" onclick="addDate()"  style="cursor:pointer;" title="إضافة تاريخ جديد" ></i></td>
      <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
         <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
     
       </tr>
+      </table>
+
     
-    </table>
+      <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header" >
+  <p class="m-auto text-body">  تمت إضافة التاريخ</p>
+  <button type="button" class="btn-close m-0 close" style="float:right;" data-bs-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
+
+</div>
       </div>
       <div class="modal-footer">
         <button class="app-content-headerButton" style="border-radius:3px;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">عودة</button>

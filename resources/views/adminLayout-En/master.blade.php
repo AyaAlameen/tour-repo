@@ -149,6 +149,12 @@ else{
   $(document).ready(function () {
     $('[ data-bs-toggle="popover"]').popover();
   });
+
+  function addDate() {
+    $('.toast').toast('show');
+  }
+
+
  </script>
 
 </body>

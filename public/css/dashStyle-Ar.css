@@ -243,7 +243,8 @@ a.text-primary:hover, a.text-primary:focus {
   align-items: center;
   justify-content: space-between;
   padding: 0 4px;
-  margin-left: 20px;
+  margin-left: auto;
+  width: 60%;;
   flex-direction: row-reverse;
 }
 .app-content-headerText {
@@ -273,6 +274,8 @@ a.text-primary:hover, a.text-primary:focus {
   align-items: center;
   padding: 16px 4px;
   flex-direction: row-reverse;
+  margin-left: auto;
+  width: 60%;
 }
 .app-content-actions-wrapper {
   display: flex;
@@ -458,11 +461,11 @@ position: relative;
 }
 .scroll-class{
   overflow-x: scroll;
-  width: 84%;
+  width: 60%;
   display: grid;
-  position: absolute;
+  position: sticky;
   top: 37%;
-  right: 16%;
+  left: 16%;
   height: auto;
   direction: rtl;
   padding-bottom:10px;

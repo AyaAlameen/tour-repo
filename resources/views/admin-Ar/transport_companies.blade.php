@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header" style="width:99%;" >
       <h1 class="app-content-headerText">شركات النقل</h1>
    
  <!-- add -->
@@ -56,7 +56,7 @@
     </div>
     <!-- end add -->
  
-    <div class="app-content-actions">
+    <div class="app-content-actions w-100">
       <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم" type="text">
       <div class="app-content-actions-wrapper">
 
@@ -68,7 +68,7 @@
         </button>
         
         <div class="nav-item dropdown" >
-                            <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
+                            <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
                                 <a href="{{route('transport_company_ar')}}"  class="dropdown-item"> العربية</a>
@@ -85,7 +85,7 @@
       
       </div>
     </div>
-    <div class="scroll-class">
+
     <div class="products-area-wrapper tableView" id="companiesTable">
       <div class="products-header">
         <div class="product-cell">#</div>
@@ -101,7 +101,7 @@
 
       </div>
       </div>
-</div>
+
     </div>
   </div>
 @endsection
