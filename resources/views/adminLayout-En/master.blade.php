@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>TRAVELER - Free Travel Website Template</title>
+    <title>TRAVELER</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -151,9 +151,23 @@ else{
   });
 
   function addDate() {
-    $('.toast').toast('show');
-  }
+   var table =document.getElementById("tableDate").innerHTML;
+   console.log(table)
 
+   document.getElementById("tableDate").innerHTML = table + `   <tr>
+           <td>The date of the day the transportation will be used</td>
+           <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+           <td><button type="button" class="btn-close m-0 close" data-bs-dismiss="transportRow" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button></td>
+      </tr>`
+      console.log(table)
+  }
+     
+       function removeRow() {
+        var t
+     console.log(event.target.parentElement.parentElement.parentElement)   
+       }
 
  </script>
 

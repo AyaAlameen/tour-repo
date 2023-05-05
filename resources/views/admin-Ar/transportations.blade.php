@@ -120,7 +120,7 @@
      
       </div>
     </div>
-    <div class="scroll-class">
+
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">#</div>
@@ -133,7 +133,7 @@
       </div>
       <div id="transportations-data"></div>
       </div>
-</div>
+
     </div>
   </div>
 @endsection

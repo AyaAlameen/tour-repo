@@ -3,27 +3,23 @@
 
 <head>
     <meta charset="utf-8">
-    <title>TRAVELER - Free Travel Website Template</title>
+    <title>TRAVELER</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-
-
-    <!-- Font Awesome -->
-    <link href="../css/all.min.css" rel="stylesheet">
-
 
 <!-- Libraries Stylesheet -->
 <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
+ <!-- Font Awesome -->
+ <link href="../css/all.min.css" rel="stylesheet">
   <!-- Customized Bootstrap Stylesheet -->
 <link rel="stylesheet" href="../css/bootstrap.min.css"/>
 <link rel="stylesheet" href="../css/loginstyle.css" >
 <link href="css/style-En.css" rel="stylesheet">
 
 </head>
-
 <body>
 
         @include('layout.header')
@@ -33,10 +29,11 @@
  <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
+ <script src="../js/main.js"></script>
+
 <!-- bootsrap -->
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>
-
 <!-- JavaScript Libraries -->
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -96,7 +93,6 @@
             }
          }
          
-
 </script>
 </body>
 
