@@ -78,8 +78,9 @@ class TransportationController extends Controller
         
         $transportations = Transportation::with('translations')->where('transport_company_id', $request->input('transport_company_id'))->get();
         $company = TransportCompany::find($request->input('transport_company_id'));
-        
-        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company]);
+        $cities = City::all();
+
+        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'cities' => $cities]);
 
 
     }
@@ -115,8 +116,9 @@ class TransportationController extends Controller
         
         $transportations = Transportation::with('translations')->where('transport_company_id', $request->input('transport_company_id'))->get();
         $company = TransportCompany::find($request->input('transport_company_id'));
-        
-        return view("admin-En.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company]);
+        $cities = City::all();
+
+        return view("admin-En.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'cities' => $cities]);
 
 
     }
@@ -191,7 +193,7 @@ class TransportationController extends Controller
         $company = TransportCompany::find($data['transport_company_id']);
         $cities = City::all();
 
-        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'city' => $cities]);
+        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'cities' => $cities]);
 
     }
 
@@ -235,7 +237,7 @@ class TransportationController extends Controller
         $company = TransportCompany::find($data['transport_company_id']);
         $cities = City::all();
 
-        return view("admin-En.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'city' => $cities]);
+        return view("admin-En.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'cities' => $cities]);
 
     }
 
@@ -262,7 +264,7 @@ class TransportationController extends Controller
         $company = TransportCompany::find($data['transport_company_id']);
         $cities = City::all();
 
-        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'city' => $cities]);
+        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'cities' => $cities]);
 
     }
 
@@ -283,7 +285,7 @@ class TransportationController extends Controller
         $company = TransportCompany::find($id);
         $cities = City::all();
 
-        return view("admin-En.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'city' => $city]);
+        return view("admin-En.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'cities' => $city]);
 
     }
 }

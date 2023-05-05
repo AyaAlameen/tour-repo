@@ -374,8 +374,8 @@
           contentType: false,
       })
       .done(function(data){   
-          $("#sub-transportation-data").empty();
-          $("#sub-transportation-data").append(data);
+          $("#transportations-data").empty();
+          $("#transportations-data").append(data);
           $('.close').click();
           $('.parenttrue').attr("hidden", false);
       })
@@ -435,24 +435,24 @@
   }
 //--------------------------------------------
 function removeMessages(){
-  // document.getElementById('name_ar_error').innerHTML = ''; 
-  // document.getElementById('name_en_error').innerHTML = ''; 
-  // document.getElementById('image_error').innerHTML = ''; 
+  document.getElementById('carId_error').innerHTML = ''; 
+  document.getElementById('city_error').innerHTML = ''; 
+  document.getElementById('passengers_number_error').innerHTML = ''; 
 
-  // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-  // name_ar.forEach(name => {
-  //   name.innerHTML = '';
-  // });
+  const carId = document.querySelectorAll('.carId_error_edit');
+  carId.forEach(id => {
+    id.innerHTML = '';
+  });
 
-  // const name_en = document.querySelectorAll('.name_en_error_edit');
-  // name_en.forEach(name => {
-  //   name.innerHTML = '';
-  // });
+  const cities = document.querySelectorAll('.city_error_edit');
+  cities.forEach(city => {
+    city.innerHTML = '';
+  });
 
-  // const images = document.querySelectorAll('.image_error_edit');
-  // images.forEach(image => {
-  //   image.innerHTML = '';
-  // });
+  const numbers = document.querySelectorAll('.passengers_number_error_edit');
+  numbers.forEach(number => {
+    number.innerHTML = '';
+  });
 }
 //--------------------------------------------
 function setCity(city_id, city, option_id) {
