@@ -169,11 +169,11 @@ class TransportationController extends Controller
         $transportation->translations()->delete();
         $transportation->delete();
 
-        $transportations = Transportation::with('translations')->where('transport_company_id', $id)->get();
-        $company = TransportCompany::find($id);
+        $transportations = Transportation::with('translations')->where('transport_company_id', $data['transport_company_id'])->get();
+        $company = TransportCompany::find($data['transport_company_id']);
         $cities = City::all();
 
-        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'city' => $city]);
+        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'city' => $cities]);
 
     }
 
