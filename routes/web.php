@@ -133,6 +133,12 @@ Route::get('/transportations_en', function () {
     return view('admin-En.transportations');
 }) -> name('transportation_en');
 
+Route::get('/transportations_en/{id}', [TransportationController::class, 'indexEn']) -> name('getTransportationsEn');
+Route::post('/transportations_en', [TransportationController::class, 'storeEn']) -> name('addTransportationEn');
+Route::post('/transportations_en/edit', [TransportationController::class, 'updateEn']) -> name('editTransportationEn');
+Route::post('/transportations_en/delete', [TransportationController::class, 'destroyEn']) -> name('deleteTransportationEn');
+
+
 Route::get('/groups_en', function () {
     return view('admin-En.groups');
 }) -> name('groupe_en');
@@ -245,9 +251,9 @@ Route::post('/transport_companies_ar', [TransportCompanyController::class, 'stor
 Route::post('/transport_companies_ar/edit', [TransportCompanyController::class, 'updateAr']) -> name('editTransportCompanyAr');
 Route::post('/transport_companies_ar/delete', [TransportCompanyController::class, 'destroyAr']) -> name('deleteTransportCompanyAr');
 
-Route::get('/transportations_ar', function () {
-    return view('admin-Ar.transportations');
-}) -> name('transportation_ar');
+// Route::get('/transportations_ar', function () {
+//     return view('admin-Ar.transportations');
+// }) -> name('transportation_ar');
 
 Route::get('/transportations_ar/{id}', [TransportationController::class, 'indexAr']) -> name('getTransportationsAr');
 Route::post('/transportations_ar', [TransportationController::class, 'storeAr']) -> name('addTransportationAr');

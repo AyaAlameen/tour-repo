@@ -19,6 +19,7 @@ class TransportationController extends Controller
         $transportations = Transportation::with('translations')->where('transport_company_id', $id)->get();
         $company = TransportCompany::find($id);
         $cities = City::all();
+        
         return view('admin-Ar.transportations', ['transportations' => $transportations, 'company' => $company, 'cities' => $cities]);
     }
 
@@ -155,8 +156,45 @@ class TransportationController extends Controller
      * @param  \App\Models\Transportation  $transportation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transportation $transportation)
+    public function destroyAr(Request $request)
     {
-        //
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'transport_company_id' => 'required',
+        ]);
+
+        $transportation = Transportation::find($data['id']);
+        $transportation->translations()->delete();
+        $transportation->delete();
+
+        $transportations = Transportation::with('translations')->where('transport_company_id', $id)->get();
+        $company = TransportCompany::find($id);
+        $cities = City::all();
+
+        return view("admin-Ar.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'city' => $city]);
+
+    }
+
+    public function destroyEn(Request $request)
+    {
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'transport_company_id' => 'required',
+        ]);
+
+        $transportation = Transportation::find($data['id']);
+        $transportation->translations()->delete();
+        $transportation->delete();
+
+        $transportations = Transportation::with('translations')->where('transport_company_id', $id)->get();
+        $company = TransportCompany::find($id);
+        $cities = City::all();
+
+        return view("admin-En.sections.transportation-section")->with(['transportations' => $transportations, 'company' => $company, 'city' => $city]);
+
     }
 }

@@ -25,36 +25,10 @@
             <div class="product-cell">
                 <!-- start action -->
                 <div class="p-3">
-                    <!-- delete -->
-                    <a href="#" class="delete" data-toggle="modal" data-target="#deleteCompany{{$company->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="deleteCompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content" style="direction:ltr;">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form id="delete-form-{{$company->id}}" action="" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="text" name="id" value="{{$company->id}}" hidden>
-
-                                    <div class="modal-body" style="direction:rtl;">
-                                        هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
-                                        <button type="submit" id="delete-company-btn-{{$company->id}}" onclick="deleteCompany(`delete-form-{{$company->id}}`, {{$company->id}})" class="app-content-headerButton">نعم</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end delete -->
+                    
 
                     <!-- edit -->
-                    <a href="#" class="edit mr-2" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="edit mr-2 p-2" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
                     <div class="modal fade" id="editCompany{{$company->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -103,6 +77,33 @@
                         </div>
                     </div>
                     <!-- end edit -->
+                    <!-- delete -->
+                    <a href="#" class="delete" data-toggle="modal" data-target="#deleteCompany{{$company->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteCompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="direction:ltr;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form id="delete-form-{{$company->id}}" action="" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="text" name="id" value="{{$company->id}}" hidden>
+
+                                    <div class="modal-body" style="direction:rtl;">
+                                        هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                                        <button type="submit" id="delete-company-btn-{{$company->id}}" onclick="deleteCompany(`delete-form-{{$company->id}}`, {{$company->id}})" class="app-content-headerButton">نعم</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end delete -->
                 </div>
                 <!-- end action -->
             </div>
@@ -125,42 +126,14 @@
                 {{$company->phone}}
             </div>
             <div class="product-cell">
-            <button class="app-content-headerButton"><a href="" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button>
+            <button class="app-content-headerButton"><a href="{{route ('getTransportationsAr', ['id' => $company->id])}}" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button>
          
             </div>
             <div class="product-cell">
                 <!-- start action -->
                 <div class="p-3">
-                    <!-- delete -->
-                    <a href="#" class="delete" data-toggle="modal" data-target="#deleteCompany{{$company->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="deleteCompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content" style="direction:ltr;">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form id="delete-form-{{$company->id}}" action="" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="text" name="id" value="{{$company->id}}" hidden>
-
-                                    <div class="modal-body" style="direction:rtl;">
-                                        هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
-                                        <button type="submit" id="delete-company-btn-{{$company->id}}" onclick="deleteCompany(`delete-form-{{$company->id}}`, {{$company->id}})" class="app-content-headerButton">نعم</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end delete -->
-
                     <!-- edit -->
-                    <a href="#" class="edit mr-2" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="edit mr-2 p-2" data-toggle="modal" data-target="#editCompany{{$company->id}}" title="Edit"><i class="fas fa-pen"></i></a>
                     <!-- Modal -->
                     <div class="modal fade" id="editCompany{{$company->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -209,6 +182,33 @@
                         </div>
                     </div>
                     <!-- end edit -->
+                     <!-- delete -->
+                     <a href="#" class="delete" data-toggle="modal" data-target="#deleteCompany{{$company->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                     <!-- Modal -->
+                     <div class="modal fade" id="deleteCompany{{$company->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                         <div class="modal-dialog">
+                             <div class="modal-content" style="direction:ltr;">
+                                 <div class="modal-header">
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                         <span aria-hidden="true">&times;</span>
+                                     </button>
+                                 </div>
+                                 <form id="delete-form-{{$company->id}}" action="" method="POST" enctype="multipart/form-data">
+                                     @csrf
+                                     <input type="text" name="id" value="{{$company->id}}" hidden>
+ 
+                                     <div class="modal-body" style="direction:rtl;">
+                                         هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                     </div>
+                                     <div class="modal-footer">
+                                         <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+                                         <button type="submit" id="delete-company-btn-{{$company->id}}" onclick="deleteCompany(`delete-form-{{$company->id}}`, {{$company->id}})" class="app-content-headerButton">نعم</button>
+                                     </div>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- end delete -->
                 </div>
                 <!-- end action -->
             </div>

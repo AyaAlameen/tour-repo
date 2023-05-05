@@ -106,8 +106,8 @@
                             <button class="action-button list dropdown-toggle" data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </button>
                            
                             <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
-                                <a href="{{route('transportation_ar')}}"  class="dropdown-item"> العربية</a>
-                                <a href="{{route('transportation_en')}}" class="dropdown-item">الانجليزية </a>
+                                <a href="{{route ('getTransportationsAr', ['id' => $company->id])}}"  class="dropdown-item"> العربية</a>
+                                <a href="{{route ('getTransportationsEn', ['id' => $company->id])}}" class="dropdown-item">الانجليزية </a>
                     
                             </div>
                         </div>
@@ -131,7 +131,118 @@
         <div class="product-cell ">الأحداث</div>
 
       </div>
-      <div id="transportations-data"></div>
+		<div id="transportations-data">
+        <?php $i = 1 ?>
+        @foreach($transportations as $transportation)
+			<div class="products-row">
+				<div class="product-cell">
+					<span>{{$i++}}</span>
+				</div>
+				<div class="product-cell">
+					<span>{{$transportation->carId}}</span>
+				</div>
+				<div class="product-cell">
+					<span>{{$transportation->city->translations()->where('locale', 'ar')->first()->name}}</span>
+				</div>
+				<div class="product-cell">
+					<span>{{$transportation->passengers_number}}</span>
+				</div>
+				<div class="product-cell">
+					<span> {{$transportation->translations()->where('locale', 'ar')->first()->description}} </span>
+				</div>
+				<div class="product-cell">
+					<!-- start action -->
+					<div class="p-3">
+						<!-- edit -->
+						<a href="#" class="edit p-2" data-toggle="modal" data-target="#exampleModal" title="Edit"><i class="fas fa-pen"></i></a>
+                        <!-- Modal -->
+						<div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content"  style="direction:ltr;">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
+											<tr>   
+												<td ><input type="number" class="toggle text-primary in" value="12"></td>  
+												<td>رقم السيارة</td>
+											</tr>
+											<tr>
+												<td >
+													<div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+														<label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+															حلب
+														</label>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+															<a class="dropdown-item" href="#">--</a>
+															<a class="dropdown-item" href="#">--</a>
+															<a class="dropdown-item" href="#">---</a>
+															<a class="dropdown-item" href="#">----</a>
+														</div>
+													</div>
+												</td>      
+												<td>المحافظة </td>
+											</tr>  
+											<tr>   
+												<td ><input type="number" class="toggle text-primary in" value="12"></td>  
+												<td>عدد الركاب</td>
+											</tr>   
+											<tr>
+												<td ><input class="toggle text-primary in" type="text" value="----"  required style="width: 100%;"></th>  
+												<td>المواصفات(العربية)</td>    
+											</tr> 
+											<tr>
+												<td ><input class="toggle text-primary in" type="text" value="----"  required style="width: 100%;"></th>  
+												<td>(الانكليزية)المواصفات</td>    
+											</tr>
+										</table>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+										<button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end edit -->
+
+						<!-- delete -->
+						<a href="#" class="delete" data-toggle="modal" data-target="#deleteCompany{{$transportation->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+						<!-- Modal -->
+						<div class="modal fade" id="deleteCompany{{$transportation->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content"  style="direction:ltr;">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<form id="delete-form-{{$transportation->id}}" action="" method="POST" enctype="multipart/form-data">
+										@csrf
+										<input type="text" name="id" value="{{$transportation->id}}" hidden>
+										<input type="text" name="transport_company_id" value="{{$company->id}}" hidden>
+										<div class="modal-body"  style="direction:rtl;">
+											هل أنت متأكد من أنك تريد حذف وسيلة النقل ذات الرقم (<span style="color: #EB455F;">{{$transportation->carId}}</span>) ؟
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+											<button type="submit" id="delete-transportation-btn-{{$transportation->id}}" onclick="deleteTransportation(`delete-form-{{$transportation->id}}`, {{$transportation->id}})" class="app-content-headerButton">نعم</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end delete -->
+				</div>
+				<!-- end action -->
+			</div>
+		</div>
+		@endforeach
+      </div>
       </div>
 </div>
     </div>
@@ -229,12 +340,12 @@
   }
 
   //---------------------------------------------------------------
-  function deleteSubCategory(formId, id){
-      $("#delete-sub-category-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+  function deleteTransportation(formId, id){
+      $("#delete-transportation-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
       var formData = new FormData(document.getElementById(formId));
       $.ajax({
-          url: `{{route('deleteSubCategoryAr')}}` ,
+          url: `{{route('deleteTransportationAr')}}` ,
           type: "POST",
           data: formData,
           processData: false, 
@@ -242,8 +353,8 @@
           contentType: false,
       })
       .done(function(data){   
-          $("#sub-categories-data").empty();
-          $("#sub-categories-data").append(data);
+          $("#sub-transportation-data").empty();
+          $("#sub-transportation-data").append(data);
           $('.close').click();
           $('.parenttrue').attr("hidden", false);
       })
@@ -253,7 +364,7 @@
       })
       .always(function() {
           // Re-enable the submit button and hide the loading spinner
-          $("#delete-sub-category-btn-"+id).attr("disabled", false).html('نعم');
+          $("#delete-transportation-btn-"+id).attr("disabled", false).html('نعم');
       });
   }
 
