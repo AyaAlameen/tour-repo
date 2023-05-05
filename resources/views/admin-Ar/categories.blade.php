@@ -96,7 +96,7 @@
       </div>
     </div>
 
-        <div class="products-area-wrapper tableView" id="categoriesTable">
+        <div class="products-area-wrapper tableView" style="direction:rtl;" id="categoriesTable">
             <div class="products-header">
                 <div class="product-cell">#</div>
                 <div class="product-cell">الاسم</div>

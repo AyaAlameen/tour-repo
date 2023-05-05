@@ -26,12 +26,13 @@
 <link href="../css/style-Ar.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashStyle-Ar.css"> 
  <link href="../css/tablestyle.css" rel="stylesheet" />
- 
+ <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
+ <script src="{{ asset('js/leaflet.js') }}"></script>
 <!-- arabic font -->
 <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=rawy-thin" />
 
 
-<link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
+
 
 </head>
 
@@ -89,9 +90,11 @@ else{
  <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
+<!-- bootsrap -->
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
 <!-- JavaScript Libraries -->
-<!-- <script src="../js/leaflet.js"></script> -->
+
 
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -101,18 +104,12 @@ else{
 <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
 <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-<!-- Contact Javascript File -->
-<script src="../mail/jqBootstrapValidation.min.js"></script>
-<script src="../mail/contact.js"></script>
 
-<!-- Template Javascript -->
-<script src="../js/main.js"></script>
+
 <script  src="../js/dashScript.js"></script>
 <!-- fontawesome -->
 <script src="../js/all.min.js"></script>
-<!-- bootsrap -->
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
+
 <script>
   function accordion() {
   var btn = document.getElementById("arrow");
@@ -156,6 +153,9 @@ else{
   $(document).ready(function () {
     $('[ data-bs-toggle="popover"]').popover();
   });
+  function addDate() {
+    $('.toast').toast('show');
+  }
  </script>
 </body>
 

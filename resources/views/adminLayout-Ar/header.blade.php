@@ -46,7 +46,7 @@
                         <a href="{{route('contact-ar')}}" class="nav-item nav-link text-primary">اتصل بنا</a>
                         <a href="{{route('about-ar')}}" class="nav-item nav-link text-primary">حولنا</a>
                         <div class="nav-item dropdown">
-                        <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" >سوريا</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >سوريا</a>
 
                             <div class="dropdown-menu  border-0 rounded-0 m-0 toggle">
                                 <a href="blog" class="dropdown-item">زيارة سوريا</a>
