@@ -3,7 +3,7 @@
 
 <head id="head">
     <meta charset="utf-8">
-    <title>TRAVELER - Free Travel Website Template</title>
+    <title>TRAVELER</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -26,14 +26,13 @@
 <link href="../css/style-Ar.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashStyle-Ar.css"> 
  <link href="../css/tablestyle.css" rel="stylesheet" />
- <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
- <script src="{{ asset('js/leaflet.js') }}"></script>
+ 
 <!-- arabic font -->
 <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=rawy-thin" />
 
 
-
-
+<link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
+<script src="../js/leaflet.js"></script>
 </head>
 
 <body>
@@ -103,9 +102,6 @@ else{
 <script src="../lib/tempusdominus/js/moment.min.js"></script>
 <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
 <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-
-
 <script  src="../js/dashScript.js"></script>
 <!-- fontawesome -->
 <script src="../js/all.min.js"></script>

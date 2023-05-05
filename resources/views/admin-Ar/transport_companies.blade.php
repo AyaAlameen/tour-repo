@@ -86,7 +86,7 @@
       </div>
     </div>
 
-    <div class="products-area-wrapper tableView" id="companiesTable">
+    <div class="products-area-wrapper tableView" style="direction:rtl;" id="companiesTable">
       <div class="products-header">
         <div class="product-cell">#</div>
         <div class="product-cell">الاسم</div>

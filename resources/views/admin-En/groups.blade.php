@@ -278,22 +278,10 @@ Add Group
       <tr>
            <td>The date of the day the transportation will be used</td>
            <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
-           <!-- بيانة هون وقت بكبس عالزائد بنضتف التاريخ اللي مدخلو وبيتفضا إنبوت التاريخ مشان يدخل تاريخ جديد -->
-           <td><i class="fas fa-plus pr-2" onclick="addDate()"  style="cursor:pointer;" title="add new date" ></i></td>
+
       </tr>
  
       </table>
-
-      <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header" >
-  <p class="m-auto text-body">  Date added</p>
-  <button type="button" class="btn-close m-0 close" data-bs-dismiss="toast" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-  </div>
-
-</div>
-
 
       </div>
       <div class="modal-footer">
@@ -415,25 +403,18 @@ Add Group
          
       </tr>
       </table>
-      <table style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
-      <tr>
+      <table id="tableDate" style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+      <tr id="transportRow">
            <td>The date of the day the transportation will be used</td>
            <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
-           <!-- بيانة هون وقت بكبس عالزائد بنضتف التاريخ اللي مدخلو وبيتفضا إنبوت التاريخ مشان يدخل تاريخ جديد -->
-           <td><i class="fas fa-plus pr-2" onclick="addDate()"  style="cursor:pointer;" title="add new date" ></i></td>
-      </tr>
+           <td><button type="button" class="btn-close m-0 close" onclick="removeRow()">
+        <span aria-hidden="true">&times;</span>
+        </button></td></tr>
  
       </table>
 
-      <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header" >
-  <p class="m-auto text-body">  Date added</p>
-  <button type="button" class="btn-close m-0 close" data-bs-dismiss="toast" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-  </div>
+      <button class="app-content-headerButton m-3" style="float:right;" onclick="addDate()">Add Another Date</button>
 
-</div>
 
 
       </div>

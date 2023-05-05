@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>TRAVELER - Free Travel Website Template</title>
+    <title>TRAVELER</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -47,6 +47,7 @@
 <script src="../lib/tempusdominus/js/moment.min.js"></script>
 <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
 <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="../js/main.js"></script>
 
 <script>
 
@@ -98,10 +99,13 @@
                 
             }
          }
-       
-         function addDate() {
-    $('.toast').toast('show');
-  }
+
+
+  $(document).ready(function(){
+    $('.carousel').carousel({
+      interval: 5000
+    })
+  })
 </script>
 </body>
 
