@@ -287,14 +287,14 @@ Add Group
            <td>The date of the day the transportation will be used</td>
            <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
            <!-- بيانة هون وقت بكبس عالزائد بنضتف التاريخ اللي مدخلو وبيتفضا إنبوت التاريخ مشان يدخل تاريخ جديد -->
-           <td><i class="fas fa-plus pr-1" onclick="addDate()"  style="cursor:pointer;" title="add new date" ></i></td>
+           <td><i class="fas fa-plus pr-2" onclick="addDate()"  style="cursor:pointer;" title="add new date" ></i></td>
       </tr>
  
       </table>
 
       <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header" >
-  <strong class="m-auto">  Date added</strong>
+  <p class="m-auto text-body">  Date added</p>
   <button type="button" class="btn-close m-0 close" data-bs-dismiss="toast" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>

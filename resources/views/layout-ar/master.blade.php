@@ -102,7 +102,9 @@
             }
          }
        
-    
+         function addDate() {
+    $('.toast').toast('show');
+  }
 </script>
 </body>
 
