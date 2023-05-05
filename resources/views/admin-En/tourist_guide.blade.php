@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header" style="width:68%;">
       <h1 class="app-content-headerText">Tourist Guides</h1>
       
 
@@ -88,7 +88,7 @@ Add Tourist Guide
     </div>
     <!-- end add -->
   
-    <div class="app-content-actions">
+    <div class="app-content-actions"  style="width:68%;">
       <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="Search By Name..." type="text">
       <div class="app-content-actions-wrapper">
 
@@ -116,6 +116,7 @@ Add Tourist Guide
       
       </div>
     </div>
+    <div class="scroll-class" style="width:69%;">
     <div class="products-area-wrapper tableView" id="guidesTable">
       <div class="products-header">
       <div class="product-cell">#</div>
@@ -133,6 +134,7 @@ Add Tourist Guide
       </div>
       </div>
     </div>
+</div>
   </div>
   </div>
 @endsection

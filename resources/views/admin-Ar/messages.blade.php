@@ -7,7 +7,7 @@
 
      
     </div>
-    <div class="app-content-actions">
+    <div class="app-content-actions w-100" >
       <input class="search-bar" placeholder="...ابحث" type="text">
       <div class="app-content-actions-wrapper">
 

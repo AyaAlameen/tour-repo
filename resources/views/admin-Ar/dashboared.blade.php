@@ -7,7 +7,7 @@
       
   
     </div>
-    <div class="app-content-actions" >
+    <div class="app-content-actions w-100" >
       <input class="search-bar" placeholder="...ابحث" type="text">
       <div class="app-content-actions-wrapper">
       <button type="button" class="btn position-relative action-button mr-3" data-bs-toggle="modal" data-bs-target="#exampleModal">

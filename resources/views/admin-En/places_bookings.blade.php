@@ -12,7 +12,7 @@
       </button>
      
     </div>
-    <div class="app-content-actions">
+    <div class="app-content-actions"   style="width:85%;">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
 
@@ -40,6 +40,7 @@
       
       </div>
     </div>
+    <div class="scroll-class" style="width:85%;">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
       <div class="product-cell">the place</div>
@@ -84,5 +85,6 @@
       </div>
       </div>
     </div>
+</div>
   </div> 
 @endsection

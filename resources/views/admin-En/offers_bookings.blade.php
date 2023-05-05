@@ -12,7 +12,7 @@
       </button>
      
     </div>
-    <div class="app-content-actions">
+    <div class="app-content-actions"  style="width:65%;">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
 
@@ -40,6 +40,7 @@
       
       </div>
     </div>
+    <div class="scroll-class" style="width:65%;">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
       <div class="product-cell">the offer</div>
@@ -52,7 +53,7 @@
         <div class="product-cell">start date </div>
         <div class="product-cell">end date </div>
 
- 
+
 
       </div>
       <div class="products-row">
@@ -89,5 +90,6 @@
       </div>
       </div>
     </div>
+</div>
   </div> 
 @endsection

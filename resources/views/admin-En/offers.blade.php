@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header" style="width:68%;">
       <h1 class="app-content-headerText">Offers</h1>
     
       <!-- add -->
@@ -102,7 +102,7 @@ Add Offer
     <!-- end add -->
     
 
-    <div class="app-content-actions">
+    <div class="app-content-actions"style="width:68%;">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
         <!-- filter -->
@@ -151,6 +151,7 @@ Add Offer
       
       </div>
     </div>
+    <div class="scroll-class" style="width:70%;">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">Name</div>
@@ -324,6 +325,7 @@ Add Offer
       </div>
       </div>
       </div>
+</div>
     </div>
   </div>
 @endsection

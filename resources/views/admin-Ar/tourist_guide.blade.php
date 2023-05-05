@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header" style="width:74%;">
       <h1 class="app-content-headerText">الدليل السياحي</h1>
       
             <!-- add -->
@@ -106,7 +106,7 @@
     </div>
     <!-- end add -->
   
-    <div class="app-content-actions">
+    <div class="app-content-actions" style="width:75%;">
       <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم" type="text">
       <div class="app-content-actions-wrapper">
 
@@ -135,7 +135,7 @@
       
       </div>
     </div>
-    <div class="scroll-class">
+    <div class="scroll-class" style="width:75%;">
     <div class="products-area-wrapper tableView" id="guidesTable">
       <div class="products-header">
         <div class="product-cell">#</div>
