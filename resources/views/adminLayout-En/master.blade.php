@@ -146,9 +146,7 @@ else{
 
 
 <script>
-  $(document).ready(function () {
-    $('[ data-bs-toggle="popover"]').popover();
-  });
+  
 
   function addDate() {
    var table =document.getElementById("tableDate").innerHTML;
@@ -164,11 +162,49 @@ else{
       console.log(table)
   }
      
+
+  function addPlace() {
+    $(document).ready(function () {
+    $('[ data-bs-toggle="popover"]').popover();
+  });
+   var table =document.getElementById("tablePlace").innerHTML;
+   console.log(table)
+
+   document.getElementById("tablePlace").innerHTML = table +       `      <tr>
+           <td>Places</td>
+           <td style="width:300px;" ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
+            
+          </label>
+          <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+          <ul>
+    <li>
+    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+           data-bs-content='cost : (12)  description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+          <a class="dropdown-item" href="#">place1</a>
+    </div>
+    </li>
+  </ul>
+   
+          </div>
+        </div></td>
+        <td style="width:30px; padding-right:6px !important;"><button type="button" class="btn-close m-0 close" onclick="removeRow()">
+        <span  aria-hidden="true">&times;</span>
+        </button></td>
+      </tr>`
+      console.log(table)
+  }
+
        function removeRow() {
         var thirdParent=event.target.parentElement.parentElement.parentElement;
      console.log(event.target.parentElement.parentElement.parentElement)  
      thirdParent.remove();
        }
+
+       $(document).ready(function () {
+    $('[ data-bs-toggle="popover"]').popover();
+  });
 
  </script>
 

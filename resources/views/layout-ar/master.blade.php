@@ -28,9 +28,9 @@
 
 <body>
 
-        @include('layout-ar.header')
+        @include('layout-Ar.header')
         @yield('content')
-        @include('layout-ar.footer')
+        @include('layout-Ar.footer')
 
  <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
