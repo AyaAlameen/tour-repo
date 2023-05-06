@@ -184,10 +184,10 @@ Add Group
       <div class="modal-body">
         <!-- !!!بيان انتبهي  -->
         <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-     <!-- <img src="../img/destination.png" class="m-3" style="width:150px; height:150px; opacity:0.5;" >
-     <p class="text-body mb-4">No destinations has been added yet</p> -->
+     <img src="../img/destination.png" class="m-3" style="width:150px; height:150px; opacity:0.5;" >
+     <p class="text-body mb-4">No destinations has been added yet</p>
      <!-- هاد الشكل بحال كان ضايف وسائل -->
-      <table style="color: rgb(22, 22, 22); width: 700px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+      <!-- <table style="color: rgb(22, 22, 22); width: 700px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
         <tr>
           <td class="text-center">place</td>
           <td class="text-center">district</td>
@@ -206,7 +206,7 @@ Add Group
           <td> <a href="#" class="delete mr-3 ml-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
 
         </tr>
-      </table>
+      </table> -->
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary"  style="border-radius:3px;" data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal" data-bs-dismiss="modal">Add new destination</button>
@@ -231,7 +231,7 @@ Add Group
       
       <tr>
           <td>district</td>
-          <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+          <td style="width:340px;" ><div class="dropdown toggle text-primary in" style="display:inline-block;">
           <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
             
           </label>
@@ -267,11 +267,34 @@ Add Group
    
           </div>
         </div></td>
+        <td style="width:30px; padding-right:6px !important;"><button type="button" class="btn-close m-0 close" onclick="removePlace()">
+        <span  aria-hidden="true">&times;</span>
+        </button></td>
+      </tr>
+      <tr>
+           <td>services</td>
+           <td style="width:300px;" ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+<!--lable disabled هي الجملة منعرضا بحال كان المكان مالو خدمات ومنعمل ال  -->
+            <!-- there is no services in this place -->
+          </label>
+          <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+          <ul>
+    <li>
+    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+           data-bs-content='cost : (12)  description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+          <a class="dropdown-item" href="#">servic1</a>
+    </div>
+    </li>
+  </ul>
+   
+          </div>
+        </div></td>
         <td style="width:30px; padding-right:6px !important;"><button type="button" class="btn-close m-0 close" onclick="removeRow()">
         <span  aria-hidden="true">&times;</span>
         </button></td>
       </tr>
- 
       </table>
       <button class="app-content-headerButton m-3" style="float:right;" onclick="addPlace()">Add Another place</button>
 
