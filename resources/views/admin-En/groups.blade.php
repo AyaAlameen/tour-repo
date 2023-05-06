@@ -409,7 +409,8 @@ Add Group
            <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
            <td><button type="button" class="btn-close m-0 close" onclick="removeRow()">
         <span aria-hidden="true">&times;</span>
-        </button></td></tr>
+        </button></td>
+      </tr>
  
       </table>
 

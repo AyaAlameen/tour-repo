@@ -152,6 +152,26 @@ else{
   function addDate() {
     $('.toast').toast('show');
   }
+
+  function addDate() {
+   var table =document.getElementById("tableDate").innerHTML;
+   console.log(table)
+
+   document.getElementById("tableDate").innerHTML = table + `   < <tr>
+     <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+        <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
+        <td><button type="button" class="btn-close m-0 close" onclick="removeRow()">
+        <span aria-hidden="true">&times;</span>
+        </button></td>
+      </tr>`
+      console.log(table)
+  }
+     
+       function removeRow() {
+        var thirdParent=event.target.parentElement.parentElement.parentElement;
+     console.log(event.target.parentElement.parentElement.parentElement)  
+     thirdParent.remove();
+       }
  </script>
 </body>
 

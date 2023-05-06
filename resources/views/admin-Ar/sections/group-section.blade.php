@@ -251,12 +251,14 @@
 </table>
       <table>
       <tr>
-      <td><i class="fas fa-plus pl-2" onclick="addDate()"  style="cursor:pointer;" title="إضافة تاريخ جديد" ></i></td>
      <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
         <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
-    
+        <td><button type="button" class="btn-close m-0 close" onclick="removeRow()">
+        <span aria-hidden="true">&times;</span>
+        </button></td>
       </tr>
       </table>
+      <button class="app-content-headerButton m-3" style="float:left;" onclick="addDate()">إضافة تاريخ آخر</button>
 
     
       <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
