@@ -157,7 +157,7 @@ else{
    document.getElementById("tableDate").innerHTML = table + `   <tr>
            <td>The date of the day the transportation will be used</td>
            <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
-           <td><button type="button" class="btn-close m-0 close" data-bs-dismiss="transportRow" aria-label="Close">
+           <td><button type="button" class="btn-close m-0 close" onclick="removeRow()" data-bs-dismiss="transportRow" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button></td>
       </tr>`
@@ -165,8 +165,9 @@ else{
   }
      
        function removeRow() {
-        var t
-     console.log(event.target.parentElement.parentElement.parentElement)   
+        var thirdParent=event.target.parentElement.parentElement.parentElement;
+     console.log(event.target.parentElement.parentElement.parentElement)  
+     thirdParent.remove();
        }
 
  </script>
