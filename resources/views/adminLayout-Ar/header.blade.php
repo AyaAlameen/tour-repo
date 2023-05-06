@@ -29,8 +29,8 @@
 
 
     <!-- Navbar Start -->
-    <div class="container-fluid position-relative nav-bar p-0" style="background-color:var(--header); z-index:0;">
-        <div class="container-lg position-relative p-0 px-lg-3 bg-light" style="z-index: 9;">
+    <div class="container-fluid position-relative nav-bar p-0" style="background-color:var(--header); z-index:1;">
+        <div class="container-lg position-relative p-0 px-lg-3 bg-light" >
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
                     <h1 class="m-0" style="color : var(--bambi);"><span class="text-dark">المسا</span>فر</h1>
@@ -48,7 +48,7 @@
                         <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >سوريا</a>
 
-                            <div class="dropdown-menu  border-0 rounded-0 m-0 toggle">
+                            <div class="dropdown-menu  border-0 rounded-0 m-0 toggle" >
                                 <a href="blog" class="dropdown-item">زيارة سوريا</a>
                                 <a href="blog" class="dropdown-item">المحافظات السورية</a>
                                 <a href="single" class="dropdown-item">فنادق سوريا</a>

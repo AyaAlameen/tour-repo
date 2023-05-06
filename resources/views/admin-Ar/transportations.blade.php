@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header w-100">
       <h1 class="app-content-headerText">وسائل النقل</h1>
       <h3 class="app-content-headerText ">"{{$company->translations()->where('locale', 'ar')->first()->name}}"</h3>
 
@@ -91,7 +91,7 @@
     </div>
     <!-- end add -->
     
-    <div class="app-content-actions">
+    <div class="app-content-actions w-100">
       <input class="search-bar" placeholder="...ابحث" type="text">
       <div class="app-content-actions-wrapper">
    
@@ -121,7 +121,7 @@
       </div>
     </div>
 
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView" style="direction:rtl;">
       <div class="products-header">
         <div class="product-cell">#</div>
         <div class="product-cell">رقم السيارة</div>
