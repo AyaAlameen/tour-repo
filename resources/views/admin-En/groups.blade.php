@@ -190,6 +190,7 @@ Add Group
       <!-- <table style="color: rgb(22, 22, 22); width: 700px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
         <tr>
           <td class="text-center">place</td>
+          <td class="text-center">service</td>
           <td class="text-center">district</td>
           <td class="text-center" style="width:140px;">cost</td>
           <td class="text-center" style="width:290px;">description</td>
@@ -198,6 +199,7 @@ Add Group
         </tr>
         <tr>
           <td class="text-center">shahbarows</td>
+          <td class="text-center">restaurant</td>
           <td class="text-center">alsaha</td>
           <td class="text-center">120000</td>
           <td class="text-center" style="max-width:200px; overflow-x:scroll;"  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
