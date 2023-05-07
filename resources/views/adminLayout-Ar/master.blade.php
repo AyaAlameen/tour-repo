@@ -157,12 +157,13 @@ else{
    var table =document.getElementById("tableDate").innerHTML;
    console.log(table)
 
-   document.getElementById("tableDate").innerHTML = table + `   < <tr>
-     <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
-        <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
-        <td><button type="button" class="btn-close m-0 close" onclick="removeRow()">
+   document.getElementById("tableDate").innerHTML = table + `    <tr>
+      <td class="p-1 pr-0 pb-2"><button type="button" class="btn-close m-0 close" onclick="removeRow()">
         <span aria-hidden="true">&times;</span>
         </button></td>
+     <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+        <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
+
       </tr>`
       console.log(table)
   }

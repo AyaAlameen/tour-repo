@@ -249,7 +249,7 @@ Add Group
       </table>
       <table id="tablePlace" style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
       <tr>
-           <td>Place</td>
+           <td class="pr-2">places available in this district</td>
            <td style="width:300px;" ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
           <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
             
@@ -267,12 +267,10 @@ Add Group
    
           </div>
         </div></td>
-        <td style="width:30px; padding-right:6px !important;"><button type="button" class="btn-close m-0 close" onclick="removePlace()">
-        <span  aria-hidden="true">&times;</span>
-        </button></td>
+   <td></td>
       </tr>
       <tr>
-           <td>services</td>
+           <td class="pr-2">services available in this place</td>
            <td style="width:300px;" ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
           <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
 <!--lable disabled هي الجملة منعرضا بحال كان المكان مالو خدمات ومنعمل ال  -->
@@ -296,7 +294,7 @@ Add Group
         </button></td>
       </tr>
       </table>
-      <button class="app-content-headerButton m-3" style="float:right;" onclick="addPlace()">Add Another place</button>
+      <button class="app-content-headerButton m-3" style="float:right;" onclick="addPlace()">Add Another service</button>
 
       </div>
       <div class="modal-footer">
@@ -331,7 +329,7 @@ Add Group
      <img src="../img/vehicles.png" class="m-3" style="width:150px; height:150px; opacity:0.5;" >
      <p class="text-body mb-4">No transportation has been added yet</p>
      <!-- هاد الشكل بحال كان ضايف وسائل -->
-      <!-- <table style="color: rgb(22, 22, 22); width: 750px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+      <table style="color: rgb(22, 22, 22); width: 750px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
         <tr>
           <td class="text-center">transport company</td>
           <td class="text-center">transportation</td>
@@ -346,11 +344,11 @@ Add Group
           <td class="text-center">12</td>
           <td class="text-center" style="max-width:200px; overflow-x:scroll;" >Lorem ipsum dolor sit amet consectetur adipisicing elit.  Eaque nihil dolores totam eum cum,
              ipsum perspiciatis debitis .</td>
-             <td>11-11-2023</td>
+             <td rowspan="3">11-11-2023</td>
           <td> <a href="#" class="delete mr-3 ml-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
 
         </tr>
-      </table> -->
+      </table>
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary"  style="border-radius:3px;" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add new transportation</button>

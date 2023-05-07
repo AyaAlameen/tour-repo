@@ -249,27 +249,20 @@
         
       </tr>
 </table>
-      <table>
+      <table id="tableDate" style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       <tr>
-     <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
-        <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
-        <td><button type="button" class="btn-close m-0 close" onclick="removeRow()">
+      <td class="p-1 pr-0 pb-2"><button type="button" class="btn-close m-0 close" onclick="removeRow()">
         <span aria-hidden="true">&times;</span>
         </button></td>
+     <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
+        <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
+
       </tr>
       </table>
       <button class="app-content-headerButton m-3" style="float:left;" onclick="addDate()">إضافة تاريخ آخر</button>
 
     
-      <div class="toast hide w-50 m-auto " role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header" >
-  <p class="m-auto text-body">  تمت إضافة التاريخ</p>
-  <button type="button" class="btn-close m-0 close" style="float:right;" data-bs-dismiss="toast" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-  </div>
 
-</div>
       </div>
       <div class="modal-footer">
         <button class="app-content-headerButton" style="border-radius:3px;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">عودة</button>
