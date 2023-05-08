@@ -1,6 +1,6 @@
 :root {
   --navi:#2B3467;
-  --bambi:#EB455F;
+  --bambi:#90aaf8;
   --blueLight:#BAD7E9;
   --light: #FCFFE7;
   --breakpoint-xs: 0;
@@ -61,7 +61,7 @@ h2 {
   border-radius: 4px;
   height: 54px;
   background: #efefef; }
-  .half .contents .form-control:active, .half .contents .form-control:focus, .half .bg .form-control:active, .half .bg .form-control:focus {
+  .half .contents .form-control:active, .half .contents .form-control, .half .bg .form-control:active, .half .bg .form-control {
     outline: none;
     -webkit-box-shadow: none;
     box-shadow: none; }
@@ -133,14 +133,14 @@ border-color: var(--navi) !important;
   border-radius: 50%; }
 
 .control:hover input ~ .control__indicator,
-.control input:focus ~ .control__indicator {
+.control input ~ .control__indicator {
   background: #ccc; }
 
 .control input:checked ~ .control__indicator {
   background: var(--bambi); }
 
 .control:hover input:not([disabled]):checked ~ .control__indicator,
-.control input:checked:focus ~ .control__indicator {
+.control input:checked ~ .control__indicator {
   background: var(--bambi); }
 
 .control input:disabled ~ .control__indicator {

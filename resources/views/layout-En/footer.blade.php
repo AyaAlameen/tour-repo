@@ -10,7 +10,7 @@
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-whatsapp"></i></a>
                     <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -40,18 +40,11 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                <p><i class="fas fa-map-marker-alt mr-2"></i>123 Alkahers Street, Almouhafaza, Aleppo</p>
                 <p><i class="fas fa-phone-alt mr-2"></i>+012 345 67890</p>
-                <p><i class="fas fa-envelope mr-2"></i>info@example.com</p>
-                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
-                <div class="w-100">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary px-3">Sign Up</button>
-                        </div>
-                    </div>
-                </div>
+                <p><i class="fas fa-envelope mr-2"></i>travelre@example.com</p>
+             
+    
             </div>
         </div>
     </div>

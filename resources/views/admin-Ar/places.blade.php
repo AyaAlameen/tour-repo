@@ -11,7 +11,7 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade " data-bs-backdrop="static" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
+<div class="modal fade " style="overflow-y:scroll;" data-bs-backdrop="static" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content toggle">
       <div class="modal-header">
@@ -91,11 +91,7 @@
                 <td>الصنف الابن</td> 
               </tr>  
              
-              <tr>
-                  
-                  <td ><input class="toggle text-primary in" type="text" name="place-location" required style="width: 100%;"></th> 
-                  <td>الموقع</td>     
-              </tr> 
+  
               
               <tr>
                  
@@ -125,13 +121,33 @@
                   <td>الكلفة</td>     
               </tr> 
               <tr>
-                  
-                  <td style="width: 100%; height: 300px;">
-
-</td> 
-                  <td>المكان</td>     
+                  <!-- map -->
+                  <td class="text-center"><img class="m-3" data-bs-toggle="modal" id="mapimg"  data-bs-target="#exampleModal6" style="cursor:pointer;" src="img/sy.jpg" width="200px" height="100px"></td>
+                   
+                  <td>الموقع</td>     
               </tr> 
-              
+              <div class="modal fade bg-light"  id="exampleModal6" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModal6Label" aria-hidden="true">
+  <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+    <div class="modal-content toggle w-100 h-100">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal6Label">الخريطة</h5>
+        <button type="button" class="btn-close m-0 close" onclick="hidemap()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div id="map" class="w-100 h-100"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="action-button active" onclick="hidemap()">إغلاق</button>
+        <button type="button" class="app-content-headerButton">حفظ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <!-- end map -->
+    </div>
       </table>
       </div>
       <div class="modal-footer">

@@ -206,6 +206,10 @@ else{
      console.log(event.target.parentElement.parentElement.parentElement)  
      thirdParent.remove();
        }
+       function hidemap() {
+    $("#exampleModal6").hide();
+    $("#mapimg").click();
+  }
  </script>
 </body>
 

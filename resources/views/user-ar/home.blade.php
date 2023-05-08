@@ -6,7 +6,7 @@
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" style="height:800px;" src="img/ALEPPO458976.gif" alt="Image">
+                    <img class="w-100" style="height:800px;" src="../img/ALEPPO458976.gif" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">رحلات & سفر</h4>
@@ -83,19 +83,19 @@
     <!-- Booking End -->
 
 
-    <!-- About Start -->
-    <div class="container py-5 mb-5">
+  <!-- About Start -->
+  <div class="container-fluid py-5 " >
         <div class="container pt-5">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="position-relative h-100"  style="right:500px">
-                        <img class="position-absolute w-100 h-100" src="img/caption (4).jpg" style="object-fit: cover;">
+                <div class="col-lg-6" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class=" w-100 h-100" src="../img/caption (4).jpg" alt="dfgfd" style="object-fit: cover;">
                     </div>
                 </div>
-                <div class="col-lg-4 pt-5 pb-lg-5">
-                    <div style="box-shadow:#64686c33  -3px -3px 6px 0.5px; left:100px;" class="about-text bg-white p-4 p-lg-5 my-lg-5 position-relative">
-                        <h2 class="text-primary text-uppercase">حولنا</h2>
-                        <h1 class="mb-3">نعمل لتأمين أفضل الرحلات لك بما يناسب ميزانيتك</h1>
+                <div class="col-lg-6 pt-5 pb-lg-5" style="direction:rtl;">
+                    <div style="box-shadow:#64686c33  3px -3px 6px 0.5px;" class="about-text bg-white p-4 p-lg-5 my-lg-5">
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
+                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
                         <div class="row mb-4">
                             <div class="col-6">
@@ -105,7 +105,8 @@
                                 <img class="img-fluid" src="img/latakia.jpg" alt="">
                             </div>
                         </div>
-                        <div class="d-flex justify-content-end"><a href="" class="btn btn-primary mt-1">احجز الآن</a></div>
+                       <div class="d-flex justify-content-start"><a href="" class="btn btn-primary mt-1">Book Now</a></div>
+                        
                     </div>
                 </div>
             </div>
@@ -611,54 +612,112 @@
     <!-- Team End -->
 
 
-    <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
+    <!-- offers Start -->
+    <div class="container-fluid py-5" >
         <div class="container py-5">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" >العروض</h6>
                 <h1>أفضل العروض</h1>
             </div>
             <div class="owl-carousel testimonial-carousel">
-                <div class="text-center pb-4">
+            <div class="text-center pb-4 mb-3" style="direction:rtl;">
                     <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                    <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                    <h5 class="text-truncate">اسم العرض</h5>
+                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore maiores modi iure consequuntur
+                             eum vel voluptate excepturi veritatis commodi. 
+                             A unde fuga quas voluptates ab sunt blanditiis eaque!   </p>
+                    
+                             <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                    <span>الكلفة : 40000</span>
+                        <button class="btn btn-primary app-content-headerButton" style="float:left; border-radius:3px;" >احجز الآن</button>
+                    </div>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center mb-3" style="direction:rtl;">
                     <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                    <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                    <h5 class="text-truncate">اسم العرض</h5>
+                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore maiores modi iure consequuntur
+                             eum vel voluptate excepturi veritatis commodi. 
+                             A unde fuga quas voluptates ab sunt blanditiis eaque!   </p>
+                    
+                             <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                    <span>الكلفة : 40000</span>
+                        <button class="btn btn-primary app-content-headerButton" style="float:left; border-radius:3px;" >احجز الآن</button>
+                    </div>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center mb-3" style="direction:rtl;">
                     <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                    <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                    <h5 class="text-truncate">اسم العرض</h5>
+                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore maiores modi iure consequuntur
+                             eum vel voluptate excepturi veritatis commodi. 
+                             A unde fuga quas voluptates ab sunt blanditiis eaque!   </p>
+                    
+                             <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                    <span>الكلفة : 40000</span>
+                        <button class="btn btn-primary app-content-headerButton" style="float:left; border-radius:3px;" >احجز الآن</button>
+                    </div>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center mb-3" style="direction:rtl;">
                     <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                    <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                    <h5 class="text-truncate">اسم العرض</h5>
+                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore maiores modi iure consequuntur
+                             eum vel voluptate excepturi veritatis commodi. 
+                             A unde fuga quas voluptates ab sunt blanditiis eaque!   </p>
+                    
+                             <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                    <span>الكلفة : 40000</span>
+                        <button class="btn btn-primary app-content-headerButton" style="float:left; border-radius:3px;" >احجز الآن</button>
+                    </div>
+                    </div>
+                </div>
+
+
+                <div class="text-center mb-3" style="direction:rtl;">
+                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                    <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                    <h5 class="text-truncate">اسم العرض</h5>
+                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore maiores modi iure consequuntur
+                             eum vel voluptate excepturi veritatis commodi. 
+                             A unde fuga quas voluptates ab sunt blanditiis eaque!   </p>
+                    
+                             <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                    <span>الكلفة : 40000</span>
+                        <button class="btn btn-primary app-content-headerButton" style="float:left; border-radius:3px;" >احجز الآن</button>
+                    </div>
+                    </div>
+                </div>
+
+
+                <div class="text-center mb-3" style="direction:rtl;">
+                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                    <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                    <h5 class="text-truncate">اسم العرض</h5>
+                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore maiores modi iure consequuntur
+                             eum vel voluptate excepturi veritatis commodi. 
+                             A unde fuga quas voluptates ab sunt blanditiis eaque!   </p>
+                    <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                    <span>الكلفة : 40000</span>
+                        <button class="btn btn-primary app-content-headerButton" style="float:left; border-radius:3px;" >احجز الآن</button>
+                    </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
+    <!-- offers End -->
 
 
 

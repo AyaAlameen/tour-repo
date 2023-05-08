@@ -1,23 +1,5 @@
 (function ($) {
-    "use strict";
-    
-    // Dropdown on mouse hover
-    // $(document).ready(function () {
-    //     function toggleNavbarMethod() {
-    //         if ($(window).width() > 992) {
-    //             $('.navbar .dropdown').on('mouseover', function () {
-    //                 $('.dropdown-toggle', this).trigger('click');
-    //             }).on('mouseout', function () {
-    //                 $('.dropdown-toggle', this).trigger('click').blur();
-    //             });
-    //         } else {
-    //             $('.navbar .dropdown').off('mouseover').off('mouseout');
-    //         }
-    //     }
-    //     toggleNavbarMethod();
-    //     $(window).resize(toggleNavbarMethod);
-    // });
-    
+    "use strict";  
     
     // Back to top button
     $(window).scroll(function () {
@@ -67,14 +49,14 @@
     });
 
     //Leaflet Init
-    // var map = L.map('map');
+    var map = L.map('map');
 
-    // var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
-    // map.fitBounds(syriaBounds);
+    var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
+    map.fitBounds(syriaBounds);
 
-    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-    //     maxZoom: 18,
-    // }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(map);
 })(jQuery);
 
