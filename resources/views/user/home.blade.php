@@ -463,10 +463,10 @@
     <!-- Registration Start -->
     <div class="container-fluid bg-registration py-5" style="margin: 90px 0; height:700px;">
         <div class="container py-5">
-            <div class="row align-items-center" style="flex-wrap:nowrap; width:700px;">
-                <div class="col-lg-7" style="margin-bottom:350px;">
+            <div class="row align-items-center" style="flex-wrap:nowrap; width:700px; ">
+                <div class="col-lg-7" style="margin-bottom:170px;background-color:#ffffff10; backdrop-filter:blur(15px); padding:50px; border-radius:3px;">
                     <div class="mb-4">
-                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Mega Offer</h6>
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">our Offer</h6>
                         <h1 class="text-white"><span class="text-primary">30% OFF</span> For Honeymoon</h1>
                     </div>
                     <p class="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,

@@ -9642,7 +9642,7 @@
   }
   
   .bg-registration {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.jpg), no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/223141-JULY-22-Jamaica-tourism.jpg), no-repeat center center;
     background-size: cover;
   }
   
@@ -9733,6 +9733,10 @@
     box-shadow: 0 0 30px #CCCCCC;
   }
   
+
+  .testimonial-text{
+    box-shadow: -3px 5px 30px #CCCCCCa0;
+  }
   .blog-item {
     transition: .5s;
   }

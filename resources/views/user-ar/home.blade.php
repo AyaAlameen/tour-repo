@@ -94,8 +94,8 @@
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5" style="direction:rtl;">
                     <div style="box-shadow:#64686c33  3px -3px 6px 0.5px;" class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
+                        <h6 class="text-primary text-uppercase" >حولنا</h6>
+                        <h1 class="mb-3">نعمل على تأمين أفضل الرحلات السياحية بما يتناسب مع ميزانيتك</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
                         <div class="row mb-4">
                             <div class="col-6">
@@ -105,7 +105,7 @@
                                 <img class="img-fluid" src="img/latakia.jpg" alt="">
                             </div>
                         </div>
-                       <div class="d-flex justify-content-start"><a href="" class="btn btn-primary mt-1">Book Now</a></div>
+                       <div class="d-flex justify-content-start"><a href="" class="btn btn-primary mt-1">احجز الآن</a></div>
                         
                     </div>
                 </div>
@@ -116,7 +116,7 @@
 
 
     <!-- Feature Start -->
-    <div class="container-fluid pb-5">
+    <div class="container-fluid pb-5 pt-5">
         <div class="container pb-5">
             <div class="row">
                 <div class="col-md-4">
@@ -293,9 +293,37 @@
                 <h1>أفضل الرحلات السياحية</h1>
             </div>
             <div class="row">
+                <!-- بداية الكارد -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+                              <!-- صور أماكن الرحلة -->
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+    </div>
+    <div class="carousel-item">
+    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+    </div>
+    <div class="carousel-item">
+    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        <!-- نهاية صور أماكن الرحلة -->
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>دمشق</small>
@@ -307,116 +335,13 @@
                             <div class="border-top mt-4 pt-4">
                             <div class="d-flex justify-content-between align-items-baseline">
                                 <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
-                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
+                                    <h6><button class="btn btn-primary" style="border-radius:3px;">المزيد من التفاصيل للحجز</button></h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid w-100" src="img/ac7f6472283fdad5288c4e976129a985.jpg" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>حلب</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>7 أيام</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 شخص</small>
-                            </div>
-                            <br>
-                            <a class="h5 text-decoration-none" href="">الوصف</a>
-                            <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
-                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 h-70">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid w-100"  src="img/altra-immagine-del-sito.jpg" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>تدمر</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 أيام</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 شخص</small>
-                            </div>
-                            <br>
-                            <a class="h5 text-decoration-none" href="">الوصف</a>
-                            <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
-                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid w-100" src="img/grand-mosque-courtyard.jpg" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>حماة</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1 أيام</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 شخص</small>
-                            </div>
-                            <br>
-                            <a class="h5 text-decoration-none" href="">الوصف</a>
-                            <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
-                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid w-100" src="img/beit-al-mamlouka.jpg" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>حمص</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 أيام</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 شخص</small>
-                            </div>
-                            <br>
-                            <a class="h5 text-decoration-none" href="">الوصف</a>
-                            <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
-                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid w-100" src="img/d90d3ccf930b10d60f4d7cc7e96c342c.jpg" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>اللاذقية</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>6 أيام</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>3 شخص</small>
-                            </div>
-                            <br>
-                            <a class="h5 text-decoration-none" href="">الوصف</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between align-items-baseline">
-                                <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                    <!-- <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5</h6> -->
-                                    <h6><button class="btn btn-primary" style="border-radius:3px;">التفاصيل</button></h6>
-                                </div>
-                            </div>
-                        </div>
+              <!-- نهاية الكارد -->
                     </div>
                 </div>
             </div>
@@ -429,7 +354,7 @@
     <div class="container-fluid bg-registration py-5" style="margin: 90px 0; height:700px;">
         <div class="container py-5">
             <div class="row align-items-center" style="flex-wrap:nowrap; width:700px;">
-                <div class="col-lg-7" style="margin-bottom:350px; margin-left:300px;">
+                <div class="col-lg-7" style="margin-bottom:170px; margin-left:300px; background-color:#ffffff10; backdrop-filter:blur(15px); padding:50px; border-radius:3px;">
                     <div class="mb-4">
                         <h6 class="text-primary text-uppercase" >عروض المسافر</h6>
                         <h1 class="text-white"><span class="text-primary">30% حسم</span> من أجل شهر العسل</h1>
@@ -538,74 +463,25 @@
                 <h1>أدلاءنا السياحيون</h1>
             </div>
             <div class="row">
+                     <!-- بداية الكارد -->
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
                     <div class="team-item bg-white mb-4">
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/testimonial-1.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-whatsapp"></i></a>
+                                <a class="btn btn-outline-primary btn-square" href=""><i class="far fa-envelope"></i></a>
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <h5 class="text-truncate">الاسم</h5>
+                            <h5 class="text-truncate">عادل إمام</h5>
                             <p class="m-0">المهارات</p>
+                            <p class="m-0">الشهادات</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">الاسم</h5>
-                            <p class="m-0">المهارات</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/testimonial-3.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">الاسم</h5>
-                            <p class="m-0">المهارات</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">الاسم</h5>
-                            <p class="m-0">المهارات</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- نهاية الكارد -->
+   
             </div>
         </div>
     </div>
@@ -619,9 +495,37 @@
                 <h6 class="text-primary text-uppercase" >العروض</h6>
                 <h1>أفضل العروض</h1>
             </div>
+            <!-- بداية الكارد -->
             <div class="owl-carousel testimonial-carousel">
             <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
+                     <!-- صور أماكن الرحلة -->
+                     <div id="carouselExample2Indicators" class="carousel slide  m-auto w-50" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="" >
+    </div>
+    <div class="carousel-item">
+    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+    </div>
+    <div class="carousel-item">
+    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        <!-- نهاية صور أماكن الرحلة -->
                     <div class="testimonial-text bg-white p-4 mt-n5">
                     <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
                     <h5 class="text-truncate">اسم العرض</h5>
@@ -635,6 +539,7 @@
                     </div>
                     </div>
                 </div>
+                <!-- نهاية الكارد -->
                 <div class="text-center mb-3" style="direction:rtl;">
                     <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
@@ -682,38 +587,10 @@
                 </div>
 
 
-                <div class="text-center mb-3" style="direction:rtl;">
-                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                    <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                    <h5 class="text-truncate">اسم العرض</h5>
-                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore maiores modi iure consequuntur
-                             eum vel voluptate excepturi veritatis commodi. 
-                             A unde fuga quas voluptates ab sunt blanditiis eaque!   </p>
-                    
-                             <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
-                    <span>الكلفة : 40000</span>
-                        <button class="btn btn-primary app-content-headerButton" style="float:left; border-radius:3px;" >احجز الآن</button>
-                    </div>
-                    </div>
-                </div>
+   
 
 
-                <div class="text-center mb-3" style="direction:rtl;">
-                    <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                    <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                    <h5 class="text-truncate">اسم العرض</h5>
-                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore maiores modi iure consequuntur
-                             eum vel voluptate excepturi veritatis commodi. 
-                             A unde fuga quas voluptates ab sunt blanditiis eaque!   </p>
-                    <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
-                    <span>الكلفة : 40000</span>
-                        <button class="btn btn-primary app-content-headerButton" style="float:left; border-radius:3px;" >احجز الآن</button>
-                    </div>
-                       
-                    </div>
-                </div>
+              
             </div>
         </div>
     </div>
