@@ -19,7 +19,7 @@ class Place extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable =['sub_category_id', 'district_id', 'geolocation', 'address', 'email', 'phone', 'url', 'cost'];
+    protected $fillable =['sub_category_id', 'district_id', 'geolocation', 'address', 'email', 'phone', 'cost', 'profit_ratio_1', 'profit_ratio_2'];
 
     public function subCategory() {
         return $this->belongsTo(SubCategory::class);
