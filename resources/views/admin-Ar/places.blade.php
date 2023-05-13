@@ -21,29 +21,24 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <table style=" width: 400px;"
+                            <table id="addTable" style=" width: 400px;"
                                 class="table-striped table-hover table-bordered m-auto text-primary myTable">
 
                                 <tr>
-
+                                    <td></td>
                                     <td><input type="text" class="toggle text-primary in" name="place_name" required
                                             style="width: 100%;"></th>
                                     <td>الاسم(العربية)</td>
                                 </tr>
                                 <tr>
-
+                                    <td></td>
                                     <td><input type="text" class="toggle text-primary in" name="place_name" required
                                             style="width: 100%;"></th>
                                     <td>(الانكليزية)الاسم </td>
                                 </tr>
-                                <tr>
 
-                                    <td><input type="file" class="toggle text-primary in" name="place_image" required
-                                            style="width: 100%;"></th>
-                                    <td>الصورة </td>
-                                </tr>
                                 <tr>
-
+                                    <td></td>
                                     <td>
                                         <div class="dropdown toggle text-primary in" style="display:inline-block;">
                                             <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -54,7 +49,7 @@
                                                 <a class="dropdown-item" href="#">--</a>
                                                 <a class="dropdown-item" href="#">---</a>
                                                 <a class="dropdown-item" href="#">---</a>
-												<a class="dropdown-item" href="#">---</a>
+                                                <a class="dropdown-item" href="#">---</a>
 
 
                                             </div>
@@ -64,7 +59,7 @@
                                 </tr>
 
                                 <tr>
-
+                                    <td></td>
                                     <td>
                                         <div class="dropdown toggle text-primary in" style="display:inline-block;">
                                             <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -85,7 +80,7 @@
                                 </tr>
 
                                 <tr>
-
+                                    <td></td>
                                     <td>
                                         <div class="dropdown toggle text-primary in" style="display:inline-block;">
                                             <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -107,38 +102,40 @@
 
 
                                 <tr>
-
+                                    <td></td>
                                     <td><input class="toggle text-primary in" type="text" name="place-description"
                                             required style="width: 100%;"></th>
                                     <td>وصف(العربية)</td>
                                 </tr>
                                 <tr>
-
+                                    <td></td>
                                     <td><input class="toggle text-primary in" type="text" name="place-description"
                                             required style="width: 100%;"></th>
                                     <td>(الانكليزية)وصف</td>
                                 </tr>
 
                                 <tr>
-
+                                    <td></td>
                                     <td><input class="toggle text-primary in" type="email" name="place-email" required
                                             style="width: 100%;"></th>
                                     <td>الايميل</td>
                                 </tr>
                                 <tr>
-
+                                    <td></td>
                                     <td><input class="toggle text-primary in" type="number" name="place-phone" required
                                             style="width: 100%;"></th>
                                     <td>الهاتف</td>
                                 </tr>
 
                                 <tr>
-
+                                    <td></td>
                                     <td><input class="toggle text-primary in" type="text" name="place_cost" required
                                             style="width: 100%;"></th>
                                     <td>الكلفة</td>
                                 </tr>
+
                                 <tr>
+                                    <td></td>
                                     <!-- map -->
                                     <td class="text-center"><img class="m-3" data-bs-toggle="modal" id="mapimg"
                                             data-bs-target="#exampleModal6" style="cursor:pointer;" src="img/sy.jpg"
@@ -158,7 +155,8 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <div id="map" style="width: 100%; height: 300px;" class="w-100 h-100"></div>
+                                                <div id="map" style="width: 100%; height: 300px;"
+                                                    class="w-100 h-100"></div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="action-button active"
@@ -170,6 +168,21 @@
                                 </div>
                                 <div>
                                     <!-- end map -->
+
+                                    <tr>
+                                        <td style="width:25px; text-align:center;"> <i
+                                                class="fas fa-camera text-body pl-2"
+                                                style="font-size:15px; cursor:pointer;"></i></td>
+                                        <td>
+                                            <i class="fas fa-plus text-body pt-2 pl-2" onclick="addPic(9)"
+                                                style="font-size:15px; float:left; cursor:pointer;"
+                                                title="Add Another Picture"></i>
+                                            <input type="file" class="toggle text-primary in" name="place_image"
+                                                required style="width:75% !important; font-size:16px;">
+                                        </td>
+                                        <td>الصورة </td>
+                                    </tr>
+
                                 </div>
                             </table>
                         </div>
@@ -377,31 +390,24 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <table class="table-striped table-hover table-bordered m-auto text-primary myTable"
+                                        <table id="editTable"
+                                            class="table-striped table-hover table-bordered m-auto text-primary myTable"
                                             style="direction:ltr !important;">
                                             <tr>
-
+                                                <td></td>
                                                 <td><input type="text" class="toggle text-primary in"
                                                         name="place_name" required style="width: 100%;"></th>
                                                 <td>الاسم(العربية)</td>
                                             </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td><input type="text" class="toggle text-primary in"
                                                         name="place_name" required style="width: 100%;"></th>
                                                 <td>(الانكليزية)الاسم </td>
                                             </tr>
-                                            <tr>
 
-                                                <td><input type="file" hidden id="img">
-                                                    <label for="img"><img src="img/about-1.jpg"
-                                                            style="padding-top: 5px; border-radius: 0px;" width="30px"
-                                                            height="50px"></label>
-                                                </td>
-                                                <td>الصورة </td>
-                                            </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td>
                                                     <div class="dropdown toggle text-primary in"
                                                         style="display:inline-block; ;">
@@ -422,7 +428,7 @@
                                                 <td>المدينة </td>
                                             </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td>
                                                     <div class="dropdown toggle text-primary in"
                                                         style="display:inline-block; ;">
@@ -443,7 +449,7 @@
                                                 <td>الناحية </td>
                                             </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td>
                                                     <div class="dropdown toggle text-primary in"
                                                         style="display:inline-block; ;">
@@ -464,42 +470,56 @@
                                                 <td>الصنف الفرعي </td>
                                             </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td><input type="text" class="toggle text-primary in" value="-----">
                                                 </td>
                                                 <td>الموقع</td>
                                             </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td><input class="toggle text-primary in" type="text"
                                                         name="place-description" required style="width: 100%;"></th>
                                                 <td>وصف(العربية)</td>
                                             </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td><input class="toggle text-primary in" type="text"
                                                         name="place-description" required style="width: 100%;"></th>
                                                 <td>(الانكليزية)وصف</td>
                                             </tr>
                                             <tr>
 
-
+                                                <td></td>
                                                 <td><input type="email" class="toggle text-primary in"
                                                         value="@gmail.com"></td>
                                                 <td>الايميل</td>
 
                                             </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td><input type="number" class="toggle text-primary in"
                                                         value="09123456789"></td>
                                                 <td>الهاتف</td>
                                             </tr>
                                             <tr>
-
+                                                <td></td>
                                                 <td><input type="number" class="toggle text-primary in" value="100000">
                                                 </td>
                                                 <td>الكلفة</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25px; text-align:center;"> </td>
+                                                <td>
+                                                    <i class="fas fa-plus text-body pt-4 pl-2" onclick="editPic(9)"
+                                                        style="font-size:15px; float:left; cursor:pointer;"
+                                                        title="Add Another Picture"></i>
+                                                    <input type="file" hidden id="img">
+                                                    <label for="img"><img src="img/about-1.jpg"
+                                                            style="padding-top: 5px; border-radius: 0px;" width="30px"
+                                                            height="50px">
+                                                    </label>
+                                                </td>
+                                                <td>الصورة </td>
                                             </tr>
 
                                         </table>
@@ -529,6 +549,4 @@
     {{-- <div id="map" style="width: 100%; height: 300px;"></div> --}}
 @endsection
 
-<script>
-
-</script>
+<script></script>

@@ -328,7 +328,6 @@
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>دمشق</small>
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 أيام</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 شخص</small>
                             </div>
                             <br>
                             <a class="h5 text-decoration-none" href="">الوصف</a>
@@ -365,7 +364,7 @@
                     <ul class="list-inline text-white m-0">
                         <li class="py-2">افضل الخصومات والحسومات لكافة المناسبات <i class="fa fa-check text-primary mr-3"></i></li>
                         <li class="py-2">شاركنا مناسبتك واترك لنا الإدارة <i class="fa fa-check text-primary mr-3"></i></li>
-                        <li class="py-2"> استمتع بأفضل العروض و الخدمات من تقدمة شركتنا <i class="fa fa-check text-primary mr-3"></i></li>
+                        <li class="py-2">استمتع بأفضل العروض و الخدمات من شركتنا<i class="fa fa-check text-primary mr-3"></i></li>
                     </ul>
                 </div>
                 <div class="d-md-flex half">
@@ -498,7 +497,7 @@
             <!-- بداية الكارد -->
             <div class="owl-carousel testimonial-carousel">
             <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                     <!-- صور أماكن الرحلة -->
+                     <!-- صور العرض -->
                      <div id="carouselExample2Indicators" class="carousel slide  m-auto w-50" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -525,7 +524,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-        <!-- نهاية صور أماكن الرحلة -->
+        <!-- نهاية صور العرض -->
                     <div class="testimonial-text bg-white p-4 mt-n5">
                     <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
                     <h5 class="text-truncate">اسم العرض</h5>

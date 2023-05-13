@@ -264,12 +264,10 @@
    
           </div>
         </div></td>
-        <td style="width:30px; padding-right:6px !important;"><button type="button" class="btn-close m-0 close" onclick="removeRow()">
-        <span  aria-hidden="true">&times;</span>
-        </button></td>
+        <td></td>
       </tr>
       </table>
-      <button class="app-content-headerButton m-3" style="float:left;" onclick="addPlace()">إضافة خدمة أخرى </button>
+      <button class="app-content-headerButton m-3" style="float:left;" onclick="addserv()">إضافة خدمة أخرى </button>
 
       </div>
       <div class="modal-footer">
@@ -336,7 +334,7 @@
     <!-- second form -->
     <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
     <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
-    <div class="modal-content" style="width:500px; direction:ltr;">
+    <div class="modal-content" style="width:550px ; direction:ltr;">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalToggleLabel2">وسيلة نقل جديدة</h5>
         <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
@@ -344,7 +342,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <table style="color: rgb(22, 22, 22); width: 450px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+      <table style="color: rgb(22, 22, 22); width: 500px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
       <tr>
           <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
@@ -389,20 +387,15 @@
         
       </tr>
 </table>
-      <table id="tableDate" style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+      <table id="tableDate" style="color: rgb(22, 22, 22); width: 500px !important; margin-top:20px !important; margin-bottom:15px !important;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       <tr>
-      <td class="p-1 pr-0 pb-2"><button type="button" class="btn-close m-0 close" onclick="removeRow()">
-        <span aria-hidden="true">&times;</span>
-        </button></td>
+      <td ></td>
      <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
-        <td> تاريخ اليوم الذي سيتم فيه استخدام هذه الوسيلة</td>
+        <td style="width: 330px;"> تواريخ الأيام التي سيتم فيها استخدام هذه الوسيلة</td>
 
       </tr>
       </table>
       <button class="app-content-headerButton m-3" style="float:left;" onclick="addDate()">إضافة تاريخ آخر</button>
-
-    
-
       </div>
       <div class="modal-footer">
         <button class="app-content-headerButton" style="border-radius:3px;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">عودة</button>

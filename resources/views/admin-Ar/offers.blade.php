@@ -21,25 +21,23 @@
         </button>
       </div>
       <div class="modal-body">
-      <table style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
+      <table id="addTable" style="color: rgb(22, 22, 22); width: 400px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
       
               <tr>
+              <td></td>    
                   
                   <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th> 
                   <td>الاسم(العربية)</td>     
               </tr>  
               <tr>
                   
+              <td></td>    
                   <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th> 
                   <td>(الانكليزية)الاسم </td>     
-              </tr> 
+              </tr>  
               <tr>
-                 
-                  <td><input type="file" class="toggle text-primary in"  name="event_image" required style="width: 100%;"></th> 
-                  <td >الصورة </td>     
-              </tr> 
-              <tr>
-                  
+
+              <td></td>              
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
@@ -57,6 +55,7 @@
               </tr>
              
               <tr>
+              <td></td>    
                   
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
@@ -74,31 +73,42 @@
               </tr>  
               
               <tr>
+              <td></td>    
                   
                   <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>
                   <td>وصف(العربية)</td>      
               </tr> 
               <tr>
+              <td></td>    
                   
                   <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>
                   <td>(الانكليزية)وصف</td>      
               </tr>
               <tr>
-                  
-                  <td ><input class="toggle text-primary in" type="text" name="event_cost" required style="width: 100%;"></th> 
+
+              <td></td>                   
+                  <td ><input class="toggle text-primary in" type="number" name="event_cost" required style="width: 100%;"></th> 
                   <td>الكلفة</td>     
               </tr> 
               <tr>
-                  
+              <td></td>  
                   <td ><input class="toggle text-primary in" type="date" name="event_start_date" required style="width: 100%;"></th> 
                   <td>تاريخ البداية</td>     
               </tr>
               <tr>
+              <td></td>    
                   
                   <td ><input class="toggle text-primary in" type="date" name="event_end_date" required style="width: 100%;"></th>
-                  <td>تاريخ النهاية</td>      
+                  <td>تاريخ النهاية</td>  
               </tr>
- 
+              <tr>
+              <td style="width:25px; text-align:center;" > <i class="fas fa-camera text-body pt-2 pl-2" style="font-size:15px; cursor:pointer;" ></i></td>   
+                
+                 <td >
+                 <i class="fas fa-plus text-body pt-2 pl-2" onclick="addPic(9)" style="font-size:15px; float:left; cursor:pointer;" title="Add Another Picture"></i>
+                   <input type="file"  class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;"></td> 
+                 <td >الصور </td>  
+             </tr>
       </table>
       </div>
       <div class="modal-footer">
@@ -250,7 +260,7 @@
                              </button>
                            </div>
                            <div class="modal-body">
-                           <table class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
+                           <table id="editTable" class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
                            <tr>
                   
                   <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th> 
@@ -261,13 +271,8 @@
                   <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th> 
                   <td>(الانكليزية)الاسم </td>     
               </tr>
-                  <tr>
-                      
-                       <td ><input type="file" hidden id="img"> 
-                            <label for="img" ><img src="img/about-1.jpg" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                            <td>الصورة </td>
-                          </tr>
-       <tr>
+
+              <tr>
                   
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
@@ -322,10 +327,24 @@
                            
                   </tr> 
                   <tr> 
-                        
+                        <td></td>
                          <td ><input type="date" class="toggle text-primary in" value="2023-10-10"></td>  
                          <td>تاريخ النهاية</td>
                   </tr> 
+
+                  <tr>
+                
+                         <td style="width:25px; text-align:center;" >
+                        </td>   
+                          <td>
+                              <i class="fas fa-plus text-body pt-4 pl-2" onclick="editPic(9)" style="font-size:15px; float:left; cursor:pointer;" title="Add Another Picture"></i>
+                              <input type="file" hidden id="img">
+                                   <label for="img"><img src="img/about-1.jpg"
+                                     style="padding-top: 5px; border-radius: 0px;" width="30px" height="50px">
+                                    </label>
+                           </td>
+                           <td>الصورة </td>
+                    </tr>
                                </table>
                             
                            </div>
