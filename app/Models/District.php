@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Place;
+use App\Models\City;
 use App\Models\Translation;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -16,6 +17,10 @@ class District extends Model
 
     public function places() {
         return $this->hasMany(Place::class);
+    }
+
+    public function city() {
+        return $this->belongsTo(City::class);
     }
 
     public function translations()

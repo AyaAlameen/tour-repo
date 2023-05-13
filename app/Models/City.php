@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Translation;
+use App\Models\District;
 use App\Models\Transportation;
 
 class City extends Model
@@ -20,5 +21,9 @@ class City extends Model
 
     public function transportation() {
         return $this->hasMany(Transportation::class);
+    }
+
+    public function districts() {
+        return $this->hasMany(District::class);
     }
 }

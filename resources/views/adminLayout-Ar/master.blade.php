@@ -8,12 +8,12 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    
+
     <!-- Favicon -->
     <link href="../img/favicon.ico" rel="icon">
     <!-- bootstrap -->
-<link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+
     <!-- Font Awesome -->
     <link href="../css/all.min.css" rel="stylesheet">
 
@@ -22,108 +22,105 @@
     <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
 
-<!-- Arabic styles -->
-<link href="../css/style-Ar.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/dashStyle-Ar.css"> 
- <link href="../css/tablestyle.css" rel="stylesheet" />
- 
-<!-- arabic font -->
-<link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=rawy-thin" />
+    <!-- Arabic styles -->
+    <link href="../css/style-Ar.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashStyle-Ar.css">
+    <link href="../css/tablestyle.css" rel="stylesheet" />
+
+    <!-- arabic font -->
+    <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=rawy-thin" />
 
 
-<link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
-<script src="../js/leaflet.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
+    <script src="../js/leaflet.js"></script>
 </head>
 
 <body>
 
-        @include('adminLayout-Ar.header')
-        @yield('admincontent')
-        @include('adminLayout-Ar.footer')
-<script>
-  //switch and save mode
-const modeElement =document.querySelector('.mode-switch');
-console.log(modeElement)
-var isDarkMode= false;
-console.log(isDarkMode)
-modeElement.addEventListener('click', function () {       
-  if (isDarkMode){
-  document.documentElement.classList.remove('light');
-  modeElement.classList.remove("active")
-  isDarkMode=false;
-  console.log(isDarkMode)
-}
-else{
-  document.documentElement.classList.add('light');
-  modeElement.classList.add("active")
-  isDarkMode=true;
-  console.log(isDarkMode)
+    @include('adminLayout-Ar.header')
+    @yield('admincontent')
+    @include('adminLayout-Ar.footer')
+    <script>
+        //switch and save mode
+        const modeElement = document.querySelector('.mode-switch');
+        console.log(modeElement)
+        var isDarkMode = false;
+        console.log(isDarkMode)
+        modeElement.addEventListener('click', function() {
+            if (isDarkMode) {
+                document.documentElement.classList.remove('light');
+                modeElement.classList.remove("active")
+                isDarkMode = false;
+                console.log(isDarkMode)
+            } else {
+                document.documentElement.classList.add('light');
+                modeElement.classList.add("active")
+                isDarkMode = true;
+                console.log(isDarkMode)
 
-}
-if(isDarkMode){
-  localStorage.setItem('myTheme','light')
-}
-else{
-  localStorage.setItem('myTheme','dark')
-}
-  });
-  console.log(isDarkMode)
+            }
+            if (isDarkMode) {
+                localStorage.setItem('myTheme', 'light')
+            } else {
+                localStorage.setItem('myTheme', 'dark')
+            }
+        });
+        console.log(isDarkMode)
 
 
-//get mode
+        //get mode
 
-const  savedTheme=localStorage.getItem('myTheme');
-console.log("store : "+localStorage.getItem('myTheme'))
-if(savedTheme=='light'){
-  document.documentElement.classList.add('light');
-  modeElement.classList.add("active")
-  isDarkMode=true;
-}
-else{
-  document.documentElement.classList.remove('light');
-  modeElement.classList.remove("active")
-  isDarkMode=false;
-}
-</script>
+        const savedTheme = localStorage.getItem('myTheme');
+        console.log("store : " + localStorage.getItem('myTheme'))
+        if (savedTheme == 'light') {
+            document.documentElement.classList.add('light');
+            modeElement.classList.add("active")
+            isDarkMode = true;
+        } else {
+            document.documentElement.classList.remove('light');
+            modeElement.classList.remove("active")
+            isDarkMode = false;
+        }
+    </script>
 
- <!-- Back to Top -->
- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-<!-- bootsrap -->
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<!-- JavaScript Libraries -->
+    <!-- bootsrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Libraries -->
 
 
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="../lib/easing/easing.min.js"></script>
-<script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="../lib/tempusdominus/js/moment.min.js"></script>
-<script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-<script  src="../js/dashScript.js"></script>
-<!-- fontawesome -->
-<script src="../js/all.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../js/dashScript.js"></script>
+    <!-- fontawesome -->
+    <script src="../js/all.min.js"></script>
 
-<script>
-  	var map = L.map('map').setView([51.505, -0.09], 13);
-    // var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
-    // map.fitBounds(syriaBounds);
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        // var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
+        // map.fitBounds(syriaBounds);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-// var map = L.map('map');
+        // var map = L.map('map');
 
-    // var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
-    // map.fitBounds(syriaBounds);
+        // var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
+        // map.fitBounds(syriaBounds);
 
-    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-    //     maxZoom: 18,
-    // }).addTo(map);
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        //     maxZoom: 18,
+        // }).addTo(map);
 
 // L.marker([51.5, -0.09]).addTo(map)
 //     .bindPopup('A pretty CSS popup.<br> Easily customizable.')

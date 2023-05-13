@@ -114,7 +114,7 @@
         <!-- end add -->
 
         <div class="app-content-actions w-100">
-            <input class="search-bar" placeholder="...ابحث" type="text">
+            <input class="search-bar"  onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق رقم السيارة " type="text">
             <div class="app-content-actions-wrapper">
 
                 <button class="action-button list" title="عرض جدول">
@@ -163,7 +163,7 @@
             </div>
         </div>
 
-        <div class="products-area-wrapper tableView" style="direction:rtl;">
+        <div class="products-area-wrapper tableView" style="direction:rtl;" id="transportationsTable">
             <div class="products-header">
                 <div class="product-cell">#</div>
                 <div class="product-cell">رقم السيارة</div>
@@ -181,7 +181,7 @@
                             <span>{{ $i++ }}</span>
                         </div>
                         <div class="product-cell">
-                            <span>{{ $transportation->carId }}</span>
+                            <span class="search-value">{{ $transportation->carId }}</span>
                         </div>
                         <div class="product-cell">
                             <span>{{ $transportation->city->translations()->where('locale', 'ar')->first()->name }}</span>
@@ -517,7 +517,7 @@
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("search");
         filter = input.value;
-        table = document.getElementById("subCategoriesTable");
+        table = document.getElementById("transportationsTable");
         // tr = table.getElementsByTagName("tr");
         tr = table.getElementsByClassName("products-row");
         // Loop through all table rows, and hide those who don't match the search query

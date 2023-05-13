@@ -31,9 +31,9 @@ Add Transportation
              <tr>
                   <td>city</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
-                  </lable>
+                  </label>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">--</a>
                     <a class="dropdown-item" href="#">---</a>
@@ -100,7 +100,7 @@ Add Transportation
     
       </div>
     </div>
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView" id="transportationsTable">
       <div class="products-header">
         <div class="product-cell">car number</div>
         <div class="product-cell image ">city</div>
@@ -180,9 +180,9 @@ Add Transportation
  <tr>
  <td>ctiy </td>
  <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
- <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+ <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
    حلب
- </lable>
+ </label>
  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
    <a class="dropdown-item" href="#">--</a>
    <a class="dropdown-item" href="#">--</a>

@@ -10,6 +10,7 @@ use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\EmployeeProfileController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TransportationController;
+use App\Http\Controllers\PlaceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -187,9 +188,15 @@ Route::post('/city_ar', [CityController::class, 'storeAr']) -> name('addCityAr')
 Route::post('/city_ar/edit', [CityController::class, 'updateAr']) -> name('editCityAr');
 Route::post('/city_ar/delete', [CityController::class, 'destroyAr']) -> name('deleteCityAr');
 
-Route::get('/place_ar', function () {
-    return view('admin-Ar.places');
-}) -> name('place_ar');
+// Route::get('/place_ar', function () {
+//     return view('admin-Ar.places');
+// }) -> name('place_ar');
+
+Route::get('/place_ar', [PlaceController::class, 'indexAr']) -> name('place_ar');
+Route::post('/place_ar', [PlaceController::class, 'storeAr']) -> name('addPlaceAr');
+Route::post('/place_ar/edit', [PlaceController::class, 'updateAr']) -> name('editPlaceAr');
+Route::post('/place_ar/delete', [PlaceController::class, 'destroyAr']) -> name('deletePlaceAr');
+
 
 
 Route::get('/offers_ar', function () {

@@ -7,7 +7,7 @@
         <span>{{$i++}}</span>
       </div>
       <div class="product-cell">
-        <span>{{$transportation->carId}}</span>
+        <span class="search-value">{{$transportation->carId}}</span>
       </div>
       <div class="product-cell">
         <span>{{$transportation->city->translations()->where('locale', 'ar')->first()->name}}</span>
@@ -132,7 +132,7 @@
         <span>{{$i++}}</span>
       </div>
       <div class="product-cell">
-        <span>{{$transportation->carId}}</span>
+        <span class="search-value">{{$transportation->carId}}</span>
       </div>
       <div class="product-cell">
         <span>{{$transportation->city->translations()->where('locale', 'ar')->first()->name}}</span>
