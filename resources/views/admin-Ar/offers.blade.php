@@ -262,18 +262,18 @@
                            <div class="modal-body">
                            <table id="editTable" class="table-striped table-hover table-bordered m-auto text-primary myTable" style="width: 400px;"> 
                            <tr>
-                  
+                  <td></td>
                   <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th> 
                   <td>الاسم(العربية)</td>     
               </tr>  
               <tr>
-                  
+                <td></td>
                   <td ><input type="text" class="toggle text-primary in" name="event_name" required style="width: 100%;"></th> 
                   <td>(الانكليزية)الاسم </td>     
               </tr>
 
               <tr>
-                  
+                <td></td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     liki
@@ -289,7 +289,7 @@
                 <td>المكان </td>    
               </tr>  
               <tr>
-                  
+                <td></td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                   <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     ---
@@ -305,23 +305,23 @@
                 <td>الخدمة </td>   
               </tr>  
               <tr>
-                  
+                <td></td>
                   <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>
                   <td>وصف(العربية)</td>      
               </tr> 
               <tr>
-                  
+                <td></td>
                   <td ><input class="toggle text-primary in" type="text" name="description" required style="width: 100%;"></th>
                   <td>(الانكليزية)وصف</td>      
               </tr>
                   <tr> 
-                         
+                    <td></td>
                          <td ><input type="number" class="toggle text-primary in" value="100000"></td>  
                          <td>الكلفة</td>
                            
                   </tr> 
                   <tr> 
-                        
+                    <td></td>
                          <td ><input type="date" class="toggle text-primary in" value="2023-10-11"></td>  
                          <td>تاريخ البداية</td>
                            
@@ -333,7 +333,7 @@
                   </tr> 
 
                   <tr>
-                
+                    
                          <td style="width:25px; text-align:center;" >
                         </td>   
                           <td>
