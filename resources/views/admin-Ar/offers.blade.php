@@ -343,7 +343,7 @@
                                      style="padding-top: 5px; border-radius: 0px;" width="30px" height="50px">
                                     </label>
                            </td>
-                           <td>الصورة </td>
+                           <td>الصور </td>
                     </tr>
                                </table>
                             

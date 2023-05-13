@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:51.5%;">
+        <div class="app-content-header" style="width:47.5%;">
             <h1 class="app-content-headerText">الأماكن</h1>
 
             <!-- add -->
@@ -25,42 +25,42 @@
                         <form id="add-form" action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
-                                <table style=" width: 400px;"
+                                <table style=" width: 400px;" id="addTable"
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
-
+                                        
                                     <tr>
-
+                                        <td></td>
                                         <td><input type="text" class="toggle text-primary in" name="name_ar" required
                                                 style="width: 100%;"></th>
                                         <td>الاسم(العربية)</td>
                                     </tr>
 
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span>
                                         </td>
                                     </tr>
 
                                     <tr>
-
+                                        <td></td>
                                         <td><input type="text" class="toggle text-primary in" name="name_en" required
                                                 style="width: 100%;"></th>
                                         <td>(الإنجليزية)الاسم </td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
                                         </td>
                                     </tr>
 
+                                   
                                     <tr>
-                                        <td><input type="file" class="toggle text-primary in" name="image" required
-                                                style="width: 100%;"></th>
-                                        <td>الصورة </td>
-                                    </tr>
-                                    <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -87,11 +87,13 @@
                                         <td>المحافظة</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="city_error"></span>
                                         </td>
                                     </tr>
 
                                     <tr>
+                                        <td></td>
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -118,11 +120,13 @@
                                         <td>الناحية</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="district_error"></span>
                                         </td>
                                     </tr>
 
                                     <tr>
+                                        <td></td>
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -149,79 +153,87 @@
                                         <td>الصنف الفرعي</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="sub_category_error"></span>
                                         </td>
                                     </tr>
 
                                     <tr>
-
+                                        <td></td>
                                         <td><input class="toggle text-primary in" type="text" name="description_ar"
                                                 required style="width: 100%;"></th>
                                         <td>وصف(العربية)</td>
                                     </tr>
 
                                     <tr>
+                                        <td></td>
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></th>
                                         <td>(الإنجليزية)وصف</td>
                                     </tr>
 
                                     <tr>
-
+                                        <td></td>
                                         <td><input class="toggle text-primary in" type="email" name="email"
                                                 required style="width: 100%;"></th>
                                         <td>الايميل</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="email_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
-
+                                        <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="phone"
                                                 required style="width: 100%;"></th>
                                         <td>الهاتف</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="phone_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
-
+                                        <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="cost"
                                                 style="width: 100%;"></th>
                                         <td>الكلفة</td>
                                     </tr>
                                     
                                     <tr>
-
+                                        <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="profit_ratio_1"
                                                 required style="width: 100%;"></th>
                                         <td>نسبة الأرباح الخارجية </td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="profit_ratio_1_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
-
+                                        <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="profit_ratio_2"
                                                 required style="width: 100%;"></th>
                                         <td>نسبة الأرباح الداخلية </td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="profit_ratio_2_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <!-- map -->
+                                        <td></td>
+                                        <!--add map -->
                                         <td class="text-center"><img class="m-3" data-bs-toggle="modal"
-                                                id="mapimg" data-bs-target="#exampleModal6" style="cursor:pointer;"
-                                                src="img/sy.jpg" width="200px" height="100px"></td>
+                                                id="mapimg" data-bs-target="#exampleModal6" style="cursor:pointer; border-radius:6px;"
+                                                src="img/sy.jpg" width="150px" height="70px"></td>
 
                                         <td>الموقع</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="location_error"></span>
                                         </td>
                                     </tr>
@@ -230,7 +242,7 @@
                                         <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                                             <div class="modal-content toggle w-100 h-100">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModal6Label">الخريطة</h5>
+                                                    <h5 class="modal-title" id="exampleModal6Label">إضافة المكان على الخريطة</h5>
                                                     <button type="button" class="btn-close m-0 close"
                                                         onclick="hidemap()" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -249,7 +261,14 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <!-- end map -->
+                                        <!-- end add map -->
+                                        <td style="width:25px; text-align:center;" > <i class="fas fa-camera text-body pt-2 pl-2" style="font-size:15px; cursor:pointer;" ></i></td>   
+                
+                                        <td >
+                                        <i class="fas fa-plus text-body pt-2 pl-2" onclick="addPic(9)" style="font-size:15px; float:left; cursor:pointer;" title="Add Another Picture"></i>
+                                          <input type="file"  class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;"></td> 
+                                        <td >الصور </td>  
+                                    </tr>
                                     </div>
                                 </table>
                             </div>
@@ -264,7 +283,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:52%;">
+        <div class="app-content-actions" style="width:48%;">
             <input class="search-bar" placeholder="...ابحث" type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -353,7 +372,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:52%;">
+        <div class="scroll-class" style="width:48%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
                     <div class="product-cell">#</div>
