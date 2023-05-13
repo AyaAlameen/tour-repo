@@ -236,7 +236,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       //  إخفاء مودل الخريطة 
        function hidemap() {
     $("#exampleModal6").hide();
+    $("#exampleModal7").hide();
     $("#mapimg").click();
+    $("#editmapimg").click();
+
   }
   
 

@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header">
+        <div class="app-content-header" style="width:51.5%;">
             <h1 class="app-content-headerText">الأماكن</h1>
 
             <!-- add -->
@@ -133,13 +133,25 @@
                                             style="width: 100%;"></th>
                                     <td>الكلفة</td>
                                 </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input class="toggle text-primary in" type="number" name="" required
+                                            style="width: 90%;"></th>
+                                    <td>نسبة الأرباح الداخلية</td>
+                                </tr>
 
                                 <tr>
                                     <td></td>
-                                    <!-- map -->
+                                    <td><input class="toggle text-primary in" type="number" name="" required
+                                            style="width: 90%;"></th>
+                                    <td style="width:130px;">نسبة الأرباح الخارجية</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <!--add map -->
                                     <td class="text-center"><img class="m-3" data-bs-toggle="modal" id="mapimg"
-                                            data-bs-target="#exampleModal6" style="cursor:pointer;" src="img/sy.jpg"
-                                            width="200px" height="100px"></td>
+                                            data-bs-target="#exampleModal6" style="cursor:pointer; border-radius:6px;" src="img/sy.jpg"
+                                            width="150px" height="70px"></td>
 
                                     <td>الموقع</td>
                                 </tr>
@@ -148,7 +160,7 @@
                                     <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                                         <div class="modal-content toggle w-100 h-100">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModal6Label">الخريطة</h5>
+                                                <h5 class="modal-title" id="exampleModal6Label">إضافة مكان إلى الخريطة</h5>
                                                 <button type="button" class="btn-close m-0 close" onclick="hidemap()"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -167,7 +179,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <!-- end map -->
+                                    <!-- end add map -->
 
                                     <tr>
                                         <td style="width:25px; text-align:center;"> <i
@@ -196,7 +208,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions">
+        <div class="app-content-actions" style="width:52%;">
             <input class="search-bar" placeholder="...ابحث" type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -285,7 +297,7 @@
 
             </div>
         </div>
-        <div class="scroll-class">
+        <div class="scroll-class" style="width:52%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
                     <div class="product-cell">الاسم</div>
@@ -298,6 +310,8 @@
                     <div class="product-cell">الايميل</div>
                     <div class="product-cell">الهاتف</div>
                     <div class="product-cell">الكلفة</div>
+                    <div class="product-cell">نسبة الأرباح الداخلية</div>
+                    <div class="product-cell">نسبة الأرباح الخارجية</div>
                     <div class="product-cell">الأحداث</div>
 
 
@@ -342,6 +356,12 @@
 
                     <div class="product-cell">
                         <span>----</span>
+                    </div>
+                    <div class="product-cell">
+                        <span>10%</span>
+                    </div>
+                    <div class="product-cell">
+                        <span>5%</span>
                     </div>
                     <div class="product-cell">
                         <!-- start action -->
@@ -469,12 +489,7 @@
                                                 </td>
                                                 <td>الصنف الفرعي </td>
                                             </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td><input type="text" class="toggle text-primary in" value="-----">
-                                                </td>
-                                                <td>الموقع</td>
-                                            </tr>
+                        
                                             <tr>
                                                 <td></td>
                                                 <td><input class="toggle text-primary in" type="text"
@@ -507,6 +522,54 @@
                                                 </td>
                                                 <td>الكلفة</td>
                                             </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td><input type="number" class="toggle text-primary in" value="10">
+                                                </td>
+                                                <td>نسبة الأرباح الداخلية</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td><input type="number" class="toggle text-primary in" value="5">
+                                                </td>
+                                                <td>نسبة الأرباح الخارجية</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="text-center"><img class="m-3" data-bs-toggle="modal" id="editmapimg"
+                                                    data-bs-target="#exampleModal7" style="cursor:pointer; width:150px; height:70px;" src="img/sy.jpg"
+                                                    >
+                                                </td>
+                                                <td>الموقع</td>
+                                            </tr>
+
+                                                  <!--edit map -->
+                                    
+                            <div class="modal fade bg-light" id="exampleModal7" data-bs-backdrop="static"
+                                tabindex="-1" aria-labelledby="exampleModal7Label" aria-hidden="true">
+                                <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                                    <div class="modal-content toggle w-100 h-100">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModal7Label">تعديل الموقع على الخريطة</h5>
+                                            <button type="button" class="btn-close m-0 close" onclick="hidemap()"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="map" style="width: 100%; height: 300px;"
+                                                class="w-100 h-100"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="action-button active"
+                                                onclick="hidemap()">إغلاق</button>
+                                            <button type="button" class="app-content-headerButton">حفظ</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <!-- end edit map -->
                                             <tr>
                                                 <td style="width:25px; text-align:center;"> </td>
                                                 <td>
