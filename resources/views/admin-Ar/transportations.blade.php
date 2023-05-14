@@ -250,7 +250,7 @@
                                                                         aria-labelledby="dropdownMenuButtonEdit{{ $transportation->id }}">
                                                                         @foreach ($cities as $city)
                                                                             <option
-                                                                                style="cursor: pointer; @if ($city->id == $transportation->city_id) color: #EB455F !important; @endif"
+                                                                                style="cursor: pointer; @if ($city->id == $transportation->city_id) color: #90aaf8 !important; @endif"
                                                                                 class="dropdown-item"
                                                                                 value="{{ $city->id }}"
                                                                                 id="edit_city_{{ $transportation->id }}_{{ $city->id }}"
@@ -566,7 +566,7 @@
 
         });
         document.getElementById('city-name').innerHTML = city;
-        document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
         document.getElementById('city_id').value = `${city_id}`;
     }
     //--------------------------------------------
@@ -577,7 +577,7 @@
 
         });
         document.getElementById('city-name-' + transportation_id).innerHTML = city;
-        document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
         document.getElementById('edit_city_id_' + transportation_id).value = `${city_id}`;
     }
     //--------------------------------------------
