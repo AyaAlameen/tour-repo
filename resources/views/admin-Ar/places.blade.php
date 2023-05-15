@@ -229,6 +229,7 @@
                                         <td class="text-center"><img class="m-3" data-bs-toggle="modal"
                                                 id="mapimg" data-bs-target="#exampleModal6" style="cursor:pointer; border-radius:6px;"
                                                 src="img/sy.jpg" width="150px" height="70px"></td>
+                                                <input type="hidden" name="geolocation" id="coordinates">
 
                                         <td>الموقع</td>
                                     </tr>
@@ -249,7 +250,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div id="map" style="width: 100%; height: 300px;"
+                                                    <div id="add-map" style="width: 100%; height: 300px;"
                                                         class="w-100 h-100"></div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -955,4 +956,6 @@
         document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
     }
     //--------------------------------------------
+
+    
 </script>

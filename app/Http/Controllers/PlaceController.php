@@ -59,7 +59,7 @@ class PlaceController extends Controller
     {
         $data=$request->input();
         //validation:
-
+        // dd($request);
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
@@ -70,7 +70,7 @@ class PlaceController extends Controller
             'email' => ['required', 'email', 'unique:places'],
             'profit_ratio_1' => 'required|numeric|min:1',
             'profit_ratio_2' => 'required|numeric|min:1',
-            'location' => 'required',
+            'geolocation' => 'required',
 
         ], [
             'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
@@ -88,7 +88,7 @@ class PlaceController extends Controller
             'profit_ratio_2.required' => 'حقل نسبة الأرباح الداخلية مطلوب',
             'profit_ratio_2.numeric' => 'حقل نسبة الأرباح الداخلية يجب أن يكون رقم',
             'profit_ratio_2.min' => 'حقل نسبة الأرباح الداخلية يجب أن يكون أكبر من الصفر',
-            'location.required' => 'حقل الموقع مطلوب',
+            'geolocation.required' => 'حقل الموقع مطلوب',
 
         ]);
         
