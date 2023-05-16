@@ -129,9 +129,11 @@
 			popupAnchor: [1, -34],
 		});
 
-		var marker = L.marker([0, 0], {icon: markerIcon}).addTo(map); // add a marker to the map
+        // add a marker to the map
+        var marker = L.marker([0, 0], {icon: markerIcon});
 
 		map.on('click', function(e) {
+            marker.addTo(map);
 			marker.setLatLng(e.latlng); // move the marker to the clicked location
 			document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng; // update the hidden input field with the coordinates
 		});
@@ -269,7 +271,9 @@
 
 
         // إضافة أكثر من صورة
-        function addPic(Param_id) {
+        function addPic() {
+            var Param_id = document.getElementById('add-pic-input').getAttribute('data-picid');
+            // console.log(Param_id);
             var table = document.getElementById("addTable");
             var newRow = document.createElement("tr");
             var cell1 = document.createElement("td");
@@ -285,15 +289,18 @@
             cell1.style.textAlign = "center";
             cell1.appendChild(close);
             cell2.innerHTML =
-                ' <input type="file" id="pic1" class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;">';
+                ` <input type="file" id="pic1" class="toggle text-primary in"  name="image_${Param_id}" required style="width:75% !important; font-size:16px;">`;
             newRow.appendChild(cell1);
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
             table.appendChild(newRow);
+            
+            document.getElementById('add-pic-input').setAttribute('data-picid', ++Param_id);
+
             document.getElementById(close.id).addEventListener('click', function() {
+                console.log(close.id);
                 removeRow();
             });
-
         }
         // تعديل الصور
         function editPic(Param_id) {

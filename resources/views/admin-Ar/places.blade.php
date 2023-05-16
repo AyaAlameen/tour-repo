@@ -27,7 +27,7 @@
                             <div class="modal-body">
                                 <table style=" width: 400px;" id="addTable"
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                        
+
                                     <tr>
                                         <td></td>
                                         <td><input type="text" class="toggle text-primary in" name="name_ar" required
@@ -53,12 +53,6 @@
                                         </td>
                                     </tr>
 
-                                   
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
-                                        </td>
-                                    </tr>
                                     <tr>
                                         <td></td>
                                         <td>
@@ -73,8 +67,7 @@
                                                     @foreach ($cities as $city)
                                                         <option style="cursor: pointer;" class="dropdown-item"
                                                             value="{{ $city->id }}" id="city_{{ $city->id }}"
-                                                            onclick="setCity({{ $city->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'city_{{ $city->id }}'), filterDistricts({{$city->id}})"
-                                                            
+                                                            onclick="setCity({{ $city->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'city_{{ $city->id }}'), filterDistricts({{ $city->id }})"
                                                             href="#">
                                                             {{ $city->translations()->where('locale', 'ar')->first()->name }}
                                                         </option>
@@ -104,11 +97,11 @@
                                                 <span id="district-name"></span>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     @foreach ($districts as $district)
-                                                        <option style="cursor: pointer;" class="dropdown-item district_filter_option district_city_{{$district->city->id}}"
+                                                        <option style="cursor: pointer;"
+                                                            class="dropdown-item district_filter_option district_city_{{ $district->city->id }}"
                                                             value="{{ $district->id }}" id="district_{{ $district->id }}"
                                                             onclick="setDistrict({{ $district->id }}, '{{ $district->translations()->where('locale', 'ar')->first()->name }}', 'district_{{ $district->id }}')"
-                                                            hidden
-                                                            href="#">
+                                                            hidden href="#">
                                                             {{ $district->translations()->where('locale', 'ar')->first()->name }}
                                                         </option>
                                                     @endforeach
@@ -121,7 +114,8 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="district_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="district_error"></span>
                                         </td>
                                     </tr>
 
@@ -138,14 +132,15 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     @foreach ($sub_categories as $sub_category)
                                                         <option style="cursor: pointer;" class="dropdown-item"
-                                                            value="{{ $sub_category->id }}" id="sub_category_{{ $sub_category->id }}"
+                                                            value="{{ $sub_category->id }}"
+                                                            id="sub_category_{{ $sub_category->id }}"
                                                             onclick="setSubCategory({{ $sub_category->id }}, '{{ $sub_category->translations()->where('locale', 'ar')->first()->name }}', 'sub_category_{{ $sub_category->id }}')"
-                                                            
                                                             href="#">
                                                             {{ $sub_category->translations()->where('locale', 'ar')->first()->name }}
                                                         </option>
                                                     @endforeach
-                                                    <input type="text" id="sub_category_id" name="sub_category_id" hidden>
+                                                    <input type="text" id="sub_category_id" name="sub_category_id"
+                                                        hidden>
 
                                                 </div>
                                             </div>
@@ -154,7 +149,8 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="sub_category_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="sub_category_error"></span>
                                         </td>
                                     </tr>
 
@@ -174,33 +170,39 @@
 
                                     <tr>
                                         <td></td>
-                                        <td><input class="toggle text-primary in" type="email" name="email"
-                                                required style="width: 100%;"></th>
+                                        <td><input class="toggle text-primary in" type="email" name="email" required
+                                                style="width: 100%;"></th>
                                         <td>الايميل</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="email_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="email_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input class="toggle text-primary in" type="number" name="phone"
-                                                required style="width: 100%;"></th>
+                                        <td><input class="toggle text-primary in" type="number" name="phone" required
+                                                style="width: 100%;"></th>
                                         <td>الهاتف</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="phone_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="phone_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="cost"
                                                 style="width: 100%;"></th>
-                                        <td>الكلفة</td>
+                                        <td>التكلفة</td>
                                     </tr>
-                                    
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="profit_ratio_1"
@@ -209,7 +211,8 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="profit_ratio_1_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="profit_ratio_1_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -220,22 +223,25 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="profit_ratio_2_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="profit_ratio_2_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <!--add map -->
                                         <td class="text-center"><img class="m-3" data-bs-toggle="modal"
-                                                id="mapimg" data-bs-target="#exampleModal6" style="cursor:pointer; border-radius:6px;"
-                                                src="img/sy.jpg" width="150px" height="70px"></td>
-                                                <input type="hidden" name="geolocation" id="coordinates">
+                                                id="mapimg" data-bs-target="#exampleModal6"
+                                                style="cursor:pointer; border-radius:6px;" src="img/sy.jpg"
+                                                width="150px" height="70px"></td>
+                                        <input type="hidden" name="geolocation" id="coordinates">
 
                                         <td>الموقع</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="location_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="geolocation_error"></span>
                                         </td>
                                     </tr>
                                     <div class="modal fade bg-light" id="exampleModal6" data-bs-backdrop="static"
@@ -243,7 +249,8 @@
                                         <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                                             <div class="modal-content toggle w-100 h-100">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModal6Label">إضافة المكان على الخريطة</h5>
+                                                    <h5 class="modal-title" id="exampleModal6Label">إضافة المكان على
+                                                        الخريطة</h5>
                                                     <button type="button" class="btn-close m-0 close"
                                                         onclick="hidemap()" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -263,20 +270,29 @@
                                     </div>
                                     <div>
                                         <!-- end add map -->
-                                        <td style="width:25px; text-align:center;" > <i class="fas fa-camera text-body pt-2 pl-2" style="font-size:15px; cursor:pointer;" ></i></td>   
-                
-                                        <td >
-                                        <i class="fas fa-plus text-body pt-2 pl-2" onclick="addPic(9)" style="font-size:15px; float:left; cursor:pointer;" title="Add Another Picture"></i>
-                                          <input type="file"  class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;"></td> 
-                                        <td >الصور </td>  
-                                    </tr>
+                                        <td style="width:25px; text-align:center;"> <i
+                                                class="fas fa-camera text-body pt-2 pl-2"
+                                                style="font-size:15px; cursor:pointer;"></i></td>
+
+                                        <td>
+                                            <i class="fas fa-plus text-body pt-2 pl-2" id="add-pic-input" data-picid="1"
+                                                onclick="addPic()" style="font-size:15px; float:left; cursor:pointer;"
+                                                title="Add Another Picture"></i>
+                                            <input type="file" class="toggle text-primary in" name="image_0" required
+                                                style="width:75% !important; font-size:16px;">
+                                        </td>
+                                        <td>الصور </td>
+                                        </tr>
                                     </div>
                                 </table>
                             </div>
                         </form>
                         <div class="modal-footer">
-                            <button type="button" class="action-button active close" onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal">إغلاق</button>
-                            <button type="button" id="add-place-btn" onclick="addPlace('add-form')" class="app-content-headerButton">حفظ</button>
+                            <button type="button" class="action-button active close"
+                                onclick="removeMessages(), document.getElementById('add-form').reset()"
+                                data-bs-dismiss="modal">إغلاق</button>
+                            <button type="button" id="add-place-btn" onclick="addPlace('add-form')"
+                                class="app-content-headerButton">حفظ</button>
                         </div>
                     </div>
                 </div>
@@ -378,11 +394,9 @@
                 <div class="products-header">
                     <div class="product-cell">#</div>
                     <div class="product-cell">الاسم</div>
-                    <div class="product-cell image ">الصورة</div>
                     <div class="product-cell">المدينة</div>
                     <div class="product-cell">الناحية</div>
                     <div class="product-cell">الصنف الفرعي</div>
-                    <div class="product-cell">الموقع</div>
                     <div class="product-cell">وصف</div>
                     <div class="product-cell">الايميل</div>
                     <div class="product-cell">الهاتف</div>
@@ -395,65 +409,235 @@
                 </div>
                 <div id="places-data">
                     <?php $i = 1; ?>
-                    @foreach ($places as $plase)
+                    @foreach ($places as $place)
                         <div class="products-row">
                             <button class="cell-more-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="feather feather-more-vertical">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
                                     <circle cx="12" cy="12" r="1" />
                                     <circle cx="12" cy="5" r="1" />
                                     <circle cx="12" cy="19" r="1" />
                                 </svg>
                             </button>
                             <div class="product-cell">
-                                <span>{{$i++}}</span>
+                                <span>{{ $i++ }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>الجامع الأموي</span>
-                            </div>
-                            <div class="product-cell">
-                                <img src="img/omayyad.jpg" alt="product">
+                                <span>{{ $place->translations()->where('locale', 'ar')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
                                 <span>دمشق</span>
                             </div>
                             <div class="product-cell">
-                                <span> دمشق القديمة</span>
+                                <span> {{ $place->district->translations()->where('locale', 'ar')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>مساجد</span>
+                                <span>{{ $place->subCategory->translations()->where('locale', 'ar')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>وسط دمشق</span>
+                                <span>{{ $place->translations()->where('locale', 'ar')->first()->description }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>----</span>
+                                <span>{{ $place->email }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>-----</span>
+                                <span>{{ $place->phone }}</span>
                             </div>
+
                             <div class="product-cell">
-                                <span>264837283</span>
+                                <span>{{ $place->cost }}</span>
                             </div>
-                
+
                             <div class="product-cell">
-                                <span>----</span>
+                                <span>{{ $place->profit_ratio_1 }}</span>
+                            </div>
+
+                            <div class="product-cell">
+                                <span>{{ $place->profit_ratio_2 }}</span>
                             </div>
                             <div class="product-cell">
                                 <!-- start action -->
                                 <div class="p-3">
-                
-                                    <!-- delete -->
-                                    <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2" title="Delete"
-                                        data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+
+
+
+                                    <!-- edit -->
+                                    <a href="#" class="edit p-2" data-toggle="modal" data-target="#exampleModal"
+                                        title="Edit"><i class="fas fa-pen"></i></a>
+
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label"
-                                        aria-hidden="true">
+                                    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="direction:ltr;">
                                                 <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table
+                                                        class="table-striped table-hover table-bordered m-auto text-primary myTable"
+                                                        style="direction:ltr !important;">
+                                                        <tr>
+
+                                                            <td><input type="text" class="toggle text-primary in"
+                                                                    name="place_name" required style="width: 100%;"></th>
+                                                            <td>الاسم(العربية)</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td><input type="text" class="toggle text-primary in"
+                                                                    name="place_name" required style="width: 100%;"></th>
+                                                            <td>(الانكليزية)الاسم </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td><input type="file" hidden id="img">
+                                                                <label for="img"><img src="img/about-1.jpg"
+                                                                        style="padding-top: 5px; border-radius: 0px;"
+                                                                        width="30px" height="50px"></label>
+                                                            </td>
+                                                            <td>الصورة </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                <div class="dropdown toggle text-primary in"
+                                                                    style="display:inline-block; ;">
+                                                                    <label class="dropdown-toggle" type="button"
+                                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                                        aria-expanded="false">
+                                                                        حلب
+                                                                    </label>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="#">--</a>
+                                                                        <a class="dropdown-item" href="#">--</a>
+                                                                        <a class="dropdown-item" href="#">---</a>
+                                                                        <a class="dropdown-item" href="#">----</a>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>المدينة </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                <div class="dropdown toggle text-primary in"
+                                                                    style="display:inline-block; ;">
+                                                                    <label class="dropdown-toggle" type="button"
+                                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                                        aria-expanded="false">
+                                                                        ---
+                                                                    </label>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="#">--</a>
+                                                                        <a class="dropdown-item" href="#">--</a>
+                                                                        <a class="dropdown-item" href="#">---</a>
+                                                                        <a class="dropdown-item" href="#">----</a>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>الناحية </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                <div class="dropdown toggle text-primary in"
+                                                                    style="display:inline-block; ;">
+                                                                    <label class="dropdown-toggle" type="button"
+                                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                                        aria-expanded="false">
+                                                                        ---
+                                                                    </label>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item" href="#">--</a>
+                                                                        <a class="dropdown-item" href="#">--</a>
+                                                                        <a class="dropdown-item" href="#">---</a>
+                                                                        <a class="dropdown-item" href="#">----</a>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>الصنف الفرعي </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td><input type="text" class="toggle text-primary in"
+                                                                    value="-----">
+                                                            </td>
+                                                            <td>الموقع</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td><input class="toggle text-primary in" type="text"
+                                                                    name="place-description" required
+                                                                    style="width: 100%;"></th>
+                                                            <td>وصف(العربية)</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td><input class="toggle text-primary in" type="text"
+                                                                    name="place-description" required
+                                                                    style="width: 100%;"></th>
+                                                            <td>(الانكليزية)وصف</td>
+                                                        </tr>
+                                                        <tr>
+
+
+                                                            <td><input type="email" class="toggle text-primary in"
+                                                                    value="@gmail.com">
+                                                            </td>
+                                                            <td>الايميل</td>
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td><input type="number" class="toggle text-primary in"
+                                                                    value="09123456789">
+                                                            </td>
+                                                            <td>الهاتف</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td><input type="number" class="toggle text-primary in"
+                                                                    value="100000">
+                                                            </td>
+                                                            <td>الكلفة</td>
+                                                        </tr>
+
+                                                    </table>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="action-button active"
+                                                        data-dismiss="modal">إغلاق</button>
+                                                    <button type="submit" class="app-content-headerButton">حفظ
+                                                        التغييرات</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end edit -->
+
+                                    <!-- delete -->
+                                    <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2"
+                                        title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                        aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="direction:ltr;">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -470,165 +654,15 @@
                                     </div>
                                 </div>
                                 <!-- end delete -->
-                
-                                <!-- edit -->
-                                <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal" title="Edit"><i
-                                        class="fas fa-pen"></i></a>
-                
-                                <!-- Modal -->
-                                <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content" style="direction:ltr;">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <table class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                                    style="direction:ltr !important;">
-                                                    <tr>
-                
-                                                        <td><input type="text" class="toggle text-primary in" name="place_name"
-                                                                required style="width: 100%;"></th>
-                                                        <td>الاسم(العربية)</td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td><input type="text" class="toggle text-primary in" name="place_name"
-                                                                required style="width: 100%;"></th>
-                                                        <td>(الانكليزية)الاسم </td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td><input type="file" hidden id="img">
-                                                            <label for="img"><img src="img/about-1.jpg"
-                                                                    style="padding-top: 5px; border-radius: 0px;" width="30px"
-                                                                    height="50px"></label>
-                                                        </td>
-                                                        <td>الصورة </td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td>
-                                                            <div class="dropdown toggle text-primary in"
-                                                                style="display:inline-block; ;">
-                                                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                                                    data-toggle="dropdown" aria-expanded="false">
-                                                                    حلب
-                                                                </label>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">--</a>
-                                                                    <a class="dropdown-item" href="#">--</a>
-                                                                    <a class="dropdown-item" href="#">---</a>
-                                                                    <a class="dropdown-item" href="#">----</a>
-                
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>المدينة </td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td>
-                                                            <div class="dropdown toggle text-primary in"
-                                                                style="display:inline-block; ;">
-                                                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                                                    data-toggle="dropdown" aria-expanded="false">
-                                                                    ---
-                                                                </label>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">--</a>
-                                                                    <a class="dropdown-item" href="#">--</a>
-                                                                    <a class="dropdown-item" href="#">---</a>
-                                                                    <a class="dropdown-item" href="#">----</a>
-                
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>الناحية </td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td>
-                                                            <div class="dropdown toggle text-primary in"
-                                                                style="display:inline-block; ;">
-                                                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                                                    data-toggle="dropdown" aria-expanded="false">
-                                                                    ---
-                                                                </label>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">--</a>
-                                                                    <a class="dropdown-item" href="#">--</a>
-                                                                    <a class="dropdown-item" href="#">---</a>
-                                                                    <a class="dropdown-item" href="#">----</a>
-                
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>الصنف الفرعي </td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td><input type="text" class="toggle text-primary in" value="-----">
-                                                        </td>
-                                                        <td>الموقع</td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td><input class="toggle text-primary in" type="text"
-                                                                name="place-description" required style="width: 100%;"></th>
-                                                        <td>وصف(العربية)</td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td><input class="toggle text-primary in" type="text"
-                                                                name="place-description" required style="width: 100%;"></th>
-                                                        <td>(الانكليزية)وصف</td>
-                                                    </tr>
-                                                    <tr>
-                
-                
-                                                        <td><input type="email" class="toggle text-primary in" value="@gmail.com">
-                                                        </td>
-                                                        <td>الايميل</td>
-                
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td><input type="number" class="toggle text-primary in" value="09123456789">
-                                                        </td>
-                                                        <td>الهاتف</td>
-                                                    </tr>
-                                                    <tr>
-                
-                                                        <td><input type="number" class="toggle text-primary in" value="100000">
-                                                        </td>
-                                                        <td>الكلفة</td>
-                                                    </tr>
-                
-                                                </table>
-                
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="action-button active"
-                                                    data-dismiss="modal">إغلاق</button>
-                                                <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end edit -->
-                
+
                             </div>
                             <!-- end action -->
-                
-                
+
+
                         </div>
                     @endforeach
                 </div>
-                
+
 
             </div>
         </div>
@@ -675,20 +709,20 @@
                         .name_en[0];
                 }
 
-                if (data.responseJSON.errors.image) {
-                    document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0];
-                }
 
                 if (data.responseJSON.errors.city_id) {
-                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors.city_id[0];
+                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors.city_id[
+                    0];
                 }
 
                 if (data.responseJSON.errors.district_id) {
-                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors.district_id[0];
+                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
+                        .district_id[0];
                 }
 
                 if (data.responseJSON.errors.sub_category_id) {
-                    document.querySelector(`#${formId} #sub_category_error`).innerHTML = data.responseJSON.errors.sub_category_id[0];
+                    document.querySelector(`#${formId} #sub_category_error`).innerHTML = data.responseJSON.errors
+                        .sub_category_id[0];
                 }
 
                 if (data.responseJSON.errors.email) {
@@ -699,16 +733,23 @@
                     document.querySelector(`#${formId} #phone_error`).innerHTML = data.responseJSON.errors.phone[0];
                 }
 
+                if (data.responseJSON.errors.cost) {
+                    document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
+                }
+
                 if (data.responseJSON.errors.profit_ratio_1) {
-                    document.querySelector(`#${formId} #profit_ratio_1_error`).innerHTML = data.responseJSON.errors.profit_ratio_1[0];
+                    document.querySelector(`#${formId} #profit_ratio_1_error`).innerHTML = data.responseJSON.errors
+                        .profit_ratio_1[0];
                 }
 
                 if (data.responseJSON.errors.profit_ratio_2) {
-                    document.querySelector(`#${formId} #profit_ratio_2_error`).innerHTML = data.responseJSON.errors.profit_ratio_2[0];
+                    document.querySelector(`#${formId} #profit_ratio_2_error`).innerHTML = data.responseJSON.errors
+                        .profit_ratio_2[0];
                 }
 
-                if (data.responseJSON.errors.location) {
-                    document.querySelector(`#${formId} #location_error`).innerHTML = data.responseJSON.errors.location[0];
+                if (data.responseJSON.errors.geolocation) {
+                    document.querySelector(`#${formId} #geolocation_error`).innerHTML = data.responseJSON.errors
+                        .geolocation[0];
                 }
 
             })
@@ -844,29 +885,29 @@
 
     //----------------------------------------------
     function removeMessages() {
-        document.getElementById('name_ar_error').innerHTML = '';
-        document.getElementById('name_en_error').innerHTML = '';
-        document.getElementById('image_error').innerHTML = '';
-        document.getElementById('city_error').innerHTML = '';
-        document.getElementById('image_error').innerHTML = '';
-        document.getElementById('image_error').innerHTML = '';
-        document.getElementById('image_error').innerHTML = '';
-        document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('name_ar_error').innerHTML = '';
+        // document.getElementById('name_en_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('city_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
 
-        const name_ar = document.querySelectorAll('.name_ar_error_edit');
-        name_ar.forEach(name => {
-            name.innerHTML = '';
-        });
+        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        // name_ar.forEach(name => {
+        //     name.innerHTML = '';
+        // });
 
-        const name_en = document.querySelectorAll('.name_en_error_edit');
-        name_en.forEach(name => {
-            name.innerHTML = '';
-        });
+        // const name_en = document.querySelectorAll('.name_en_error_edit');
+        // name_en.forEach(name => {
+        //     name.innerHTML = '';
+        // });
 
-        const images = document.querySelectorAll('.image_error_edit');
-        images.forEach(image => {
-            image.innerHTML = '';
-        });
+        // const images = document.querySelectorAll('.image_error_edit');
+        // images.forEach(image => {
+        //     image.innerHTML = '';
+        // });
     }
     //--------------------------------------------
     function setCity(city_id, city, option_id) {
@@ -913,7 +954,7 @@
         document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
     }
     //--------------------------------------------
-    function filterDistricts(city_id){
+    function filterDistricts(city_id) {
         var districts = document.querySelectorAll(`.district_filter_option`);
         var city_districts = document.querySelectorAll(`.district_city_${city_id}`);
 
@@ -956,6 +997,4 @@
         document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
     }
     //--------------------------------------------
-
-    
 </script>

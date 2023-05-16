@@ -23,7 +23,9 @@ class CreatePlacesTable extends Migration
             // $table->string('address');
             $table->string('email');
             $table->string('phone');
-            $table->string('url')->nullable();
+            $table->integer('profit_ratio_1');
+            $table->integer('profit_ratio_2');
+            // $table->string('url')->nullable();
             $table->decimal('cost', 8, 0);
             $table->timestamps();
             $table->softDeletes();

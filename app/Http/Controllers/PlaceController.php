@@ -57,17 +57,19 @@ class PlaceController extends Controller
      */
     public function storeAr(Request $request)
     {
+        
+        // dd('hb');
         $data=$request->input();
         //validation:
         // dd($request);
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' => 'required',
             'city_id' => 'required',
             'district_id' => 'required',
             'sub_category_id' => 'required',
             'email' => ['required', 'email', 'unique:places'],
+            'cost' => 'numeric|min:1',
             'profit_ratio_1' => 'required|numeric|min:1',
             'profit_ratio_2' => 'required|numeric|min:1',
             'geolocation' => 'required',
@@ -75,13 +77,14 @@ class PlaceController extends Controller
         ], [
             'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
             'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
-            'image.required' => 'حقل الصورة مطلوب',
             'city_id.required' => 'حقل المدينة مطلوب',
             'district_id.required' => 'حقل الناحية مطلوب',
             'sub_category_id.required' => 'حقل الصنف الفرعي مطلوب',
             'email.required' => 'حقل الإيميل مطلوب',
             'email.email' => 'حقل الإيميل يجب أن يحقق شروط شكل الإيميل',
             'email.unique' => 'هذا الإيميل لديه حساب من قبل',
+            'cost.numeric' => 'حقل التكلفة يجب أن يكون رقم',
+            'cost.min' => 'حقل التكلفة يجب أن يكون أكبر من الصفر',
             'profit_ratio_1.required' => 'حقل نسبة الأرباح الخارجية مطلوب',
             'profit_ratio_1.numeric' => 'حقل نسبة الأرباح الخارجية يجب أن يكون رقم',
             'profit_ratio_1.min' => 'حقل نسبة الأرباح الخارجية يجب أن يكون أكبر من الصفر',
@@ -93,20 +96,38 @@ class PlaceController extends Controller
         ]);
         
 
-        $category = new Category;
+        $place = new Place;
 
-        if($request->has('image')){
-            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
-            $request->image->move('uploads/categoryImage', $upload_image_name);
-            $category->image = 'uploads/categoryImage/'.$upload_image_name;
+        $place->sub_category_id = $request->input('sub_category_id');
+        $place->district_id = $request->input('district_id');
+        $place->geolocation = $request->input('geolocation');
+        $place->email = $request->input('email');
+        $place->phone = $request->input('phone');
+        $place->cost = $request->input('cost');
+        $place->profit_ratio_1 = $request->input('profit_ratio_1');
+        $place->profit_ratio_2 = $request->input('profit_ratio_2');
+        $files = $request->files->all();
+        $place->save();
+        if ($files) {
+            foreach ($files as $name => $file) {
+                // dd($name, $file);
+                $upload_image_name = time().'_'.$file->getClientOriginalName();
+                $file->move('uploads/placeImage', $upload_image_name);
+                $place->images()->create( ['image' => "'uploads/placeImage/'.$upload_image_name"]);
+            }
         }
-        $category->save();
 
-        $category->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
-        $category->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
-        $categories = Category::with('translations')->get();
         
-        return view("admin-Ar.sections.category-section")->with(['categories' => $categories]);
+// dd($place);
+        $place->translations()->create(['name'=>$request->input('name_en'), 'description'=>$request->input('description_en'), 'locale' => 'en']);
+        $place->translations()->create(['name'=>$request->input('name_ar'), 'description'=>$request->input('description_ar'), 'locale' => 'ar']);
+        
+        $places = Place::with('translations')->get();
+        $cities = City::with('translations')->get();
+        $districts = District::with('translations')->get();
+        $sub_categories = SubCategory::with('translations')->get();
+        
+        return view("admin-Ar.sections.place-section")->with(['places' => $places, 'cities' => $cities, 'districts' => $districts, 'sub_categories' => $sub_categories]);
 
 
     }
