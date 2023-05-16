@@ -104,13 +104,45 @@
     <script src="../js/all.min.js"></script>
 
     <script>
-        var map = L.map('map').setView([51.505, -0.09], 13);
-        // var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
-        // map.fitBounds(syriaBounds);
+        // var map = L.map('map').setView([51.505, -0.09], 13);
+        // // var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
+        // // map.fitBounds(syriaBounds);
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        // }).addTo(map);
+
+        var map = L.map('add-map').setView([51.505, -0.09], 13); // set the initial view of the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
         }).addTo(map);
+
+		map.on('click', function(e) {
+			document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng;
+		});
+
+		var markerIcon = L.icon({
+			iconUrl: '{{asset("img/marker.svg")}}',
+			iconSize: [25, 41],
+			iconAnchor: [12, 41],
+			popupAnchor: [1, -34],
+		});
+
+		var marker = L.marker([0, 0], {icon: markerIcon}).addTo(map); // add a marker to the map
+
+		map.on('click', function(e) {
+			marker.setLatLng(e.latlng); // move the marker to the clicked location
+			document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng; // update the hidden input field with the coordinates
+		});
+
+		// var marker = L.marker([51.505, -0.09]).addTo(map); // add a marker to the map
+
+		// map.on('click', function(e) {
+		// 	marker.setLatLng(e.latlng); // move the marker to the clicked location
+		// 	document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng; // update the hidden input field with the coordinates
+		// });
+
 
         // var map = L.map('map');
 
@@ -122,81 +154,77 @@
         //     maxZoom: 18,
         // }).addTo(map);
 
-// L.marker([51.5, -0.09]).addTo(map)
-//     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-//     .openPopup();
+        // L.marker([51.5, -0.09]).addTo(map)
+        //     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        //     .openPopup();
 
-// فنكشن أوكورديون الحجز بالأسايد
-  function accordion() {
-  var btn = document.getElementById("arrow");
-  console.log(btn)
-  var flush =document.getElementById("flush-collapseOne")
-  if (flush.classList.contains("show")) {
-  flush.classList.remove("show");
-  flush.classList.add("collapsing");
-  btn.src="../img/upload.png";
-  console.log(flush.classList)
+        // فنكشن أوكورديون الحجز بالأسايد
+        function accordion() {
+            var btn = document.getElementById("arrow");
+            console.log(btn)
+            var flush = document.getElementById("flush-collapseOne")
+            if (flush.classList.contains("show")) {
+                flush.classList.remove("show");
+                flush.classList.add("collapsing");
+                btn.src = "../img/upload.png";
+                console.log(flush.classList)
 
-  }
-  
- else 
- {
-  if (!(flush.classList.contains("show"))) {
-  flush.classList.add("show");
-  flush.classList.remove("collapsing");
-  btn.src="../img/down-arrow (1).png";
-  console.log(flush.classList)
+            } else {
+                if (!(flush.classList.contains("show"))) {
+                    flush.classList.add("show");
+                    flush.classList.remove("collapsing");
+                    btn.src = "../img/down-arrow (1).png";
+                    console.log(flush.classList)
 
-  }
-}
-  }
+                }
+            }
+        }
 
 
-  // فنكشن إخفاء رسائل النجاح أو الفشل
-  function hide() {
-    $('.parent').attr("hidden", true);
-    $('.parenttrue').attr("hidden", true);
-    }
-</script>
+        // فنكشن إخفاء رسائل النجاح أو الفشل
+        function hide() {
+            $('.parent').attr("hidden", true);
+            $('.parenttrue').attr("hidden", true);
+        }
+    </script>
 
-<script>
+    <script>
+        // لإظهار البوبأوفر
+        $(document).ready(function() {
+            $('[ data-bs-toggle="popover"]').popover();
+        });
 
-  // لإظهار البوبأوفر
-  $(document).ready(function () {
-    $('[ data-bs-toggle="popover"]').popover();
-  });
-  
-// إضافة تاريخ جديد لمواصلات الجروبات
-  function addDate() {
-      var table =document.getElementById("tableDate");
-      var newRow = document.createElement("tr");
-      var cell1 = document.createElement("td");
-      var cell2 = document.createElement("td");
-      var cell3 = document.createElement("td");
-      cell3.style.textAlign="center";
-      cell2.innerHTML='<input class="toggle text-primary in" type="date"  required style="width: 100%;">';
-      cell1.innerHTML=`<button type="button" class="btn-close m-0 close pl-2 pb-2" onclick="removeRow()">
+        // إضافة تاريخ جديد لمواصلات الجروبات
+        function addDate() {
+            var table = document.getElementById("tableDate");
+            var newRow = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+            var cell3 = document.createElement("td");
+            cell3.style.textAlign = "center";
+            cell2.innerHTML = '<input class="toggle text-primary in" type="date"  required style="width: 100%;">';
+            cell1.innerHTML = `<button type="button" class="btn-close m-0 close pl-2 pb-2" onclick="removeRow()">
         <span aria-hidden="true">&times;</span>
         </button>`;
-      newRow.appendChild(cell1);
-      newRow.appendChild(cell2);
-      newRow.appendChild(cell3);
-      table.appendChild(newRow);
-      
-  }
+            newRow.appendChild(cell1);
+            newRow.appendChild(cell2);
+            newRow.appendChild(cell3);
+            table.appendChild(newRow);
+
+        }
 
 
-  // إضافة خدمة جديدة لمكان للجروبات
-  function addserv() {
-    $(document).ready(function () {
-    $('[ data-bs-toggle="popover"]').popover();
-  });
-   var table =document.getElementById("tablePlace");
-   var newRow = document.createElement("tr");
-      var cell1 = document.createElement("td");
-      var cell2 = document.createElement("td");
-      var cell3 = document.createElement("td");
-      cell2.innerHTML=`<div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+        // إضافة خدمة جديدة لمكان للجروبات
+        function addserv() {
+            $(document).ready(function() {
+                $('[ data-bs-toggle="popover"]').popover();
+            });
+            var table = document.getElementById("tablePlace");
+            var newRow = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+            var cell3 = document.createElement("td");
+            cell2.innerHTML = `<div class="dropdown toggle text-primary in" style="display:inline-block; ;">
           <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
 <!--lable disabled هي الجملة منعرضا بحال كان المكان مالو خدمات ومنعمل ال  -->
             <!-- there is no services in this place -->
@@ -214,85 +242,87 @@
    
           </div>
         </div>`;
-      cell3.innerHTML=`<button type="button" class="btn-close m-0 close pl-2 pb-2" onclick="removeRow()">
+            cell3.innerHTML = `<button type="button" class="btn-close m-0 close pl-2 pb-2" onclick="removeRow()">
         <span  aria-hidden="true">&times;</span>
         </button>`;
-      newRow.appendChild(cell1);
-      newRow.appendChild(cell2);
-      newRow.appendChild(cell3);
-      table.appendChild(newRow);
-  }
+            newRow.appendChild(cell1);
+            newRow.appendChild(cell2);
+            newRow.appendChild(cell3);
+            table.appendChild(newRow);
+        }
 
-// حذف سطر من جدول
-       function removeRow() {
-    var selectedElement = event.target;
-  var row = selectedElement.closest('tr');
-  row.remove()
-       }
+        // حذف سطر من جدول
+        function removeRow() {
+            var selectedElement = event.target;
+            var row = selectedElement.closest('tr');
+            row.remove()
+        }
 
-      //  إخفاء مودل الخريطة 
-       function hidemap() {
-    $("#exampleModal6").hide();
-    $("#exampleModal7").hide();
-    $("#mapimg").click();
-    $("#editmapimg").click();
+        //  إخفاء مودل الخريطة 
+        function hidemap() {
+            $("#exampleModal6").hide();
+            $("#exampleModal7").hide();
+            $("#mapimg").click();
+            $("#editmapimg").click();
 
-  }
-  
+        }
 
-  // إضافة أكثر من صورة
-  function addPic(Param_id) {
-      var table =document.getElementById("addTable");
-      var newRow = document.createElement("tr");
-      var cell1 = document.createElement("td");
-      var cell2 = document.createElement("td");
-      var cell3 = document.createElement("td");
-      var close =document.createElement("span");
-      close.classList.add("fas","fa-close","text-body","pt-2","pl-2");
-      close.title="delete pic";
-      close.style.fontSize="15px";
-      close.style.cursor="pointer";
-      close.id=Param_id;
-      cell1.style.width="25px";
-      cell1.style.textAlign="center";
-      cell1.appendChild(close);
-      cell2.innerHTML=' <input type="file" id="pic1" class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;">';
-      newRow.appendChild(cell1);
-      newRow.appendChild(cell2);
-      newRow.appendChild(cell3);
-      table.appendChild(newRow);
-      document.getElementById(close.id).addEventListener('click',function() {
-        removeRow();
-});
 
-  }
-// تعديل الصور
-  function editPic(Param_id) {
-      var table =document.getElementById("editTable");
-      var newRow = document.createElement("tr");
-      var cell1 = document.createElement("td");
-      var cell2 = document.createElement("td");
-      var cell3 = document.createElement("td");
-      var close =document.createElement("span");
-      close.classList.add("fas","fa-close","text-body","pt-2","pl-2");
-      close.title="delete pic";
-      close.style.fontSize="15px";
-      close.style.cursor="pointer";
-      close.id=Param_id;
-      cell1.style.width="25px";
-      cell1.style.textAlign="center";
-      cell1.appendChild(close);
-      cell2.innerHTML=' <input type="file" id="pic1" class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;">';
-      newRow.appendChild(cell1);
-      newRow.appendChild(cell2);
-      newRow.appendChild(cell3);
-      table.appendChild(newRow);
-      document.getElementById(close.id).addEventListener('click',function() {
-        removeRow();
-});
+        // إضافة أكثر من صورة
+        function addPic(Param_id) {
+            var table = document.getElementById("addTable");
+            var newRow = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+            var cell3 = document.createElement("td");
+            var close = document.createElement("span");
+            close.classList.add("fas", "fa-close", "text-body", "pt-2", "pl-2");
+            close.title = "delete pic";
+            close.style.fontSize = "15px";
+            close.style.cursor = "pointer";
+            close.id = Param_id;
+            cell1.style.width = "25px";
+            cell1.style.textAlign = "center";
+            cell1.appendChild(close);
+            cell2.innerHTML =
+                ' <input type="file" id="pic1" class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;">';
+            newRow.appendChild(cell1);
+            newRow.appendChild(cell2);
+            newRow.appendChild(cell3);
+            table.appendChild(newRow);
+            document.getElementById(close.id).addEventListener('click', function() {
+                removeRow();
+            });
 
-  }
- </script>
+        }
+        // تعديل الصور
+        function editPic(Param_id) {
+            var table = document.getElementById("editTable");
+            var newRow = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+            var cell3 = document.createElement("td");
+            var close = document.createElement("span");
+            close.classList.add("fas", "fa-close", "text-body", "pt-2", "pl-2");
+            close.title = "delete pic";
+            close.style.fontSize = "15px";
+            close.style.cursor = "pointer";
+            close.id = Param_id;
+            cell1.style.width = "25px";
+            cell1.style.textAlign = "center";
+            cell1.appendChild(close);
+            cell2.innerHTML =
+                ' <input type="file" id="pic1" class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;">';
+            newRow.appendChild(cell1);
+            newRow.appendChild(cell2);
+            newRow.appendChild(cell3);
+            table.appendChild(newRow);
+            document.getElementById(close.id).addEventListener('click', function() {
+                removeRow();
+            });
+
+        }
+    </script>
 
 </body>
 

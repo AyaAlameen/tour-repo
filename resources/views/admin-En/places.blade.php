@@ -38,9 +38,9 @@ Add place
               <tr>
                   <td>City</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
-                  </lable>
+                  </label>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">--</a>
                     <a class="dropdown-item" href="#">---</a>
@@ -55,9 +55,9 @@ Add place
               <tr>
                   <td>District</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
-                  </lable>
+                  </label>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">--</a>
                     <a class="dropdown-item" href="#">---</a>
@@ -72,9 +72,9 @@ Add place
               <tr>
                   <td>subcat</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
-                  </lable>
+                  </label>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">--</a>
                     <a class="dropdown-item" href="#">---</a>
@@ -304,9 +304,9 @@ Add place
        <tr>
                   <td>city </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     liki
-                  </lable>
+                  </label>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">--</a>
                     <a class="dropdown-item" href="#">--</a>
@@ -319,9 +319,9 @@ Add place
               <tr>
                   <td>District </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     ---
-                  </lable>
+                  </label>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">--</a>
                     <a class="dropdown-item" href="#">--</a>
@@ -334,9 +334,9 @@ Add place
               <tr>
                   <td>subcat </td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     ---
-                  </lable>
+                  </label>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">--</a>
                     <a class="dropdown-item" href="#">--</a>

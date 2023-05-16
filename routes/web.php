@@ -130,9 +130,9 @@ Route::post('/transport_companies_en/delete', [TransportCompanyController::class
 
 
 
-Route::get('/transportations_en', function () {
-    return view('admin-En.transportations');
-}) -> name('transportation_en');
+// Route::get('/transportations_en', function () {
+//     return view('admin-En.transportations');
+// }) -> name('transportation_en');
 
 Route::get('/transportations_en/{id}', [TransportationController::class, 'indexEn']) -> name('getTransportationsEn');
 Route::post('/transportations_en', [TransportationController::class, 'storeEn']) -> name('addTransportationEn');
