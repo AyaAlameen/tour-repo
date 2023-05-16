@@ -207,6 +207,14 @@ Route::get('/services_ar', function () {
     return view('admin-Ar.services');
 }) -> name('service_ar');
 
+Route::get('/emp-places-ar', function () {
+    return view('admin-Ar.employee_places');
+}) -> name('emp-places-Ar');
+
+Route::get('/emp-places-en', function () {
+    return view('admin-En.employee_places');
+}) -> name('emp-places-En');
+
 // Route::get('/dist_ar', function () {
 //     return view('admin-Ar.districts');
 // }) -> name('dist_ar');
