@@ -118,32 +118,35 @@
             attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-		map.on('click', function(e) {
-			document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng;
-		});
+        map.on('click', function(e) {
+            document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng;
+        });
 
-		var markerIcon = L.icon({
-			iconUrl: '{{asset("img/marker.svg")}}',
-			iconSize: [25, 41],
-			iconAnchor: [12, 41],
-			popupAnchor: [1, -34],
-		});
+        var markerIcon = L.icon({
+            iconUrl: '{{ asset('img/marker.svg') }}',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+        });
 
         // add a marker to the map
-        var marker = L.marker([0, 0], {icon: markerIcon});
+        var marker = L.marker([0, 0], {
+            icon: markerIcon
+        });
 
-		map.on('click', function(e) {
+        map.on('click', function(e) {
             marker.addTo(map);
-			marker.setLatLng(e.latlng); // move the marker to the clicked location
-			document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng; // update the hidden input field with the coordinates
-		});
+            marker.setLatLng(e.latlng); // move the marker to the clicked location
+            document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng
+            .lng; // update the hidden input field with the coordinates
+        });
 
-		// var marker = L.marker([51.505, -0.09]).addTo(map); // add a marker to the map
+        // var marker = L.marker([51.505, -0.09]).addTo(map); // add a marker to the map
 
-		// map.on('click', function(e) {
-		// 	marker.setLatLng(e.latlng); // move the marker to the clicked location
-		// 	document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng; // update the hidden input field with the coordinates
-		// });
+        // map.on('click', function(e) {
+        // 	marker.setLatLng(e.latlng); // move the marker to the clicked location
+        // 	document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng; // update the hidden input field with the coordinates
+        // });
 
 
         // var map = L.map('map');
@@ -191,6 +194,16 @@
     </script>
 
     <script>
+        // لحذف الصور
+        document.addEventListener('DOMNodeInserted', function(event) {
+            const closeElements = document.querySelectorAll('[id^="close_"]');
+
+            for (let i = 0; i < closeElements.length; i++) {
+                closeElements[i].addEventListener('click', function() {
+                    removeRow();
+                });
+            }
+        });
         // لإظهار البوبأوفر
         $(document).ready(function() {
             $('[ data-bs-toggle="popover"]').popover();
@@ -270,6 +283,7 @@
         }
 
 
+
         // إضافة أكثر من صورة
         function addPic() {
             var Param_id = document.getElementById('add-pic-input').getAttribute('data-picid');
@@ -284,7 +298,7 @@
             close.title = "delete pic";
             close.style.fontSize = "15px";
             close.style.cursor = "pointer";
-            close.id = Param_id;
+            close.id = "close_" + Param_id;
             document.getElementById('add-pic-input').setAttribute('data-picid', ++Param_id);
             cell1.style.width = "25px";
             cell1.style.textAlign = "center";
@@ -295,10 +309,6 @@
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
             table.appendChild(newRow);
-            document.getElementById(close.id).addEventListener('click', function() {
-                console.log("ىتى");
-                removeRow();
-            });
         }
         // تعديل الصور
         function editPic(Param_id) {

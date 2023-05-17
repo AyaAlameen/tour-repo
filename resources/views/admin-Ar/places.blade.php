@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:47.5%;">
+        <div class="app-content-header" style="width:51.5%;">
             <h1 class="app-content-headerText">الأماكن</h1>
 
             <!-- add -->
@@ -300,7 +300,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:48%;">
+        <div class="app-content-actions" style="width:52%;">
             <input class="search-bar" placeholder="...ابحث" type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -389,7 +389,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:48%;">
+        <div class="scroll-class" style="width:52%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
                     <div class="product-cell">#</div>
@@ -398,6 +398,7 @@
                     <div class="product-cell">الناحية</div>
                     <div class="product-cell">الصنف الفرعي</div>
                     <div class="product-cell">وصف</div>
+                    <div class="product-cell">الموقع</div>
                     <div class="product-cell">الايميل</div>
                     <div class="product-cell">الهاتف</div>
                     <div class="product-cell">الكلفة</div>
@@ -438,6 +439,34 @@
                             <div class="product-cell">
                                 <span>{{ $place->translations()->where('locale', 'ar')->first()->description }}</span>
                             </div>
+                            {{-- عرض الموقع --}}
+                            <div class="product-cell">
+                                <span><img data-toggle="modal" data-target="#exampleModal8" title="Delete" data-toggle="tooltip" src="img/syria.png"></span>
+                            </div>
+                                       
+            
+                 <!-- Modal -->
+                 <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModal8Label" aria-hidden="true">
+                   <div class="modal-dialog">
+                     <div class="modal-content" style="direction:ltr;">
+                       <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                         </button>
+                       </div>
+                       <div class="modal-body" style="direction:rtl;">
+                       {{--الخريطة --}}
+                       </div>
+                       <div class="modal-footer">
+                         <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
+                         <button type="submit" class="app-content-headerButton">نعم</button>
+                       </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+      
+                            {{-- نهاية عرض الموقع --}}
                             <div class="product-cell">
                                 <span>{{ $place->email }}</span>
                             </div>

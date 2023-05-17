@@ -23,9 +23,9 @@
         <div class="product-cell">{{$employee->employeeProfile->identifier}}</div>
         <div class="product-cell">
      <!-- start action -->
-<div class="p-3">
+<div class="p-3 d-flex">
    <!-- edit -->
-   <a href="#" class="edit p-2" data-toggle="modal" data-target="#editEmployee{{$employee->id}}" title="Edit"><i class="fas fa-pen"></i></a>
+   <a href="#" class="edit" data-toggle="modal" data-target="#editEmployee{{$employee->id}}" title="Edit"><i class="fas fa-pen"></i></a>
 
    <!-- Modal -->
 <div class="modal fade" id="editEmployee{{$employee->id}}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -143,7 +143,7 @@
 <!-- end edit -->
 
                  <!-- delete -->
-                 <a href="#" class="delete" data-toggle="modal" data-target="#deleteCategory{{$employee->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                 <a href="#" class="delete mr-2" data-toggle="modal" data-target="#deleteCategory{{$employee->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                               <!-- Modal -->
                               <div class="modal fade" id="deleteCategory{{$employee->id}}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog ">
@@ -167,12 +167,10 @@
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            <!-- end delete -->
+                                        <!-- end delete -->
 
-                    {{-- permessions --}}
+                                                    {{-- permessions --}}
 
-<!--  first form -->
 <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static" id="exampleModalTogglee" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel" tabindex="-1">
   <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
     <div class="modal-content m-auto" style="width:450px;">
@@ -203,22 +201,18 @@
       </table> 
       </div>
       <div class="modal-footer">
-        <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+        <button type="button" class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
         <button type="submit" class="app-content-headerButton">حفظ</button>
      
       </div>
     </div>
   </div>
 </div>
-<!-- end  first form -->
 
-
-
-<a class="delete ml-2" title="destinations" data-bs-toggle="modal" href="#exampleModalTogglee" ><i class="fas fa-map-location-dot"></i></a>
-
-
+<a class="delete " title="destinations" data-bs-toggle="modal" href="#exampleModalTogglee" ><img src="img/key.png" style="width: 21px; height: 21px;"></a>
 
                     {{-- end permessions --}}
+                              </div>
    
 </div>
 
