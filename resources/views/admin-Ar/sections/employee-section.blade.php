@@ -170,7 +170,55 @@
                               </div>
                             <!-- end delete -->
 
-                    
+                    {{-- permessions --}}
+
+<!--  first form -->
+<div class="modal fade" style="direction:ltr;" data-bs-backdrop="static" id="exampleModalTogglee" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel" tabindex="-1">
+  <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
+    <div class="modal-content m-auto" style="width:450px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleeLabel">سماحيات الموظف</h5>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+       <table style="color: rgb(22, 22, 22); width: 400px !important; direction:rtl;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
+        <tr>
+          <th >السماحية</th>
+          <td style="width:40px;"></td>
+        </tr>
+
+        <tr>
+          <td> <label for="p1">سماحية موظفي الأماكن</label> </td>
+          <td class="text-center pl-2"><input id="p1" type="checkbox"></td>
+          
+        </tr>
+        <tr>
+          <td> <label for="p2">سماحية تعديل الرواتب</label> </td>
+          <td class="text-center pl-2"><input id="p2" type="checkbox"></td>
+          
+        </tr>
+      </table> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
+        <button type="submit" class="app-content-headerButton">حفظ</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end  first form -->
+
+
+
+<a class="delete ml-2" title="destinations" data-bs-toggle="modal" href="#exampleModalTogglee" ><i class="fas fa-map-location-dot"></i></a>
+
+
+
+                    {{-- end permessions --}}
    
 </div>
 

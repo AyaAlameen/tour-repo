@@ -9522,7 +9522,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link {
   padding: 30px 15px;
-  color: var(--navi);
+  color: var(--title-color) !important;
   font-weight: 600;
   outline: none;
   font-size: 18px;

@@ -273,7 +273,7 @@
         // إضافة أكثر من صورة
         function addPic() {
             var Param_id = document.getElementById('add-pic-input').getAttribute('data-picid');
-            // console.log(Param_id);
+            console.log(Param_id);
             var table = document.getElementById("addTable");
             var newRow = document.createElement("tr");
             var cell1 = document.createElement("td");
@@ -285,6 +285,7 @@
             close.style.fontSize = "15px";
             close.style.cursor = "pointer";
             close.id = Param_id;
+            document.getElementById('add-pic-input').setAttribute('data-picid', ++Param_id);
             cell1.style.width = "25px";
             cell1.style.textAlign = "center";
             cell1.appendChild(close);
@@ -294,11 +295,8 @@
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
             table.appendChild(newRow);
-            
-            document.getElementById('add-pic-input').setAttribute('data-picid', ++Param_id);
-
             document.getElementById(close.id).addEventListener('click', function() {
-                console.log(close.id);
+                console.log("ىتى");
                 removeRow();
             });
         }

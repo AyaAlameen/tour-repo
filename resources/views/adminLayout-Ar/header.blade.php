@@ -29,7 +29,7 @@
 
 
     <!-- Navbar Start -->
-    <div class="container-fluid position-relative nav-bar p-0" style="background-color:var(--header); z-index:0;">
+    <div class="container-fluid position-relative nav-bar p-0" style="background-color:var(--header);">
         <div class="container-lg position-relative p-0 px-lg-3 bg-light" >
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
