@@ -262,7 +262,7 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="action-button active"
                                                         onclick="hidemap()">إغلاق</button>
-                                                    <button type="button" class="app-content-headerButton">حفظ</button>
+                                                    <button type="button" id="save-map-btn"  onclick="spinner()" class="app-content-headerButton">حفظ</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -444,28 +444,7 @@
                                         data-toggle="tooltip" src="img/syria.png"
                                         style="width: 35px; height: 35px;"></span>
                             </div>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal8" tabindex="-1" 
-                                aria-labelledby="exampleModal8Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content" style="direction:ltr;">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body" style="direction:ltr;">
-                                            {{-- الخريطة --}}
-                                            <div class="modal-footer">
-                                                <button type="button" class="action-button active"
-                                                    data-dismiss="modal">إغلاق</button>
-                                                <button type="submit" class="app-content-headerButton">نعم</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
+                           
 
 
                                 {{-- نهاية عرض الموقع --}}
@@ -710,7 +689,33 @@
     </div>
     </div>
     </div>
-    {{-- <div id="map" style="width: 100%; height: 300px;"></div> --}}
+
+{{-- مودل عرض الخريطة بالجدول --}}
+
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal8" tabindex="-1" 
+ aria-labelledby="exampleModal8Label" aria-hidden="true">
+ <div class="modal-dialog">
+     <div class="modal-content" style="direction:ltr;">
+         <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal"
+                 aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+         <div class="modal-body" style="direction:ltr;">
+             {{-- الخريطة --}}
+             <div class="modal-footer">
+                 <button type="button" class="action-button active"
+                     data-dismiss="modal">إغلاق</button>
+                 <button type="submit" class="app-content-headerButton">نعم</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ </div>
+{{-- نهاية مودل عرض الخريطة بالجدول --}}
+
 @endsection
 
 <script>

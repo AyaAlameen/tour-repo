@@ -138,7 +138,7 @@
             marker.addTo(map);
             marker.setLatLng(e.latlng); // move the marker to the clicked location
             document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng
-            .lng; // update the hidden input field with the coordinates
+                .lng; // update the hidden input field with the coordinates
         });
 
         // var marker = L.marker([51.505, -0.09]).addTo(map); // add a marker to the map
@@ -275,14 +275,24 @@
 
         //  إخفاء مودل الخريطة 
         function hidemap() {
+            
             $("#exampleModal6").hide();
             $("#exampleModal7").hide();
             $("#mapimg").click();
             $("#editmapimg").click();
 
         }
-
-
+// زر حفظ الخريظة
+function spinner(){
+    setTimeout(function() {
+            $("#save-map-btn").attr("disabled", false).html('حفظ');
+            $("#exampleModal6").hide();
+            $("#exampleModal7").hide();
+            $("#mapimg").click();
+            $("#editmapimg").click();
+            }, 1000); // 2 seconds delay
+            $("#save-map-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+}
 
         // إضافة أكثر من صورة
         function addPic() {
