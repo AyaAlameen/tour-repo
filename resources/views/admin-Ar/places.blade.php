@@ -489,33 +489,26 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <table
+                                                        id="editTable"
                                                             class="table-striped table-hover table-bordered m-auto text-primary myTable"
                                                             style="direction:ltr !important;">
                                                             <tr>
-
+                                                                <td ></td>
                                                                 <td><input type="text" class="toggle text-primary in"
                                                                         name="place_name" required style="width: 100%;">
                                                                     </th>
                                                                 <td>الاسم(العربية)</td>
                                                             </tr>
                                                             <tr>
-
+                                                                <td></td>
                                                                 <td><input type="text" class="toggle text-primary in"
                                                                         name="place_name" required style="width: 100%;">
                                                                     </th>
                                                                 <td>(الانكليزية)الاسم </td>
                                                             </tr>
+                                          
                                                             <tr>
-
-                                                                <td><input type="file" hidden id="img">
-                                                                    <label for="img"><img src="img/about-1.jpg"
-                                                                            style="padding-top: 5px; border-radius: 0px;"
-                                                                            width="30px" height="50px"></label>
-                                                                </td>
-                                                                <td>الصورة </td>
-                                                            </tr>
-                                                            <tr>
-
+                                                                <td></td>
                                                                 <td>
                                                                     <div class="dropdown toggle text-primary in"
                                                                         style="display:inline-block; ;">
@@ -539,7 +532,7 @@
                                                                 <td>المدينة </td>
                                                             </tr>
                                                             <tr>
-
+                                                                <td></td>
                                                                 <td>
                                                                     <div class="dropdown toggle text-primary in"
                                                                         style="display:inline-block; ;">
@@ -563,7 +556,7 @@
                                                                 <td>الناحية </td>
                                                             </tr>
                                                             <tr>
-
+                                                                <td></td>
                                                                 <td>
                                                                     <div class="dropdown toggle text-primary in"
                                                                         style="display:inline-block; ;">
@@ -586,22 +579,16 @@
                                                                 </td>
                                                                 <td>الصنف الفرعي </td>
                                                             </tr>
+                                        
                                                             <tr>
-
-                                                                <td><input type="text" class="toggle text-primary in"
-                                                                        value="-----">
-                                                                </td>
-                                                                <td>الموقع</td>
-                                                            </tr>
-                                                            <tr>
-
+                                                                <td></td>
                                                                 <td><input class="toggle text-primary in" type="text"
                                                                         name="place-description" required
                                                                         style="width: 100%;"></th>
                                                                 <td>وصف(العربية)</td>
                                                             </tr>
                                                             <tr>
-
+                                                                <td></td>
                                                                 <td><input class="toggle text-primary in" type="text"
                                                                         name="place-description" required
                                                                         style="width: 100%;"></th>
@@ -609,7 +596,7 @@
                                                             </tr>
                                                             <tr>
 
-
+                                                                <td></td>
                                                                 <td><input type="email" class="toggle text-primary in"
                                                                         value="@gmail.com">
                                                                 </td>
@@ -617,20 +604,43 @@
 
                                                             </tr>
                                                             <tr>
-
+                                                                <td></td>
                                                                 <td><input type="number" class="toggle text-primary in"
                                                                         value="09123456789">
                                                                 </td>
                                                                 <td>الهاتف</td>
                                                             </tr>
                                                             <tr>
-
+                                                                <td></td>
                                                                 <td><input type="number" class="toggle text-primary in"
                                                                         value="100000">
                                                                 </td>
                                                                 <td>الكلفة</td>
                                                             </tr>
 
+                                                            <tr>
+                                                                <td></td>
+                                                                <td class="text-center"><img class="m-3" data-bs-toggle="modal"
+                                                                    id="editmapimg" data-bs-target="#exampleModal9"
+                                                                    style="cursor:pointer; border-radius:6px;" src="img/sy.jpg"
+                                                                    width="150px" height="70px"></td>                                                                
+                                                                <td>الموقع</td>
+
+                                                   
+                                                            </tr>
+                                                            <tr>
+                    
+                                                                <td style="width:25px; text-align:center;" >
+                                                               </td>   
+                                                                 <td>
+                                                                     <i class="fas fa-plus text-body pt-4 pl-2" onclick="editPic()" style="font-size:15px; float:left; cursor:pointer;" title="Add Another Picture"></i>
+                                                                     <input type="file" hidden id="edit_pic_input" data-picid="1">
+                                                                          <label for="edit_pic_input"><img src="img/about-1.jpg"
+                                                                            style="padding-top: 5px; border-radius: 0px;" width="30px" height="50px">
+                                                                           </label>
+                                                                  </td>
+                                                                  <td>الصور </td>
+                                                           </tr>
                                                         </table>
 
                                                     </div>
@@ -708,13 +718,40 @@
              <div class="modal-footer">
                  <button type="button" class="action-button active"
                      data-dismiss="modal">إغلاق</button>
-                 <button type="submit" class="app-content-headerButton">نعم</button>
              </div>
          </div>
      </div>
  </div>
  </div>
 {{-- نهاية مودل عرض الخريطة بالجدول --}}
+
+
+             {{-- مودل تعديل الخريطة --}}
+             <div class="modal fade bg-light" id="exampleModal9" data-bs-backdrop="static"
+             tabindex="-1" aria-labelledby="exampleModal9Label" aria-hidden="true">
+             <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                 <div class="modal-content toggle w-100 h-100">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
+                             الخريطة</h5>
+                         <button type="button" class="btn-close m-0 close"
+                             onclick="hidemap()" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div class="modal-body">
+                         {{-- الخريطة --}}
+                     </div>
+                     <div class="modal-footer">
+                         <button type="button" class="action-button active"
+                             onclick="hidemap()">إغلاق</button>
+                         <button type="button" id="save-map-btn-edit"  onclick="spinner()" class="app-content-headerButton">حفظ</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+             {{-- نهاية مودل تعديل الخريطة --}}
+
 
 @endsection
 

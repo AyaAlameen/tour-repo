@@ -196,8 +196,16 @@
     <script>
         // لحذف الصور
         document.addEventListener('DOMNodeInserted', function(event) {
-            const closeElements = document.querySelectorAll('[id^="close_"]');
+            // للإضافة
+            const closeElements_add = document.querySelectorAll('[id^="close_"]');
+            for (let i = 0; i < closeElements_add.length; i++) {
+                closeElements_add[i].addEventListener('click', function() {
+                    removeRow();
+                });
+            }
 
+            // للتعديل
+            const closeElements = document.querySelectorAll('[id^="edit_pic_"]');
             for (let i = 0; i < closeElements.length; i++) {
                 closeElements[i].addEventListener('click', function() {
                     removeRow();
@@ -275,24 +283,37 @@
 
         //  إخفاء مودل الخريطة 
         function hidemap() {
-            
+
             $("#exampleModal6").hide();
             $("#exampleModal7").hide();
             $("#mapimg").click();
             $("#editmapimg").click();
 
         }
-// زر حفظ الخريظة
-function spinner(){
-    setTimeout(function() {
-            $("#save-map-btn").attr("disabled", false).html('حفظ');
-            $("#exampleModal6").hide();
-            $("#exampleModal7").hide();
-            $("#mapimg").click();
-            $("#editmapimg").click();
+        // زر حفظ الخريظة
+        function spinner() {
+            // للإضافة
+            setTimeout(function() {
+                $("#save-map-btn").attr("disabled", false).html('حفظ');
+                $("#exampleModal6").hide();
+                $("#exampleModal7").hide();
+                $("#mapimg").click();
+                $("#editmapimg").click();
             }, 1000); // 2 seconds delay
             $("#save-map-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-}
+            
+//للتعديل
+            setTimeout(function() {
+                $("#save-map-btn-edit").attr("disabled", false).html('حفظ');
+                $("#exampleModal6").hide();
+                $("#exampleModal7").hide();
+                $("#mapimg").click();
+                $("#editmapimg").click();
+            }, 1000); // 2 seconds delay
+            $("#save-map-btn-edit").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+            
+            
+        }
 
         // إضافة أكثر من صورة
         function addPic() {
@@ -321,7 +342,8 @@ function spinner(){
             table.appendChild(newRow);
         }
         // تعديل الصور
-        function editPic(Param_id) {
+        function editPic() {
+            var Param_id = document.getElementById('edit_pic_input').getAttribute('data-picid');
             var table = document.getElementById("editTable");
             var newRow = document.createElement("tr");
             var cell1 = document.createElement("td");
@@ -330,10 +352,10 @@ function spinner(){
             var close = document.createElement("span");
             close.classList.add("fas", "fa-close", "text-body", "pt-2", "pl-2");
             close.title = "delete pic";
-            close.style.fontSize = "15px";
+            close.style.fontSize = "12px";
             close.style.cursor = "pointer";
-            close.id = Param_id;
-            cell1.style.width = "25px";
+            close.id = "edit_pic_" + Param_id;
+            cell1.style.width = "15px";
             cell1.style.textAlign = "center";
             cell1.appendChild(close);
             cell2.innerHTML =
@@ -342,9 +364,7 @@ function spinner(){
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
             table.appendChild(newRow);
-            document.getElementById(close.id).addEventListener('click', function() {
-                removeRow();
-            });
+
 
         }
     </script>
