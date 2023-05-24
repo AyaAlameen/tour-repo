@@ -8,9 +8,9 @@
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
                 <h3 class="display-4 text-white text-uppercase">حولنا</h3>
                 <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="">الرئيسة</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
                     <p class="m-0 text-uppercase">حولنا</p>
+                    <i class="fa fa-angle-double-left pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase"><a class="text-white" href="">الرئيسة</a></p>
                 </div>
             </div>
         </div>
@@ -27,23 +27,23 @@
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/ياسمين دمشقي بالطول.jpg" style="object-fit: cover;">
+                        <img class=" w-100 h-100" src="../img/ياسمين دمشقي بالطول.jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                        <h1 class="mb-3">نحن نقدم أفضل البرامج السياحية</h1>
+                        <h6 class="text-primary text-uppercase" >حولنا</h6>
+                        <h1 class="mb-3"> نقدم أفضل البرامج السياحية و أفضل الرحلات</h1>
                         <p>موقع إلكتروني متخصص في مساعدتك في حجز فندقك وجولتك السياحية وتأجير السيارات ومعلومات سياحية عن جميع الأماكن والمناطق والمعالم السياحية والأثرية في سوريا.</p>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <img class="img-fluid" src="img/an-amazing-place-to-visit.jpg" alt="">
+                                <img class="img-fluid" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
                             </div>
                             <div class="col-6">
-                                <img class="img-fluid" src="img/ALEPPO458976.gif" alt="">
+                                <img class="img-fluid" src="img/d90d3ccf930b10d60f4d7cc7e96c342c.jpg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">احجز الآن</a>
+                        <a href="" style="float: left" class="btn btn-primary mt-1">احجز الآن</a>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                             <i class="fa fa-2x fa-globe text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">تغطية عالمية</h5>
+                            <h5 class="">تغطية شاملة</h5>
                             <p class="m-0">سوف تتعرف على حضارة سوريا بأكملها وإرثها</p>
                         </div>
                     </div>

@@ -81,6 +81,14 @@
             modeElement.classList.remove("active")
             isDarkMode = false;
         }
+        function active_part() {
+            localStorage.setItem('activeItem', event.target)
+
+        }
+        console.log(localStorage.getItem('activeItem'))
+      const activeItemEle=  localStorage.getItem('activeItem')
+      activeItemEle.style.color="red";
+
     </script>
 
     <!-- Back to Top -->
@@ -276,7 +284,6 @@
 
         // حذف سطر من جدول
         function removeRow() {
-            console.log('jhhhgjg')
             var selectedElement = event.target;
             var row = selectedElement.closest('tr');
             row.remove()

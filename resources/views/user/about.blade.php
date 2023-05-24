@@ -36,10 +36,10 @@
                         <p>A website that specializes in helping you book your hotel, tourist tour, car rental, and tourist information about all the places, regions, and tourist and archaeological attractions in Syria.</p>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <img class="img-fluid" src="img/an-amazing-place-to-visit.jpg" alt="">
+                                <img class="img-fluid" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
                             </div>
                             <div class="col-6">
-                                <img class="img-fluid" src="img/ALEPPO458976.gif" alt="">
+                                <img class="img-fluid" src="img/d90d3ccf930b10d60f4d7cc7e96c342c.jpg" alt="">
                             </div>
                         </div>
                         <a href="" class="btn btn-primary mt-1">Book Now</a>
