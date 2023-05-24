@@ -205,7 +205,7 @@
             }
 
             // للتعديل
-            const closeElements = document.querySelectorAll('[id^="edit_pic_"]');
+            const closeElements = document.querySelectorAll('[id^="edit_picture_"]');
             for (let i = 0; i < closeElements.length; i++) {
                 closeElements[i].addEventListener('click', function() {
                     removeRow();
@@ -276,6 +276,7 @@
 
         // حذف سطر من جدول
         function removeRow() {
+            console.log('jhhhgjg')
             var selectedElement = event.target;
             var row = selectedElement.closest('tr');
             row.remove()
@@ -354,7 +355,7 @@
             close.title = "delete pic";
             close.style.fontSize = "12px";
             close.style.cursor = "pointer";
-            close.id = "edit_pic_" + Param_id;
+            close.id = "edit_picture_" + Param_id;
             cell1.style.width = "15px";
             cell1.style.textAlign = "center";
             cell1.appendChild(close);
