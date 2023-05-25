@@ -82,12 +82,20 @@
             isDarkMode = false;
         }
         function active_part() {
-            localStorage.setItem('activeItem', event.target)
-
+            console.log(event.target)
+     var element= document.getElementById(event.target)
+    //  var element_color =  element.style.backgroundColor="red";
+     localStorage.setItem('bg-color', element);
+    //         localStorage.setItem('activeItem', event.target)
+    //         console.log(localStorage.getItem('activeItem'))
+    //   const Bg_activeItemEle=  localStorage.getItem('activeItem')
+    //   activeItemEle.style.color="red";
         }
-        console.log(localStorage.getItem('activeItem'))
-      const activeItemEle=  localStorage.getItem('activeItem')
-      activeItemEle.style.color="red";
+
+  var color = localStorage.getItem('bg-color');
+  console.log(color)
+  
+
 
     </script>
 
