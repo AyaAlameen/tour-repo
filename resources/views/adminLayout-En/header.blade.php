@@ -164,7 +164,7 @@
         
       </div>
       <div class="modal-footer mt-5">
-      <button type="button" class="action-button close" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
         <button type="button" id="add-guide-btn"  class="app-content-headerButton">Save</button>
       </div>
     </div>
