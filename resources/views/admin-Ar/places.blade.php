@@ -456,37 +456,180 @@
                                 <span>{{ $place->phone }}</span>
                             </div>
 
-                            <div class="product-cell">
-                                <span>{{ $place->cost }}</span>
-                            </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content" style="direction:ltr;">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <table
+                                                        id="editTable"
+                                                            class="table-striped table-hover table-bordered m-auto text-primary myTable"
+                                                            style="direction:ltr !important;">
+                                                            <tr>
+                                                                <td ></td>
+                                                                <td><input type="text" class="toggle text-primary in"
+                                                                        name="place_name" required style="width: 100%;">
+                                                                    </th>
+                                                                <td>الاسم(العربية)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="text" class="toggle text-primary in"
+                                                                        name="place_name" required style="width: 100%;">
+                                                                    </th>
+                                                                <td>(الانكليزية)الاسم </td>
+                                                            </tr>
+                                          
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="dropdown toggle text-primary in"
+                                                                        style="display:inline-block; ;">
+                                                                        <label class="dropdown-toggle" type="button"
+                                                                            id="dropdownMenuButton" data-toggle="dropdown"
+                                                                            aria-expanded="false">
+                                                                            حلب
+                                                                        </label>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">--</a>
+                                                                            <a class="dropdown-item" href="#">--</a>
+                                                                            <a class="dropdown-item"
+                                                                                href="#">---</a>
+                                                                            <a class="dropdown-item"
+                                                                                href="#">----</a>
 
-                            <div class="product-cell">
-                                <span>{{ $place->profit_ratio_1 }}</span>
-                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>المدينة </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="dropdown toggle text-primary in"
+                                                                        style="display:inline-block; ;">
+                                                                        <label class="dropdown-toggle" type="button"
+                                                                            id="dropdownMenuButton" data-toggle="dropdown"
+                                                                            aria-expanded="false">
+                                                                            ---
+                                                                        </label>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">--</a>
+                                                                            <a class="dropdown-item" href="#">--</a>
+                                                                            <a class="dropdown-item"
+                                                                                href="#">---</a>
+                                                                            <a class="dropdown-item"
+                                                                                href="#">----</a>
 
-                            <div class="product-cell">
-                                <span>{{ $place->profit_ratio_2 }}</span>
-                            </div>
-                            <div class="product-cell">
-                                <!-- start action -->
-                                <div class="p-3">
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>الناحية </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="dropdown toggle text-primary in"
+                                                                        style="display:inline-block; ;">
+                                                                        <label class="dropdown-toggle" type="button"
+                                                                            id="dropdownMenuButton" data-toggle="dropdown"
+                                                                            aria-expanded="false">
+                                                                            ---
+                                                                        </label>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item" href="#">--</a>
+                                                                            <a class="dropdown-item" href="#">--</a>
+                                                                            <a class="dropdown-item"
+                                                                                href="#">---</a>
+                                                                            <a class="dropdown-item"
+                                                                                href="#">----</a>
 
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>الصنف الفرعي </td>
+                                                            </tr>
+                                        
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input class="toggle text-primary in" type="text"
+                                                                        name="place-description" required
+                                                                        style="width: 100%;"></th>
+                                                                <td>وصف(العربية)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input class="toggle text-primary in" type="text"
+                                                                        name="place-description" required
+                                                                        style="width: 100%;"></th>
+                                                                <td>(الانكليزية)وصف</td>
+                                                            </tr>
+                                                            <tr>
 
+                                                                <td></td>
+                                                                <td><input type="email" class="toggle text-primary in"
+                                                                        value="@gmail.com">
+                                                                </td>
+                                                                <td>الايميل</td>
 
-                                    <!-- edit -->
-                                    <a href="#" class="edit p-2" data-toggle="modal" data-target="#exampleModal"
-                                        title="Edit"><i class="fas fa-pen"></i></a>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" class="toggle text-primary in"
+                                                                        value="09123456789">
+                                                                </td>
+                                                                <td>الهاتف</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" class="toggle text-primary in"
+                                                                        value="100000">
+                                                                </td>
+                                                                <td>الكلفة</td>
+                                                            </tr>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content" style="direction:ltr;">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td class="text-center"><img class="m-3" data-bs-toggle="modal"
+                                                                    id="editmapimg" data-bs-target="#exampleModal9"
+                                                                    style="cursor:pointer; border-radius:6px;" src="img/sy.jpg"
+                                                                    width="150px" height="70px"></td>                                                                
+                                                                <td>الموقع</td>
+
+                                                   
+                                                            </tr>
+                                                            <tr>
+                    
+                                                                <td style="width:25px; text-align:center;" >
+                                                               </td>   
+                                                                 <td>
+                                                                     <i class="fas fa-plus text-body pt-4 pl-2" onclick="editPic()" style="font-size:15px; float:left; cursor:pointer;" title="Add Another Picture"></i>
+                                                                     <input type="file" hidden id="edit_pic_input" data-picid="1">
+                                                                          <label for="edit_pic_input"><img src="img/about-1.jpg"
+                                                                            style="padding-top: 5px; border-radius: 0px; margin-right:90px;" width="30px" height="50px">
+                                                                           </label>
+                                                                  </td>
+                                                                  <td>الصور </td>
+                                                           </tr>
+                                                        </table>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="action-button active"
+                                                            data-dismiss="modal">إغلاق</button>
+                                                        <button type="submit" class="app-content-headerButton">حفظ
+                                                            التغييرات</button>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-body">
                                                     <table
@@ -683,28 +826,59 @@
     </div>
     </div>
 
-    {{-- مودل عرض الخريطة بالجدول --}}
+{{-- مودل عرض الخريطة بالجدول --}}
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModal8Label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="direction:ltr;">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="direction:ltr;">
-                    {{-- الخريطة --}}
-                    <div class="modal-footer">
-                        <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
-                        <button type="submit" class="app-content-headerButton">نعم</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- نهاية مودل عرض الخريطة بالجدول --}}
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal8" tabindex="-1" 
+ aria-labelledby="exampleModal8Label" aria-hidden="true">
+ <div class="modal-dialog">
+     <div class="modal-content" style="direction:ltr;">
+         <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal"
+                 aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+         <div class="modal-body" style="direction:ltr;">
+             {{-- الخريطة --}}
+             <div class="modal-footer">
+                 <button type="button" class="action-button active"
+                     data-dismiss="modal">إغلاق</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ </div>
+{{-- نهاية مودل عرض الخريطة بالجدول --}}
+
+
+             {{-- مودل تعديل الخريطة --}}
+             <div class="modal fade bg-light" id="exampleModal9" data-bs-backdrop="static"
+             tabindex="-1" aria-labelledby="exampleModal9Label" aria-hidden="true">
+             <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                 <div class="modal-content toggle w-100 h-100">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
+                             الخريطة</h5>
+                         <button type="button" class="btn-close m-0 close"
+                             onclick="hidemap()" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div class="modal-body">
+                         {{-- الخريطة --}}
+                     </div>
+                     <div class="modal-footer">
+                         <button type="button" class="action-button active"
+                             onclick="hidemap()">إغلاق</button>
+                         <button type="button" id="save-map-btn-edit"  onclick="spinner()" class="app-content-headerButton">حفظ</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+             {{-- نهاية مودل تعديل الخريطة --}}
+
+
 @endsection
 
 <script>
