@@ -81,6 +81,22 @@
             modeElement.classList.remove("active")
             isDarkMode = false;
         }
+        function active_part() {
+            console.log(event.target)
+     var element= document.getElementById(event.target)
+    //  var element_color =  element.style.backgroundColor="red";
+     localStorage.setItem('bg-color', element);
+    //         localStorage.setItem('activeItem', event.target)
+    //         console.log(localStorage.getItem('activeItem'))
+    //   const Bg_activeItemEle=  localStorage.getItem('activeItem')
+    //   activeItemEle.style.color="red";
+        }
+
+  var color = localStorage.getItem('bg-color');
+  console.log(color)
+  
+
+
     </script>
 
     <!-- Back to Top -->
@@ -276,7 +292,6 @@
 
         // حذف سطر من جدول
         function removeRow() {
-            console.log('jhhhgjg')
             var selectedElement = event.target;
             var row = selectedElement.closest('tr');
             row.remove()

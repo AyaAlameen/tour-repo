@@ -613,9 +613,9 @@
                                                                 <td style="width:25px; text-align:center;" >
                                                                </td>   
                                                                  <td>
-                                                                     <i class="fas fa-plus text-body pt-4 pl-2" onclick="editPic()" style="font-size:15px; float:left; cursor:pointer;" title="Add Another Picture"></i>
-                                                                     <input type="file" hidden id="edit_pic_input" data-picid="1">
-                                                                          <label for="edit_pic_input"><img src="img/about-1.jpg"
+                                                                     <i class="fas fa-plus text-body pt-4 pl-2" onclick="editPic()" id="edit_pic_input" data-picid="1" style="font-size:15px; float:left; cursor:pointer;" title="Add Another Picture"></i>
+                                                                     <input type="file" id="img" hidden >
+                                                                          <label for="img"><img src="img/about-1.jpg"
                                                                             style="padding-top: 5px; border-radius: 0px; margin-right:90px;" width="30px" height="50px">
                                                                            </label>
                                                                   </td>

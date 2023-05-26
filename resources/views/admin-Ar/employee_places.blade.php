@@ -66,7 +66,7 @@
                 <td colspan="2" class="text-end text-danger p-1"><span id="password_error"></span></td>                
               </tr> 
               <tr>
-                <td ><input class="toggle text-primary in" type="password" name="password" required style="width: 100%;"></th> 
+                <td ><input class="toggle text-primary in" autocomplete="places" type="text" name="place" required style="width: 100%;"></th> 
                 <td>مكان العمل</td>     
             </tr>
      
