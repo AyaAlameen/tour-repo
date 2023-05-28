@@ -19,8 +19,8 @@ class CreateEventsTable extends Migration
             $table->foreignId('place_id');
             $table->decimal('cost', 8, 0);
             // $table->string('description');
-            $table->timestamp('start_date')->useCurrent();
-            $table->timestamp('end_date')->useCurrent();
+            $table->date('start_date')->useCurrent();
+            $table->date('end_date')->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

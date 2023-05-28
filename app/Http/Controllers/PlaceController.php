@@ -117,7 +117,7 @@ class PlaceController extends Controller
                 // dd($name, $file);
                 $upload_image_name = time().'_'.$file->getClientOriginalName();
                 $file->move('uploads/placeImage', $upload_image_name);
-                $place->images()->create( ['image' => "'uploads/placeImage/'.$upload_image_name"]);
+                $place->images()->create( ['image' => "uploads/placeImage/$upload_image_name"]);
             }
         }
 
