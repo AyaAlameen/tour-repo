@@ -11,6 +11,7 @@ use App\Http\Controllers\EmployeeProfileController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -226,9 +227,17 @@ Route::post('/districts_ar/delete', [DistrictController::class, 'destroyAr']) ->
 
 
 
-Route::get('/events_ar', function () {
-    return view('admin-Ar.events');
-}) -> name('event_ar');
+// Route::get('/events_ar', function () {
+//     return view('admin-Ar.events');
+// }) -> name('event_ar');
+
+Route::get('/events_ar', [EventController::class, 'indexAr']) -> name('event_ar');
+Route::post('/events_ar', [EventController::class, 'storeAr']) -> name('addEventAr');
+Route::post('/events_ar/edit', [EventController::class, 'updateAr']) -> name('editEventAr');
+Route::post('/events_ar/delete', [EventController::class, 'destroyAr']) -> name('deleteEventAr');
+
+
+
 
 Route::get('/places_booking_ar', function () {
     return view('admin-Ar.places_bookings');

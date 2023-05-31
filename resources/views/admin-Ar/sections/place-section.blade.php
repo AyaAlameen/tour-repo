@@ -1,5 +1,5 @@
 <?php $i = 1; ?>
-@foreach ($places as $plase)
+@foreach ($places as $place)
     @if ($loop->last)
     @else
         <div class="products-row">
@@ -11,7 +11,7 @@
                     <circle cx="12" cy="5" r="1" />
                     <circle cx="12" cy="19" r="1" />
                 </svg>
-            </button>
+            </button>   
             <div class="product-cell">
                 <span>{{ $i++ }}</span>
             </div>

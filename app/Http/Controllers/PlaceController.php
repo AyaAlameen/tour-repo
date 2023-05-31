@@ -68,6 +68,7 @@ class PlaceController extends Controller
             'city_id' => 'required',
             'district_id' => 'required',
             'sub_category_id' => 'required',
+            'phone' => ['required', 'numeric', 'digits:10'],
             'email' => ['required', 'email', 'unique:places'],
             'cost' => 'numeric|min:1',
             'profit_ratio_1' => 'required|numeric|min:1',
@@ -80,6 +81,9 @@ class PlaceController extends Controller
             'city_id.required' => 'حقل المدينة مطلوب',
             'district_id.required' => 'حقل الناحية مطلوب',
             'sub_category_id.required' => 'حقل الصنف الفرعي مطلوب',
+            'phone.required' => 'حقل الهاتف مطلوب',
+            'phone.numeric' => 'حقل الهاتف يجب أن يتكون من أرقام فقط',
+            'phone.digits' => 'حقل الهاتف يجب أن يتكون من 10 خانات',
             'email.required' => 'حقل الإيميل مطلوب',
             'email.email' => 'حقل الإيميل يجب أن يحقق شروط شكل الإيميل',
             'email.unique' => 'هذا الإيميل لديه حساب من قبل',
@@ -113,7 +117,7 @@ class PlaceController extends Controller
                 // dd($name, $file);
                 $upload_image_name = time().'_'.$file->getClientOriginalName();
                 $file->move('uploads/placeImage', $upload_image_name);
-                $place->images()->create( ['image' => "'uploads/placeImage/'.$upload_image_name"]);
+                $place->images()->create( ['image' => "uploads/placeImage/$upload_image_name"]);
             }
         }
 
