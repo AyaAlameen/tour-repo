@@ -81,22 +81,20 @@
             modeElement.classList.remove("active")
             isDarkMode = false;
         }
+
         function active_part() {
             console.log(event.target)
-     var element= document.getElementById(event.target)
-    //  var element_color =  element.style.backgroundColor="red";
-     localStorage.setItem('bg-color', element);
-    //         localStorage.setItem('activeItem', event.target)
-    //         console.log(localStorage.getItem('activeItem'))
-    //   const Bg_activeItemEle=  localStorage.getItem('activeItem')
-    //   activeItemEle.style.color="red";
+            var element = document.getElementById(event.target)
+            //  var element_color =  element.style.backgroundColor="red";
+            localStorage.setItem('bg-color', element);
+            //         localStorage.setItem('activeItem', event.target)
+            //         console.log(localStorage.getItem('activeItem'))
+            //   const Bg_activeItemEle=  localStorage.getItem('activeItem')
+            //   activeItemEle.style.color="red";
         }
 
-  var color = localStorage.getItem('bg-color');
-  console.log(color)
-  
-
-
+        var color = localStorage.getItem('bg-color');
+        console.log(color)
     </script>
 
     <!-- Back to Top -->
@@ -303,7 +301,6 @@
             $("#exampleModal6").hide();
             $("#exampleModal7").hide();
             $("#mapimg").click();
-            $("#editmapimg").click();
 
         }
         // زر حفظ الخريظة
@@ -317,8 +314,8 @@
                 $("#editmapimg").click();
             }, 1000); // 2 seconds delay
             $("#save-map-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-            
-//للتعديل
+
+            //للتعديل
             setTimeout(function() {
                 $("#save-map-btn-edit").attr("disabled", false).html('حفظ');
                 $("#exampleModal6").hide();
@@ -327,8 +324,8 @@
                 $("#editmapimg").click();
             }, 1000); // 2 seconds delay
             $("#save-map-btn-edit").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-            
-            
+
+
         }
 
         // إضافة أكثر من صورة
@@ -351,7 +348,9 @@
             cell1.style.textAlign = "center";
             cell1.appendChild(close);
             cell2.innerHTML =
-                ` <input type="file" id="pic1" class="toggle text-primary in"  name="image_${Param_id}" required style="width:75% !important; font-size:16px;">`;
+                ` <input type="file"  onchange="previewImage(this, 'add_previewImage_${Param_id}')" id="add_input_${Param_id}" class="toggle text-primary in"  name="image_${Param_id}" required style="width:75% !important; font-size:16px;">
+                <label for="add_input_${Param_id}"> <img id="add_previewImage_${Param_id}" width="170px"
+                        height="90px" style="display: none; padding:6px;"></label>`;
             newRow.appendChild(cell1);
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
@@ -371,17 +370,35 @@
             close.style.fontSize = "12px";
             close.style.cursor = "pointer";
             close.id = "edit_picture_" + Param_id;
+            document.getElementById('edit_pic_input').setAttribute('data-picid', ++Param_id);
             cell1.style.width = "15px";
             cell1.style.textAlign = "center";
             cell1.appendChild(close);
             cell2.innerHTML =
-                ' <input type="file" id="pic1" class="toggle text-primary in"  name="event_image" required style="width:75% !important; font-size:16px;">';
+                ` <input type="file" onchange="previewImage(this, 'edit_previewImage_${Param_id}')" class="toggle text-primary in" id="edit_input_${Param_id}"  required style="width:75% !important; font-size:16px;">
+                                            <label for="edit_input_${Param_id}"> <img id="edit_previewImage_${Param_id}"  style="display: none; padding:6px;width:170px; height:90px;"></label>`;
             newRow.appendChild(cell1);
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
             table.appendChild(newRow);
 
 
+        }
+        // عرض الصور بدل الأسماء
+
+        function previewImage(input, previewId) {
+            const previewImage = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+            previewImage.style.display = "inline";
+            input.style.display = "none";
+            reader.addEventListener('load', function() {
+                previewImage.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
         }
     </script>
 

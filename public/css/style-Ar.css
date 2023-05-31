@@ -9324,9 +9324,7 @@ a.text-danger:hover, a.text-danger:focus {
   color: #FFFFFF !important;
 }
 
-a.text-light:hover, a.text-light:focus {
-  color: #d9d9d9 !important;
-}
+
 
 .text-dark {
   color: var(--navi) !important;

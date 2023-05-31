@@ -316,6 +316,12 @@ Route::get('/user_home_arabic', function () {
 Route::get('/about-ar', function () {
     return view('user-ar.about');
 })-> name('about-ar');
+
+
+Route::get('/trip_ar', function () {
+    return view('user-ar.trips');
+})-> name('trip-ar');
+
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

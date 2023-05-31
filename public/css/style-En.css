@@ -9317,9 +9317,7 @@ a.text-danger:hover, a.text-danger:focus {
   color: #FFFFFF !important;
 }
 
-a.text-light:hover, a.text-light:focus {
-  color: #d9d9d9 !important;
-}
+
 
 .text-dark {
   color: var(--navi) !important;
@@ -9792,7 +9790,7 @@ input:disabled{
   background-color: #fff !important;
 }
 .about-page-header{
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/homsقلعة-الحصن.jpg), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/about\ us.jpg), no-repeat center center;
   background-size: cover;
   background-position: center;
 }
@@ -9863,3 +9861,8 @@ input:disabled{
 	font: 700 1.125rem/1.625rem "Montserrat", sans-serif;
 }
 
+.trip-page-header{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/join-us.jpg), no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}

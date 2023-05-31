@@ -112,12 +112,15 @@
                                     <td style="width:25px; text-align:center;"> <i class="fas fa-camera text-body pt-2 pl-2"
                                             style="font-size:15px; cursor:pointer;"></i></td>
 
-                                    <td>
-                                        <i class="fas fa-plus text-body pt-2 pl-2" onclick="addPic()" id="add-pic-input"
-                                            data-picid="1" style="font-size:15px; float:left; cursor:pointer;"
-                                            title="Add Another Picture"></i>
-                                        <input type="file" class="toggle text-primary in" name="event_image" required
-                                            style="width:75% !important; font-size:16px;">
+                                    <td class="pl-2">
+                                        <i class="fas fa-plus text-body pt-2 pr-5"
+                                            style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;"onclick="addPic()"
+                                            id="add-pic-input" data-picid="1" title="Add Another Picture"></i>
+                                        <input type="file" id="add_input_0"
+                                            onchange="previewImage(this, 'add_previewImage_0')" class="toggle text-primary in"
+                                            name="event_image" required style="width:75% !important; font-size:16px;">
+                                        <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
+                                                height="90px" style="display: none; padding:6px;"></label>
                                     </td>
                                     <td>الصور </td>
                                 </tr>
@@ -399,14 +402,13 @@
                                                 <td style="width:25px; text-align:center;">
                                                 </td>
                                                 <td>
-                                                    <i class="fas fa-plus text-body pt-4 pl-2" onclick="editPic()"
+                                                    <i class="fas fa-plus text-body" onclick="editPic()"
                                                         id="edit_pic_input" data-picid="1"
-                                                        style="font-size:15px; float:left; cursor:pointer;"
+                                                        style="font-size:15px; text-align: center; padding-right:80px; line-height: 1.5; cursor:pointer;"
                                                         title="Add Another Picture"></i>
                                                     <input type="file" hidden id="img">
                                                     <label for="img"><img src="img/about-1.jpg"
-                                                            style="padding-top: 5px; border-radius: 0px;" width="30px"
-                                                            height="50px">
+                                                            style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;">
                                                     </label>
                                                 </td>
                                                 <td>الصور </td>

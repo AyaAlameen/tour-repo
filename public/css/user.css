@@ -8,7 +8,7 @@
  :root {
     --navi:rgb(43, 52, 103);
     --bambi:#90aaf8;
-    --blueLight:#BAD7E9;
+     --blueLight:#BAD7E9;
     --light: #FCFFE7;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
@@ -9317,9 +9317,7 @@
     color: #FFFFFF !important;
   }
   
-  a.text-light:hover, a.text-light:focus {
-    color: #d9d9d9 !important;
-  }
+  
   
   .text-dark {
     color: var(--navi) !important;
@@ -9786,9 +9784,14 @@
     background-color: #fff !important;
   }
   .about-page-header{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/homsقلعة-الحصن.jpg), no-repeat center center;
-    background-size: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/about\ us.jpg), no-repeat center center;
+    background-repeat: no-repeat;
     background-position: center;
   }
  
-  
+  .trip-page-header{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/join-us.jpg), no-repeat center center;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-position: center;
+  }
