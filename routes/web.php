@@ -12,6 +12,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PlaceEmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -210,9 +211,13 @@ Route::get('/services_ar', function () {
     return view('admin-Ar.services');
 }) -> name('service_ar');
 
-Route::get('/emp-places-ar', function () {
-    return view('admin-Ar.employee_places');
-}) -> name('emp-places-Ar');
+Route::get('/emp-places-ar', [PlaceEmployeeController::class, 'placesAr']) -> name('emp-places-Ar');
+
+Route::get('/ar/places-employees', [PlaceEmployeeController::class, 'indexAr']) -> name('getPlacesEmployeesAr');
+Route::post('/emp-places-ar', [PlaceEmployeeController::class, 'storeAr']) -> name('addPlacesEmployeeAr');
+Route::post('/emp-places-ar/edit', [PlaceEmployeeController::class, 'updateAr']) -> name('editPlacesEmployeeAr');
+Route::post('/emp-places-ar/delete', [PlaceEmployeeController::class, 'destroyAr']) -> name('deletePlacesEmployeeAr');
+
 
 Route::get('/emp-places-en', function () {
     return view('admin-En.employee_places');
