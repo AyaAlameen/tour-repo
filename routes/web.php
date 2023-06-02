@@ -38,6 +38,7 @@ Route::get('/en/employees', [EmployeeProfileController::class, 'indexEn']) -> na
 Route::post('/employee_en', [EmployeeProfileController::class, 'storeEn']) -> name('addEmployeeEn');
 Route::post('/employee_en/edit', [EmployeeProfileController::class, 'updateEn']) -> name('editEmployeeEn');
 Route::post('/employee_en/delete', [EmployeeProfileController::class, 'destroyEn']) -> name('deleteEmployeeEn');
+Route::post('/employee_en/permissions', [EmployeeProfileController::class, 'permissionsEn']) -> name('employeePermissionsEn');
 
 
 Route::get('/cat_en', function () {
@@ -161,6 +162,7 @@ Route::get('/ar/employees', [EmployeeProfileController::class, 'indexAr']) -> na
 Route::post('/employee_ar', [EmployeeProfileController::class, 'storeAr']) -> name('addEmployeeAr');
 Route::post('/employee_ar/edit', [EmployeeProfileController::class, 'updateAr']) -> name('editEmployeeAr');
 Route::post('/employee_ar/delete', [EmployeeProfileController::class, 'destroyAr']) -> name('deleteEmployeeAr');
+Route::post('/employee_ar/permissions', [EmployeeProfileController::class, 'permissionsAr']) -> name('employeePermissionsAr');
 
 Route::get('/cat_ar', function () {
     return view('admin-Ar.categories');

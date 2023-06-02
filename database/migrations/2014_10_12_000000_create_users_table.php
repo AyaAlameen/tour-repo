@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('image')->nullable();
             $table->boolean('is_employee')->default(false);
+            $table->enum('is_employee', ['0', '1', '2']); /* 0 for default user | 1 for website employee | 2 for place employee */
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

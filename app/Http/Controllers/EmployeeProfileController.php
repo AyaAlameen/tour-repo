@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EmployeeProfile;
 use App\Models\User;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 
 class EmployeeProfileController extends Controller
@@ -15,15 +16,17 @@ class EmployeeProfileController extends Controller
      */
     public function indexAr()
     {
-        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
-        return view('admin-Ar.sections.employee-section', compact('employees'));
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+        return view('admin-Ar.sections.employee-section', compact('employees', 'permissions'));
 
     }
     
     public function indexEn()
     {
-        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
-        return view('admin-En.sections.employee-section', compact('employees'));
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+        return view('admin-En.sections.employee-section', compact('employees', 'permissions'));
 
     }
 
@@ -96,7 +99,7 @@ class EmployeeProfileController extends Controller
         $employee->email = $request->input('email');
         $employee->password = $request->input('password');
         $employee->phone = $request->input('phone');
-        $employee->is_employee = true;
+        $employee->is_employee = '1';
 
         $employee->save();
 
@@ -121,8 +124,10 @@ class EmployeeProfileController extends Controller
             'locale' => 'ar'
         ]);
 
-        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
-        return view('admin-Ar.sections.employee-section', compact('employees'));
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+
+        return view('admin-Ar.sections.employee-section', compact('employees', 'permissions'));
 
 
     }
@@ -180,7 +185,7 @@ class EmployeeProfileController extends Controller
         $employee->email = $request->input('email');
         $employee->password = $request->input('password');
         $employee->phone = $request->input('phone');
-        $employee->is_employee = true;
+        $employee->is_employee = '1';
 
         $employee->save();
 
@@ -205,8 +210,10 @@ class EmployeeProfileController extends Controller
             'locale' => 'ar'
         ]);
 
-        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
-        return view('admin-En.sections.employee-section', compact('employees'));
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+
+        return view('admin-En.sections.employee-section', compact('employees', 'permissions'));
 
 
 
@@ -296,7 +303,7 @@ class EmployeeProfileController extends Controller
         $employee->email = $request->input('email');
         // $employee->password = $request->input('password');
         $employee->phone = $request->input('phone');
-        $employee->is_employee = true;
+        $employee->is_employee = '1';
 
         $employee->employeeProfile()->where('user_id', $data['id'])->update([
             'salary' => $request->input('salary'), 
@@ -316,8 +323,10 @@ class EmployeeProfileController extends Controller
         
         $employee->update();
         
-        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
-        return view('admin-Ar.sections.employee-section', compact('employees'));
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+
+        return view('admin-Ar.sections.employee-section', compact('employees', 'permissions'));
     }
 
     public function updateEn(Request $request)
@@ -374,7 +383,7 @@ class EmployeeProfileController extends Controller
         $employee->email = $request->input('email');
         // $employee->password = $request->input('password');
         $employee->phone = $request->input('phone');
-        $employee->is_employee = true;
+        $employee->is_employee = '1';
 
         $employee->employeeProfile()->where('user_id', $data['id'])->update([
             'salary' => $request->input('salary'), 
@@ -394,8 +403,10 @@ class EmployeeProfileController extends Controller
         
         $employee->update();
         
-        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
-        return view('admin-En.sections.employee-section', compact('employees'));
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+
+        return view('admin-En.sections.employee-section', compact('employees', 'permissions'));
     }
 
     /**
@@ -416,8 +427,10 @@ class EmployeeProfileController extends Controller
         $employee->delete();
 
 
-        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
-        return view('admin-Ar.sections.employee-section', compact('employees'));
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+
+        return view('admin-Ar.sections.employee-section', compact('employees', 'permissions'));
 
     }
 
@@ -433,8 +446,37 @@ class EmployeeProfileController extends Controller
         $employee->delete();
 
 
-        $employees = User::with(['translations', 'employeeProfile'])->where('is_employee', true)->get();
-        return view('admin-En.sections.employee-section', compact('employees'));
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+
+        return view('admin-En.sections.employee-section', compact('employees', 'permissions'));
+
+    }
+
+    public function permissionsAr(Request $request){
+        
+        $data=$request->input();
+
+        $employee = User::find($data['id']);
+        $employee->permissions()->sync($data['permission_id']); 
+        
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+
+        return view('admin-Ar.sections.employee-section', compact('employees', 'permissions'));
+
+    }
+
+    public function permissionsEn(Request $request){
+        $data=$request->input();
+
+        $employee = User::find($data['id']);
+        $employee->permissions()->sync($data['permission_id']); 
+        
+        $employees = User::with(['translations', 'employeeProfile', 'permissions'])->where('is_employee', '1')->get();
+        $permissions = Permission::with('translations')->get();
+
+        return view('admin-En.sections.employee-section', compact('employees', 'permissions'));
 
     }
 }

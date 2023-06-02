@@ -329,6 +329,41 @@ function editEmployee(formId, id){
   }
 
   //---------------------------------------------------------------
+  function permissions(formId, id){
+
+$("#permissions-employee-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+var formData = new FormData(document.getElementById(formId));
+// formData.append('id', id);
+$.ajax({
+    url: `{{route('employeePermissionsEn')}}` ,
+    type: "POST",
+    data: formData,
+    processData: false, 
+    cache: false,
+    contentType: false,
+})
+.done(function(data){   
+  
+    $("#employees-data").empty();
+    $("#employees-data").append(data);
+    $('.close').click();
+    $('.parenttrue').attr("hidden", false);
+    // clearInput();
+})
+.fail(function(data){
+    $('.close').click();
+    $('.parent').attr("hidden", false);
+    
+
+})
+.always(function() {
+    // Re-enable the submit button and hide the loading spinner
+    $("#permissions-employee-btn-"+id).attr("disabled", false).html('Save');
+});
+}
+  
+  //---------------------------------------------------------------
+
   function deleteEmployee(formId, id){
     $("#delete-employee-btn-"+id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
