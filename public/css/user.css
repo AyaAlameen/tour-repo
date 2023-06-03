@@ -9788,7 +9788,66 @@
     background-repeat: no-repeat;
     background-position: center;
   }
- 
+  .filterGallery {
+    padding-top: 6.5rem;
+    padding-bottom: 7rem;
+  }
+  
+  .filterGallery .section-title {
+    margin-bottom: 0.5rem;
+  }
+  
+  .filterGallery .grid {
+    margin-top: 1.25rem;
+    border-radius: 0.375rem;
+  }
+  
+  /* Hover Animation */
+  .filterGallery .element-item {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 25%;
+    height: 340px;
+    background-color: #000; /* to hide 1px white margin in IE */
+  }
+  
+  .filterGallery .element-item img {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    transition: all 0.3s;
+  }
+  
+  .filterGallery .element-item:hover img {
+    -moz-transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  } 
+  /* end of hover animation */
+  
+  .filterGallery .element-item .element-item-overlay { 
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  
+  .filterGallery .element-item .element-item-overlay span { 
+    position: absolute;
+    z-index: 3;
+    top: 42%;
+    right: 0;
+    left: 0;
+    color: #fff;
+    font: 700 1.125rem/1.625rem "Montserrat", sans-serif;
+  }
   .trip-page-header{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/join-us.jpg), no-repeat center center;
     /* background-size: cover; */

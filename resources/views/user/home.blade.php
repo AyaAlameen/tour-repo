@@ -448,8 +448,7 @@
                             <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/2d342eea70239214700de5be3440efea.jpg" alt="alternative"></a>
                         </div>
                     </div> <!-- end of grid -->
-                    <!-- end of filter -->
-                    
+                   
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
 		</div> <!-- end of container -->

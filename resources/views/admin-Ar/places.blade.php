@@ -409,21 +409,13 @@
                     <div class="product-cell">نسبة الأرباح الخارجية</div>
                     <div class="product-cell">الأحداث</div>
 
-
                 </div>
+                
                 <div id="places-data">
                     <?php $i = 1; ?>
                     @foreach ($places as $place)
                         <div class="products-row">
-                            <button class="cell-more-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                    <circle cx="12" cy="12" r="1" />
-                                    <circle cx="12" cy="5" r="1" />
-                                    <circle cx="12" cy="19" r="1" />
-                                </svg>
-                            </button>
+           
                             <div class="product-cell">
                                 <span>{{ $i++ }}</span>
                             </div>
@@ -448,9 +440,6 @@
                                         data-toggle="tooltip" src="img/syria.png"
                                         style="width: 35px; height: 35px;"></span>
                             </div>
-
-
-
                             {{-- نهاية عرض الموقع --}}
                             <div class="product-cell">
                                 <span>{{ $place->email }}</span>
@@ -458,7 +447,26 @@
                             <div class="product-cell">
                                 <span>{{ $place->phone }}</span>
                             </div>
-
+                            <div class="product-cell">
+                                <span>{{ $place->cost }}</span>
+                            </div>
+                
+                            <div class="product-cell">
+                                <span>{{ $place->profit_ratio_1 }}</span>
+                            </div>
+                
+                            <div class="product-cell">
+                                <span>{{ $place->profit_ratio_2 }}</span>
+                            </div>
+                            <div class="product-cell">
+                                <!-- start action -->
+                                <div class="p-3">
+                
+                
+                
+                                    <!-- edit -->
+                                    <a href="#" class="edit p-2" data-toggle="modal" data-target="#exampleModal" title="Edit"><i
+                                            class="fas fa-pen"></i></a>
                                         <!-- Modal -->
                                         <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -817,21 +825,20 @@
                                 </div>
                                 <!-- end delete -->
 
-                            </div>
+                            
                             <!-- end action -->
 
-
+            
                         </div>
                     @endforeach
                 </div>
 
-
+            </div>
             </div>
         </div>
     </div>
     </div>
-    </div>
-
+ 
 {{-- مودل عرض الخريطة بالجدول --}}
 
  <!-- Modal -->

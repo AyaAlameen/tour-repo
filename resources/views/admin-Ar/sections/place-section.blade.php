@@ -3,15 +3,7 @@
     @if ($loop->last)
     @else
         <div class="products-row">
-            <button class="cell-more-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-more-vertical">
-                    <circle cx="12" cy="12" r="1" />
-                    <circle cx="12" cy="5" r="1" />
-                    <circle cx="12" cy="19" r="1" />
-                </svg>
-            </button>   
+            
             <div class="product-cell">
                 <span>{{ $i++ }}</span>
             </div>
@@ -30,6 +22,14 @@
             <div class="product-cell">
                 <span>{{ $place->translations()->where('locale', 'ar')->first()->description }}</span>
             </div>
+
+                    {{-- عرض الموقع --}}
+                    <div class="product-cell">
+                        <span><img data-toggle="modal" data-target="#exampleModal8" title="Delete"
+                                data-toggle="tooltip" src="img/syria.png"
+                                style="width: 35px; height: 35px;"></span>
+                    </div>
+                    {{-- نهاية عرض الموقع --}}
             <div class="product-cell">
                 <span>{{ $place->email }}</span>
             </div>
@@ -240,7 +240,7 @@
             </div>
             <!-- end action -->
 
-
         </div>
+    
     @endif
 @endforeach
