@@ -226,14 +226,14 @@
 
                 {{-- permessions --}}
 
-                <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
+                <div class="modal fade" style="direction:ltr;" data-backdrop="static"
                     id="permissionsEmployee{{ $employee->id }}" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
                     tabindex="-1">
                     <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
                         <div class="modal-content m-auto" style="width:450px;">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalToggleeLabel">سماحيات الموظف</h5>
-                                <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
+                                <button type="button" class="btn-close m-0 close" data-dismiss="modal"
                                     aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -272,7 +272,7 @@
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="action-button active close"
-                                    data-bs-dismiss="modal">إغلاق</button>
+                                    data-dismiss="modal">إغلاق</button>
                                 <button type="submit" id="permissions-employee-btn-{{ $employee->id }}"
                                     onclick="permissions(`permissions-form-{{ $employee->id }}`, {{ $employee->id }})"
                                     class="app-content-headerButton">حفظ</button>
@@ -281,10 +281,6 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- <a class="delete " title="permessions" data-target="#permissionsEmployee{{ $employee->id }}" data-bs-toggle="modal"
-                    href="#"><img src="img/key.png"
-                        style="width: 21px; height: 21px;"></a> --}}
                         <a href="#" class="delete" data-toggle="modal"
                             data-target="#permissionsEmployee{{ $employee->id }}" title="Delete" data-toggle="tooltip"><img src="img/key.png"
                             style="width: 21px; height: 21px;"></a>
@@ -519,14 +515,14 @@
 
                         {{-- permessions --}}
 
-                        <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
+                        <div class="modal fade" style="direction:ltr;" data-backdrop="static"
                             id="permissionsEmployee{{ $employee->id }}" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
                             tabindex="-1">
                             <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
                                 <div class="modal-content m-auto" style="width:450px;">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalToggleeLabel">سماحيات الموظف</h5>
-                                        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close m-0 close" data-dismiss="modal"
                                             aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -565,7 +561,7 @@
                                     </form>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close"
-                                            data-bs-dismiss="modal">إغلاق</button>
+                                            data-dismiss="modal">إغلاق</button>
                                         <button type="submit" id="permissions-employee-btn-{{ $employee->id }}"
                                             onclick="permissions(`permissions-form-{{ $employee->id }}`, {{ $employee->id }})"
                                             class="app-content-headerButton">حفظ</button>
@@ -574,10 +570,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        {{-- <a class="delete " title="permessions" data-target="#permissionsEmployee{{ $employee->id }}" data-bs-toggle="modal"
-                            href="#"><img src="img/key.png"
-                                style="width: 21px; height: 21px;"></a> --}}
 
                                 <a href="#" class="delete" data-toggle="modal"
                             data-target="#permissionsEmployee{{ $employee->id }}" title="Delete" data-toggle="tooltip"><img src="img/key.png"
