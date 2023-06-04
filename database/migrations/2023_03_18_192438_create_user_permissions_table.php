@@ -17,6 +17,7 @@ class CreateUserPermissionsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('permission_id');
+            $table->foreignId('place_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -11,6 +11,7 @@ use App\Models\Permission;
 use App\Models\Place;
 use App\Models\EmployeeProfile;
 use App\Models\Rating;
+use App\Models\UserPermission;
 use App\Models\Translation;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -52,7 +53,7 @@ class User extends Authenticatable
 
 
     public function permissions() {
-        return $this->belongsToMany(Permission::class, 'user_permissions', 'user_id', 'permission_id');
+        return $this->belongsToMany(Permission::class, 'user_permissions', 'user_id', 'permission_id')->withPivot('place_id')->using(UserPermission::class);;
     }
 
     public function favorites() {

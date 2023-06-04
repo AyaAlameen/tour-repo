@@ -181,6 +181,7 @@
                 <div class="product-cell"> الاسم الكامل</div>
                 <div class="product-cell "> اسم المستخدم</div>
                 <div class="product-cell category">الايميل</div>
+                <div class="product-cell category">مكان العمل</div>
                 <div class="product-cell ">الأحداث</div>
             </div>
 
@@ -201,7 +202,7 @@
         $("#add-employee-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         var formData = new FormData(document.getElementById('add-form'));
         $.ajax({
-                url: "{{ route('addEmployeeAr') }}",
+                url: "{{ route('addPlaceEmployeeAr') }}",
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -279,7 +280,7 @@
         var formData = new FormData(document.getElementById(formId));
         formData.append('id', id);
         $.ajax({
-                url: `{{ route('editEmployeeAr') }}`,
+                url: `{{ route('editPlaceEmployeeAr') }}`,
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -417,13 +418,10 @@
     function removeMessages() {
         document.getElementById('name_ar_error').innerHTML = '';
         document.getElementById('name_en_error').innerHTML = '';
-        document.getElementById('image_error').innerHTML = '';
         document.getElementById('user_name_error').innerHTML = '';
         document.getElementById('email_error').innerHTML = '';
         document.getElementById('password_error').innerHTML = '';
-        document.getElementById('phone_error').innerHTML = '';
-        document.getElementById('salary_error').innerHTML = '';
-        document.getElementById('identifier_error').innerHTML = '';
+       
 
         const name_ar = document.querySelectorAll('.name_ar_error_edit');
         name_ar.forEach(name => {
@@ -445,20 +443,11 @@
             email.innerHTML = '';
         });
 
-        const phones = document.querySelectorAll('.phone_error_edit');
-        phones.forEach(phone => {
-            phone.innerHTML = '';
+        const places = document.querySelectorAll('.place_error_edit');
+        places.forEach(place => {
+            place.innerHTML = '';
         });
 
-        const salaries = document.querySelectorAll('.salary_error_edit');
-        salaries.forEach(salary => {
-            salary.innerHTML = '';
-        });
-
-        const identifiers = document.querySelectorAll('.identifier_error_edit');
-        identifiers.forEach(identifier => {
-            identifier.innerHTML = '';
-        });
     }
     //--------------------------------------------
 
@@ -473,14 +462,14 @@
         document.getElementById('place_id').value = `${place_id}`;
     }
     //--------------------------------------------
-    function setEditPlace(place_id, event_id, place, option_id) {
+    function setEditPlace(place_id, employee_id, place, option_id) {
         var places_options = document.querySelectorAll('[id^="edit_place_"]');
         places_options.forEach(option => {
             option.style.setProperty("color", "#1f1c2e", "important");
 
         });
-        document.getElementById('place-name-' + event_id).innerHTML = place;
+        document.getElementById('place-name-' + employee_id).innerHTML = place;
         document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-        document.getElementById('edit_place_id_' + event_id).value = `${place_id}`;
+        document.getElementById('edit_place_id_' + employee_id).value = `${place_id}`;
     }
 </script>

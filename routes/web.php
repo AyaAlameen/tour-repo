@@ -214,8 +214,8 @@ Route::get('/services_ar', function () {
 Route::get('/emp-places-ar', [PlaceEmployeeController::class, 'placesAr']) -> name('emp-places-Ar');
 
 Route::get('/ar/places-employees', [PlaceEmployeeController::class, 'indexAr']) -> name('getPlacesEmployeesAr');
-Route::post('/emp-places-ar', [PlaceEmployeeController::class, 'storeAr']) -> name('addPlacesEmployeeAr');
-Route::post('/emp-places-ar/edit', [PlaceEmployeeController::class, 'updateAr']) -> name('editPlacesEmployeeAr');
+Route::post('/emp-places-ar', [PlaceEmployeeController::class, 'storeAr']) -> name('addPlaceEmployeeAr');
+Route::post('/emp-places-ar/edit', [PlaceEmployeeController::class, 'updateAr']) -> name('editPlaceEmployeeAr');
 Route::post('/emp-places-ar/delete', [PlaceEmployeeController::class, 'destroyAr']) -> name('deletePlacesEmployeeAr');
 
 
