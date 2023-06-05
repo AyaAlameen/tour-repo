@@ -223,6 +223,15 @@ Route::get('/emp-places-en', function () {
     return view('admin-En.employee_places');
 }) -> name('emp-places-En');
 
+
+Route::get('/emp-places-en', [PlaceEmployeeController::class, 'placesEn']) -> name('emp-places-En');
+
+Route::get('/en/places-employees', [PlaceEmployeeController::class, 'indexEn']) -> name('getPlacesEmployeesEn');
+Route::post('/emp-places-en', [PlaceEmployeeController::class, 'storeEn']) -> name('addPlaceEmployeeEn');
+Route::post('/emp-places-en/edit', [PlaceEmployeeController::class, 'updateEn']) -> name('editPlaceEmployeeEn');
+Route::post('/emp-places-en/delete', [PlaceEmployeeController::class, 'destroyEn']) -> name('deletePlaceEmployeeEn');
+
+
 // Route::get('/dist_ar', function () {
 //     return view('admin-Ar.districts');
 // }) -> name('dist_ar');
