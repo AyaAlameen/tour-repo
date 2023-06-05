@@ -252,7 +252,7 @@
                                                     <h5 class="modal-title" id="exampleModal6Label">إضافة المكان على
                                                         الخريطة</h5>
                                                     <button type="button" class="btn-close m-0 close"
-                                                        onclick="hidemap()" aria-label="Close">
+                                                        onclick="hidemap('exampleModal6')" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -261,7 +261,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="action-button active"
-                                                        onclick="hidemap()">إغلاق</button>
+                                                        onclick="hidemap('exampleModal6')">إغلاق</button>
                                                     <button type="button" id="save-map-btn" onclick="spinner()"
                                                         class="app-content-headerButton">حفظ</button>
                                                 </div>
@@ -608,7 +608,20 @@
                                                                 </td>
                                                                 <td>الكلفة</td>
                                                             </tr>
-
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" class="toggle text-primary in"
+                                                                        value="10">
+                                                                </td>
+                                                                <td>نسبة الأرباح الداخلية</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" class="toggle text-primary in"
+                                                                        value="5">
+                                                                </td>
+                                                                <td>نسبة الأرباح الخارجية</td>
+                                                            </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td class="text-center"><img class="m-3" data-bs-toggle="modal"
@@ -645,154 +658,7 @@
                                                             التغييرات</button>
                                                     </div>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <table
-                                                        class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                                        style="direction:ltr !important;">
-                                                        <tr>
-
-                                                            <td><input type="text" class="toggle text-primary in"
-                                                                    name="place_name" required style="width: 100%;">
-                                                                </th>
-                                                            <td>الاسم(العربية)</td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td><input type="text" class="toggle text-primary in"
-                                                                    name="place_name" required style="width: 100%;">
-                                                                </th>
-                                                            <td>(الانكليزية)الاسم </td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td><input type="file" hidden id="img">
-                                                                <label for="img"><img src="img/about-1.jpg"
-                                                                        style="padding-top: 5px; border-radius: 0px;"
-                                                                        width="30px" height="50px"></label>
-                                                            </td>
-                                                            <td>الصورة </td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td>
-                                                                <div class="dropdown toggle text-primary in"
-                                                                    style="display:inline-block; ;">
-                                                                    <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                                        aria-expanded="false">
-                                                                        حلب
-                                                                    </label>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">---</a>
-                                                                        <a class="dropdown-item" href="#">----</a>
-
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>المدينة </td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td>
-                                                                <div class="dropdown toggle text-primary in"
-                                                                    style="display:inline-block; ;">
-                                                                    <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                                        aria-expanded="false">
-                                                                        ---
-                                                                    </label>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">---</a>
-                                                                        <a class="dropdown-item" href="#">----</a>
-
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>الناحية </td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td>
-                                                                <div class="dropdown toggle text-primary in"
-                                                                    style="display:inline-block; ;">
-                                                                    <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                                        aria-expanded="false">
-                                                                        ---
-                                                                    </label>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">---</a>
-                                                                        <a class="dropdown-item" href="#">----</a>
-
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>الصنف الفرعي </td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td><input type="text" class="toggle text-primary in"
-                                                                    value="-----">
-                                                            </td>
-                                                            <td>الموقع</td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td><input class="toggle text-primary in" type="text"
-                                                                    name="place-description" required
-                                                                    style="width: 100%;"></th>
-                                                            <td>وصف(العربية)</td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td><input class="toggle text-primary in" type="text"
-                                                                    name="place-description" required
-                                                                    style="width: 100%;"></th>
-                                                            <td>(الانكليزية)وصف</td>
-                                                        </tr>
-                                                        <tr>
-
-
-                                                            <td><input type="email" class="toggle text-primary in"
-                                                                    value="@gmail.com">
-                                                            </td>
-                                                            <td>الايميل</td>
-
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td><input type="number" class="toggle text-primary in"
-                                                                    value="09123456789">
-                                                            </td>
-                                                            <td>الهاتف</td>
-                                                        </tr>
-                                                        <tr>
-
-                                                            <td><input type="number" class="toggle text-primary in"
-                                                                    value="100000">
-                                                            </td>
-                                                            <td>الكلفة</td>
-                                                        </tr>
-
-                                                    </table>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="action-button active"
-                                                        data-dismiss="modal">إغلاق</button>
-                                                    <button type="submit" class="app-content-headerButton">حفظ
-                                                        التغييرات</button>
-                                                </div>
-                                            </div>
+                                              
                                         </div>
                                     </div>
                                     <!-- end edit -->
@@ -842,12 +708,12 @@
 {{-- مودل عرض الخريطة بالجدول --}}
 
  <!-- Modal -->
- <div class="modal fade" id="exampleModal8" tabindex="-1" 
+ <div class="modal fade" id="exampleModal8" tabindex="-1"
  aria-labelledby="exampleModal8Label" aria-hidden="true">
  <div class="modal-dialog">
      <div class="modal-content" style="direction:ltr;">
          <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal"
+             <button type="button" onclick="hidemap('exampleModal8')" class="close" data-dismiss="modal"
                  aria-label="Close">
                  <span aria-hidden="true">&times;</span>
              </button>
@@ -855,7 +721,7 @@
          <div class="modal-body" style="direction:ltr;">
              {{-- الخريطة --}}
              <div class="modal-footer">
-                 <button type="button" class="action-button active"
+                 <button type="button" onclick="hidemap('exampleModal8')" class="action-button active"
                      data-dismiss="modal">إغلاق</button>
              </div>
          </div>
@@ -866,7 +732,7 @@
 
 
              {{-- مودل تعديل الخريطة --}}
-             <div class="modal fade bg-light" id="exampleModal9" data-bs-backdrop="static"
+             <div class="modal fade bg-light" id="exampleModal9" 
              tabindex="-1" aria-labelledby="exampleModal9Label" aria-hidden="true">
              <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                  <div class="modal-content toggle w-100 h-100">
@@ -874,7 +740,7 @@
                          <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
                              الخريطة</h5>
                          <button type="button" class="btn-close m-0 close"
-                             onclick="hidemap()" aria-label="Close">
+                             onclick="hidemap('exampleModal9')" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                          </button>
                      </div>
@@ -883,7 +749,7 @@
                      </div>
                      <div class="modal-footer">
                          <button type="button" class="action-button active"
-                             onclick="hidemap()">إغلاق</button>
+                             onclick="hidemap('exampleModal9')">إغلاق</button>
                          <button type="button" id="save-map-btn-edit"  onclick="spinner()" class="app-content-headerButton">حفظ</button>
                      </div>
                  </div>

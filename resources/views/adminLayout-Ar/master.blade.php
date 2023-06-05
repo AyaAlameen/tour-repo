@@ -296,12 +296,9 @@
         }
 
         //  إخفاء مودل الخريطة 
-        function hidemap() {
-
-            $("#exampleModal6").hide();
-            $("#exampleModal7").hide();
-            $("#mapimg").click();
-
+        function hidemap(modal_id) {
+            $('#' + modal_id).hide();
+    
         }
         // زر حفظ الخريظة
         function spinner() {
