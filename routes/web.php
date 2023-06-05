@@ -216,7 +216,7 @@ Route::get('/emp-places-ar', [PlaceEmployeeController::class, 'placesAr']) -> na
 Route::get('/ar/places-employees', [PlaceEmployeeController::class, 'indexAr']) -> name('getPlacesEmployeesAr');
 Route::post('/emp-places-ar', [PlaceEmployeeController::class, 'storeAr']) -> name('addPlaceEmployeeAr');
 Route::post('/emp-places-ar/edit', [PlaceEmployeeController::class, 'updateAr']) -> name('editPlaceEmployeeAr');
-Route::post('/emp-places-ar/delete', [PlaceEmployeeController::class, 'destroyAr']) -> name('deletePlacesEmployeeAr');
+Route::post('/emp-places-ar/delete', [PlaceEmployeeController::class, 'destroyAr']) -> name('deletePlaceEmployeeAr');
 
 
 Route::get('/emp-places-en', function () {
