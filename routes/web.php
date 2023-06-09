@@ -347,6 +347,10 @@ Route::get('/trip_ar', function () {
     return view('user-ar.trips');
 })-> name('trip-ar');
 
+Route::get('/user_city_ar', function () {
+    return view('user-ar.city');
+})-> name('user-city-ar');
+
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

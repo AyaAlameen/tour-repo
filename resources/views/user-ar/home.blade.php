@@ -178,7 +178,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img  width="400px" height="250px" src="img/syrien-ar-modern-till.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
+                        <a class="destination-overlay text-white text-decoration-none" href="{{route('user-city-ar')}}">
                             <h4 class="text-white">حلب</h4>
                             
                         </a>

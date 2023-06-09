@@ -349,7 +349,7 @@
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
-    color: #212121;
+    /* color: #212121; */
   }
   
   h1, .h1 {
@@ -2359,12 +2359,16 @@
     color: #fff;
     background-color: var(--bambi);
     border-color: var(--bambi);
+    border-radius: 10px;
+    border-width: 2px;
+
   }
   
   .btn-primary:hover {
-    color: #fff;
-    background-color: var(--bambi);
+    color: var(--bambi);
+    background-color: #fff;
     border-color: var(--bambi);
+
   }
   
   .btn-primary:focus, .btn-primary.focus {
