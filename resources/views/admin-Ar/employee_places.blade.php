@@ -328,7 +328,7 @@
                         .place_id[0];
 
                 }
-                
+
 
             })
             .always(function() {
@@ -343,7 +343,7 @@
 
         var formData = new FormData(document.getElementById(formId));
         $.ajax({
-                url: `{{ route('deleteEmployeeAr') }}`,
+                url: `{{ route('deletePlaceEmployeeAr') }}`,
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -421,7 +421,7 @@
         document.getElementById('user_name_error').innerHTML = '';
         document.getElementById('email_error').innerHTML = '';
         document.getElementById('password_error').innerHTML = '';
-       
+
 
         const name_ar = document.querySelectorAll('.name_ar_error_edit');
         name_ar.forEach(name => {

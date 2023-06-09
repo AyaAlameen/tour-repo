@@ -216,12 +216,21 @@ Route::get('/emp-places-ar', [PlaceEmployeeController::class, 'placesAr']) -> na
 Route::get('/ar/places-employees', [PlaceEmployeeController::class, 'indexAr']) -> name('getPlacesEmployeesAr');
 Route::post('/emp-places-ar', [PlaceEmployeeController::class, 'storeAr']) -> name('addPlaceEmployeeAr');
 Route::post('/emp-places-ar/edit', [PlaceEmployeeController::class, 'updateAr']) -> name('editPlaceEmployeeAr');
-Route::post('/emp-places-ar/delete', [PlaceEmployeeController::class, 'destroyAr']) -> name('deletePlacesEmployeeAr');
+Route::post('/emp-places-ar/delete', [PlaceEmployeeController::class, 'destroyAr']) -> name('deletePlaceEmployeeAr');
 
 
 Route::get('/emp-places-en', function () {
     return view('admin-En.employee_places');
 }) -> name('emp-places-En');
+
+
+Route::get('/emp-places-en', [PlaceEmployeeController::class, 'placesEn']) -> name('emp-places-En');
+
+Route::get('/en/places-employees', [PlaceEmployeeController::class, 'indexEn']) -> name('getPlacesEmployeesEn');
+Route::post('/emp-places-en', [PlaceEmployeeController::class, 'storeEn']) -> name('addPlaceEmployeeEn');
+Route::post('/emp-places-en/edit', [PlaceEmployeeController::class, 'updateEn']) -> name('editPlaceEmployeeEn');
+Route::post('/emp-places-en/delete', [PlaceEmployeeController::class, 'destroyEn']) -> name('deletePlaceEmployeeEn');
+
 
 // Route::get('/dist_ar', function () {
 //     return view('admin-Ar.districts');
