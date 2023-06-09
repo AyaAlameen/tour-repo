@@ -62,4 +62,11 @@ class Place extends Model
     {
         return $this->morphMany(Image::class, 'model');
     }
+
+    public function getGeolocationArray()
+    {
+        $lat = explode(',', $this->geolocation)[0];
+        $lng = explode(',', $this->geolocation)[1];
+        return [$lat, $lng];;
+    }
 }

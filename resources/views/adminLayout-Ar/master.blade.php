@@ -125,7 +125,8 @@
         // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         // }).addTo(map);
-
+        
+        //----------------------- add map --------------------------------------
         var map = L.map('add-map').setView([51.505, -0.09], 13); // set the initial view of the map
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles
             maxZoom: 18,
@@ -155,6 +156,40 @@
                 .lng; // update the hidden input field with the coordinates
         });
 
+
+        // -----------------------------------------------------------------------------
+        // ------------------------ show map------------------------------------
+
+
+        var show_map = L.map('show-map').setView([51.505, -0.09], 13); // set the initial view of the map.
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(show_map);
+        // map.on('click', function(e) {
+        //     document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng;
+        // });
+
+        // var markerIcon = L.icon({
+        //     iconUrl: '{{ asset('img/marker.svg') }}',
+        //     iconSize: [25, 41],
+        //     iconAnchor: [12, 41],
+        //     popupAnchor: [1, -34],
+        // });
+
+        // // add a marker to the map
+        // var marker = L.marker([0, 0], {
+        //     icon: markerIcon
+        // });
+
+        // map.on('click', function(e) {
+        //     marker.addTo(map);
+        //     marker.setLatLng(e.latlng); // move the marker to the clicked location
+        //     document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng
+        //         .lng; // update the hidden input field with the coordinates
+        // });
+
+        //--------------------------------------------
         // var marker = L.marker([51.505, -0.09]).addTo(map); // add a marker to the map
 
         // map.on('click', function(e) {
