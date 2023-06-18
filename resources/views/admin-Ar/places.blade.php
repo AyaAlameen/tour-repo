@@ -464,8 +464,6 @@
                                 <!-- start action -->
                                 <div class="p-3">
 
-
-
                                     <!-- edit -->
                                     <a href="#" class="edit p-2" data-toggle="modal" data-target="#exampleModal"
                                         title="Edit"><i class="fas fa-pen"></i></a>

@@ -13,6 +13,7 @@ use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PlaceEmployeeController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -207,9 +208,16 @@ Route::get('/offers_ar', function () {
     return view('admin-Ar.offers');
 }) -> name('offer_ar');
 
-Route::get('/services_ar', function () {
-    return view('admin-Ar.services');
-}) -> name('service_ar');
+// Route::get('/services_ar', function () {
+//     return view('admin-Ar.services');
+// }) -> name('service_ar');
+
+Route::get('/services_ar', [ServiceController::class, 'indexAr']) -> name('service_ar');
+Route::post('/services_ar', [ServiceController::class, 'storeAr']) -> name('addServiceAr');
+Route::post('/services_ar/edit', [ServiceController::class, 'updateAr']) -> name('editServiceAr');
+Route::post('/services_ar/delete', [ServiceController::class, 'destroyAr']) -> name('deleteServiceAr');
+
+
 
 Route::get('/emp-places-ar', [PlaceEmployeeController::class, 'placesAr']) -> name('emp-places-Ar');
 
