@@ -102,9 +102,14 @@
                                     <tr>
                                         <td></td>
 
-                                        <td><input class="toggle text-primary in" type="text" name="cost" required
+                                        <td><input class="toggle text-primary in" type="number" name="cost" required
                                                 style="width: 100%;"></th>
                                         <td>الكلفة</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -121,10 +126,34 @@
 
 
                                                 </div>
-                                            </div> --}}
-                                            <input type="checkbox" name="is_additional">
+                                            </div> --}} 
+
+                                            {{--   هاد المثال يلي فيه تنسيق لشكل الإنبوت تنسيق السي اس اس موجود بآخر هي الصفحة بتاغ ستايل في حال اعتمدتي عليه انقلي لمحل ما بالعادة بتحطي أكواد السي اس اس وبس يلا باي --}}
+
+                                                {{-- <input type="checkbox" name="is_additional" value="false"> --}}
+                                                    {{-- <label class="switch">
+                                                        <input name="is_additional" type="checkbox" value="true">
+                                                        <span class="slider round"></span>
+                                                    </label> --}}
+
+                                            {{-- ---------------------------------------------------------------------------------- --}}
+                                            
+                                                
+                                                <label for="false">لا</label>
+                                                <input type="radio" id="false" name="is_additional" value="0">
+
+
+                                                <label for="true">نعم</label>
+                                                <input type="radio" id="true" name="is_additional" value="1">
+
+                                                
                                         </td>
                                         <td>إضافية؟</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="is_additional_error"></span>
+                                        </td>
                                     </tr>
 
                                     <tr>
@@ -284,7 +313,7 @@
                                     @if ($service->is_additional)
                                         <img src="img/true.png" style="width: 30px; height:30px;" />
                                     @else
-                                        <img src="img/true.png" style="width: 30px; height:30px;" />
+                                        <img src="img/false.png" style="width: 30px; height:30px;" />
                                     @endif
                                 </span>
                             </div>
@@ -509,6 +538,9 @@
                 if (data.responseJSON.errors.cost) {
                     document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
                 }
+                if (data.responseJSON.errors.is_additional) {
+                    document.querySelector(`#${formId} #is_additional_error`).innerHTML = data.responseJSON.errors.is_additional[0];
+                }
 
 
             })
@@ -709,3 +741,68 @@
         document.getElementById('edit_place_id_' + event_id).value = `${place_id}`;
     }
 </script>
+
+
+
+
+<style>
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+    
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+    
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    </style>

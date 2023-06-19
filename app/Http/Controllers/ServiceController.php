@@ -50,21 +50,28 @@ class ServiceController extends Controller
      */
     public function storeAr(Request $request)
     {
+        // dd($request->all());
         $data=$request->input();
         //validation:
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
             'place_id' => 'required',
-            'cost' => 'numeric|min:1',
+            'cost' => 'required|numeric|min:1',
+            'is_additional' => 'required|boolean',
             
         ], [
             'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
             'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
             'place_id.required' => 'حقل المكان مطلوب',
         
+            'cost.required' => 'حقل التكلفة مطلوب',
             'cost.numeric' => 'حقل التكلفة يجب أن يكون رقم',
             'cost.min' => 'حقل التكلفة يجب أن يكون أكبر من الصفر',
+
+            'is_additional.required' => 'حقل الإضافية مطلوب',
+            'is_additional.boolean' => 'حقل الإضافية يجب أن يكون إما نعم أو لا',
+
         ]);
         
 
