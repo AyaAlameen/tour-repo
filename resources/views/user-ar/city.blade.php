@@ -30,7 +30,7 @@
         {{-- الأصناف --}}
         <div class="container">
             <h4 class="p-5" style="text-align: right;"> أماكن (اسم الصنف ^_^ ) </h4>
-            <div class="container d-flex justify-content-center">
+            <div class="container d-flex justify-content-center m-3">
                 <button class="m-2 btn btn-primary">صنف فرعي 1</button>
                 <button class="m-2 btn btn-primary">صنف فرعي 6</button>
                 <button class="m-2 btn btn-primary">صنف فرعي 5</button>
@@ -38,6 +38,20 @@
                 <button class="m-2 btn btn-primary">صنف فرعي 3</button>
                 <button class="m-2 btn btn-primary">صنف فرعي 2</button>
             </div>
+            {{-- بداسة كارد المكان --}}
+            <div class="mainCard w-75 m-auto ">
+
+                <div style="direction: rtl; border-radius: 10px;">
+                    <img src="img/aleppo-palace-hotel.jpg"
+                        style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px" height="200px">
+                    <h4 class="d-inline" style="padding: 10px;">فندق قصر حلب</h4>
+                <h5 class="d-inline">ناحية الشهباء</h5>
+
+                </div>
+
+
+            </div>
+            {{-- نهاية كارد المكان --}}
         </div>
         {{-- نهاية الأصناف --}}
     </div>
