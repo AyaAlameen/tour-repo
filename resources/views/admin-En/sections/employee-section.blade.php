@@ -202,7 +202,7 @@
                                 <input type="text" name="id" value="{{ $employee->id }}" hidden>
                                 <div class="modal-body">
                                     Are you sure that you want to delete This Employee (<span
-                                        style="color: #EB455F;">{{ $employee->translations()->where('locale', 'en')->first()->full_name }}</span>)
+                                        style="color: #90aaf8;">{{ $employee->translations()->where('locale', 'en')->first()->full_name }}</span>)
                                     ?
                                 </div>
                                 <div class="modal-footer">
@@ -221,7 +221,7 @@
 
                 {{-- permessions --}}
 
-                <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
+                <div class="modal fade" style="direction:ltr;" data-backdrop="static"
                     id="permissionsEmployee{{ $employee->id }}" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
                     tabindex="-1">
                     <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
@@ -229,7 +229,7 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalToggleeLabel">Employee permessions
                                 </h5>
-                                <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
+                                <button type="button" class="btn-close m-0 close" data-dismiss="modal"
                                     aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -262,7 +262,7 @@
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="action-button active close"
-                                    data-bs-dismiss="modal">Close</button>
+                                    data-dismiss="modal">Close</button>
                                 <button type="submit" id="permissions-employee-btn-{{ $employee->id }}"
                                     onclick="permissions(`permissions-form-{{ $employee->id }}`, {{ $employee->id }})" class="app-content-headerButton">Save</button>
 
@@ -489,7 +489,7 @@
                                         <input type="text" name="id" value="{{ $employee->id }}" hidden>
                                         <div class="modal-body">
                                             Are you sure that you want to delete This Employee (<span
-                                                style="color: #EB455F;">{{ $employee->translations()->where('locale', 'en')->first()->full_name }}</span>)
+                                                style="color: #90aaf8;">{{ $employee->translations()->where('locale', 'en')->first()->full_name }}</span>)
                                             ?
                                         </div>
                                         <div class="modal-footer">
@@ -508,7 +508,7 @@
 
                         {{-- permessions --}}
 
-                        <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
+                        <div class="modal fade" style="direction:ltr;" data-backdrop="static"
                             id="permissionsEmployee{{ $employee->id }}" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
                             tabindex="-1">
                             <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
@@ -516,7 +516,7 @@
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalToggleeLabel">Employee permessions
                                         </h5>
-                                        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close m-0 close" data-dismiss="modal"
                                             aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -549,7 +549,7 @@
                                     </form>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close"
-                                            data-bs-dismiss="modal">Close</button>
+                                            data-dismiss="modal">Close</button>
                                         <button type="submit" id="permissions-employee-btn-{{ $employee->id }}"
                                             onclick="permissions(`permissions-form-{{ $employee->id }}`, {{ $employee->id }})" class="app-content-headerButton">Save</button>
 

@@ -25,7 +25,7 @@
                         <form id="add-form" action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
-                                <table style="width: 400px;"
+                                <table style="width: 400px; direction: rtl;"
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
 
                                     <tr>
@@ -101,7 +101,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>المكان</td>
+                                        <td>Workplace</td>
                                     </tr>
                                     <tr>
                                         <td></td>

@@ -33,7 +33,7 @@
                                           <input type="text" name="city_id" value="{{$city->id}}" hidden>
 
                                           <div class="modal-body">
-                                          هل أنت متأكد من أنك تريد حذف هذه الناحية (<span style="color: #EB455F;">{{$district->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                          هل أنت متأكد من أنك تريد حذف هذه الناحية (<span style="color: #90aaf8;">{{$district->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
@@ -126,7 +126,7 @@
                                           <input type="text" name="city_id" value="{{$city->id}}" hidden>
 
                                           <div class="modal-body">
-                                          هل أنت متأكد من أنك تريد حذف هذه الناحية (<span style="color: #EB455F;">{{$district->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                          هل أنت متأكد من أنك تريد حذف هذه الناحية (<span style="color: #90aaf8;">{{$district->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>

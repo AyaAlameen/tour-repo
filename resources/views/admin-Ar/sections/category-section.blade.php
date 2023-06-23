@@ -35,7 +35,7 @@
                                 @csrf
                                 <input type="text" name="id" value="{{$category->id}}" hidden>
                                 <div class="modal-body" style="direction:rtl;">
-                                    هل أنت متأكد من أنك تريد حذف هذا الصنف (<span style="color: #EB455F;">{{$category->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                    هل أنت متأكد من أنك تريد حذف هذا الصنف (<span style="color: #90aaf8;">{{$category->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
@@ -134,7 +134,7 @@
                                 @csrf
                                 <input type="text" name="id" value="{{$category->id}}" hidden>
                                 <div class="modal-body" style="direction:rtl;">
-                                    هل أنت متأكد من أنك تريد حذف هذا الصنف (<span style="color: #EB455F;">{{$category->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                    هل أنت متأكد من أنك تريد حذف هذا الصنف (<span style="color: #90aaf8;">{{$category->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>

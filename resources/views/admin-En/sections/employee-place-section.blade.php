@@ -27,7 +27,7 @@
                 <div class="modal fade" id="editEmployee{{ $employee->id }}" data-backdrop="static" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content" style="direction:ltr;">
+                        <div class="modal-content" >
                             <div class="modal-header">
                                 <button type="button" class="close" onclick="removeMessages()"
                                     data-dismiss="modal" aria-label="Close">
@@ -40,7 +40,7 @@
                                 <div class="modal-body">
                                     <table
                                         class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                        style="width: 450px;">
+                                        style="width: 450px; direction: rtl;">
 
                                         <tr>
 
@@ -123,7 +123,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>Place</td>
+                                            <td>Workplace</td>
                                         </tr>
                                         <tr>
 
@@ -168,9 +168,9 @@
                                 <input type="text" name="id" value="{{ $employee->id }}" hidden>
                                 <div class="modal-body">
                                     Are you sure that you want to delete this employee? (<span
-                                        style="color: #EB455F;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
-                                    ؟
-                                </div>
+                                        style="color: #90aaf8;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
+                                    
+                                    </div>
                                 <div class="modal-footer">
                                     <button type="button" class="action-button active close"
                                         data-dismiss="modal">Close</button>
@@ -220,7 +220,7 @@
                     <div class="modal fade" id="editEmployee{{ $employee->id }}" data-backdrop="static" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content" style="direction:ltr;">
+                            <div class="modal-content" >
                                 <div class="modal-header">
                                     <button type="button" class="close" onclick="removeMessages()"
                                         data-dismiss="modal" aria-label="Close">
@@ -233,7 +233,7 @@
                                     <div class="modal-body">
                                         <table
                                             class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                            style="width: 450px;">
+                                            style="width: 450px; direction: rtl;">
 
                                             <tr>
 
@@ -316,7 +316,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>Place</td>
+                                                <td>Workplace</td>
                                             </tr>
                                             <tr>
 
@@ -361,8 +361,8 @@
                                     <input type="text" name="id" value="{{ $employee->id }}" hidden>
                                     <div class="modal-body">
                                         Are you sure that you want to delete this employee? (<span
-                                            style="color: #EB455F;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
-                                        ؟
+                                            style="color: #90aaf8;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close"

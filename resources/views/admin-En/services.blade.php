@@ -68,15 +68,15 @@ Add service
               <tr>
                   <td>is_additional</td>
                   <td ><div class="dropdown toggle text-primary in" style="display:inline-block;">
-                  <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
+                  {{-- <lable  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">  
                     
                   </lable>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">yes</a>
                     <a class="dropdown-item" href="#">no</a>
-          
+           --}}
                  
-               
+               <input type="checkbox" value="false" class="is_add">
                   </div>
                 </div></td>           
               </tr>

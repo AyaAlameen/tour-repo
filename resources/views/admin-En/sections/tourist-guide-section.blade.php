@@ -127,7 +127,7 @@
                                     @csrf
                                     <input type="text" name="id" value="{{$guide->id}}" hidden>
                                     <div class="modal-body">
-                                        Are you shure that you want to delete This Tourist Guide (<span style="color: #EB455F;">{{$guide->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                        Are you shure that you want to delete This Tourist Guide (<span style="color: #90aaf8;">{{$guide->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
@@ -266,7 +266,7 @@
                                     @csrf
                                     <input type="text" name="id" value="{{$guide->id}}" hidden>
                                     <div class="modal-body">
-                                        Are you shure that you want to delete This Tourist Guide (<span style="color: #EB455F;">{{$guide->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                        Are you shure that you want to delete This Tourist Guide (<span style="color: #90aaf8;">{{$guide->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">Close</button>

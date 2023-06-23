@@ -82,7 +82,7 @@
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
 
                                     <div class="modal-body">
-                                      Are you sure that you want to delete This sub category (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                      Are you sure that you want to delete This sub category (<span style="color: #90aaf8;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
@@ -182,7 +182,7 @@
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
 
                                     <div class="modal-body">
-                                      Are you sure that you want to delete This sub category (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                      Are you sure that you want to delete This sub category (<span style="color: #90aaf8;">{{$subCategory->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active close" data-dismiss="modal">Close</button>

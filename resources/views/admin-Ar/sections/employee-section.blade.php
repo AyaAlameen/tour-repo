@@ -207,7 +207,7 @@
                                 <input type="text" name="id" value="{{ $employee->id }}" hidden>
                                 <div class="modal-body">
                                     هل أنت متأكد من أنك تريد حذف هذا الموظف (<span
-                                        style="color: #EB455F;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
+                                        style="color: #90aaf8;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
                                     ؟
                                 </div>
                                 <div class="modal-footer">
@@ -496,7 +496,7 @@
                                         <input type="text" name="id" value="{{ $employee->id }}" hidden>
                                         <div class="modal-body">
                                             هل أنت متأكد من أنك تريد حذف هذا الموظف (<span
-                                                style="color: #EB455F;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
+                                                style="color: #90aaf8;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
                                             ؟
                                         </div>
                                         <div class="modal-footer">

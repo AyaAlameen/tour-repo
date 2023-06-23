@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:95%;">
+        <div class="app-content-header" style="width:83%;">
             <h1 class="app-content-headerText">الخدمات</h1>
 
             <!-- add -->
@@ -114,45 +114,16 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                            {{-- <div class="dropdown toggle text-primary in" style="display:inline-block;">
-                                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                                    data-toggle="dropdown" aria-expanded="false">
 
-                                                </label>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">نعم</a>
-                                                    <a class="dropdown-item" href="#">لا</a>
+                                            <input type="checkbox" value="false" name="is_additional" class="is_add">
 
-
-
-                                                </div>
-                                            </div> --}} 
-
-                                            {{--   هاد المثال يلي فيه تنسيق لشكل الإنبوت تنسيق السي اس اس موجود بآخر هي الصفحة بتاغ ستايل في حال اعتمدتي عليه انقلي لمحل ما بالعادة بتحطي أكواد السي اس اس وبس يلا باي --}}
-
-                                                {{-- <input type="checkbox" name="is_additional" value="false"> --}}
-                                                    {{-- <label class="switch">
-                                                        <input name="is_additional" type="checkbox" value="true">
-                                                        <span class="slider round"></span>
-                                                    </label> --}}
-
-                                            {{-- ---------------------------------------------------------------------------------- --}}
-                                            
-                                                
-                                                <label for="false">لا</label>
-                                                <input type="radio" id="false" name="is_additional" value="0">
-
-
-                                                <label for="true">نعم</label>
-                                                <input type="radio" id="true" name="is_additional" value="1">
-
-                                                
                                         </td>
                                         <td>إضافية؟</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="is_additional_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="is_additional_error"></span>
                                         </td>
                                     </tr>
 
@@ -191,7 +162,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions"style="width:95%;">
+        <div class="app-content-actions"style="width:84%;">
             <input class="search-bar" placeholder="...ابحث" type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -263,7 +234,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:93%;">
+        <div class="scroll-class" style="width:83%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
                     <div class="product-cell">#</div>
@@ -539,7 +510,8 @@
                     document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
                 }
                 if (data.responseJSON.errors.is_additional) {
-                    document.querySelector(`#${formId} #is_additional_error`).innerHTML = data.responseJSON.errors.is_additional[0];
+                    document.querySelector(`#${formId} #is_additional_error`).innerHTML = data.responseJSON.errors
+                        .is_additional[0];
                 }
 
 
@@ -741,68 +713,3 @@
         document.getElementById('edit_place_id_' + event_id).value = `${place_id}`;
     }
 </script>
-
-
-
-
-<style>
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
-    }
-    
-    .switch input { 
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-    
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-    
-    input:checked + .slider {
-      background-color: #2196F3;
-    }
-    
-    input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-    
-    input:checked + .slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
-    
-    /* Rounded sliders */
-    .slider.round {
-      border-radius: 34px;
-    }
-    
-    .slider.round:before {
-      border-radius: 50%;
-    }
-    </style>

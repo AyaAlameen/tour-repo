@@ -334,7 +334,8 @@
                             <div class="border-top mt-4 pt-4">
                             <div class="d-flex justify-content-between align-items-baseline">
                                 <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                    <h6><button class="btn btn-primary" style="border-radius:3px;"><a class="text-light" href="#">المزيد من التفاصيل للحجز</a></button></h6>
+                                    <h6><button class="btn btn-primary" style="border-radius:3px;">
+                                    المزيد من التفاصيل للحجز</button></h6>
                                 </div>
                             </div>
                         </div>

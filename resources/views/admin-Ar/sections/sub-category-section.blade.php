@@ -34,7 +34,7 @@
                                           <input type="text" name="id" value="{{$subCategory->id}}" hidden>
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
                                     <div class="modal-body" style="direction:rtl;">
-                                    هل أنت متأكد من أنك تريد حذف هذا الصنف الفرعي (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                    هل أنت متأكد من أنك تريد حذف هذا الصنف الفرعي (<span style="color: #90aaf8;">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
@@ -140,7 +140,7 @@
                                           <input type="text" name="id" value="{{$subCategory->id}}" hidden>
                                           <input type="text" name="category_id" value="{{$category->id}}" hidden>
                                     <div class="modal-body" style="direction:rtl;">
-                                    هل أنت متأكد من أنك تريد حذف هذا الصنف الفرعي (<span style="color: #EB455F;">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                    هل أنت متأكد من أنك تريد حذف هذا الصنف الفرعي (<span style="color: #90aaf8;">{{$subCategory->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="action-button active" data-dismiss="modal">إغلاق</button>
