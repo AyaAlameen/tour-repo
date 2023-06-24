@@ -836,7 +836,7 @@ textarea{
   border-radius: 3px;
   outline: none;
   transition: all 0.3s ease-in-out;
-  margin-left: 7%;
+  margin-right: 10%;
 }
 
 .is_add:checked::before {
@@ -849,7 +849,7 @@ textarea{
   text-align: center;
   line-height: 20px;
   color: white;
-  margin-left: 7%;
+  margin-right: 10%;
 
 }
 
@@ -863,7 +863,7 @@ textarea{
   text-align: center;
   line-height: 20px;
   color: white;
-  margin-left: 7%;
+  margin-right: 10%;
 
 }
 

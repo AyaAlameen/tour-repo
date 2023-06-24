@@ -115,8 +115,9 @@
                                         <td></td>
                                         <td>
 
-                                            <input type="checkbox" value="false" name="is_additional" class="is_add">
-
+                                            <label><input type="radio" name="is_additional" value="true"> إضافية</label>
+                                            <label><input type="radio" name="is_additional" value="false"> غير
+                                                إضافية</label>
                                         </td>
                                         <td>إضافية؟</td>
                                     </tr>

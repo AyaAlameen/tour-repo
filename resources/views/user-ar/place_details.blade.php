@@ -1,6 +1,6 @@
 @extends('layout-Ar.master')
 @section('content')
-    <h2 class="p-5" style="text-align: right;"> ^_^ استكشف (اسم المحافظة) </h2>
+    <h2 class="p-5" style="text-align: right;">  (اسم المكان) </h2>
     {{-- Gallery --}}
     <div class="d-flex container mt-2 justify-content-center">
         <div style="width: 45%; height: 540px;">
@@ -73,8 +73,8 @@
 
             </div>
             <button class="m-2 btn btn-primary"
-                style="width: 70%; margin-left: 15% !important ; margin-bottom: 35px !important;"><a style="color: #fff;" href="{{route('place_details_ar')}}">المزيد من التفاصيل حول اسم المكان</a>
-                </button>
+                style="width: 70%; margin-left: 15% !important ; margin-bottom: 35px !important;">المزيد من التفاصيل حول اسم<a href=""></a>
+                المكان</button>
 
             {{-- نهاية كارد المكان --}}
 

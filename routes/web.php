@@ -359,6 +359,10 @@ Route::get('/user_city_ar', function () {
     return view('user-ar.city');
 })-> name('user-city-ar');
 
+Route::get('/place_details_ar', function () {
+    return view('user-ar.place_details');
+})-> name('place_details_ar');
+
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
