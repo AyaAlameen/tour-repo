@@ -64,8 +64,8 @@ class GroupController extends Controller
             'tourist_guide_id' => 'required',
             'start_date' => 'required|date|after:today',
             'end_date' => 'required|date|after_or_equal:start_date',
-            'people_count' => 'required|numeric',
-            'cost' => 'required|numeric',
+            'people_count' => 'required|numeric|min:1',
+            'cost' => 'required|numeric|min:1',
         ], [ 
             'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
             'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
@@ -78,8 +78,10 @@ class GroupController extends Controller
             'end_date.after_or_equal' => 'حقل تاريخ النهاية يجب أن يكون نفس تاريخ البداية أو بعده',
             'people_count.required' => 'حقل عدد الأشخاص مطلوب',
             'people_count.numeric' => 'حقل عدد الأشخاص يجب أن يتكون من أرقام فقط',
+            'people_count.min' => 'حقل عدد الأشخاص يجب أن يكون أكبر من الصفر',
             'cost.required' => 'حقل التكلفة مطلوب',
             'cost.numeric' => 'حقل التكلفة يجب أن يتكون من أرقام فقط',
+            'cost.min' => 'حقل التكلفة يجب أن يكون أكبر من الصفر',
         ]);
         
 
@@ -114,7 +116,7 @@ class GroupController extends Controller
             'start_date' => 'required|date|after:today',
             'end_date' => 'required|date|after_or_equal:start_date',
             'people_count' => 'required|numeric',
-            'cost' => 'required|numeric',
+            'cost' => 'required|numeric|min:1',
         ], [ 
             'name_ar.required' => 'Name(Arabic) feild is required',
             'name_en.required' => 'Name(English) feild is required',
@@ -129,6 +131,7 @@ class GroupController extends Controller
             'people_count.numeric' => 'People Count field must consist of numbers only',
             'cost.required' => 'Cost feild is required',
             'cost.numeric' => 'Cost field must consist of numbers only',
+            'cost.min' => 'Cost field must be greater than zero',
         ]);
         
 
