@@ -72,7 +72,7 @@
 
                         <div class="form-group mb-3 d-flex align-items-center">
                             <label class="col-md-4 col-form-label text-md-start">{{ __('Image') }}</label>            
-                                <input style="padding-top:15px; padding-left:12.5%;"  type="file" class="form-control @error('password') is-invalid @enderror" name="image" >    
+                                <input style="padding-top:15px; padding-left:12.5%;"  type="file" class="form-control" name="image" >    
                         </div>
 
                         <div class="row mb-0 mt-3 justify-content-center">

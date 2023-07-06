@@ -107,7 +107,11 @@
     })
   })
 
-
+      //  إخفاء مودل الخريطة 
+      function hidemap(modal_id) {
+            $('#' + modal_id).hide();
+    $('#editmapimg').click();
+        }
 
 </script>
 

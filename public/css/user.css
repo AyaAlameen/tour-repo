@@ -6,6 +6,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
  :root {
+  --title-color:#2B3467;
     --navi:rgb(43, 52, 103);
     --bambi:#90aaf8;
      --blueLight:#BAD7E9;
@@ -142,7 +143,7 @@
   }
   
   a:hover {
-    color: var(--bambi) !important;
+    /* color: var(--bambi) !important; */
     text-decoration: underline;
   }
   
@@ -2365,9 +2366,9 @@
   }
   
   .btn-primary:hover {
-    color: var(--bambi) !important;
-    background-color: #fff;
-    border-color: var(--bambi);
+    color: #fff !important;
+    background-color: var(--title-color);
+    border-color: var(--title-color);
 
   }
   
@@ -9866,3 +9867,210 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+.contact_place_info{
+  border: 2px solid var(--bambi);
+        position: relative;
+        padding: 10px;
+        border-left: none;
+        right: 200px;
+        padding-left: 300px;
+        padding-right: 15px;
+        border-radius: 40px;
+        border-right: none;
+        transition: all linear 0.5s;
+}
+.rate_btn{
+  border: none;
+  background-color: var(--bambi);
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.fa-star{
+  color: yellow;
+}
+.rate_btn .fa-star{
+  font-size: 16px;
+}
+.sidebar {
+  flex-basis: 200px;
+  max-width: 200px;
+  flex-shrink: 0;
+ border-top: solid 2px var(--bambi);
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  padding-left: 40px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  margin-left: 10px;
+  
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px;
+  padding-right: 60px;
+  
+}
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+}
+.sidebar-list-item {
+  position: relative;
+  margin-bottom: 4px;
+  
+}
+.sidebar-list-item a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 16px;
+  color: var(--sidebar-link);
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 24px;
+  
+
+}
+.sidebar-list-item a:hover{
+  text-decoration: none;
+}
+.sidebar-list-item i {
+  margin-left: 8px;
+  color: var(--bambi);
+}
+.sidebar-list-item:hover {
+  background-color: var(--sidebar-hover-link);
+
+}
+.sidebar-list-item.active {
+  background-color: var(--navi);
+}
+.sidebar-list-item.active:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  background-color: var(--bambi);
+  height: 100%;
+  width: 4px;
+}
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+.mode-switch {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: var(--app-content-main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.mode-switch.active .moon {
+  fill: var(--app-content-main-color);
+}
+
+.mode-switch .moon {
+  fill: none;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin-top: auto;
+}
+.account-info-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.account-info-picture img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.account-info-name {
+  font-size: 14px;
+  color: var(--sidebar-link);
+  margin: 0 8px;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.account-info-more {
+  color: var(--sidebar-link);
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  margin-left: auto;
+}
+
+.app-icon {
+  color: var(--title-color);
+}
+.app-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.app-content {
+  padding: 16px;
+  background-color: var(--app-bg);
+  height: 100%;
+  flex: 1;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.app-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+.app-content-headerText {
+  color: var(--title-color);
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+}
+.app-content-headerButton {
+  background-color: var(--navi);
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  border: none;
+  border-radius: 4px;
+  height: 32px;
+  padding: 0 16px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.app-content-headerButton:hover {
+  background-color: var(--bambi);
+}
+.app-content-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 4px;
+}
+.app-content-actions-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}

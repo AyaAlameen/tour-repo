@@ -807,42 +807,4 @@ input:disabled{
     height: auto;
     padding-bottom:10px;
   }
-  .is_add {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 70%;
-    height: 20px;
-    border-radius: 3px;
-    outline: none;
-    transition: all 0.3s ease-in-out;
-    margin-left: 7%;
-}
-
-.is_add:checked::before {
-    content: "Yes";
-    display: inline-block;
-    width: 100%;
-    height: 20px;
-    border-radius: 3px;
-    background-color: var(--title-color);
-    text-align: center;
-    line-height: 20px;
-    color: white;
-    margin-left: 7%;
-
-}
-
-.is_add::before {
-    content: "No";
-    display: inline-block;
-    width: 100%;
-    height: 20px;
-    border-radius: 3px;
-    background-color: var(--bambi);
-    text-align: center;
-    line-height: 20px;
-    color: white;
-    margin-left: 7%;
-
-}
+ 

@@ -73,7 +73,7 @@
 
             </div>
             <button class="m-2 btn btn-primary"
-                style="width: 70%; margin-left: 15% !important ; margin-bottom: 35px !important;"><a style="color: #fff;" href="{{route('place_details_ar')}}">المزيد من التفاصيل حول اسم المكان</a>
+                style="width: 70%; margin-left: 15% !important ; margin-bottom: 35px !important;"><a style="color: #fff; width: 100%; display: inline-block;" href="{{route('place_details_ar')}}">المزيد من التفاصيل حول اسم المكان</a>
                 </button>
 
             {{-- نهاية كارد المكان --}}
