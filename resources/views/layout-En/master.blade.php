@@ -56,7 +56,7 @@
          }
       
             
-            if (origin == "http://127.0.0.1:8000/")
+            if (origin == "http://127.0.0.1:8000/home")
             {
               event.target.href="http://127.0.0.1:8000/user_home_arabic"
             }
@@ -75,7 +75,7 @@
 
     function getURLEn() {
     
-        if (origin == "http://127.0.0.1:8000/" || origin== "http://127.0.0.1:8000/about" || origin== "http://127.0.0.1:8000/contact-en"){
+        if (origin == "http://127.0.0.1:8000/home" || origin== "http://127.0.0.1:8000/about" || origin== "http://127.0.0.1:8000/contact-en"){
             console.log('aborted');
             event.preventDefault();
          }

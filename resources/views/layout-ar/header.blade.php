@@ -65,32 +65,28 @@
                        
                         <a href="{{route('contact-ar')}}" class="nav-item nav-link">تواصل معنا</a>
                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('تسجيل الدخول') }}</a>
-                                </li>
-                            @endif
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                       @guest
+                       @if (Route::has('login'))
+                           <a class="nav-link" href="{{ route('login') }}"><span> {{ __('تسجيل الدخول') }}</span></a>
+                       @endif
+                   @else
+                       <div class="nav-item dropdown">
+                           <a href="#" class="nav-link dropdown-toggle"
+                               data-toggle="dropdown">{{ Auth::user()->user_name }} </a>
+                           <div class="dropdown-menu border-0 rounded-0 m-0">
+                              <a href="#" class="dropdown-item" >معلومات الحساب</a>
+                               <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                   <span> {{ __('تسجيل الخروج') }} </span>
+                               </a>
+                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                  @csrf
+                              </form>
+     
+                           </div>
+                       </div>       
+                   @endguest
                        <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="المفضلة" onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
                        <div class="nav-item dropdown " >
                             <a class="nav-link dropdown-toggle"  data-toggle="dropdown" title="ترجمة">  <i class="fas fa-globe "  ></i> </a>                           

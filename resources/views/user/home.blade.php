@@ -497,7 +497,7 @@
                             <label for="name"   class="col-md-4 text-center col-form-label text-md-end">{{ __('Name') }}</label>
 
                             
-                                <input id="name" placeholder="eg.Aya Alameen" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" placeholder="eg.Aya Alameen" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

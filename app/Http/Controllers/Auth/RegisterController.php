@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'user_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'image'=>['image','mimes:jpg,png,jpeg,gif,svg'],
+            'image'=>['image','mimes:jpg,png,jpeg,gif,svg'],
         ]);
     }
 
@@ -65,7 +65,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // $request = app('request');
+        $request = app('request');
+        // dd($request->all());
         // if($request->hasfile('image')){
         //     $upload_image_name = time().'_'.$request->image->getClientOriginalName();
         //     $request->image->move('uploads/userImage', $upload_image_name);
@@ -74,7 +75,7 @@ class RegisterController extends Controller
             // Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename) );
         // }else{
     
-        //     $profileImage = 'uploads/userImage/1656869576_personalimg.jpg';
+            $profileImage = 'uploads/userImage/1656869576_personalimg.jpg';
     
         // }
        
@@ -82,7 +83,7 @@ class RegisterController extends Controller
             'user_name' => $data['user_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            // 'image' =>$profileImage ,
+            'image' => $profileImage ,
         ]);
          
     }
