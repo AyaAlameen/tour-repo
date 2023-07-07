@@ -146,8 +146,9 @@
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-                                <p>كم نجمة تمنح هذا المكان؟</p>
+                               
                             </div>
+                             <p class="text-center">كم نجمة تمنح هذا المكان؟</p>
                             <div class="text-center mt-4">
                                 <input type="number" class="w-25" pattern="[0-9]+([.,][0-9]+)?">
                                 <h5 class="text-body d-inline">: قيمه أيضا من 10</h5>
@@ -371,7 +372,8 @@
         var previousSibling = element.previousElementSibling; // الشقيق السابق
         var nextSibling = element.nextElementSibling; //الشقيق التالي
         if( previousSibling==null || previousSibling.classList.contains("fas") ){
-           if(nextSibling.classList.contains('far'))
+            // console.log(nextSibling)
+           if( nextSibling==null || nextSibling.classList.contains('far'))
             if (event.target.classList.contains("fas")) {
             event.target.classList.remove("fas", "fa-star")
             event.target.classList.add("far", "fa-star")
