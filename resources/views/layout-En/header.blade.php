@@ -118,8 +118,17 @@
          </button>
      </div>
      <div class="offcanvas-body">
+        {{-- اذا ما اختار مفضلة لسا --}}
          <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;" />
          <p class="text-body px-3 text-center mt-4">choose your favorite places</p>
+
+         {{-- اذا اختار أماكن مفضلة  --}}
+         
+         {{-- <div class="d-flex" style="flex-direction: column; align-items: center; ">
+             <img src="img/aleppo-palace-hotel.jpg"
+                 style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px" height="200px">
+                 <h4>فندق قصر حلب</h4>
+         </div> --}}
 
      </div>
  </div>

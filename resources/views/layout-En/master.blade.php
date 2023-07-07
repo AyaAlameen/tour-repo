@@ -60,6 +60,15 @@
             {
               event.target.href="http://127.0.0.1:8000/user_home_arabic"
             }
+
+            if (origin == "http://127.0.0.1:8000/#")
+            {
+              event.target.href="http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/")
+            {
+              event.target.href="http://127.0.0.1:8000/user_home_arabic"
+            }
         
             if (origin == "http://127.0.0.1:8000/about") {
               event.target.href="http://127.0.0.1:8000/about-ar"
@@ -75,11 +84,15 @@
 
     function getURLEn() {
     
-        if (origin == "http://127.0.0.1:8000/home" || origin== "http://127.0.0.1:8000/about" || origin== "http://127.0.0.1:8000/contact-en"){
+        if (origin == "http://127.0.0.1:8000/home" || origin == "http://127.0.0.1:8000/" ||  origin == "http://127.0.0.1:8000/#" ||  origin== "http://127.0.0.1:8000/about" || origin== "http://127.0.0.1:8000/contact-en"){
             console.log('aborted');
             event.preventDefault();
          }
         
+            if (origin == "http://127.0.0.1:8000/user_home_arabic")
+            {
+              event.target.href="http://127.0.0.1:8000/#"
+            }
             if (origin == "http://127.0.0.1:8000/user_home_arabic")
             {
               event.target.href="http://127.0.0.1:8000/"
@@ -93,7 +106,9 @@
                 
             }
          }
-         
+         function loginBefore() {
+        window.location = "/login";
+    }
 </script>
 </body>
 

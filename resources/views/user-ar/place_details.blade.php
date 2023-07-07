@@ -13,8 +13,64 @@
         <div style="width: 45%; height: 540px;">
             <img src="img/440px-Aleppo_Citadel_02_-_Bastion.jpg" width="100%" height="100%">
             <button
-                style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);">عرض
+                style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">عرض
                 جميع الصور</button>
+
+            {{-- picturs modal --}}
+
+            <!-- Modal -->
+            <div class="modal fade " data-bs-backdrop="static" id="exampleModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog " style="max-width: 800px;">
+                    <div class="modal-content toggle">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModal3Label">جميع الصور</h5>
+                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <!-- صور المكان -->
+                            <div id="carouselExample2Indicators" class="carousel slide  m-auto w-100"
+                                data-bs-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
+                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
+                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
+                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExample2Indicators" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon"
+                                        style="background-image:url(../img/previous.png); " aria-hidden="false"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExample2Indicators" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" style="background-image:url(../img/next.png);"
+                                        aria-hidden="false"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <!-- نهاية صور المكان -->
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            {{-- end pic modal --}}
         </div>
         <div style="width: 35%; height: 540px;">
             <img src="img/caption.jpg" width="100%" height="60%">
@@ -26,7 +82,7 @@
     <div class="container-fluid w-75 m-auto">
         <div class="d-flex" style="justify-content: space-around; align-items: start;">
             <div class="w-50">
-                <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن (اسم المكان ^_^ ) </h4>
+                <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن (اسم المكان ) </h4>
                 <p style="text-align: right;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Ea sed voluptas fuga modi. Voluptatem distinctio debitis tenetur quos unde nostrum,
                     omnis, expedita, maxime maiores ipsam exercitationem itaque! Atque, voluptates iste!</p>
@@ -68,32 +124,73 @@
     </div>
     {{-- نهاية الوصف --}}
     <div class="m-auto d-flex w-75 justify-content-center">
-        <button class="w-25 rate_btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="fas fa-star"></i>
+        <button class="w-25 rate_btn" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <i
+                class="fas fa-star"></i>
             قيمه الآن <i class="fas fa-star"></i></button>
+        @isset(Auth::user()->id)
+            <!-- Modal -->
+            <div class="modal fade " data-bs-backdrop="static" id="exampleModal1" tabindex="-1"
+                aria-labelledby="exampleModal1Label" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content toggle">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModal3Label">شاركنا تقييمك للمكان</h5>
+                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <p>كم نجمة تمنح هذا المكان؟</p>
+                            </div>
+                            <div class="text-center mt-4">
+                                <input type="number" class="w-25" pattern="[0-9]+([.,][0-9]+)?">
+                                <h5 class="text-body d-inline">: قيمه أيضا من 10</h5>
+                            </div>
 
-        <!-- Modal -->
-        <div class="modal fade " data-bs-backdrop="static" id="exampleModal" tabindex="-1"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog ">
-                <div class="modal-content toggle">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModal3Label">شاركنا تقييمك للمكان</h5>
-                        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">حفظ</button>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" value="حفظ" class="btn btn-primary">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            {{-- نهاية المودل --}}
+        @else
+            <!-- Modal -->
+            <div class="modal fade " data-bs-backdrop="static" id="exampleModal1" tabindex="-1"
+                aria-labelledby="exampleModal1Label" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content toggle">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center p-5">
+                           <h5>قم بتسجيل الدخول للمتابعة <a href="{{ route('login') }}"> من هنا</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- نهاية المودل --}}
+           
+        @endisset
+
+        {{-- بحال المكان ما فيو خدمات ديف كلاس السيرف بكون مخفي وبيطلع هاد الزر للحجز --}}
+        {{-- @isset(Auth::user()->id)
+        <button class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
+        @else
+         <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
+        @endisset --}}
     </div>
     {{-- الخدمات --}}
-    <div class=" d-flex" style="flex-direction: row; align-items: center;">
+    <div class="serv d-flex" style="flex-direction: row; align-items: center;">
 
         <div class="sidebar">
             <div class="sidebar-header">
@@ -128,7 +225,7 @@
                 <li class="sidebar-list-item">
                     <a>
                         <i class="fas fa-dolar"></i>
-                        <span>السعر باليرة السوري:</span>
+                        <span>السعر بالليرة السوري:</span>
                     </a>
                 </li>
 
@@ -155,7 +252,7 @@
                     <a>
                         <label for="rang3" style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
                             <input type="radio" name="option" id="rang3">
-                            10000-20000
+                            133300-200333
                         </label>
                     </a>
                 </li>
@@ -164,45 +261,100 @@
         <div class="pr-5">
 
             <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات المقدمة في (اسم
-                المكان ^_^ )
+                المكان )
             </h4>
 
-            {{-- بداسة كارد المكان --}}
+            {{-- بداسة كارد الخدمات --}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
                         <img src="img/aleppo-palace-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
-                        <i class="fas fa-star p-2"></i>
-                        <i class="fas fa-star p-2 "></i>
-                        <i class="fas fa-star p-2 "></i>
-                        <i class="fas fa-star p-2"></i>
-                    </div>
-                    <div>
-                        <div class="d-flex " style="justify-content: space-between;">
-                            <h4 class="text-right p-2">فندق قصر حلب</h4>
-                            <div>
-                                <h5 class="p-2 pl-4">8.2</h5>
+                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal2">المزيد من
+                            الصور</p>
+                        {{-- picturs modal --}}
+
+                        <!-- Modal -->
+                        <div class="modal fade " data-bs-backdrop="static" id="exampleModal2" tabindex="-1"
+                            aria-labelledby="exampleModal2Label" aria-hidden="true">
+                            <div class="modal-dialog " style="max-width: 800px;">
+                                <div class="modal-content toggle">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModal2Label">جميع الصور</h5>
+                                        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <!-- صور الخدمة -->
+                                        <div id="carouselExample3Indicators" class="carousel slide  m-auto w-100"
+                                            data-bs-ride="carousel">
+
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
+                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
+                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
+                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselExample3Indicators" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon"
+                                                    style="background-image:url(../img/previous.png); "
+                                                    aria-hidden="false"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselExample3Indicators" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon"
+                                                    style="background-image:url(../img/next.png);"
+                                                    aria-hidden="false"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <!-- نهاية صور الخدمة -->
+                                    </div>
+
+
+                                </div>
                             </div>
                         </div>
-                        <h5 class="text-right pr-2">ناحية الشهباء</h5>
-                        <p class="text-right pr-2 text-primary">aleppo-palace-hotel@gmail.com</p>
-                        <p class="text-right pr-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
+                        {{-- end pic modal --}}
+                    </div>
+                    <div class="pt-4">
+                        <div class="d-flex " style="justify-content: space-between;">
+                            <h4 class="text-right p-2">اسم الخدمة</h4>
+                        </div>
+                        <p class="text-right pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
                             . Exercitationem, corporis rem culpa perspiciatis
                             odit architecto expedita iure illum error inventore m
                             inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
+                        <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
+                            <h6 class="d-inline ml-4">التكلفة : 60000</h6>
+                             @isset(Auth::user()->id)
+                            <button class="btn btn-primary ml-4">حجز</button>
+                            @else
+                            <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
+                            @endisset
+                        </div>
                     </div>
+
                 </div>
- 
+
 
 
             </div>
-            <button class="m-2 btn btn-primary"
-                style="width: 70%; margin-left: 15% !important ; margin-bottom: 35px !important;">المزيد من التفاصيل
-                حول
-                اسم<a href=""></a>
-                المكان</button>
+
 
             {{-- نهاية كارد المكان --}}
         </div>
@@ -213,3 +365,23 @@
     </div>
     {{-- نهاية  الخدمات --}}
 @endsection
+<script>
+    function replaceStar() {
+        var element = event.target; // العنصر الحالي
+        var previousSibling = element.previousElementSibling; // الشقيق السابق
+        var nextSibling = element.nextElementSibling; //الشقيق التالي
+        if( previousSibling==null || previousSibling.classList.contains("fas") ){
+           if(nextSibling.classList.contains('far'))
+            if (event.target.classList.contains("fas")) {
+            event.target.classList.remove("fas", "fa-star")
+            event.target.classList.add("far", "fa-star")
+        } else
+        if (event.target.classList.contains("far")) {
+            event.target.classList.remove("far", "fa-star")
+            event.target.classList.add("fas", "fa-star")
+        }
+        }
+    
+
+    }
+</script>

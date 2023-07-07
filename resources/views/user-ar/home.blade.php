@@ -366,40 +366,40 @@
 
                 <div class="grid">
                     <div class="element-item development">
-                        <a class="popup-with-move-anim" href="#project-1"><div class="element-item-overlay"><span>دوار الأمويين</span></div><img src="../img/8bb93ea296a2f66346711d1612113d4a.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-1"><div class="element-item-overlay"></div><img src="../img/8bb93ea296a2f66346711d1612113d4a.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item development">
-                        <a class="popup-with-move-anim" href="#project-2"><div class="element-item-overlay"><span>سوق الحميدية</span></div><img src="../img/a072ebd1e062a7b0e9dc1e1d92f768f1.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-2"><div class="element-item-overlay"></div><img src="../img/a072ebd1e062a7b0e9dc1e1d92f768f1.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design development marketing">
-                        <a class="popup-with-move-anim" href="#project-3"><div class="element-item-overlay"><span>الحارات القديمة</span></div><img src="../img/1acbfbbed180ec5ee32543bbf5867530.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-3"><div class="element-item-overlay"></div><img src="../img/1acbfbbed180ec5ee32543bbf5867530.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design development marketing">
-                        <a class="popup-with-move-anim" href="#project-4"><div class="element-item-overlay"><span>البيوت الشامية</span></div><img src="../img/35d697ca091f4aba90c840adbb6f805f.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-4"><div class="element-item-overlay"></div><img src="../img/35d697ca091f4aba90c840adbb6f805f.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design development marketing seo">
-                        <a class="popup-with-move-anim" href="#project-5"><div class="element-item-overlay"><span>Joy Moments</span></div><img src="../img/26164e5a82973fc301a83b20a95b7676.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-5"><div class="element-item-overlay"></div><img src="../img/26164e5a82973fc301a83b20a95b7676.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design marketing seo">
-                        <a class="popup-with-move-anim" href="#project-6"><div class="element-item-overlay"><span>مهن يدوية</span></div><img src="../img/dfd68a72e216b1044c59840f0514b1ae.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-6"><div class="element-item-overlay"></div><img src="../img/dfd68a72e216b1044c59840f0514b1ae.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design marketing">
-                        <a class="popup-with-move-anim" href="#project-7"><div class="element-item-overlay"><span>Casual Wear</span></div><img src="../img/ada0abf73e807404f7ea9275831d5f93.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-7"><div class="element-item-overlay"></div><img src="../img/ada0abf73e807404f7ea9275831d5f93.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design marketing">
-                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/1f629b3f65809e87b4de552e1a11e9df.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/1f629b3f65809e87b4de552e1a11e9df.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design marketing">
-                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/ae3b92ed9bb301d4f55026dd35fd8bcc.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/ae3b92ed9bb301d4f55026dd35fd8bcc.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design marketing">
-                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/65db68b9ce1dc3cac3fb4de2b272d74a.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/65db68b9ce1dc3cac3fb4de2b272d74a.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design marketing">
-                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/78e7ece2eb10a34ce9f21541978dd3cb.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/78e7ece2eb10a34ce9f21541978dd3cb.jpg" alt="alternative"></a>
                     </div>
                     <div class="element-item design marketing">
-                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/2d342eea70239214700de5be3440efea.jpg" alt="alternative"></a>
+                        <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/2d342eea70239214700de5be3440efea.jpg" alt="alternative"></a>
                     </div>
                 </div> <!-- end of grid -->
                

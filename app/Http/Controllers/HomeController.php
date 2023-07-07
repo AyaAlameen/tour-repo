@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
+        // $previousPage = $_SERVER['HTTP_REFERER'];
+        // $previousPage = $_SERVER['HTTP_REFERER'];
+        // $previousPage = $_SERVER['HTTP_REFERER'];
+
+        // dd($previousPage);
+        // return Redirect::to($previousPage); 
         return view('user.home');
     }
 }

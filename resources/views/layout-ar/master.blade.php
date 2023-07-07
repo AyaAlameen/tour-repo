@@ -60,11 +60,14 @@
             event.preventDefault();
          }
             
-            if (origin == "http://127.0.0.1:8000")
+            if (origin == "http://127.0.0.1:8000/#")
             {
               event.target.href="http://127.0.0.1:8000/user_home_arabic"
             }
-        
+            if (origin == "http://127.0.0.1:8000/home")
+            {
+              event.target.href="http://127.0.0.1:8000/user_home_arabic"
+            }
             if (origin == "http://127.0.0.1:8000/about") {
               event.target.href="http://127.0.0.1:8000/about-ar"
                 
@@ -112,7 +115,9 @@
             $('#' + modal_id).hide();
     $('#editmapimg').click();
         }
-
+        function loginBefore() {
+        window.location = "/login";
+    }
 </script>
 
 </body>
