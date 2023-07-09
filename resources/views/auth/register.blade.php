@@ -18,8 +18,21 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                        <div class="acc-pic position-relative d-flex justify-content-center">
+                            <img src="img/1656869576_personalimg.jpg" alt="Account" id="add_previewImage_0" width="100px" height="100px"
+                                style="border-radius:50%; margin-block:30px;">
+                            <input type="file" id="add_input_0" accept="image/*"
+                            onchange="previewImage(this, 'add_previewImage_0')"
+                                style="position:absolute; z-index:9999; left:55%; top:63%; opacity:0; width:30px;" class="form-control" name="image">
+                            <span class="position-absolute translate-middle badge rounded-pill mr-3"
+                                style="left:58%; background-color:var(--navi);top:70%; width:35px; height:35px;">
+                                <i class="fas fa-pen" style="color:#fff !important; padding-top:7px;">
+                                </i></span>
+                        </div>
+                        <div class="d-flex justify-content-center mb-2">
+                            <span style="color: #dc3545;font-size: .875em; text-align: center;">@error('image')<strong>{{$message}}</strong>@enderror</span>
 
-
+                        </div>
                         <div class="form-group d-flex mb-3 first align-items-center">
                             <label for="user_name"   class="col-md-4 col-form-label text-md-start">{{ __('Username') }}</label>
 
@@ -73,13 +86,13 @@
                        
                         </div>
 
-                        <div class="form-group mb-3 d-flex align-items-center">
+                        {{-- <div class="form-group mb-3 d-flex align-items-center">
                             <label class="col-md-4 col-form-label text-md-start">{{ __('Image') }}</label>    
                             <div class="d-flex w-100" style="flex-direction: column;" >        
                                 <input style="padding-top:15px; padding-left:12.5%;"  type="file" class="form-control" name="image" >    
-                                <span style="color: #dc3545;font-size: .875em;">@error('image')<strong>{{$message}}</strong>@enderror</span>
+                              
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="row mb-0 mt-3 justify-content-center">
                             <div class="col-md-6 offset-md-10">

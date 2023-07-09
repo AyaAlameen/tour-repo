@@ -14,7 +14,23 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="{{ asset('../js/loginscrips.js') }}"></script>
+<script>
+    
+    function previewImage(input, previewId) {
+            const previewImage = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+            previewImage.style.display = "inline";
+            input.style.display = "none";
+            reader.addEventListener('load', function() {
+                previewImage.src = reader.result;
+            }, false);
 
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+</script>
     <!-- Font Awesome -->
     <link href="../css/all.min.css" rel="stylesheet">
     <!-- Fonts -->
