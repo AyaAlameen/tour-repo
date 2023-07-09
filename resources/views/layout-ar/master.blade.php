@@ -103,10 +103,7 @@
 
 
         $(document).ready(function() {
-            $('.toast').toast('show');
-            $('.toast').toast({
-                delay: 500000
-            });
+        
             $('.carousel').carousel({
                 interval: 5000
             })
@@ -121,6 +118,18 @@
         function loginBefore() {
             window.location = "/login";
         }
+// إظهار وإخفاء توست إلغاء الحجز
+      
+        function showToast(ticId) {
+            $('#toast_' + ticId).removeClass('d-none');
+        }
+
+        function hideToast(ticId) {
+            $('#toast_' + ticId).addClass('d-none');
+
+        }
+
+      
     </script>
 
 </body>
