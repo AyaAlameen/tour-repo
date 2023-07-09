@@ -9,8 +9,9 @@
             <div class="row align-items-center justify-content-center">
             <div style="width:600px;" class="form-block mx-auto">
        
-            <div class="text-left mb-1">
+            <div class="text-left mb-1 d-flex" style="align-items: baseline; justify-content: space-between;">
               <h3 style="color:var(--navi);">Register : </h3>
+              <a href="{{ route('userhome-ar') }}" style="margin-right: 30px;"> <i class="fas fa-home homeicon"></i> </a>
               </div>
               <hr>
                 <div class="col-md-12">
@@ -22,7 +23,7 @@
                         <div class="form-group d-flex mb-3 first align-items-center">
                             <label for="user_name"   class="col-md-4 col-form-label text-md-start">{{ __('Username') }}</label>
 
-                            
+                            <div class="d-flex  w-100" style="flex-direction: column;">
                                 <input id="user_name" placeholder="eg.aya-alameen" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name">
 
                                 @error('user_name')
@@ -30,35 +31,37 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            
+                            </div>
                         </div>
 
                         <div class="form-group mb-3 d-flex align-items-center">
                             <label for="email" class="col-md-4 col-form-label text-md-start">{{ __('Email Address') }}</label>
 
-                            
+                            <div class="d-flex w-100" style="flex-direction: column;" >
                                 <input id="email" placeholder="your-email@gmail.com" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <div class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </div>
                                 @enderror
+                            </div>
+                                
                             
                         </div>
 
                         <div class="form-group mb-3 d-flex align-items-center">
                             <label for="password"   class="col-md-4 col-form-label text-md-start">{{ __('Password') }}</label>
 
-                           
+                            <div class="d-flex w-100" style="flex-direction: column;" >
                                 <input id="password" placeholder="Your Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                    <div class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </div>
                                 @enderror
-                         
+                            </div>
                         </div>
 
 
@@ -71,9 +74,11 @@
                         </div>
 
                         <div class="form-group mb-3 d-flex align-items-center">
-                            <label class="col-md-4 col-form-label text-md-start">{{ __('Image') }}</label>            
+                            <label class="col-md-4 col-form-label text-md-start">{{ __('Image') }}</label>    
+                            <div class="d-flex w-100" style="flex-direction: column;" >        
                                 <input style="padding-top:15px; padding-left:12.5%;"  type="file" class="form-control" name="image" >    
-                                <span style="color: red">@error('image'){{$message}}@enderror</span>
+                                <span style="color: #dc3545;font-size: .875em;">@error('image')<strong>{{$message}}</strong>@enderror</span>
+                            </div>
                         </div>
 
                         <div class="row mb-0 mt-3 justify-content-center">

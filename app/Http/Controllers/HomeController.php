@@ -24,12 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $previousPage = $_SERVER['HTTP_REFERER'];
-        // $previousPage = $_SERVER['HTTP_REFERER'];
-        // $previousPage = $_SERVER['HTTP_REFERER'];
-
-        // dd($previousPage);
-        // return Redirect::to($previousPage); 
         return view('user.home');
     }
 }

@@ -15,6 +15,8 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="{{ asset('../js/loginscrips.js') }}"></script>
 
+    <!-- Font Awesome -->
+    <link href="../css/all.min.css" rel="stylesheet">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

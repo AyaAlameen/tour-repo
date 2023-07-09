@@ -74,6 +74,9 @@
                                         <a class="forgot-pass " href="{{ route('register') }}">
                                         {{ __('Not Register yet ? ') }}
                                     </a>
+                                    <a class="forgot-pass " style="margin-left: 10px;" href="{{ route('userhome-ar') }}">
+                                        {{ __('back to home ') }} 
+                                    </a>
                                     </span>
                                    
               

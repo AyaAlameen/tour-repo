@@ -176,3 +176,14 @@ border-color: var(--navi) !important;
 .control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
   opacity: .2; }
+  .homeicon{
+    color: var(--bambi);
+    border-radius: 50%;
+    border: 1px var(--bambi) solid;
+    padding: 5px;
+    margin-top: 25px;
+    margin-left: 60%;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+}

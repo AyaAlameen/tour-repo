@@ -2383,12 +2383,13 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: var(--bambi);
   border-color: var(--bambi);
+  border-radius: 3px;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: var(--bambi);
-  border-color: var(--bambi);
+  background-color: var(--navi);
+  border-color: var(--navi);
 }
 
 .btn-primary:focus, .btn-primary.focus {
