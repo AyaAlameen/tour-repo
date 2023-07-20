@@ -56,7 +56,7 @@
          }
       
             
-            if (origin == "http://127.0.0.1:8000/home")
+            if (origin == "http://127.0.0.1:8000/home-en")
             {
               event.target.href="http://127.0.0.1:8000/user_home_arabic"
             }

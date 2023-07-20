@@ -19,7 +19,9 @@ class UserHomeController extends Controller
         $cities = City::with('translations')->get();
         $guides = TouristGuide::with('translations')->get();
         $offers = Offer::with('translations')->get();
-        return view('user-ar.home', ['cities' => $cities, 'guides' => $guides]);
+        $groups = Group::with('translations')->get();
+
+        return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups]);
 
     }
 
