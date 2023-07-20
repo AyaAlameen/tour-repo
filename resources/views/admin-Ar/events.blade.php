@@ -399,7 +399,7 @@
                                                                                 class="dropdown-item"
                                                                                 value="{{ $place->id }}"
                                                                                 id="edit_place_{{ $event->id }}_{{ $place->id }}"
-                                                                                onclick="setEditPlaec({{ $place->id }}, {{ $event->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'edit_place_{{ $event->id }}_{{ $place->id }}')"
+                                                                                onclick="setEditPlace({{ $place->id }}, {{ $event->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'edit_place_{{ $event->id }}_{{ $place->id }}')"
                                                                                 href="#">
                                                                                 {{ $place->translations()->where('locale', 'ar')->first()->name }}
                                                                             </option>

@@ -83,7 +83,7 @@
                                     @csrf
                                     <input type="text" name="id" value="{{$company->id}}" hidden>
                                     <div class="modal-body">
-                                        Are you shure that you want to delete This Company (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'en')->first()->name}}</span>)?
+                                        Are you shure that you want to delete This Company (<span style="color: #90aaf8;">{{$company->translations()->where('locale', 'en')->first()->name}}</span>)?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
@@ -180,7 +180,7 @@
                                     @csrf
                                     <input type="text" name="id" value="{{$company->id}}" hidden>
                                     <div class="modal-body">
-                                        Are you shure that you want to delete This Company (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'en')->first()->name}}</span>)?
+                                        Are you shure that you want to delete This Company (<span style="color: #90aaf8;">{{$company->translations()->where('locale', 'en')->first()->name}}</span>)?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">Close</button>

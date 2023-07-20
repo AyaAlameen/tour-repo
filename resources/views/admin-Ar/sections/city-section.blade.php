@@ -36,7 +36,7 @@
                                         @csrf
                                         <input type="text" name="id" value="{{$city->id}}" hidden>
                                     <div class="modal-body">
-                                    هل أنت متأكد من أنك تريد حذف هذه المدينة (<span style="color: #EB455F;">{{$city->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                    هل أنت متأكد من أنك تريد حذف هذه المدينة (<span style="color: #90aaf8;">{{$city->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                      
                                     </div>
                                     <div class="modal-footer">
@@ -146,7 +146,7 @@
                                         @csrf
                                         <input type="text" name="id" value="{{$city->id}}" hidden>
                                     <div class="modal-body">
-                                    هل أنت متأكد من أنك تريد حذف هذه المدينة (<span style="color: #EB455F;">{{$city->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                    هل أنت متأكد من أنك تريد حذف هذه المدينة (<span style="color: #90aaf8;">{{$city->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                      
                                     </div>
                                     <div class="modal-footer">

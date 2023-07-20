@@ -73,7 +73,7 @@
                                           <input type="text" name="city_id" value="{{$city->id}}" hidden>
 
                                           <div class="modal-body">
-                                            Are you sure that you want to delete This District (<span style="color: #EB455F;">{{$district->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                            Are you sure that you want to delete This District (<span style="color: #90aaf8;">{{$district->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
@@ -164,7 +164,7 @@
                                           <input type="text" name="city_id" value="{{$city->id}}" hidden>
 
                                           <div class="modal-body">
-                                            Are you sure that you want to delete This District (<span style="color: #EB455F;">{{$district->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                            Are you sure that you want to delete This District (<span style="color: #90aaf8;">{{$district->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="action-button active close" data-dismiss="modal">Close</button>

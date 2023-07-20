@@ -108,33 +108,58 @@ class ServiceController extends Controller
 
     public function storeEn(Request $request)
     {
+        // dd($request->all());
         $data=$request->input();
-        
         //validation:
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
-            'image' => 'required',
+            'place_id' => 'required',
+            'cost' => 'required|numeric|min:1',
+            'is_additional' => 'required|boolean',
+            
         ], [
             'name_ar.required' => 'Name(Arabic) feild is required',
             'name_en.required' => 'Name(English) feild is required',
-            'image.required' => 'Image feild is required',
-        ]);
-
-        $category = new Category;
-
-        if($request->has('image')){
-            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
-            $request->image->move('uploads/categoryImage', $upload_image_name);
-            $category->image = 'uploads/categoryImage/'.$upload_image_name;
-        }
-        $category->save();
-
-        $category->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
-        $category->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
-        $categories = Category::with('translations')->get();
+            'place_id.required' => 'Place feild is required',
         
-        return view("admin-En.sections.category-section")->with(['categories' => $categories]);
+            'cost.required' => 'Cost feild is required',
+            'cost.numeric' => 'Cost field must consist of numbers only',
+            'cost.min' => 'Cost field must be greater than zero',
+
+            'is_additional.required' => 'Is Additional feild is required',
+            'is_additional.boolean' => 'Is Additional field must be either yes or no',
+
+        ]);
+        
+
+        $service = new Service;
+
+        $service->place_id = $request->input('place_id');
+        $service->cost = $request->input('cost');
+        $service->is_additional = $request->input('is_additional');
+
+        $files = $request->files->all();
+        $service->save();
+        if ($files) {
+            foreach ($files as $name => $file) {
+                // dd($name, $file);
+                $upload_image_name = time().'_'.$file->getClientOriginalName();
+                $file->move('uploads/serviceImage', $upload_image_name);
+                $service->images()->create( ['image' => "uploads/serviceImage/$upload_image_name"]);
+            }
+        }
+
+        
+// dd($place);
+        $service->translations()->create(['name'=>$request->input('name_en'), 'description'=>$request->input('description_en'), 'locale' => 'en']);
+        $service->translations()->create(['name'=>$request->input('name_ar'), 'description'=>$request->input('description_ar'), 'locale' => 'ar']);
+        
+        $services = Service::with('translations')->get();
+        $places = Place::with('translations')->get();
+
+        
+        return view("admin-En.sections.service-section")->with(['services' => $services, 'places' => $places]);
 
 
     }
@@ -179,8 +204,35 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroyAr(Request $request)
     {
-        //
+        $data=$request->input();
+
+        $service = Service::find($data['id']);
+        $service->translations()->delete();
+        $service->images()->delete();
+        $service->delete();
+
+        $services = Service::with('translations')->get();
+        $places = Place::with('translations')->get();
+        
+        return view("admin-Ar.sections.service-section")->with(['services' => $services, 'places' => $places]);
+
+
+    }
+
+    public function destroyEn(Request $request)
+    { $data=$request->input();
+
+        $service = Service::find($data['id']);
+        $service->translations()->delete();
+        $service->images()->delete();
+        $service->delete();
+
+        $services = Service::with('translations')->get();
+        $places = Place::with('translations')->get();
+        
+        return view("admin-En.sections.service-section")->with(['services' => $services, 'places' => $places]);
+
     }
 }

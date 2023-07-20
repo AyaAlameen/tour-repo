@@ -484,6 +484,7 @@ position: relative;
   display: flex;
   align-items: center;
   border-radius: 4px;
+  width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
@@ -690,7 +691,7 @@ position: relative;
   border: 1px solid #fff !important;
   width: 100% !important;
   border-radius: 3px;
-  direction: rtl;
+  text-align: right;
   }
   table tr:hover {
 color: var(--title-color) !important;
@@ -825,3 +826,4 @@ font-size: 25px;
 textarea{
   min-height:28px !important;
 }
+

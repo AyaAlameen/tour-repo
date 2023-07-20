@@ -93,7 +93,7 @@
                                     <input type="text" name="id" value="{{$company->id}}" hidden>
 
                                     <div class="modal-body" style="direction:rtl;">
-                                        هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                        هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #90aaf8;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
@@ -198,7 +198,7 @@
                                      <input type="text" name="id" value="{{$company->id}}" hidden>
  
                                      <div class="modal-body" style="direction:rtl;">
-                                         هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #EB455F;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                         هل أنت متأكد من أنك تريد حذف شركة النقل هذه (<span style="color: #90aaf8;">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                      </div>
                                      <div class="modal-footer">
                                          <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>

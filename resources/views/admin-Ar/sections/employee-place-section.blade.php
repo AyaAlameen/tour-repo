@@ -167,9 +167,10 @@
                                 @csrf
                                 <input type="text" name="id" value="{{ $employee->id }}" hidden>
                                 <div class="modal-body">
-                                    هل أنت متأكد من أنك تريد حذف هذا الموظف (<span
-                                        style="color: #EB455F;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
-                                    ؟
+                                    (<span
+                                        style="color: #90aaf8;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
+                                هل أنت متأكد من أنك تريد حذف هذا الموظف ؟
+                                    
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="action-button active close"
@@ -185,6 +186,64 @@
             </div>
             <!-- end delete -->
 
+  {{-- permessions --}}
+{{-- 
+  <div class="modal fade" style="direction:ltr;" data-backdrop="static"
+  id="permissionsEmployee{{ $employee->id }}" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
+  tabindex="-1">
+  <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
+      <div class="modal-content m-auto" style="width:450px;">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleeLabel">Employee permessions
+              </h5>
+              <button type="button" class="btn-close m-0 close" data-dismiss="modal"
+                  aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <form id="permissions-form-{{ $employee->id }}" action="" method="POST"
+              enctype="multipart/form-data">
+              @csrf
+              <input type="text" name="id" value="{{ $employee->id }}" hidden>
+          <div class="modal-body">
+
+              <table style="color: rgb(22, 22, 22); width: 400px !important; "
+                  class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                  <tr>
+                      <th>permession</th>
+                      <td style="width:40px;"></td>
+                  </tr>
+
+                  @foreach ($permissions as $permission)
+                      <tr>
+                          <td> <label for="p_{{ $permission->id }}">{{ $permission->translations()->where('locale', 'en')->first()->name }}</label> </td>
+                          <td class="text-center pl-2"><input @if ($employee->permissions->pluck('id')->contains($permission->id)) checked @endif
+                              id="p_{{ $permission->id }}" name="permission_id[]"
+                              value="{{ $permission->id }}" type="checkbox">
+                          </td>
+
+                      </tr>
+                  @endforeach
+              </table>
+          </div>
+          </form>
+          <div class="modal-footer">
+              <button type="button" class="action-button active close"
+                  data-dismiss="modal">Close</button>
+              <button type="submit" id="permissions-employee-btn-{{ $employee->id }}"
+                  onclick="permissions(`permissions-form-{{ $employee->id }}`, {{ $employee->id }})" class="app-content-headerButton">Save</button>
+
+          </div>
+      </div>
+  </div>
+</div> --}}
+
+
+      {{-- <a href="#" class="delete" data-toggle="modal"
+data-target="#permissionsEmployee{{ $employee->id }}" title="Delete" data-toggle="tooltip"><img src="img/key.png"
+style="width: 21px; height: 21px;"></a> --}}
+
+{{-- end permessions --}}
 
 
         </div>
@@ -360,9 +419,10 @@
                                     @csrf
                                     <input type="text" name="id" value="{{ $employee->id }}" hidden>
                                     <div class="modal-body">
-                                        هل أنت متأكد من أنك تريد حذف هذا الموظف (<span
-                                            style="color: #EB455F;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
-                                        ؟
+                                        (<span
+                                            style="color: #90aaf8;">{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}</span>)
+                                        هل أنت متأكد من أنك تريد حذف هذا الموظف ؟
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close"
@@ -378,6 +438,65 @@
                 </div>
                 <!-- end delete -->
 
+  {{-- permessions --}}
+
+  {{-- <div class="modal fade" style="direction:ltr;" data-backdrop="static"
+  id="permissionsEmployee{{ $employee->id }}" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
+  tabindex="-1">
+  <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
+      <div class="modal-content m-auto" style="width:450px;">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleeLabel">Employee permessions
+              </h5>
+              <button type="button" class="btn-close m-0 close" data-dismiss="modal"
+                  aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <form id="permissions-form-{{ $employee->id }}" action="" method="POST"
+              enctype="multipart/form-data">
+              @csrf
+              <input type="text" name="id" value="{{ $employee->id }}" hidden>
+          <div class="modal-body">
+
+              <table style="color: rgb(22, 22, 22); width: 400px !important; "
+                  class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                  <tr>
+                      <th>permession</th>
+                      <td style="width:40px;"></td>
+                  </tr>
+
+                  @foreach ($permissions as $permission)
+                      <tr>
+                          <td> <label for="p_{{ $permission->id }}">{{ $permission->translations()->where('locale', 'en')->first()->name }}</label> </td>
+                          <td class="text-center pl-2"><input @if ($employee->permissions->pluck('id')->contains($permission->id)) checked @endif
+                              id="p_{{ $permission->id }}" name="permission_id[]"
+                              value="{{ $permission->id }}" type="checkbox">
+                          </td>
+
+                      </tr>
+                  @endforeach
+              </table>
+          </div>
+          </form>
+          <div class="modal-footer">
+              <button type="button" class="action-button active close"
+                  data-dismiss="modal">Close</button>
+              <button type="submit" id="permissions-employee-btn-{{ $employee->id }}"
+                  onclick="permissions(`permissions-form-{{ $employee->id }}`, {{ $employee->id }})" class="app-content-headerButton">Save</button>
+
+          </div>
+      </div>
+  </div>
+</div> --}}
+
+
+
+      {{-- <a href="#" class="delete" data-toggle="modal"
+data-target="#permissionsEmployee{{ $employee->id }}" title="Delete" data-toggle="tooltip"><img src="img/key.png"
+style="width: 21px; height: 21px;"></a> --}}
+
+{{-- end permessions --}}
 
 
             </div>

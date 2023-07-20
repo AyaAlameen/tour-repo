@@ -56,7 +56,7 @@
                       <span id="city-name-{{$transportation->id}}">{{$transportation->city->translations()->where('locale', 'ar')->first()->name}}</span>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonEdit{{$transportation->id}}">
                         @foreach ($cities as $city)
-                        <option style="cursor: pointer; @if($city->id == $transportation->city_id) color: #EB455F !important; @endif" class="dropdown-item" value="{{$city->id}}" id="edit_city_{{$transportation->id}}_{{$city->id}}" onclick="setEditCity({{$city->id}}, {{$transportation->id}}, '{{$city->translations()->where('locale', 'ar')->first()->name}}', 'edit_city_{{$transportation->id}}_{{$city->id}}')" href="#">{{$city->translations()->where('locale', 'ar')->first()->name}}</option>
+                        <option style="cursor: pointer; @if($city->id == $transportation->city_id) color: #90aaf8 !important; @endif" class="dropdown-item" value="{{$city->id}}" id="edit_city_{{$transportation->id}}_{{$city->id}}" onclick="setEditCity({{$city->id}}, {{$transportation->id}}, '{{$city->translations()->where('locale', 'ar')->first()->name}}', 'edit_city_{{$transportation->id}}_{{$city->id}}')" href="#">{{$city->translations()->where('locale', 'ar')->first()->name}}</option>
                         @endforeach
                         <input type="text" id="edit_city_id_{{$transportation->id}}" name="city_id" value="{{$transportation->city_id}}" hidden>
                       
@@ -111,7 +111,7 @@
                   <input type="text" name="id" value="{{$transportation->id}}" hidden>
                   <input type="text" name="transport_company_id" value="{{$company->id}}" hidden>
                   <div class="modal-body"  style="direction:rtl;">
-                    هل أنت متأكد من أنك تريد حذف وسيلة النقل ذات الرقم (<span style="color: #EB455F;">{{$transportation->carId}}</span>) ؟
+                    هل أنت متأكد من أنك تريد حذف وسيلة النقل ذات الرقم (<span style="color: #90aaf8;">{{$transportation->carId}}</span>) ؟
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>

@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:95%;">
+        <div class="app-content-header" style="width:83%;">
             <h1 class="app-content-headerText">الخدمات</h1>
 
             <!-- add -->
@@ -114,45 +114,17 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                            {{-- <div class="dropdown toggle text-primary in" style="display:inline-block;">
-                                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                                    data-toggle="dropdown" aria-expanded="false">
 
-                                                </label>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">نعم</a>
-                                                    <a class="dropdown-item" href="#">لا</a>
-
-
-
-                                                </div>
-                                            </div> --}} 
-
-                                            {{--   هاد المثال يلي فيه تنسيق لشكل الإنبوت تنسيق السي اس اس موجود بآخر هي الصفحة بتاغ ستايل في حال اعتمدتي عليه انقلي لمحل ما بالعادة بتحطي أكواد السي اس اس وبس يلا باي --}}
-
-                                                {{-- <input type="checkbox" name="is_additional" value="false"> --}}
-                                                    {{-- <label class="switch">
-                                                        <input name="is_additional" type="checkbox" value="true">
-                                                        <span class="slider round"></span>
-                                                    </label> --}}
-
-                                            {{-- ---------------------------------------------------------------------------------- --}}
-                                            
-                                                
-                                                <label for="false">لا</label>
-                                                <input type="radio" id="false" name="is_additional" value="0">
-
-
-                                                <label for="true">نعم</label>
-                                                <input type="radio" id="true" name="is_additional" value="1">
-
-                                                
+                                            <label><input type="radio" name="is_additional" value="1"> إضافية</label>
+                                            <label><input type="radio" name="is_additional" value="0" checked> غير
+                                                إضافية</label>
                                         </td>
                                         <td>إضافية؟</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="is_additional_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="is_additional_error"></span>
                                         </td>
                                     </tr>
 
@@ -191,8 +163,8 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions"style="width:95%;">
-            <input class="search-bar" placeholder="...ابحث" type="text">
+        <div class="app-content-actions"style="width:84%;">
+            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم " type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
                 <div class="filter-button-wrapper">
@@ -263,8 +235,8 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:93%;">
-            <div class="products-area-wrapper tableView">
+        <div class="scroll-class" style="width:83%;">
+            <div class="products-area-wrapper tableView" id="servicesTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
                     <div class="product-cell">الاسم</div>
@@ -293,7 +265,7 @@
                                 <span> {{ $i++ }} </span>
                             </div>
                             <div class="product-cell">
-                                <span> {{ $service->translations()->where('locale', 'ar')->first()->name }} </span>
+                                <span class="search-value"> {{ $service->translations()->where('locale', 'ar')->first()->name }} </span>
                             </div>
                             <div class="product-cell">
                                 <img src="{{ asset(str_replace(app_path(), '', $service->images()->first()->image)) }}"
@@ -321,11 +293,167 @@
                                 <!-- start action -->
                                 <div class="p-3">
 
+
+                                    <!-- edit -->
+                                    <a href="#" class="edit p-2" data-toggle="modal"
+                                        data-target="#editService{{ $service->id }}" title="Edit"><i
+                                            class="fas fa-pen"></i></a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" data-backdrop="static" id="editService{{ $service->id }}"
+                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="direction:ltr;">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form id="edit-form-{{ $service->id }}" action="" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <table
+                                                            class="table-striped table-hover table-bordered m-auto text-primary myTable"
+                                                            id="editTable" style="width: 400px;">
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="text" class="toggle text-primary in"
+                                                                        name="name_ar" value="{{ $service->translations()->where('locale', 'ar')->first()->name }}" required style="width: 100%;">
+                                                                    </td>
+                                                                <td>الاسم(العربية)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
+                                                                
+                                                            </tr> 
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="text" class="toggle text-primary in"
+                                                                        name="name_en" value="{{ $service->translations()->where('locale', 'en')->first()->name }}" required style="width: 100%;">
+                                                                    </th>
+                                                                <td>(الإنجليزية)الاسم </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
+                                                                
+                                                            </tr> 
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="dropdown toggle text-primary in"
+                                                                        style="display:inline-block; ;">
+    
+                                                                        <label class="dropdown-toggle" type="button"
+                                                                            id="dropdownMenuButtonEdit{{ $service->id }}"
+                                                                            data-toggle="dropdown" aria-expanded="false">
+    
+                                                                        </label>
+                                                                        <span
+                                                                            id="place-name-{{ $service->id }}">{{ $service->place->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButtonEdit{{ $service->id }}">
+                                                                            @foreach ($places as $place)
+                                                                                <option
+                                                                                    style="cursor: pointer; @if ($place->id == $service->place_id) color: #90aaf8 !important; @endif"
+                                                                                    class="dropdown-item"
+                                                                                    value="{{ $place->id }}"
+                                                                                    id="edit_place_{{ $service->id }}_{{ $place->id }}"
+                                                                                    onclick="setEditPlace({{ $place->id }}, {{ $service->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'edit_place_{{ $service->id }}_{{ $place->id }}')"
+                                                                                    href="#">
+                                                                                    {{ $place->translations()->where('locale', 'ar')->first()->name }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                            <input type="text"
+                                                                                id="edit_place_id_{{ $service->id }}"
+                                                                                name="place_id"
+                                                                                value="{{ $service->place_id }}" hidden>
+    
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>المكان</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red" class="place_error_edit"></span></td>
+                                                                
+                                                            </tr> 
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input class="toggle text-primary in" type="text"
+                                                                        name="description_ar" value="{{ $service->translations()->where('locale', 'ar')->first()->description }}" required style="width: 100%;">
+                                                                    </th>
+                                                                <td>وصف(العربية)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input class="toggle text-primary in" type="text"
+                                                                        name="description_en" value="{{ $service->translations()->where('locale', 'en')->first()->description }}" required style="width: 100%;">
+                                                                    </th>
+                                                                <td>(الإنجليزية)وصف</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" name="cost" class="toggle text-primary in"
+                                                                        value="{{$service->cost}}">
+                                                                </td>
+                                                                <td>الكلفة</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+
+                                                                    <label><input type="radio" name="is_additional" value="1" @if($service->is_additional) checked @endif> إضافية</label>
+                                                                    <label><input type="radio" name="is_additional" value="0" @if(!$service->is_additional) checked @endif> غير
+                                                                        إضافية</label>
+                                                                </td>
+                                                                <td>إضافية؟</td>
+
+                                                            </tr>
+
+
+                                                            <tr>
+
+                                                                <td style="width:25px; text-align:center;">
+                                                                </td>
+                                                                <td>
+                                                                    <i class="fas fa-plus text-body" onclick="editPic()"
+                                                                        id="edit_pic_input" data-picid="1"
+                                                                        style="font-size:15px; text-align: center; padding-right:80px; line-height: 1.5; cursor:pointer;"
+                                                                        title="Add Another Picture"></i>
+                                                                    <input type="file" hidden id="img">
+                                                                    <label for="img"><img src="img/about-1.jpg"
+                                                                            style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;">
+                                                                    </label>
+                                                                </td>
+                                                                <td>الصور </td>
+                                                            </tr>
+                                                        </table>
+
+                                                    </div>
+                                                </form>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="action-button active close" onclick="removeMessages()"
+                                                        data-dismiss="modal">إغلاق</button>
+                                                    <button type="submit" id="edit-service-btn-{{$service->id}}" onclick="editService('edit-form-{{$service->id}}', {{$service->id}})" class="app-content-headerButton">حفظ
+                                                        التغييرات</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end edit -->
+
                                     <!-- delete -->
-                                    <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2"
+                                    <a href="#" class="delete" data-toggle="modal" data-target="#deleteService{{ $service->id }}"
                                         title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                    <div class="modal fade" id="deleteService{{ $service->id }}" tabindex="-1"
                                         aria-labelledby="exampleModal2Label" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="direction:ltr;">
@@ -335,145 +463,28 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+                                                <form id="delete-form-{{ $service->id }}" action="" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="text" name="id" value="{{ $service->id }}"
+                                                        hidden>
                                                 <div class="modal-body" style="direction:rtl;">
-                                                    هل أنت متأكد من أنك تريد حذف هذه الخدمة؟
-                                                </div>
+                                                    هل أنت متأكد من أنك تريد حذف هذه الخدمة (<span
+                                                    style="color: #90aaf8;">{{ $service->translations()->where('locale', 'ar')->first()->name }}</span>)
+                                                ؟                                                </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="action-button active"
+                                                    <button type="button" class="action-button active close"
                                                         data-dismiss="modal">إغلاق</button>
-                                                    <button type="submit" class="app-content-headerButton">نعم</button>
+                                                    <button type="submit" id="delete-service-btn-{{ $service->id }}"
+                                                        onclick="deleteService(`delete-form-{{ $service->id }}`, {{ $service->id }})" class="app-content-headerButton">نعم</button>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- end delete -->
 
-                                <!-- edit -->
-                                <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal"
-                                    title="Edit"><i class="fas fa-pen"></i></a>
-
-                                <!-- Modal -->
-                                <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content" style="direction:ltr;">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <table
-                                                    class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                                    id="editTable" style="width: 400px;">
-                                                    <tr>
-                                                        <td></td>
-                                                        <td><input type="text" class="toggle text-primary in"
-                                                                name="service_name" required style="width: 100%;"></th>
-                                                        <td>الاسم(العربية)</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td><input type="text" class="toggle text-primary in"
-                                                                name="service_name" required style="width: 100%;"></th>
-                                                        <td>(الانكليزية)الاسم </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-
-                                                        <td>
-                                                            <div class="dropdown toggle text-primary in"
-                                                                style="display:inline-block; ;">
-                                                                <label class="dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-toggle="dropdown"
-                                                                    aria-expanded="false">
-                                                                    liki
-                                                                </label>
-                                                                <div class="dropdown-menu"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">--</a>
-                                                                    <a class="dropdown-item" href="#">--</a>
-                                                                    <a class="dropdown-item" href="#">---</a>
-                                                                    <a class="dropdown-item" href="#">----</a>
-
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>المكان </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td><input class="toggle text-primary in" type="text"
-                                                                name="description" required style="width: 100%;"></th>
-                                                        <td>وصف(العربية)</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td><input class="toggle text-primary in" type="text"
-                                                                name="description" required style="width: 100%;"></th>
-                                                        <td>(الانكليزية)وصف</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td><input type="number" class="toggle text-primary in"
-                                                                value="100000">
-                                                        </td>
-                                                        <td>الكلفة</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="dropdown toggle text-primary in"
-                                                                style="display:inline-block;">
-                                                                <label class="dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-toggle="dropdown"
-                                                                    aria-expanded="false">
-                                                                    نعم
-                                                                </label>
-                                                                <div class="dropdown-menu"
-                                                                    aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">نعم</a>
-                                                                    <a class="dropdown-item" href="#">لا</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>إضافية؟</td>
-
-                                                    </tr>
-
-
-                                                    <tr>
-
-                                                        <td style="width:25px; text-align:center;">
-                                                        </td>
-                                                        <td>
-                                                            <i class="fas fa-plus text-body" onclick="editPic()"
-                                                                id="edit_pic_input" data-picid="1"
-                                                                style="font-size:15px; text-align: center; padding-right:80px; line-height: 1.5; cursor:pointer;"
-                                                                title="Add Another Picture"></i>
-                                                            <input type="file" hidden id="img">
-                                                            <label for="img"><img src="img/about-1.jpg"
-                                                                    style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;">
-                                                            </label>
-                                                        </td>
-                                                        <td>الصور </td>
-                                                    </tr>
-                                                </table>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="action-button active"
-                                                    data-dismiss="modal">إغلاق</button>
-                                                <button type="submit" class="app-content-headerButton">حفظ
-                                                    التغييرات</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end edit -->
 
                             </div>
                             <!-- end action -->
@@ -539,7 +550,8 @@
                     document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
                 }
                 if (data.responseJSON.errors.is_additional) {
-                    document.querySelector(`#${formId} #is_additional_error`).innerHTML = data.responseJSON.errors.is_additional[0];
+                    document.querySelector(`#${formId} #is_additional_error`).innerHTML = data.responseJSON.errors
+                        .is_additional[0];
                 }
 
 
@@ -551,13 +563,13 @@
     }
     //----------------------------------------------------------
 
-    function editEvent(formId, id) {
+    function editService(formId, id) {
 
-        $("#edit-event-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        $("#edit-service-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         var formData = new FormData(document.getElementById(formId));
         formData.append('id', id);
         $.ajax({
-                url: `{{ route('editEventAr') }}`,
+                url: `{{ route('editServiceAr') }}`,
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -566,8 +578,8 @@
             })
             .done(function(data) {
 
-                $("#events-data").empty();
-                $("#events-data").append(data);
+                $("#services-data").empty();
+                $("#services-data").append(data);
                 $('.close').click();
                 $('.parenttrue').attr("hidden", false);
                 // clearInput();
@@ -576,51 +588,43 @@
                 removeMessages();
 
                 if (data.responseJSON.errors.name_ar) {
-                    document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors
+                    document.querySelector(`#${formId} #name_ar_error_edit`).innerHTML = data.responseJSON.errors
                         .name_ar[0];
                 }
 
                 if (data.responseJSON.errors.name_en) {
-                    document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors
+                    document.querySelector(`#${formId} #name_en_error_edit`).innerHTML = data.responseJSON.errors
                         .name_en[0];
                 }
 
                 if (data.responseJSON.errors.place_id) {
-                    document.querySelector(`#${formId} .place_error_edit`).innerHTML = data.responseJSON.errors
+                    document.querySelector(`#${formId} #place_error_edit`).innerHTML = data.responseJSON.errors
                         .place_id[0];
                 }
 
 
                 if (data.responseJSON.errors.cost) {
-                    document.querySelector(`#${formId} .cost_error_edit`).innerHTML = data.responseJSON.errors.cost[
-                        0];
+                    document.querySelector(`#${formId} #cost_error_edit`).innerHTML = data.responseJSON.errors.cost[0];
                 }
-
-
-                if (data.responseJSON.errors.start_date) {
-                    document.querySelector(`#${formId} .start_date_error_edit`).innerHTML = data.responseJSON.errors
-                        .start_date[0];
-                }
-
-                if (data.responseJSON.errors.end_date) {
-                    document.querySelector(`#${formId} .end_date_error_edit`).innerHTML = data.responseJSON.errors
-                        .end_date[0];
+                if (data.responseJSON.errors.is_additional) {
+                    document.querySelector(`#${formId} #is_additional_error_edit`).innerHTML = data.responseJSON.errors
+                        .is_additional[0];
                 }
 
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#edit-event-btn-" + id).attr("disabled", false).html('حفظ');
+                $("#edit-service-btn-" + id).attr("disabled", false).html('حفظ');
             });
     }
 
     //---------------------------------------------------------------
-    function deleteEvent(formId, id) {
-        $("#delete-event-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+    function deleteService(formId, id) {
+        $("#delete-service-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
         var formData = new FormData(document.getElementById(formId));
         $.ajax({
-                url: `{{ route('deleteEventAr') }}`,
+                url: `{{ route('deleteServiceAr') }}`,
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -628,8 +632,8 @@
                 contentType: false,
             })
             .done(function(data) {
-                $("#events-data").empty();
-                $("#events-data").append(data);
+                $("#services-data").empty();
+                $("#services-data").append(data);
                 $('.close').click();
                 $('.parenttrue').attr("hidden", false);
                 // clearInput();
@@ -641,7 +645,7 @@
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#delete-event-btn-" + id).attr("disabled", false).html('نعم');
+                $("#delete-services-btn-" + id).attr("disabled", false).html('نعم');
             });
     }
 
@@ -671,7 +675,7 @@
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("search");
         filter = input.value;
-        table = document.getElementById("categoriesTable");
+        table = document.getElementById("servicesTable");
         // tr = table.getElementsByTagName("tr");
         tr = table.getElementsByClassName("products-row");
         // Loop through all table rows, and hide those who don't match the search query
@@ -730,79 +734,14 @@
         document.getElementById('place_id').value = `${place_id}`;
     }
     //--------------------------------------------
-    function setEditPlace(place_id, event_id, place, option_id) {
+    function setEditPlace(place_id, service_id, place, option_id) {
         var places_options = document.querySelectorAll('[id^="edit_place_"]');
         places_options.forEach(option => {
             option.style.setProperty("color", "#1f1c2e", "important");
 
         });
-        document.getElementById('place-name-' + event_id).innerHTML = place;
+        document.getElementById('place-name-' + service_id).innerHTML = place;
         document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-        document.getElementById('edit_place_id_' + event_id).value = `${place_id}`;
+        document.getElementById('edit_place_id_' + service_id).value = `${place_id}`;
     }
 </script>
-
-
-
-
-<style>
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
-    }
-    
-    .switch input { 
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-    
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-    
-    input:checked + .slider {
-      background-color: #2196F3;
-    }
-    
-    input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-    
-    input:checked + .slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
-    
-    /* Rounded sliders */
-    .slider.round {
-      border-radius: 34px;
-    }
-    
-    .slider.round:before {
-      border-radius: 50%;
-    }
-    </style>

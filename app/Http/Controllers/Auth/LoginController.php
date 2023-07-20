@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -35,6 +35,24 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        session_start();
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $_SESSION['prev_page'] = $_SERVER['HTTP_REFERER'];
+
+        }
+        $this->redirectTo = $this->return_prev_page();
         $this->middleware('guest')->except('logout');
+    }
+    public function return_prev_page()
+    {
+       // session_start();
+       if(isset($_SESSION['prev_page'])) {
+        $prevPage = $_SESSION['prev_page'];
+        unset($_SESSION['prev_page']);
+        return $prevPage;
+    } else {
+        // إذا لم يتم العثور على عنوان URL للصفحة السابقة، يمكنك تحديد الصفحة التي ترغب في توجيه المستخدم إليها هنا
+        return '/user_home_arabic';
+    }
     }
 }

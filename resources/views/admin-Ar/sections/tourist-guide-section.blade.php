@@ -48,7 +48,7 @@
                                     @csrf
                                     <input type="text" name="id" value="{{$guide->id}}" hidden>
                                     <div class="modal-body" style="direction:rtl;">
-                                        هل أنت متأكد من أنك تريد حذف هذا الدليل السياحي (<span style="color: #EB455F;">{{$guide->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                        هل أنت متأكد من أنك تريد حذف هذا الدليل السياحي (<span style="color: #90aaf8;">{{$guide->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>
@@ -199,7 +199,7 @@
                                     @csrf
                                     <input type="text" name="id" value="{{$guide->id}}" hidden>
                                     <div class="modal-body" style="direction:rtl;">
-                                        هل أنت متأكد من أنك تريد حذف هذا الدليل السياحي (<span style="color: #EB455F;">{{$guide->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
+                                        هل أنت متأكد من أنك تريد حذف هذا الدليل السياحي (<span style="color: #90aaf8;">{{$guide->translations()->where('locale', 'ar')->first()->name}}</span>) ؟
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">إغلاق</button>

@@ -14,6 +14,8 @@ use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PlaceEmployeeController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserHomeController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -320,9 +322,12 @@ Route::post('/group_ar/delete', [GroupController::class, 'destroyAr']) -> name('
 //user routes part English
 
 
-Route::get('/', function () {
-    return view('user.home');
-})-> name('userhome');
+// Route::get('/', function () {
+//     return view('user.home');
+// })-> name('home');
+
+Route::get('/home-en', [UserHomeController::class, 'indexEn'])-> name('home-en');
+
 
 Route::get('/about', function () {
     return view('user.about');
@@ -342,9 +347,11 @@ Route::get('/contact-ar', function () {
     return view('user-ar.contact');
 })-> name('contact-ar');
 
-Route::get('/user_home_arabic', function () {
-    return view('user-ar.home');
-})-> name('userhome-ar');
+// Route::get('/user_home_arabic', function () {
+//     return view('user-ar.home');
+// })-> name('userhome-ar');
+Route::get('/user_home_arabic', [UserHomeController::class, 'indexAr'])-> name('userhome-ar');
+Route::post('/contact', [MessageController::class, 'storeAr'])-> name('submitMessageAr');
 
 Route::get('/about-ar', function () {
     return view('user-ar.about');
@@ -359,30 +366,11 @@ Route::get('/user_city_ar', function () {
     return view('user-ar.city');
 })-> name('user-city-ar');
 
-Route::get('/transport', function () {
-    return view('user.transport');
-})-> name('transport');
+Route::get('/place_details_ar', function () {
+    return view('user-ar.place_details');
+})-> name('place_details_ar');
 
-Route::get('/transport-ar', function () {
-    return view('user-ar.transport');
-})-> name('transport-ar');
-
-Route::get('/travelguides', function () {
-    return view('user.travelguides');
-})-> name('travelguides');
-
-Route::get('/travelguides-ar', function () {
-    return view('user-ar.travelguides');
-})-> name('travelguides-ar');
-
-Route::get('/travelguidesformore', function () {
-    return view('user.travelguidesformore');
-})-> name('travelguidesformore');
-
-Route::get('/travelguidesformore-ar', function () {
-    return view('user-ar.travelguidesformore');
-})-> name('travelguidesformore-ar');
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

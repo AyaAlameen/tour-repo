@@ -97,7 +97,7 @@ class EmployeeProfileController extends Controller
         }
         $employee->user_name = $request->input('user_name');
         $employee->email = $request->input('email');
-        $employee->password = $request->input('password');
+        $employee->password = Hash::make($request->input('password'));
         $employee->phone = $request->input('phone');
         $employee->is_employee = '1';
 
@@ -183,7 +183,7 @@ class EmployeeProfileController extends Controller
         }
         $employee->user_name = $request->input('user_name');
         $employee->email = $request->input('email');
-        $employee->password = $request->input('password');
+        $employee->password = Hash::make($request->input('password'));
         $employee->phone = $request->input('phone');
         $employee->is_employee = '1';
 

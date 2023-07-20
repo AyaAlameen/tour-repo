@@ -85,7 +85,7 @@
                                         @csrf
                                         <input type="text" name="id" value="{{$category->id}}" hidden>
                                       <div class="modal-body">
-                                        Are you sure that you want to delete This Category (<span style="color: #EB455F;">{{$category->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                        Are you sure that you want to delete This Category (<span style="color: #90aaf8;">{{$category->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">Close</button>
@@ -188,7 +188,7 @@
                                         @csrf
                                         <input type="text" name="id" value="{{$category->id}}" hidden>
                                       <div class="modal-body">
-                                        Are you sure that you want to delete This Category (<span style="color: #EB455F;">{{$category->translations()->where('locale', 'en')->first()->name}}</span>) ?
+                                        Are you sure that you want to delete This Category (<span style="color: #90aaf8;">{{$category->translations()->where('locale', 'en')->first()->name}}</span>) ?
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" class="action-button active close" data-dismiss="modal">Close</button>

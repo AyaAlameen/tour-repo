@@ -208,6 +208,14 @@ else{
     $('[ data-bs-toggle="popover"]').popover();
   });
 
+
+//   document.querySelector('.is_add').addEventListener('change', function() {
+//    if( document.querySelector('.is_add').value == "true")
+//     document.querySelector('.is_add').value = "false";
+//     else
+//     if( document.querySelector('.is_add').value == "false")
+//     document.querySelector('.is_add').value = "true";
+// });
  </script>
 
 </body>
