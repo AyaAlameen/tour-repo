@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\TouristGuide;
 use App\Models\Offer;
+use App\Models\Group;
 use Illuminate\Http\Request;
 
 class UserHomeController extends Controller
@@ -19,7 +20,9 @@ class UserHomeController extends Controller
         $cities = City::with('translations')->get();
         $guides = TouristGuide::with('translations')->get();
         $offers = Offer::with('translations')->get();
-        return view('user-ar.home', ['cities' => $cities, 'guides' => $guides]);
+        $groups = Group::with('translations')->get();
+
+        return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups]);
 
     }
 
