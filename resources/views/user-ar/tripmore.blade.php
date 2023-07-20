@@ -151,18 +151,21 @@
                 <div class="d-flex " style="justify-content: space-between;">
                     <h4 class="text-right p-2 pl-2">اسم الكروب</h4>
                 </div>
-                <p class="text-right pr-2 pl-2" style="color:#212121">الوصف:Lorem ipsum dolor sit amet consectetur adipisicing elit
-                    . Exercitationem, corporis rem culpa perspiciatis
-                    odit architecto expedita iure illum error inventore m
-                    inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
+                <p class="text-right pr-2 pl-2" style="color:#212121">الوصف: سوف ينطلق الكروب في رحلته يوم الأحد من مدينة حلب إلى دمشق و سوف يمر في حماة 
+                و سوف يتوقف لمشاهدت النواعرالجميلة و سوف يتغدا الكروب في مطعم النواعر و
+                 منه سوف نطلق إلى حمص و سوف ننام في حمص </p>
                     
                     <h5 class="text-right p-2 pl-2">الدليل السياحي:محمد</h5>
                  
-                   
+                  <div style="display: flex; align-items: baseline; flex-direction: row-reverse">
+                    <i class="fa fa-calendar-alt"></i>
                     <h5 class="text-right p-2 pl-2">تاريخ البداية:2023\3\3</h5>
-                   
-                   
+                  </div>
+                     <div style="display: flex; align-items: baseline; flex-direction: row-reverse">
+                    <i class="fa fa-calendar-alt"></i>
                     <h5 class="text-right p-2 pl-2">تاريخ النهاية:2023\3\3</h5>
+                  </div>
+                   
                     <h5 class="text-right p-2 pl-2">عدد الأشخاص:10</h5>
                    
             

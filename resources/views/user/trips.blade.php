@@ -56,11 +56,11 @@
                         <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 أيام</small>
                     </div>
                     <br>
-                    <a class="h5 text-decoration-none" href="">الوصف</a>
+                   
                     <div class="border-top mt-4 pt-4">
                     <div class="d-flex justify-content-between align-items-baseline">
                         <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                            <h6><button class="btn btn-primary" style="border-radius:3px;">المزيد من التفاصيل للحجز</button></h6>
+                            <h6><a class="btn btn-primary"  href="{{route('tripmore')}}"  style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
                         </div>
                     </div>
                 </div>
