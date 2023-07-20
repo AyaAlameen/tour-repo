@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\TouristGuide;
 use App\Models\Offer;
+use App\Models\Group;
 use Illuminate\Http\Request;
 
 class UserHomeController extends Controller
