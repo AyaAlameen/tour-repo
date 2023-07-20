@@ -65,7 +65,7 @@
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="{{route('transport')}}" class="dropdown-item">Transport Companies</a>
                                 <a href="{{route('travelguides')}}" class="dropdown-item">Tourist Guide</a>
-                                <a href="single" class="dropdown-item">Trip</a>
+                                <a href="{{route('trips')}}" class="dropdown-item">Trip</a>
                                
                             </div>
                         </div>

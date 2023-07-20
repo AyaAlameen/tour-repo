@@ -10,11 +10,11 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/testimonial-1.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                                        <a class="btn btn-outline-primary btn-square" type="button"
+                                            title=""><i class="fa fa-phone"></i></a>
+                                        <a class="btn btn-outline-primary btn-square"
+                                            href="mailto: "><i class="far fa-envelope"></i></a>
+                                    </div>
                         </div>
                         <div class="text-center py-4">
                             <h5 class="text-truncate">اياد</h5>
@@ -27,11 +27,11 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                                        <a class="btn btn-outline-primary btn-square" type="button"
+                                            title=""><i class="fa fa-phone"></i></a>
+                                        <a class="btn btn-outline-primary btn-square"
+                                            href="mailto: "><i class="far fa-envelope"></i></a>
+                                    </div>
                         </div>
                         <div class="text-center py-4">
                             <h5 class="text-truncate">مجد</h5>
@@ -44,11 +44,11 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/testimonial-3.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                                        <a class="btn btn-outline-primary btn-square" type="button"
+                                            title=""><i class="fa fa-phone"></i></a>
+                                        <a class="btn btn-outline-primary btn-square"
+                                            href="mailto:"><i class="far fa-envelope"></i></a>
+                                    </div>
                         </div>
                         <div class="text-center py-4">
                             <h5 class="text-truncate">مهند</h5>
@@ -61,10 +61,10 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+                                        <a class="btn btn-outline-primary btn-square" type="button"
+                                            title=""><i class="fa fa-phone"></i></a>
+                                        <a class="btn btn-outline-primary btn-square"
+                                            href="mailto: "><i class="far fa-envelope"></i></a>
                             </div>
                         </div>
                         <div class="text-center py-4">

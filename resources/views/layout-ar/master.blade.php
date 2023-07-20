@@ -54,7 +54,7 @@
 
             let origin = window.location.href;
             console.log(origin)
-            if (origin == "http://127.0.0.1:8000/user_home_arabic" || origin == "http://127.0.0.1:8000/about-ar" || origin == "http://127.0.0.1:8000/contact-ar" ||  origin== "http://127.0.0.1:8000/transport-ar"  ||  origin== "http://127.0.0.1:8000/travelguides-ar" ||  origin== "http://127.0.0.1:8000/travelguidesformore-ar") {
+            if (origin == "http://127.0.0.1:8000/user_home_arabic" || origin == "http://127.0.0.1:8000/about-ar" || origin == "http://127.0.0.1:8000/contact-ar" ||  origin== "http://127.0.0.1:8000/transport-ar"  ||  origin== "http://127.0.0.1:8000/travelguides-ar" ||  origin== "http://127.0.0.1:8000/travelguidesformore-ar"   ||  origin== "http://127.0.0.1:8000/trip-ar") {
                 console.log('aborted');
                 event.preventDefault();
             }
@@ -85,6 +85,10 @@
               event.target.href="http://127.0.0.1:8000/travelguidesformore-ar"
                 
             }
+            if (origin == "http://127.0.0.1:8000/trips") {
+              event.target.href="http://127.0.0.1:8000/trip-ar"
+                
+            }
         }
 
 
@@ -93,7 +97,7 @@
 
             let origin = window.location.href;
             console.log(origin)
-            if (origin == "http://127.0.0.1:8000/" || origin == "http://127.0.0.1:8000/about" || origin == "http://127.0.0.1:8000/contact-en"  || origin== "http://127.0.0.1:8000/transport" || origin== "http://127.0.0.1:8000/travelguides" || origin== "http://127.0.0.1:8000/travelguidesformore") {
+            if (origin == "http://127.0.0.1:8000/" || origin == "http://127.0.0.1:8000/about" || origin == "http://127.0.0.1:8000/contact-en"  || origin== "http://127.0.0.1:8000/transport" || origin== "http://127.0.0.1:8000/travelguides" || origin== "http://127.0.0.1:8000/travelguidesformore" || origin== "http://127.0.0.1:8000/trips" ) {
                 console.log('aborted');
                 preventDefault();
             }
@@ -119,6 +123,10 @@
             }
             if (origin == "http://127.0.0.1:8000/travelguidesformore-ar") {
               event.target.href="http://127.0.0.1:8000/travelguidesformore"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/trip-ar") {
+              event.target.href="http://127.0.0.1:8000/trips"
                 
             }
          }
