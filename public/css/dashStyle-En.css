@@ -808,3 +808,13 @@ input:disabled{
     padding-bottom:10px;
   }
  
+  .word_ticket{
+    color: gold;
+    transform: rotate(-90deg);
+    /* transform-origin: top left; */
+    font-size: 25px;
+    position: absolute;
+    right: 210px;
+    bottom: 45%;
+    letter-spacing: 3px;
+  }

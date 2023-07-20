@@ -149,6 +149,17 @@
          function loginBefore() {
         window.location = "/login";
     }
+
+    
+  function showToast(ticId) {
+            $('#toast_' + ticId).removeClass('d-none');
+        }
+
+        function hideToast(ticId) {
+            $('#toast_' + ticId).addClass('d-none');
+
+        }
+
 </script>
 </body>
 

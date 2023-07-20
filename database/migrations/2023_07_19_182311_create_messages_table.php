@@ -17,6 +17,8 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable();
             $table->text('message');
+            $table->boolean('seen')->default(0);
+            $table->boolean('publish')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

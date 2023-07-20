@@ -71,8 +71,6 @@
                         </div>
 
                      <a href="{{ route('about-ar') }}" class="nav-item nav-link">حولنا</a>
-
-
                      <a href="{{ route('contact-ar') }}" class="nav-item nav-link">تواصل معنا</a>
                      <!-- Authentication Links -->
                      @guest
@@ -86,7 +84,7 @@
                              <div class="dropdown-menu border-0 rounded-0 m-0">
                                  <a class="dropdown-item" style="cursor: pointer;" data-bs-toggle="modal"
                                      data-bs-target="#exampleModal4">معلومات
-                                     الحساب</a>
+                                     الحساب</a>     
                                  <a class="dropdown-item" href="{{ route('logout') }}"
                                      onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -95,9 +93,94 @@
                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                      @csrf
                                  </form>
-
                              </div>
-                         </div>
+                         </div>    
+                         
+                            <!-- account form -->
+ <div class="modal fade " data-bs-backdrop="static" id="exampleModal4" tabindex="-1"
+ aria-labelledby="exampleModal4Label" aria-hidden="true">
+ <div class="modal-dialog ">
+     <div class="modal-content toggle">
+         <div class="modal-header" style="direction:ltr;">
+             <h5 class="modal-title" id="exampleModal4Label">معلومات الحساب</h5>
+             <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+         <div class="acc-pic position-relative m-auto">
+             <img src="{{ asset(Auth::user()->image) }}" alt="Account" class="" width="150px" height="150px"
+                 style="border-radius:50%; margin:auto; margin-block:40px;">
+             <input type="file"
+                 style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
+             <span class="position-absolute translate-middle badge rounded-pill mr-3"
+                 style="left:80%; background-color:var(--navi);top:70%; width:35px; height:35px;">
+                 <i class="fas fa-pen" style="color:#fff !important; padding-top:7px;">
+                 </i></span>
+         </div>
+         <hr class="w-50 m-auto">
+         <div class="acc-info pt-5 pr-5">
+             <div class="d-flex mr-4">
+                 <i class="fas fa-user ml-2"></i>
+                 <h6>اسم المستخدم</h6>
+             </div>
+             <input disabled class="m-auto p-1" type="text"
+                 style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
+                 value="{{ Auth::user()->user_name }}" />
+
+             <div class="d-flex  pt-5 mr-4">
+                 <i class="fas fa-envelope ml-2"></i>
+                 <h6>الايميل</h6>
+             </div>
+             <input disabled class="m-auto p-1" type="email" value="{{ Auth::user()->email }}"
+                 style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
+                />
+
+
+                 <div class="d-flex  pt-5  justify-content-center pl-5">
+                    <button style="cursor: pointer;" onclick="ablePassword()" class="btn-primary">تعديل كلمة السر</button>
+                  </div>
+              
+                
+             
+                <div id="OldPassword" hidden="true">
+                  <div class="d-flex pt-5"  >
+                         <i class="fas fa-lock"></i>
+                         <h6>كلمة السر القديمة</h6>
+                       </div>
+                     <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"/>        
+                  </div>
+           
+             <div id="NewPassword" hidden="true">
+                 <div class="d-flex pt-5 mr-4">
+                     <i class="fas fa-lock ml-2"></i>
+                     <h6> كلمة السر الجديدة</h6>
+                 </div>
+                 <input class="m-auto p-1" type="password" value=""
+                     style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
+                    />
+             </div>
+
+             <div id="confirmPassword" hidden="true">
+                 <div class="d-flex pt-5 mr-4">
+                     <i class="fas fa-lock ml-2"></i>
+                     <h6>تأكيد كلمة السر</h6>
+                 </div>
+                 <input class="m-auto p-1" type="password" value=""
+                     style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
+                     />
+             </div>
+
+         </div>
+         <div class="modal-footer mt-5" style="direction:ltr;">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+             <button type="button" id="add-guide-btn" class="app-content-headerButton">حفظ</button>
+         </div>
+     </div>
+ </div>
+</div>
+
+<!-- end account form -->
+
                      @endguest
                      {{-- heart --}}
                      <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="المفضلة" onClick="getFavorite()"
@@ -110,7 +193,7 @@
 
                      <div class="nav-item dropdown ">
                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" title="ترجمة"> <i
-                                 class="fas fa-globe "></i> </a>
+                                 class="fas fa-globe " style=" color:var(--bambi);"></i> </a>
                          <div id="langList" class="dropdown-menu border-0 rounded-0 m-0">
                              <a href="" onclick="getURLAr()" class="dropdown-item" style="cursor:pointer;">
                                  العربية</a>
@@ -172,19 +255,19 @@
          <div class="d-flex mb-3"
              style="flex-direction: column; height: auto; align-items: center; color: #fff; background-color:var(--bambi); clip-path: polygon(0% 20%, 20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%);
              border-radius: 30px; padding-block: 10px;">
-             <h6 style="font-size: 20px;">- معلومات الحجز -</h6>
+             <h6 style="font-size: 16px;">- معلومات الحجز -</h6>
              <div class="mr-2 text-center" style="position: relative;">
-                 <h6 style="font-size: 20px;"> حجز اسم المكان أو العرض أو الرحلة</h6>
+                 <h6 style="font-size: 16px;"> حجز اسم المكان أو العرض أو الرحلة</h6>
                  {{-- إذا عرض أو رحلة منذكر المكان --}}
-                 {{-- <h6 style="font-size: 20px;"></h6> اسم المكان</h6> --}}
+                 {{-- <h6 style="font-size: 16px;"></h6> اسم المكان</h6> --}}
                  {{-- إذا حجز خدمة منذكر اسما --}}
-                 {{-- <h6 style="font-size: 20px;">اسم الخدمة</h6> --}}
-                 <h6 style="font-size: 20px;"> في محافظة حلب</h6>
-                 <h6 style="font-size: 20px;">20-3-2032 : من تاريخ </h6>
-                 <h6 style="font-size: 20px;">22-3-2032 : إلى تاريخ </h6>
-                 <h6 style="font-size: 20px;">20325 : بكلفة </h6>
+                 {{-- <h6 style="font-size: 16px;">اسم الخدمة</h6> --}}
+                 <h6 style="font-size: 16px;"> في محافظة حلب</h6>
+                 <h6 style="font-size: 16px;">20-3-2032 : من تاريخ </h6>
+                 <h6 style="font-size: 16px;">22-3-2032 : إلى تاريخ </h6>
+                 <h6 style="font-size: 16px;">20325 : بكلفة </h6>
                  <h6 onclick="showToast('h6_id_0')" id="h6_id_0"
-                     style="font-size: 20px; color: #dc3545; cursor: pointer;"><i class="fas fa-cancel">إلغاء الحجز
+                     style="font-size: 16px; color: #dc3545; cursor: pointer;"><i class="fas fa-cancel">إلغاء الحجز
                      </i></h6>
                  <h6 class="word_ticket">Ticket</h6>
 
@@ -195,141 +278,26 @@
          {{-- توست إلغاء الحجز --}}
 
          <div id="toast_h6_id_0" class="alert alert-primary d-none text-center"
-             style="background-color: #fff; border: 2px solid; font-size: 20px;" role="alert">
+             style="background-color: #fff; border: 2px solid; font-size: 16px;" role="alert">
              هل أنت متأكد من أنك تريد إلغاء الحجز؟
              <button type="button" onclick="hideToast('h6_id_0')" class="close_toast btn-close m-0 close"
                  aria-label="Close">
                  <span aria-hidden="true">&times;</span>
              </button>
-             <div class="modal-footer mt-1" style="direction:ltr;">
+             <div class="modal-footer p-0 pt-3 mt-1" style="direction:ltr;">
                  <button type="button" class="btn btn-secondary" onclick="hideToast('h6_id_0')">إغلاق</button>
                  <button type="button" id="add-guide-btn" class="app-content-headerButton">نعم</button>
              </div>
          </div>
          {{-- نهاية توست إلغااء الحجز --}}
 
-         <div class="d-flex mb-3"
-             style="flex-direction: column; height: auto; align-items: center; color: #fff; background-color:var(--bambi); clip-path: polygon(0% 20%, 20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%);
-             border-radius: 30px; padding-block: 10px;">
-             <h6 style="font-size: 20px;">- معلومات الحجز -</h6>
-             <div class="mr-2 text-center" style="position: relative;">
-                 <h6 style="font-size: 20px;"> حجز اسم المكان أو العرض أو الرحلة</h6>
-                 {{-- إذا عرض أو رحلة منذكر المكان --}}
-                 {{-- <h6 style="font-size: 20px;"></h6> اسم المكان</h6> --}}
-                 {{-- إذا حجز خدمة منذكر اسما --}}
-                 {{-- <h6 style="font-size: 20px;">اسم الخدمة</h6> --}}
-                 <h6 style="font-size: 20px;"> في محافظة حلب</h6>
-                 <h6 style="font-size: 20px;">20-3-2032 : من تاريخ </h6>
-                 <h6 style="font-size: 20px;">22-3-2032 : إلى تاريخ </h6>
-                 <h6 style="font-size: 20px;">20325 : بكلفة </h6>
-                 <h6 onclick="showToast('h6_id_1')" id="h6_id_0"
-                     style="font-size: 20px; color: #dc3545; cursor: pointer;"><i class="fas fa-cancel">إلغاء الحجز
-                     </i></h6>
-                 <h6 class="word_ticket">Ticket</h6>
-
-             </div>
-
-
-         </div>
-         {{-- توست إلغاء الحجز --}}
-
-         <div id="toast_h6_id_1" class="alert alert-primary d-none text-center"
-             style="background-color: #fff; border: 2px solid; font-size: 20px;" role="alert">
-             هل أنت متأكد من أنك تريد إلغاء الحجز؟
-             <button type="button" onclick="hideToast('h6_id_1')" class="close_toast btn-close m-0 close"
-                 aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-             </button>
-             <div class="modal-footer mt-1" style="direction:ltr;">
-                 <button type="button" class="btn btn-secondary" onclick="hideToast('h6_id_10')">إغلاق</button>
-                 <button type="button" id="add-guide-btn" class="app-content-headerButton">نعم</button>
-             </div>
-         </div>
-         {{-- نهاية توست إلغااء الحجز --}}
+        
 
      </div>
  </div>
  <!-- end tickets -->
 
- <!-- account form -->
- <div class="modal fade " data-bs-backdrop="static" id="exampleModal4" tabindex="-1"
-     aria-labelledby="exampleModal4Label" aria-hidden="true">
-     <div class="modal-dialog ">
-         <div class="modal-content toggle">
-             <div class="modal-header" style="direction:ltr;">
-                 <h5 class="modal-title" id="exampleModal4Label">معلومات الحساب</h5>
-                 <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-             </div>
-             <div class="acc-pic position-relative m-auto">
-                 <img src="../img/p1.jpg" alt="Account" class="" width="150px" height="150px"
-                     style="border-radius:50%; margin:auto; margin-block:40px;">
-                 <input type="file"
-                     style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
-                 <span class="position-absolute translate-middle badge rounded-pill mr-3"
-                     style="left:80%; background-color:var(--navi);top:70%; width:35px; height:35px;">
-                     <i class="fas fa-pen" style="color:#fff !important; padding-top:7px;">
-                     </i></span>
-             </div>
-             <hr class="w-50 m-auto">
-             <div class="acc-info pt-5 pr-5">
-                 <div class="d-flex mr-4">
-                     <i class="fas fa-user ml-2"></i>
-                     <h6>اسم المستخدم</h6>
-                 </div>
-                 <input disabled class="m-auto p-1" type="text"
-                     style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
-                     value="Aya Alameen" />
 
-                 <div class="d-flex  pt-5 mr-4">
-                     <i class="fas fa-envelope ml-2"></i>
-                     <h6>الايميل</h6>
-                 </div>
-                 <input disabled class="m-auto p-1" type="email" value="aya@gmail.com"
-                     style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
-                     value="Aya Alameen" />
-
-
-                 <div class="d-flex  pt-5 mr-4">
-                     <i class="fas fa-lock ml-2"></i>
-                     <h6>كلمة السر</h6>
-                 </div>
-                 <input disabled="true" id="account_password" class="m-auto p-1 " type="password" value="12345678"
-                     style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
-                     value="Aya Alameen" />
-                 <i class="fas fa-pen" onclick="ablePassword()"
-                     style="color:var(--title)!important; cursor: pointer; font-size:14px; position:relative; right: 30px;"></i>
-
-                 <div id="NewPassword" hidden="true">
-                     <div class="d-flex pt-5 mr-4">
-                         <i class="fas fa-lock ml-2"></i>
-                         <h6> كلمة السر الجديدة</h6>
-                     </div>
-                     <input class="m-auto p-1" type="password" value=""
-                         style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
-                         value="Aya Alameen" />
-                 </div>
-
-                 <div id="confirmPassword" hidden="true">
-                     <div class="d-flex pt-5 mr-4">
-                         <i class="fas fa-lock ml-2"></i>
-                         <h6>تأكيد كلمة السر</h6>
-                     </div>
-                     <input class="m-auto p-1" type="password" value=""
-                         style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
-                         value="Aya Alameen" />
-                 </div>
-
-             </div>
-             <div class="modal-footer mt-5" style="direction:ltr;">
-                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                 <button type="button" id="add-guide-btn" class="app-content-headerButton">حفظ</button>
-             </div>
-         </div>
-     </div>
- </div>
- <!-- end account form -->
 
 
  <!-- Navbar End -->
@@ -337,18 +305,24 @@
 
  <script>
      function ablePassword() {
-         var con = document.getElementById("confirmPassword").hidden;
-         var newpass = document.getElementById("NewPassword").hidden;
-         console.log(con)
-         if (newpass & con) {
+   var con =  document.getElementById("confirmPassword").hidden; 
+   var newpass =document.getElementById("NewPassword").hidden;
+   var oldpass =document.getElementById("OldPassword").hidden;
 
-             document.getElementById("confirmPassword").hidden = false;
-             document.getElementById("NewPassword").hidden = false;
-         }
-         if (!(newpass & con)) {
-             document.getElementById("confirmPassword").hidden = true;
-             document.getElementById("NewPassword").hidden = true;
-         }
+  console.log(con)
+   if(newpass & con & oldpass){
 
-     }
+    document.getElementById("confirmPassword").hidden=false;
+    document.getElementById("NewPassword").hidden=false;
+    document.getElementById("OldPassword").hidden=false;
+
+   }
+   if(!(newpass & con & oldpass)){
+    document.getElementById("confirmPassword").hidden=true;
+    document.getElementById("NewPassword").hidden=true;
+    document.getElementById("OldPassword").hidden=true;
+
+   }
+
+  }
  </script>
