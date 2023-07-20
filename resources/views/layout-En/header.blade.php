@@ -96,6 +96,11 @@
                              </div>
                          </div>       
                      @endguest
+                       {{-- ticket --}}
+                       <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
+                        style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
+                        {{-- fav --}}
                      <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite"
                              onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;" type="button"
                              data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
@@ -142,6 +147,72 @@
      </div>
  </div>
  <!-- end favorite -->
+
+<!-- tickets -->
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight1" aria-labelledby="offcanvasRight1Label">
+    <div class="offcanvas-header" >
+        <h3 id="offcanvasRight1Label " class="text-primary ">your bookings:</h3>
+        <button type="button" class="btn-close m-0 close" data-bs-dismiss="offcanvas" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        {{-- اذا ما حجز لسا --}}
+        {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px;" />
+  <p class="text-body px-3 text-center mt-4">سارع بالحجز في أفضل الأماكن</p> --}}
+        {{-- اذا حجز  --}}
+
+        <div class="d-flex mb-3"
+            style="flex-direction: column; height: auto; align-items: center; color: #fff; background-color:var(--bambi); clip-path: polygon(0% 20%, 20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%);
+      border-radius: 30px; padding-block: 10px;">
+            <h6 style="font-size: 16px;">- Booking Information -</h6>
+            <div class="mr-2 text-center" style="position: relative;">
+                <h6 style="font-size: 16px;"> حجز اسم المكان أو العرض أو الرحلة</h6>
+                {{-- إذا عرض أو رحلة منذكر المكان --}}
+                {{-- <h6 style="font-size: 16px;"></h6> اسم المكان</h6> --}}
+                {{-- إذا حجز خدمة منذكر اسما --}}
+                {{-- <h6 style="font-size: 16px;">اسم الخدمة</h6> --}}
+                <h6 style="font-size: 16px;"> في محافظة حلب</h6>
+                <h6 style="font-size: 16px;">from: 20-3-2023 </h6>
+                <h6 style="font-size: 16px;">to: 22-3-2023 </h6>
+                <h6 style="font-size: 16px;">cost : 2222 </h6>
+                <div class="d-flex justify-content-center" style="flex-direction: row-reverse;">
+                 <i style="font-size: 16px; color: #dc3545; cursor: pointer; margin-left: 3px;"
+                        class="fas fa-cancel"></i>
+                    <h6 onclick="showToast('h6_id_0')" id="h6_id_0"
+                        style="font-size: 16px; color: #dc3545; cursor: pointer;">cancle booking
+                    </h6> 
+                </div>
+
+                <h6 class="word_ticket">Ticket</h6>
+
+            </div>
+
+
+        </div>
+        {{-- توست إلغاء الحجز --}}
+
+        <div id="toast_h6_id_0" class="alert alert-primary d-none text-center"
+            style="background-color: #fff; border: 2px solid; font-size: 16px;" role="alert">
+            <button type="button" onclick="hideToast('h6_id_0')" class="close_toast btn-close m-0 close"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+            are you shure that you want to cancle the book?
+           
+            <div class="modal-footer p-0 pt-3 mt-1" >
+                <button type="button" class="btn btn-secondary" onclick="hideToast('h6_id_0')">close</button>
+                <button type="button"  class="app-content-headerButton">yes</button>
+            </div>
+        </div>
+        {{-- نهاية توست إلغااء الحجز --}}
+
+
+    </div>
+</div>
+<!-- end tickets -->
 
 <!-- account form -->
 <div class="modal fade " data-bs-backdrop="static" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">

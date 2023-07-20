@@ -522,66 +522,25 @@
         <p class="text-body px-3 text-center mt-4">سارع بالحجز في أفضل الأماكن</p> --}}
              {{-- اذا حجز  --}}
 
-             <div class="d-flex mb-3"
-                 style="flex-direction: column; height: auto; align-items: center; color: #fff; background-color:var(--bambi); clip-path: polygon(0% 20%, 20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%);
-            border-radius: 30px; padding-block: 10px;">
-                 <h6 style="font-size: 20px;">- معلومات الحجز -</h6>
-                 <div class="mr-2 text-center" style="position: relative;">
-                     <h6 style="font-size: 20px;"> حجز اسم المكان أو العرض أو الرحلة</h6>
-                     {{-- إذا عرض أو رحلة منذكر المكان --}}
-                     {{-- <h6 style="font-size: 20px;"></h6> اسم المكان</h6> --}}
-                     {{-- إذا حجز خدمة منذكر اسما --}}
-                     {{-- <h6 style="font-size: 20px;">اسم الخدمة</h6> --}}
-                     <h6 style="font-size: 20px;"> في محافظة حلب</h6>
-                     <h6 style="font-size: 20px;">20-3-2032 : من تاريخ </h6>
-                     <h6 style="font-size: 20px;">22-3-2032 : إلى تاريخ </h6>
-                     <h6 style="font-size: 20px;">20325 : بكلفة </h6>
-                     <div class="d-flex justify-content-center" style="flex-direction: row-reverse;">
-                        <h6 onclick="showToast('h6_id_0')" id="h6_id_0"
-                        style="font-size: 20px; color: #dc3545; cursor: pointer;">إلغاء الحجز
-                    </h6> <i style="font-size: 20px; color: #dc3545; cursor: pointer; margin-right: 3px;" class="fas fa-cancel"></i>
-                     </div>
-                    
-                     <h6 class="word_ticket">Ticket</h6>
-
-                 </div>
-
-
-             </div>
-             {{-- توست إلغاء الحجز --}}
-
-             <div id="toast_h6_id_0" class="alert alert-primary d-none text-center"
-                 style="background-color: #fff; border: 2px solid; font-size: 20px;" role="alert">
-                 هل أنت متأكد من أنك تريد إلغاء الحجز؟
-                 <button type="button" onclick="hideToast('h6_id_0')" class="close_toast btn-close m-0 close"
-                     aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-                 <div class="modal-footer mt-1" style="direction:ltr;">
-                     <button type="button" class="btn btn-secondary" onclick="hideToast('h6_id_0')">إغلاق</button>
-                     <button type="button" id="add-guide-btn" class="app-content-headerButton">نعم</button>
-                 </div>
-             </div>
-             {{-- نهاية توست إلغااء الحجز --}}
 
              <div class="d-flex mb-3"
                  style="flex-direction: column; height: auto; align-items: center; color: #fff; background-color:var(--bambi); clip-path: polygon(0% 20%, 20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%);
             border-radius: 30px; padding-block: 10px;">
-                 <h6 style="font-size: 20px;">- معلومات الحجز -</h6>
+                 <h6 style="font-size: 16px;">- معلومات الحجز -</h6>
                  <div class="mr-2 text-center" style="position: relative;">
-                     <h6 style="font-size: 20px;"> حجز اسم المكان أو العرض أو الرحلة</h6>
+                     <h6 style="font-size: 16px;"> حجز اسم المكان أو العرض أو الرحلة</h6>
                      {{-- إذا عرض أو رحلة منذكر المكان --}}
-                     {{-- <h6 style="font-size: 20px;"></h6> اسم المكان</h6> --}}
+                     {{-- <h6 style="font-size: 16px;"></h6> اسم المكان</h6> --}}
                      {{-- إذا حجز خدمة منذكر اسما --}}
-                     {{-- <h6 style="font-size: 20px;">اسم الخدمة</h6> --}}
-                     <h6 style="font-size: 20px;"> في محافظة حلب</h6>
-                     <h6 style="font-size: 20px;">20-3-2032 : من تاريخ </h6>
-                     <h6 style="font-size: 20px;">22-3-2032 : إلى تاريخ </h6>
-                     <h6 style="font-size: 20px;">20325 : بكلفة </h6>
+                     {{-- <h6 style="font-size: 16px;">اسم الخدمة</h6> --}}
+                     <h6 style="font-size: 16px;"> في محافظة حلب</h6>
+                     <h6 style="font-size: 16px;">20-3-2032 : من تاريخ </h6>
+                     <h6 style="font-size: 16px;">22-3-2032 : إلى تاريخ </h6>
+                     <h6 style="font-size: 16px;">20325 : بكلفة </h6>
                      <div class="d-flex justify-content-center" style="flex-direction: row-reverse;">
                         <h6 onclick="showToast('h6_id_1')" id="h6_id_1"
-                        style="font-size: 20px; color: #dc3545; cursor: pointer;">إلغاء الحجز
-                    </h6> <i style="font-size: 20px; color: #dc3545; cursor: pointer; margin-right: 3px;" class="fas fa-cancel"></i>
+                        style="font-size: 16px; color: #dc3545; cursor: pointer;">إلغاء الحجز
+                    </h6> <i style="font-size: 16px; color: #dc3545; cursor: pointer; margin-right: 3px;" class="fas fa-cancel"></i>
                      </div>
                      <h6 class="word_ticket">Ticket</h6>
 
@@ -592,13 +551,13 @@
              {{-- توست إلغاء الحجز --}}
 
              <div id="toast_h6_id_1" class="alert alert-primary d-none text-center"
-                 style="background-color: #fff; border: 2px solid; font-size: 20px;" role="alert">
+                 style="background-color: #fff; border: 2px solid; font-size: 16px;" role="alert">
                  هل أنت متأكد من أنك تريد إلغاء الحجز؟
                  <button type="button" onclick="hideToast('h6_id_1')" class="close_toast btn-close m-0 close"
                      aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button>
-                 <div class="modal-footer mt-1" style="direction:ltr;">
+                 <div class="modal-footer p-0 pt-3 mt-1" style="direction:ltr;">
                      <button type="button" class="btn btn-secondary" onclick="hideToast('h6_id_1')">إغلاق</button>
                      <button type="button" id="add-guide-btn" class="app-content-headerButton">نعم</button>
                  </div>

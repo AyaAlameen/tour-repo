@@ -812,7 +812,7 @@ input:disabled{
     color: gold;
     transform: rotate(-90deg);
     /* transform-origin: top left; */
-    font-size: 35px;
+    font-size: 25px;
     position: absolute;
     right: 210px;
     bottom: 45%;
