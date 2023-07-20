@@ -351,7 +351,12 @@ Route::get('/travelguides', function () {
 Route::get('/travelguidesformore', function () {
     return view('user.travelguidesformore');
 })-> name('travelguidesformore');
-
+Route::get('/trips', function () {
+    return view('user.trips');
+})-> name('trips');
+Route::get('/tripmore', function () {
+    return view('user.tripmore');
+})-> name('tripmore');
 //user routes part Arabic
 
 Route::get('/contact-ar', function () {
@@ -381,9 +386,12 @@ Route::get('/travelguidesformore-ar', function () {
 })-> name('travelguidesformore-ar');
 
 
-Route::get('/trip_ar', function () {
+Route::get('/trip-ar', function () {
     return view('user-ar.trips');
 })-> name('trip-ar');
+Route::get('/tripmore-ar', function () {
+    return view('user-ar.tripmore');
+})-> name('tripmore-ar');
 
 Route::get('/user_city_ar', function () {
     return view('user-ar.city');

@@ -1,4 +1,4 @@
-@extends('layout-Ar.master')
+@extends('layout-En.master')
 @section('content')
 
     <!-- Header Start -->
@@ -60,7 +60,7 @@
                     <div class="border-top mt-4 pt-4">
                     <div class="d-flex justify-content-between align-items-baseline">
                         <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                            <h6><a class="btn btn-primary"  href="{{route('tripmore-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+                            <h6><button class="btn btn-primary" style="border-radius:3px;">المزيد من التفاصيل للحجز</button></h6>
                         </div>
                     </div>
                 </div>
@@ -69,4 +69,5 @@
       <!-- نهاية الكارد -->
  
     {{-- end trips cards --}}
-@endsection
+
+    @endsection

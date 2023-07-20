@@ -65,7 +65,7 @@
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="{{route('transport-ar')}}" class="dropdown-item">الشركات النقل</a>
                                 <a href="{{route('travelguides-ar')}}" class="dropdown-item">الدليل السياحي</a>
-                                <a href="single" class="dropdown-item">الرحلات</a>
+                                <a href="{{route('trip-ar')}}" class="dropdown-item">الرحلات</a>
                             
                             </div>
                         </div>
