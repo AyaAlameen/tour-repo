@@ -590,10 +590,7 @@
                                 <div class="text-center py-4">
                                     <h5 class="text-truncate">
                                         {{ $guide->translations()->where('locale', 'en')->first()->name }}</h5>
-                                    <p class="m-0">
-                                        {{ $guide->translations()->where('locale', 'en')->first()->description }}</p>
-                                    <p class="m-0">
-                                        {{ $guide->translations()->where('locale', 'en')->first()->certificates }}</p>
+                                        <a class="text-50 mb-2" href="{{route('travelguidesformore-ar')}}">للمزيد</a>
                                 </div>
                             </div>
                         </div>
