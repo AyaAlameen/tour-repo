@@ -175,60 +175,17 @@
                 <h1>Governorates of Syria</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img  width="400px" height="250px" src="img/altra-immagine-del-sito.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h4 class="text-white">Palmyra </h4>
-                          
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img  width="400px" height="250px" src="img/syrien-ar-modern-till.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h4 class="text-white">Allepo</h4>
+                @foreach ($cities as $city)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="destination-item position-relative overflow-hidden mb-2">
+                            <img  width="400px" height="250px" src="{{asset(str_replace(app_path(),'',$city -> image))}}" alt="">
+                            <a class="destination-overlay text-white text-decoration-none" href="">
+                                <h4 class="text-white">{{$city->translations()->where('locale', 'en')->first()->name}} </h4>
                             
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img width="400px" height="250px" src="img/destination-2.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h4 class="text-white">Latakia</h4>
-                          
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img width="400px" height="250px" src="img/norias-water-wheels.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h4 class="text-white">Hama</h4>
-                          
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img width="400px" height="250px" src="img/omayyad.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h4 class="text-white">Damascuse</h4>
-                        
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img width="400px" height="250px" src="img/homsقلعة-الحصن.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h4 class="text-white">Homs</h4>
-                        
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

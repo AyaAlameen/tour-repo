@@ -69,6 +69,19 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             // 'image'=>['image','mimes:jpg,png,jpeg,gif,svg'],
+        
+        ], [ 
+            'user_name.required' => 'User Name feild is required',
+            'user_name.string' => 'User Name feild must be string',
+            'user_name.max' => 'User Name feild must be less than 255 charachters',
+            'email.required' => 'Email feild is required',
+            'email.string' => 'Email feild must be string',
+            'email.email' => 'Email field must meet the e-mail format requirements',
+            'email.unique' => 'This email already has an account',
+            'password.required' => 'Password feild is required',
+            'password.min' => 'Password field must be at least 8 characters or numbers long',
+            'password.confirmed' => 'The password confirmation does not match.',
+            // 'password.regex' => 'حقل كلمة المرور يجب أن يحوي أحرف كبيرة وصغيرة وأرقام',
         ]);
     }
 
@@ -80,24 +93,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $profileImage = null;
+
         $request = app('request');
-        // dd($request->all());
+        
         if($request->hasfile('image')){
-            $file = $request->file('image');
-            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-            // نقل الملف إلى المجلد المحدد
-            $file->move(public_path('uploads'), $filename);
-            $image = 'uploads/userImage/'.$filename;
+            
+            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move('uploads/userImage', $upload_image_name);
+            $profileImage = 'uploads/userImage/'.$upload_image_name;
+            // save in Image Table
+            // Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename) );
+        }else{
+            
+            $profileImage = 'uploads/userImage/1656869576_personalimg.jpg';
+    
         }
-        else{
-            $image = 'uploads/userImage/1656869576_personalimg.jpg';
-        }
-         return User::create([
-            'image' => $image ,
+        
+        return User::create([
+            'image' => $profileImage ,
             'user_name' => $data['user_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-         
     }
 }
