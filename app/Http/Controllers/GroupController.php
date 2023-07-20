@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\TouristGuide;
+use App\Models\Place;
+use App\Models\District;
+use App\Models\City;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -17,7 +21,12 @@ class GroupController extends Controller
     {
         $groups = Group::with('translations')->get();
         $guides = TouristGuide::with('translations')->get();
-        return view('admin-Ar.sections.group-section', compact('groups', 'guides'));
+        $places = Place::with('translations', 'district', 'services')->get();
+        $cities = City::with('translations')->get();
+        $districts = District::with('translations')->get();
+        $services = Service::with('translations')->get();
+
+        return view('admin-Ar.sections.group-section', compact('groups', 'guides', 'places', 'districts', 'cities', 'services'));
 
     }
     
@@ -96,10 +105,20 @@ class GroupController extends Controller
         $group->translations()->create(['name'=>$request->input('name_en'), 'description' => $request->input('description_en'), 'locale' => 'en']);
         $group->translations()->create(['name'=>$request->input('name_ar'), 'description' => $request->input('description_ar'),'locale' => 'ar']);
         
-        $groups = Group::with(['translations', 'touristGuide'])->get();
-        $guides = TouristGuide::all();
+        $groups = Group::with('translations')->get();
+        $guides = TouristGuide::with('translations')->get();
+        $places = Place::with('translations', 'district', 'services')->get();
+        $cities = City::with('translations')->get();
+        $districts = District::with('translations')->get();
+        $services = Service::with('translations')->get();
         
-        return view("admin-Ar.sections.group-section")->with(['groups' => $groups, 'guides' => $guides]);
+        return view("admin-Ar.sections.group-section")->with(['groups' => $groups, 
+                                                                'guides' => $guides, 
+                                                                'places' => $places,
+                                                                'cities' => $cities,
+                                                                'districts' => $districts,
+                                                                'services' => $services
+                                                            ]);
 
 
     }
@@ -146,10 +165,20 @@ class GroupController extends Controller
         $group->translations()->create(['name'=>$request->input('name_en'), 'description' => $request->input('description_en'), 'locale' => 'en']);
         $group->translations()->create(['name'=>$request->input('name_ar'), 'description' => $request->input('description_ar'),'locale' => 'ar']);
         
-        $groups = Group::with(['translations', 'touristGuide'])->get();
-        $guides = TouristGuide::all();
+        $groups = Group::with('translations')->get();
+        $guides = TouristGuide::with('translations')->get();
+        $places = Place::with('translations', 'district', 'services')->get();
+        $cities = City::with('translations')->get();
+        $districts = District::with('translations')->get();
+        $services = Service::with('translations')->get();
         
-        return view("admin-En.sections.group-section")->with(['groups' => $groups, 'guides' => $guides]);
+        return view("admin-En.sections.group-section")->with(['groups' => $groups, 
+                                                                'guides' => $guides, 
+                                                                'places' => $places,
+                                                                'cities' => $cities,
+                                                                'districts' => $districts,
+                                                                'services' => $services
+                                                            ]);
 
 
 
@@ -236,10 +265,20 @@ class GroupController extends Controller
         
         $group->update();
         
-        $groups = Group::with(['translations', 'touristGuide'])->get();
-        $guides = TouristGuide::all();
+        $groups = Group::with('translations')->get();
+        $guides = TouristGuide::with('translations')->get();
+        $places = Place::with('translations', 'district', 'services')->get();
+        $cities = City::with('translations')->get();
+        $districts = District::with('translations')->get();
+        $services = Service::with('translations')->get();
         
-        return view("admin-Ar.sections.group-section")->with(['groups' => $groups, 'guides' => $guides]);
+        return view("admin-Ar.sections.group-section")->with(['groups' => $groups, 
+                                                                'guides' => $guides, 
+                                                                'places' => $places,
+                                                                'cities' => $cities,
+                                                                'districts' => $districts,
+                                                                'services' => $services
+                                                            ]);
 
     }
 
@@ -305,5 +344,44 @@ class GroupController extends Controller
     public function destroy(Group $group)
     {
         //
+    }
+
+
+    public function addGroupDestinationAr(Request $request){
+        // dd($request);
+        $data=$request->input();
+
+        $request->validate([
+            'group_id' => 'required',
+            'place_id' => 'required',
+            
+        ], [
+            'group_id.required' => 'حقل الجروب مطلوب',
+            'place_id.required' => 'حقل المكان مطلوب',
+            
+        ]);
+
+        $group = Group::find($data['group_id']);
+        // $group->places()>syncWithPivotValues($data['place_id'], ['service_id' => $data['service_id'] ?? null]); 
+        $group->places()->attach($data['place_id'], ['service_id' => $data['service_id'] ?? null]);
+        // $group_place->pl->group_id = $data['group_id'];
+        // $group_place->place_id = $data['place_id'];
+        // $group_place->service_id = $data['service_id'] ?? null;
+
+
+        $groups = Group::with('translations')->get();
+        $guides = TouristGuide::with('translations')->get();
+        $places = Place::with('translations', 'district', 'services')->get();
+        $cities = City::with('translations')->get();
+        $districts = District::with('translations')->get();
+        $services = Service::with('translations')->get();
+        
+        return view("admin-Ar.sections.group-section")->with(['groups' => $groups, 
+                                                                'guides' => $guides, 
+                                                                'places' => $places,
+                                                                'cities' => $cities,
+                                                                'districts' => $districts,
+                                                                'services' => $services
+                                                            ]);
     }
 }

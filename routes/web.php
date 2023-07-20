@@ -317,6 +317,7 @@ Route::get('/ar/groups', [GroupController::class, 'indexAr']) -> name('getGroups
 Route::post('/group_ar', [GroupController::class, 'storeAr']) -> name('addGroupAr');
 Route::post('/group_ar/edit', [GroupController::class, 'updateAr']) -> name('editGroupAr');
 Route::post('/group_ar/delete', [GroupController::class, 'destroyAr']) -> name('deleteGroupAr');
+Route::post('/group_ar/destinations/add', [GroupController::class, 'addGroupDestinationAr']) -> name('addGroupDestinationAr');
 
 
 //user routes part English

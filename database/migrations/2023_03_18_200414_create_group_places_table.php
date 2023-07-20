@@ -17,6 +17,7 @@ class CreateGroupPlacesTable extends Migration
             $table->id();
             $table->foreignId('group_id');
             $table->foreignId('place_id');
+            $table->foreignId('service_id')->nullable();
             $table->timestamps();
         });
     }
