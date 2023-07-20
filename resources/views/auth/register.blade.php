@@ -15,13 +15,13 @@
               </div>
               <hr>
                 <div class="col-md-12">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" >
                         @csrf
 
                         <div class="acc-pic position-relative d-flex justify-content-center">
                             <img src="img/1656869576_personalimg.jpg" alt="Account" id="add_previewImage_0" width="100px" height="100px"
                                 style="border-radius:50%; margin-block:30px;">
-                            <input type="file" id="add_input_0" accept="image/*"
+                            <input type="file" id="add_input_0" accept="image/*" 
                             onchange="previewImage(this, 'add_previewImage_0')"
                                 style="position:absolute; z-index:9999; left:55%; top:63%; opacity:0; width:30px;" class="form-control" name="image">
                             <span class="position-absolute translate-middle badge rounded-pill mr-3"

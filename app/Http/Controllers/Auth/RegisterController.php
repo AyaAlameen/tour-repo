@@ -83,19 +83,17 @@ class RegisterController extends Controller
         $request = app('request');
         // dd($request->all());
         if($request->hasfile('image')){
-            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
-            $request->image->move('uploads/userImage', $upload_image_name);
-            $profileImage = 'uploads/userImage/'.$upload_image_name;
-            // save in Image Table
-            // Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename) );
-        }else{
-    
-            $profileImage = 'uploads/userImage/1656869576_personalimg.jpg';
-    
+            $file = $request->file('image');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            // نقل الملف إلى المجلد المحدد
+            $file->move(public_path('uploads'), $filename);
+            $image = 'uploads/userImage/'.$filename;
         }
-       
+        else{
+            $image = 'uploads/userImage/1656869576_personalimg.jpg';
+        }
          return User::create([
-            'image' => $profileImage ,
+            'image' => $image ,
             'user_name' => $data['user_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
