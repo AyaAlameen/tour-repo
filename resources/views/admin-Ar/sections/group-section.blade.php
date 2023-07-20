@@ -197,184 +197,10 @@
                         </div>
                     </div>
                     <!-- end edit -->
-                    <!-- destination -->
-                    <!-- dest first form -->
-                    <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
-                        id="exampleModalTogglee" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
-                        tabindex="-1">
-                        <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
-                            <div class="modal-content" style="width:800px;">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalToggleeLabel">إضافة وجهة</h5>
-                                    <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                        aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- !!!بيان انتبهي  -->
-                                    <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-                                    <img src="../img/destination.png" class="m-3"
-                                        style="width:150px; height:150px; opacity:0.5;">
-                                    <p class="text-body mb-4">لا توجد وجهات مضافة بعد</p>
-                                    <!-- هاد الشكل بحال كان ضايف وسائل -->
-                                    <!-- <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
-        <tr>
-          <td class="text-center">لمكان</td>
-          <td class="text-center">الخدمة</td>
-          <td class="text-center">الناحية</td>
-          <td class="text-center" style="width:140px;">الكلفة</td>
-          <td class="text-center" style="width:290px;">وصف</td>
-    
-          <td style="width:40px;"></td>
-        </tr>
-        <tr>
-          <td class="text-center">shahbarows</td>
-          <td class="text-center">shahbarows</td>
-          <td class="text-center">alsaha</td>
-          <td class="text-center">120000</td>
-          <td class="text-center"   >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .</td>
-         
-          <td> <a href="#" class="delete  ml-1" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
-
-        </tr>
-      </table> -->
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary" style="border-radius:3px;"
-                                        data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal"
-                                        data-bs-dismiss="modal">إضافة وجهة جديدة</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end dest first form -->
-
-                    <!-- dest second form -->
-                    <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
-                        id="exampleModalTogglee2" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel2"
-                        tabindex="-1">
-                        <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
-                            <div class="modal-content" style="width:500px;">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalToggleeLabel2">وجهة جديدة</h5>
-                                    <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                        aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <table style="color: rgb(22, 22, 22); width: 450px; direction:rtl;"
-                                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
-
-                                        <tr>
-                                            <td>الناحية</td>
-                                            <td style="width:340px;">
-                                                <div class="dropdown toggle text-primary in"
-                                                    style="display:inline-block;">
-                                                    <label class="dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                        aria-expanded="false">
-
-                                                    </label>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">Alamir</a>
-                                                        <a class="dropdown-item" href="#">Alkadmous</a>
-
-
-
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-
-                                    </table>
-                                    <table id="tablePlace"
-                                        style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important; direction:rtl;"
-                                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                        <tr>
-                                            <td style="width:250px;" class="pr-2">الأماكن المتاحة في هذه الناحية
-                                            </td>
-                                            <td style="width:300px;">
-                                                <div class="dropdown toggle text-primary in"
-                                                    style="display:inline-block; ;">
-                                                    <label class="dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                        aria-expanded="false">
-
-                                                    </label>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <ul>
-                                                            <li>
-                                                                <div class="d-inline-block w-100" tabindex="0"
-                                                                    data-bs-toggle="popover"
-                                                                    data-bs-trigger="hover focus"
-                                                                    data-bs-content='cost : (12)  description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .'>
-                                                                    <a class="dropdown-item" href="#">مكان1</a>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pr-2">الخدمات المتوفرة في هذا المكان</td>
-                                            <td style="width:300px;">
-                                                <div class="dropdown toggle text-primary in"
-                                                    style="display:inline-block; ;">
-                                                    <label class="dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                        aria-expanded="false">
-                                                        <!--lable disabled هي الجملة منعرضا بحال كان المكان مالو خدمات ومنعمل ال  -->
-                                                        <!-- there is no services in this place -->
-                                                    </label>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <ul>
-                                                            <li>
-                                                                <div class="d-inline-block w-100" tabindex="0"
-                                                                    data-bs-toggle="popover"
-                                                                    data-bs-trigger="hover focus"
-                                                                    data-bs-content='cost : (12)  description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .'>
-                                                                    <a class="dropdown-item" href="#">خدمة1</a>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                    </table>
-                                    <button class="app-content-headerButton m-3" style="float:left;"
-                                        onclick="addserv()">إضافة خدمة أخرى </button>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="app-content-headerButton" style="border-radius:3px;"
-                                        data-bs-target="#exampleModalTogglee" data-bs-toggle="modal"
-                                        data-bs-dismiss="modal">عودة</button>
-                                    <button type="button" class="app-content-headerButton"
-                                        style="background-color:var(--bambi);">حفظ</button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end dest second form -->
-
+                    {{-- dist --}}
                     <a class="delete ml-2" title="destinations" data-bs-toggle="modal"
-                        href="#exampleModalTogglee"><i class="fas fa-map-location-dot"></i></a>
-
-
-                    <!-- end destination -->
+                    href="#exampleModalTogglee"><i class="fas fa-map-location-dot"></i></a>
+                    {{-- end dist --}}
                     <!-- transport -->
                     <!-- first form -->
                     <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true"
@@ -568,3 +394,200 @@
         </div>
     @endif
 @endforeach
+   <!-- destination -->
+                    <!-- dest first form -->
+                    <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
+                        id="exampleModalTogglee" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
+                        tabindex="-1">
+                        <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
+                            <div class="modal-content" style="width:800px;">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalToggleeLabel">إضافة وجهة</h5>
+                                    <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- !!!بيان انتبهي  -->
+                                    <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
+                                    @if ($group->places->count() == 0)
+                                        <img src="../img/destination.png" class="m-3"
+                                            style="width:150px; height:150px; opacity:0.5;">
+                                        <p class="text-body mb-4">لا توجد وجهات مضافة بعد</p>
+                                    @else
+                                        <!-- هاد الشكل بحال كان ضايف وسائل -->
+                                        <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
+                                            class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                                            <tr>
+                                                <td class="text-center">لمكان</td>
+                                                <td class="text-center">الخدمة</td>
+                                                <td class="text-center">الناحية</td>
+                                                <td class="text-center" style="width:140px;">الكلفة</td>
+                                                <td class="text-center" style="width:290px;">وصف</td>
+
+                                                <td style="width:40px;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">shahbarows</td>
+                                                <td class="text-center">shahbarows</td>
+                                                <td class="text-center">alsaha</td>
+                                                <td class="text-center">120000</td>
+                                                <td class="text-center">Lorem ipsum dolor sit amet consectetur
+                                                    adipisicing elit. Eaque nihil dolores totam eum cum,
+                                                    ipsum perspiciatis debitis .</td>
+
+                                                <td> <a href="#" class="delete  ml-1" style="font-size:14px;"
+                                                        title="Delete" data-toggle="tooltip"><i
+                                                            class="fas fa-trash"></i></a></td>
+
+                                            </tr>
+                                        </table>
+                                    @endif
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" style="border-radius:3px;"
+                                        data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal"
+                                        data-bs-dismiss="modal">إضافة وجهة جديدة</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end dest first form -->
+
+                    <!-- dest second form -->
+                    <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
+                        id="exampleModalTogglee2" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel2"
+                        tabindex="-1">
+                        <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
+                            <div class="modal-content" style="width:500px;">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalToggleeLabel2">وجهة جديدة</h5>
+                                    <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table style="color: rgb(22, 22, 22); width: 450px; direction:rtl;"
+                                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
+
+                                        
+                                        <tr>
+                                            <td style="width:250px;" class="pr-2">الناحية
+                                            </td>
+                                            <td>
+                                                <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+    
+                                                    <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                                        data-toggle="dropdown" aria-expanded="false">
+    
+                                                    </label>
+                                                    <span id="district-name"></span>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        @foreach ($districts as $district)
+                                                            <option style="cursor: pointer;" class="dropdown-item"
+                                                                value="{{ $district->id }}" id="district_{{ $district->id }}"
+                                                                onclick="setDistrict({{ $district->id }}, '{{ $district->translations()->where('locale', 'ar')->first()->name }}', 'district_{{ $district->id }}'), filterPlaces({{ $district->id }})"
+                                                                href="#">
+                                                                {{ $district->translations()->where('locale', 'ar')->first()->name }}
+                                                            </option>
+                                                        @endforeach
+                                                        <input type="text" id="district_id" name="district_id" hidden>
+    
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="2" class="text-end text-danger p-1"><span id="district_error"></span>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                    <table id="tablePlace"
+                                        style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important; direction:rtl;"
+                                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                                        <tr>
+                                            <td style="width:250px;" class="pr-2">الأماكن المتاحة في هذه الناحية
+                                            </td>
+                                            <td style="width:300px;">
+                                                <div class="dropdown toggle text-primary in"
+                                                    style="display:inline-block; ;">
+                                                    <label class="dropdown-toggle" type="button"
+                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                        aria-expanded="false">
+
+                                                    </label>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="d-inline-block w-100" tabindex="0"
+                                                                    data-bs-toggle="popover"
+                                                                    data-bs-trigger="hover focus"
+                                                                    data-bs-content='cost : (12)  description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+                                                                    <a class="dropdown-item" href="#">مكان1</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pr-2">الخدمات المتوفرة في هذا المكان</td>
+                                            <td style="width:300px;">
+                                                <div class="dropdown toggle text-primary in"
+                                                    style="display:inline-block; ;">
+                                                    <label class="dropdown-toggle" type="button"
+                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                        <!--lable disabled هي الجملة منعرضا بحال كان المكان مالو خدمات ومنعمل ال  -->
+                                                        <!-- there is no services in this place -->
+                                                    </label>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="d-inline-block w-100" tabindex="0"
+                                                                    data-bs-toggle="popover"
+                                                                    data-bs-trigger="hover focus"
+                                                                    data-bs-content='cost : (12)  description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+             ipsum perspiciatis debitis .'>
+                                                                    <a class="dropdown-item" href="#">خدمة1</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                    <button class="app-content-headerButton m-3" style="float:left;"
+                                        onclick="addserv()">إضافة خدمة أخرى </button>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="app-content-headerButton" style="border-radius:3px;"
+                                        data-bs-target="#exampleModalTogglee" data-bs-toggle="modal"
+                                        data-bs-dismiss="modal">عودة</button>
+                                    <button type="button" class="app-content-headerButton"
+                                        style="background-color:var(--bambi);">حفظ</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end dest second form -->
+
+                  
+
+
+                    <!-- end destination -->

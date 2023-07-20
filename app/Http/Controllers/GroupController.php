@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\TouristGuide;
+use App\Models\Place;
+use App\Models\District;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -17,7 +20,11 @@ class GroupController extends Controller
     {
         $groups = Group::with('translations')->get();
         $guides = TouristGuide::with('translations')->get();
-        return view('admin-Ar.sections.group-section', compact('groups', 'guides'));
+        $places = Place::with('translations', 'district', 'services')->get();
+        $cities = City::with('translations')->get();
+        $districts = District::with('translations')->get();
+
+        return view('admin-Ar.sections.group-section', compact('groups', 'guides', 'places', 'districts', 'cities'));
 
     }
     
