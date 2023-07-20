@@ -3154,6 +3154,8 @@ input[type="button"].btn-block {
   border-right: 0;
   border-bottom: 0.3em solid transparent;
   border-left: 0.3em solid;
+  color: var(--bambi);
+
 }
 
 .dropright .dropdown-toggle:empty::after {

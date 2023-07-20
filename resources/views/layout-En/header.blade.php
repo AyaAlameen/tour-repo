@@ -94,7 +94,80 @@
                                 </form>
        
                              </div>
-                         </div>       
+                         </div>    
+                         <!-- account form -->
+<div class="modal fade " data-bs-backdrop="static" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content toggle">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModal4Label">Account Information</h5>
+          <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="acc-pic position-relative m-auto">
+        <img src="{{ asset(Auth::user()->image) }}" alt="Account" width="150px" height="150px" style="border-radius:50%; margin:auto; margin-block:40px;" >
+       <input type="file" style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;" > 
+       <span class="position-absolute translate-middle badge rounded-pill mr-3" style="left:90%; background-color:var(--navi);top:70%; width:35px; height:35px;">
+        <i class="fas fa-pen" style="color:#fff !important; padding-top:7px;">
+      </i></span>
+        </div>
+        <hr class="w-50 m-auto">
+          <div class="acc-info pt-5 pl-5">
+            <div class="d-flex ">
+              <i class="fas fa-user mr-2"></i>
+              <h6>UserName</h6>
+            </div>
+          <input disabled class="m-auto p-1" type="text" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="{{ Auth::user()->user_name }}"/>
+         
+          <div class="d-flex  pt-5 ">
+              <i class="fas fa-envelope mr-2"></i>
+              <h6>Email</h6>
+            </div>
+          <input disabled class="m-auto p-1" type="email" value="{{ Auth::user()->email }}" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>
+          
+         
+          <div class="d-flex  pt-5  justify-content-center pr-5">
+            <button style="cursor: pointer;" onclick="ablePassword()"
+                class="btn-primary">Edit Password</button>
+        </div>
+
+
+
+        <div id="OldPassword" hidden="true">
+            <div class="d-flex pt-5">
+                <i class="fas fa-lock mr-2"></i>
+                <h6>Old Password</h6>
+            </div>
+            <input class="m-auto p-1" type="password" value=""
+                style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" />
+        </div>
+          <div id="NewPassword" hidden="true">
+       <div class="d-flex pt-5"  >
+              <i class="fas fa-lock mr-2"></i>
+              <h6>New Password</h6>
+            </div>
+          <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>        
+       </div>
+       
+          <div id="confirmPassword" hidden="true">
+       <div class="d-flex pt-5"  >
+              <i class="fas fa-lock mr-2"></i>
+              <h6>Confirm Password</h6>
+            </div>
+          <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>        
+       </div>
+          
+        </div>
+        <div class="modal-footer mt-5">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <input type="submit" id="add-guide-btn" value="Save"  class="btn btn-primary">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- end account form -->   
                      @endguest
                        {{-- ticket --}}
                        <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
@@ -107,7 +180,7 @@
                              aria-controls="offcanvasRight"></i></a>
                      <div class="nav-item dropdown ">
                          <a class="action-button list nav-link dropdown-toggle" style="cursor:pointer;"
-                             data-toggle="dropdown" title="ترجمة"> <i class="fas fa-globe "></i> </a>
+                             data-toggle="dropdown" title="ترجمة"> <i class="fas fa-globe " style=" color:var(--bambi); "></i> </a>
                          <div id="langList" class="dropdown-menu border-0 rounded-0 m-0">
                              <a onclick="getURLAr()" class="dropdown-item" style="cursor:pointer;"> Arabic</a>
                              <a onclick="getURLEn()" class="dropdown-item" style="cursor:pointer;">English </a>
@@ -214,85 +287,28 @@
 </div>
 <!-- end tickets -->
 
-<!-- account form -->
-<div class="modal fade " data-bs-backdrop="static" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
-    <div class="modal-dialog ">
-      <div class="modal-content toggle">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModal4Label">Account Information</h5>
-          <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="acc-pic position-relative m-auto">
-        <img src="../img/p1.jpg" alt="Account" class="" width="150px" height="150px" style="border-radius:50%; margin:auto; margin-block:40px;" >
-       <input type="file" style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;" > 
-       <span class="position-absolute translate-middle badge rounded-pill mr-3" style="left:90%; background-color:var(--navi);top:70%; width:35px; height:35px;">
-        <i class="fas fa-pen" style="color:#fff !important; padding-top:7px;">
-      </i></span>
-        </div>
-        <hr class="w-50 m-auto">
-          <div class="acc-info pt-5 pl-5">
-            <div class="d-flex ">
-              <i class="fas fa-user mr-2"></i>
-              <h6>UserName</h6>
-            </div>
-          <input disabled class="m-auto p-1" type="text" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>
-         
-          <div class="d-flex  pt-5 ">
-              <i class="fas fa-envelope mr-2"></i>
-              <h6>Email</h6>
-            </div>
-          <input disabled class="m-auto p-1" type="email" value="aya@gmail.com" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>
-          
-         
-          <div class="d-flex  pt-5">
-              <i class="fas fa-lock mr-2"></i>
-              <h6>Password</h6>
-            </div>
-          <input disabled="true" id="password" class="m-auto p-1 " type="password" value="12345678" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>
-          <i class="fas fa-pen" onclick="ablePassword()" style="color:var(--title)!important; cursor: pointer; font-size:14px; position:relative; right:28px;"></i>
-       
-          <div id="NewPassword" hidden="true">
-       <div class="d-flex pt-5"  >
-              <i class="fas fa-lock mr-2"></i>
-              <h6>New Password</h6>
-            </div>
-          <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>        
-       </div>
-       
-          <div id="confirmPassword" hidden="true">
-       <div class="d-flex pt-5"  >
-              <i class="fas fa-lock mr-2"></i>
-              <h6>Confirm Password</h6>
-            </div>
-          <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>        
-       </div>
-          
-        </div>
-        <div class="modal-footer mt-5">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <input type="submit" id="add-guide-btn" value="Save"  class="btn btn-primary">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end account form -->
+
 
  <!-- Navbar End -->
  <script>
     function ablePassword() {
         var con = document.getElementById("confirmPassword").hidden;
         var newpass = document.getElementById("NewPassword").hidden;
+        var oldpass = document.getElementById("OldPassword").hidden;
+
         console.log(con)
-        if (newpass & con) {
+        if (newpass & con & oldpass) {
 
             document.getElementById("confirmPassword").hidden = false;
             document.getElementById("NewPassword").hidden = false;
+            document.getElementById("OldPassword").hidden = false;
+
         }
-        if (!(newpass & con)) {
+        if (!(newpass & con & oldpass)) {
             document.getElementById("confirmPassword").hidden = true;
             document.getElementById("NewPassword").hidden = true;
+            document.getElementById("OldPassword").hidden = true;
+
         }
 
     }

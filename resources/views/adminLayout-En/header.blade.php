@@ -298,7 +298,7 @@
                                          </div>
                                          <input class="m-auto p-1" type="password" value=""
                                              style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;"
-                                             value="Aya Alameen" />
+                                              />
                                      </div>
 
                                      <div id="confirmPassword" hidden="true">
@@ -308,7 +308,7 @@
                                          </div>
                                          <input class="m-auto p-1" type="password" value=""
                                              style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;"
-                                             value="Aya Alameen" />
+                                              />
                                      </div>
 
                                  </div>
