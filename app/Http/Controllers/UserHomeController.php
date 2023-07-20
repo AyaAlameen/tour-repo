@@ -25,7 +25,7 @@ class UserHomeController extends Controller
                 $q->first();
             }]);
         }])->get();
-dd($groups);
+// dd($groups);
         return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups]);
 
     }

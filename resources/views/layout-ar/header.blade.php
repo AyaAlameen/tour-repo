@@ -241,7 +241,7 @@
                  <span aria-hidden="true">&times;</span>
              </button>
              <div class="modal-footer mt-1" style="direction:ltr;">
-                 <button type="button" class="btn btn-secondary" onclick="hideToast('h6_id_10')">إغلاق</button>
+                 <button type="button" class="btn btn-secondary" onclick="hideToast('h6_id_1')">إغلاق</button>
                  <button type="button" id="add-guide-btn" class="app-content-headerButton">نعم</button>
              </div>
          </div>
@@ -337,18 +337,24 @@
 
  <script>
      function ablePassword() {
-         var con = document.getElementById("confirmPassword").hidden;
-         var newpass = document.getElementById("NewPassword").hidden;
-         console.log(con)
-         if (newpass & con) {
+   var con =  document.getElementById("confirmPassword").hidden; 
+   var newpass =document.getElementById("NewPassword").hidden;
+   var oldpass =document.getElementById("OldPassword").hidden;
 
-             document.getElementById("confirmPassword").hidden = false;
-             document.getElementById("NewPassword").hidden = false;
-         }
-         if (!(newpass & con)) {
-             document.getElementById("confirmPassword").hidden = true;
-             document.getElementById("NewPassword").hidden = true;
-         }
+  console.log(con)
+   if(newpass & con & oldpass){
 
-     }
+    document.getElementById("confirmPassword").hidden=false;
+    document.getElementById("NewPassword").hidden=false;
+    document.getElementById("OldPassword").hidden=false;
+
+   }
+   if(!(newpass & con & oldpass)){
+    document.getElementById("confirmPassword").hidden=true;
+    document.getElementById("NewPassword").hidden=true;
+    document.getElementById("OldPassword").hidden=true;
+
+   }
+
+  }
  </script>

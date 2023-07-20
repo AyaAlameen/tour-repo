@@ -827,3 +827,13 @@ textarea{
   min-height:28px !important;
 }
 
+.word_ticket{
+  color: gold;
+  transform: rotate(-90deg);
+  /* transform-origin: top left; */
+  font-size: 35px;
+  position: absolute;
+  right: 210px;
+  bottom: 45%;
+  letter-spacing: 3px;
+}

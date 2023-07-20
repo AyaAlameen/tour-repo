@@ -125,7 +125,7 @@
         // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         // }).addTo(map);
-        
+
         //----------------------- add map --------------------------------------
         var map = L.map('add-map').setView([51.505, -0.09], 13); // set the initial view of the map
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles
@@ -333,7 +333,7 @@
         //  إخفاء مودل الخريطة 
         function hidemap(modal_id) {
             $('#' + modal_id).hide();
-    
+
         }
         // زر حفظ الخريظة
         function spinner() {
@@ -434,12 +434,21 @@
         }
 
         document.querySelector('.is_add').addEventListener('change', function() {
-   if( document.querySelector('.is_add').value == "true")
-    document.querySelector('.is_add').value = "false";
-    else
-    if( document.querySelector('.is_add').value == "false")
-    document.querySelector('.is_add').value = "true";
-});
+            if (document.querySelector('.is_add').value == "true")
+                document.querySelector('.is_add').value = "false";
+            else
+            if (document.querySelector('.is_add').value == "false")
+                document.querySelector('.is_add').value = "true";
+        });
+
+        function showToast(ticId) {
+            $('#toast_' + ticId).removeClass('d-none');
+        }
+
+        function hideToast(ticId) {
+            $('#toast_' + ticId).addClass('d-none');
+
+        }
     </script>
 
 </body>

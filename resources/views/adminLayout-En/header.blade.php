@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                     <a href="{{route('home_en')}}" class="nav-item nav-link active">Dashboard</a>
-                        <a href="{{route('userhome')}}" class="nav-item nav-link ">Home</a>
+                        <a href="{{route('home-en')}}" class="nav-item nav-link ">Home</a>
                      
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Syria</a>
@@ -69,6 +69,30 @@
                        
                         <a href="{{route('contact-en')}}" class="nav-item nav-link">Contact</a>
 
+ {{-- Authentication Links --}}
+ @guest
+ @if (Route::has('login'))
+     <a class="nav-link" href="{{ route('login') }}"><span> {{ __('Login') }}</span></a>
+ @endif
+@else
+ <div class="nav-item dropdown">
+     <a href="#" class="nav-link dropdown-toggle"
+         data-toggle="dropdown">{{ Auth::user()->user_name }} </a>
+     <div class="dropdown-menu border-0 rounded-0 m-0">
+         <a class="dropdown-item" href="{{ route('logout') }}"
+             onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+             <span> {{ __('Logout') }} </span>
+         </a>
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+
+     </div>
+ </div>       
+@endguest
+
+
                        <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite" onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
 
                     </div>
@@ -89,8 +113,17 @@
         </button>
   </div>
   <div class="offcanvas-body">
-    <img src="../img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;"/>
+    {{-- اذا ما اختار مفضلة لسا --}}
+    <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;" />
     <p class="text-body px-3 text-center mt-4">choose your favorite places</p>
+
+    {{-- اذا اختار أماكن مفضلة  --}}
+    
+    {{-- <div class="d-flex" style="flex-direction: column; align-items: center; ">
+        <img src="img/aleppo-palace-hotel.jpg"
+            style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px" height="200px">
+            <h4>فندق قصر حلب</h4>
+    </div> --}}
 
   </div>
 </div>
@@ -109,9 +142,9 @@
       <li class="sidebar-list-item">
       <span class="account-info">
       <span class="account-info-picture">
-      <img src="../img/p1.jpg" alt="Account">
+      <img src="{{asset(Auth::user()->image)}}" alt="Account">
 </span>
-      <span class="account-info-name">Aya Alameen</span>
+      <span class="account-info-name">{{ Auth::user()->user_name }}</span>
       <!-- account form -->
       <button class="account-info-more" title="Account Info" data-bs-toggle="modal" data-bs-target="#exampleModal4">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
@@ -127,7 +160,7 @@
         </button>
       </div>
       <div class="acc-pic position-relative m-auto">
-      <img src="../img/p1.jpg" alt="Account" class="" width="150px" height="150px" style="border-radius:50%; margin:auto; margin-block:40px;" >
+      <img src="{{asset(Auth::user()->image)}}" alt="Account"  width="150px" height="150px" style="border-radius:50%; margin:auto; margin-block:40px;" >
      <input type="file" style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;" > 
      <span class="position-absolute translate-middle badge rounded-pill mr-3" style="left:90%; background-color:var(--navi);top:70%; width:35px; height:35px;">
       <i class="fas fa-pen" style="color:#fff !important; padding-top:7px; padding-left:7px;">
@@ -139,22 +172,30 @@
             <i class="fas fa-user "></i>
             <h6>UserName</h6>
           </div>
-        <input disabled class="m-auto p-1" type="text" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>
+        <input disabled class="m-auto p-1" type="text" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value={{ Auth::user()->user_name }} />
        
         <div class="d-flex  pt-5 ">
             <i class="fas fa-envelope "></i>
             <h6>Email</h6>
           </div>
-        <input disabled class="m-auto p-1" type="email" value="aya@gmail.com" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>
+        <input disabled class="m-auto p-1" type="email" value={{ Auth::user()->email }} style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" />
         
        
-        <div class="d-flex  pt-5">
-            <i class="fas fa-lock "></i>
-            <h6>Password</h6>
+        <div class="d-flex  pt-5  justify-content-center pr-5">
+            <button style="cursor: pointer;" onclick="ablePassword()" class="btn-primary">Edit Password</button>
           </div>
-        <input disabled="true" id="password" class="m-auto p-1 " type="password" value="12345678" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" value="Aya Alameen"/>
-        <i class="fas fa-pen" onclick="ablePassword()" style="color:var(--title)!important; font-size:14px; position:relative; right:28px;"></i>
+      
+        
      
+        <div id="OldPassword" hidden="true">
+          <div class="d-flex pt-5"  >
+                 <i class="fas fa-lock"></i>
+                 <h6>Old Password</h6>
+               </div>
+             <input class="m-auto p-1" type="password" value="" style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;"/>        
+          </div>
+          
+
         <div id="NewPassword" hidden="true">
      <div class="d-flex pt-5"  >
             <i class="fas fa-lock "></i>
@@ -182,12 +223,7 @@
 <!-- end account form -->
 </span>
       </li>
-      <li  class="sidebar-list-item" onclick="active_part()" >
-        <a href="{{route('register')}}" >
-        <i class="fas fa-plus "></i>
-          <span  >Create New Account</span>
-        </a>
-      </li>  
+     
       <li  class="sidebar-list-item " onclick="active_part()" >
         <a href="{{route('home_en')}}" id="sss">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -355,15 +391,21 @@
   function ablePassword() {
    var con =  document.getElementById("confirmPassword").hidden; 
    var newpass =document.getElementById("NewPassword").hidden;
+   var oldpass =document.getElementById("OldPassword").hidden;
+
   console.log(con)
-   if(newpass & con){
+   if(newpass & con & oldpass){
 
     document.getElementById("confirmPassword").hidden=false;
     document.getElementById("NewPassword").hidden=false;
+    document.getElementById("OldPassword").hidden=false;
+
    }
-   if(!(newpass & con)){
+   if(!(newpass & con & oldpass)){
     document.getElementById("confirmPassword").hidden=true;
     document.getElementById("NewPassword").hidden=true;
+    document.getElementById("OldPassword").hidden=true;
+
    }
 
   }

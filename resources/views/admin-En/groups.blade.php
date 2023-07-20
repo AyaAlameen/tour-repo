@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header"  style="width:88%;">
+    <div class="app-content-header"  style="width:78%;">
       <h1 class="app-content-headerText">Groups</h1>
    
         <!-- add -->
@@ -79,7 +79,7 @@ Add Group
     </div>
     <!-- end add -->
     
-    <div class="app-content-actions" style="width:88%;">
+    <div class="app-content-actions" style="width:78%;">
       <input class="search-bar" placeholder="Search..." type="text">
       <div class="app-content-actions-wrapper">
         <!-- filter -->
@@ -128,7 +128,7 @@ Add Group
      
       </div>
     </div>
-    <div class="scroll-class" style="width:88%;">
+    <div class="scroll-class" style="width:78%;">
     <div class="products-area-wrapper tableView">
       <div class="products-header">
         <div class="product-cell">#</div>
