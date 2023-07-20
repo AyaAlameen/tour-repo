@@ -359,6 +359,29 @@ Route::get('/user_city_ar', function () {
     return view('user-ar.city');
 })-> name('user-city-ar');
 
+Route::get('/transport', function () {
+    return view('user.transport');
+})-> name('transport');
+
+Route::get('/transport-ar', function () {
+    return view('user-ar.transport');
+})-> name('transport-ar');
+
+Route::get('/travelguides', function () {
+    return view('user.travelguides');
+})-> name('travelguides');
+
+Route::get('/travelguides-ar', function () {
+    return view('user-ar.travelguides');
+})-> name('travelguides-ar');
+
+Route::get('/travelguidesformore', function () {
+    return view('user.travelguidesformore');
+})-> name('travelguidesformore');
+
+Route::get('/travelguidesformore-ar', function () {
+    return view('user-ar.travelguidesformore');
+})-> name('travelguidesformore-ar');
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

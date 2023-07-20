@@ -55,7 +55,7 @@
       
          let origin = window.location.href;
          console.log(origin)
-         if (origin == "http://127.0.0.1:8000/user_home_arabic" || origin== "http://127.0.0.1:8000/about-ar" ||  origin== "http://127.0.0.1:8000/contact-ar"){
+         if (origin == "http://127.0.0.1:8000/user_home_arabic" || origin== "http://127.0.0.1:8000/about-ar" ||  origin== "http://127.0.0.1:8000/contact-ar"  ||  origin== "http://127.0.0.1:8000/transport-ar"){
             console.log('aborted');
             event.preventDefault();
          }
@@ -73,6 +73,10 @@
               event.target.href="http://127.0.0.1:8000/contact-ar"
                 
             }
+            if (origin == "http://127.0.0.1:8000/transport") {
+              event.target.href="http://127.0.0.1:8000/transport-ar"
+                
+            }
         }
          
     
@@ -81,7 +85,7 @@
         
          let origin = window.location.href;
          console.log(origin)
-         if (origin == "http://127.0.0.1:8000/" || origin== "http://127.0.0.1:8000/about" || origin== "http://127.0.0.1:8000/contact-en" ){
+         if (origin == "http://127.0.0.1:8000/" || origin== "http://127.0.0.1:8000/about" || origin== "http://127.0.0.1:8000/contact-en" || origin== "http://127.0.0.1:8000/transport" ){
             console.log('aborted');
             preventDefault();
          }
@@ -96,6 +100,10 @@
             }
             if (origin == "http://127.0.0.1:8000/contact-ar") {
               event.target.href="http://127.0.0.1:8000/contact-en"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/transport-ar") {
+              event.target.href="http://127.0.0.1:8000/transport"
                 
             }
          }

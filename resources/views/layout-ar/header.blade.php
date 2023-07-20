@@ -60,6 +60,16 @@
                                 <a href="testimonial" class="dropdown-item">صور فوتوغرافية لسوريا</a>
                             </div>
                         </div>
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">خدماتنا</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('transport-ar')}}" class="dropdown-item">الشركات النقل</a>
+                                <a href="{{route('travelguides-ar')}}" class="dropdown-item">الدليل السياحي</a>
+                                <a href="single" class="dropdown-item">الرحلات</a>
+                            
+                            </div>
+                        </div>
                         <a href="{{route('about-ar')}}" class="nav-item nav-link">حولنا</a>
 
                        
