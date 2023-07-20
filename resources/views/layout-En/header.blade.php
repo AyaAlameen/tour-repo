@@ -60,6 +60,15 @@
                              <a href="testimonial" class="dropdown-item">Photographs from Syria</a>
                          </div>
                      </div>
+                     <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{{route('transport')}}" class="dropdown-item">Transport Companies</a>
+                                <a href="{{route('travelguides')}}" class="dropdown-item">Tourist Guide</a>
+                                <a href="single" class="dropdown-item">Trip</a>
+                               
+                            </div>
+                        </div>
                      <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
 
 

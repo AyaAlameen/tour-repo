@@ -340,6 +340,17 @@ Route::get('/contact-en', function () {
     return view('user.contact');
 })-> name('contact-en');
 
+Route::get('/transport', function () {
+    return view('user.transport');
+})-> name('transport');
+
+Route::get('/travelguides', function () {
+    return view('user.travelguides');
+})-> name('travelguides');
+
+Route::get('/travelguidesformore', function () {
+    return view('user.travelguidesformore');
+})-> name('travelguidesformore');
 
 //user routes part Arabic
 
@@ -356,6 +367,18 @@ Route::post('/contact', [MessageController::class, 'storeAr'])-> name('submitMes
 Route::get('/about-ar', function () {
     return view('user-ar.about');
 })-> name('about-ar');
+
+Route::get('/transport-ar', function () {
+    return view('user-ar.transport');
+})-> name('transport-ar'); 
+
+Route::get('/travelguides-ar', function () {
+    return view('user-ar.travelguides');
+})-> name('travelguides-ar');
+
+Route::get('/travelguidesformore-ar', function () {
+    return view('user-ar.travelguidesformore');
+})-> name('travelguidesformore-ar');
 
 
 Route::get('/trip_ar', function () {
