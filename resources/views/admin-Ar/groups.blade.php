@@ -511,6 +511,28 @@
         document.getElementById('edit_guide_id_' + group_id).value = `${guide_id}`;
     }
     //--------------------------------------------
+    function setCity(city_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="city_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('city-name').innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('city_id').value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setEditCity(city_id, transportation_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="edit_city_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('city-name-' + transportation_id).innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_city_id_' + transportation_id).value = `${city_id}`;
+    }
+    //--------------------------------------------
     function setDistrict(district_id, district, option_id) {
         var districts_options = document.querySelectorAll('[id^="district_"]');
         districts_options.forEach(option => {
@@ -520,6 +542,166 @@
         document.getElementById('district-name').innerHTML = district;
         document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
         document.getElementById('district_id').value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function setEditDistrict(district_id, place_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="edit_district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('district-name-' + place_id).innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function setPlace(place_id, place, option_id) {
+        var places_options = document.querySelectorAll('[id^="place_"]');
+        places_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('place-name').innerHTML = place;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('place_id').value = `${place_id}`;
+    }
+    //--------------------------------------------
+
+    function setService(service_id, service, option_id) {
+        var services_options = document.querySelectorAll('[id^="service_"]');
+        services_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('service-name').innerHTML = service;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('service_id').value = `${service_id}`;
+    }
+
+    //--------------------------------------------
+    function filterDistricts(city_id) {
+        var districts = document.querySelectorAll(`.district_filter_option`);
+        var city_districts = document.querySelectorAll(`.district_city_${city_id}`);
+
+        districts.forEach(district => {
+            district.setAttribute("hidden", true);
+
+        });
+        city_districts.forEach(district => {
+            district.removeAttribute("hidden");
+
+        });
+        document.getElementById('district_id').value = "";
+        document.getElementById('district-name').innerHTML = '';
+        var districts_options = document.querySelectorAll('[id^="district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+    //--------------------------------------------
+    function filterPlaces(district_id) {
+        var places = document.querySelectorAll(`.place_filter_option`);
+        var district_places = document.querySelectorAll(`.place_district_${district_id}`);
+
+        places.forEach(place => {
+            place.setAttribute("hidden", true);
+
+        });
+        district_places.forEach(place => {
+            place.removeAttribute("hidden");
+
+        });
+        document.getElementById('place_id').value = "";
+        document.getElementById('place-name').innerHTML = '';
+        var places_options = document.querySelectorAll('[id^="place_"]');
+        places_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+    //--------------------------------------------
+    function filterServices(place_id) {
+        var services = document.querySelectorAll(`.service_filter_option`);
+        var place_services = document.querySelectorAll(`.service_place_${place_id}`);
+
+        services.forEach(service => {
+            service.setAttribute("hidden", true);
+
+        });
+        place_services.forEach(service => {
+            service.removeAttribute("hidden");
+
+        });
+        document.getElementById('service_id').value = "";
+        document.getElementById('service-name').innerHTML = '';
+        var services_options = document.querySelectorAll('[id^="service_"]');
+        services_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+    //--------------------------------------------
+    function addDestination(formId) {
+        $("#add-dest-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-dest-form'));
+        $.ajax({
+                url: "{{ route('addGroupDestinationAr') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                document.getElementById(formId).reset();
+
+
+            })
+            .fail(function(data) {
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                removeMessages();
+
+                if (data.responseJSON.errors.city_id) {
+                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors
+                        .city_id[0];
+
+                }
+                if (data.responseJSON.errors.district_id) {
+
+                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
+                        .district_id[0];
+
+                }
+                if (data.responseJSON.errors.place_id) {
+
+                    document.querySelector(`#${formId} #place_error`).innerHTML = data.responseJSON.errors
+                        .place_id[0];
+
+                }
+                if (data.responseJSON.errors.service_id) {
+
+                    document.querySelector(`#${formId} #service_id_error`).innerHTML = data.responseJSON.errors
+                        .service_id[0];
+
+                }
+                
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-dest-btn").attr("disabled", false).html('حفظ');
+            });
+    }
+    //--------------------------------------------
+    function setGroupId(group_id){
+        document.getElementById('group_id').value = `${group_id}`;
     }
     //--------------------------------------------
 </script>
