@@ -36,7 +36,10 @@ class LoginController extends Controller
     public function __construct()
     {
         session_start();
-        $_SESSION['prev_page'] = $_SERVER['HTTP_REFERER'];
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $_SESSION['prev_page'] = $_SERVER['HTTP_REFERER'];
+
+        }
         $this->redirectTo = $this->return_prev_page();
         $this->middleware('guest')->except('logout');
     }

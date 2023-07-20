@@ -15,7 +15,7 @@
               </div>
               <hr>
                 <div class="col-md-12">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="acc-pic position-relative d-flex justify-content-center">
