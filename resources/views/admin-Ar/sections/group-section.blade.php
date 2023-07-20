@@ -198,75 +198,76 @@
                     </div>
                     <!-- end edit -->
                     {{-- dist --}}
-<<<<<<< HEAD
-                    <a class="delete ml-2" title="destinations" data-bs-toggle="modal"
-                    href="#exampleModalTogglee"><i class="fas fa-map-location-dot"></i></a>
-                      <!-- dest first form -->
-                      <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
-                      id="exampleModalTogglee" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
-                      tabindex="-1">
-                      <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
-                          <div class="modal-content" style="width:800px;">
-                              <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalToggleeLabel">إضافة وجهة</h5>
-                                  <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                      aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                  </button>
-                              </div>
-                              <div class="modal-body">
-                                  <!-- !!!بيان انتبهي  -->
-                                  <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-                                  @if ($group->places->count() == 0)
-                                      <img src="../img/destination.png" class="m-3"
-                                          style="width:150px; height:150px; opacity:0.5;">
-                                      <p class="text-body mb-4">لا توجد وجهات مضافة بعد</p>
-                                  @else
-                                      <!-- هاد الشكل بحال كان ضايف وسائل -->
-                                      <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
-                                          class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                          <tr>
-                                              <td class="text-center">لمكان</td>
-                                              <td class="text-center">الخدمة</td>
-                                              <td class="text-center">الناحية</td>
-                                              <td class="text-center" style="width:140px;">الكلفة</td>
-                                              <td class="text-center" style="width:290px;">وصف</td>
+                    <a class="delete ml-2" title="destinations" onclick="setGroupId({{ $group->id }})"
+                        data-bs-toggle="modal" href="#exampleModalTogglee"><i
+                            class="fas fa-map-location-dot"></i></a>
+                    <!-- dest first form -->
+                    <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static"
+                        id="exampleModalTogglee" aria-hidden="true" aria-labelledby="exampleModalToggleeLabel"
+                        tabindex="-1">
+                        <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
+                            <div class="modal-content" style="width:800px;">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalToggleeLabel">إضافة وجهة</h5>
+                                    <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- !!!بيان انتبهي  -->
+                                    <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
+                                    @if ($group->places->count() == 0)
+                                        <img src="../img/destination.png" class="m-3"
+                                            style="width:150px; height:150px; opacity:0.5;">
+                                        <p class="text-body mb-4">لا توجد وجهات مضافة بعد</p>
+                                    @else
+                                        <!-- هاد الشكل بحال كان ضايف وسائل -->
+                                        <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
+                                            class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                                            <tr>
+                                                <td class="text-center">لمكان</td>
+                                                <td class="text-center">الخدمة</td>
+                                                <td class="text-center">الناحية</td>
+                                                <td class="text-center" style="width:140px;">الكلفة</td>
+                                                <td class="text-center" style="width:290px;">وصف</td>
 
-                                              <td style="width:40px;"></td>
-                                          </tr>
-                                          <tr>
-                                              <td class="text-center">shahbarows</td>
-                                              <td class="text-center">shahbarows</td>
-                                              <td class="text-center">alsaha</td>
-                                              <td class="text-center">120000</td>
-                                              <td class="text-center">Lorem ipsum dolor sit amet consectetur
-                                                  adipisicing elit. Eaque nihil dolores totam eum cum,
-                                                  ipsum perspiciatis debitis .</td>
+                                                <td style="width:40px;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">shahbarows</td>
+                                                <td class="text-center">shahbarows</td>
+                                                <td class="text-center">alsaha</td>
+                                                <td class="text-center">120000</td>
+                                                <td class="text-center">Lorem ipsum dolor sit amet consectetur
+                                                    adipisicing elit. Eaque nihil dolores totam eum cum,
+                                                    ipsum perspiciatis debitis .</td>
 
-                                              <td> <a href="#" class="delete  ml-1" style="font-size:14px;"
-                                                      title="Delete" data-toggle="tooltip"><i
-                                                          class="fas fa-trash"></i></a></td>
+                                                <td> <a href="#" class="delete  ml-1" style="font-size:14px;"
+                                                        title="Delete" data-toggle="tooltip"><i
+                                                            class="fas fa-trash"></i></a></td>
 
-                                          </tr>
-                                      </table>
-                                  @endif
+                                            </tr>
+                                        </table>
+                                    @endif
 
-                              </div>
-                              <div class="modal-footer">
-                                  <button class="btn btn-primary" style="border-radius:3px;"
-                                      data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal"
-                                      data-bs-dismiss="modal">إضافة وجهة جديدة</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <!-- end dest first form -->
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" style="border-radius:3px;"
+                                        data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal"
+                                        data-bs-dismiss="modal">إضافة وجهة جديدة</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end dest first form -->
+
                     {{-- end dist --}}
                     {{-- trans --}}
                     <a class="delete ml-2" data-bs-toggle="modal" href="#exampleModalToggle"
-                    title="Transportation"><i class="fas fa-bus"></i></a>
-                        <!-- first form -->
-                        <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true"
+                        title="Transportation"><i class="fas fa-bus"></i></a>
+                    <!-- first form -->
+                    <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true"
                         aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                         <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
                             <div class="modal-content" style="width:800px; direction:ltr;">
@@ -285,25 +286,25 @@
                                     <p class="text-body mb-4">لا يوجد بعد وسائل نقل مضافة </p>
                                     <!-- هاد الشكل بحال كان ضايف وسائل -->
                                     <!-- <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
-        <tr>
-          <td class="text-center">شركة النقل</td>
-          <td class="text-center">وسيلة النقل</td>
-          <td class="text-center" style="width:90px;">عدد الركاب</td>
-          <td class="text-center" style="width:290px;">المواصفات</td>
-          <td>في تاريخ</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="text-center">شركة الأمير</td>
-          <td class="text-center">6913 حلب</td>
-          <td class="text-center">12</td>
-          <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis.</td>
-             <td>11-11-2023</td>
-           <td> <a href="#" class="delete ml-2 mr-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
-          
-             
-        </tr> -->
+    <tr>
+      <td class="text-center">شركة النقل</td>
+      <td class="text-center">وسيلة النقل</td>
+      <td class="text-center" style="width:90px;">عدد الركاب</td>
+      <td class="text-center" style="width:290px;">المواصفات</td>
+      <td>في تاريخ</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="text-center">شركة الأمير</td>
+      <td class="text-center">6913 حلب</td>
+      <td class="text-center">12</td>
+      <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
+         ipsum perspiciatis.</td>
+         <td>11-11-2023</td>
+       <td> <a href="#" class="delete ml-2 mr-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
+      
+         
+    </tr> -->
                                     </table>
                                 </div>
                                 <div class="modal-footer">
@@ -315,15 +316,6 @@
                         </div>
                     </div>
                     <!-- end first form -->
-
-=======
-                    <a class="delete ml-2" title="destinations" onclick="setGroupId({{$group->id}})" data-bs-toggle="modal"
-                        href="#exampleModalTogglee"><i class="fas fa-map-location-dot"></i></a>
-                    {{-- end dist --}}
-                    {{-- trans --}}
-                    <a class="delete ml-2" data-bs-toggle="modal" href="#exampleModalToggle"
-                        title="Transportation"><i class="fas fa-bus"></i></a>
->>>>>>> bd932ea925de16e85d3a78b3d8f623957586f617
                     {{-- end trans --}}
                     <!-- delete -->
                     <a href="#" class="delete pr-1" style="font-size:14px;" data-toggle="modal"
@@ -362,66 +354,7 @@
         </div>
     @endif
 @endforeach
-<<<<<<< HEAD
-   <!-- destination -->
-                  
-=======
 <!-- destination -->
-<!-- dest first form -->
-<div class="modal fade" style="direction:ltr;" data-bs-backdrop="static" id="exampleModalTogglee"
-    aria-hidden="true" aria-labelledby="exampleModalToggleeLabel" tabindex="-1">
-    <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
-        <div class="modal-content" style="width:800px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleeLabel">إضافة وجهة</h5>
-                <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- !!!بيان انتبهي  -->
-                <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-                @if ($group->places->count() == 0)
-                    <img src="../img/destination.png" class="m-3" style="width:150px; height:150px; opacity:0.5;">
-                    <p class="text-body mb-4">لا توجد وجهات مضافة بعد</p>
-                @else
-                    <!-- هاد الشكل بحال كان ضايف وسائل -->
-                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
-                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                        <tr>
-                            <td class="text-center">لمكان</td>
-                            <td class="text-center">الخدمة</td>
-                            <td class="text-center">الناحية</td>
-                            <td class="text-center" style="width:140px;">الكلفة</td>
-                            <td class="text-center" style="width:290px;">وصف</td>
-
-                            <td style="width:40px;"></td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">shahbarows</td>
-                            <td class="text-center">shahbarows</td>
-                            <td class="text-center">alsaha</td>
-                            <td class="text-center">120000</td>
-                            <td class="text-center">Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eaque nihil dolores totam eum cum,
-                                ipsum perspiciatis debitis .</td>
-
-                            <td> <a href="#" class="delete  ml-1" style="font-size:14px;" title="Delete"
-                                    data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
-
-                        </tr>
-                    </table>
-                @endif
-
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" style="border-radius:3px;" data-bs-target="#exampleModalTogglee2"
-                    data-bs-toggle="modal" data-bs-dismiss="modal">إضافة وجهة جديدة</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end dest first form -->
 
 <!-- dest second form -->
 <div class="modal fade" style="direction:ltr;" data-bs-backdrop="static" id="exampleModalTogglee2"
@@ -543,7 +476,6 @@
                         </tr>
                         <tr>
                             <td class="pr-2">الخدمات المتوفرة في هذا المكان</td>
->>>>>>> bd932ea925de16e85d3a78b3d8f623957586f617
 
 
                             <td style="width:300px;">
@@ -583,11 +515,12 @@
             </div>
 
             <div class="modal-footer">
-                <button class="app-content-headerButton"  onclick="removeMessages(), document.getElementById('add-dest-form').reset()" style="border-radius:3px;"
-                    data-bs-target="#exampleModalTogglee" data-bs-toggle="modal"
+                <button class="app-content-headerButton"
+                    onclick="removeMessages(), document.getElementById('add-dest-form').reset()"
+                    style="border-radius:3px;" data-bs-target="#exampleModalTogglee" data-bs-toggle="modal"
                     data-bs-dismiss="modal">عودة</button>
-                <button type="button" class="app-content-headerButton" id="add-dest-btn" onclick="addDestination('add-dest-form')"
-                    style="background-color:var(--bambi);">حفظ</button>
+                <button type="button" class="app-content-headerButton" id="add-dest-btn"
+                    onclick="addDestination('add-dest-form')" style="background-color:var(--bambi);">حفظ</button>
 
             </div>
         </div>
@@ -597,73 +530,8 @@
 <!-- end destination -->
 
 
-<<<<<<< HEAD
-                      <!-- transport -->
-                
-                    <!-- second form -->
-                    <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true"
-                        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                        <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
-                            <div class="modal-content" style="width:550px ; direction:ltr;">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalToggleLabel2">وسيلة نقل جديدة</h5>
-                                    <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                        aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <table style="color: rgb(22, 22, 22); width: 500px !important;"
-                                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
-=======
 <!-- transport -->
-<!-- first form -->
-<div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true"
-    aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
-        <div class="modal-content" style="width:800px; direction:ltr;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleLabel">إضافة وسيلة نقل</h5>
-                <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- !!!بيان انتبهي  -->
-                <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-                <img src="../img/vehicles.png" class="m-3" style="width:150px; height:150px; opacity:0.5;">
-                <p class="text-body mb-4">لا يوجد بعد وسائل نقل مضافة </p>
-                <!-- هاد الشكل بحال كان ضايف وسائل -->
-                <!-- <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
-        <tr>
-          <td class="text-center">شركة النقل</td>
-          <td class="text-center">وسيلة النقل</td>
-          <td class="text-center" style="width:90px;">عدد الركاب</td>
-          <td class="text-center" style="width:290px;">المواصفات</td>
-          <td>في تاريخ</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="text-center">شركة الأمير</td>
-          <td class="text-center">6913 حلب</td>
-          <td class="text-center">12</td>
-          <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis.</td>
-             <td>11-11-2023</td>
-           <td> <a href="#" class="delete ml-2 mr-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
-          
-             
-        </tr> -->
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" style="border-radius:3px;" data-bs-target="#exampleModalToggle2"
-                    data-bs-toggle="modal" data-bs-dismiss="modal">إضافة وسيلة نقل جديدة</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end first form -->
+
 
 <!-- second form -->
 <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true"
@@ -701,7 +569,6 @@
                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
                                 <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-expanded="false">
->>>>>>> bd932ea925de16e85d3a78b3d8f623957586f617
 
                                 </label>
                                 <div class="dropdown-menu" style="width:200px;" aria-labelledby="dropdownMenuButton">
