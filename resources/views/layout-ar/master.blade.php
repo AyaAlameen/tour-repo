@@ -74,6 +74,10 @@
                 event.target.href = "http://127.0.0.1:8000/contact-ar"
 
             }
+            if (origin == "http://127.0.0.1:8000/transport") {
+              event.target.href="http://127.0.0.1:8000/transport-ar"
+                
+            }
         }
 
 
@@ -99,6 +103,11 @@
                 event.target.href = "http://127.0.0.1:8000/contact-en"
 
             }
+            if (origin == "http://127.0.0.1:8000/transport-ar") {
+              event.target.href="http://127.0.0.1:8000/transport"
+                
+            }
+         }
         }
 
 
