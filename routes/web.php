@@ -16,6 +16,7 @@ use App\Http\Controllers\PlaceEmployeeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,9 +68,15 @@ Route::post('/sub_category_en', [SubCategoryController::class, 'storeEn']) -> na
 Route::post('/sub_category_en/edit', [SubCategoryController::class, 'updateEn']) -> name('editSubCategoryEn');
 Route::post('/sub_category_en/delete', [SubCategoryController::class, 'destroyEn']) -> name('deleteSubCategoryEn');
 
-Route::get('/message_en', function () {
-    return view('admin-En.messages');
-}) -> name('message_en');
+// Route::get('/message_en', function () {
+//     return view('admin-En.messages');
+// }) -> name('message_en');
+
+Route::get('/message_en', [MessageController::class, 'indexEn']) -> name('message_en');
+Route::post('/message_en/seen', [MessageController::class, 'seenEn']) -> name('messageSeenEn');
+Route::post('/message_en/publish', [MessageController::class, 'publishEn']) -> name('messagePublishEn');
+Route::post('/message_en/delete', [MessageController::class, 'destroyEn']) -> name('deleteMessageEn');
+
 
 Route::get('/place_en', function () {
     return view('admin-En.places');
@@ -154,9 +161,11 @@ Route::get('/groups_en', function () {
 //admin routes part Arabic
 
 
-Route::get('/home_ar', function () {
-    return view('admin-Ar.dashboared');
-})-> name('home_ar');
+// Route::get('/home_ar', function () {
+//     return view('admin-Ar.dashboared');
+// })-> name('home_ar');
+
+Route::get('/home_ar', [DashboardController::class])-> name('home_ar');
 
 Route::get('/employee_ar', function () {
     return view('admin-Ar.employee');
@@ -177,9 +186,14 @@ Route::post('/cat_ar/edit', [CategoryController::class, 'updateAr']) -> name('ed
 Route::post('/cat_ar/delete', [CategoryController::class, 'destroyAr']) -> name('deleteCategoryAr');
 
 
-Route::get('/message_ar', function () {
-    return view('admin-Ar.messages');
-}) -> name('message_ar');
+// Route::get('/message_ar', function () {
+//     return view('admin-Ar.messages');
+// }) -> name('message_ar');
+
+Route::get('/message_ar', [MessageController::class, 'indexAr']) -> name('message_ar');
+Route::post('/message_ar/seen', [MessageController::class, 'seenAr']) -> name('messageSeenAr');
+Route::post('/message_ar/publish', [MessageController::class, 'publishAr']) -> name('messagePublishAr');
+Route::post('/message_ar/delete', [MessageController::class, 'destroyAr']) -> name('deleteMessageAr');
 
 Route::get('/sub_category_ar/{id}', [SubCategoryController::class, 'indexAr']) -> name('getSubCategoriesAr');
 Route::post('/sub_category_ar', [SubCategoryController::class, 'storeAr']) -> name('addSubCategoryAr');
