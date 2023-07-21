@@ -14,9 +14,9 @@ class MessageController extends Controller
      */
     public function indexAr()
     {
-        $messages = Message::with('user')->get();
+        $messages = Message::with('user')->where('seen', 0)->get();
 
-        return view('admin-Ar.messages', ['messages' => $messages]);
+        return view('admin-Ar.dashboared', ['messages' => $messages]);
 
     }
     public function indexEn()

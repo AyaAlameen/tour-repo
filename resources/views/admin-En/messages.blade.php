@@ -62,11 +62,11 @@
                                 </form>
                             </div>
                             <!-- delete -->
-                            <button data-toggle="modal" data-target="#exampleModal2" ata-toggle="tooltip"
+                            <button data-toggle="modal" data-target="#deleteMessage{{$message->id}}" ata-toggle="tooltip"
                                 class="app-content-headerButton">Delete</button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label"
+                            <div class="modal fade" id="deleteMessage{{$message->id}}" tabindex="-1" aria-labelledby="exampleModal2Label"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
