@@ -35,6 +35,12 @@ Route::get('/home_en', function () {
     return view('admin-En.dashboared');
 })-> name('home_en');
 
+Route::get('/home_en', [DashboardController::class, 'indexEn'])-> name('home_en');
+Route::post('/home_en/message/delete', [DashboardController::class, 'deleteMessageEn'])-> name('deleteMessageDashboardEn');
+Route::post('/home_en/message/seen', [DashboardController::class, 'seenEn'])-> name('messageSeenDashboardEn');
+Route::post('/home_en/message/publish', [DashboardController::class, 'publishEn'])-> name('messagePublishDashboardEn');
+
+
 Route::get('/employee_en', function () {
     return view('admin-En.employee');
 }) -> name('employee_en');
@@ -165,7 +171,10 @@ Route::get('/groups_en', function () {
 //     return view('admin-Ar.dashboared');
 // })-> name('home_ar');
 
-Route::get('/home_ar', [DashboardController::class])-> name('home_ar');
+Route::get('/home_ar', [DashboardController::class, 'indexAr'])-> name('home_ar');
+Route::post('/home_ar/message/delete', [DashboardController::class, 'deleteMessageAr'])-> name('deleteMessageDashboardAr');
+Route::post('/home_ar/message/seen', [DashboardController::class, 'seenAr'])-> name('messageSeenDashboardAr');
+Route::post('/home_ar/message/publish', [DashboardController::class, 'publishAr'])-> name('messagePublishDashboardAr');
 
 Route::get('/employee_ar', function () {
     return view('admin-Ar.employee');

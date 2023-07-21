@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +21,9 @@ class MessageController extends Controller
     }
     public function indexEn()
     {
-        $messages = Message::with('user')->get();
+        $messages = Message::with('user')->where('seen', 0)->get();
 
-        return view('admin-En.messages', ['messages' => $messages]);
+        return view('admin-En.dashboared', ['messages' => $messages]);
 
     }
 
@@ -45,26 +45,7 @@ class MessageController extends Controller
      */
     public function storeAr(Request $request)
     {
-        $data=$request->input();
-        //validation:
-
-        $request->validate([
-            'message' => 'required',
-        ], [
-            'message.required' => 'يرجى إدخال محتوى الرسالة',
-        ]);
         
-
-        $message = new Message;
-
-        
-        $message->user_id = \Auth::id() ?? null;
-        $message->message = $request->input('message');
-        
-        $message->save();
-
-
-        return view('user-ar.contact');
 
 
     }
@@ -111,29 +92,40 @@ class MessageController extends Controller
      */
     public function destroyAr(Request $request)
     {
-        $data=$request->input();
-
-        $message = Message::find($data['id']);
-
-        $message->delete();
-
-        $messages = Message::with('user')->get();
         
-        return view("admin-Ar.sections.message-section")->with(['messages' => $messages]);
     }
+
+    
 
 
     public function destroyEn(Request $request)
     {
+        
+    }
+
+    public function deleteMessageAr(Request $request){
         $data=$request->input();
 
         $message = Message::find($data['id']);
 
         $message->delete();
 
-        $messages = Message::with('user')->get();
+        $messages = Message::with('user')->where('seen', 0)->get();
         
-        return view("admin-En.sections.message-section")->with(['messages' => $messages]);
+        return view("admin-Ar.sections.dashboared-message-section")->with(['messages' => $messages]);
+    }
+
+
+    public function deleteMessageEn(Request $request){
+        $data=$request->input();
+
+        $message = Message::find($data['id']);
+
+        $message->delete();
+
+        $messages = Message::with('user')->where('seen', 0)->get();
+        
+        return view("admin-En.sections.dashboared-message-section")->with(['messages' => $messages]);
     }
 
     public function seenAr(Request $request){
@@ -150,9 +142,9 @@ class MessageController extends Controller
         }
         $message->save();
 
-        $messages = Message::with('user')->get();
+        $messages = Message::with('user')->where('seen', 0)->get();
         
-        return view("admin-Ar.sections.message-section")->with(['messages' => $messages]);
+        return view("admin-Ar.sections.dashboared-message-section")->with(['messages' => $messages]);
     }
     public function seenEn(Request $request){
         // dd($request);
@@ -168,9 +160,9 @@ class MessageController extends Controller
         }
         $message->save();
 
-        $messages = Message::with('user')->get();
+        $messages = Message::with('user')->where('seen', 0)->get();
         
-        return view("admin-En.sections.message-section")->with(['messages' => $messages]);
+        return view("admin-En.sections.dashboared-message-section")->with(['messages' => $messages]);
     }
 
     public function publishAr(Request $request){
@@ -187,9 +179,9 @@ class MessageController extends Controller
         }
         $message->save();
 
-        $messages = Message::with('user')->get();
+        $messages = Message::with('user')->where('seen', 0)->get();
         
-        return view("admin-Ar.sections.message-section")->with(['messages' => $messages]);
+        return view("admin-Ar.sections.dashboared-message-section")->with(['messages' => $messages]);
     }
     public function publishEn(Request $request){
         // dd($request);
@@ -205,8 +197,8 @@ class MessageController extends Controller
         }
         $message->save();
 
-        $messages = Message::with('user')->get();
+        $messages = Message::with('user')->where('seen', 0)->get();
         
-        return view("admin-En.sections.message-section")->with(['messages' => $messages]);
+        return view("admin-En.sections.dashboared-message-section")->with(['messages' => $messages]);
     }
 }
