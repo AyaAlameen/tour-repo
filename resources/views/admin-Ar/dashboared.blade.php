@@ -20,7 +20,7 @@
                 </button>
                 <div class="modal fade" id="exampleModal" data-bs-backdrop="static" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" style="max-width:none;">
+                    <div class="modal-dialog" style="max-width:none; height: fit-content;">
                         <div class="modal-content m-auto h-100" style="width: 600px;  background-color:var(--header);">
                             <div class="modal-header">
                                 <h5 class="modal-title" style="color:var(--title-color);" id="exampleModalLabel">الرسائل

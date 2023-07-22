@@ -684,7 +684,7 @@ color: var(--title-color) !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) ;
-z-index: 999;
+z-index: 1060;
 
   
   }
@@ -738,7 +738,7 @@ z-index: 999;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) ;
-    z-index: 999;
+    z-index: 1060;
 
 
   

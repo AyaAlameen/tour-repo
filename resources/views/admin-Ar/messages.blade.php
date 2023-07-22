@@ -7,7 +7,29 @@
 
         </div>
         <div class="app-content-actions w-100">
-            <input class="search-bar" placeholder="...ابحث" type="text">
+            {{-- <input class="search-bar" placeholder="...ابحث" type="text"> --}}
+            <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+
+                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-expanded="false">
+                       <i class="fas fa-filter"></i>
+                       فلترة الرسائل
+                </label>
+                <span id="place-name"></span>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <option style="cursor: pointer;" class="dropdown-item">
+                        جميع الرسائل
+                     </option>
+                        <option style="cursor: pointer;" class="dropdown-item">
+                           الرسائل المنشورة
+                        </option>
+                         <option style="cursor: pointer;" class="dropdown-item">
+                            الرسائل التي لم تراها بعد
+                         </option>
+                    <input type="text" id="place_id" name="place_id" hidden>
+
+                </div>
+            </div>
             <div class="app-content-actions-wrapper">
 
                 <div class="nav-item dropdown">

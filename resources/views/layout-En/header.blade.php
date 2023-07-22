@@ -290,6 +290,28 @@
 
 
  <!-- Navbar End -->
+ <!-- alert message false-->
+ <div id="popup" class="parent" hidden="true">
+    <div class="popup">
+        <img src="../img/false.png">
+        <h3> Faild</h3>
+
+        <button type="button" onclick='hide()'>Ok</button>
+    </div>
+</div>
+<!-- end alert message -->
+
+
+<!-- alert message true-->
+<div id="popuptrue" class="parenttrue" hidden="true">
+    <div class="popuptrue">
+        <img src="../img/true.png">
+        <h3> Succeeded</h3>
+
+        <button type="button" onclick='hide()'>Ok</button>
+    </div>
+</div>
+<!-- end alert message -->
  <script>
     function ablePassword() {
         var con = document.getElementById("confirmPassword").hidden;

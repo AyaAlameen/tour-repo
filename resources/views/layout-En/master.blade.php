@@ -159,7 +159,11 @@
             $('#toast_' + ticId).addClass('d-none');
 
         }
-
+ // فنكشن إخفاء رسائل النجاح أو الفشل
+ function hide() {
+            $('.parent').attr("hidden", true);
+            $('.parenttrue').attr("hidden", true);
+        }
 </script>
 </body>
 
