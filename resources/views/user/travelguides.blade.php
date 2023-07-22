@@ -17,7 +17,7 @@
                         </div>
                         <div class="text-center py-4">
                             <h5 class="text-truncate">name</h5>
-                            <a class="text-50 mb-2" href="{{route('travelguidesformore')}}">For More</a>
+                            <a class="text-50 mb-2" href="{{route('travelguidesformore')}}">More</a>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="text-center py-4">
                             <h5 class="text-truncate">Guide Name</h5>
-                            <a class="text-50 mb-2" href="{{route('travelguidesformore')}}">For More</a>
+                            <a class="text-50 mb-2" href="{{route('travelguidesformore')}}">More</a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="text-center py-4">
                             <h5 class="text-truncate">Guide Name</h5>
-                            <a class="text-50 mb-2" href="{{route('travelguidesformore')}}">For More</a>
+                            <a class="text-50 mb-2" href="{{route('travelguidesformore')}}">More</a>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="text-center py-4">
                             <h5 class="text-truncate">Guide Name</h5>
-                            <a class="text-50 mb-2" href="{{route('travelguidesformore')}}">For More</a>
+                            <a class="text-50 mb-2" href="{{route('travelguidesformore')}}">More</a>
                         </div>
                     </div>
                 </div>

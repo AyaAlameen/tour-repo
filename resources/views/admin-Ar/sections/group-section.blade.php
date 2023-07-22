@@ -476,8 +476,6 @@
                         </tr>
                         <tr>
                             <td class="pr-2">الخدمات المتوفرة في هذا المكان</td>
-
-
                             <td style="width:300px;">
                                 <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 

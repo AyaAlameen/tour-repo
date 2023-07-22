@@ -3044,7 +3044,7 @@ input[type="button"].btn-block {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  right: 0;
+  right: 0 !important;
   z-index: 1000;
   display: none;
   float: right;
@@ -3058,6 +3058,7 @@ input[type="button"].btn-block {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  transform: none !important;
   
 }
 
