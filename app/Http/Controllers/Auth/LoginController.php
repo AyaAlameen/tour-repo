@@ -55,4 +55,13 @@ class LoginController extends Controller
         return '/user_home_arabic';
     }
     }
+
+    public function showLoginForm()
+    {
+        if(!session()->has('url.intended'))
+            {
+                session(['url.intended' => url()->previous()]);
+            }
+        return view('auth.login');
+    }
 }
