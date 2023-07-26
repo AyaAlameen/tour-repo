@@ -97,7 +97,7 @@ class PlaceEmployeeController extends Controller
         
         $place_employee->user_name = $request->input('user_name');
         $place_employee->email = $request->input('email');
-        $place_employee->password = Hash::make($request->input('password'));
+        $place_employee->password = \Hash::make($request->input('password'));
         $place_employee->is_employee = '2';
 
         $place_employee->save();
@@ -164,7 +164,7 @@ class PlaceEmployeeController extends Controller
         
         $place_employee->user_name = $request->input('user_name');
         $place_employee->email = $request->input('email');
-        $place_employee->password = Hash::make($request->input('password'));
+        $place_employee->password = \Hash::make($request->input('password'));
         $place_employee->is_employee = '2';
 
         $place_employee->save();

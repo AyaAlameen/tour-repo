@@ -46,6 +46,11 @@
              </button>
              <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                  <div class="navbar-nav ml-auto py-0">
+                    @if (\Auth::check())
+                        @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
+                            <a href="{{ route('home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
+                        @endif
+                    @endif
                      <a href="{{ route('userhome-ar') }}" class="nav-item nav-link active">الرئيسة</a>
 
                      <div class="nav-item dropdown">

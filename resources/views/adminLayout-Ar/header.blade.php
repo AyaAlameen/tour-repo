@@ -96,7 +96,13 @@
                          </div>
                      </div>
                      <a href="{{ route('userhome-ar') }}" class="nav-item nav-link text-primary">الرئيسة</a>
-                     <a href="{{ route('home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
+    
+                    @if (\Auth::check())
+                        @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
+                            <a href="{{ route('home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
+                        @endif
+                    @endif
+                     
 
                  </div>
              </div>
