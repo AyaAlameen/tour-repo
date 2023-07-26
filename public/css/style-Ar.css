@@ -9935,3 +9935,21 @@ z-index: 999;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 
 }
+.car {
+  position: relative;
+  width: 100px;
+  height: 50px;
+}
+
+.car.move {
+  animation: move 5s ease-in-out infinite;
+}
+
+@keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 80%;
+  }
+}

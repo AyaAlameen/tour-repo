@@ -364,6 +364,14 @@ Route::get('/contact-en', function () {
     return view('user.contact');
 })-> name('contact-en');
 
+Route::get('/user_city_en', function () {
+    return view('user.city');
+})-> name('user-city-en');
+
+Route::get('/place_details_en', function () {
+    return view('user.place_details');
+})-> name('place_details_en');
+
 Route::get('/transport', function () {
     return view('user.transport');
 })-> name('transport');

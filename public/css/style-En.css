@@ -28,7 +28,6 @@
   --blueLight:#BAD7E9;
   --light: #FCFFE7;
   --title-color:#2B3467;
-
  }
 .light:root {
   --header:rgba(21, 30, 47,1);
@@ -3213,7 +3212,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item {
-  display: block;
+  display: flex;
   width: 100%;
   padding: 0.25rem 1.5rem;
   clear: both;
@@ -9517,7 +9516,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link {
   padding: 30px 15px;
-  color: var(--sidebar-link);
+  color: var(--title-color);
   font-weight: 500;
   outline: none;
 }
@@ -9645,6 +9644,16 @@ h6,
 .bg-registration {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/223141-JULY-22-Jamaica-tourism.jpg), no-repeat center center;
   background-size: cover;
+}
+.bg-nearby {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) , url(../img/destination.png), no-repeat center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: left;
+  
+
+
 }
 
 .team-item {
@@ -10001,4 +10010,22 @@ z-index: 999;
   cursor: pointer;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 
+}
+.car {
+  position: relative;
+  width: 100px;
+  height: 50px;
+}
+
+.car.move {
+  animation: move 5s ease-in-out infinite;
+}
+
+@keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 80%;
+  }
 }

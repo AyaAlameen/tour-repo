@@ -1,4 +1,4 @@
-@extends('layout-Ar.master')
+@extends('layout-En.master')
 @section('content')
     <h2 class="p-5" style="text-align: right;"> استكشف (اسم المحافظة) </h2>
     {{-- Gallery --}}
@@ -136,7 +136,7 @@
             </div>
             <button class="m-2 btn btn-primary"
                 style="width: 70%; margin-left: 15% !important ; margin-bottom: 35px !important;"><a
-                    style="color: #fff; width: 100%; display: inline-block;" href="{{ route('place_details_ar') }}">
+                    style="color: #fff; width: 100%; display: inline-block;" href="{{ route('place_details_en') }}">
                     المزيد من التفاصيل حول اسم المكان للحجز</a>
             </button>
 

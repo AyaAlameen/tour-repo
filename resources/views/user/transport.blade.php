@@ -66,6 +66,9 @@
     </div>
 
 
+    <div class="car move">
+        <img src="img/car.png" style="width: 200px; height: 200px; padding-bottom: 150px; box-sizing: content-box;">
+      </div>
 
 
 

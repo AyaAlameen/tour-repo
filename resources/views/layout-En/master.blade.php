@@ -145,6 +145,15 @@
               event.target.href="http://127.0.0.1:8000/tripmore"
                 
             }
+            if (origin == "http://127.0.0.1:8000/place_details_ar") {
+              event.target.href="http://127.0.0.1:8000/place_details_en"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/user_city_ar") {
+              event.target.href="http://127.0.0.1:8000/user_city_en"
+                
+            }
+           
          }
          function loginBefore() {
         window.location = "/login";

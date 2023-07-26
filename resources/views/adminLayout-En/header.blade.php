@@ -120,7 +120,7 @@
      </div>
      <div class="offcanvas-body">
          {{-- اذا ما اختار مفضلة لسا --}}
-         <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;" />
+         <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px; opacity: 0.5;" />
          <p class="text-body px-3 text-center mt-4">choose your favorite places</p>
 
          {{-- اذا اختار أماكن مفضلة  --}}
@@ -147,7 +147,7 @@
      </div>
      <div class="offcanvas-body">
          {{-- اذا ما حجز لسا --}}
-         {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px;" />
+         {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px; opacity: 0.5;" />
    <p class="text-body px-3 text-center mt-4">سارع بالحجز في أفضل الأماكن</p> --}}
          {{-- اذا حجز  --}}
 

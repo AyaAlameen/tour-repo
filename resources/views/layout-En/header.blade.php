@@ -51,13 +51,12 @@
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Syria</a>
                          <div class="dropdown-menu border-0 rounded-0 m-0">
-                             <a href="blog" class="dropdown-item">Visit Syria</a>
-                             <a href="blog" class="dropdown-item">Governorates of Syria</a>
-                             <a href="single" class="dropdown-item">Syria Hotels</a>
+                             <a href="#Governorates" class="dropdown-item">Governorates of Syria</a>
+                             {{-- <a href="single" class="dropdown-item">Syria Hotels</a>
                              <a href="destination" class="dropdown-item">Syria Restaurants</a>
-                             <a href="guide" class="dropdown-item">Historical places in Syria</a>
-                             <a href="guide" class="dropdown-item">Trip groups</a>
-                             <a href="testimonial" class="dropdown-item">Photographs from Syria</a>
+                             <a href="guide" class="dropdown-item">Historical places in Syria</a> --}}
+                             <a href="#Trips" class="dropdown-item">Trip groups</a>
+                             <a href="#Gallery" class="dropdown-item">Photographs from Syria</a>
                          </div>
                      </div>
                      <div class="nav-item dropdown">
@@ -206,7 +205,7 @@
      </div>
      <div class="offcanvas-body">
         {{-- اذا ما اختار مفضلة لسا --}}
-         <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;" />
+         <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px; opacity: 0.5;" />
          <p class="text-body px-3 text-center mt-4">choose your favorite places</p>
 
          {{-- اذا اختار أماكن مفضلة  --}}
@@ -233,7 +232,7 @@
     </div>
     <div class="offcanvas-body">
         {{-- اذا ما حجز لسا --}}
-        {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px;" />
+        {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px; opacity: 0.5;" />
   <p class="text-body px-3 text-center mt-4">سارع بالحجز في أفضل الأماكن</p> --}}
         {{-- اذا حجز  --}}
 

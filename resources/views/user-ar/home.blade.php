@@ -38,7 +38,7 @@
         </div>
     </div>
     <!-- Carousel End -->
-    
+
 
 
     <!-- About Start -->
@@ -135,7 +135,7 @@
                         <div class="destination-item position-relative overflow-hidden mb-2">
                             <img width="400px" height="250px"
                                 src="{{ asset(str_replace(app_path(), '', $city->image)) }}" alt="">
-                            <a class="destination-overlay text-white text-decoration-none" href="">
+                            <a class="destination-overlay text-white text-decoration-none" href="{{route('user-city-ar')}}">
                                 <h4 class="text-white">{{ $city->translations()->where('locale', 'en')->first()->name }}
                                 </h4>
                             </a>
@@ -146,8 +146,55 @@
             </div>
         </div>
     </div>
-    <!-- Destination Start -->
+    <!-- Destination end -->
 
+    <!-- nearby Start -->
+    <div class="container-fluid bg-nearby py-5" style="margin: 90px 0; height:700px;">
+        <div class="container py-5 d-flex align-items-center">
+            <div style="flex-wrap:nowrap; width:750px;">
+                <div class="col-lg-7"
+                    style="; margin-left:300px; background-color:#ffffff10; backdrop-filter:blur(15px); padding:50px; border-radius:3px;">
+                    <div class="mb-4">
+                        <h1 class="text-white">شاهد <span class="text-primary"> المواقع الأقرب </span> إليك </h1>
+                    </div>
+                    <p class="text-white">تمتع بأفضل تجربة معنا عن طريق مشاهدة مواقع الأماكن الأقرب إليك و الحصول على
+                        الحجوزات اللازمة بأقرب وقت وأسرع طريقة</p>
+                        <ul class="d-flex text-white m-0 " style="list-style:none; align-items: center;">
+                            <i class="fa fa-check text-primary mr-3 text-success"></i>
+                            <li class="py-2">  قم بتحديد الصنف الذي ترغب بزيارته و من ثم استعرض الأماكن الأقرب إليك على الخريطة </li>
+                           
+                        </ul>
+                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
+                        <label for="hotel" style="font-weight: bold; font-size:25px; color: #fff; margin-right: 10px;">
+                            فنادق
+                        </label>
+                        <input id="hotel" type="radio" name="r">
+                    </div>
+                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
+                        <label for="res" style="font-weight: bold; font-size:25px; color: #fff; margin-right: 10px;">
+                            مطاعم
+                        </label>
+                        <input id="res" type="radio" name="r">
+                    </div>
+                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
+                        <label for="arch" style="font-weight: bold; font-size:25px; color: #fff; margin-right: 10px;">
+                            أماكن أثرية
+                        </label>
+                        <input id="arch" type="radio" name="r">
+                    </div>
+
+                </div>
+
+            </div>
+            {{-- الخريطة --}}
+            <div class="d-flex pt-3 bg-light" style="flex-direction: column; width: 30%; height: 90%;  backdrop-filter:blur(15px);  align-items: center; border-radius: 5px;">
+                <img class="m-3" style="cursor:pointer; border-radius:6px;" src="img/sy.jpg" width="90%" height="220px">
+            <h2>شاهد على الخريطة</h2>
+            </div>
+            {{-- نهاية الخريطة --}}
+        </div>
+    </div>
+    <!-- nearby End -->
 
     <!-- Service Start -->
     <div class="container-fluid py-5">
@@ -229,12 +276,13 @@
                             <!-- صور أماكن الرحلة -->
                             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                        aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                        aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
                                 </div>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -264,8 +312,10 @@
                             <!-- نهاية صور أماكن الرحلة -->
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>دمشق</small>
-                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 أيام</small>
+                                    <small class="m-0"><i
+                                            class="fa fa-map-marker-alt text-primary mr-2"></i>دمشق</small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3
+                                        أيام</small>
                                 </div>
                                 <br>
                                 <a class="h5 text-decoration-none" href="">الوصف</a>
@@ -281,7 +331,7 @@
                     </div>
                     <!-- نهاية الكارد -->
                 @endforeach
-                
+
             </div>
         </div>
     </div>
@@ -410,109 +460,111 @@
                         </ul>
                     </div>
                     @if (!Auth::check())
-                    <div class="d-md-flex half">
+                        <div class="d-md-flex half">
 
-                        <div class="contents" style="background-color:#0d6dfd00;">
-                            <div class="container">
+                            <div class="contents" style="background-color:#0d6dfd00;">
+                                <div class="container">
 
-                                <div style="width:500px; margin-left:400px;"
-                                    class="align-items-center justify-content-center">
-                                    <div class="form-block mx-auto">
+                                    <div style="width:500px; margin-left:400px;"
+                                        class="align-items-center justify-content-center">
+                                        <div class="form-block mx-auto">
 
-                                        <div style="background-color:var(--bambi); width:100%;  height:50px;"
-                                            class="text-center mb-4">
-                                            <h3 style="color:#fff;" class="pt-2"> إنشاء حساب</h3>
-                                        </div>
+                                            <div style="background-color:var(--bambi); width:100%;  height:50px;"
+                                                class="text-center mb-4">
+                                                <h3 style="color:#fff;" class="pt-2"> إنشاء حساب</h3>
+                                            </div>
 
-                                        <div class="col-md-12">
-                                            <form method="POST" action="{{ route('register') }}"
-                                                enctype="multipart/form-data">
-                                                @csrf
+                                            <div class="col-md-12">
+                                                <form method="POST" action="{{ route('register') }}"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
 
-                                                <div class="form-group d-flex mb-3 first align-items-center">
-                                                    <label for="user_name"
-                                                        class="col-md-4 col-form-label text-md-start">{{ __('اسم المستخدم') }}</label>
+                                                    <div class="form-group d-flex mb-3 first align-items-center">
+                                                        <label for="user_name"
+                                                            class="col-md-4 col-form-label text-md-start">{{ __('اسم المستخدم') }}</label>
 
-                                                    <div class="d-flex  w-100" style="flex-direction: column;">
-                                                        <input id="user_name" placeholder="اسم المستخدم" type="text"
-                                                            class="form-control @error('user_name') is-invalid @enderror"
-                                                            name="user_name" value="{{ old('user_name') }}" required
-                                                            autocomplete="user_name">
+                                                        <div class="d-flex  w-100" style="flex-direction: column;">
+                                                            <input id="user_name" placeholder="اسم المستخدم"
+                                                                type="text"
+                                                                class="form-control @error('user_name') is-invalid @enderror"
+                                                                name="user_name" value="{{ old('user_name') }}" required
+                                                                autocomplete="user_name">
 
-                                                        @error('user_name')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group mb-3 d-flex align-items-center">
-                                                    <label for="email"
-                                                        class="col-md-4 col-form-label text-md-start">{{ __('الايميل') }}</label>
-
-                                                    <div class="d-flex w-100" style="flex-direction: column;">
-                                                        <input id="email" placeholder="example@example.com"
-                                                            type="email"
-                                                            class="form-control @error('email') is-invalid @enderror"
-                                                            name="email" value="{{ old('email') }}" required
-                                                            autocomplete="email">
-
-                                                        @error('email')
-                                                            <div class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
+                                                            @error('user_name')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
                                                     </div>
 
 
-                                                </div>
+                                                    <div class="form-group mb-3 d-flex align-items-center">
+                                                        <label for="email"
+                                                            class="col-md-4 col-form-label text-md-start">{{ __('الايميل') }}</label>
 
-                                                <div class="form-group mb-3 d-flex align-items-center">
-                                                    <label for="password"
-                                                        class="col-md-4 col-form-label text-md-start">{{ __('كلمة السر') }}</label>
+                                                        <div class="d-flex w-100" style="flex-direction: column;">
+                                                            <input id="email" placeholder="example@example.com"
+                                                                type="email"
+                                                                class="form-control @error('email') is-invalid @enderror"
+                                                                name="email" value="{{ old('email') }}" required
+                                                                autocomplete="email">
 
-                                                    <div class="d-flex w-100" style="flex-direction: column;">
-                                                        <input id="password" placeholder="********" type="password"
-                                                            class="form-control @error('password') is-invalid @enderror"
-                                                            name="password" required autocomplete="new-password">
+                                                            @error('email')
+                                                                <div class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror
+                                                        </div>
 
-                                                        @error('password')
-                                                            <div class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
+
                                                     </div>
-                                                </div>
 
-                                                <div class="form-group  mb-3 last d-flex align-items-center">
-                                                    <label for="password-confirm"
-                                                        class="col-md-4 col-form-label text-md-start">{{ __('تأكيد كلمة السر') }}</label>
+                                                    <div class="form-group mb-3 d-flex align-items-center">
+                                                        <label for="password"
+                                                            class="col-md-4 col-form-label text-md-start">{{ __('كلمة السر') }}</label>
 
-                                                    <input id="password-confirm" type="password" class="form-control"
-                                                        name="password_confirmation" required autocomplete="new-password">
+                                                        <div class="d-flex w-100" style="flex-direction: column;">
+                                                            <input id="password" placeholder="********" type="password"
+                                                                class="form-control @error('password') is-invalid @enderror"
+                                                                name="password" required autocomplete="new-password">
 
-                                                </div>
-
-
-                                                <div class="row mb-0 mt-3 justify-content-center">
-                                                    <div class="col-md-6 offset-md-10">
-                                                        <button type="submit" class="btn btn-block text-light"
-                                                            style="background-color:var(--bambi);">
-                                                            {{ __('إنشاء') }}
-                                                        </button>
+                                                            @error('password')
+                                                                <div class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </form>
 
+                                                    <div class="form-group  mb-3 last d-flex align-items-center">
+                                                        <label for="password-confirm"
+                                                            class="col-md-4 col-form-label text-md-start">{{ __('تأكيد كلمة السر') }}</label>
+
+                                                        <input id="password-confirm" type="password" class="form-control"
+                                                            name="password_confirmation" required
+                                                            autocomplete="new-password">
+
+                                                    </div>
+
+
+                                                    <div class="row mb-0 mt-3 justify-content-center">
+                                                        <div class="col-md-6 offset-md-10">
+                                                            <button type="submit" class="btn btn-block text-light"
+                                                                style="background-color:var(--bambi);">
+                                                                {{ __('إنشاء') }}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                 </div>
             </div>
@@ -545,7 +597,7 @@
                                 <div class="text-center py-4">
                                     <h5 class="text-truncate">
                                         {{ $guide->translations()->where('locale', 'en')->first()->name }}</h5>
-                                        <a class="text-50 mb-2" href="{{route('travelguidesformore-ar')}}">للمزيد</a>
+                                    <a class="text-50 mb-2" href="{{ route('travelguidesformore-ar') }}">للمزيد</a>
                                 </div>
                             </div>
                         </div>
@@ -566,54 +618,21 @@
                     <h6 class="text-primary text-uppercase">العروض</h6>
                     <h1>أفضل العروض</h1>
                 </div>
-                <!-- بداية الكارد -->
                 <div class="owl-carousel testimonial-carousel">
+                    <!-- بداية الكارد -->
                     <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                        <!-- صور العرض -->
-                        <div id="carouselExample2Indicators" class="carousel slide  m-auto w-50" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
-                                        alt="">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
-                                        alt="">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExample2Indicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExample2Indicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <!-- نهاية صور العرض -->
-                        <div class="testimonial-text bg-white p-4 mt-n5">
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
                             <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
                             <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
                                 maiores modi iure consequuntur
                                 eum vel voluptate excepturi veritatis commodi.
-                                A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
+                                A unde fuga quas voluptates ab sunt blanditiis eaque! rrrrrrrrr rrrrrrrrrrr
+                                rrrrrrrrrrrrrrrrr rrrrrrrrrr rrrrrrrr rrrrrrrrrr rrrr rrrrr rrrrr rrrr rr
+                            </p>
 
-                            <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
                                 <button class="btn btn-primary app-content-headerButton"
                                     style="float:left; border-radius:3px;">احجز الآن</button>
@@ -621,57 +640,94 @@
                         </div>
                     </div>
                     <!-- نهاية الكارد -->
-                    <div class="text-center mb-3" style="direction:rtl;">
-                        <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5">
+
+
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
                             <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
                             <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
                                 maiores modi iure consequuntur
                                 eum vel voluptate excepturi veritatis commodi.
-                                A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
+                                A unde fuga quas voluptates ab sunt blanditiis eaque! dghld sdkhusd sdfudfus fsuu </p>
 
-                            <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
                                 <button class="btn btn-primary app-content-headerButton"
                                     style="float:left; border-radius:3px;">احجز الآن</button>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center mb-3" style="direction:rtl;">
-                        <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5">
+                    <!-- نهاية الكارد -->
+
+
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
                             <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
                             <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
                                 maiores modi iure consequuntur
-                                eum vel voluptate excepturi veritatis commodi.
-                                A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
+                                eum vel voluptate ex </p>
 
-                            <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
                                 <button class="btn btn-primary app-content-headerButton"
                                     style="float:left; border-radius:3px;">احجز الآن</button>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center mb-3" style="direction:rtl;">
-                        <img class="img-fluid m-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5">
+                    <!-- نهاية الكارد -->
+
+
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
                             <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
                             <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
                                 maiores modi iure consequuntur
                                 eum vel voluptate excepturi veritatis commodi.
                                 A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
 
-                            <div class="d-flex" style="flex-direction:row; justify-content:space-around;">
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
                                 <button class="btn btn-primary app-content-headerButton"
                                     style="float:left; border-radius:3px;">احجز الآن</button>
                             </div>
                         </div>
                     </div>
+                    <!-- نهاية الكارد -->
+
+
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
+                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                            <h5 class="text-truncate">اسم العرض</h5>
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                                maiores modi iure consequuntur
+                                eum vel voluptate excepturi veritatis commodi.
+                                A unde fuga quas voluptates ab sunt blanditiis eaque! ddd ddd ddd ddd ddd ddd ddd ddd ddd
+                                ddd ddd ddd ddd ddd </p>
+
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                                <span>الكلفة : 40000</span>
+                                <button class="btn btn-primary app-content-headerButton"
+                                    style="float:left; border-radius:3px;">احجز الآن</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- نهاية الكارد -->
+
+
+
+
                 </div>
             </div>
         </div>
