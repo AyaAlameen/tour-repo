@@ -146,9 +146,9 @@
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-                               
+
                             </div>
-                             <p class="text-center">كم نجمة تمنح هذا المكان؟</p>
+                            <p class="text-center">كم نجمة تمنح هذا المكان؟</p>
                             <div class="text-center mt-4">
                                 <input type="number" class="w-25" pattern="[0-9]+([.,][0-9]+)?">
                                 <h5 class="text-body d-inline">: قيمه أيضا من 10</h5>
@@ -174,13 +174,12 @@
                             </button>
                         </div>
                         <div class="modal-body text-center p-5">
-                           <h5>قم بتسجيل الدخول للمتابعة <a href="{{ route('login') }}"> من هنا</a></h5>
+                            <h5>قم بتسجيل الدخول للمتابعة <a href="{{ route('login') }}"> من هنا</a></h5>
                         </div>
                     </div>
                 </div>
             </div>
             {{-- نهاية المودل --}}
-           
         @endisset
 
         {{-- بحال المكان ما فيو خدمات ديف كلاس السيرف بكون مخفي وبيطلع هاد الزر للحجز --}}
@@ -190,6 +189,56 @@
          <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
         @endisset --}}
     </div>
+    {{-- comments --}}
+    <div class="container m-5" style="text-align: end;">
+        <h3>تعليقات حول اسم المكان</h3>
+        <div class="d-flex align-items-center">
+            <div>
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                            width="70px" height="70px">
+                        <h5>اسم المستخدم</h5>
+                    </div>
+                    <p class="text-body w-50 text-end" style="margin-left:40%; ">Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+    
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                            width="70px" height="70px">
+                        <h5>اسم المستخدم</h5>
+                    </div>
+                    <p class="text-body w-50 text-end" style="margin-left:40%; ">Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                            width="70px" height="70px">
+                        <h5>اسم المستخدم</h5>
+                    </div>
+                    <p class="text-body w-50 text-end" style="margin-left:40%; ">Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+            </div>
+            <div class="w-50">
+                <img src="img/popularity.png" width="300px" height="300px">
+            </div>
+        </div>
+      
+    </div>
+    {{-- end comments --}}
     {{-- الخدمات --}}
     <div class="serv d-flex" style="flex-direction: row; align-items: center;">
 
@@ -343,9 +392,10 @@
                         <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
                             <h6 class="d-inline ml-4">التكلفة : 60000</h6>
                             @isset(Auth::user()->id)
-                            <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">حجز</button>
+                                <button class="btn btn-primary ml-4" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal20">حجز</button>
                             @else
-                            <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
+                                <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
                             @endisset
                         </div>
                     </div>
@@ -371,19 +421,19 @@
         var element = event.target; // العنصر الحالي
         var previousSibling = element.previousElementSibling; // الشقيق السابق
         var nextSibling = element.nextElementSibling; //الشقيق التالي
-        if( previousSibling==null || previousSibling.classList.contains("fas") ){
+        if (previousSibling == null || previousSibling.classList.contains("fas")) {
             // console.log(nextSibling)
-           if( nextSibling==null || nextSibling.classList.contains('far'))
-            if (event.target.classList.contains("fas")) {
-            event.target.classList.remove("fas", "fa-star")
-            event.target.classList.add("far", "fa-star")
-        } else
-        if (event.target.classList.contains("far")) {
-            event.target.classList.remove("far", "fa-star")
-            event.target.classList.add("fas", "fa-star")
+            if (nextSibling == null || nextSibling.classList.contains('far'))
+                if (event.target.classList.contains("fas")) {
+                    event.target.classList.remove("fas", "fa-star")
+                    event.target.classList.add("far", "fa-star")
+                } else
+            if (event.target.classList.contains("far")) {
+                event.target.classList.remove("far", "fa-star")
+                event.target.classList.add("fas", "fa-star")
+            }
         }
-        }
-    
+
 
     }
 </script>

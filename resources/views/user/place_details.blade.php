@@ -4,8 +4,8 @@
 
         <h2 class="p-5" style="text-align: right;"> (place name) </h2>
         <div class="contact_place_info">
-            <p>  0949049912 <i class="fas fa-phone"></i></p>
-            <p>  aleppo-palace-hotel@gmail.com <i class="fas fa-envelope"></i></p>
+            <p> 0949049912 <i class="fas fa-phone"></i></p>
+            <p> aleppo-palace-hotel@gmail.com <i class="fas fa-envelope"></i></p>
         </div>
     </div>
     {{-- Gallery --}}
@@ -15,7 +15,7 @@
             <button
                 style="position: absolute; left:74%; top: 122%; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
                 data-bs-toggle="modal" data-bs-target="#exampleModal">
-               view all picture</button>
+                view all picture</button>
 
             {{-- picturs modal --}}
             <!-- Modal -->
@@ -145,9 +145,9 @@
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-                               
+
                             </div>
-                             <p class="text-center">كم نجمة تمنح هذا المكان؟</p>
+                            <p class="text-center">كم نجمة تمنح هذا المكان؟</p>
                             <div class="text-center mt-4">
                                 <input type="number" class="w-25" pattern="[0-9]+([.,][0-9]+)?">
                                 <h5 class="text-body d-inline">: قيمه أيضا من 10</h5>
@@ -173,13 +173,12 @@
                             </button>
                         </div>
                         <div class="modal-body text-center p-5">
-                           <h5>قم بتسجيل الدخول للمتابعة <a href="{{ route('login') }}"> من هنا</a></h5>
+                            <h5>قم بتسجيل الدخول للمتابعة <a href="{{ route('login') }}"> من هنا</a></h5>
                         </div>
                     </div>
                 </div>
             </div>
             {{-- نهاية المودل --}}
-           
         @endisset
 
         {{-- بحال المكان ما فيو خدمات ديف كلاس السيرف بكون مخفي وبيطلع هاد الزر للحجز --}}
@@ -189,6 +188,59 @@
          <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
         @endisset --}}
     </div>
+
+
+    {{-- comments --}}
+    <div class="container m-5">
+        <h3>Comments About place name</h3>
+        <div class="d-flex align-items-center">
+            <div>
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-right: 10px; "
+                            width="70px" height="70px">
+                        <h5> user name</h5>
+                    </div>
+                    <p class="text-body w-50 " style="margin-left:10%; ">Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-right: 10px; "
+                            width="70px" height="70px">
+                        <h5> user name</h5>
+                    </div>
+                    <p class="text-body w-50 " style="margin-left:10%; ">Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-right: 10px; "
+                            width="70px" height="70px">
+                        <h5> user name</h5>
+                    </div>
+                    <p class="text-body w-50" style="margin-left:10%; ">Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+    
+    
+            </div>
+            <div class="w-25"> 
+            <img src="img/popularity.png" width="300px" height="300px"> 
+            </div>
+        </div>
+      
+    </div>
+    {{-- end comments --}}
     {{-- الخدمات --}}
     <div class="serv d-flex" style="flex-direction: row; align-items: center;">
 
@@ -203,13 +255,13 @@
             </div>
             <ul class="user-sidebar-list">
                 <li class="user-sidebar-list-item">
-                    <a>    
-                        <span>Filter </span>  
+                    <a>
+                        <span>Filter </span>
                         <i class="fas fa-filter"></i>
                     </a>
                 </li>
                 <li class="user-sidebar-list-item ">
-                    <a>             
+                    <a>
                         <span>:people count</span>
                         <i class="fas fa-users"></i>
                     </a>
@@ -270,7 +322,7 @@
                         <img src="img/aleppo-palace-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
-                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal2"> 
+                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                             more picture</p>
                         {{-- picturs modal --}}
 
@@ -340,10 +392,11 @@
                             inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
                         <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
                             <h6 class="d-inline ml-4">cost : 60000</h6>
-                             @isset(Auth::user()->id)
-                            <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">book</button>
+                            @isset(Auth::user()->id)
+                                <button class="btn btn-primary ml-4" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal20">book</button>
                             @else
-                            <button onclick="loginBefore()" class="btn btn-primary ml-4">book</button>
+                                <button onclick="loginBefore()" class="btn btn-primary ml-4">book</button>
                             @endisset
                         </div>
                     </div>
@@ -369,19 +422,19 @@
         var element = event.target; // العنصر الحالي
         var previousSibling = element.previousElementSibling; // الشقيق السابق
         var nextSibling = element.nextElementSibling; //الشقيق التالي
-        if( previousSibling==null || previousSibling.classList.contains("fas") ){
+        if (previousSibling == null || previousSibling.classList.contains("fas")) {
             // console.log(nextSibling)
-           if( nextSibling==null || nextSibling.classList.contains('far'))
-            if (event.target.classList.contains("fas")) {
-            event.target.classList.remove("fas", "fa-star")
-            event.target.classList.add("far", "fa-star")
-        } else
-        if (event.target.classList.contains("far")) {
-            event.target.classList.remove("far", "fa-star")
-            event.target.classList.add("fas", "fa-star")
+            if (nextSibling == null || nextSibling.classList.contains('far'))
+                if (event.target.classList.contains("fas")) {
+                    event.target.classList.remove("fas", "fa-star")
+                    event.target.classList.add("far", "fa-star")
+                } else
+            if (event.target.classList.contains("far")) {
+                event.target.classList.remove("far", "fa-star")
+                event.target.classList.add("fas", "fa-star")
+            }
         }
-        }
-    
+
 
     }
 </script>

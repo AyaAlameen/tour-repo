@@ -90,10 +90,8 @@
                                               </tr> 
                                             <tr>
                                                 <td>
-                                                    <input type="file" name="image" id="img"> 
-                                                    <label for="img" >
-                                                        <img src="{{ asset(str_replace(app_path(),'',$guide -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px">
-                                                    </label>
+                                                    <input type="file" name="image" id="img{{$guide->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$guide->id}}')">
+                                                    <label for="img{{$guide->id}}" ><img id="edit_previewImage_{{$guide->id}}" src="{{ asset(str_replace(app_path(),'',$guide -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
                                                 </td> 
                                                 <tr>
                                                     <td colspan="2"><span style="color: red" class="image_error_edit"></span></td>
@@ -241,11 +239,9 @@
                                               </tr> 
                                             <tr>
                                                 <td>
-                                                    <input type="file" name="image" id="img"> 
-                                                    <label for="img" >
-                                                        <img src="{{ asset(str_replace(app_path(),'',$guide -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px">
-                                                    </label>
-                                                </td>      
+                                                    <input type="file" name="image" id="img{{$guide->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$guide->id}}')">
+                                                    <label for="img{{$guide->id}}" ><img id="edit_previewImage_{{$guide->id}}" src="{{ asset(str_replace(app_path(),'',$guide -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
+                                                </td> 
                                                 <td>الصورة </td>
                                             </tr>
                                             <tr>
