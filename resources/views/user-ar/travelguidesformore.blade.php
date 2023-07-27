@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="container-fluid">
         <div class="container pt-5 pb-3 ">
-            <div class="blog-item m-auto" style="width:800px">
+            <div class=" m-auto" style="width:800px ; box-shadow: 0 0 30px #CCCCCC;">
                 <div class="position-relative p-3 d-flex justify-content-center">
                     <img src="img/blog-1.jpg" alt="" style="width:500px;">
                 </div>

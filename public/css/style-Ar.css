@@ -3055,7 +3055,7 @@ input[type="button"].btn-block {
   color: #656565;
   text-align: right;
   list-style: none;
-  background-color: #fff;
+  background-color: var(--sidebar) !important;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   transform: none !important;
@@ -3225,7 +3225,7 @@ input[type="button"].btn-block {
   color: #212529;
   text-align: right;
   white-space: nowrap;
-  background-color: transparent;
+  background-color: var(--sidebar);
   border: 0;
 }
 
@@ -9531,7 +9531,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-  color: var(--bambi);
+  color: var(--bambi) !important;
 }
 
 @media (max-width: 991.98px) {

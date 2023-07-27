@@ -686,247 +686,246 @@
                                     </div>
                                 </div>
                                 <!-- end delete -->
-
+                            </div>
 
                                 <!-- end action -->
 
 
                             </div>
                     @endforeach
-                
-    {{-- مودل عرض الخريطة بالجدول --}}
 
-    <!-- Modal -->
+                    {{-- مودل عرض الخريطة بالجدول --}}
 
-    <div class="modal fade bg-light" id="exampleModal8" data-bs-backdrop="static" tabindex="-1"
-        aria-labelledby="exampleModal8Label" aria-hidden="true">
-        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
-            <div class="modal-content toggle w-100 h-100">
-                <div class="modal-header">
-                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal8')"
-                        aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <!-- Modal -->
+
+                    <div class="modal fade bg-light" id="exampleModal8" data-bs-backdrop="static" tabindex="-1"
+                        aria-labelledby="exampleModal8Label" aria-hidden="true">
+                        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                            <div class="modal-content toggle w-100 h-100">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal8')"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="show-map" class="w-100 h-100"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {{-- نهاية مودل عرض الخريطة بالجدول --}}
+
+
+
+
+                    {{-- مودل تعديل الخريطة --}}
+                    <div class="modal fade bg-light" id="exampleModal9" tabindex="-1"
+                        aria-labelledby="exampleModal9Label" aria-hidden="true">
+                        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                            <div class="modal-content toggle w-100 h-100">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
+                                        الخريطة</h5>
+                                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {{-- الخريطة --}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="action-button active"
+                                        onclick="hidemap('exampleModal9')">إغلاق</button>
+                                    <button type="button" id="save-map-btn-edit" onclick="spinner()"
+                                        class="app-content-headerButton">حفظ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- نهاية مودل تعديل الخريطة --}}
                 </div>
-                <div class="modal-body">
-                    <div id="show-map" class="w-100 h-100"></div>
-                </div>
-               
             </div>
+
         </div>
     </div>
-    {{-- نهاية مودل عرض الخريطة بالجدول --}}
 
 
-
-
-    {{-- مودل تعديل الخريطة --}}
-    <div class="modal fade bg-light" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModal9Label"
-        aria-hidden="true">
-        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
-            <div class="modal-content toggle w-100 h-100">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
-                        الخريطة</h5>
-                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
-                        aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{-- الخريطة --}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="action-button active" onclick="hidemap('exampleModal9')">إغلاق</button>
-                    <button type="button" id="save-map-btn-edit" onclick="spinner()"
-                        class="app-content-headerButton">حفظ</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- نهاية مودل تعديل الخريطة --}}
-    </div>
-</div>
-
-    </div>
     </div>
 
 
-</div>
+    </div>
+@endsection
 
 
-</div>
+<script>
+    function addPlace(formId) {
+        $("#add-place-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-form'));
+        $.ajax({
+                url: "{{ route('addPlaceAr') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#places-data").empty();
+                $("#places-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                document.getElementById(formId).reset();
 
 
-    @endsection
+            })
+            .fail(function(data) {
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                removeMessages();
+
+                if (data.responseJSON.errors.name_ar) {
+                    document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors
+                        .name_ar[0];
+                }
+
+                if (data.responseJSON.errors.name_en) {
+                    document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors
+                        .name_en[0];
+                }
 
 
-    <script>
-        function addPlace(formId) {
-            $("#add-place-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-            var formData = new FormData(document.getElementById('add-form'));
-            $.ajax({
-                    url: "{{ route('addPlaceAr') }}",
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    cache: false,
-                    contentType: false,
-                })
-                .done(function(data) {
-                    $("#places-data").empty();
-                    $("#places-data").append(data);
-                    $('.close').click();
-                    $('.parenttrue').attr("hidden", false);
-                    // clearInput();
-                    document.getElementById(formId).reset();
+                if (data.responseJSON.errors.city_id) {
+                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors.city_id[
+                        0];
+                }
 
+                if (data.responseJSON.errors.district_id) {
+                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
+                        .district_id[0];
+                }
 
-                })
-                .fail(function(data) {
-                    // $('.close').click();
-                    // $('.parent').attr("hidden", false);
-                    removeMessages();
+                if (data.responseJSON.errors.sub_category_id) {
+                    document.querySelector(`#${formId} #sub_category_error`).innerHTML = data.responseJSON.errors
+                        .sub_category_id[0];
+                }
 
-                    if (data.responseJSON.errors.name_ar) {
-                        document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors
-                            .name_ar[0];
-                    }
+                if (data.responseJSON.errors.email) {
+                    document.querySelector(`#${formId} #email_error`).innerHTML = data.responseJSON.errors.email[0];
+                }
 
-                    if (data.responseJSON.errors.name_en) {
-                        document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors
-                            .name_en[0];
-                    }
+                if (data.responseJSON.errors.phone) {
+                    document.querySelector(`#${formId} #phone_error`).innerHTML = data.responseJSON.errors.phone[0];
+                }
 
+                if (data.responseJSON.errors.cost) {
+                    document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
+                }
 
-                    if (data.responseJSON.errors.city_id) {
-                        document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors.city_id[
-                            0];
-                    }
+                if (data.responseJSON.errors.profit_ratio_1) {
+                    document.querySelector(`#${formId} #profit_ratio_1_error`).innerHTML = data.responseJSON.errors
+                        .profit_ratio_1[0];
+                }
 
-                    if (data.responseJSON.errors.district_id) {
-                        document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
-                            .district_id[0];
-                    }
+                if (data.responseJSON.errors.profit_ratio_2) {
+                    document.querySelector(`#${formId} #profit_ratio_2_error`).innerHTML = data.responseJSON.errors
+                        .profit_ratio_2[0];
+                }
 
-                    if (data.responseJSON.errors.sub_category_id) {
-                        document.querySelector(`#${formId} #sub_category_error`).innerHTML = data.responseJSON.errors
-                            .sub_category_id[0];
-                    }
+                if (data.responseJSON.errors.geolocation) {
+                    document.querySelector(`#${formId} #geolocation_error`).innerHTML = data.responseJSON.errors
+                        .geolocation[0];
+                }
 
-                    if (data.responseJSON.errors.email) {
-                        document.querySelector(`#${formId} #email_error`).innerHTML = data.responseJSON.errors.email[0];
-                    }
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-place-btn").attr("disabled", false).html('حفظ');
+            });
+    }
+    //----------------------------------------------------------
 
-                    if (data.responseJSON.errors.phone) {
-                        document.querySelector(`#${formId} #phone_error`).innerHTML = data.responseJSON.errors.phone[0];
-                    }
+    function editCategory(formId, id) {
 
-                    if (data.responseJSON.errors.cost) {
-                        document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
-                    }
+        $("#edit-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        $.ajax({
+                url: `{{ route('editCategoryAr') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
 
-                    if (data.responseJSON.errors.profit_ratio_1) {
-                        document.querySelector(`#${formId} #profit_ratio_1_error`).innerHTML = data.responseJSON.errors
-                            .profit_ratio_1[0];
-                    }
+                $("#categories-data").empty();
+                $("#categories-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function(data) {
+                removeMessages();
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                if (data.responseJSON.errors.name_ar) {
+                    document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors
+                        .name_ar[0];
 
-                    if (data.responseJSON.errors.profit_ratio_2) {
-                        document.querySelector(`#${formId} #profit_ratio_2_error`).innerHTML = data.responseJSON.errors
-                            .profit_ratio_2[0];
-                    }
+                }
+                if (data.responseJSON.errors.name_en) {
+                    console.log(document.querySelector(`#${formId} .name_en_error_edit`));
 
-                    if (data.responseJSON.errors.geolocation) {
-                        document.querySelector(`#${formId} #geolocation_error`).innerHTML = data.responseJSON.errors
-                            .geolocation[0];
-                    }
+                    document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors
+                        .name_en[0];
 
-                })
-                .always(function() {
-                    // Re-enable the submit button and hide the loading spinner
-                    $("#add-place-btn").attr("disabled", false).html('حفظ');
-                });
-        }
-        //----------------------------------------------------------
+                }
 
-        function editCategory(formId, id) {
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#edit-category-btn-" + id).attr("disabled", false).html('حفظ');
+            });
+    }
 
-            $("#edit-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-            var formData = new FormData(document.getElementById(formId));
-            formData.append('id', id);
-            $.ajax({
-                    url: `{{ route('editCategoryAr') }}`,
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    cache: false,
-                    contentType: false,
-                })
-                .done(function(data) {
+    //---------------------------------------------------------------
+    function deleteCategory(formId, id) {
+        $("#delete-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
-                    $("#categories-data").empty();
-                    $("#categories-data").append(data);
-                    $('.close').click();
-                    $('.parenttrue').attr("hidden", false);
-                    // clearInput();
-                })
-                .fail(function(data) {
-                    removeMessages();
-                    // $('.close').click();
-                    // $('.parent').attr("hidden", false);
-                    if (data.responseJSON.errors.name_ar) {
-                        document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors
-                            .name_ar[0];
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+                url: `{{ route('deleteCategoryAr') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#categories-data").empty();
+                $("#categories-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function() {
+                $('.close').click();
+                $('.parent').attr("hidden", false);
 
-                    }
-                    if (data.responseJSON.errors.name_en) {
-                        console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#delete-category-btn-" + id).attr("disabled", false).html('نعم');
+            });
+    }
 
-                        document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors
-                            .name_en[0];
-
-                    }
-
-                })
-                .always(function() {
-                    // Re-enable the submit button and hide the loading spinner
-                    $("#edit-category-btn-" + id).attr("disabled", false).html('حفظ');
-                });
-        }
-
-        //---------------------------------------------------------------
-        function deleteCategory(formId, id) {
-            $("#delete-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-
-            var formData = new FormData(document.getElementById(formId));
-            $.ajax({
-                    url: `{{ route('deleteCategoryAr') }}`,
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    cache: false,
-                    contentType: false,
-                })
-                .done(function(data) {
-                    $("#categories-data").empty();
-                    $("#categories-data").append(data);
-                    $('.close').click();
-                    $('.parenttrue').attr("hidden", false);
-                    // clearInput();
-                })
-                .fail(function() {
-                    $('.close').click();
-                    $('.parent').attr("hidden", false);
-
-                })
-                .always(function() {
-                    // Re-enable the submit button and hide the loading spinner
-                    $("#delete-category-btn-" + id).attr("disabled", false).html('نعم');
-                });
-        }
-
-        //---------------------------------------------------------------
-        {{-- // window.onload = (event) => {
+    //---------------------------------------------------------------
+    {{-- // window.onload = (event) => {
     //     $.ajax({
     //             url: "{{ route('getPlacesAr') }}",
     //             type: "GET",
@@ -944,173 +943,173 @@
     //         });
     // }; 
     --}}
-        //--------------------------------------------------------
+    //--------------------------------------------------------
 
-        function searchFunction() {
-            // Declare variables
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("search");
-            filter = input.value;
-            table = document.getElementById("categoriesTable");
-            // tr = table.getElementsByTagName("tr");
-            tr = table.getElementsByClassName("products-row");
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByClassName("search-value");
+    function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value;
+        table = document.getElementById("categoriesTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
 
-                if (td) {
-                    txtValue = td[0].textContent || td[0].innerText;
-                    if (txtValue) {
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                if (txtValue) {
 
-                        if (txtValue.indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
                     }
                 }
             }
         }
+    }
 
-        //----------------------------------------------
-        function removeMessages() {
-            // document.getElementById('name_ar_error').innerHTML = '';
-            // document.getElementById('name_en_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
-            // document.getElementById('city_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
+    //----------------------------------------------
+    function removeMessages() {
+        // document.getElementById('name_ar_error').innerHTML = '';
+        // document.getElementById('name_en_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('city_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
 
-            // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-            // name_ar.forEach(name => {
-            //     name.innerHTML = '';
-            // });
+        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        // name_ar.forEach(name => {
+        //     name.innerHTML = '';
+        // });
 
-            // const name_en = document.querySelectorAll('.name_en_error_edit');
-            // name_en.forEach(name => {
-            //     name.innerHTML = '';
-            // });
+        // const name_en = document.querySelectorAll('.name_en_error_edit');
+        // name_en.forEach(name => {
+        //     name.innerHTML = '';
+        // });
 
-            // const images = document.querySelectorAll('.image_error_edit');
-            // images.forEach(image => {
-            //     image.innerHTML = '';
-            // });
-        }
-        //--------------------------------------------
-        function setCity(city_id, city, option_id) {
-            var cities_options = document.querySelectorAll('[id^="city_"]');
-            cities_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        // const images = document.querySelectorAll('.image_error_edit');
+        // images.forEach(image => {
+        //     image.innerHTML = '';
+        // });
+    }
+    //--------------------------------------------
+    function setCity(city_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="city_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('city-name').innerHTML = city;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('city_id').value = `${city_id}`;
-        }
-        //--------------------------------------------
-        function setEditCity(city_id, transportation_id, city, option_id) {
-            var cities_options = document.querySelectorAll('[id^="edit_city_"]');
-            cities_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('city-name').innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('city_id').value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setEditCity(city_id, transportation_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="edit_city_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('city-name-' + transportation_id).innerHTML = city;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('edit_city_id_' + transportation_id).value = `${city_id}`;
-        }
-        //--------------------------------------------
-        function setDistrict(district_id, district, option_id) {
-            var districts_options = document.querySelectorAll('[id^="district_"]');
-            districts_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('city-name-' + transportation_id).innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_city_id_' + transportation_id).value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setDistrict(district_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('district-name').innerHTML = district;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('district_id').value = `${district_id}`;
-        }
-        //--------------------------------------------
-        function setEditDistrict(district_id, place_id, district, option_id) {
-            var districts_options = document.querySelectorAll('[id^="edit_district_"]');
-            districts_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('district-name').innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('district_id').value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function setEditDistrict(district_id, place_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="edit_district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('district-name-' + place_id).innerHTML = district;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
-        }
-        //--------------------------------------------
-        function filterDistricts(city_id) {
-            var districts = document.querySelectorAll(`.district_filter_option`);
-            var city_districts = document.querySelectorAll(`.district_city_${city_id}`);
+        });
+        document.getElementById('district-name-' + place_id).innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function filterDistricts(city_id) {
+        var districts = document.querySelectorAll(`.district_filter_option`);
+        var city_districts = document.querySelectorAll(`.district_city_${city_id}`);
 
-            districts.forEach(district => {
-                district.setAttribute("hidden", true);
+        districts.forEach(district => {
+            district.setAttribute("hidden", true);
 
-            });
-            city_districts.forEach(district => {
-                district.removeAttribute("hidden");
+        });
+        city_districts.forEach(district => {
+            district.removeAttribute("hidden");
 
-            });
-            document.getElementById('district_id').value = "";
-            document.getElementById('district-name').innerHTML = '';
-            var districts_options = document.querySelectorAll('[id^="district_"]');
-            districts_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('district_id').value = "";
+        document.getElementById('district-name').innerHTML = '';
+        var districts_options = document.querySelectorAll('[id^="district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-        }
-        //--------------------------------------------
-        function setSubCategory(sub_id, sub, option_id) {
-            var subs_options = document.querySelectorAll('[id^="sub_category_"]');
-            subs_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+    }
+    //--------------------------------------------
+    function setSubCategory(sub_id, sub, option_id) {
+        var subs_options = document.querySelectorAll('[id^="sub_category_"]');
+        subs_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('sub-cat-name').innerHTML = sub;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('sub_category_id').value = `${sub_id}`;
-        }
-        //--------------------------------------------
-        function setEditSubCategory(district_id, place_id, district, option_id) {
-            var districts_options = document.querySelectorAll('[id^="edit_district_"]');
-            districts_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('sub-cat-name').innerHTML = sub;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('sub_category_id').value = `${sub_id}`;
+    }
+    //--------------------------------------------
+    function setEditSubCategory(district_id, place_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="edit_district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('district-name-' + place_id).innerHTML = district;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
-        }
-        //--------------------------------------------
-        function showGeolocation(lat, lng) {
-            // iterate over the map's layers
-            show_map.eachLayer(function(layer) {
-                // check if the layer is a marker
-                if (layer instanceof L.Marker) {
-                    // remove the marker from the map
-                    show_map.removeLayer(layer);
-                }
-            });
-            var geolocation = [lat, lng];
+        });
+        document.getElementById('district-name-' + place_id).innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function showGeolocation(lat, lng) {
+        // iterate over the map's layers
+        show_map.eachLayer(function(layer) {
+            // check if the layer is a marker
+            if (layer instanceof L.Marker) {
+                // remove the marker from the map
+                show_map.removeLayer(layer);
+            }
+        });
+        var geolocation = [lat, lng];
 
-            var marker_icon = L.icon({
-                iconUrl: '{{ asset('img/marker.svg') }}',
-                iconSize: [25, 41],
-                iconAnchor: [12, 41],
-                popupAnchor: [1, -34],
-            });
+        var marker_icon = L.icon({
+            iconUrl: '{{ asset('img/marker.svg') }}',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+        });
 
-            // add a marker to the map
-            var marker_map = L.marker([0, 0], {
-                icon: marker_icon
-            });
+        // add a marker to the map
+        var marker_map = L.marker([0, 0], {
+            icon: marker_icon
+        });
 
-            marker_map.addTo(show_map);
-            marker_map.setLatLng(geolocation); // move the marker to the clicked location
-        }
-        //--------------------------------------------
-    </script>
+        marker_map.addTo(show_map);
+        marker_map.setLatLng(geolocation); // move the marker to the clicked location
+    }
+    //--------------------------------------------
+</script>

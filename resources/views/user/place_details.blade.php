@@ -2,10 +2,10 @@
 @section('content')
     <div class="d-flex" style="justify-content: space-around; align-items: center;">
 
-        <h2 class="p-5" style="text-align: right;"> (اسم المكان) </h2>
+        <h2 class="p-5" style="text-align: right;"> (place name) </h2>
         <div class="contact_place_info">
-            <p> <i class="fas fa-phone"></i> 0949049912</p>
-            <p> <i class="fas fa-envelope"></i> aleppo-palace-hotel@gmail.com</p>
+            <p>  0949049912 <i class="fas fa-phone"></i></p>
+            <p>  aleppo-palace-hotel@gmail.com <i class="fas fa-envelope"></i></p>
         </div>
     </div>
     {{-- Gallery --}}
@@ -13,19 +13,18 @@
         <div style="width: 45%; height: 540px;">
             <img src="img/440px-Aleppo_Citadel_02_-_Bastion.jpg" width="100%" height="100%">
             <button
-                style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
-                data-bs-toggle="modal" data-bs-target="#exampleModal">عرض
-                جميع الصور</button>
+                style="position: absolute; left:74%; top: 122%; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">
+               view all picture</button>
 
             {{-- picturs modal --}}
-
             <!-- Modal -->
             <div class="modal fade " data-bs-backdrop="static" id="exampleModal" tabindex="-1"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog " style="max-width: 800px;">
                     <div class="modal-content toggle">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">جميع الصور</h5>
+                            <h5 class="modal-title" id="exampleModal3Label">All picture</h5>
                             <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -126,7 +125,7 @@
     <div class="m-auto d-flex w-75 justify-content-center">
         <button class="w-25 rate_btn" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <i
                 class="fas fa-star"></i>
-            قيمه الآن <i class="fas fa-star"></i></button>
+            Rate <i class="fas fa-star"></i></button>
         @isset(Auth::user()->id)
             <!-- Modal -->
             <div class="modal fade " data-bs-backdrop="static" id="exampleModal1" tabindex="-1"
@@ -193,8 +192,8 @@
     {{-- الخدمات --}}
     <div class="serv d-flex" style="flex-direction: row; align-items: center;">
 
-        <div class="sidebar">
-            <div class="sidebar-header">
+        <div class="user-sidebar">
+            <div class="user-sidebar-header">
                 <div class="app-icon">
                     <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                         <path fill="currentColor"
@@ -202,28 +201,27 @@
                     </svg>
                 </div>
             </div>
-            <ul class="sidebar-list">
-                <li class="sidebar-list-item">
-                    <a>
+            <ul class="user-sidebar-list">
+                <li class="user-sidebar-list-item">
+                    <a>    
+                        <span>Filter </span>  
                         <i class="fas fa-filter"></i>
-                        <span>فلتر </span>
                     </a>
                 </li>
-                <li class="sidebar-list-item ">
-                    <a>
+                <li class="user-sidebar-list-item ">
+                    <a>             
+                        <span>:people count</span>
                         <i class="fas fa-users"></i>
-
-                        <span> عدد الأشخاص :</span>
                     </a>
                 </li>
 
-                <li class="sidebar-list-item">
+                <li class="user-sidebar-list-item">
 
-                    <input type="number" class="w-100" style="margin-right: 20px;">
+                    <input type="number" class="w-100" style="margin-left: 20px;">
 
                 </li>
 
-                <li class="sidebar-list-item">
+                <li class="user-sidebar-list-item">
                     <a>
                         <i class="fas fa-dolar"></i>
                         <span>السعر بالليرة السوري:</span>
@@ -231,29 +229,29 @@
                 </li>
 
 
-                <li class="sidebar-list-item ">
+                <li class="user-sidebar-list-item ">
                     <a>
                         <label for="rang1" style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
-                            <input type="radio" name="option" id="rang1">
                             1000-2000
+                            <input type="radio" name="option" id="rang1">
                         </label>
                     </a>
                 </li>
 
-                <li class="sidebar-list-item ">
+                <li class="user-sidebar-list-item ">
                     <a>
                         <label for="rang2" style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
-                            <input type="radio" name="option" id="rang2">
                             1500-1800
+                            <input type="radio" name="option" id="rang2">
                         </label>
                     </a>
                 </li>
 
-                <li class="sidebar-list-item ">
+                <li class="user-sidebar-list-item ">
                     <a>
                         <label for="rang3" style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
-                            <input type="radio" name="option" id="rang3">
                             133300-200333
+                            <input type="radio" name="option" id="rang3">
                         </label>
                     </a>
                 </li>
@@ -272,8 +270,8 @@
                         <img src="img/aleppo-palace-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
-                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal2">المزيد من
-                            الصور</p>
+                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal2"> 
+                            more picture</p>
                         {{-- picturs modal --}}
 
                         <!-- Modal -->
@@ -282,7 +280,7 @@
                             <div class="modal-dialog " style="max-width: 800px;">
                                 <div class="modal-content toggle">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModal2Label">جميع الصور</h5>
+                                        <h5 class="modal-title" id="exampleModal2Label">All picture</h5>
                                         <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
                                             aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -334,16 +332,16 @@
                     </div>
                     <div class="pt-4">
                         <div class="d-flex " style="justify-content: space-between;">
-                            <h4 class="text-right p-2">اسم الخدمة</h4>
+                            <h4 class=" p-2">Service name</h4>
                         </div>
-                        <p class="text-right pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
+                        <p class="text-left pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
                             . Exercitationem, corporis rem culpa perspiciatis
                             odit architecto expedita iure illum error inventore m
                             inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
                         <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
-                            <h6 class="d-inline ml-4">التكلفة : 60000</h6>
+                            <h6 class="d-inline ml-4">cost : 60000</h6>
                              @isset(Auth::user()->id)
-                            <button class="btn btn-primary ml-4">حجز</button>
+                            <button class="btn btn-primary ml-4">book</button>
                             @else
                             <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
                             @endisset

@@ -3042,7 +3042,8 @@ input[type="button"].btn-block {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  right: 0 !important;
+  right: 10px ;
+  inset: unset !important;
   z-index: 1000;
   display: none;
   float: right;
@@ -3053,10 +3054,13 @@ input[type="button"].btn-block {
   color: #656565;
   text-align: right;
   list-style: none;
-  background-color: #fff;
+  background-color: var(--sidebar);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   transform: none !important;
+}
+.dropdown-menu {
+  right:6px !important;
 }
 
 .dropdown-menu-left {
@@ -9804,8 +9808,9 @@ input:disabled{
 }
 .about-page-header{
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/about\ us.jpg), no-repeat center center;
-  background-size: cover;
+  background-size: unset;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* user english */
@@ -9876,8 +9881,9 @@ input:disabled{
 
 .trip-page-header{
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/join-us.jpg), no-repeat center center;
-  background-size: cover;
+  background-size: unset;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .word_ticket{
   color: gold;
@@ -10028,4 +10034,71 @@ z-index: 999;
   to {
     left: 80%;
   }
+}
+.contact_place_info{
+        border: 2px solid var(--bambi);
+        position: relative;
+        padding: 10px;
+        border-right: none;
+        left: 200px;
+        padding-right: 300px;
+        padding-left: 15px;
+        border-radius: 40px;
+        border-left: none;
+        transition: all linear 0.5s;
+        text-align: end;
+}
+.rate_btn{
+  border: none;
+  background-color: var(--bambi);
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.fa-star{
+  color: yellow;
+}
+.rate_btn .fa-star{
+  font-size: 16px;
+}
+.user-sidebar {
+  flex-basis: 200px;
+  max-width: 200px;
+  flex-shrink: 0;
+ border-top: solid 2px var(--bambi);
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  padding-left: 40px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  margin-left: 10px;
+  
+}
+.user-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px;
+  padding-right: 60px;
+  
+}
+.app-icon {
+  color: var(--title-color);
+}
+.app-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.user-sidebar-list {
+  list-style-type: none;
+  padding: 0;
+}
+.user-sidebar-list-item {
+  position: relative;
+  margin-bottom: 4px;
+}
+.user-sidebar-list-item i {
+  margin-right: 8px;
+  color: var(--bambi);
 }

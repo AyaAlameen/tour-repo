@@ -93,6 +93,14 @@
               event.target.href="http://127.0.0.1:8000/tripmore-ar"
                 
             }
+            if (origin == "http://127.0.0.1:8000/place_details_en") {
+              event.target.href="http://127.0.0.1:8000/place_details_ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/user_city_en") {
+              event.target.href="http://127.0.0.1:8000/user_city_ar"
+                
+            }
         }
 
 

@@ -163,7 +163,7 @@
                     <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="Translate"> <i
                             class="fas fa-globe "></i> </button>
 
-                    <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
+                    <div class="dropdown-menu border-0 rounded-0 m-0" >
                         <a href="{{ route('home_en') }}" id="eee" class="dropdown-item">English</a>
                         <a href="{{ route('home_ar') }}" class="dropdown-item">Arabic </a>
 

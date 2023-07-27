@@ -42,7 +42,7 @@
                                 <img class="img-fluid" src="img/d90d3ccf930b10d60f4d7cc7e96c342c.jpg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Book Now</a>
+                        <div class="d-flex justify-content-end"><a href="" class="btn btn-primary mt-1">Book Now</a></div>
                     </div>
                 </div>
             </div>
