@@ -46,8 +46,8 @@
                              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
                      {{-- ticket --}}
                      <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
-                             style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
-                             data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
+                        style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
  <!-- Authentication Links -->
  @guest
  @if (Route::has('login'))
@@ -86,13 +86,12 @@
                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">سوريا</a>
 
                          <div class="dropdown-menu  border-0 rounded-0 m-0 toggle">
-                             <a href="blog" class="dropdown-item">زيارة سوريا</a>
-                             <a href="blog" class="dropdown-item">المحافظات السورية</a>
-                             <a href="single" class="dropdown-item">فنادق سوريا</a>
-                             <a href="destination" class="dropdown-item">مطاعم سوريا</a>
-                             <a href="guide" class="dropdown-item">أماكن أثرية في سوريا</a>
-                             <a href="guide" class="dropdown-item">جروبات رحلات</a>
-                             <a href="testimonial" class="dropdown-item">صور فوتوغرافية لسوريا</a>
+                            <a href="#Governorates" class="dropdown-item">المحافظات السورية</a>
+                            {{-- <a href="single" class="dropdown-item">فنادق سوريا</a>
+                            <a href="destination" class="dropdown-item">مطاعم سوريا</a>
+                            <a href="guide" class="dropdown-item">أماكن أثرية في سوريا</a> --}}
+                            <a href="#Trips" class="dropdown-item">  رحلات سياحية</a>
+                            <a href="#Gallery" class="dropdown-item">صور فوتوغرافية لسوريا</a>
                          </div>
                      </div>
                      <a href="{{ route('userhome-ar') }}" class="nav-item nav-link text-primary">الرئيسة</a>
@@ -575,6 +574,7 @@
      <!-- end tickets -->
 
 
+    
      <!-- alert message false-->
      <div id="popup" class="parent " hidden="true">
          <div class="popup">

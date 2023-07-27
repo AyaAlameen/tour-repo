@@ -141,6 +141,22 @@ else{
     $('.parenttrue').attr("hidden", true);
     }
   
+     // عرض الصور بدل الأسماء
+
+     function previewImage(input, previewId) {
+            const previewImage = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+            previewImage.style.display = "inline";
+            input.style.display = "none";
+            reader.addEventListener('load', function() {
+                previewImage.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
 
 </script>
 

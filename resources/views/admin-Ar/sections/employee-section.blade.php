@@ -73,12 +73,13 @@
                                         </tr>
 
                                         <tr>
-
-                                            <td><input type="file" name="image" id="img">
-                                                <label for="img"><img
+                                            
+                                            
+                                            </label>
+                                            <td><input type="file" name="image" id="img{{ $employee->id }}" hidden onchange="previewImage(this, 'edit_previewImage_{{ $employee->id }}')" >
+                                                <label for="img{{ $employee->id }}"><img  id="edit_previewImage_{{ $employee->id }}"
                                                         src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
-                                                        style="padding-top: 5px; border-radius: 0px;"
-                                                        width="30px" height="50px"></label>
+                                                        style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
                                             </td>
                                             <td>الصورة </td>
                                         </tr>
@@ -363,11 +364,10 @@
 
                                                 <tr>
 
-                                                    <td><input type="file" name="image" id="img">
-                                                        <label for="img"><img
+                                                    <td><input type="file" name="image" id="img{{ $employee->id }}" hidden onchange="previewImage(this, 'edit_previewImage_{{ $employee->id }}')" >
+                                                        <label for="img{{ $employee->id }}"><img  id="edit_previewImage_{{ $employee->id }}"
                                                                 src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
-                                                                style="padding-top: 5px; border-radius: 0px;"
-                                                                width="30px" height="50px"></label>
+                                                                style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
                                                     </td>
                                                     <td>الصورة </td>
                                                 </tr>

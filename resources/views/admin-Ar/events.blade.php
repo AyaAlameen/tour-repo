@@ -2,11 +2,11 @@
 @section('admincontent')
     <div class="app-content">
         <div class="app-content-header" style="width:75%;">
-            <h1 class="app-content-headerText">الأحداث</h1>
+            <h1 class="app-content-headerText">الفعاليات</h1>
 
             <!-- add -->
             <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                إضافة حدث
+                إضافة فعالية
             </button>
             <!-- Modal -->
             <div class="modal fade " id="exampleModal3" data-bs-backdrop="static" tabindex="-1"
@@ -14,7 +14,7 @@
                 <div class="modal-dialog ">
                     <div class="modal-content toggle">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">حدث جديد</h5>
+                            <h5 class="modal-title" id="exampleModal3Label">فعالية جديدة</h5>
                             <button type="button" class="btn-close m-0 close"
                                 onclick="removeMessages(), document.getElementById('add-form').reset()"
                                 data-bs-dismiss="modal" aria-label="Close">
@@ -363,7 +363,7 @@
                                                             <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
                                                             
                                                         </tr>     
-                                                        <tr> 
+                                                        
                                                         <tr>
                                                             <td></td>
                                                             <td><input type="text" class="toggle text-primary in"
@@ -503,10 +503,10 @@
                                                                     data-picid="1"
                                                                     style="font-size:15px; float:left; cursor:pointer;"
                                                                     title="Add Another Picture"></i>
-                                                                <input type="file" hidden id="img">
-                                                                <label for="img"><img src="img/about-1.jpg"
-                                                                        style="padding-top: 5px; border-radius: 0px;"
-                                                                        width="30px" height="50px">
+                                                                <input type="file" hidden id="img"   onchange="previewImage(this, 'edit_previewImage_0')">
+                                                                <label for="img"><img src="img/about-1.jpg" id="edit_previewImage_0"
+                                                                        style="padding-top: 5px; border-radius: 0px; width: 170px; height: 90px;"
+                                                                        >
                                                                 </label>
                                                             </td>
                                                             <td>الصور </td>

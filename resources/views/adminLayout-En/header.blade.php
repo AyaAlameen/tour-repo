@@ -51,13 +51,12 @@
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Syria</a>
                          <div class="dropdown-menu border-0 rounded-0 m-0">
-                             <a href="blog" class="dropdown-item">Visit Syria</a>
-                             <a href="blog" class="dropdown-item">Governorates of Syria</a>
-                             <a href="single" class="dropdown-item">Syria Hotels</a>
+                            <a href="#Governorates" class="dropdown-item">Governorates of Syria</a>
+                             {{-- <a href="single" class="dropdown-item">Syria Hotels</a>
                              <a href="destination" class="dropdown-item">Syria Restaurants</a>
-                             <a href="guide" class="dropdown-item">Historical places in Syria</a>
-                             <a href="guide" class="dropdown-item">Trip groups</a>
-                             <a href="testimonial" class="dropdown-item">Photographs from Syria</a>
+                             <a href="guide" class="dropdown-item">Historical places in Syria</a> --}}
+                             <a href="#Trips" class="dropdown-item">Trip groups</a>
+                             <a href="#Gallery" class="dropdown-item">Photographs from Syria</a>
                          </div>
                      </div>
                      <div class="nav-item dropdown">

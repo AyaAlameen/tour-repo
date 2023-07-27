@@ -60,7 +60,15 @@
             if (origin == "http://127.0.0.1:8000/home-en") {
                 event.target.href = "http://127.0.0.1:8000/user_home_arabic"
             }
-
+            if (origin == "http://127.0.0.1:8000/home-en#Gallery") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/home-en#Trips") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/home-en#Governorates") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
             if (origin == "http://127.0.0.1:8000/#") {
                 event.target.href = "http://127.0.0.1:8000/user_home_arabic"
             }

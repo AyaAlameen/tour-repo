@@ -1,3 +1,8 @@
+ <style>
+   table tr td span{
+        display: flex;
+    }
+ </style>
  <!-- Topbar Start -->
  <div class="container-fluid bg-light pt-3 d-none d-lg-block">
      <div class="container">
@@ -56,13 +61,12 @@
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">سوريا</a>
                          <div class="dropdown-menu border-0 rounded-0 m-0">
-                             <a href="blog" class="dropdown-item">زيارة سوريا</a>
-                             <a href="blog" class="dropdown-item">المحافظات السورية</a>
-                             <a href="single" class="dropdown-item">فنادق سوريا</a>
+                             <a href="#Governorates" class="dropdown-item">المحافظات السورية</a>
+                             {{-- <a href="single" class="dropdown-item">فنادق سوريا</a>
                              <a href="destination" class="dropdown-item">مطاعم سوريا</a>
-                             <a href="guide" class="dropdown-item">أماكن أثرية في سوريا</a>
-                             <a href="guide" class="dropdown-item">جروبات رحلات</a>
-                             <a href="testimonial" class="dropdown-item">صور فوتوغرافية لسوريا</a>
+                             <a href="guide" class="dropdown-item">أماكن أثرية في سوريا</a> --}}
+                             <a href="#Trips" class="dropdown-item">  رحلات سياحية</a>
+                             <a href="#Gallery" class="dropdown-item">صور فوتوغرافية لسوريا</a>
                          </div>
                      </div>
                      <div class="nav-item dropdown">
@@ -302,7 +306,58 @@
  </div>
  <!-- end tickets -->
 
+ {{-- مودل الحجز --}}
+ <div class="modal fade " data-bs-backdrop="static" id="exampleModal20" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog ">
+         <div class="modal-content toggle">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModaLabel">أدخل معلوماتك للحجز</h5>
+                 <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
 
+             <form action="" method="post" enctype="multipart/form-data">
+                 <div class="modal-body">
+                     <table style="width:100%; direction: rtl;">
+
+                         <tr>
+                             <td class="text-center">الاسم بالكامل</td>
+                             <td><input type="text" class="toggle text-primary in" name="full_name" required
+                                     style="width: 100%;"></th>
+                         </tr>      
+                         <tr>
+                            <td></td>
+                            <td><span class="text-danger">رسالة الخطأ</span></td></tr>
+                         <tr>
+                            <td class="text-center">رقم الهاتف</td>
+                             <td><input type="number" class="toggle text-primary in" name="phone" required
+                                     style="width: 100%;"></td>
+                         </tr>
+                         <tr>
+                            <td></td>
+                            <td><span class="text-danger">رسالة الخطأ</span></td></tr>
+                         <tr>
+                            <td class="text-center">الرقم الوطني</td>
+                             <td><input type="number" class="toggle text-primary in" name="user_identifire" required
+                                     style="width: 100%;"></td>
+                         </tr>
+                         <tr>
+                            <td></td>
+                            <td><span class="text-danger">رسالة الخطأ</span></td></tr>
+
+                     </table>
+                 </div>
+             </form>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                 <button type="button" id="add-city-btn" class="app-content-headerButton">تم</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ {{-- نهاية مودل الحجز --}}
 
 
  <!-- Navbar End -->

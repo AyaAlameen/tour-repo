@@ -637,8 +637,8 @@
                                                                     id="edit_pic_input" data-picid="1"
                                                                     style="font-size:15px; text-align: center; padding-right:80px; line-height: 1.5; cursor:pointer;"
                                                                     title="Add Another Picture"></i>
-                                                                <input type="file" hidden id="img">
-                                                                <label for="img"><img src="img/about-1.jpg"
+                                                                <input type="file" hidden id="img{{ $place->id }}" hidden onchange="previewImage(this, 'edit_previewImage_{{ $place->id }}')">
+                                                                <label for="img{{ $place->id }}"><img src="img/about-1.jpg" id="edit_previewImage_{{ $place->id }}"
                                                                         style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;">
                                                                 </label>
                                                             </td>

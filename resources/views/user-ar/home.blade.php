@@ -123,7 +123,7 @@
 
 
     <!-- Destination Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="Governorates">>
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase">الوجهة</h6>
@@ -262,7 +262,7 @@
 
 
     <!-- Packages Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="Trips">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase">رحلات</h6>
@@ -344,7 +344,7 @@
 
     <!-- Packages End -->
     <!-- Gallery -->
-    <div id="projects" class="filterGallery">
+    <div id="Gallery" class="filterGallery">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb-2">
