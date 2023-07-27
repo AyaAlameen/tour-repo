@@ -24,7 +24,7 @@
             </div>
 
                     {{-- عرض الموقع --}}
-                    <div class="product-cell">
+                    <div class="product-cell" style="cursor: pointer;">
                         <span><img data-toggle="modal" data-target="#exampleModal8" title="Delete"
                                 data-toggle="tooltip" src="img/syria.png"
                                 style="width: 35px; height: 35px;"></span>

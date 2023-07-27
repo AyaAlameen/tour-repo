@@ -437,7 +437,7 @@
                                 <span>{{ $place->translations()->where('locale', 'ar')->first()->description }}</span>
                             </div>
                             {{-- عرض الموقع --}}
-                            <div class="product-cell">
+                            <div class="product-cell" style="cursor: pointer;">
                                 <span><img
                                         onclick="showGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }})"
                                         data-toggle="modal" data-target="#exampleModal8" title="Delete"
@@ -467,10 +467,10 @@
                                 <div class="p-3">
 
                                     <!-- edit -->
-                                    <a href="#" class="edit p-2" data-toggle="modal" data-target="#exampleModal"
+                                    <a href="#" class="edit p-2" data-toggle="modal" data-target="#editPlace{{$place->id}}"
                                         title="Edit"><i class="fas fa-pen"></i></a>
                                     <!-- Modal -->
-                                    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
+                                    <div class="modal fade" data-backdrop="static" id="editPlace{{$place->id}}" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="direction:ltr;">
@@ -487,40 +487,70 @@
                                                         <tr>
                                                             <td></td>
                                                             <td><input type="text" class="toggle text-primary in"
-                                                                    name="place_name" required style="width: 100%;">
+                                                                    name="name_ar" required style="width: 100%;" value="{{ $place->translations()->where('locale', 'ar')->first()->name }}">
                                                                 </th>
                                                             <td>الاسم(العربية)</td>
                                                         </tr>
                                                         <tr>
                                                             <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="name_ar_error_edit"></span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
                                                             <td><input type="text" class="toggle text-primary in"
-                                                                    name="place_name" required style="width: 100%;">
+                                                                    name="name_en" required style="width: 100%;" value="{{ $place->translations()->where('locale', 'en')->first()->name }}">
                                                                 </th>
                                                             <td>(الانكليزية)الاسم </td>
                                                         </tr>
-
                                                         <tr>
                                                             <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="name_en_error_edit"></span></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                        <td></td>
                                                             <td>
                                                                 <div class="dropdown toggle text-primary in"
                                                                     style="display:inline-block; ;">
+
                                                                     <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                                        aria-expanded="false">
-                                                                        حلب
+                                                                        id="dropdownMenuButtonEdit{{ $place->id }}"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+
                                                                     </label>
+                                                                    
+                                                                    <span
+                                                                        id="city-name-{{ $place->id }}">{{ $place->city->translations()->where('locale', 'ar')->first()->name }}</span>
                                                                     <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">---</a>
-                                                                        <a class="dropdown-item" href="#">----</a>
+                                                                        aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
+                                                                        @foreach ($cities as $city)
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($city->id == $place->city_id) color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                value="{{ $city->id }}"
+                                                                                id="edit_city_{{ $place->id }}_{{ $city->id }}"
+                                                                                onclick="setEditCity({{ $city->id }}, {{ $place->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'edit_city_{{ $place->id }}_{{ $city->id }}')"
+                                                                                href="#">
+                                                                                {{ $city->translations()->where('locale', 'ar')->first()->name }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                        <input type="text"
+                                                                            id="edit_city_id_{{ $place->id }}"
+                                                                            name="city_id"
+                                                                            value="{{ $place->city_id }}" hidden>
 
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td>المدينة </td>
+                                                            <td>المحافظة</td>
                                                         </tr>
+                                                        <tr>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="city_error_edit"></span></td>
+                                                        </tr>
+                                                        
                                                         <tr>
                                                             <td></td>
                                                             <td>
