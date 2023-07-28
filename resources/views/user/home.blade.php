@@ -149,7 +149,7 @@
                 <div class="col-lg-7"
                     style="; margin-right:300px; background-color:#ffffff10; backdrop-filter:blur(15px); padding:50px; border-radius:3px;">
                     <div class="mb-4">
-                        <h1 class="text-white">شاهد <span class="text-primary"> المواقع الأقرب </span> إليك </h1>
+                        <h1 class="text-white">See <span class="text-primary"> The Nearest Places </span> For You </h1>
                     </div>
                     <p class="text-white">تمتع بأفضل تجربة معنا عن طريق مشاهدة مواقع الأماكن الأقرب إليك و الحصول على
                         الحجوزات اللازمة بأقرب وقت وأسرع طريقة</p>
@@ -181,10 +181,31 @@
 
             </div>
             {{-- الخريطة --}}
-            <div class="d-flex pt-3" style="flex-direction: column; background-color: #ffffff54; width: 30%; height: 90%;  align-items: center; border-radius: 5px;">
-                <img class="m-3" style="cursor:pointer; border-radius:6px;" src="img/sy.jpg" width="90%" height="220px">
-            <h3>See on the Map</h3>
+            <div class="d-flex pt-3 bg-light" style="flex-direction: column;  width: 30%; height: 90%;  align-items: center; border-radius: 5px;">
+                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal6"  style="cursor:pointer; border-radius:6px;" src="img/zgj3ryuyqrz-w1920.jpg" width="90%" height="220px">
+            <h3 style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal6" >See on the Map</h3>
             </div>
+              {{-- map modal --}}
+              <div class="modal fade bg-light" id="exampleModal6" data-bs-backdrop="static"
+              tabindex="-1" aria-labelledby="exampleModal6Label" aria-hidden="true">
+              <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                  <div class="modal-content toggle w-100 h-100">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModal6Label">Nearest Places For You 
+                              </h5>
+                              <button type="button" class="btn-close m-0 close"
+                              data-bs-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <div id="add-map" class="w-100 h-100"></div>
+                      </div>
+                    
+                  </div>
+              </div>
+          </div>
+{{-- end map modal --}}
             {{-- نهاية الخريطة --}}
         </div>
     </div>

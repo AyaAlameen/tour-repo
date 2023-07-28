@@ -9658,11 +9658,10 @@
     background-size: cover;
   }
   .bg-nearby {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/nearby.png), no-repeat center center;
-    background-size: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/sddefault.jpg), no-repeat center center;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: right;
+
     
 
   }

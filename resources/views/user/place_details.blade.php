@@ -81,15 +81,15 @@
     <div class="container-fluid w-75 m-auto">
         <div class="d-flex" style="justify-content: space-around; align-items: start;">
             <div class="w-50">
-                <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن (اسم المكان ) </h4>
-                <p style="text-align: right;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                <h4 class="pt-5 pb-3" >نبذة عن (اسم المكان ) </h4>
+                <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Ea sed voluptas fuga modi. Voluptatem distinctio debitis tenetur quos unde nostrum,
                     omnis, expedita, maxime maiores ipsam exercitationem itaque! Atque, voluptates iste!</p>
             </div>
             <div class="d-flex pt-5 pb-3" style="flex-direction: column; align-items: center;">
-                <img class="m-3" data-bs-toggle="modal" id="editmapimg" data-bs-target="#exampleModal9"
+                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal9"
                     style="cursor:pointer; border-radius:6px;" src="img/sy.jpg" width="200px" height="120px">
-                <p>شاهد على الخريطة</p>
+                <p data-bs-toggle="modal"  style="cursor:pointer;" data-bs-target="#exampleModal9">شاهد على الخريطة</p>
                 {{-- مودل عرض الموقع على الخريطة الخريطة --}}
                 <div class="modal bg-light" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModal9Label"
                     aria-hidden="true">
@@ -97,20 +97,15 @@
                         <div class="modal-content toggle w-100 h-100">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModal9Label">
-                                    شاهد موقع اسم المكان</h5>
-                                <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
-                                    aria-label="Close">
+                                    view place name location</h5>
+                                    <button type="button" class="btn-close m-0 close"
+                                    data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div class="modal-body">
                                 {{-- الخريطة --}}
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary"
-                                    onclick="hidemap('exampleModal9')">إغلاق</button>
-
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -309,13 +304,14 @@
                 </li>
 
         </div>
+        {{-- الخدمات --}}
         <div class="pr-5">
 
-            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات المقدمة في (اسم
+            <h4 class="p-5" style=" padding-bottom:5px !important;"> the main services in (اسم
                 المكان )
             </h4>
 
-            {{-- بداسة كارد الخدمات --}}
+            {{-- بداسة كارد الخدمات الغير إضافية--}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
@@ -349,7 +345,48 @@
             </div>
 
 
-            {{-- نهاية كارد المكان --}}
+            {{-- نهاية كارد الخدمات الغير إضافية --}}
+
+            <h4 class="p-5" style=" padding-bottom:5px !important;"> the additional services in (اسم
+                المكان )
+            </h4>
+
+            {{-- بداسة كارد الخدمات  الإضافية--}}
+            <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
+                <div class="d-flex">
+                    <div class="text-center ">
+                        <img src="img/aleppo-palace-hotel.jpg"
+                            style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
+                            height="200px">
+                    </div>
+                    <div class="pt-4">
+                        <div class="d-flex " style="justify-content: space-between;">
+                            <h4 class=" p-2">Service name</h4>
+                        </div>
+                        <p class="text-left pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
+                            . Exercitationem, corporis rem culpa perspiciatis
+                            odit architecto expedita iure illum error inventore m
+                            inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
+                        <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
+                            <h6 class="d-inline ml-4">cost : 60000</h6>
+                            @isset(Auth::user()->id)
+                                <button class="btn btn-primary ml-4" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal20">book</button>
+                            @else
+                                <button onclick="loginBefore()" class="btn btn-primary ml-4">book</button>
+                            @endisset
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+            {{-- نهاية كارد الخدمات الإضافية --}}
+       
         </div>
 
 
