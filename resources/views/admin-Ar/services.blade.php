@@ -29,30 +29,26 @@
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
 
                                     <tr>
-                                        <td></td>
                                         <td><input type="text" class="toggle text-primary in" name="name_ar" required
                                                 style="width: 100%;"></th>
                                         <td>الاسم(العربية)</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td><input type="text" class="toggle text-primary in" name="name_en" required
                                                 style="width: 100%;"></th>
                                         <td>(الإنجليزية)الاسم </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
                                         </td>
                                     </tr>
-
                                     <tr>
-                                        <td></td>
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -78,43 +74,33 @@
                                         <td>المكان</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span id="place_error"></span>
                                         </td>
                                     </tr>
-
-
-
                                     <tr>
-                                        <td></td>
-
-                                        <td><input class="toggle text-primary in" type="text" name="description_ar"
+                                       <td><input class="toggle text-primary in" type="text" name="description_ar"
                                                 required style="width: 100%;"></th>
                                         <td>وصف(العربية)</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
 
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></th>
                                         <td>(الانكليزية)وصف</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-
                                         <td><input class="toggle text-primary in" type="number" name="cost" required
                                                 style="width: 100%;"></th>
                                         <td>الكلفة</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
                                         <td>
-
                                             <label><input type="radio" name="is_additional" value="1"> إضافية</label>
                                             <label><input type="radio" name="is_additional" value="0" checked> غير
                                                 إضافية</label>
@@ -122,29 +108,21 @@
                                         <td>إضافية؟</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span
                                                 id="is_additional_error"></span>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td style="width:25px; text-align:center;"> <i
-                                                class="fas fa-camera text-body pt-2 pl-2"
-                                                style="font-size:15px; cursor:pointer;"></i></td>
 
-                                        <td class="pl-2">
-                                            <i class="fas fa-plus text-body pt-2 pr-5"
-                                                style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;"onclick="addPic()"
-                                                id="add-pic-input" data-picid="1" title="Add Another Picture"></i>
-                                            <input type="file" id="add_input_0"
+                                        <td><input type="file" id="add_img"
                                                 onchange="previewImage(this, 'add_previewImage_0')"
-                                                class="toggle text-primary in" name="event_image" required
-                                                style="width:75% !important; font-size:16px;">
-                                            <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
+                                                class="toggle text-primary in" name="image" required style="width: 100%;">
+                                            <label for="add_img"> <img id="add_previewImage_0" width="170px"
                                                     height="90px" style="display: none; padding:6px;"></label>
                                         </td>
-                                        <td>الصور </td>
+                                        <td>الصورة</td>
                                     </tr>
 
                                 </table>
@@ -164,7 +142,8 @@
         <!-- end add -->
 
         <div class="app-content-actions"style="width:84%;">
-            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم " type="text">
+            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
+                type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
                 <div class="filter-button-wrapper">
@@ -265,7 +244,8 @@
                                 <span> {{ $i++ }} </span>
                             </div>
                             <div class="product-cell">
-                                <span class="search-value"> {{ $service->translations()->where('locale', 'ar')->first()->name }} </span>
+                                <span class="search-value">
+                                    {{ $service->translations()->where('locale', 'ar')->first()->name }} </span>
                             </div>
                             <div class="product-cell">
                                 <img src="{{ asset(str_replace(app_path(), '', $service->images()->first()->image)) }}"
@@ -318,39 +298,45 @@
                                                             class="table-striped table-hover table-bordered m-auto text-primary myTable"
                                                             id="editTable" style="width: 400px;">
                                                             <tr>
-                                                                <td></td>
+                                                               
                                                                 <td><input type="text" class="toggle text-primary in"
-                                                                        name="name_ar" value="{{ $service->translations()->where('locale', 'ar')->first()->name }}" required style="width: 100%;">
-                                                                    </td>
+                                                                        name="name_ar"
+                                                                        value="{{ $service->translations()->where('locale', 'ar')->first()->name }}"
+                                                                        required style="width: 100%;">
+                                                                </td>
                                                                 <td>الاسم(العربية)</td>
                                                             </tr>
                                                             <tr>
-                                                                <td></td>
-                                                                <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
-                                                                
-                                                            </tr> 
+                                                              
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="name_ar_error_edit"></span></td>
+
+                                                            </tr>
                                                             <tr>
-                                                                <td></td>
+                                                            
                                                                 <td><input type="text" class="toggle text-primary in"
-                                                                        name="name_en" value="{{ $service->translations()->where('locale', 'en')->first()->name }}" required style="width: 100%;">
+                                                                        name="name_en"
+                                                                        value="{{ $service->translations()->where('locale', 'en')->first()->name }}"
+                                                                        required style="width: 100%;">
                                                                     </th>
                                                                 <td>(الإنجليزية)الاسم </td>
                                                             </tr>
                                                             <tr>
-                                                                <td></td>
-                                                                <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
-                                                                
-                                                            </tr> 
+                                                              
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="name_en_error_edit"></span></td>
+
+                                                            </tr>
                                                             <tr>
-                                                                <td></td>
+                                                        
                                                                 <td>
                                                                     <div class="dropdown toggle text-primary in"
                                                                         style="display:inline-block; ;">
-    
+
                                                                         <label class="dropdown-toggle" type="button"
                                                                             id="dropdownMenuButtonEdit{{ $service->id }}"
                                                                             data-toggle="dropdown" aria-expanded="false">
-    
+
                                                                         </label>
                                                                         <span
                                                                             id="place-name-{{ $service->id }}">{{ $service->place->translations()->where('locale', 'ar')->first()->name }}</span>
@@ -371,46 +357,58 @@
                                                                                 id="edit_place_id_{{ $service->id }}"
                                                                                 name="place_id"
                                                                                 value="{{ $service->place_id }}" hidden>
-    
+
                                                                         </div>
                                                                     </div>
                                                                 </td>
                                                                 <td>المكان</td>
                                                             </tr>
                                                             <tr>
-                                                                <td></td>
-                                                                <td colspan="2"><span style="color: red" class="place_error_edit"></span></td>
-                                                                
-                                                            </tr> 
+                                                              
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="place_error_edit"></span></td>
+
+                                                            </tr>
 
                                                             <tr>
-                                                                <td></td>
+                                                              
                                                                 <td><input class="toggle text-primary in" type="text"
-                                                                        name="description_ar" value="{{ $service->translations()->where('locale', 'ar')->first()->description }}" required style="width: 100%;">
+                                                                        name="description_ar"
+                                                                        value="{{ $service->translations()->where('locale', 'ar')->first()->description }}"
+                                                                        required style="width: 100%;">
                                                                     </th>
                                                                 <td>وصف(العربية)</td>
                                                             </tr>
                                                             <tr>
-                                                                <td></td>
+                                                               
                                                                 <td><input class="toggle text-primary in" type="text"
-                                                                        name="description_en" value="{{ $service->translations()->where('locale', 'en')->first()->description }}" required style="width: 100%;">
+                                                                        name="description_en"
+                                                                        value="{{ $service->translations()->where('locale', 'en')->first()->description }}"
+                                                                        required style="width: 100%;">
                                                                     </th>
                                                                 <td>(الإنجليزية)وصف</td>
                                                             </tr>
                                                             <tr>
-                                                                <td></td>
-                                                                <td><input type="number" name="cost" class="toggle text-primary in"
-                                                                        value="{{$service->cost}}">
+                                                               
+                                                                <td><input type="number" name="cost"
+                                                                        class="toggle text-primary in"
+                                                                        value="{{ $service->cost }}">
                                                                 </td>
                                                                 <td>الكلفة</td>
                                                             </tr>
 
                                                             <tr>
-                                                                <td></td>
+                                                   
                                                                 <td>
 
-                                                                    <label><input type="radio" name="is_additional" value="1" @if($service->is_additional) checked @endif> إضافية</label>
-                                                                    <label><input type="radio" name="is_additional" value="0" @if(!$service->is_additional) checked @endif> غير
+                                                                    <label><input type="radio" name="is_additional"
+                                                                            value="1"
+                                                                            @if ($service->is_additional) checked @endif>
+                                                                        إضافية</label>
+                                                                    <label><input type="radio" name="is_additional"
+                                                                            value="0"
+                                                                            @if (!$service->is_additional) checked @endif>
+                                                                        غير
                                                                         إضافية</label>
                                                                 </td>
                                                                 <td>إضافية؟</td>
@@ -419,29 +417,21 @@
 
 
                                                             <tr>
-
-                                                                <td style="width:25px; text-align:center;">
-                                                                </td>
-                                                                <td>
-                                                                    <i class="fas fa-plus text-body" onclick="editPic()"
-                                                                        id="edit_pic_input" data-picid="1"
-                                                                        style="font-size:15px; text-align: center; padding-right:80px; line-height: 1.5; cursor:pointer;"
-                                                                        title="Add Another Picture"></i>
-                                                                    <input type="file" hidden id="img{{$service->id}}"  onchange="previewImage(this, 'edit_previewImage_{{$service->id}}')">
-                                                                    <label for="img{{$service->id}}"><img src="img/about-1.jpg" id="edit_previewImage_{{$service->id}}"
-                                                                            style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;">
-                                                                    </label>
-                                                                </td>
-                                                                <td>الصور </td>
-                                                            </tr>
+                                                                <td ><input type="file" name="image" id="img{{$service->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$service->id}}')">
+                                                                     <label for="img{{$service->id}}" ><img id="edit_previewImage_{{$service->id}}" src="{{ asset(str_replace(app_path(),'',$service -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label></td>      
+                                                                <td>الصورة </td>
+                                                                     
+                                                                </tr>  
                                                         </table>
 
                                                     </div>
                                                 </form>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="action-button active close" onclick="removeMessages()"
-                                                        data-dismiss="modal">إغلاق</button>
-                                                    <button type="submit" id="edit-service-btn-{{$service->id}}" onclick="editService('edit-form-{{$service->id}}', {{$service->id}})" class="app-content-headerButton">حفظ
+                                                    <button type="button" class="action-button active close"
+                                                        onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
+                                                    <button type="submit" id="edit-service-btn-{{ $service->id }}"
+                                                        onclick="editService('edit-form-{{ $service->id }}', {{ $service->id }})"
+                                                        class="app-content-headerButton">حفظ
                                                         التغييرات</button>
                                                 </div>
                                             </div>
@@ -450,8 +440,9 @@
                                     <!-- end edit -->
 
                                     <!-- delete -->
-                                    <a href="#" class="delete" data-toggle="modal" data-target="#deleteService{{ $service->id }}"
-                                        title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                                    <a href="#" class="delete" data-toggle="modal"
+                                        data-target="#deleteService{{ $service->id }}" title="Delete"
+                                        data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                                     <!-- Modal -->
                                     <div class="modal fade" id="deleteService{{ $service->id }}" tabindex="-1"
                                         aria-labelledby="exampleModal2Label" aria-hidden="true">
@@ -468,16 +459,18 @@
                                                     @csrf
                                                     <input type="text" name="id" value="{{ $service->id }}"
                                                         hidden>
-                                                <div class="modal-body" style="direction:rtl;">
-                                                    هل أنت متأكد من أنك تريد حذف هذه الخدمة (<span
-                                                    style="color: #90aaf8;">{{ $service->translations()->where('locale', 'ar')->first()->name }}</span>)
-                                                ؟                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="action-button active close"
-                                                        data-dismiss="modal">إغلاق</button>
-                                                    <button type="submit" id="delete-service-btn-{{ $service->id }}"
-                                                        onclick="deleteService(`delete-form-{{ $service->id }}`, {{ $service->id }})" class="app-content-headerButton">نعم</button>
-                                                </div>
+                                                    <div class="modal-body" style="direction:rtl;">
+                                                        هل أنت متأكد من أنك تريد حذف هذه الخدمة (<span
+                                                            style="color: #90aaf8;">{{ $service->translations()->where('locale', 'ar')->first()->name }}</span>)
+                                                        ؟ </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="action-button active close"
+                                                            data-dismiss="modal">إغلاق</button>
+                                                        <button type="submit"
+                                                            id="delete-service-btn-{{ $service->id }}"
+                                                            onclick="deleteService(`delete-form-{{ $service->id }}`, {{ $service->id }})"
+                                                            class="app-content-headerButton">نعم</button>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -495,7 +488,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
     </div>
     </div>
@@ -604,10 +596,12 @@
 
 
                 if (data.responseJSON.errors.cost) {
-                    document.querySelector(`#${formId} #cost_error_edit`).innerHTML = data.responseJSON.errors.cost[0];
+                    document.querySelector(`#${formId} #cost_error_edit`).innerHTML = data.responseJSON.errors.cost[
+                        0];
                 }
                 if (data.responseJSON.errors.is_additional) {
-                    document.querySelector(`#${formId} #is_additional_error_edit`).innerHTML = data.responseJSON.errors
+                    document.querySelector(`#${formId} #is_additional_error_edit`).innerHTML = data.responseJSON
+                        .errors
                         .is_additional[0];
                 }
 

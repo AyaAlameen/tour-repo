@@ -62,10 +62,10 @@
                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">سوريا</a>
                          <div class="dropdown-menu border-0 rounded-0 m-0">
                              <a href="#Governorates" class="dropdown-item">المحافظات السورية</a>
-                             {{-- <a href="single" class="dropdown-item">فنادق سوريا</a>
-                             <a href="destination" class="dropdown-item">مطاعم سوريا</a>
-                             <a href="guide" class="dropdown-item">أماكن أثرية في سوريا</a> --}}
                              <a href="#Trips" class="dropdown-item">  رحلات سياحية</a>
+                             <a href="#Offers" class="dropdown-item">العروض</a>
+                             <a href="#Events" class="dropdown-item">الفعاليات</a>
+                             <a href="#Nearby" class="dropdown-item">أقرب إليك</a>
                              <a href="#Gallery" class="dropdown-item">صور فوتوغرافية لسوريا</a>
                          </div>
                      </div>
@@ -117,9 +117,9 @@
              </button>
          </div>
          <div class="acc-pic position-relative m-auto">
-             <img src="{{ asset(Auth::user()->image) }}" alt="Account" class="" width="150px" height="150px"
+             <img src="{{ asset(Auth::user()->image) }}" id="edit_previewImage_{{Auth::user()->id}}" alt="Account" class="" width="150px" height="150px"
                  style="border-radius:50%; margin:auto; margin-block:40px;">
-             <input type="file"
+             <input type="file" onchange="previewImage(this, 'edit_previewImage_{{Auth::user()->id}}')"
                  style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
              <span class="position-absolute translate-middle badge rounded-pill mr-3"
                  style="left:80%; background-color:var(--navi);top:70%; width:35px; height:35px;">
@@ -339,6 +339,15 @@
                             <td></td>
                             <td><span class="text-danger">رسالة الخطأ</span></td></tr>
                          <tr>
+                            <tr>
+                                <td class="text-center">عدد الأشخاص</td>
+                                 <td><input type="number" class="toggle text-primary in" name="people_count" required
+                                         style="width: 100%;"></td>
+                             </tr>
+                             <tr>
+                                <td></td>
+                                <td><span class="text-danger">رسالة الخطأ</span></td></tr>
+                             <tr>
                             <td class="text-center">الرقم الوطني</td>
                              <td><input type="number" class="toggle text-primary in" name="user_identifire" required
                                      style="width: 100%;"></td>

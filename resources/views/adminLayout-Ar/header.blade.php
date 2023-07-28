@@ -87,10 +87,10 @@
 
                          <div class="dropdown-menu  border-0 rounded-0 m-0 toggle">
                             <a href="#Governorates" class="dropdown-item">المحافظات السورية</a>
-                            {{-- <a href="single" class="dropdown-item">فنادق سوريا</a>
-                            <a href="destination" class="dropdown-item">مطاعم سوريا</a>
-                            <a href="guide" class="dropdown-item">أماكن أثرية في سوريا</a> --}}
                             <a href="#Trips" class="dropdown-item">  رحلات سياحية</a>
+                            <a href="#Offers" class="dropdown-item">العروض</a>
+                            <a href="#Events" class="dropdown-item">الفعاليات</a>
+                            <a href="#Nearby" class="dropdown-item">أقرب إليك</a>
                             <a href="#Gallery" class="dropdown-item">صور فوتوغرافية لسوريا</a>
                          </div>
                      </div>
@@ -155,14 +155,14 @@
                                      </button>
                                  </div>
                                  <div class="acc-pic position-relative m-auto">
-                                     <img src="{{asset(Auth::user()->image)}}" alt="Account" class="" width="150px"
+                                     <img src="{{asset(Auth::user()->image)}}" id="edit_previewImage_{{Auth::user()->id}}" alt="Account" class="" width="150px"
                                          height="150px" style="border-radius:50%; margin:auto; margin-block:40px;">
-                                     <input type="file"
-                                         style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
+                                     <input type="file" name="image"  onchange="previewImage(this, 'edit_previewImage_{{Auth::user()->id}}')"
+                                         style="position:absolute;  z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
                                      <span class="position-absolute translate-middle badge rounded-pill mr-3"
-                                         style="left:90%; background-color:var(--navi);top:70%; width:35px; height:35px;">
+                                         style="left:90%; cursor: background-color:var(--navi);top:70%; width:35px; height:35px;">
                                          <i class="fas fa-pen"
-                                             style="color:#fff !important; padding-top:7px; padding-right:7px;">
+                                             style="color:#fff !important; padding-top:7px; padding-right:7px; ">
                                          </i></span>
                                  </div>
                                  <hr class="w-50 m-auto">

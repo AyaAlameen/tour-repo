@@ -404,9 +404,14 @@ Route::get('/home-en', [UserHomeController::class, 'indexEn'])-> name('home-en')
 Route::get('/about', function () {
     return view('user.about');
 })-> name('about');
+
 Route::get('/contact', function () {
     return view('user.contact');
 })-> name('contact');
+
+Route::get('/event-en', function () {
+    return view('user.event');
+})-> name('event-en');
 
 Route::get('/contact-en', function () {
     return view('user.contact');
@@ -437,11 +442,16 @@ Route::get('/trips', function () {
 Route::get('/tripmore', function () {
     return view('user.tripmore');
 })-> name('tripmore');
+
 //user routes part Arabic
 
 Route::get('/contact-ar', function () {
     return view('user-ar.contact');
 })-> name('contact-ar');
+
+Route::get('/event-ar', function () {
+    return view('user-ar.event');
+})-> name('event-ar');
 
 // Route::get('/user_home_arabic', function () {
 //     return view('user-ar.home');

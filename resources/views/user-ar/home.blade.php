@@ -149,7 +149,7 @@
     <!-- Destination end -->
 
     <!-- nearby Start -->
-    <div class="container-fluid bg-nearby py-5" style="margin: 90px 0; height:700px;">
+    <div class="container-fluid bg-nearby py-5" style="margin: 90px 0; height:700px;" id="Nearby">
         <div class="container py-5 d-flex align-items-center">
             <div style="flex-wrap:nowrap; width:750px;">
                 <div class="col-lg-7"
@@ -612,7 +612,7 @@
 
 
         <!-- offers Start -->
-        <div class="container-fluid py-5">
+        <div class="container-fluid py-5" id="Offers">
             <div class="container py-5">
                 <div class="text-center mb-3 pb-3">
                     <h6 class="text-primary text-uppercase">العروض</h6>
@@ -734,14 +734,15 @@
         <!-- offers End -->
 
 
-        <!-- Blog Start -->
-        <div class="container-fluid py-5">
+        <!-- events Start -->
+        <div class="container-fluid py-5" id="Events">
             <div class="container pt-5 pb-3">
                 <div class="text-center mb-3 pb-3">
-                    <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Our Blog</h6>
-                    <h1>Latest From Our Blog</h1>
+                    <h6 class="text-primary text-uppercase">الفعاليات</h6>
+                    <h1>أهم الفعاليات المقامة</h1>
                 </div>
                 <div class="row pb-3">
+                    {{-- بداية الكارد --}}
                     <div class="col-lg-4 col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
@@ -753,60 +754,19 @@
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">كافيه لايكي</a>
                                     <span class="text-primary px-2">|</span>
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours &
-                                        Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">كأس العالم</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita
-                                    justo diam amet</a>
+                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"  href="{{route('event-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/daher.jpg" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours &
-                                        Travel</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita
-                                    justo diam amet</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/blog-3.jpg" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours &
-                                        Travel</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita
-                                    justo diam amet</a>
-                            </div>
-                        </div>
-                    </div>
+       
+           {{-- نهاية الكارد --}}
                 </div>
             </div>
         </div>
-        <!-- Blog End -->
+        <!-- events End -->
     @endsection

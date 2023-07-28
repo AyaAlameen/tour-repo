@@ -55,12 +55,19 @@
                 event.preventDefault();
 
             }
-
-
             if (origin == "http://127.0.0.1:8000/home-en") {
                 event.target.href = "http://127.0.0.1:8000/user_home_arabic"
             }
             if (origin == "http://127.0.0.1:8000/home-en#Gallery") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/home-en#Nearby") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/home-en#Offers") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/home-en#Events") {
                 event.target.href = "http://127.0.0.1:8000/user_home_arabic"
             }
             if (origin == "http://127.0.0.1:8000/home-en#Trips") {
@@ -185,6 +192,22 @@
         function hide() {
             $('.parent').attr("hidden", true);
             $('.parenttrue').attr("hidden", true);
+        }
+          // عرض الصور بدل الأسماء
+
+          function previewImage(input, previewId) {
+            const previewImage = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+            previewImage.style.display = "inline";
+            input.style.display = "none";
+            reader.addEventListener('load', function() {
+                previewImage.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
         }
     </script>
 </body>

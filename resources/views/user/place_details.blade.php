@@ -183,7 +183,7 @@
 
         {{-- بحال المكان ما فيو خدمات ديف كلاس السيرف بكون مخفي وبيطلع هاد الزر للحجز --}}
         {{-- @isset(Auth::user()->id)
-        <button class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
+      <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">book</button
         @else
          <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
         @endisset --}}
@@ -322,65 +322,6 @@
                         <img src="img/aleppo-palace-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
-                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                            more picture</p>
-                        {{-- picturs modal --}}
-
-                        <!-- Modal -->
-                        <div class="modal fade " data-bs-backdrop="static" id="exampleModal2" tabindex="-1"
-                            aria-labelledby="exampleModal2Label" aria-hidden="true">
-                            <div class="modal-dialog " style="max-width: 800px;">
-                                <div class="modal-content toggle">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModal2Label">All picture</h5>
-                                        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <!-- صور الخدمة -->
-                                        <div id="carouselExample3Indicators" class="carousel slide  m-auto w-100"
-                                            data-bs-ride="carousel">
-
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <button class="carousel-control-prev" type="button"
-                                                data-bs-target="#carouselExample3Indicators" data-bs-slide="prev">
-                                                <span class="carousel-control-prev-icon"
-                                                    style="background-image:url(../img/previous.png); "
-                                                    aria-hidden="false"></span>
-                                                <span class="visually-hidden">Previous</span>
-                                            </button>
-                                            <button class="carousel-control-next" type="button"
-                                                data-bs-target="#carouselExample3Indicators" data-bs-slide="next">
-                                                <span class="carousel-control-next-icon"
-                                                    style="background-image:url(../img/next.png);"
-                                                    aria-hidden="false"></span>
-                                                <span class="visually-hidden">Next</span>
-                                            </button>
-                                        </div>
-                                        <!-- نهاية صور الخدمة -->
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        {{-- end pic modal --}}
                     </div>
                     <div class="pt-4">
                         <div class="d-flex " style="justify-content: space-between;">
@@ -390,7 +331,7 @@
                             . Exercitationem, corporis rem culpa perspiciatis
                             odit architecto expedita iure illum error inventore m
                             inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
-                        <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
+                        <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
                             <h6 class="d-inline ml-4">cost : 60000</h6>
                             @isset(Auth::user()->id)
                                 <button class="btn btn-primary ml-4" data-bs-toggle="modal"

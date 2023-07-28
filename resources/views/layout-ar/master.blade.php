@@ -65,6 +65,15 @@
             if (origin == "http://127.0.0.1:8000/#Trips") {
                 event.target.href = "http://127.0.0.1:8000/user_home_arabic"
             }
+            if (origin == "http://127.0.0.1:8000/#Nearby") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/#Offers") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/#Events") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
             if (origin == "http://127.0.0.1:8000/#Gallery") {
                 event.target.href = "http://127.0.0.1:8000/user_home_arabic"
             }
@@ -127,6 +136,15 @@
                 event.target.href = "http://127.0.0.1:8000/"
             }
             if (origin == "http://127.0.0.1:8000/user_home_arabic#Trips") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Events") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Offers") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Nearby") {
                 event.target.href = "http://127.0.0.1:8000/"
             }
             if (origin == "http://127.0.0.1:8000/user_home_arabic#Gallery") {
@@ -205,6 +223,23 @@
  function hide() {
             $('.parent').attr("hidden", true);
             $('.parenttrue').attr("hidden", true);
+        }
+
+          // عرض الصور بدل الأسماء
+
+          function previewImage(input, previewId) {
+            const previewImage = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+            previewImage.style.display = "inline";
+            input.style.display = "none";
+            reader.addEventListener('load', function() {
+                previewImage.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
         }
     </script>
 

@@ -51,12 +51,12 @@
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Syria</a>
                          <div class="dropdown-menu border-0 rounded-0 m-0">
-                            <a href="#Governorates" class="dropdown-item">Governorates of Syria</a>
-                             {{-- <a href="single" class="dropdown-item">Syria Hotels</a>
-                             <a href="destination" class="dropdown-item">Syria Restaurants</a>
-                             <a href="guide" class="dropdown-item">Historical places in Syria</a> --}}
-                             <a href="#Trips" class="dropdown-item">Trip groups</a>
-                             <a href="#Gallery" class="dropdown-item">Photographs from Syria</a>
+                            a href="#Governorates" class="dropdown-item">Governorates of Syria</a>
+                            <a href="#Trips" class="dropdown-item">Trip groups</a>
+                            <a href="#Offers" class="dropdown-item">Offers</a>
+                            <a href="#Events" class="dropdown-item">Events</a>
+                            <a href="#Nearby" class="dropdown-item">Nearby you</a>
+                            <a href="#Gallery" class="dropdown-item">Photographs from Syria</a>
                          </div>
                      </div>
                      <div class="nav-item dropdown">
@@ -249,9 +249,9 @@
                                      </button>
                                  </div>
                                  <div class="acc-pic position-relative m-auto">
-                                     <img src="{{ asset(Auth::user()->image) }}" alt="Account" width="150px"
+                                     <img src="{{ asset(Auth::user()->image) }}" id="edit_previewImage_{{Auth::user()->id}}'" alt="Account" width="150px"
                                          height="150px" style="border-radius:50%; margin:auto; margin-block:40px;">
-                                     <input type="file"
+                                     <input type="file" onchange="previewImage(this, 'edit_previewImage_{{Auth::user()->id}}')"
                                          style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
                                      <span class="position-absolute translate-middle badge rounded-pill mr-3"
                                          style="left:90%; background-color:var(--navi);top:70%; width:35px; height:35px;">
