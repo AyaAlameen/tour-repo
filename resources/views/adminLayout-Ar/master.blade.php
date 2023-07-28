@@ -166,6 +166,22 @@
             maxZoom: 18,
             attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
         }).addTo(show_map);
+        // ------------------------ show edit map------------------------------------
+
+        var place_for_geolocation;
+
+        var show_edit_map = L.map('show-edit-map').setView([51.505, -0.09], 13); // set the initial view of the map.
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(show_edit_map);
+
+        show_edit_map.on('click', function(e) {
+            marker.addTo(show_edit_map);
+            marker.setLatLng(e.latlng); // move the marker to the clicked location
+            document.getElementById(`coordinates_${place_for_geolocation}`).value = e.latlng.lat + ',' + e.latlng
+                .lng; // update the hidden input field with the coordinates
+        });
         // map.on('click', function(e) {
         //     document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng;
         // });
