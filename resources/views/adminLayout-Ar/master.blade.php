@@ -349,7 +349,7 @@
         //  إخفاء مودل الخريطة 
         function hidemap(modal_id) {
             $('#' + modal_id).hide();
-
+               $('#edit_location_img').click()
         }
         // زر حفظ الخريظة
         function spinner() {

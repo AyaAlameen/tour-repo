@@ -87,7 +87,7 @@
                     omnis, expedita, maxime maiores ipsam exercitationem itaque! Atque, voluptates iste!</p>
             </div>
             <div class="d-flex pt-5 pb-3" style="flex-direction: column; align-items: center;">
-                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal9"
+                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal9" id="edit_location_img"
                     style="cursor:pointer; border-radius:6px;" src="img/sy.jpg" width="200px" height="120px">
                 <p data-bs-toggle="modal"  style="cursor:pointer;" data-bs-target="#exampleModal9">شاهد على الخريطة</p>
                 {{-- مودل عرض الموقع على الخريطة الخريطة --}}

@@ -441,7 +441,7 @@
                                 <span><img
                                         onclick="showGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }})"
                                         data-toggle="modal" data-target="#exampleModal8" title="Delete"
-                                        data-toggle="tooltip" src="img/syria.png"
+                                        data-toggle="tooltip" src="img/syria.png" id="edit_location_img"
                                         style="width: 35px; height: 35px;"></span>
                             </div>
                             {{-- نهاية عرض الموقع --}}
@@ -727,7 +727,7 @@
                                                         <tr>
                                                             <td></td>
                                                             <td class="text-center"><img onclick="setEditGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }}, {{$place->id}})" class="m-3"
-                                                                    data-bs-toggle="modal" id="editmapimg"
+                                                                    data-bs-toggle="modal"
                                                                     data-bs-target="#exampleModal9"
                                                                     style="cursor:pointer; border-radius:6px;"
                                                                     src="img/sy.jpg" width="150px" height="70px"></td>
@@ -838,15 +838,15 @@
 
 
                     {{-- مودل تعديل الخريطة --}}
-                    <div class="modal fade bg-light" id="exampleModal9" tabindex="-1"
+                    <div class="modal fade" id="exampleModal9" tabindex="-1"
                         aria-labelledby="exampleModal9Label" aria-hidden="true">
                         <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                             <div class="modal-content toggle w-100 h-100">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
                                         الخريطة</h5>
-                                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
-                                        aria-label="Close">
+                                        <button type="button" class="btn-close m-0 close"
+                                        data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -854,9 +854,9 @@
                                     {{-- الخريطة --}}
                                     <div id="show-edit-map" class="w-100 h-100"></div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="action-button active"
-                                        onclick="hidemap('exampleModal9')">إغلاق</button>
+                                <div class="modal-footer" style="direction: ltr;">
+                                    <button type="button" class="action-button active close"
+                                    data-bs-dismiss="modal">إغلاق</button>
                                     <button type="button" id="save-map-btn-edit" onclick="spinner()"
                                         class="app-content-headerButton">حفظ</button>
                                 </div>
