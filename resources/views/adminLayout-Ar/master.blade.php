@@ -349,11 +349,15 @@
         function removePic() {
             console.log(document.querySelector('[myid="first_input_edit"]'))
             document.querySelector('[myid="first_input_edit"]').removeAttribute('hidden');
-            document.querySelector('[myid="first_input_edit"]').style.display = "block";
             document.querySelector('[myid="first_input_edit"]').removeAttribute('disabled');
+            document.querySelector('[myid="first_input_edit"]').style.display = "block";
+            document.querySelector('[myid="first_input_edit"]').setAttribute('value',null);
             var myimg = document.getElementById('first_pic_edit');
-            myimg.style.display = "none !important";
+            myimg.style.display = "none";
             myimg.src = "";
+           myimg.removeAttribute('src');
+           console.log(myimg)
+            
         }
         //  إخفاء مودل الخريطة 
         function hidemap(modal_id) {
@@ -428,7 +432,7 @@
             document.getElementById('edit-pic-input').setAttribute('data-picid', ++Param_id);
             cell2.innerHTML =
                 ` <input type="file" onchange="previewImage(this, 'edit_previewImage_${Param_id}')" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;">
-                  <img id="edit_previewImage_${Param_id}"  style="display: none; padding:6px;width:170px; height:90px;">`;
+                  <img id="edit_previewImage_${Param_id}" cllass="m-3"  style="display: none; padding:6px;width:170px; height:90px;">`;
            cell1.innerHTML='<i onclick="removeRow()" class="fas fa-close text-body"></i>';
             newRow.appendChild(cell1);
             newRow.appendChild(cell2);
@@ -439,6 +443,21 @@
         }
         // عرض الصور بدل الأسماء
 
+        function previewImage(input, previewId) {
+            const previewImage = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+            previewImage.style.display = "inline";
+            input.style.display = "none";
+            reader.addEventListener('load', function() {
+                previewImage.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+// عرض الصور بدل الاسماء في تعديل الصور للأماكن
         function previewImage(input, previewId) {
             const previewImage = document.getElementById(previewId);
             const file = input.files[0];

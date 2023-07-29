@@ -745,28 +745,24 @@
                                                         <tr>
                                                             <td onclick="removePic()"><i
                                                                     class="fas fa-close text-body"></i></td>
-                                                            {{-- عرضي هون أول صورة بدون حلقة فور --}}
-                                                            <td>
+                                                            <td class="d-flex align-items-center" style="justify-content: space-between;">
                                                                 <i class="fas fa-plus text-body"
-                                                                    style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;" onclick="editPic()"
+                                                                    style="text-align: center; font-size:15px;  cursor:pointer;" onclick="editPic()"
                                                                     id="edit-pic-input" data-picid="1"
-                                                                    title="Add Another Picture"></i>
-                                                                <input type="file" hidden disabled
-                                                                    myid="first_input_edit"
-                                                                    onchange="previewImage(this, 'first_pic_edit')">
-                                                                <img src="img/sy.jpg"
-                                                                    alt=""style="cursor:pointer; width:150px; height:70px"
-                                                                    id="first_pic_edit">
+                                                                    title="Add Another Picture"></i>                           
+                                                                <input type="file" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;" hidden disabled myid="first_input_edit"  onchange="previewImage(this, 'first_pic_edit')">    
+                                                                           {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
+                                                                <img src="img/sy.jpg" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px" id="first_pic_edit">
                                                             </td>
                                                             <td>الصور</td>
                                                         </tr>
                                                         <tr>
                                                             <td><i onclick="removeRow()"
-                                                                    class="fas fa-close text-body"></i></td>
-                                                            {{-- عرضي هون بقية الصور    --}}
+                                                                    class="fas fa-close text-body pl-1"></i></td>
+                                                           
                                                             <td>
-                                                                <img src="img/sy.jpg"
-                                                                    alt=""style="cursor:pointer; width:150px; height:70px">
+                                                                 {{-- عرضي هون بقية الصور بحلقة فور   --}}
+                                                                <img src="img/sy.jpg" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px">
                                                             </td>
                                                             <td></td>
                                                         </tr>
