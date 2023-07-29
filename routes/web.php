@@ -17,6 +17,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -401,9 +402,7 @@ Route::middleware(['tourist_guide'])->group(function(){
 Route::get('/home-en', [UserHomeController::class, 'indexEn'])-> name('home-en');
 
 
-Route::get('/about', function () {
-    return view('user.about');
-})-> name('about');
+Route::get('/about', [AboutController::class, 'indexEn'])-> name('about');
 
 Route::get('/contact', function () {
     return view('user.contact');
@@ -459,9 +458,7 @@ Route::get('/event-ar', function () {
 Route::get('/user_home_arabic', [UserHomeController::class, 'indexAr'])-> name('userhome-ar');
 Route::post('/contact', [MessageController::class, 'storeAr'])-> name('submitMessageAr');
 
-Route::get('/about-ar', function () {
-    return view('user-ar.about');
-})-> name('about-ar');
+Route::get('/about-ar', [AboutController::class, 'indexAr'])-> name('about-ar');
 
 Route::get('/transport-ar', function () {
     return view('user-ar.transport');

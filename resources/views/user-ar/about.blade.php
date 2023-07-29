@@ -1,7 +1,5 @@
 @extends('layout-Ar.master')
 @section('content')
-
-
     <!-- Header Start -->
     <div class="container-fluid about-page-header">
         <div class="container">
@@ -28,9 +26,10 @@
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                        <h6 class="text-primary text-uppercase" >حولنا</h6>
+                        <h6 class="text-primary text-uppercase">حولنا</h6>
                         <h1 class="mb-3"> نقدم أفضل البرامج السياحية و أفضل الرحلات</h1>
-                        <p>موقع إلكتروني متخصص في مساعدتك في حجز فندقك وجولتك السياحية وتأجير السيارات ومعلومات سياحية عن جميع الأماكن والمناطق والمعالم السياحية والأثرية في سوريا.</p>
+                        <p>موقع إلكتروني متخصص في مساعدتك في حجز فندقك وجولتك السياحية وتأجير السيارات ومعلومات سياحية عن
+                            جميع الأماكن والمناطق والمعالم السياحية والأثرية في سوريا.</p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
@@ -54,7 +53,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
+                            style="height: 100px; width: 100px;">
                             <i class="fa fa-2x fa-money-check-alt text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
@@ -65,7 +65,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
+                            style="height: 100px; width: 100px;">
                             <i class="fa fa-2x fa-award text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
@@ -76,7 +77,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
+                            style="height: 100px; width: 100px;">
                             <i class="fa fa-2x fa-globe text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
@@ -90,75 +92,32 @@
     </div>
     <!-- Feature End -->
 
-       <!-- messages Start -->
-       <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase">آراء الزبائن</h6>
-                <h1>طالع آراء الزبائن  معنا</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel">
-            <!-- بداية الكارد -->
-                <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                    <img class="img-fluid m-auto" src="img/chat-box.png" style="width: 120px; height: 120px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 350px;">
-                        <h5 class="text-truncate mt-5">اسم المستخدم</h5>
-                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate excepturi veritatis commodi.
-                            A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
-                    </div>
+    @if ($messages->count() > 0)
+        <!-- messages Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="text-center mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase">آراء الزبائن</h6>
+                    <h1>طالع آراء الزبائن معنا</h1>
                 </div>
-                <!-- نهاية الكارد -->
-                
-                <!-- بداية الكارد -->
-                <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                    <img class="img-fluid m-auto" src="img/chat-box.png" style="width: 120px; height: 120px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 350px;">
-                        <h5 class="text-truncate mt-5">اسم المستخدم</h5>
-                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate excepturi veritatis commodi.
-                            A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
-                    </div>
+                <div class="owl-carousel testimonial-carousel">
+                    @foreach ($messages as $message)
+                        <!-- بداية الكارد -->
+                        <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                            <img class="img-fluid m-auto" src="img/chat-box.png" style="width: 120px; height: 120px;">
+                            <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
+                                {{-- <h5 class="text-truncate mt-5">اسم المستخدم</h5> --}}
+                                <p class="mt-5">{{$message->message}} </p>
+                            </div>
+                        </div>
+                        <!-- نهاية الكارد -->
+                    @endforeach
+
+
+
                 </div>
-                <!-- نهاية الكارد -->
-                 <!-- بداية الكارد -->
-                 <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                    <img class="img-fluid m-auto" src="img/chat-box.png" style="width: 120px; height: 120px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 350px;">
-                        <h5 class="text-truncate mt-5">اسم المستخدم</h5>
-                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate excepturi veritatis commodi.
-                            A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
-                    </div>
-                </div>
-                <!-- نهاية الكارد -->
-                 <!-- بداية الكارد -->
-                 <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                    <img class="img-fluid m-auto" src="img/chat-box.png" style="width: 120px; height: 120px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 350px;">
-                        <h5 class="text-truncate mt-5">اسم المستخدم</h5>
-                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate excepturi veritatis commodi.
-                            A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
-                    </div>
-                </div>
-                <!-- نهاية الكارد -->
-                 <!-- بداية الكارد -->
-                 <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                    <img class="img-fluid m-auto" src="img/chat-box.png" style="width: 120px; height: 120px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 350px;">
-                        <h5 class="text-truncate mt-5">اسم المستخدم</h5>
-                        <p class="mt-5" >في البيت هذا بابا هذه ماما هذا رامز هذه ريم </p>
-                    </div>
-                </div>
-                <!-- نهاية الكارد -->
-               
             </div>
         </div>
-    </div>
-    <!-- messages End -->
+        <!-- messages End -->
+    @endif
 @endsection
