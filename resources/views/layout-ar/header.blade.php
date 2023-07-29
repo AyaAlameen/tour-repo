@@ -320,7 +320,7 @@
 
              <form action="" method="post" enctype="multipart/form-data">
                  <div class="modal-body">
-                     <table style="width:100%; direction: rtl;">
+                     <table style="width:100%; direction: rtl;" class="table-striped table-bordered m-auto text-primary myTable">
 
                          <tr>
                              <td class="text-center">الاسم بالكامل</td>
@@ -328,34 +328,68 @@
                                      style="width: 100%;"></th>
                          </tr>      
                          <tr>
-                            <td></td>
-                            <td><span class="text-danger">رسالة الخطأ</span></td></tr>
+                            <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                        </tr>
                          <tr>
                             <td class="text-center">رقم الهاتف</td>
                              <td><input type="number" class="toggle text-primary in" name="phone" required
                                      style="width: 100%;"></td>
                          </tr>
-                         <tr>
-                            <td></td>
-                            <td><span class="text-danger">رسالة الخطأ</span></td></tr>
-                         <tr>
+                            <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                        </tr>
+                            <tr>
+                                <td class="text-center">الرقم الوطني</td>
+                                 <td><input type="number" class="toggle text-primary in" name="user_identifire" required
+                                         style="width: 100%;"></td>
+                             </tr>
+                             <tr>
+                                <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td></tr>
+    
                             <tr>
                                 <td class="text-center">عدد الأشخاص</td>
                                  <td><input type="number" class="toggle text-primary in" name="people_count" required
                                          style="width: 100%;"></td>
                              </tr>
                              <tr>
-                                <td></td>
-                                <td><span class="text-danger">رسالة الخطأ</span></td></tr>
+                                <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"> تاريخ الوصول</td>
+                                 <td><input type="date" class="toggle text-primary in" name="access_date" required
+                                         style="width: 100%;"></td>
+                             </tr>
                              <tr>
-                            <td class="text-center">الرقم الوطني</td>
-                             <td><input type="number" class="toggle text-primary in" name="user_identifire" required
-                                     style="width: 100%;"></td>
-                         </tr>
-                         <tr>
-                            <td></td>
-                            <td><span class="text-danger">رسالة الخطأ</span></td></tr>
-
+                                <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"> تاريخ المغادرة</td>
+                                 <td><input type="date" class="toggle text-primary in" name="depart_date" required
+                                         style="width: 100%;"></td>
+                             </tr>
+                             <tr>
+                                <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"> مدة الحجز (من الساعة كذا إلى الساعة كذا)</td>
+                                <td>
+                                    <div class="dropdown toggle text-primary in"
+                                        style="display:inline-block;">
+                                        <lable class="dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                            
+                                        </lable>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">12:00 - 13:00</a>
+                                            <a class="dropdown-item" href="#">13:00 - 14:00</a>
+                                        </div>
+                                    </div>
+                                </td>
+                             </tr>
+                             <tr>
+                                <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                            
+                            </tr>
                      </table>
                  </div>
              </form>

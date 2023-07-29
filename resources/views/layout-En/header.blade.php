@@ -326,44 +326,77 @@
 
              <form action="" method="post" enctype="multipart/form-data">
                  <div class="modal-body">
-                     <table style="width: 400px;">
+                     <table style="width: 100%;" class="table-striped table-bordered m-auto text-primary myTable">
 
                          <tr>
-                             <td>Full Name</td>
+                             <td class="text-center">Full Name</td>
                              <td><input type="text" class="toggle text-primary in" name="full_name" required
-                                     style="width: 100%;"></th>
+                                     style="width: 100%;"></td>
                          </tr>      
                          <tr>
-                            <td></td>
-                            <td><span class="text-danger">error message</span></td></tr>
+                            <td colspan="2"><span class="text-danger">error message</span></td>
                          <tr>
-                            <td>Phone</td>
+                            <td class="text-center">Phone</td>
                              <td><input type="number" class="toggle text-primary in" name="phone" required
                                      style="width: 100%;"></td>
                          </tr>
                          <tr>
-                            <td></td>
-                            <td><span class="text-danger">error message</span></td>
+                            <td colspan="2"><span class="text-danger">error message</span></td>
                         </tr>
                         <tr>
-                            <td>People count</td>
-                             <td><input type="number" class="toggle text-primary in" name="people_count" required
-                                     style="width: 100%;"></td>
-                         </tr>
-                         <tr>
-                            <td></td>
-                            <td><span class="text-danger">error message</span></td>
-                        </tr>
-                         <tr>
-                            <td>Identifire</td>
+                            <td class="text-center">Identifire</td>
                              <td><input type="number" class="toggle text-primary in" name="user_identifire" required
                                      style="width: 100%;"></td>
                          </tr>
                          <tr>
-                            <td></td>
-                            <td><span class="text-danger">error message</span></td> 
+                            <td colspan="2"><span class="text-danger">error message</span></td> 
                         </tr>
-
+                        <tr>
+                            <td class="text-center">People count</td>
+                             <td><input type="number" class="toggle text-primary in" name="people_count" required
+                                     style="width: 100%;"></td>
+                         </tr>
+                         <tr>
+                            <td colspan="2"><span class="text-danger">error message</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="text-center">Access date</td>
+                             <td><input type="date" class="toggle text-primary in" name="access_date" required
+                                     style="width: 100%;"></td>
+                         </tr>
+                         <tr>
+                            <td colspan="2"><span class="text-danger">error message</span></td> 
+                        </tr>
+                        <tr>
+                            <td class="text-center">Depart date</td>
+                             <td><input type="date" class="toggle text-primary in" name="depart_date" required
+                                     style="width: 100%;"></td>
+                         </tr>
+                         <tr>
+                            <td colspan="2"><span class="text-danger">error message</span></td> 
+                        </tr>
+                        <tr>
+                            <td class="text-center">  booking period (from clock - to clock)</td>
+                            <td>
+                                <div class="dropdown toggle text-primary in"
+                                    style="display:inline-block;">
+                                    <lable class="dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-expanded="false">
+                                        
+                                    </lable>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">12:00 - 13:00</a>
+                                        <a class="dropdown-item" href="#">13:00 - 14:00</a>
+                                    </div>
+                                </div>
+                            </td>
+                         </tr>
+                         <tr>
+                            <td colspan="2"><span class="text-danger"> error meassage</span></td>
+                        
+                        </tr>
                      </table>
                  </div>
              </form>

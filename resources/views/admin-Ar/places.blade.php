@@ -471,8 +471,9 @@
                                         data-target="#editPlace{{ $place->id }}" title="Edit"><i
                                             class="fas fa-pen"></i></a>
                                     <!-- Modal -->
-                                    <div class="modal fade" style="overflow-y: auto !important;" data-backdrop="static" id="editPlace{{ $place->id }}"
-                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" style="overflow-y: auto !important;" data-backdrop="static"
+                                        id="editPlace{{ $place->id }}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="direction:ltr;">
                                                 <div class="modal-header">
@@ -535,7 +536,7 @@
                                                                                 class="dropdown-item"
                                                                                 value="{{ $city->id }}"
                                                                                 id="edit_city_{{ $place->id }}_{{ $city->id }}"
-                                                                                onclick="setEditCity({{ $city->id }}, {{ $place->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'edit_city_{{ $place->id }}_{{ $city->id }}'), filterEditDistricts({{ $city->id }}, {{$place->id}})"
+                                                                                onclick="setEditCity({{ $city->id }}, {{ $place->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'edit_city_{{ $place->id }}_{{ $city->id }}'), filterEditDistricts({{ $city->id }}, {{ $place->id }})"
                                                                                 href="#">
                                                                                 {{ $city->translations()->where('locale', 'ar')->first()->name }}
                                                                             </option>
@@ -660,8 +661,7 @@
 
                                                             <td></td>
                                                             <td><input type="email" class="toggle text-primary in"
-                                                                    name="email"
-                                                                    value="{{$place->email}}">
+                                                                    name="email" value="{{ $place->email }}">
                                                             </td>
                                                             <td>الايميل</td>
 
@@ -674,8 +674,7 @@
                                                         <tr>
                                                             <td></td>
                                                             <td><input type="number" class="toggle text-primary in"
-                                                                    name="phone"
-                                                                    value="{{$place->phone}}">
+                                                                    name="phone" value="{{ $place->phone }}">
                                                             </td>
                                                             <td>الهاتف</td>
                                                         </tr>
@@ -687,8 +686,7 @@
                                                         <tr>
                                                             <td></td>
                                                             <td><input type="number" class="toggle text-primary in"
-                                                                    name="cost"
-                                                                    value="{{$place->cost}}">
+                                                                    name="cost" value="{{ $place->cost }}">
                                                             </td>
                                                             <td>الكلفة</td>
                                                         </tr>
@@ -697,12 +695,12 @@
                                                             <td colspan="2"><span style="color: red"
                                                                     class="cost_error_edit"></span></td>
                                                         </tr>
-                                                        
+
                                                         <tr>
                                                             <td></td>
                                                             <td><input type="number" class="toggle text-primary in"
                                                                     name="profit_ratio_1"
-                                                                    value="{{$place->profit_ratio_1}}">
+                                                                    value="{{ $place->profit_ratio_1 }}">
                                                             </td>
                                                             <td>نسبة الأرباح الخارجية</td>
                                                         </tr>
@@ -714,8 +712,8 @@
                                                         <tr>
                                                             <td></td>
                                                             <td><input type="number" class="toggle text-primary in"
-                                                                name="profit_ratio_2"
-                                                                value="{{$place->profit_ratio_2}}">
+                                                                    name="profit_ratio_2"
+                                                                    value="{{ $place->profit_ratio_2 }}">
                                                             </td>
                                                             <td>نسبة الأرباح الداخلية</td>
                                                         </tr>
@@ -726,13 +724,16 @@
                                                         </tr>
                                                         <tr>
                                                             <td></td>
-                                                            <td class="text-center"><img onclick="setEditGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }}, {{$place->id}})" class="m-3"
-                                                                    data-toggle="modal" id="edit_location_img"
-                                                                    data-target="#exampleModal9"
+                                                            <td class="text-center"><img
+                                                                    onclick="setEditGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }}, {{ $place->id }})"
+                                                                    class="m-3" data-toggle="modal"
+                                                                    id="edit_location_img" data-target="#exampleModal9"
                                                                     style="cursor:pointer; border-radius:6px; width:150px; height:70px"
-                                                                    src="img/sy.jpg" ></td>
+                                                                    src="img/sy.jpg"></td>
                                                             <td>الموقع</td>
-                                                            <input type="hidden" name="geolocation" id="coordinates_{{$place->id}}" value="{{$place->geolocation}}">
+                                                            <input type="hidden" name="geolocation"
+                                                                id="coordinates_{{ $place->id }}"
+                                                                value="{{ $place->geolocation }}">
 
 
                                                         </tr>
@@ -742,24 +743,32 @@
                                                                     class="geolocation_error_edit"></span></td>
                                                         </tr>
                                                         <tr>
-
-                                                            <td style="width:25px; text-align:center;">
-                                                            </td>
+                                                            <td onclick="removePic()"><i
+                                                                    class="fas fa-close text-body"></i></td>
+                                                            {{-- عرضي هون أول صورة بدون حلقة فور --}}
                                                             <td>
-                                                                <i class="fas fa-plus text-body" onclick="editPic()"
-                                                                    id="edit_pic_input" data-picid="1"
-                                                                    style="font-size:15px; text-align: center; padding-right:80px; line-height: 1.5; cursor:pointer;"
+                                                                <i class="fas fa-plus text-body"
+                                                                    style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;" onclick="editPic()"
+                                                                    id="edit-pic-input" data-picid="1"
                                                                     title="Add Another Picture"></i>
-                                                                <input type="file" hidden id="img{{ $place->id }}"
-                                                                    hidden
-                                                                    onchange="previewImage(this, 'edit_previewImage_{{ $place->id }}')">
-                                                                <label for="img{{ $place->id }}"><img
-                                                                        src="img/about-1.jpg"
-                                                                        id="edit_previewImage_{{ $place->id }}"
-                                                                        style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;">
-                                                                </label>
+                                                                <input type="file" hidden disabled
+                                                                    myid="first_input_edit"
+                                                                    onchange="previewImage(this, 'first_pic_edit')">
+                                                                <img src="img/sy.jpg"
+                                                                    alt=""style="cursor:pointer; width:150px; height:70px"
+                                                                    id="first_pic_edit">
                                                             </td>
-                                                            <td>الصور </td>
+                                                            <td>الصور</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i onclick="removeRow()"
+                                                                    class="fas fa-close text-body"></i></td>
+                                                            {{-- عرضي هون بقية الصور    --}}
+                                                            <td>
+                                                                <img src="img/sy.jpg"
+                                                                    alt=""style="cursor:pointer; width:150px; height:70px">
+                                                            </td>
+                                                            <td></td>
                                                         </tr>
                                                     </table>
 
@@ -838,15 +847,16 @@
 
 
                     {{-- مودل تعديل الخريطة --}}
-                    <div class="modal fade p-0" id="exampleModal9" tabindex="-2"
-                        aria-labelledby="exampleModal9Label" aria-hidden="true">
+                    <div class="modal fade p-0" id="exampleModal9" tabindex="-2" aria-labelledby="exampleModal9Label"
+                        aria-hidden="true">
                         <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                             <div class="modal-content toggle w-100 h-100">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
                                         الخريطة</h5>
-                                        <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')" >
-                                        <span >&times;</span>
+                                    <button type="button" class="btn-close m-0 close"
+                                        onclick="hidemap('exampleModal9')">
+                                        <span>&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
@@ -854,14 +864,15 @@
                                     <div id="show-edit-map" class="w-100 h-100"></div>
                                 </div>
                                 <div class="modal-footer" style="direction: ltr;">
-                                    <button type="button" class="action-button active close" onclick="hidemap('exampleModal9')">إغلاق</button>
+                                    <button type="button" class="action-button active close"
+                                        onclick="hidemap('exampleModal9')">إغلاق</button>
                                     <button type="button" id="save-map-btn-edit" onclick="spinner()"
                                         class="app-content-headerButton">حفظ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     {{-- نهاية مودل تعديل الخريطة --}}
                 </div>
             </div>
@@ -1251,7 +1262,7 @@
     }
     //--------------------------------------------
 
-    function setEditGeolocation(lat, lng, place_id){
+    function setEditGeolocation(lat, lng, place_id) {
         console.log('hhhh')
         // iterate over the map's layers
         show_edit_map.eachLayer(function(layer) {

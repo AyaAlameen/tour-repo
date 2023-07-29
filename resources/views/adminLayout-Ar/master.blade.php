@@ -346,14 +346,23 @@
             row.remove()
         }
 
+        function removePic() {
+            console.log(document.querySelector('[myid="first_input_edit"]'))
+            document.querySelector('[myid="first_input_edit"]').removeAttribute('hidden');
+            document.querySelector('[myid="first_input_edit"]').style.display = "block";
+            document.querySelector('[myid="first_input_edit"]').removeAttribute('disabled');
+            var myimg = document.getElementById('first_pic_edit');
+            myimg.style.display = "none !important";
+            myimg.src = "";
+        }
         //  إخفاء مودل الخريطة 
         function hidemap(modal_id) {
             $('#' + modal_id).hide();
-            if(modal_id == 'exampleModal9')
-            $('#edit_location_img').click()
-           if (modal_id == 'exampleModal8')
-               $('#show_location_img').click()
-         
+            if (modal_id == 'exampleModal9')
+                $('#edit_location_img').click()
+            if (modal_id == 'exampleModal8')
+                $('#show_location_img').click()
+
 
         }
         // زر حفظ الخريظة
@@ -408,25 +417,19 @@
         }
         // تعديل الصور
         function editPic() {
-            var Param_id = document.getElementById('edit_pic_input').getAttribute('data-picid');
+            console.log('huhuh')
+            var Param_id = document.getElementById('edit-pic-input').getAttribute('data-picid');
+            console.log(Param_id)
             var table = document.getElementById("editTable");
             var newRow = document.createElement("tr");
             var cell1 = document.createElement("td");
             var cell2 = document.createElement("td");
             var cell3 = document.createElement("td");
-            var close = document.createElement("span");
-            close.classList.add("fas", "fa-close", "text-body", "pt-2", "pl-2");
-            close.title = "delete pic";
-            close.style.fontSize = "12px";
-            close.style.cursor = "pointer";
-            close.id = "edit_picture_" + Param_id;
-            document.getElementById('edit_pic_input').setAttribute('data-picid', ++Param_id);
-            cell1.style.width = "15px";
-            cell1.style.textAlign = "center";
-            cell1.appendChild(close);
+            document.getElementById('edit-pic-input').setAttribute('data-picid', ++Param_id);
             cell2.innerHTML =
-                ` <input type="file" onchange="previewImage(this, 'edit_previewImage_${Param_id}')" class="toggle text-primary in" id="edit_input_${Param_id}"  required style="width:75% !important; font-size:16px;">
-                                            <label for="edit_input_${Param_id}"> <img id="edit_previewImage_${Param_id}"  style="display: none; padding:6px;width:170px; height:90px;"></label>`;
+                ` <input type="file" onchange="previewImage(this, 'edit_previewImage_${Param_id}')" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;">
+                  <img id="edit_previewImage_${Param_id}"  style="display: none; padding:6px;width:170px; height:90px;">`;
+           cell1.innerHTML='<i onclick="removeRow()" class="fas fa-close text-body"></i>';
             newRow.appendChild(cell1);
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
