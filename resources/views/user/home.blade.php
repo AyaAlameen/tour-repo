@@ -625,8 +625,7 @@
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>cost : 40000</span>
-                                <button class="btn btn-primary app-content-headerButton"
-                                    style="float:left; border-radius:3px;">book now</button>
+                                <h6><a class="btn btn-primary"  href="{{route('offer_details-en')}}" style="border-radius:3px;">book now </a></h6>
                             </div>
                         </div>
                     </div>
@@ -739,8 +738,7 @@
                             <div class="position-relative">
                                 <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
                                 <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
+                                    <h6 class="font-weight-bold mb-n1">01 / <i class="text-white text-uppercase">7</i></b>
                                 </div>
                             </div>
                             <div class="bg-white p-4">
@@ -749,7 +747,7 @@
                                     <span class="text-primary px-2">|</span>
                                     <a class="text-primary text-uppercase text-decoration-none" href="">champion chip</a>
                                 </div>
-                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"  href="{{route('event-ar')}}" style="border-radius:3px;">More details for Booking</a></h6>
+                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"  href="{{route('event_details-en')}}" style="border-radius:3px;">More details for Booking</a></h6>
 
                             </div>
                         </div>

@@ -100,6 +100,24 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td><input class="toggle text-primary in" type="number" name="people_count" required
+                                                style="width: 100%;"></th>
+                                        <td>عدد الأشخاص</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="people_count"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="toggle text-primary in" type="number" name="booking_period" required
+                                                style="width: 100%;"></th>
+                                        <td>مدة الحجز</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="booking_period"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>
                                             <label><input type="radio" name="is_additional" value="1"> إضافية</label>
                                             <label><input type="radio" name="is_additional" value="0" checked> غير
@@ -223,6 +241,8 @@
                     <div class="product-cell">المكان</div>
                     <div class="product-cell">وصف</div>
                     <div class="product-cell">الكلفة</div>
+                    <div class="product-cell">عدد الأشخاص</div>
+                    <div class="product-cell">مدة الحجز</div>
                     <div class="product-cell">إضافية؟</div>
                     <div class="product-cell ">الأحداث</div>
 
@@ -396,7 +416,22 @@
                                                                 </td>
                                                                 <td>الكلفة</td>
                                                             </tr>
-
+                                                            <tr>
+                                                               
+                                                                <td><input type="number" name="cost"
+                                                                        class="toggle text-primary in"
+                                                                        value="">
+                                                                </td>
+                                                                <td>عدد الأشخاص</td>
+                                                            </tr>
+                                                             <tr>
+                                                               
+                                                                <td><input type="number" name="cost"
+                                                                        class="toggle text-primary in"
+                                                                        value="">
+                                                                </td>
+                                                                <td>مدة الحجز</td>
+                                                            </tr>
                                                             <tr>
                                                    
                                                                 <td>

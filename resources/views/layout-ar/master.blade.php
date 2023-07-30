@@ -107,6 +107,22 @@
               event.target.href="http://127.0.0.1:8000/trip-ar"
                 
             }
+            if (origin == "http://127.0.0.1:8000/offer-en") {
+              event.target.href="http://127.0.0.1:8000/offer-ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/offer_details-en") {
+              event.target.href="http://127.0.0.1:8000/offer_details-ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/event-en") {
+              event.target.href="http://127.0.0.1:8000/event-ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/event_details-en") {
+              event.target.href="http://127.0.0.1:8000/event_details-ar"
+                
+            }
             if (origin == "http://127.0.0.1:8000/tripmore") {
               event.target.href="http://127.0.0.1:8000/tripmore-ar"
                 
@@ -159,6 +175,22 @@
             }
             if (origin == "http://127.0.0.1:8000/contact-ar") {
                 event.target.href = "http://127.0.0.1:8000/contact-en"
+
+            }
+            if (origin == "http://127.0.0.1:8000/offer-ar") {
+                event.target.href = "http://127.0.0.1:8000/offer-en"
+
+            }
+            if (origin == "http://127.0.0.1:8000/offer_details-ar") {
+                event.target.href = "http://127.0.0.1:8000/offer_details-en"
+
+            }
+            if (origin == "http://127.0.0.1:8000/event-ar") {
+                event.target.href = "http://127.0.0.1:8000/event-en"
+
+            }
+            if (origin == "http://127.0.0.1:8000/event_details-ar") {
+                event.target.href = "http://127.0.0.1:8000/event_details-en"
 
             }
             if (origin == "http://127.0.0.1:8000/transport-ar") {

@@ -65,6 +65,8 @@
                              <a href="{{ route('transport') }}" class="dropdown-item">Transport Companies</a>
                              <a href="{{ route('travelguides') }}" class="dropdown-item">Tourist Guide</a>
                              <a href="{{ route('trips') }}" class="dropdown-item">Trip</a>
+                             <a href="{{ route('offer-en') }}" class="dropdown-item">Offers</a>
+                             <a href="{{ route('event-en') }}" class="dropdown-item">Events</a>
 
                          </div>
                      </div>

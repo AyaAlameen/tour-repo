@@ -644,11 +644,17 @@ pre code {
 
 .row {
   display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    
 }
-
+.testimonial-text{
+  box-shadow: -3px 5px 30px #CCCCCCa0;
+}
 .no-gutters {
   margin-right: 0;
   margin-left: 0;

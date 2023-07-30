@@ -649,14 +649,12 @@
                             <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
                                 maiores modi iure consequuntur
                                 eum vel voluptate excepturi veritatis commodi.
-                                A unde fuga quas voluptates ab sunt blanditiis eaque! rrrrrrrrr rrrrrrrrrrr
-                                rrrrrrrrrrrrrrrrr rrrrrrrrrr rrrrrrrr rrrrrrrrrr rrrr rrrrr rrrrr rrrr rr
+                                A unde fuga quas voluptates ab sunt blanditiis eaque!
                             </p>
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
-                                <button class="btn btn-primary app-content-headerButton"
-                                    style="float:left; border-radius:3px;">احجز الآن</button>
+                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
@@ -676,8 +674,7 @@
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
-                                <button class="btn btn-primary app-content-headerButton"
-                                    style="float:left; border-radius:3px;">احجز الآن</button>
+                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
@@ -696,8 +693,7 @@
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
-                                <button class="btn btn-primary app-content-headerButton"
-                                    style="float:left; border-radius:3px;">احجز الآن</button>
+                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
@@ -717,8 +713,7 @@
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
-                                <button class="btn btn-primary app-content-headerButton"
-                                    style="float:left; border-radius:3px;">احجز الآن</button>
+                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
@@ -739,8 +734,7 @@
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                 <span>الكلفة : 40000</span>
-                                <button class="btn btn-primary app-content-headerButton"
-                                    style="float:left; border-radius:3px;">احجز الآن</button>
+                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
@@ -769,8 +763,7 @@
                             <div class="position-relative">
                                 <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
                                 <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
+                                    <h6 class="font-weight-bold mb-n1">01 / <i class="text-white text-uppercase">7</i></b>
                                 </div>
                             </div>
                             <div class="bg-white p-4">
@@ -779,7 +772,7 @@
                                     <span class="text-primary px-2">|</span>
                                     <a class="text-primary text-uppercase text-decoration-none" href="">كأس العالم</a>
                                 </div>
-                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"  href="{{route('event-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"  href="{{route('event_details-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
 
                             </div>
                         </div>
