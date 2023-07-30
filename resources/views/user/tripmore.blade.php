@@ -7,8 +7,7 @@
             <img src="img/440px-Aleppo_Citadel_02_-_Bastion.jpg" width="100%" height="100%">
             <button
                 style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
-                data-bs-toggle="modal" data-bs-target="#exampleModal">عرض
-                جميع الصور</button>
+                data-bs-toggle="modal" data-bs-target="#exampleModal">View all photos</button>
 
             {{-- picturs modal --}}
 
@@ -18,7 +17,7 @@
                 <div class="modal-dialog " style="max-width: 800px;">
                     <div class="modal-content toggle">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">جميع الصور</h5>
+                            <h5 class="modal-title" id="exampleModal3Label">All photos</h5>
                             <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -94,7 +93,7 @@
             <a>
                 <i class="fas fa-users"></i>
 
-                <span> عدد الأشخاص :</span>
+                <span> People count</span>
             </a>
         </li>
 
@@ -107,7 +106,7 @@
         <li class="sidebar-list-item">
             <a>
                 <i class="fas fa-dolar"></i>
-                <span>السعر بالليرة السوري:</span>
+                <span>The price is in Syrian pounds</span>
             </a>
         </li>
 
@@ -150,34 +149,35 @@
            
             <div class="pt-4">
                 <div class="d-flex " style="justify-content: space-between;">
-                    <h4 class="text-right p-2 pl-2">اسم الكروب</h4>
+                    <h4 class="text-right p-2 pl-2">Group name </h4>
                 </div>
-                <p class="text-right pr-2 pl-2" style="color:#212121">الوصف: سوف ينطلق الكروب في رحلته يوم الأحد من مدينة حلب إلى دمشق و سوف يمر في حماة 
-                و سوف يتوقف لمشاهدت النواعرالجميلة و سوف يتغدا الكروب في مطعم النواعر و
-                 منه سوف نطلق إلى حمص و سوف ننام في حمص </p>
+                <p class="text-left pr-2 pl-2" style="color:#212121">Description : Lorem ipsum dolor sit amet 
+                consectetur adipisicing elit.
+                 Iusto inventore qui beatae similique hic reiciendis numquam minima ducimus eum debitis,
+                 </p>
                     
-                    <h5 class="text-right p-2 pl-2">الدليل السياحي:محمد</h5>
+                    <h5 class="text-left p-2 pl-2">Tourist Guide :mahamad</h5>
                  
-                  <div style="display: flex; align-items: baseline; flex-direction: row-reverse">
+                  <div style="display: flex; align-items: baseline">
                     <i class="fa fa-calendar-alt"></i>
-                    <h5 class="text-right p-2 pl-2">تاريخ البداية:2023\3\3</h5>
+                    <h5 class="text-left p-2 pl-2">Tour Duration : 4 days</h5>
                   </div>
-                     <div style="display: flex; align-items: baseline; flex-direction: row-reverse">
-                    <i class="fa fa-calendar-alt"></i>
-                    <h5 class="text-right p-2 pl-2">تاريخ النهاية:2023\3\3</h5>
+                    
+                  <div style="display: flex; align-items: baseline">
+                    <i class="fas fa-users"></i>
+                    <h5 class="text-left p-2 pl-2">People count : 10</h5>
                   </div>
                    
-                    <h5 class="text-right p-2 pl-2">عدد الأشخاص:10</h5>
                    
             
        
 
                 <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
-                    <h6 class="d-inline ml-4">التكلفة : 60000</h6>
+                    <h6 class="d-inline ml-4">cost : 6000</h6>
                      @isset(Auth::user()->id)
-                    <button class="btn btn-primary ml-4">حجز</button>
+                    <button class="btn btn-primary ml-4">Booking</button>
                     @else
-                    <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
+                    <button onclick="loginBefore()" class="btn btn-primary ml-4">Booking</button>
                     @endisset
                 </div>
             </div>

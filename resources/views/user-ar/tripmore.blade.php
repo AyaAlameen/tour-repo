@@ -152,7 +152,7 @@
                     <h4 class="text-right p-2 pl-2">اسم الكروب</h4>
                 </div>
                 <p class="text-right pr-2 pl-2" style="color:#212121">الوصف: سوف ينطلق الكروب في رحلته يوم الأحد من مدينة حلب إلى دمشق و سوف يمر في حماة 
-                و سوف يتوقف لمشاهدت النواعرالجميلة و سوف يتغدا الكروب في مطعم النواعر و
+                و سوف يتوقف لمشاهدت النواعيرالجميلة و سوف يتغدا الكروب في مطعم النواعير و
                  منه سوف نطلق إلى حمص و سوف ننام في حمص </p>
                     
                     <h5 class="text-right p-2 pl-2">الدليل السياحي:محمد</h5>
@@ -165,8 +165,11 @@
                     <i class="fa fa-calendar-alt"></i>
                     <h5 class="text-right p-2 pl-2">تاريخ النهاية:2023\3\3</h5>
                   </div>
-                   
+                  <div style="display: flex; align-items: baseline; flex-direction: row-reverse">
+                    <i class="fas fa-users"></i>
                     <h5 class="text-right p-2 pl-2">عدد الأشخاص:10</h5>
+                  </div>
+                    
                    
             
        
