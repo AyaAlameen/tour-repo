@@ -44,16 +44,18 @@
                         <div id="success"></div>
                         <form name="sentMessage" id="contactForm" novalidate="novalidate">
                             @csrf
-                            {{-- <div class="form-row mb-4">
+                            @if (Auth::check())
+                            <div class="form-row mb-4">
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" disabled value="اسم المستخدم" />
+                                    <input type="text" class="form-control p-4" id="name" disabled value="{{ Auth::user()->user_name }}" />
                                    
                                 </div>
                               <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" disabled id="email" value="الايميل"/>
+                                    <input type="email" class="form-control p-4" disabled id="email" value="{{ Auth::user()->email }}"/>
                                    
                                 </div>
-                            </div> --}}
+                            </div>
+                            @endif
 
              
 
@@ -93,7 +95,6 @@
             })
             .done(function(data) {
                 removeMessages();
-                $('.close').click();
                 $('.parenttrue').attr("hidden", false);
                 document.getElementById('contactForm').reset();
             })

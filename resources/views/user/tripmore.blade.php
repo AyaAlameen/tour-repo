@@ -173,12 +173,12 @@
        
 
                 <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
-                    <h6 class="d-inline ml-4">cost : 6000</h6>
-                     @isset(Auth::user()->id)
-                    <button class="btn btn-primary ml-4">Booking</button>
-                    @else
-                    <button onclick="loginBefore()" class="btn btn-primary ml-4">Booking</button>
-                    @endisset
+                    <h6 class="d-inline ml-4">التكلفة : 60000</h6>
+                    @isset(Auth::user()->id)
+                            <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">book</button>
+                            @else
+                            <button onclick="loginBefore()" class="btn btn-primary ml-4">book</button>
+                            @endisset
                 </div>
             </div>
 

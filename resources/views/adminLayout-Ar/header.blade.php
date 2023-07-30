@@ -46,8 +46,8 @@
                              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
                      {{-- ticket --}}
                      <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
-                             style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
-                             data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
+                        style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
  <!-- Authentication Links -->
  @guest
  @if (Route::has('login'))
@@ -76,7 +76,9 @@
                          <div class="dropdown-menu border-0 rounded-0 m-0">
                              <a href="{{ route('transport-ar') }}" class="dropdown-item">الشركات النقل</a>
                              <a href="{{ route('travelguides-ar') }}" class="dropdown-item">الدليل السياحي</a>
-                             <a href="single" class="dropdown-item">الرحلات</a>
+                             <a href="{{route('trip-ar')}}" class="dropdown-item">الرحلات</a>
+                             <a href="{{route('offer-ar')}}" class="dropdown-item">العروض</a>
+                                <a href="{{route('event-ar')}}" class="dropdown-item">الفعاليات</a>
 
                          </div>
                      </div>
@@ -86,17 +88,22 @@
                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">سوريا</a>
 
                          <div class="dropdown-menu  border-0 rounded-0 m-0 toggle">
-                             <a href="blog" class="dropdown-item">زيارة سوريا</a>
-                             <a href="blog" class="dropdown-item">المحافظات السورية</a>
-                             <a href="single" class="dropdown-item">فنادق سوريا</a>
-                             <a href="destination" class="dropdown-item">مطاعم سوريا</a>
-                             <a href="guide" class="dropdown-item">أماكن أثرية في سوريا</a>
-                             <a href="guide" class="dropdown-item">جروبات رحلات</a>
-                             <a href="testimonial" class="dropdown-item">صور فوتوغرافية لسوريا</a>
+                            <a href="#Governorates" class="dropdown-item">المحافظات السورية</a>
+                            <a href="#Trips" class="dropdown-item">  رحلات سياحية</a>
+                            <a href="#Offers" class="dropdown-item">العروض</a>
+                            <a href="#Events" class="dropdown-item">الفعاليات</a>
+                            <a href="#Nearby" class="dropdown-item">أقرب إليك</a>
+                            <a href="#Gallery" class="dropdown-item">صور فوتوغرافية لسوريا</a>
                          </div>
                      </div>
                      <a href="{{ route('userhome-ar') }}" class="nav-item nav-link text-primary">الرئيسة</a>
-                     <a href="{{ route('home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
+    
+                    @if (\Auth::check())
+                        @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
+                            <a href="{{ route('home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
+                        @endif
+                    @endif
+                     
 
                  </div>
              </div>
@@ -150,14 +157,14 @@
                                      </button>
                                  </div>
                                  <div class="acc-pic position-relative m-auto">
-                                     <img src="{{asset(Auth::user()->image)}}" alt="Account" class="" width="150px"
+                                     <img src="{{asset(Auth::user()->image)}}" id="edit_previewImage_{{Auth::user()->id}}" alt="Account" class="" width="150px"
                                          height="150px" style="border-radius:50%; margin:auto; margin-block:40px;">
-                                     <input type="file"
-                                         style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
+                                     <input type="file" name="image"  onchange="previewImage(this, 'edit_previewImage_{{Auth::user()->id}}')"
+                                         style="position:absolute;  z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
                                      <span class="position-absolute translate-middle badge rounded-pill mr-3"
-                                         style="left:90%; background-color:var(--navi);top:70%; width:35px; height:35px;">
+                                         style="left:90%; cursor: background-color:var(--navi);top:70%; width:35px; height:35px;">
                                          <i class="fas fa-pen"
-                                             style="color:#fff !important; padding-top:7px; padding-right:7px;">
+                                             style="color:#fff !important; padding-top:7px; padding-right:7px; ">
                                          </i></span>
                                  </div>
                                  <hr class="w-50 m-auto">
@@ -492,7 +499,7 @@
          </div>
          <div class="offcanvas-body">
              {{-- اذا ما اختار اماكن مفضلة لسا --}}
-             <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;" />
+             <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px; opacity: 0.5;" />
              <p class="text-body px-3 text-center mt-4">اختر أماكنك المفضلة</p>
              {{-- اذا اختار أماكن مفضلة  --}}
 
@@ -518,7 +525,7 @@
          </div>
          <div class="offcanvas-body">
              {{-- اذا ما حجز لسا --}}
-             {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px;" />
+             {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px; opacity: 0.5;" />
         <p class="text-body px-3 text-center mt-4">سارع بالحجز في أفضل الأماكن</p> --}}
              {{-- اذا حجز  --}}
 
@@ -569,6 +576,7 @@
      <!-- end tickets -->
 
 
+    
      <!-- alert message false-->
      <div id="popup" class="parent " hidden="true">
          <div class="popup">

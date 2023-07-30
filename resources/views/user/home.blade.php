@@ -55,7 +55,7 @@
                     <div style="box-shadow:#64686c33  3px -3px 6px 0.5px;" class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
                         <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                        <p>A website that specializes in helping you book your hotel, tourist tour, car rental, and tourist information about all the places, regions, and tourist and archaeological attractions in Syria.</p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="img/dam.jpg" alt="">
@@ -118,7 +118,7 @@
 
 
     <!-- Destination Start -->
-    <div class="container-fluid py-2">
+    <div class="container-fluid py-2" id="Governorates">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
@@ -129,7 +129,7 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="destination-item position-relative overflow-hidden mb-2">
                             <img  width="400px" height="250px" src="{{asset(str_replace(app_path(),'',$city -> image))}}" alt="">
-                            <a class="destination-overlay text-white text-decoration-none" href="">
+                            <a class="destination-overlay text-white text-decoration-none" href="{{route('user-city-en')}}">
                                 <h4 class="text-white">{{$city->translations()->where('locale', 'en')->first()->name}} </h4>
                             
                             </a>
@@ -139,7 +139,77 @@
             </div>
         </div>
     </div>
-    <!-- Destination Start -->
+    <!-- Destination end -->
+
+
+    <!-- nearby Start -->
+    <div class="container-fluid bg-nearby py-5" style="margin: 90px 0; height:700px;" id="Nearby">
+        <div class="container py-5 d-flex align-items-center">
+            <div style="flex-wrap:nowrap; width:750px;">
+                <div class="col-lg-7"
+                    style="; margin-right:300px; background-color:#ffffff10; backdrop-filter:blur(15px); padding:50px; border-radius:3px;">
+                    <div class="mb-4">
+                        <h1 class="text-white">See <span class="text-primary"> The Nearest Places </span> For You </h1>
+                    </div>
+                    <p class="text-white">تمتع بأفضل تجربة معنا عن طريق مشاهدة مواقع الأماكن الأقرب إليك و الحصول على
+                        الحجوزات اللازمة بأقرب وقت وأسرع طريقة</p>
+                        <ul class="d-flex text-white m-0 " style="list-style:none; align-items: center;">
+                            <i class="fa fa-check text-primary mr-3 text-success"></i>
+                            <li class="py-2">  قم بتحديد الصنف الذي ترغب بزيارته و من ثم استعرض الأماكن الأقرب إليك على الخريطة </li>
+                           
+                        </ul>
+                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
+                        <input id="hotel" type="radio" name="r">
+                        <label for="hotel" style="font-weight: bold; font-size:25px; color: #fff; margin-left: 10px;">
+                            Hotels
+                        </label>
+                    </div>
+                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
+                        <input id="res" type="radio" name="r">
+                        <label for="res" style="font-weight: bold; font-size:25px; color: #fff; margin-left: 10px;">
+                            Restaurants
+                        </label>
+                    </div>
+                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
+                        <input id="arch" type="radio" name="r">
+                        <label for="arch" style="font-weight: bold; font-size:25px; color: #fff; margin-left: 10px;">
+                            archaeological sites
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+            {{-- الخريطة --}}
+            <div class="d-flex pt-3 bg-light" style="flex-direction: column;  width: 30%; height: 90%;  align-items: center; border-radius: 5px;">
+                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal6"  style="cursor:pointer; border-radius:6px;" src="img/zgj3ryuyqrz-w1920.jpg" width="90%" height="220px">
+            <h3 style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal6" >See on the Map</h3>
+            </div>
+              {{-- map modal --}}
+              <div class="modal fade bg-light" id="exampleModal6" data-bs-backdrop="static"
+              tabindex="-1" aria-labelledby="exampleModal6Label" aria-hidden="true">
+              <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                  <div class="modal-content toggle w-100 h-100">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModal6Label">Nearest Places For You 
+                              </h5>
+                              <button type="button" class="btn-close m-0 close"
+                              data-bs-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <div id="add-map" class="w-100 h-100"></div>
+                      </div>
+                    
+                  </div>
+              </div>
+          </div>
+{{-- end map modal --}}
+            {{-- نهاية الخريطة --}}
+        </div>
+    </div>
+    <!-- nearby End -->
 
 
     <!-- Service Start -->
@@ -167,18 +237,46 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
-                        <h5 class="mb-2">Hotel Booking</h5>
+                        <h5 class="mb-2">Hotel Bookings</h5>
                         <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                        <i class="fas fa-utensils mx-auto mb-4"></i>
+                        <h5 class="mb-2">Restaurant  Bookings</h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                            amet labore</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                        <i class="fa fa-2x fa-landmark mx-auto mb-4"></i>
+                        <h5 class="mb-2">Excursions to archaeological sites </h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                            amet labore</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                        <i class="fa fa-2x fa-car mx-auto mb-4"></i>
+                        <h5 class="mb-2">Transportation insurance </h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                            amet labore</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
     <!-- Service End -->
 
 
-    <!-- Packages Start -->
-    <div class="container-fluid py-2">
+    <!-- trips Start -->
+    <div class="container-fluid py-2" id="Trips">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Packages</h6>
@@ -302,11 +400,11 @@
             </div>
         </div>
     </div>
-    <!-- Packages End -->
+    <!-- trips End -->
 
 
  <!-- Gallery -->
- <div id="projects" class="filterGallery">
+ <div id="Gallery" class="filterGallery">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb-2">
@@ -319,40 +417,40 @@
 
                     <div class="grid">
                         <div class="element-item development">
-                            <a class="popup-with-move-anim" href="#project-1"><div class="element-item-overlay"><span>Online Banking</span></div><img src="../img/8bb93ea296a2f66346711d1612113d4a.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-1"><div class="element-item-overlay"></div><img src="../img/8bb93ea296a2f66346711d1612113d4a.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item development">
-                            <a class="popup-with-move-anim" href="#project-2"><div class="element-item-overlay"><span>Classic Industry</span></div><img src="../img/a072ebd1e062a7b0e9dc1e1d92f768f1.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-2"><div class="element-item-overlay"></div><img src="../img/a072ebd1e062a7b0e9dc1e1d92f768f1.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design development marketing">
-                            <a class="popup-with-move-anim" href="#project-3"><div class="element-item-overlay"><span>BoomBap Audio</span></div><img src="../img/1acbfbbed180ec5ee32543bbf5867530.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-3"><div class="element-item-overlay"></div><img src="../img/1acbfbbed180ec5ee32543bbf5867530.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design development marketing">
-                            <a class="popup-with-move-anim" href="#project-4"><div class="element-item-overlay"><span>Van Moose</span></div><img src="../img/35d697ca091f4aba90c840adbb6f805f.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-4"><div class="element-item-overlay"></div><img src="../img/35d697ca091f4aba90c840adbb6f805f.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design development marketing seo">
-                            <a class="popup-with-move-anim" href="#project-5"><div class="element-item-overlay"><span>Joy Moments</span></div><img src="../img/26164e5a82973fc301a83b20a95b7676.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-5"><div class="element-item-overlay"></div><img src="../img/26164e5a82973fc301a83b20a95b7676.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design marketing seo">
-                            <a class="popup-with-move-anim" href="#project-6"><div class="element-item-overlay"><span>Spark Events</span></div><img src="../img/dfd68a72e216b1044c59840f0514b1ae.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-6"><div class="element-item-overlay"></div><img src="../img/dfd68a72e216b1044c59840f0514b1ae.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design marketing">
-                            <a class="popup-with-move-anim" href="#project-7"><div class="element-item-overlay"><span>Casual Wear</span></div><img src="../img/ada0abf73e807404f7ea9275831d5f93.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-7"><div class="element-item-overlay"></div><img src="../img/ada0abf73e807404f7ea9275831d5f93.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design marketing">
-                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/1f629b3f65809e87b4de552e1a11e9df.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/1f629b3f65809e87b4de552e1a11e9df.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design marketing">
-                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/ae3b92ed9bb301d4f55026dd35fd8bcc.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/ae3b92ed9bb301d4f55026dd35fd8bcc.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design marketing">
-                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/65db68b9ce1dc3cac3fb4de2b272d74a.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/65db68b9ce1dc3cac3fb4de2b272d74a.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design marketing">
-                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/78e7ece2eb10a34ce9f21541978dd3cb.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/78e7ece2eb10a34ce9f21541978dd3cb.jpg" alt="alternative"></a>
                         </div>
                         <div class="element-item design marketing">
-                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="../img/2d342eea70239214700de5be3440efea.jpg" alt="alternative"></a>
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"></div><img src="../img/2d342eea70239214700de5be3440efea.jpg" alt="alternative"></a>
                         </div>
                     </div> <!-- end of grid -->
                    
@@ -472,7 +570,7 @@
 
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="Guids">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guides</h6>
@@ -505,123 +603,159 @@
     <!-- Team End -->
 
 
-    <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h6>
-                <h1>Best of Our Offers</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel">
-                <div class="text-center pb-4">
-                    <img class="img-fluid mx-auto" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
-                    </div>
+        <!-- offers Start -->
+        <div class="container-fluid py-5" id="Offers">
+            <div class="container py-5">
+                <div class="text-center mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase">offers</h6>
+                    <h1>Best of our offers</h1>
                 </div>
-                <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                <div class="owl-carousel testimonial-carousel">
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3">
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
+                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                            <h5 class="text-truncate">اسم العرض</h5>
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                                maiores modi iure consequuntur
+                                eum vel voluptate excepturi veritatis commodi.
+                                A unde fuga quas voluptates ab sunt blanditiis eaque! rrrrrrrrr rrrrrrrrrrr rrrrrrrrrrrrrrrrr rrrrrrrrrr rrrrrrrr rrrrrrrrrr rrrr rrrrr rrrrr rrrr rr
+                            </p>
+
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                                <span>cost : 40000</span>
+                                <h6><a class="btn btn-primary"  href="{{route('offer_details-en')}}" style="border-radius:3px;">book now </a></h6>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                    <!-- نهاية الكارد -->
+
+
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3" >
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
+                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                            <h5 class="text-truncate">اسم العرض</h5>
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                                maiores modi iure consequuntur
+                                eum vel voluptate excepturi veritatis commodi.
+                                A unde fuga quas voluptates ab sunt blanditiis eaque! dghld sdkhusd sdfudfus fsuu </p>
+
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                                <span>cost : 40000</span>
+                                <button class="btn btn-primary app-content-headerButton"
+                                    style="float:left; border-radius:3px;">book now</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-4.jpg" style="width: 100px; height: 100px;" >
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                        </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                    <!-- نهاية الكارد -->
+
+
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3" >
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5"  style="height: 400px;">
+                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                            <h5 class="text-truncate">اسم العرض</h5>
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                                maiores modi iure consequuntur
+                                eum vel voluptate ex </p>
+
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                                <span>cost : 40000</span>
+                                <button class="btn btn-primary app-content-headerButton"
+                                    style="float:left; border-radius:3px;">book now</button>
+                            </div>
+                        </div>
                     </div>
+                    <!-- نهاية الكارد -->
+
+
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3">
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
+                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                            <h5 class="text-truncate">اسم العرض</h5>
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                                maiores modi iure consequuntur
+                                eum vel voluptate excepturi veritatis commodi.
+                                A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
+
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                                <span>cost : 40000</span>
+                                <button class="btn btn-primary app-content-headerButton"
+                                    style="float:left; border-radius:3px;">book now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- نهاية الكارد -->
+
+
+                    <!-- بداية الكارد -->
+                    <div class="text-center pb-4 mb-3" >
+                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
+                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
+                            <h5 class="text-truncate">اسم العرض</h5>
+                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
+                                maiores modi iure consequuntur
+                                eum vel voluptate excepturi veritatis commodi.
+                                A unde fuga quas voluptates ab sunt blanditiis eaque! ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd </p>
+
+                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                                <span>cost : 40000</span>
+                                <button class="btn btn-primary app-content-headerButton"
+                                    style="float:left; border-radius:3px;">book now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- نهاية الكارد -->
+
+
+
+
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Testimonial End -->
+        <!-- offers End -->
 
 
-    <!-- Blog Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Our Blog</h6>
-                <h1>Latest From Our Blog</h1>
-            </div>
-            <div class="row pb-3">
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
-                            <div class="blog-date">
-                                <h6 class="font-weight-bold mb-n1">01</h6>
-                                <small class="text-white text-uppercase">Jan</small>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <div class="d-flex mb-2">
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
-                            </div>
-                            <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
-                        </div>
-                    </div>
+    
+        <!-- events Start -->
+        <div class="container-fluid py-5" id="Events">
+            <div class="container pt-5 pb-3">
+                <div class="text-center mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase">events</h6>
+                    <h1>Best of our events</h1>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/daher.jpg" alt="">
-                            <div class="blog-date">
-                                <h6 class="font-weight-bold mb-n1">01</h6>
-                                <small class="text-white text-uppercase">Jan</small>
+                <div class="row pb-3">
+                    {{-- بداية الكارد --}}
+                    <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                        <div class="blog-item">
+                            <div class="position-relative">
+                                <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
+                                <div class="blog-date">
+                                    <h6 class="font-weight-bold mb-n1">01 / <i class="text-white text-uppercase">7</i></b>
+                                </div>
                             </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <div class="d-flex mb-2">
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                            <div class="bg-white p-4">
+                                <div class="d-flex mb-2">
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">liki cafee</a>
+                                    <span class="text-primary px-2">|</span>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">champion chip</a>
+                                </div>
+                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"  href="{{route('event_details-en')}}" style="border-radius:3px;">More details for Booking</a></h6>
+
                             </div>
-                            <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/blog-3.jpg" alt="">
-                            <div class="blog-date">
-                                <h6 class="font-weight-bold mb-n1">01</h6>
-                                <small class="text-white text-uppercase">Jan</small>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <div class="d-flex mb-2">
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
-                            </div>
-                            <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
-                        </div>
-                    </div>
+       
+           {{-- نهاية الكارد --}}
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Blog End -->
+        <!-- events End -->
 @endsection

@@ -1,32 +1,27 @@
 @extends('layout-En.master')
 @section('content')
-<div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            
-            <div class="row pb-3">
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div class="blog-item" style="width:1000px">
-                        <div class="position-relative">
-                            <img  src="img/blog-1.jpg" alt="" style="width:600px; margin-left: 20%">
-                        </div>
-                        <div class="bg-white p-4" style="width:1000px">
-                            <div class=" mb-2">
-                                <h5 class="text-truncate">Name : magd</h5>
-                                <h6 class="text-truncate">Phone : 0987654321</h6>
-                                <h6 class="text-truncate">Email : magd@gmail.com</h6>
-                                <p class="text-truncate" style="color:#212121"> Translation : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                     I fugit labore culpa exp</p>
-                                <p class="text-truncate" style="color:#212121">Certificates : asdfghjkjhgfdswertyuiolkjhgfd ggfddsh hhsayuau hashggdsdsh bhgsagfsa gfgfsfs </p>
-                                <!-- <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a> -->
-                            </div>
-
-                        </div>
-                    </div>
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3 ">
+            <div class=" m-auto" style=" width:800px ; box-shadow: 0 0 30px #CCCCCC;">
+                <div class="position-relative p-3 d-flex justify-content-center">
+                    <img src="img/blog-1.jpg" alt="" style="width:500px;">
                 </div>
+                
+                    <div class="mb-2 p-3" >
+                        <h5 style="color: var(--navi); margin-bottom: 1rem; text-align: center;" >magd alhasan</h5>
+                        <h6 style=" margin-bottom: 1rem;  text-align: center;" class="text-body"><i class="fas fa-phone"></i> : 0987654321</h6>
+                        <h6 style=" margin-bottom: 1rem;  text-align: center;" class="text-body"><i class="fas fa-envelope"></i> : magd@gmail.com</h6>
+                        <div class=" pl-5 pr-5">
+                            <p style="color: var(--navi);"> Description: Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.I fugit labore culpa exp</p>
+                            <p style="color: var(--navi);">Certificates: asdfghjkjhgsf eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee eeeeeeeeeeefdswertyuiolkjhgfd ggfddsh
+                                hhsayuau hashggdsdsh bhgsagfsa gfgfsfs </p>
+                        </div>
+                        
+                    </div>
+
             </div>
+
         </div>
     </div>
-
-
 @endsection

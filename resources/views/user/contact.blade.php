@@ -31,11 +31,11 @@
                         <form name="sentMessage" id="contactForm" novalidate="novalidate">
                             <div class="form-row">
                                 <div class="control-group col-sm-6 mb-4">
-                                    <input type="text" class="form-control p-4" id="name" disabled value="userName" />
+                                    <input type="text" class="form-control p-4" id="name" disabled value="{{ Auth::user()->user_name }}" />
                             
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" disabled value="Email" />
+                                    <input type="email" class="form-control p-4" id="email" disabled value="{{ Auth::user()->email }}" />
                                    
                                 </div>
                             </div>

@@ -86,8 +86,8 @@
     
                        <tr>
                        <td>الصورة </td>
-                       <td ><input type="file" name="image" id="img"> 
-                            <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$city -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
+                       <td ><input type="file" name="image" id="img{{$city->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$city->id}}')">
+                            <label for="img{{$city->id}}" ><img id="edit_previewImage_{{$city->id}}" src="{{ asset(str_replace(app_path(),'',$city -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label></td>      
                             
                        </tr>  
       
@@ -198,9 +198,9 @@
     
                        <tr>
                        <td>الصورة </td>
-                       <td ><input type="file" name="image" id="img"> 
-                            <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$city -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
-                            
+                       <td ><input type="file" name="image" id="img{{$city->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$city->id}}')">
+                        <label for="img{{$city->id}}" ><img id="edit_previewImage_{{$city->id}}" src="{{ asset(str_replace(app_path(),'',$city -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label></td>      
+                        
                        </tr>  
       
                                </table>

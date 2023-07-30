@@ -5,7 +5,7 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">المسا</span>فر</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+                <p>موقع المسافر يقدم أفضل الخدمات شارك, معنا تجربتك وكن من المستفيدين, لا تفوت فرصة زيارة سوريا</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3">تابعنا على</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square ml-2" href="#"><i class="fab fa-twitter"></i></a>

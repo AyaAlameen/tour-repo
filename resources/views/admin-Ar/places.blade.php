@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:51.5%;">
+        <div class="app-content-header" style="width:45.5%;">
             <h1 class="app-content-headerText">الأماكن</h1>
 
             <!-- add -->
@@ -305,7 +305,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:52%;">
+        <div class="app-content-actions" style="width:46%;">
             <input class="search-bar" placeholder="...ابحث" type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -394,7 +394,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:52%;">
+        <div class="scroll-class" style="width:47%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
                     <div class="product-cell">#</div>
@@ -425,7 +425,7 @@
                                 <span>{{ $place->translations()->where('locale', 'ar')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>دمشق</span>
+                                <span>{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
                                 <span> {{ $place->district->translations()->where('locale', 'ar')->first()->name }}</span>
@@ -437,11 +437,11 @@
                                 <span>{{ $place->translations()->where('locale', 'ar')->first()->description }}</span>
                             </div>
                             {{-- عرض الموقع --}}
-                            <div class="product-cell">
+                            <div class="product-cell" style="cursor: pointer;">
                                 <span><img
                                         onclick="showGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }})"
                                         data-toggle="modal" data-target="#exampleModal8" title="Delete"
-                                        data-toggle="tooltip" src="img/syria.png"
+                                        data-toggle="tooltip" src="img/syria.png" id="show_location_img"
                                         style="width: 35px; height: 35px;"></span>
                             </div>
                             {{-- نهاية عرض الموقع --}}
@@ -467,10 +467,12 @@
                                 <div class="p-3">
 
                                     <!-- edit -->
-                                    <a href="#" class="edit p-2" data-toggle="modal" data-target="#exampleModal"
-                                        title="Edit"><i class="fas fa-pen"></i></a>
+                                    <a href="#" class="edit p-2" data-toggle="modal"
+                                        data-target="#editPlace{{ $place->id }}" title="Edit"><i
+                                            class="fas fa-pen"></i></a>
                                     <!-- Modal -->
-                                    <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
+                                    <div class="modal fade" style="overflow-y: auto !important;" data-backdrop="static"
+                                        id="editPlace{{ $place->id }}" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="direction:ltr;">
@@ -487,96 +489,171 @@
                                                         <tr>
                                                             <td></td>
                                                             <td><input type="text" class="toggle text-primary in"
-                                                                    name="place_name" required style="width: 100%;">
+                                                                    name="name_ar" required style="width: 100%;"
+                                                                    value="{{ $place->translations()->where('locale', 'ar')->first()->name }}">
                                                                 </th>
                                                             <td>الاسم(العربية)</td>
                                                         </tr>
                                                         <tr>
                                                             <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="name_ar_error_edit"></span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
                                                             <td><input type="text" class="toggle text-primary in"
-                                                                    name="place_name" required style="width: 100%;">
+                                                                    name="name_en" required style="width: 100%;"
+                                                                    value="{{ $place->translations()->where('locale', 'en')->first()->name }}">
                                                                 </th>
                                                             <td>(الانكليزية)الاسم </td>
                                                         </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="name_en_error_edit"></span></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>
+
+                                                                <div class="dropdown toggle text-primary in"
+                                                                    style="display:inline-block; ;">
+
+                                                                    <label class="dropdown-toggle" type="button"
+                                                                        id="dropdownMenuButtonEdit{{ $place->id }}"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+
+                                                                    </label>
+
+                                                                    <span
+                                                                        id="city-name-{{ $place->id }}">{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
+                                                                        @foreach ($cities as $city)
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($city->id == $place->district->city_id) color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                value="{{ $city->id }}"
+                                                                                id="edit_city_{{ $place->id }}_{{ $city->id }}"
+                                                                                onclick="setEditCity({{ $city->id }}, {{ $place->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'edit_city_{{ $place->id }}_{{ $city->id }}'), filterEditDistricts({{ $city->id }}, {{ $place->id }})"
+                                                                                href="#">
+                                                                                {{ $city->translations()->where('locale', 'ar')->first()->name }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                        <input type="text"
+                                                                            id="edit_city_id_{{ $place->id }}"
+                                                                            name="city_id"
+                                                                            value="{{ $place->district->city_id }}"
+                                                                            hidden>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>المحافظة</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="city_error_edit"></span></td>
+                                                        </tr>
 
                                                         <tr>
                                                             <td></td>
                                                             <td>
                                                                 <div class="dropdown toggle text-primary in"
                                                                     style="display:inline-block; ;">
+
                                                                     <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                                        aria-expanded="false">
-                                                                        حلب
+                                                                        id="dropdownMenuButtonEdit{{ $place->id }}"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+
                                                                     </label>
+                                                                    <span
+                                                                        id="district-name-{{ $place->id }}">{{ $place->district->translations()->where('locale', 'ar')->first()->name }}</span>
                                                                     <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">---</a>
-                                                                        <a class="dropdown-item" href="#">----</a>
+                                                                        aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
+                                                                        @foreach ($districts as $district)
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($district->id == $place->district_id) color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item edit_district_filter_option edit_district_city_{{ $district->city->id }}"
+                                                                                value="{{ $district->id }}"
+                                                                                id="edit_district_{{ $place->id }}_{{ $district->id }}"
+                                                                                onclick="setEditDistrict({{ $district->id }}, {{ $place->id }}, '{{ $district->translations()->where('locale', 'ar')->first()->name }}', 'edit_district_{{ $place->id }}_{{ $district->id }}')"
+                                                                                href="#">
+                                                                                {{ $district->translations()->where('locale', 'ar')->first()->name }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                        <input type="text"
+                                                                            id="edit_district_id_{{ $place->id }}"
+                                                                            name="district_id"
+                                                                            value="{{ $place->district_id }}" hidden>
 
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td>المدينة </td>
+                                                            <td>الناحية</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="district_error_edit"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td></td>
                                                             <td>
                                                                 <div class="dropdown toggle text-primary in"
                                                                     style="display:inline-block; ;">
+
                                                                     <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                                        aria-expanded="false">
-                                                                        ---
+                                                                        id="dropdownMenuButtonEdit{{ $place->id }}"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+
                                                                     </label>
+                                                                    <span
+                                                                        id="sub-cat-name-{{ $place->id }}">{{ $place->subCategory->translations()->where('locale', 'ar')->first()->name }}</span>
                                                                     <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">---</a>
-                                                                        <a class="dropdown-item" href="#">----</a>
+                                                                        aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
+                                                                        @foreach ($sub_categories as $sub_category)
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($sub_category->id == $place->sub_category_id) color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                value="{{ $sub_category->id }}"
+                                                                                id="edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}"
+                                                                                onclick="setEditSubCategory({{ $sub_category->id }}, {{ $place->id }}, '{{ $sub_category->translations()->where('locale', 'ar')->first()->name }}', 'edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}')"
+                                                                                href="#">
+                                                                                {{ $sub_category->translations()->where('locale', 'ar')->first()->name }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                        <input type="text"
+                                                                            id="edit_sub_category_id_{{ $place->id }}"
+                                                                            name="sub_category_id"
+                                                                            value="{{ $place->sub_category_id }}" hidden>
 
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td>الناحية </td>
+                                                            <td>الصنف الفرعي</td>
                                                         </tr>
                                                         <tr>
                                                             <td></td>
-                                                            <td>
-                                                                <div class="dropdown toggle text-primary in"
-                                                                    style="display:inline-block; ;">
-                                                                    <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                                        aria-expanded="false">
-                                                                        ---
-                                                                    </label>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">---</a>
-                                                                        <a class="dropdown-item" href="#">----</a>
-
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>الصنف الفرعي </td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="sub_cat_error_edit"></span></td>
                                                         </tr>
 
                                                         <tr>
                                                             <td></td>
                                                             <td><input class="toggle text-primary in" type="text"
-                                                                    name="place-description" required
-                                                                    style="width: 100%;"></th>
+                                                                    name="description_ar" required
+                                                                    value="{{ $place->translations()->where('locale', 'ar')->first()->description }}"
+                                                                    style="width: 100%;"></td>
                                                             <td>وصف(العربية)</td>
                                                         </tr>
                                                         <tr>
                                                             <td></td>
                                                             <td><input class="toggle text-primary in" type="text"
-                                                                    name="place-description" required
+                                                                    name="description_en" required
+                                                                    value="{{ $place->translations()->where('locale', 'en')->first()->description }}"
                                                                     style="width: 100%;"></th>
                                                             <td>(الانكليزية)وصف</td>
                                                         </tr>
@@ -584,65 +661,110 @@
 
                                                             <td></td>
                                                             <td><input type="email" class="toggle text-primary in"
-                                                                    value="@gmail.com">
+                                                                    name="email" value="{{ $place->email }}">
                                                             </td>
                                                             <td>الايميل</td>
 
                                                         </tr>
                                                         <tr>
                                                             <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="email_error_edit"></span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
                                                             <td><input type="number" class="toggle text-primary in"
-                                                                    value="09123456789">
+                                                                    name="phone" value="{{ $place->phone }}">
                                                             </td>
                                                             <td>الهاتف</td>
                                                         </tr>
                                                         <tr>
                                                             <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="phone_error_edit"></span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
                                                             <td><input type="number" class="toggle text-primary in"
-                                                                    value="100000">
+                                                                    name="cost" value="{{ $place->cost }}">
                                                             </td>
                                                             <td>الكلفة</td>
                                                         </tr>
                                                         <tr>
                                                             <td></td>
-                                                            <td><input type="number" class="toggle text-primary in"
-                                                                    value="10">
-                                                            </td>
-                                                            <td>نسبة الأرباح الداخلية</td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="cost_error_edit"></span></td>
                                                         </tr>
+
                                                         <tr>
                                                             <td></td>
                                                             <td><input type="number" class="toggle text-primary in"
-                                                                    value="5">
+                                                                    name="profit_ratio_1"
+                                                                    value="{{ $place->profit_ratio_1 }}">
                                                             </td>
                                                             <td>نسبة الأرباح الخارجية</td>
                                                         </tr>
                                                         <tr>
                                                             <td></td>
-                                                            <td class="text-center"><img class="m-3"
-                                                                    data-bs-toggle="modal" id="editmapimg"
-                                                                    data-bs-target="#exampleModal9"
-                                                                    style="cursor:pointer; border-radius:6px;"
-                                                                    src="img/sy.jpg" width="150px" height="70px"></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="profit_ratio_1_error_edit"></span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td><input type="number" class="toggle text-primary in"
+                                                                    name="profit_ratio_2"
+                                                                    value="{{ $place->profit_ratio_2 }}">
+                                                            </td>
+                                                            <td>نسبة الأرباح الداخلية</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="profit_ratio_2_error_edit"></span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td class="text-center"><img
+                                                                    onclick="setEditGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }}, {{ $place->id }})"
+                                                                    class="m-3" data-toggle="modal"
+                                                                    id="edit_location_img" data-target="#exampleModal9"
+                                                                    style="cursor:pointer; border-radius:6px; width:150px; height:70px"
+                                                                    src="img/sy.jpg"></td>
                                                             <td>الموقع</td>
+                                                            <input type="hidden" name="geolocation"
+                                                                id="coordinates_{{ $place->id }}"
+                                                                value="{{ $place->geolocation }}">
 
 
                                                         </tr>
                                                         <tr>
-
-                                                            <td style="width:25px; text-align:center;">
+                                                            <td></td>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="geolocation_error_edit"></span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td onclick="removePic()"><i
+                                                                    class="fas fa-close text-body"></i></td>
+                                                            <td class="d-flex align-items-center" style="justify-content: space-between;">
+                                                                <i class="fas fa-plus text-body"
+                                                                    style="text-align: center; font-size:15px;  cursor:pointer;" onclick="editPic()"
+                                                                    id="edit-pic-input" data-picid="1"
+                                                                    title="Add Another Picture"></i>                           
+                                                                <input type="file" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;" hidden disabled myid="first_input_edit"  onchange="previewImage(this, 'first_pic_edit')">    
+                                                                           {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
+                                                                <img src="img/sy.jpg" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px" id="first_pic_edit">
                                                             </td>
+                                                            <td>الصور</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i onclick="removeRow()"
+                                                                    class="fas fa-close text-body pl-1"></i></td>
+                                                           
                                                             <td>
-                                                                <i class="fas fa-plus text-body" onclick="editPic()"
-                                                                    id="edit_pic_input" data-picid="1"
-                                                                    style="font-size:15px; text-align: center; padding-right:80px; line-height: 1.5; cursor:pointer;"
-                                                                    title="Add Another Picture"></i>
-                                                                <input type="file" hidden id="img">
-                                                                <label for="img"><img src="img/about-1.jpg"
-                                                                        style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;">
-                                                                </label>
+                                                                 {{-- عرضي هون بقية الصور بحلقة فور   --}}
+                                                                <img src="img/sy.jpg" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px">
                                                             </td>
-                                                            <td>الصور </td>
+                                                            <td></td>
                                                         </tr>
                                                     </table>
 
@@ -686,247 +808,248 @@
                                     </div>
                                 </div>
                                 <!-- end delete -->
+                            </div>
+
+                            <!-- end action -->
 
 
-                                <!-- end action -->
+                        </div>
+                    @endforeach
 
+                    {{-- مودل عرض الخريطة بالجدول --}}
+
+                    <!-- Modal -->
+
+                    <div class="modal fade bg-light" id="exampleModal8" data-bs-backdrop="static" tabindex="-1"
+                        aria-labelledby="exampleModal8Label" aria-hidden="true">
+                        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                            <div class="modal-content toggle w-100 h-100">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal8')"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="show-map" class="w-100 h-100"></div>
+                                </div>
 
                             </div>
-                    @endforeach
-                
-    {{-- مودل عرض الخريطة بالجدول --}}
-
-    <!-- Modal -->
-
-    <div class="modal fade bg-light" id="exampleModal8" data-bs-backdrop="static" tabindex="-1"
-        aria-labelledby="exampleModal8Label" aria-hidden="true">
-        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
-            <div class="modal-content toggle w-100 h-100">
-                <div class="modal-header">
-                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal8')"
-                        aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div id="show-map" class="w-100 h-100"></div>
-                </div>
-               
-            </div>
-        </div>
-    </div>
-    {{-- نهاية مودل عرض الخريطة بالجدول --}}
+                        </div>
+                    </div>
+                    {{-- نهاية مودل عرض الخريطة بالجدول --}}
 
 
 
 
-    {{-- مودل تعديل الخريطة --}}
-    <div class="modal fade bg-light" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModal9Label"
-        aria-hidden="true">
-        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
-            <div class="modal-content toggle w-100 h-100">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
-                        الخريطة</h5>
-                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
-                        aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{-- الخريطة --}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="action-button active" onclick="hidemap('exampleModal9')">إغلاق</button>
-                    <button type="button" id="save-map-btn-edit" onclick="spinner()"
-                        class="app-content-headerButton">حفظ</button>
+                    {{-- مودل تعديل الخريطة --}}
+                    <div class="modal fade p-0" id="exampleModal9" tabindex="-2" aria-labelledby="exampleModal9Label"
+                        aria-hidden="true">
+                        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                            <div class="modal-content toggle w-100 h-100">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
+                                        الخريطة</h5>
+                                    <button type="button" class="btn-close m-0 close"
+                                        onclick="hidemap('exampleModal9')">
+                                        <span>&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {{-- الخريطة --}}
+                                    <div id="show-edit-map" class="w-100 h-100"></div>
+                                </div>
+                                <div class="modal-footer" style="direction: ltr;">
+                                    <button type="button" class="action-button active close"
+                                        onclick="hidemap('exampleModal9')">إغلاق</button>
+                                    <button type="button" id="save-map-btn-edit" onclick="spinner()"
+                                        class="app-content-headerButton">حفظ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- نهاية مودل تعديل الخريطة --}}
                 </div>
             </div>
+
         </div>
     </div>
-    {{-- نهاية مودل تعديل الخريطة --}}
-    </div>
-</div>
 
-    </div>
+
     </div>
 
 
-</div>
+    </div>
+@endsection
 
 
-</div>
+<script>
+    function addPlace(formId) {
+        $("#add-place-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-form'));
+        $.ajax({
+                url: "{{ route('addPlaceAr') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#places-data").empty();
+                $("#places-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                document.getElementById(formId).reset();
 
 
-    @endsection
+            })
+            .fail(function(data) {
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                removeMessages();
+
+                if (data.responseJSON.errors.name_ar) {
+                    document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors
+                        .name_ar[0];
+                }
+
+                if (data.responseJSON.errors.name_en) {
+                    document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors
+                        .name_en[0];
+                }
 
 
-    <script>
-        function addPlace(formId) {
-            $("#add-place-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-            var formData = new FormData(document.getElementById('add-form'));
-            $.ajax({
-                    url: "{{ route('addPlaceAr') }}",
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    cache: false,
-                    contentType: false,
-                })
-                .done(function(data) {
-                    $("#places-data").empty();
-                    $("#places-data").append(data);
-                    $('.close').click();
-                    $('.parenttrue').attr("hidden", false);
-                    // clearInput();
-                    document.getElementById(formId).reset();
+                if (data.responseJSON.errors.city_id) {
+                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors.city_id[
+                        0];
+                }
 
+                if (data.responseJSON.errors.district_id) {
+                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
+                        .district_id[0];
+                }
 
-                })
-                .fail(function(data) {
-                    // $('.close').click();
-                    // $('.parent').attr("hidden", false);
-                    removeMessages();
+                if (data.responseJSON.errors.sub_category_id) {
+                    document.querySelector(`#${formId} #sub_category_error`).innerHTML = data.responseJSON.errors
+                        .sub_category_id[0];
+                }
 
-                    if (data.responseJSON.errors.name_ar) {
-                        document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors
-                            .name_ar[0];
-                    }
+                if (data.responseJSON.errors.email) {
+                    document.querySelector(`#${formId} #email_error`).innerHTML = data.responseJSON.errors.email[0];
+                }
 
-                    if (data.responseJSON.errors.name_en) {
-                        document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors
-                            .name_en[0];
-                    }
+                if (data.responseJSON.errors.phone) {
+                    document.querySelector(`#${formId} #phone_error`).innerHTML = data.responseJSON.errors.phone[0];
+                }
 
+                if (data.responseJSON.errors.cost) {
+                    document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
+                }
 
-                    if (data.responseJSON.errors.city_id) {
-                        document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors.city_id[
-                            0];
-                    }
+                if (data.responseJSON.errors.profit_ratio_1) {
+                    document.querySelector(`#${formId} #profit_ratio_1_error`).innerHTML = data.responseJSON.errors
+                        .profit_ratio_1[0];
+                }
 
-                    if (data.responseJSON.errors.district_id) {
-                        document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
-                            .district_id[0];
-                    }
+                if (data.responseJSON.errors.profit_ratio_2) {
+                    document.querySelector(`#${formId} #profit_ratio_2_error`).innerHTML = data.responseJSON.errors
+                        .profit_ratio_2[0];
+                }
 
-                    if (data.responseJSON.errors.sub_category_id) {
-                        document.querySelector(`#${formId} #sub_category_error`).innerHTML = data.responseJSON.errors
-                            .sub_category_id[0];
-                    }
+                if (data.responseJSON.errors.geolocation) {
+                    document.querySelector(`#${formId} #geolocation_error`).innerHTML = data.responseJSON.errors
+                        .geolocation[0];
+                }
 
-                    if (data.responseJSON.errors.email) {
-                        document.querySelector(`#${formId} #email_error`).innerHTML = data.responseJSON.errors.email[0];
-                    }
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-place-btn").attr("disabled", false).html('حفظ');
+            });
+    }
+    //----------------------------------------------------------
 
-                    if (data.responseJSON.errors.phone) {
-                        document.querySelector(`#${formId} #phone_error`).innerHTML = data.responseJSON.errors.phone[0];
-                    }
+    function editCategory(formId, id) {
 
-                    if (data.responseJSON.errors.cost) {
-                        document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
-                    }
+        $("#edit-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        $.ajax({
+                url: `{{ route('editCategoryAr') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
 
-                    if (data.responseJSON.errors.profit_ratio_1) {
-                        document.querySelector(`#${formId} #profit_ratio_1_error`).innerHTML = data.responseJSON.errors
-                            .profit_ratio_1[0];
-                    }
+                $("#categories-data").empty();
+                $("#categories-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function(data) {
+                removeMessages();
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                if (data.responseJSON.errors.name_ar) {
+                    document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors
+                        .name_ar[0];
 
-                    if (data.responseJSON.errors.profit_ratio_2) {
-                        document.querySelector(`#${formId} #profit_ratio_2_error`).innerHTML = data.responseJSON.errors
-                            .profit_ratio_2[0];
-                    }
+                }
+                if (data.responseJSON.errors.name_en) {
+                    console.log(document.querySelector(`#${formId} .name_en_error_edit`));
 
-                    if (data.responseJSON.errors.geolocation) {
-                        document.querySelector(`#${formId} #geolocation_error`).innerHTML = data.responseJSON.errors
-                            .geolocation[0];
-                    }
+                    document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors
+                        .name_en[0];
 
-                })
-                .always(function() {
-                    // Re-enable the submit button and hide the loading spinner
-                    $("#add-place-btn").attr("disabled", false).html('حفظ');
-                });
-        }
-        //----------------------------------------------------------
+                }
 
-        function editCategory(formId, id) {
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#edit-category-btn-" + id).attr("disabled", false).html('حفظ');
+            });
+    }
 
-            $("#edit-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-            var formData = new FormData(document.getElementById(formId));
-            formData.append('id', id);
-            $.ajax({
-                    url: `{{ route('editCategoryAr') }}`,
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    cache: false,
-                    contentType: false,
-                })
-                .done(function(data) {
+    //---------------------------------------------------------------
+    function deleteCategory(formId, id) {
+        $("#delete-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
-                    $("#categories-data").empty();
-                    $("#categories-data").append(data);
-                    $('.close').click();
-                    $('.parenttrue').attr("hidden", false);
-                    // clearInput();
-                })
-                .fail(function(data) {
-                    removeMessages();
-                    // $('.close').click();
-                    // $('.parent').attr("hidden", false);
-                    if (data.responseJSON.errors.name_ar) {
-                        document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors
-                            .name_ar[0];
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+                url: `{{ route('deleteCategoryAr') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#categories-data").empty();
+                $("#categories-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function() {
+                $('.close').click();
+                $('.parent').attr("hidden", false);
 
-                    }
-                    if (data.responseJSON.errors.name_en) {
-                        console.log(document.querySelector(`#${formId} .name_en_error_edit`));
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#delete-category-btn-" + id).attr("disabled", false).html('نعم');
+            });
+    }
 
-                        document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors
-                            .name_en[0];
-
-                    }
-
-                })
-                .always(function() {
-                    // Re-enable the submit button and hide the loading spinner
-                    $("#edit-category-btn-" + id).attr("disabled", false).html('حفظ');
-                });
-        }
-
-        //---------------------------------------------------------------
-        function deleteCategory(formId, id) {
-            $("#delete-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-
-            var formData = new FormData(document.getElementById(formId));
-            $.ajax({
-                    url: `{{ route('deleteCategoryAr') }}`,
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    cache: false,
-                    contentType: false,
-                })
-                .done(function(data) {
-                    $("#categories-data").empty();
-                    $("#categories-data").append(data);
-                    $('.close').click();
-                    $('.parenttrue').attr("hidden", false);
-                    // clearInput();
-                })
-                .fail(function() {
-                    $('.close').click();
-                    $('.parent').attr("hidden", false);
-
-                })
-                .always(function() {
-                    // Re-enable the submit button and hide the loading spinner
-                    $("#delete-category-btn-" + id).attr("disabled", false).html('نعم');
-                });
-        }
-
-        //---------------------------------------------------------------
-        {{-- // window.onload = (event) => {
+    //---------------------------------------------------------------
+    {{-- // window.onload = (event) => {
     //     $.ajax({
     //             url: "{{ route('getPlacesAr') }}",
     //             type: "GET",
@@ -944,173 +1067,223 @@
     //         });
     // }; 
     --}}
-        //--------------------------------------------------------
+    //--------------------------------------------------------
 
-        function searchFunction() {
-            // Declare variables
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("search");
-            filter = input.value;
-            table = document.getElementById("categoriesTable");
-            // tr = table.getElementsByTagName("tr");
-            tr = table.getElementsByClassName("products-row");
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByClassName("search-value");
+    function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value;
+        table = document.getElementById("categoriesTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
 
-                if (td) {
-                    txtValue = td[0].textContent || td[0].innerText;
-                    if (txtValue) {
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                if (txtValue) {
 
-                        if (txtValue.indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
                     }
                 }
             }
         }
+    }
 
-        //----------------------------------------------
-        function removeMessages() {
-            // document.getElementById('name_ar_error').innerHTML = '';
-            // document.getElementById('name_en_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
-            // document.getElementById('city_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
-            // document.getElementById('image_error').innerHTML = '';
+    //----------------------------------------------
+    function removeMessages() {
+        // document.getElementById('name_ar_error').innerHTML = '';
+        // document.getElementById('name_en_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('city_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
+        // document.getElementById('image_error').innerHTML = '';
 
-            // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-            // name_ar.forEach(name => {
-            //     name.innerHTML = '';
-            // });
+        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        // name_ar.forEach(name => {
+        //     name.innerHTML = '';
+        // });
 
-            // const name_en = document.querySelectorAll('.name_en_error_edit');
-            // name_en.forEach(name => {
-            //     name.innerHTML = '';
-            // });
+        // const name_en = document.querySelectorAll('.name_en_error_edit');
+        // name_en.forEach(name => {
+        //     name.innerHTML = '';
+        // });
 
-            // const images = document.querySelectorAll('.image_error_edit');
-            // images.forEach(image => {
-            //     image.innerHTML = '';
-            // });
-        }
-        //--------------------------------------------
-        function setCity(city_id, city, option_id) {
-            var cities_options = document.querySelectorAll('[id^="city_"]');
-            cities_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        // const images = document.querySelectorAll('.image_error_edit');
+        // images.forEach(image => {
+        //     image.innerHTML = '';
+        // });
+    }
+    //--------------------------------------------
+    function setCity(city_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="city_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('city-name').innerHTML = city;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('city_id').value = `${city_id}`;
-        }
-        //--------------------------------------------
-        function setEditCity(city_id, transportation_id, city, option_id) {
-            var cities_options = document.querySelectorAll('[id^="edit_city_"]');
-            cities_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('city-name').innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('city_id').value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setEditCity(city_id, place_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="edit_city_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('city-name-' + transportation_id).innerHTML = city;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('edit_city_id_' + transportation_id).value = `${city_id}`;
-        }
-        //--------------------------------------------
-        function setDistrict(district_id, district, option_id) {
-            var districts_options = document.querySelectorAll('[id^="district_"]');
-            districts_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('city-name-' + place_id).innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_city_id_' + place_id).value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setDistrict(district_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('district-name').innerHTML = district;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('district_id').value = `${district_id}`;
-        }
-        //--------------------------------------------
-        function setEditDistrict(district_id, place_id, district, option_id) {
-            var districts_options = document.querySelectorAll('[id^="edit_district_"]');
-            districts_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('district-name').innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('district_id').value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function setEditDistrict(district_id, place_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="edit_district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-            document.getElementById('district-name-' + place_id).innerHTML = district;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
-        }
-        //--------------------------------------------
-        function filterDistricts(city_id) {
-            var districts = document.querySelectorAll(`.district_filter_option`);
-            var city_districts = document.querySelectorAll(`.district_city_${city_id}`);
+        });
+        document.getElementById('district-name-' + place_id).innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function filterDistricts(city_id) {
+        var districts = document.querySelectorAll(`.district_filter_option`);
+        var city_districts = document.querySelectorAll(`.district_city_${city_id}`);
 
-            districts.forEach(district => {
-                district.setAttribute("hidden", true);
+        districts.forEach(district => {
+            district.setAttribute("hidden", true);
 
-            });
-            city_districts.forEach(district => {
-                district.removeAttribute("hidden");
+        });
+        city_districts.forEach(district => {
+            district.removeAttribute("hidden");
 
-            });
-            document.getElementById('district_id').value = "";
-            document.getElementById('district-name').innerHTML = '';
-            var districts_options = document.querySelectorAll('[id^="district_"]');
-            districts_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+        document.getElementById('district_id').value = "";
+        document.getElementById('district-name').innerHTML = '';
+        var districts_options = document.querySelectorAll('[id^="district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            });
-        }
-        //--------------------------------------------
-        function setSubCategory(sub_id, sub, option_id) {
-            var subs_options = document.querySelectorAll('[id^="sub_category_"]');
-            subs_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        });
+    }
+    //--------------------------------------------
+    function filterEditDistricts(city_id, place_id) {
+        var districts = document.querySelectorAll(`.edit_district_filter_option`);
+        var city_districts = document.querySelectorAll(`.edit_district_city_${city_id}`);
 
-            });
-            document.getElementById('sub-cat-name').innerHTML = sub;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('sub_category_id').value = `${sub_id}`;
-        }
-        //--------------------------------------------
-        function setEditSubCategory(district_id, place_id, district, option_id) {
-            var districts_options = document.querySelectorAll('[id^="edit_district_"]');
-            districts_options.forEach(option => {
-                option.style.setProperty("color", "#1f1c2e", "important");
+        districts.forEach(district => {
+            district.setAttribute("hidden", true);
 
-            });
-            document.getElementById('district-name-' + place_id).innerHTML = district;
-            document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
-            document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
-        }
-        //--------------------------------------------
-        function showGeolocation(lat, lng) {
-            // iterate over the map's layers
-            show_map.eachLayer(function(layer) {
-                // check if the layer is a marker
-                if (layer instanceof L.Marker) {
-                    // remove the marker from the map
-                    show_map.removeLayer(layer);
-                }
-            });
-            var geolocation = [lat, lng];
+        });
+        city_districts.forEach(district => {
+            district.removeAttribute("hidden");
 
-            var marker_icon = L.icon({
-                iconUrl: '{{ asset('img/marker.svg') }}',
-                iconSize: [25, 41],
-                iconAnchor: [12, 41],
-                popupAnchor: [1, -34],
-            });
+        });
+        document.getElementById(`edit_district_id_${place_id}`).value = "";
+        document.getElementById(`district-name-${place_id}`).innerHTML = '';
+        // var districts_options = document.querySelectorAll('[id^="district_"]');
+        districts.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            // add a marker to the map
-            var marker_map = L.marker([0, 0], {
-                icon: marker_icon
-            });
+        });
+    }
+    //--------------------------------------------
+    function setSubCategory(sub_id, sub, option_id) {
+        var subs_options = document.querySelectorAll('[id^="sub_category_"]');
+        subs_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
 
-            marker_map.addTo(show_map);
-            marker_map.setLatLng(geolocation); // move the marker to the clicked location
-        }
-        //--------------------------------------------
-    </script>
+        });
+        document.getElementById('sub-cat-name').innerHTML = sub;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('sub_category_id').value = `${sub_id}`;
+    }
+    //--------------------------------------------
+    function setEditSubCategory(sub_category_id, place_id, sub_category, option_id) {
+        var sub_categories_options = document.querySelectorAll('[id^="edit_sub_category_"]');
+        sub_categories_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('sub-cat-name-' + place_id).innerHTML = sub_category;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_sub_category_id_' + place_id).value = `${sub_category_id}`;
+    }
+    //--------------------------------------------
+    function showGeolocation(lat, lng) {
+        // iterate over the map's layers
+        show_map.eachLayer(function(layer) {
+            // check if the layer is a marker
+            if (layer instanceof L.Marker) {
+                // remove the marker from the map
+                show_map.removeLayer(layer);
+            }
+        });
+        var geolocation = [lat, lng];
+
+        var marker_icon = L.icon({
+            iconUrl: '{{ asset('img/marker.svg') }}',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+        });
+
+        // add a marker to the map
+        var marker_map = L.marker([0, 0], {
+            icon: marker_icon
+        });
+
+        marker_map.addTo(show_map);
+        marker_map.setLatLng(geolocation); // move the marker to the clicked location
+    }
+    //--------------------------------------------
+
+    function setEditGeolocation(lat, lng, place_id) {
+        console.log('hhhh')
+        // iterate over the map's layers
+        show_edit_map.eachLayer(function(layer) {
+            // check if the layer is a marker
+            if (layer instanceof L.Marker) {
+                // remove the marker from the map
+                show_edit_map.removeLayer(layer);
+            }
+        });
+        var geolocation = [lat, lng];
+
+        var marker_icon = L.icon({
+            iconUrl: '{{ asset('img/marker.svg') }}',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+        });
+
+        // add a marker to the map
+        var marker_map = L.marker([0, 0], {
+            icon: marker_icon
+        });
+
+        marker_map.addTo(show_edit_map);
+        marker_map.setLatLng(geolocation); // move the marker to the clicked location
+        place_for_geolocation = place_id;
+    }
+</script>

@@ -12,6 +12,37 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexAr()
+    {
+        $messages = Message::with('user')->get();
+
+        return view('admin-Ar.messages', ['messages' => $messages]);
+
+    }
+    public function indexEn()
+    {
+        $messages = Message::with('user')->get();
+
+        return view('admin-En.messages', ['messages' => $messages]);
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function storeAr(Request $request)
     {
         $data=$request->input();
@@ -36,27 +67,6 @@ class MessageController extends Controller
         return view('user-ar.contact');
 
 
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -99,8 +109,104 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroyAr(Request $request)
     {
-        //
+        $data=$request->input();
+
+        $message = Message::find($data['id']);
+
+        $message->delete();
+
+        $messages = Message::with('user')->get();
+        
+        return view("admin-Ar.sections.message-section")->with(['messages' => $messages]);
+    }
+
+
+    public function destroyEn(Request $request)
+    {
+        $data=$request->input();
+
+        $message = Message::find($data['id']);
+
+        $message->delete();
+
+        $messages = Message::with('user')->get();
+        
+        return view("admin-En.sections.message-section")->with(['messages' => $messages]);
+    }
+
+    public function seenAr(Request $request){
+        // dd($request);
+
+        $data=$request->input();
+        $message = Message::find($request->input('id'));
+
+        if($request->has('seen')){
+            $message->seen = 1;
+        }
+        else{
+            $message->seen = 0;
+        }
+        $message->save();
+
+        $messages = Message::with('user')->get();
+        
+        return view("admin-Ar.sections.message-section")->with(['messages' => $messages]);
+    }
+    public function seenEn(Request $request){
+        // dd($request);
+
+        $data=$request->input();
+        $message = Message::find($request->input('id'));
+
+        if($request->has('seen')){
+            $message->seen = 1;
+        }
+        else{
+            $message->seen = 0;
+        }
+        $message->save();
+
+        $messages = Message::with('user')->get();
+        
+        return view("admin-En.sections.message-section")->with(['messages' => $messages]);
+    }
+
+    public function publishAr(Request $request){
+        // dd($request);
+
+        $data=$request->input();
+        $message = Message::find($request->input('id'));
+
+        if($request->has('publish')){
+            $message->publish = 1;
+        }
+        else{
+            $message->publish = 0;
+        }
+        $message->save();
+
+        $messages = Message::with('user')->get();
+        
+        return view("admin-Ar.sections.message-section")->with(['messages' => $messages]);
+    }
+    public function publishEn(Request $request){
+        // dd($request);
+
+        $data=$request->input();
+        $message = Message::find($request->input('id'));
+
+        if($request->has('publish')){
+            $message->publish = 1;
+        }
+        else{
+            $message->publish = 0;
+        }
+        $message->save();
+
+        $messages = Message::with('user')->get();
+        
+        return view("admin-En.sections.message-section")->with(['messages' => $messages]);
     }
 }

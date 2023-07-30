@@ -40,19 +40,23 @@
              </button>
              <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                  <div class="navbar-nav ml-auto py-0">
-                     <a href="{{ route('home_en') }}" class="nav-item nav-link active">Dashboard</a>
+                    @if (\Auth::check())
+                        @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
+                            <a href="{{ route('home_en') }}" class="nav-item nav-link active">Dashboard</a>
+                        @endif
+                    @endif
+                     
                      <a href="{{ route('home-en') }}" class="nav-item nav-link ">Home</a>
 
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Syria</a>
                          <div class="dropdown-menu border-0 rounded-0 m-0">
-                             <a href="blog" class="dropdown-item">Visit Syria</a>
-                             <a href="blog" class="dropdown-item">Governorates of Syria</a>
-                             <a href="single" class="dropdown-item">Syria Hotels</a>
-                             <a href="destination" class="dropdown-item">Syria Restaurants</a>
-                             <a href="guide" class="dropdown-item">Historical places in Syria</a>
-                             <a href="guide" class="dropdown-item">Trip groups</a>
-                             <a href="testimonial" class="dropdown-item">Photographs from Syria</a>
+                            a href="#Governorates" class="dropdown-item">Governorates of Syria</a>
+                            <a href="#Trips" class="dropdown-item">Trip groups</a>
+                            <a href="#Offers" class="dropdown-item">Offers</a>
+                            <a href="#Events" class="dropdown-item">Events</a>
+                            <a href="#Nearby" class="dropdown-item">Nearby you</a>
+                            <a href="#Gallery" class="dropdown-item">Photographs from Syria</a>
                          </div>
                      </div>
                      <div class="nav-item dropdown">
@@ -61,6 +65,8 @@
                              <a href="{{ route('transport') }}" class="dropdown-item">Transport Companies</a>
                              <a href="{{ route('travelguides') }}" class="dropdown-item">Tourist Guide</a>
                              <a href="{{ route('trips') }}" class="dropdown-item">Trip</a>
+                             <a href="{{ route('offer-en') }}" class="dropdown-item">Offers</a>
+                             <a href="{{ route('event-en') }}" class="dropdown-item">Events</a>
 
                          </div>
                      </div>
@@ -120,7 +126,7 @@
      </div>
      <div class="offcanvas-body">
          {{-- اذا ما اختار مفضلة لسا --}}
-         <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px;" />
+         <img src="img/folder.png" width="130px" height="130px" style="margin-left:125px; margin-top:160px; opacity: 0.5;" />
          <p class="text-body px-3 text-center mt-4">choose your favorite places</p>
 
          {{-- اذا اختار أماكن مفضلة  --}}
@@ -147,7 +153,7 @@
      </div>
      <div class="offcanvas-body">
          {{-- اذا ما حجز لسا --}}
-         {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px;" />
+         {{-- <img src="img/ticket.png" width="150px" height="150px" style="margin-left:100px; margin-top:160px; opacity: 0.5;" />
    <p class="text-body px-3 text-center mt-4">سارع بالحجز في أفضل الأماكن</p> --}}
          {{-- اذا حجز  --}}
 
@@ -245,9 +251,9 @@
                                      </button>
                                  </div>
                                  <div class="acc-pic position-relative m-auto">
-                                     <img src="{{ asset(Auth::user()->image) }}" alt="Account" width="150px"
+                                     <img src="{{ asset(Auth::user()->image) }}" id="edit_previewImage_{{Auth::user()->id}}'" alt="Account" width="150px"
                                          height="150px" style="border-radius:50%; margin:auto; margin-block:40px;">
-                                     <input type="file"
+                                     <input type="file" onchange="previewImage(this, 'edit_previewImage_{{Auth::user()->id}}')"
                                          style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
                                      <span class="position-absolute translate-middle badge rounded-pill mr-3"
                                          style="left:90%; background-color:var(--navi);top:70%; width:35px; height:35px;">

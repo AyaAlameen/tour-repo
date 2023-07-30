@@ -146,9 +146,9 @@
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
                                 <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-                               
+
                             </div>
-                             <p class="text-center">كم نجمة تمنح هذا المكان؟</p>
+                            <p class="text-center">كم نجمة تمنح هذا المكان؟</p>
                             <div class="text-center mt-4">
                                 <input type="number" class="w-25" pattern="[0-9]+([.,][0-9]+)?">
                                 <h5 class="text-body d-inline">: قيمه أيضا من 10</h5>
@@ -174,22 +174,71 @@
                             </button>
                         </div>
                         <div class="modal-body text-center p-5">
-                           <h5>قم بتسجيل الدخول للمتابعة <a href="{{ route('login') }}"> من هنا</a></h5>
+                            <h5>قم بتسجيل الدخول للمتابعة <a href="{{ route('login') }}"> من هنا</a></h5>
                         </div>
                     </div>
                 </div>
             </div>
             {{-- نهاية المودل --}}
-           
         @endisset
 
         {{-- بحال المكان ما فيو خدمات ديف كلاس السيرف بكون مخفي وبيطلع هاد الزر للحجز --}}
         {{-- @isset(Auth::user()->id)
-        <button class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
+       <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">حجز</button>
         @else
          <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
         @endisset --}}
     </div>
+    {{-- comments --}}
+    <div class="container m-5" style="text-align: end;">
+        <h3>تعليقات حول اسم المكان</h3>
+        <div class="d-flex align-items-center">
+            <div>
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                            width="70px" height="70px">
+                        <h5>اسم المستخدم</h5>
+                    </div>
+                    <p class="text-body w-50 text-end" style="margin-left:40%; ">Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+    
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                            width="70px" height="70px">
+                        <h5>اسم المستخدم</h5>
+                    </div>
+                    <p class="text-body w-50 text-end" style="margin-left:40%; ">Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+                {{-- بداية التعليق --}}
+                <div class="m-5">
+                    <div class=" d-flex align-items-center">
+                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                            width="70px" height="70px">
+                        <h5>اسم المستخدم</h5>
+                    </div>
+                    <p class="text-body w-50 text-end" style="margin-left:40%; ">Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+    
+                </div>
+                {{-- نهاية التعليق --}}
+            </div>
+            <div class="w-50">
+                <img src="img/popularity.png" width="300px" height="300px">
+            </div>
+        </div>
+      
+    </div>
+    {{-- end comments --}}
     {{-- الخدمات --}}
     <div class="serv d-flex" style="flex-direction: row; align-items: center;">
 
@@ -259,78 +308,21 @@
                 </li>
 
         </div>
+        {{-- الخدمات --}}
         <div class="pr-5">
 
-            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات المقدمة في (اسم
+            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الأساسية المقدمة في (اسم
                 المكان )
             </h4>
 
-            {{-- بداسة كارد الخدمات --}}
+            {{-- بداسة كارد الخدمات الغير إضافية--}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
                         <img src="img/aleppo-palace-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
-                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal2">المزيد من
-                            الصور</p>
-                        {{-- picturs modal --}}
-
-                        <!-- Modal -->
-                        <div class="modal fade " data-bs-backdrop="static" id="exampleModal2" tabindex="-1"
-                            aria-labelledby="exampleModal2Label" aria-hidden="true">
-                            <div class="modal-dialog " style="max-width: 800px;">
-                                <div class="modal-content toggle">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModal2Label">جميع الصور</h5>
-                                        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <!-- صور الخدمة -->
-                                        <div id="carouselExample3Indicators" class="carousel slide  m-auto w-100"
-                                            data-bs-ride="carousel">
-
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                                        src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <button class="carousel-control-prev" type="button"
-                                                data-bs-target="#carouselExample3Indicators" data-bs-slide="prev">
-                                                <span class="carousel-control-prev-icon"
-                                                    style="background-image:url(../img/previous.png); "
-                                                    aria-hidden="false"></span>
-                                                <span class="visually-hidden">Previous</span>
-                                            </button>
-                                            <button class="carousel-control-next" type="button"
-                                                data-bs-target="#carouselExample3Indicators" data-bs-slide="next">
-                                                <span class="carousel-control-next-icon"
-                                                    style="background-image:url(../img/next.png);"
-                                                    aria-hidden="false"></span>
-                                                <span class="visually-hidden">Next</span>
-                                            </button>
-                                        </div>
-                                        <!-- نهاية صور الخدمة -->
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        {{-- end pic modal --}}
+                      
                     </div>
                     <div class="pt-4">
                         <div class="d-flex " style="justify-content: space-between;">
@@ -340,12 +332,13 @@
                             . Exercitationem, corporis rem culpa perspiciatis
                             odit architecto expedita iure illum error inventore m
                             inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
-                        <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
+                        <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
                             <h6 class="d-inline ml-4">التكلفة : 60000</h6>
-                             @isset(Auth::user()->id)
-                            <button class="btn btn-primary ml-4">حجز</button>
+                            @isset(Auth::user()->id)
+                                <button class="btn btn-primary ml-4" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal20">حجز</button>
                             @else
-                            <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
+                                <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
                             @endisset
                         </div>
                     </div>
@@ -357,10 +350,53 @@
             </div>
 
 
-            {{-- نهاية كارد المكان --}}
+            {{-- نهاية كارد الخدمات الغير إضافية --}}
+
+
+            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الإضافية المقدمة في (اسم
+                المكان )
+            </h4>
+    
+            {{-- بداسة كارد الخدمات  الإضافية--}}
+            <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
+                <div class="d-flex">
+                    <div class="text-center ">
+                        <img src="img/aleppo-palace-hotel.jpg"
+                            style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
+                            height="200px">
+                      
+                    </div>
+                    <div class="pt-4">
+                        <div class="d-flex " style="justify-content: space-between;">
+                            <h4 class="text-right p-2">اسم الخدمة</h4>
+                        </div>
+                        <p class="text-right pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
+                            . Exercitationem, corporis rem culpa perspiciatis
+                            odit architecto expedita iure illum error inventore m
+                            inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
+                        <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
+                            <h6 class="d-inline ml-4">التكلفة : 60000</h6>
+                            @isset(Auth::user()->id)
+                                <button class="btn btn-primary ml-4" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal20">حجز</button>
+                            @else
+                                <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
+                            @endisset
+                        </div>
+                    </div>
+    
+                </div>
+    
+    
+    
+            </div>
+    
+    
+            {{-- نهاية كارد الخدمات  الإضافية --}}
         </div>
 
-
+   
+    
 
 
     </div>
@@ -371,19 +407,19 @@
         var element = event.target; // العنصر الحالي
         var previousSibling = element.previousElementSibling; // الشقيق السابق
         var nextSibling = element.nextElementSibling; //الشقيق التالي
-        if( previousSibling==null || previousSibling.classList.contains("fas") ){
+        if (previousSibling == null || previousSibling.classList.contains("fas")) {
             // console.log(nextSibling)
-           if( nextSibling==null || nextSibling.classList.contains('far'))
-            if (event.target.classList.contains("fas")) {
-            event.target.classList.remove("fas", "fa-star")
-            event.target.classList.add("far", "fa-star")
-        } else
-        if (event.target.classList.contains("far")) {
-            event.target.classList.remove("far", "fa-star")
-            event.target.classList.add("fas", "fa-star")
+            if (nextSibling == null || nextSibling.classList.contains('far'))
+                if (event.target.classList.contains("fas")) {
+                    event.target.classList.remove("fas", "fa-star")
+                    event.target.classList.add("far", "fa-star")
+                } else
+            if (event.target.classList.contains("far")) {
+                event.target.classList.remove("far", "fa-star")
+                event.target.classList.add("fas", "fa-star")
+            }
         }
-        }
-    
+
 
     }
 </script>

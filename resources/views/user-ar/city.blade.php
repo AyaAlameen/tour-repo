@@ -1,69 +1,9 @@
 @extends('layout-Ar.master')
 @section('content')
     <h2 class="p-5" style="text-align: right;"> استكشف (اسم المحافظة) </h2>
-    {{-- Gallery --}}
-    <div class="d-flex container mt-2 justify-content-center">
-        <div style="width: 45%; height: 540px;">
-            <img src="img/440px-Aleppo_Citadel_02_-_Bastion.jpg" width="100%" height="100%">
-            <button
-                style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
-                data-bs-toggle="modal" data-bs-target="#exampleModal">عرض
-                جميع الصور</button>
-
-            {{-- picturs modal --}}
-
-            <!-- Modal -->
-            <div class="modal fade " data-bs-backdrop="static" id="exampleModal" tabindex="-1"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog " style="max-width: 800px;">
-                    <div class="modal-content toggle">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">جميع الصور</h5>
-                            <button type="button" class="btn-close m-0 close"
-                                data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                        <div class="modal-body">
-                                       <!-- صور المحافظة -->
-                     <div id="carouselExample2Indicators" class="carousel slide  m-auto w-100" data-bs-ride="carousel">
-                     
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                          <img class="img-fluid w-100" style="padding-inline: 80px;" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="" >
-                          </div>
-                          <div class="carousel-item">
-                          <img class="img-fluid w-100" style="padding-inline: 80px;" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                          </div>
-                          <div class="carousel-item">
-                          <img class="img-fluid w-100" style="padding-inline: 80px;" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                          </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" style="background-image:url(../img/previous.png); " aria-hidden="false"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2Indicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" style="background-image:url(../img/next.png);" aria-hidden="false"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
-                              <!-- نهاية صور المحافظة -->
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-            {{-- end pic modal --}}
-        </div>
-        <div style="width: 35%; height: 540px;">
-            <img src="img/caption.jpg" width="100%" height="60%">
-            <img src="img/ALEPPO458976.gif" width="100%" height="40%">
-        </div>
-    </div>
-    {{-- end Gallery --}}
+    <div style="width: 400px; height: 300px; margin: auto; text-align: center;">
+        <img src="img/sy.jpg" alt="image" style="width: 100%; height: 100%;">
+      </div>
     {{-- وصف المحافظة --}}
     <div class="container w-50 m-auto">
         <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن (اسم المحافظة ) </h4>
@@ -119,10 +59,9 @@
                         <input type="submit" value="إرسال" class="m-2 btn btn-primary"
                             style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
                         <input type="text" style="direction: rtl; width: 77%;" placeholder="اترك تعليق">
-                        {{-- <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-left:4px;" width="40px"
-                        height="40px"> --}}
-                        <img src="{{ asset('img/1656869576_personalimg.jpg') }}" style="border-radius: 50%; margin-left:4px;"
-                            width="40px" height="40px">
+                        <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-left:4px;" width="40px"
+                        height="40px">
+                        
                     </div>
                 @else
                     <div class="w-100 text-right pr-3 m-auto">

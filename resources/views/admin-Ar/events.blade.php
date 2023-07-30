@@ -1,12 +1,12 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:75%;">
-            <h1 class="app-content-headerText">الأحداث</h1>
+        <div class="app-content-header" style="width:83%;">
+            <h1 class="app-content-headerText">الفعاليات</h1>
 
             <!-- add -->
             <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                إضافة حدث
+                إضافة فعالية
             </button>
             <!-- Modal -->
             <div class="modal fade " id="exampleModal3" data-bs-backdrop="static" tabindex="-1"
@@ -14,7 +14,7 @@
                 <div class="modal-dialog ">
                     <div class="modal-content toggle">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">حدث جديد</h5>
+                            <h5 class="modal-title" id="exampleModal3Label">فعالية جديدة</h5>
                             <button type="button" class="btn-close m-0 close"
                                 onclick="removeMessages(), document.getElementById('add-form').reset()"
                                 data-bs-dismiss="modal" aria-label="Close">
@@ -28,30 +28,30 @@
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
 
                                     <tr>
-                                        <td></td>
+
                                         <td><input type="text" class="toggle text-primary in" name="name_ar" required
                                                 style="width: 100%;"></th>
                                         <td>الاسم(العربية)</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td><input type="text" class="toggle text-primary in" name="name_en" required
                                                 style="width: 100%;"></th>
                                         <td>(الانكليزية)الاسم </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td></td>
+
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -77,13 +77,13 @@
                                         <td>المكان</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span id="place_error"></span>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td></td>
+
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block;">
                                                 <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -103,96 +103,80 @@
                                     </tr>
 
                                     <tr>
-                                        <td></td>
+
                                         <td><input class="toggle text-primary in" type="text" name="description_ar"
                                                 required style="width: 100%;"></th>
                                         <td>وصف(العربية)</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span id=""></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></th>
                                         <td>(الإنجليزية)وصف</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span id=""></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td><input class="toggle text-primary in" type="number" name="cost" required
                                                 style="width: 100%;"></th>
                                         <td>الكلفة</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td></td>
+
                                         <td><input class="toggle text-primary in" type="date" name="start_date"
                                                 required style="width: 100%;"></th>
                                         <td>تاريخ البداية</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span
                                                 id="start_date_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td><input class="toggle text-primary in" type="date" name="end_date" required
                                                 style="width: 100%;"></th>
                                         <td>تاريخ النهاية</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+
                                         <td colspan="2" class="text-end text-danger p-1"><span
                                                 id="end_date_error"></span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td style="width:25px; text-align:center;"> <i
-                                                class="fas fa-camera text-body pt-2 pl-2"
-                                                style="font-size:15px; cursor:pointer;"></i></td>
-
-                                    <td class="pl-2">
-                                        <i class="fas fa-plus text-body pt-2 pr-5"
-                                            style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;"onclick="addPic()"
-                                            id="add-pic-input" data-picid="1" title="Add Another Picture"></i>
-                                        <input type="file" id="add_input_0"
-                                            onchange="previewImage(this, 'add_previewImage_0')" class="toggle text-primary in"
-                                            name="event_image" required style="width:75% !important; font-size:16px;">
-                                        <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
-                                                height="90px" style="display: none; padding:6px;"></label>
-                                    </td>
-                                    <td>الصور </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="action-button active close"
-                                onclick="removeMessages(), document.getElementById('add-form').reset()"
-                                data-bs-dismiss="modal">إغلاق</button>
-                            <button type="button" id="add-event-btn" onclick="addEvent('add-form')"
-                                class="app-content-headerButton">حفظ</button>
-                        </div>
+                                   
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="action-button active close"
+                                    onclick="removeMessages(), document.getElementById('add-form').reset()"
+                                    data-bs-dismiss="modal">إغلاق</button>
+                                <button type="button" id="add-event-btn" onclick="addEvent('add-form')"
+                                    class="app-content-headerButton">حفظ</button>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:75%;">
+        <div class="app-content-actions" style="width:83%;">
             <input class="search-bar" placeholder="...ابحث" type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -265,12 +249,11 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:74%;">
+        <div class="scroll-class" style="width:84%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
                     {{-- <div class="product-cell">#</div> --}}
                     <div class="product-cell">الاسم</div>
-                    <div class="product-cell image ">الصورة</div>
                     <div class="product-cell">المكان</div>
                     <div class="product-cell">الخدمة</div>
                     <div class="product-cell">وصف</div>
@@ -299,10 +282,7 @@
                             <div class="product-cell">
                                 <span>{{ $event->translations()->where('locale', 'ar')->first()->name }}</span>
                             </div>
-                            <div class="product-cell">
-                                <img src="{{ asset(str_replace(app_path(), '', $event->images()->first()->image)) }}"
-                                    alt="product">
-                            </div>
+                          
 
                             <div class="product-cell">
                                 <span>{{ $event->place->translations()->where('locale', 'ar')->first()->name }}</span>
@@ -351,7 +331,7 @@
                                                         class="table-striped table-hover table-bordered m-auto text-primary myTable"
                                                         style="width: 400px;" id="editTable">
                                                         <tr>
-                                                            <td></td>
+
                                                             <td><input type="text" class="toggle text-primary in"
                                                                     name="name_ar" required style="width: 100%;"
                                                                     value="{{ $event->translations()->where('locale', 'ar')->first()->name }}">
@@ -359,13 +339,14 @@
                                                             <td>الاسم(العربية)</td>
                                                         </tr>
                                                         <tr>
-                                                            
-                                                            <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
-                                                            
-                                                        </tr>     
-                                                        <tr> 
+
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="name_ar_error_edit"></span></td>
+
+                                                        </tr>
+
                                                         <tr>
-                                                            <td></td>
+
                                                             <td><input type="text" class="toggle text-primary in"
                                                                     name="name_en" required style="width: 100%;"
                                                                     value="{{ $event->translations()->where('locale', 'en')->first()->name }}">
@@ -373,13 +354,14 @@
                                                             <td>(الإنجليزية)الاسم </td>
                                                         </tr>
                                                         <tr>
-                                                            
-                                                            <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
-                                                            
-                                                        </tr> 
+
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="name_en_error_edit"></span></td>
+
+                                                        </tr>
 
                                                         <tr>
-                                                            <td></td>
+
                                                             <td>
                                                                 <div class="dropdown toggle text-primary in"
                                                                     style="display:inline-block; ;">
@@ -415,12 +397,13 @@
                                                             <td>المكان</td>
                                                         </tr>
                                                         <tr>
-                                                            
-                                                            <td colspan="2"><span style="color: red" class="place_error_edit"></span></td>
-                                                            
-                                                        </tr> 
+
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="place_error_edit"></span></td>
+
+                                                        </tr>
                                                         <tr>
-                                                            <td></td>
+
                                                             <td>
                                                                 <div class="dropdown toggle text-primary in"
                                                                     style="display:inline-block; ;">
@@ -442,83 +425,75 @@
                                                             <td>الخدمة </td>
                                                         </tr>
                                                         <tr>
-                                                            <td></td>
+
                                                             <td><input class="toggle text-primary in" type="text"
                                                                     name="description_ar" required style="width: 100%;"
-                                                                    value="{{ $event->translations()->where('locale', 'en')->first()->description }}"></td>
+                                                                    value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
+                                                            </td>
                                                             <td>وصف(العربية)</td>
                                                         </tr>
                                                         <tr>
-                                                            <td></td>
                                                             <td><input class="toggle text-primary in" type="text"
                                                                     name="description_en" required style="width: 100%;"
-                                                                    value="{{ $event->translations()->where('locale', 'en')->first()->description }}"></td>
+                                                                    value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
+                                                            </td>
                                                             <td>(الانكليزية)وصف</td>
                                                         </tr>
                                                         <tr>
-                                                            <td></td>
-                                                            <td><input type="number" name="cost" class="toggle text-primary in"
-                                                                    value="{{$event->cost}}">
+
+                                                            <td><input type="number" name="cost"
+                                                                    class="toggle text-primary in"
+                                                                    value="{{ $event->cost }}">
                                                             </td>
                                                             <td>الكلفة</td>
 
                                                         </tr>
                                                         <tr>
-                                                            
-                                                            <td colspan="2"><span style="color: red" class="cost_error_edit"></span></td>
-                                                            
-                                                        </tr> 
+
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="cost_error_edit"></span></td>
+
+                                                        </tr>
                                                         <tr>
-                                                            <td></td>
-                                                            <td><input type="date" name="start_date" class="toggle text-primary in"
-                                                                    value="{{$event->start_date}}"></td>
+
+                                                            <td><input type="date" name="start_date"
+                                                                    class="toggle text-primary in"
+                                                                    value="{{ $event->start_date }}"></td>
                                                             <td>تاريخ البداية</td>
 
                                                         </tr>
                                                         <tr>
-                                                            
-                                                            <td colspan="2"><span style="color: red" class="start_date_error_edit"></span></td>
-                                                            
-                                                        </tr> 
+
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="start_date_error_edit"></span></td>
+
+                                                        </tr>
                                                         <tr>
-                                                            <td></td>
-                                                            <td><input type="date" name="end_date" class="toggle text-primary in"
-                                                                    value="{{$event->end_date}}"></td>
+
+                                                            <td><input type="date" name="end_date"
+                                                                    class="toggle text-primary in"
+                                                                    value="{{ $event->end_date }}"></td>
                                                             <td>تاريخ النهاية</td>
 
                                                         </tr>
                                                         <tr>
-                                                            
-                                                            <td colspan="2"><span style="color: red" class="end_date_error_edit"></span></td>
-                                                            
-                                                        </tr> 
 
-                                                        <tr>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="end_date_error_edit"></span></td>
 
-                                                            <td style="width:25px; text-align:center;">
-                                                            </td>
-                                                            <td>
-                                                                <i class="fas fa-plus text-body pt-4 pl-2"
-                                                                    onclick="editPic()" id="edit_pic_input"
-                                                                    data-picid="1"
-                                                                    style="font-size:15px; float:left; cursor:pointer;"
-                                                                    title="Add Another Picture"></i>
-                                                                <input type="file" hidden id="img">
-                                                                <label for="img"><img src="img/about-1.jpg"
-                                                                        style="padding-top: 5px; border-radius: 0px;"
-                                                                        width="30px" height="50px">
-                                                                </label>
-                                                            </td>
-                                                            <td>الصور </td>
                                                         </tr>
+
+                                                    
                                                     </table>
 
                                                 </div>
                                             </form>
                                             <div class="modal-footer">
-                                                <button type="button" class="action-button active close" onclick="removeMessages()"
-                                                    data-dismiss="modal">إغلاق</button>
-                                                <button type="submit" id="edit-event-btn-{{$event->id}}" onclick="editEvent('edit-form-{{$event->id}}', {{$event->id}})" class="app-content-headerButton">حفظ
+                                                <button type="button" class="action-button active close"
+                                                    onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
+                                                <button type="submit" id="edit-event-btn-{{ $event->id }}"
+                                                    onclick="editEvent('edit-form-{{ $event->id }}', {{ $event->id }})"
+                                                    class="app-content-headerButton">حفظ
                                                     التغييرات</button>
                                             </div>
                                         </div>
@@ -560,78 +535,19 @@
                                                             onclick="deleteEvent(`delete-form-{{ $event->id }}`, {{ $event->id }})"
                                                             class="app-content-headerButton">نعم</button>
                                                     </div>
-                                                </td>
-                                                <td>الخدمة </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td><input class="toggle text-primary in" type="text"
-                                                        name="description" required style="width: 100%;"></th>
-                                                <td>وصف(العربية)</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td><input class="toggle text-primary in" type="text"
-                                                        name="description" required style="width: 100%;"></th>
-                                                <td>(الانكليزية)وصف</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td><input type="number" class="toggle text-primary in" value="100000">
-                                                </td>
-                                                <td>الكلفة</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td><input type="date" class="toggle text-primary in"
-                                                        value="2023-10-11"></td>
-                                                <td>تاريخ البداية</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td><input type="date" class="toggle text-primary in"
-                                                        value="2023-10-10"></td>
-                                                <td>تاريخ النهاية</td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <td style="width:25px; text-align:center;">
-                                                </td>
-                                                <td>
-                                                    <i class="fas fa-plus text-body" onclick="editPic()"
-                                                        id="edit_pic_input" data-picid="1"
-                                                        style="font-size:15px; text-align: center; padding-right:80px; line-height: 1.5; cursor:pointer;"
-                                                        title="Add Another Picture"></i>
-                                                    <input type="file" hidden id="img">
-                                                    <label for="img"><img src="img/about-1.jpg"
-                                                            style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;">
-                                                    </label>
-                                                </td>
-                                                <td>الصور </td>
-                                            </tr>
-                                        </table>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="action-button active"
-                                            data-dismiss="modal">إغلاق</button>
-                                        <button type="submit" class="app-content-headerButton">حفظ التغييرات</button>
                                                 </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- end delete -->
 
-                            </div>
-                            <!-- end action -->
+                                                    <!-- end delete -->
+
+                                            </div>
+                                            <!-- end action -->
 
 
-                        </div>
+                                        </div>
                     @endforeach
                 </div>
             </div>
@@ -749,7 +665,8 @@
 
 
                 if (data.responseJSON.errors.cost) {
-                    document.querySelector(`#${formId} .cost_error_edit`).innerHTML = data.responseJSON.errors.cost[0];
+                    document.querySelector(`#${formId} .cost_error_edit`).innerHTML = data.responseJSON.errors.cost[
+                        0];
                 }
 
 

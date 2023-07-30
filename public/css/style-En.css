@@ -28,7 +28,6 @@
   --blueLight:#BAD7E9;
   --light: #FCFFE7;
   --title-color:#2B3467;
-
  }
 .light:root {
   --header:rgba(21, 30, 47,1);
@@ -378,7 +377,7 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
-  color: #212121;
+  color: var(--title-color);
 }
 
 h1, .h1 {
@@ -645,11 +644,17 @@ pre code {
 
 .row {
   display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    
 }
-
+.testimonial-text{
+  box-shadow: -3px 5px 30px #CCCCCCa0;
+}
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -3043,20 +3048,25 @@ input[type="button"].btn-block {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 10px ;
+  inset: unset !important;
   z-index: 1000;
   display: none;
-  float: left;
+  float: right;
   min-width: 10rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
   color: #656565;
-  text-align: left;
+  text-align: right;
   list-style: none;
   background-color: var(--sidebar);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  transform: none !important;
+}
+.dropdown-menu {
+  right:6px !important;
 }
 
 .dropdown-menu-left {
@@ -3212,7 +3222,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item {
-  display: block;
+  display: flex;
   width: 100%;
   padding: 0.25rem 1.5rem;
   clear: both;
@@ -9516,7 +9526,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link {
   padding: 30px 15px;
-  color: var(--sidebar-link);
+  color: var(--title-color);
   font-weight: 500;
   outline: none;
 }
@@ -9644,6 +9654,15 @@ h6,
 .bg-registration {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/223141-JULY-22-Jamaica-tourism.jpg), no-repeat center center;
   background-size: cover;
+}
+.bg-nearby {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) , url(../img/sddefault.jpg), no-repeat center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  
+
+
 }
 
 .team-item {
@@ -9794,8 +9813,9 @@ input:disabled{
 }
 .about-page-header{
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/about\ us.jpg), no-repeat center center;
-  background-size: cover;
+  background-size: unset;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* user english */
@@ -9866,8 +9886,9 @@ input:disabled{
 
 .trip-page-header{
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/join-us.jpg), no-repeat center center;
-  background-size: cover;
+  background-size: unset;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .word_ticket{
   color: gold;
@@ -9893,4 +9914,196 @@ input:disabled{
 }
 .app-content-headerButton:hover {
   background-color: var(--bambi);
+}
+.parent{
+  width: 100%;
+  height: 100%;
+  background-color: #7d7b7bb2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) ;
+z-index: 999;
+
+
+}
+.popup{
+  width: 300px;
+  background-color: var(--sidebar);
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) ;
+  text-align: center;
+  padding: 0 30px 30px;
+  color: var(--sidebar-link) ;
+  z-index: 999999;
+  border: 2px solid #fff;
+
+}
+.popup img{
+  width: 70px;
+  margin-top: -30px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.popup h3{
+  color: var(--sidebar-link) ;
+  font-weight: 500;
+  margin: 30px 0 10px;
+
+}
+.popup button{
+  width: 60%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background-color: #fff;
+  color: #101827;
+  border: 0;
+  outline: none ;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.parenttrue{
+  width: 100%;
+  height: 100%;
+  background-color: #7d7b7bb2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) ;
+  z-index: 999;
+
+
+}
+.popuptrue{
+  width: 300px;
+  background-color: var(--sidebar);
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) ;
+  text-align: center;
+  padding: 0 30px 30px;
+  color: var(--sidebar-link) ;
+  z-index: 999999;
+  border: 2px solid #fff;
+
+}
+.popuptrue img{
+  width: 70px;
+  margin-top: -30px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.popuptrue h3{
+  color: var(--sidebar-link);
+  font-weight: 500;
+  margin: 30px 0 10px;
+
+}
+.popuptrue button{
+  width: 60%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background-color: #fff;
+  color: #101827;
+  border: 0;
+  outline: none ;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+}
+.car {
+  position: relative;
+  width: 100px;
+  height: 50px;
+}
+
+.car.move {
+  animation: move 5s ease-in-out infinite;
+}
+
+@keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 80%;
+  }
+}
+.contact_place_info{
+        border: 2px solid var(--bambi);
+        position: relative;
+        padding: 10px;
+        border-right: none;
+        left: 200px;
+        padding-right: 300px;
+        padding-left: 15px;
+        border-radius: 40px;
+        border-left: none;
+        transition: all linear 0.5s;
+        text-align: end;
+}
+.rate_btn{
+  border: none;
+  background-color: var(--bambi);
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.fa-star{
+  color: yellow;
+}
+.rate_btn .fa-star{
+  font-size: 16px;
+}
+.user-sidebar {
+  flex-basis: 200px;
+  max-width: 200px;
+  flex-shrink: 0;
+ border-top: solid 2px var(--bambi);
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  padding-left: 40px;
+  border-radius: 20px;
+  box-sizing: content-box;
+  margin-left: 10px;
+  
+}
+.user-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px;
+  padding-right: 60px;
+  
+}
+.app-icon {
+  color: var(--title-color);
+}
+.app-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.user-sidebar-list {
+  list-style-type: none;
+  padding: 0;
+}
+.user-sidebar-list-item {
+  position: relative;
+  margin-bottom: 4px;
+}
+.user-sidebar-list-item i {
+  margin-right: 8px;
+  color: var(--bambi);
 }

@@ -62,6 +62,24 @@
             if (origin == "http://127.0.0.1:8000/#") {
                 event.target.href = "http://127.0.0.1:8000/user_home_arabic"
             }
+            if (origin == "http://127.0.0.1:8000/#Trips") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/#Nearby") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/#Offers") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/#Events") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/#Gallery") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
+            if (origin == "http://127.0.0.1:8000/#Governorates") {
+                event.target.href = "http://127.0.0.1:8000/user_home_arabic"
+            }
             if (origin == "http://127.0.0.1:8000/home") {
                 event.target.href = "http://127.0.0.1:8000/user_home_arabic"
             }
@@ -89,8 +107,32 @@
               event.target.href="http://127.0.0.1:8000/trip-ar"
                 
             }
+            if (origin == "http://127.0.0.1:8000/offer-en") {
+              event.target.href="http://127.0.0.1:8000/offer-ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/offer_details-en") {
+              event.target.href="http://127.0.0.1:8000/offer_details-ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/event-en") {
+              event.target.href="http://127.0.0.1:8000/event-ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/event_details-en") {
+              event.target.href="http://127.0.0.1:8000/event_details-ar"
+                
+            }
             if (origin == "http://127.0.0.1:8000/tripmore") {
               event.target.href="http://127.0.0.1:8000/tripmore-ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/place_details_en") {
+              event.target.href="http://127.0.0.1:8000/place_details_ar"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/user_city_en") {
+              event.target.href="http://127.0.0.1:8000/user_city_ar"
                 
             }
         }
@@ -109,12 +151,46 @@
             if (origin == "http://127.0.0.1:8000/user_home_arabic") {
                 event.target.href = "http://127.0.0.1:8000/"
             }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Trips") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Events") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Offers") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Nearby") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Gallery") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
+            if (origin == "http://127.0.0.1:8000/user_home_arabic#Governorates") {
+                event.target.href = "http://127.0.0.1:8000/"
+            }
             if (origin == "http://127.0.0.1:8000/about-ar") {
                 event.target.href = "http://127.0.0.1:8000/about"
 
             }
             if (origin == "http://127.0.0.1:8000/contact-ar") {
                 event.target.href = "http://127.0.0.1:8000/contact-en"
+
+            }
+            if (origin == "http://127.0.0.1:8000/offer-ar") {
+                event.target.href = "http://127.0.0.1:8000/offer-en"
+
+            }
+            if (origin == "http://127.0.0.1:8000/offer_details-ar") {
+                event.target.href = "http://127.0.0.1:8000/offer_details-en"
+
+            }
+            if (origin == "http://127.0.0.1:8000/event-ar") {
+                event.target.href = "http://127.0.0.1:8000/event-en"
+
+            }
+            if (origin == "http://127.0.0.1:8000/event_details-ar") {
+                event.target.href = "http://127.0.0.1:8000/event_details-en"
 
             }
             if (origin == "http://127.0.0.1:8000/transport-ar") {
@@ -135,6 +211,14 @@
             }
             if (origin == "http://127.0.0.1:8000/tripmore-ar") {
               event.target.href="http://127.0.0.1:8000/tripmore"
+                
+            }
+              if (origin == "http://127.0.0.1:8000/place_details_ar") {
+              event.target.href="http://127.0.0.1:8000/place_details_en"
+                
+            }
+            if (origin == "http://127.0.0.1:8000/user_city_ar") {
+              event.target.href="http://127.0.0.1:8000/user_city_en"
                 
             }
          }
@@ -167,7 +251,28 @@
             $('#toast_' + ticId).addClass('d-none');
 
         }
+ // فنكشن إخفاء رسائل النجاح أو الفشل
+ function hide() {
+            $('.parent').attr("hidden", true);
+            $('.parenttrue').attr("hidden", true);
+        }
 
+          // عرض الصور بدل الأسماء
+
+          function previewImage(input, previewId) {
+            const previewImage = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+            previewImage.style.display = "inline";
+            input.style.display = "none";
+            reader.addEventListener('load', function() {
+                previewImage.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
     </script>
 
 </body>
