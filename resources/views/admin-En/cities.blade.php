@@ -35,6 +35,17 @@
               </tr>
               <tr > <td colspan="2"><span class="text-danger p-1" id="name_en_error"></span></td> </tr>
               <tr>
+                <td>Description(Arabic)</td>
+                <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;"></textarea></th>      
+            </tr> 
+            <tr > <td colspan="2"><span class="text-danger p-1" id="des_error"></span></td> </tr>
+
+            <tr>
+                <td>Description(English)</td>
+                <td ><textarea class="toggle text-primary in mt-2"  name="description_en" required style="width: 100%; height:27.5px;"></textarea></th>      
+            </tr> 
+            <tr > <td colspan="2"><span class="text-danger p-1" id="des_error"></span></td> </tr>
+            <tr>
                   <td >Image </td>
                   <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
               </tr>     
@@ -84,6 +95,7 @@
       <div class="product-cell">#</div>
         <div class="product-cell">Name</div>
         <div class="product-cell image ">Image</div>
+        <div class="product-cell image ">Description</div>
         <div class="product-cell">Districts</div>
         <div class="product-cell ">Actions</div>
 

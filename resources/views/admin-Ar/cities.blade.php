@@ -45,6 +45,24 @@
                 <td colspan="2" class="text-end text-danger"><span id="name_en_error"></span></td>                
               </tr>
               <tr>
+
+                <td><input class="toggle text-primary in" type="text" name="description" required
+                        style="width: 100%;"></th>
+                <td>وصف(العربية)</td>
+            </tr>
+            <tr>       
+              <td colspan="2" class="text-end text-danger"><span id="des_error"></span></td>                
+            </tr>
+            <tr>
+
+                <td><input class="toggle text-primary in" type="text" name="description" required
+                        style="width: 100%;"></th>
+                <td>(الانكليزية)وصف</td>
+            </tr>
+            <tr>       
+              <td colspan="2" class="text-end text-danger"><span id="des_error"></span></td>                
+            </tr>
+              <tr>
                   
                 <td><input type="file" id="add_img"  onchange="previewImage(this, 'add_previewImage_0')" class="toggle text-primary in"  name="image" required style="width: 100%;">
                   <label for="add_img"> <img id="add_previewImage_0" width="170px"
@@ -101,6 +119,7 @@
       <div class="product-cell">#</div>
         <div class="product-cell">الاسم</div>
         <div class="product-cell image ">الصورة</div>
+        <div class="product-cell image ">الوصف</div>
         <div class="product-cell">النواحي</div>
         <div class="product-cell ">الأحداث</div>
 

@@ -65,8 +65,8 @@ class CityController extends Controller
         }
         $city->save();
 
-        $city->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
-        $city->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
+        $city->translations()->create(['name'=>$request->input('name_en'), 'description' => $request->input('description_en'), 'locale' => 'en']);
+        $city->translations()->create(['name'=>$request->input('name_ar'), 'description' => $request->input('description_ar'), 'locale' => 'ar']);
         $cities = City::with('translations')->get();
         
         return view("admin-Ar.sections.city-section")->with(['cities' => $cities]);
@@ -97,8 +97,9 @@ class CityController extends Controller
         }
         $city->save();
 
-        $city->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
-        $city->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
+       
+        $city->translations()->create(['name'=>$request->input('name_en'), 'description' => $request->input('description_en'), 'locale' => 'en']);
+        $city->translations()->create(['name'=>$request->input('name_ar'), 'description' => $request->input('description_ar'), 'locale' => 'ar']);
         $cities = City::with('translations')->get();
         
         return view("admin-En.sections.city-section")->with(['cities' => $cities]);
@@ -160,10 +161,12 @@ class CityController extends Controller
         }
 
         $city->translations()->where('locale', 'en')->update([
-            'name'=>  $data['name_en']
+            'name'=>$request->input('name_en'), 
+            'description' => $request->input('description_en'),
         ]);
         $city->translations()->where('locale', 'ar')->update([
-            'name'=>  $data['name_ar']
+            'name'=>$request->input('name_ar'), 
+            'description' => $request->input('description_ar'),
         ]);
         
         $city->update();
@@ -197,10 +200,12 @@ class CityController extends Controller
         }
 
         $city->translations()->where('locale', 'en')->update([
-            'name'=>  $data['name_en']
+            'name'=>$request->input('name_en'), 
+            'description' => $request->input('description_en'),
         ]);
         $city->translations()->where('locale', 'ar')->update([
-            'name'=>  $data['name_ar']
+            'name'=>$request->input('name_ar'), 
+            'description' => $request->input('description_ar'),
         ]);
         
         $city->update();

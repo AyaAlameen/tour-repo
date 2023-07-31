@@ -11,8 +11,12 @@
           <div class="product-cell">
             <span class="search-value">{{$city->translations()->where('locale', 'ar')->first()->name}}</span>
           </div>
+          
           <div class="product-cell image">
             <img src="{{ asset(str_replace(app_path(),'',$city -> image))}}"  alt="product">
+          </div>
+          <div class="product-cell">
+            <span>{{$city->translations()->where('locale', 'ar')->first()->description}}</span>
           </div>
           <div class="product-cell">
             <button class="app-content-headerButton"><a href="{{route ('getDistrictsAr', ['id' => $city->id])}}" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button></div>
@@ -83,6 +87,26 @@
                             <tr>       
                               <td colspan="2" class="text-end text-danger p-1"><span class="name_en_error_edit"></span></td>                
                             </tr>
+                            <tr>
+                              <td>وصف(العربية)</td>
+                              <td>
+                                  <textarea class="toggle text-primary in mt-2" name="description_ar" required style="width: 100%; height:27.5px;">{{ $city->translations()->where('locale', 'ar')->first()->description }}</textarea>
+                                  </th>
+                              
+                          </tr>
+                          <tr>       
+                            <td colspan="2" class="text-end text-danger p-1"><span class="des_error_edit"></span></td>                
+                          </tr>
+                          <tr>
+                            <td>(الإنجليزية)وصف</td>
+                              <td>
+                                  <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;">{{ $city->translations()->where('locale', 'en')->first()->description }}</textarea>
+                                  </th>
+                              
+                          </tr>  
+                          <tr>       
+                            <td colspan="2" class="text-end text-danger p-1"><span class="des_error_edit"></span></td>                
+                          </tr>
     
                        <tr>
                        <td>الصورة </td>
@@ -121,8 +145,12 @@
           <div class="product-cell">
             <span class="search-value">{{$city->translations()->where('locale', 'ar')->first()->name}}</span>
           </div>
+          
           <div class="product-cell image">
             <img src="{{ asset(str_replace(app_path(),'',$city -> image))}}"  alt="product">
+          </div>
+          <div class="product-cell">
+            <span>{{$city->translations()->where('locale', 'ar')->first()->description}}</span>
           </div>
           <div class="product-cell">
             <button class="app-content-headerButton"><a href="{{route ('getDistrictsAr', ['id' => $city->id])}}" style="color:var(--title ); text-decoration:none;">التفاصيل</a> </button></div>
@@ -193,8 +221,27 @@
                             </tr>
                             <tr>       
                               <td colspan="2" class="text-end text-danger p-1"><span class="name_en_error_edit"></span></td>                
-                            </tr>  
-                        
+                            </tr>
+                            <tr>
+                              <td>وصف(العربية)</td>
+                              <td>
+                                  <textarea class="toggle text-primary in mt-2" name="description_ar" required style="width: 100%; height:27.5px;">{{ $city->translations()->where('locale', 'ar')->first()->description }}</textarea>
+                                  </th>
+                              
+                          </tr>
+                          <tr>       
+                            <td colspan="2" class="text-end text-danger p-1"><span class="des_error_edit"></span></td>                
+                          </tr>
+                          <tr>
+                            <td>(الإنجليزية)وصف</td>
+                              <td>
+                                  <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;">{{ $city->translations()->where('locale', 'en')->first()->description }}</textarea>
+                                  </th>
+                              
+                          </tr>  
+                          <tr>       
+                            <td colspan="2" class="text-end text-danger p-1"><span class="des_error_edit"></span></td>                
+                          </tr>
     
                        <tr>
                        <td>الصورة </td>

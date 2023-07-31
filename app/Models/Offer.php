@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Service;
 use App\Models\Place;
 use App\Models\Translation;
-use App\Models\Image;
 
 class Offer extends Model
 {
@@ -27,10 +26,5 @@ class Offer extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'model');
-    }
-
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'model');
     }
 }
