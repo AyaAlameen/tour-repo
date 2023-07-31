@@ -71,10 +71,10 @@
     </div>
     {{-- end Gallery --}}
 
-    <div class="serv d-flex mt-5" style="flex-direction: row; align-items: center;">
+
 
     {{-- بداسة كارد الرحلة --}}
-    <div class="mainCard  w-50 m-auto " style="border-radius: 10px;">
+    <div class="mainCard  w-50 m-auto" style="border-radius: 10px; margin-top: 40px !important;">
         <div class="d-flex">
            
             <div class="p-4">
@@ -127,7 +127,7 @@
 
 
     {{-- نهاية كارد الرحلة --}}
-</div>
+
 
 
 
