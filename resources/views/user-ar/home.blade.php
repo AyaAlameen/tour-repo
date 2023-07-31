@@ -135,7 +135,7 @@
                         <div class="destination-item position-relative overflow-hidden mb-2">
                             <img width="400px" height="250px"
                                 src="{{ asset(str_replace(app_path(), '', $city->image)) }}" alt="">
-                            <a class="destination-overlay text-white text-decoration-none" href="{{route('user-city-ar')}}">
+                            <a class="destination-overlay text-white text-decoration-none" href="{{route('user-city-ar', ['id' => $city->id])}}">
                                 <h4 class="text-white">{{ $city->translations()->where('locale', 'ar')->first()->name }}
                                 </h4>
                             </a>

@@ -433,9 +433,12 @@ Route::get('/contact-en', function () {
     return view('user.contact');
 })-> name('contact-en');
 
-Route::get('/user_city_en', function () {
-    return view('user.city');
-})-> name('user-city-en');
+// Route::get('/user_city_en', function () {
+//     return view('user.city');
+// })-> name('user-city-en');
+
+Route::get('/user_city_en/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsEn'])-> name('user-city-en');
+
 
 Route::get('/place_details_en', function () {
     return view('user.place_details');
@@ -509,9 +512,8 @@ Route::get('/tripmore-ar', function () {
     return view('user-ar.tripmore');
 })-> name('tripmore-ar');
 
-Route::get('/user_city_ar', function () {
-    return view('user-ar.city');
-})-> name('user-city-ar');
+
+Route::get('/user_city_ar/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsAr'])-> name('user-city-ar');
 
 Route::get('/place_details_ar', function () {
     return view('user-ar.place_details');

@@ -136,7 +136,7 @@
                             <img width="400px" height="250px"
                                 src="{{ asset(str_replace(app_path(), '', $city->image)) }}" alt="">
                             <a class="destination-overlay text-white text-decoration-none"
-                                href="{{ route('user-city-en') }}">
+                                href="{{route('user-city-en', ['id' => $city->id])}}">
                                 <h4 class="text-white">{{ $city->translations()->where('locale', 'en')->first()->name }}
                                 </h4>
 

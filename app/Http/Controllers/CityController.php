@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\District;
+use App\Models\Place;
 use Illuminate\Http\Request;
+use DB;
 
 class CityController extends Controller
 {
@@ -246,5 +249,42 @@ class CityController extends Controller
         $cities = City::with('translations')->get();
         
         return view("admin-En.sections.city-section")->with(['cities' => $cities]);
+    }
+
+
+    public function cityDetailsAr($id)
+    {
+        $city = City::find($id);
+        $districts_ids = District::where('city_id', $id)->get()->pluck('id');
+        // $places = place::whereHas('district', function($q) use($districts_ids){
+        //     $q->whereIn('district_id', $districts_ids);
+        // })->get()->groupBy('district_id');
+
+        $Category_places = place::with('subCategory.category')->whereHas('district', function($q) use($districts_ids){
+            $q->whereIn('district_id', $districts_ids);
+        })->get()->groupBy('subCategory.category.id');
+
+
+        // dd($Category_places);
+
+        return view('user-ar.city')->with(['city' => $city, 'Category_places' => $Category_places]);
+    }
+
+    public function cityDetailsEn($id)
+    {
+        $city = City::find($id);
+        $districts_ids = District::where('city_id', $id)->get()->pluck('id');
+        // $places = place::whereHas('district', function($q) use($districts_ids){
+        //     $q->whereIn('district_id', $districts_ids);
+        // })->get()->groupBy('district_id');
+
+        $Category_places = place::with('subCategory.category')->whereHas('district', function($q) use($districts_ids){
+            $q->whereIn('district_id', $districts_ids);
+        })->get()->groupBy('subCategory.category.id');
+
+
+        // dd($Category_places);
+
+        return view('user.city')->with(['city' => $city, 'Category_places' => $Category_places]);
     }
 }
