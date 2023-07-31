@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:83%;">
+        <div class="app-content-header" style="width:70%;">
             <h1 class="app-content-headerText">الفعاليات</h1>
 
             <!-- add -->
@@ -30,7 +30,7 @@
                                     <tr>
 
                                         <td><input type="text" class="toggle text-primary in" name="name_ar" required
-                                                style="width: 100%;"></th>
+                                                style="width: 100%;"></td>
                                         <td>الاسم(العربية)</td>
                                     </tr>
                                     <tr>
@@ -51,7 +51,6 @@
                                     </tr>
 
                                     <tr>
-
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -64,7 +63,7 @@
                                                     @foreach ($places as $place)
                                                         <option style="cursor: pointer;" class="dropdown-item"
                                                             value="{{ $place->id }}" id="place_{{ $place->id }}"
-                                                            onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'place_{{ $place->id }}')"
+                                                            onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'place_{{ $place->id }}'), filterServices({{ $place->id }})"
                                                             href="#">
                                                             {{ $place->translations()->where('locale', 'ar')->first()->name }}
                                                         </option>
@@ -83,23 +82,35 @@
                                     </tr>
 
                                     <tr>
-
                                         <td>
-                                            <div class="dropdown toggle text-primary in" style="display:inline-block;">
+                                            <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+
                                                 <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                                     data-toggle="dropdown" aria-expanded="false">
 
                                                 </label>
+                                                <span id="service-name"></span>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">--</a>
-                                                    <a class="dropdown-item" href="#">---</a>
-                                                    <a class="dropdown-item" href="#">---</a>
-                                                    <a class="dropdown-item" href="#">---</a>
+                                                    @foreach ($services as $service)
+                                                        <option style="cursor: pointer;"
+                                                            class="dropdown-item service_filter_option service_place_{{ $service->place->id }}"
+                                                            value="{{ $service->id }}" id="dservice_{{ $service->id }}"
+                                                            onclick="setService({{ $service->id }}, '{{ $service->translations()->where('locale', 'ar')->first()->name }}', 'service_{{ $service->id }}')"
+                                                            hidden href="#">
+                                                            {{ $service->translations()->where('locale', 'ar')->first()->name }}
+                                                        </option>
+                                                    @endforeach
+                                                    <input type="text" id="service_id" name="service_id" hidden>
 
                                                 </div>
                                             </div>
                                         </td>
                                         <td>الخدمة</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="service_error"></span>
+                                        </td>
                                     </tr>
 
                                     <tr>
@@ -160,24 +171,25 @@
                                                 id="end_date_error"></span>
                                         </td>
                                     </tr>
-                                   
+
                                 </table>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="action-button active close"
-                                    onclick="removeMessages(), document.getElementById('add-form').reset()"
-                                    data-bs-dismiss="modal">إغلاق</button>
-                                <button type="button" id="add-event-btn" onclick="addEvent('add-form')"
-                                    class="app-content-headerButton">حفظ</button>
-                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="action-button active close"
+                                onclick="removeMessages(), document.getElementById('add-form').reset()"
+                                data-bs-dismiss="modal">إغلاق</button>
+                            <button type="button" id="add-event-btn" onclick="addEvent('add-form')"
+                                class="app-content-headerButton">حفظ</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:83%;">
-            <input class="search-bar" placeholder="...ابحث" type="text">
+        <div class="app-content-actions" style="width:70%;">
+            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم " type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
                 <div class="filter-button-wrapper">
@@ -249,10 +261,10 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:84%;">
-            <div class="products-area-wrapper tableView">
+        <div class="scroll-class" style="width:70%;">
+            <div class="products-area-wrapper tableView" id="eventsTable">
                 <div class="products-header">
-                    {{-- <div class="product-cell">#</div> --}}
+                    <div class="product-cell">#</div>
                     <div class="product-cell">الاسم</div>
                     <div class="product-cell">المكان</div>
                     <div class="product-cell">الخدمة</div>
@@ -276,20 +288,22 @@
                                     <circle cx="12" cy="19" r="1" />
                                 </svg>
                             </button>
-                            {{-- <div class="product-cell">
-                                <span>{{$i++}}</span>
-                            </div> --}}
                             <div class="product-cell">
-                                <span>{{ $event->translations()->where('locale', 'ar')->first()->name }}</span>
+                                <span>{{ $i++ }}</span>
                             </div>
-                          
+                            <div class="product-cell">
+                                <span class="search-value">{{ $event->translations()->where('locale', 'ar')->first()->name }}</span>
+                            </div>
+
 
                             <div class="product-cell">
                                 <span>{{ $event->place->translations()->where('locale', 'ar')->first()->name }}</span>
                             </div>
 
                             <div class="product-cell">
-                                <span> ----- </span>
+                                <span>
+                                    {{ optional(optional(optional(optional($event->service)->translations())->where('locale', 'ar'))->first())->name }}
+                                </span>
                             </div>
                             <div class="product-cell">
                                 <span>{{ $event->translations()->where('locale', 'ar')->first()->description }}</span>
@@ -361,8 +375,8 @@
                                                         </tr>
 
                                                         <tr>
-
                                                             <td>
+
                                                                 <div class="dropdown toggle text-primary in"
                                                                     style="display:inline-block; ;">
 
@@ -371,6 +385,7 @@
                                                                         data-toggle="dropdown" aria-expanded="false">
 
                                                                     </label>
+
                                                                     <span
                                                                         id="place-name-{{ $event->id }}">{{ $event->place->translations()->where('locale', 'ar')->first()->name }}</span>
                                                                     <div class="dropdown-menu"
@@ -381,7 +396,7 @@
                                                                                 class="dropdown-item"
                                                                                 value="{{ $place->id }}"
                                                                                 id="edit_place_{{ $event->id }}_{{ $place->id }}"
-                                                                                onclick="setEditPlace({{ $place->id }}, {{ $event->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'edit_place_{{ $event->id }}_{{ $place->id }}')"
+                                                                                onclick="setEditPlace({{ $place->id }}, {{ $event->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'edit_place_{{ $event->id }}_{{ $place->id }}'), filterEditServices({{ $place->id }}, {{ $event->id }})"
                                                                                 href="#">
                                                                                 {{ $place->translations()->where('locale', 'ar')->first()->name }}
                                                                             </option>
@@ -403,26 +418,39 @@
 
                                                         </tr>
                                                         <tr>
-
                                                             <td>
                                                                 <div class="dropdown toggle text-primary in"
                                                                     style="display:inline-block; ;">
+
                                                                     <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                                        aria-expanded="false">
-                                                                        ---
+                                                                        id="dropdownMenuButtonEdit{{ $event->id }}"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+
                                                                     </label>
+                                                                    <span
+                                                                        id="service-name-{{ $event->id }}">{{ optional(optional(optional(optional($event->service)->translations())->where('locale', 'ar'))->first())->name }}</span>
                                                                     <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">--</a>
-                                                                        <a class="dropdown-item" href="#">---</a>
-                                                                        <a class="dropdown-item" href="#">----</a>
+                                                                        aria-labelledby="dropdownMenuButtonEdit{{ $event->id }}">
+                                                                        @foreach ($services as $service)
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($service->id == $event->service_id) color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item edit_service_filter_option edit_service_place_{{ $service->place->id }}"
+                                                                                value="{{ $service->id }}"
+                                                                                id="edit_service_{{ $event->id }}_{{ $service->id }}"
+                                                                                onclick="setEditService({{ $service->id }}, {{ $event->id }}, '{{ $service->translations()->where('locale', 'ar')->first()->name }}', 'edit_service_{{ $event->id }}_{{ $service->id }}')"
+                                                                                href="#">
+                                                                                {{ $service->translations()->where('locale', 'ar')->first()->name }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                        <input type="text"
+                                                                            id="edit_service_id_{{ $event->id }}"
+                                                                            name="service_id"
+                                                                            value="{{ $event->service_id }}" hidden>
 
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td>الخدمة </td>
+                                                            <td>الخدمة</td>
                                                         </tr>
                                                         <tr>
 
@@ -483,7 +511,7 @@
 
                                                         </tr>
 
-                                                    
+
                                                     </table>
 
                                                 </div>
@@ -536,18 +564,18 @@
                                                             class="app-content-headerButton">نعم</button>
                                                     </div>
                                                 </form>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                                    <!-- end delete -->
+                                <!-- end delete -->
 
-                                            </div>
-                                            <!-- end action -->
+                            </div>
+                            <!-- end action -->
 
 
-                                        </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -562,6 +590,7 @@
     function addEvent(formId) {
         $("#add-event-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         var formData = new FormData(document.getElementById('add-form'));
+        console.log(document.getElementById('add-form'));
         $.ajax({
                 url: "{{ route('addEventAr') }}",
                 type: "POST",
@@ -744,7 +773,7 @@
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("search");
         filter = input.value;
-        table = document.getElementById("categoriesTable");
+        table = document.getElementById("eventsTable");
         // tr = table.getElementsByTagName("tr");
         tr = table.getElementsByClassName("products-row");
         // Loop through all table rows, and hide those who don't match the search query
@@ -812,5 +841,70 @@
         document.getElementById('place-name-' + event_id).innerHTML = place;
         document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
         document.getElementById('edit_place_id_' + event_id).value = `${place_id}`;
+    }
+    //---------------------------------------------
+    function setService(service_id, service, option_id) {
+        var services_options = document.querySelectorAll('[id^="service_"]');
+        services_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('service-name').innerHTML = service;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('service_id').value = `${service_id}`;
+    }
+    //--------------------------------------------
+    function setEditService(service_id, place_id, service, option_id) {
+        var services_options = document.querySelectorAll('[id^="edit_service_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('service-name-' + place_id).innerHTML = service;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_service_id_' + place_id).value = `${service_id}`;
+    }
+    //--------------------------------------------
+    function filterServices(place_id) {
+        var services = document.querySelectorAll(`.service_filter_option`);
+        var place_services = document.querySelectorAll(`.service_place_${place_id}`);
+
+        services.forEach(service => {
+            service.setAttribute("hidden", true);
+
+        });
+        place_services.forEach(service => {
+            service.removeAttribute("hidden");
+
+        });
+        document.getElementById('service_id').value = "";
+        document.getElementById('service-name').innerHTML = '';
+        var services_options = document.querySelectorAll('[id^="service_"]');
+        services_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+
+    //--------------------------------------------
+    function filterEditServices(place_id, event_id) {
+        var services = document.querySelectorAll(`.edit_service_filter_option`);
+        var place_services = document.querySelectorAll(`.edit_service_place_${place_id}`);
+
+        services.forEach(service => {
+            service.setAttribute("hidden", true);
+
+        });
+        place_services.forEach(service => {
+            service.removeAttribute("hidden");
+
+        });
+        document.getElementById(`edit_service_id_${event_id}`).value = "";
+        document.getElementById(`service-name-${event_id}`).innerHTML = '';
+        // var districts_options = document.querySelectorAll('[id^="district_"]');
+        services.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
     }
 </script>

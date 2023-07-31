@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->id();
             // $table->string('name');
             $table->foreignId('place_id');
+            $table->foreignId('service_id')->nullable();
             $table->decimal('cost', 8, 0);
             // $table->string('description');
             $table->date('start_date')->useCurrent();

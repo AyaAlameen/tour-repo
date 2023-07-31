@@ -214,9 +214,14 @@ Route::middleware(['district'])->group(function(){
 Route::middleware(['event'])->group(function(){
 
     //en
-    Route::get('/events_en', function () {
-        return view('admin-En.events');
-    }) -> name('event_en');
+    // Route::get('/events_en', function () {
+    //     return view('admin-En.events');
+    // }) -> name('event_en');
+
+    Route::get('/events_en', [EventController::class, 'indexEn']) -> name('event_en');
+    Route::post('/events_en', [EventController::class, 'storeEn']) -> name('addEventEn');
+    Route::post('/events_en/edit', [EventController::class, 'updateEn']) -> name('editEventEn');
+    Route::post('/events_en/delete', [EventController::class, 'destroyEn']) -> name('deleteEventEn');
 
     //ar
         // Route::get('/events_ar', function () {

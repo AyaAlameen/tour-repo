@@ -15,18 +15,14 @@
                 <span>{{ $i++ }}</span>
             </div>
             <div class="product-cell">
-                <span class="search-value">{{ $event->translations()->where('locale', 'ar')->first()->name }}</span>
+                <span class="search-value">{{ $event->translations()->where('locale', 'en')->first()->name }}</span>
             </div>
-
 
             <div class="product-cell">
                 <span>{{ $event->place->translations()->where('locale', 'ar')->first()->name }}</span>
             </div>
-
             <div class="product-cell">
-                <span>
-                    {{ optional(optional(optional(optional($event->service)->translations())->where('locale', 'ar'))->first())->name }}
-                </span>
+                <span>{{ optional(optional(optional(optional($event->service)->translations())->where('locale', 'ar'))->first())->name }}</span>
             </div>
             <div class="product-cell">
                 <span>{{ $event->translations()->where('locale', 'ar')->first()->description }}</span>
@@ -52,7 +48,7 @@
                 <div class="modal fade" data-backdrop="static" id="editEvent{{ $event->id }}" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content" style="direction:ltr;">
+                        <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -63,38 +59,32 @@
                                 @csrf
                                 <div class="modal-body">
                                     <table class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                        style="width: 400px;" id="editTable">
+                                        style="width: 400px;">
                                         <tr>
-
+                                            <td>Name(Arabic) </td>
                                             <td><input type="text" class="toggle text-primary in" name="name_ar"
                                                     required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'ar')->first()->name }}">
+                                                </th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span>
                                             </td>
-                                            <td>الاسم(العربية)</td>
-                                        </tr>
-                                        <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="name_ar_error_edit"></span></td>
-
                                         </tr>
 
                                         <tr>
-
+                                            <td>Name(English) </td>
                                             <td><input type="text" class="toggle text-primary in" name="name_en"
                                                     required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'en')->first()->name }}">
+                                                </th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span>
                                             </td>
-                                            <td>(الإنجليزية)الاسم </td>
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="name_en_error_edit"></span></td>
-
-                                        </tr>
-
-                                        <tr>
+                                            <td>Place</td>
                                             <td>
 
                                                 <div class="dropdown toggle text-primary in"
@@ -126,15 +116,14 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>المكان</td>
+
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red" class="place_error_edit"></span>
+                                            <td colspan="2"><span class="text-danger p-1 place_error_edit"></span>
                                             </td>
-
                                         </tr>
                                         <tr>
+                                            <td>Service</td>
                                             <td>
                                                 <div class="dropdown toggle text-primary in"
                                                     style="display:inline-block; ;">
@@ -167,77 +156,79 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>الخدمة</td>
+
                                         </tr>
                                         <tr>
-
+                                            <td colspan="2"><span
+                                                    class="text-danger p-1 service_error_edit"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description(Arabic)</td>
                                             <td><input class="toggle text-primary in" type="text"
                                                     name="description_ar" required style="width: 100%;"
-                                                    value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
-                                            </td>
-                                            <td>وصف(العربية)</td>
+                                                    value="{{ $event->translations()->where('locale', 'ar')->first()->description }}">
+                                                </th>
                                         </tr>
                                         <tr>
+                                            <td colspan="2"><span class="text-danger p-1 des_error_edit"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description(English)</td>
                                             <td><input class="toggle text-primary in" type="text"
                                                     name="description_en" required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
-                                            </td>
-                                            <td>(الانكليزية)وصف</td>
+                                                </th>
                                         </tr>
                                         <tr>
-
+                                            <td colspan="2"><span class="text-danger p-1 des_error_edit"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>cost</td>
                                             <td><input type="number" name="cost" class="toggle text-primary in"
                                                     value="{{ $event->cost }}">
                                             </td>
-                                            <td>الكلفة</td>
 
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="cost_error_edit"></span></td>
-
+                                            <td colspan="2"><span class="text-danger p-1 cost_error_edit"></span>
+                                            </td>
                                         </tr>
                                         <tr>
-
+                                            <td>Start date</td>
                                             <td><input type="date" name="start_date"
                                                     class="toggle text-primary in" value="{{ $event->start_date }}">
                                             </td>
-                                            <td>تاريخ البداية</td>
 
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="start_date_error_edit"></span></td>
-
+                                            <td colspan="2"><span
+                                                    class="text-danger p-1 start_date_error_edit"></span>
+                                            </td>
                                         </tr>
                                         <tr>
-
+                                            <td>end date</td>
                                             <td><input type="date" name="end_date" class="toggle text-primary in"
                                                     value="{{ $event->end_date }}"></td>
-                                            <td>تاريخ النهاية</td>
 
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="end_date_error_edit"></span></td>
-
+                                            <td colspan="2"><span
+                                                    class="text-danger p-1 end_date_error_edit"></span>
+                                            </td>
                                         </tr>
-
-
                                     </table>
 
                                 </div>
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="action-button active close" onclick="removeMessages()"
-                                    data-dismiss="modal">إغلاق</button>
+                                    data-dismiss="modal">Close</button>
                                 <button type="submit" id="edit-event-btn-{{ $event->id }}"
                                     onclick="editEvent('edit-form-{{ $event->id }}', {{ $event->id }})"
-                                    class="app-content-headerButton">حفظ
-                                    التغييرات</button>
+                                    class="app-content-headerButton">Save
+                                    changes</button>
                             </div>
                         </div>
                     </div>
@@ -254,7 +245,7 @@
                     <div class="modal fade" id="deleteEvent{{ $event->id }}" tabindex="-1"
                         aria-labelledby="exampleModal2Label" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content" style="direction:ltr;">
+                            <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -264,24 +255,22 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="text" name="id" value="{{ $event->id }}" hidden>
-                                    <div class="modal-body" style="direction:rtl;">
-                                        هل أنت متأكد من أنك تريد حذف هذه الفعالية (<span
-                                            style="color: #90aaf8;">{{ $event->translations()->where('locale', 'ar')->first()->name }}</span>)
-                                        ؟
+                                    <div class="modal-body">
+                                        Are you sure that you want to delete This Event (<span
+                                            style="color: #90aaf8;">{{ $event->translations()->where('locale', 'en')->first()->name }}</span>)?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close"
-                                            data-dismiss="modal">إغلاق</button>
+                                            data-dismiss="modal">Close</button>
                                         <button type="submit" id="delete-event-btn-{{ $event->id }}"
                                             onclick="deleteEvent(`delete-form-{{ $event->id }}`, {{ $event->id }})"
-                                            class="app-content-headerButton">نعم</button>
+                                            class="app-content-headerButton">Yes</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- end delete -->
 
             </div>
@@ -304,18 +293,14 @@
                 <span>{{ $i++ }}</span>
             </div>
             <div class="product-cell">
-                <span>{{ $event->translations()->where('locale', 'ar')->first()->name }}</span>
-            </div>
-
-
-            <div class="product-cell">
-                <span class="search-value">{{ $event->place->translations()->where('locale', 'ar')->first()->name }}</span>
+                <span class="search-value">{{ $event->translations()->where('locale', 'en')->first()->name }}</span>
             </div>
 
             <div class="product-cell">
-                <span>
-                    {{ optional(optional(optional(optional($event->service)->translations())->where('locale', 'ar'))->first())->name }}
-                </span>
+                <span>{{ $event->place->translations()->where('locale', 'ar')->first()->name }}</span>
+            </div>
+            <div class="product-cell">
+                <span>{{ optional(optional(optional(optional($event->service)->translations())->where('locale', 'ar'))->first())->name }}</span>
             </div>
             <div class="product-cell">
                 <span>{{ $event->translations()->where('locale', 'ar')->first()->description }}</span>
@@ -341,7 +326,7 @@
                 <div class="modal fade" data-backdrop="static" id="editEvent{{ $event->id }}" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content" style="direction:ltr;">
+                        <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -352,38 +337,32 @@
                                 @csrf
                                 <div class="modal-body">
                                     <table class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                        style="width: 400px;" id="editTable">
+                                        style="width: 400px;">
                                         <tr>
-
+                                            <td>Name(Arabic) </td>
                                             <td><input type="text" class="toggle text-primary in" name="name_ar"
                                                     required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'ar')->first()->name }}">
-                                            </td>
-                                            <td>الاسم(العربية)</td>
+                                                </th>
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="name_ar_error_edit"></span></td>
-
+                                            <td colspan="2"><span
+                                                    class="text-danger p-1 name_ar_error_edit"></span></td>
                                         </tr>
 
                                         <tr>
-
+                                            <td>Name(English) </td>
                                             <td><input type="text" class="toggle text-primary in" name="name_en"
                                                     required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'en')->first()->name }}">
-                                            </td>
-                                            <td>(الإنجليزية)الاسم </td>
+                                                </th>
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="name_en_error_edit"></span></td>
-
+                                            <td colspan="2"><span
+                                                    class="text-danger p-1 name_en_error_edit"></span></td>
                                         </tr>
-
                                         <tr>
+                                            <td>Place</td>
                                             <td>
 
                                                 <div class="dropdown toggle text-primary in"
@@ -415,15 +394,14 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>المكان</td>
-                                        </tr>
-                                        <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="place_error_edit"></span></td>
 
                                         </tr>
                                         <tr>
+                                            <td colspan="2"><span class="text-danger p-1 place_error_edit"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Service</td>
                                             <td>
                                                 <div class="dropdown toggle text-primary in"
                                                     style="display:inline-block; ;">
@@ -456,77 +434,79 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>الخدمة</td>
+
                                         </tr>
                                         <tr>
-
+                                            <td colspan="2"><span
+                                                    class="text-danger p-1 service_error_edit"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description(Arabic)</td>
                                             <td><input class="toggle text-primary in" type="text"
                                                     name="description_ar" required style="width: 100%;"
-                                                    value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
-                                            </td>
-                                            <td>وصف(العربية)</td>
+                                                    value="{{ $event->translations()->where('locale', 'ar')->first()->description }}">
+                                                </th>
                                         </tr>
                                         <tr>
+                                            <td colspan="2"><span class="text-danger p-1 des_error_edit"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description(English)</td>
                                             <td><input class="toggle text-primary in" type="text"
                                                     name="description_en" required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
-                                            </td>
-                                            <td>(الانكليزية)وصف</td>
+                                                </th>
                                         </tr>
                                         <tr>
-
+                                            <td colspan="2"><span class="text-danger p-1 des_error_edit"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>cost</td>
                                             <td><input type="number" name="cost" class="toggle text-primary in"
                                                     value="{{ $event->cost }}">
                                             </td>
-                                            <td>الكلفة</td>
 
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="cost_error_edit"></span></td>
-
+                                            <td colspan="2"><span class="text-danger p-1 cost_error_edit"></span>
+                                            </td>
                                         </tr>
                                         <tr>
-
+                                            <td>Start date</td>
                                             <td><input type="date" name="start_date"
                                                     class="toggle text-primary in" value="{{ $event->start_date }}">
                                             </td>
-                                            <td>تاريخ البداية</td>
 
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="start_date_error_edit"></span></td>
-
+                                            <td colspan="2"><span
+                                                    class="text-danger p-1 start_date_error_edit"></span>
+                                            </td>
                                         </tr>
                                         <tr>
-
+                                            <td>end date</td>
                                             <td><input type="date" name="end_date" class="toggle text-primary in"
                                                     value="{{ $event->end_date }}"></td>
-                                            <td>تاريخ النهاية</td>
 
                                         </tr>
                                         <tr>
-
-                                            <td colspan="2"><span style="color: red"
-                                                    class="end_date_error_edit"></span></td>
-
+                                            <td colspan="2"><span
+                                                    class="text-danger p-1 end_date_error_edit"></span>
+                                            </td>
                                         </tr>
-
-
                                     </table>
 
                                 </div>
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="action-button active close" onclick="removeMessages()"
-                                    data-dismiss="modal">إغلاق</button>
+                                    data-dismiss="modal">Close</button>
                                 <button type="submit" id="edit-event-btn-{{ $event->id }}"
                                     onclick="editEvent('edit-form-{{ $event->id }}', {{ $event->id }})"
-                                    class="app-content-headerButton">حفظ
-                                    التغييرات</button>
+                                    class="app-content-headerButton">Save
+                                    changes</button>
                             </div>
                         </div>
                     </div>
@@ -543,7 +523,7 @@
                     <div class="modal fade" id="deleteEvent{{ $event->id }}" tabindex="-1"
                         aria-labelledby="exampleModal2Label" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content" style="direction:ltr;">
+                            <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -553,24 +533,22 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="text" name="id" value="{{ $event->id }}" hidden>
-                                    <div class="modal-body" style="direction:rtl;">
-                                        هل أنت متأكد من أنك تريد حذف هذه الفعالية (<span
-                                            style="color: #90aaf8;">{{ $event->translations()->where('locale', 'ar')->first()->name }}</span>)
-                                        ؟
+                                    <div class="modal-body">
+                                        Are you sure that you want to delete This Event (<span
+                                            style="color: #90aaf8;">{{ $event->translations()->where('locale', 'en')->first()->name }}</span>)?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="action-button active close"
-                                            data-dismiss="modal">إغلاق</button>
+                                            data-dismiss="modal">Close</button>
                                         <button type="submit" id="delete-event-btn-{{ $event->id }}"
                                             onclick="deleteEvent(`delete-form-{{ $event->id }}`, {{ $event->id }})"
-                                            class="app-content-headerButton">نعم</button>
+                                            class="app-content-headerButton">Yes</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- end delete -->
 
             </div>
