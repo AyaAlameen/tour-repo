@@ -73,7 +73,7 @@
 
     <div class="serv d-flex mt-5" style="flex-direction: row; align-items: center;">
 
-    {{-- بداسة كارد الخدمات --}}
+    {{-- بداسة كارد الرحلة --}}
     <div class="mainCard  w-50 m-auto " style="border-radius: 10px;">
         <div class="d-flex">
            
@@ -126,7 +126,7 @@
     </div>
 
 
-    {{-- نهاية كارد المكان --}}
+    {{-- نهاية كارد الرحلة --}}
 </div>
 
 

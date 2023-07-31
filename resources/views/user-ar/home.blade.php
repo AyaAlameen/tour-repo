@@ -136,7 +136,7 @@
                             <img width="400px" height="250px"
                                 src="{{ asset(str_replace(app_path(), '', $city->image)) }}" alt="">
                             <a class="destination-overlay text-white text-decoration-none" href="{{route('user-city-ar')}}">
-                                <h4 class="text-white">{{ $city->translations()->where('locale', 'en')->first()->name }}
+                                <h4 class="text-white">{{ $city->translations()->where('locale', 'ar')->first()->name }}
                                 </h4>
                             </a>
                         </div>
@@ -282,7 +282,7 @@
     <!-- Service End -->
 
 
-    <!-- Packages Start -->
+    <!-- trips Start -->
     <div class="container-fluid py-5" id="Trips">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
@@ -295,37 +295,25 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
                             <!-- صور أماكن الرحلة -->
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                        data-bs-slide-to="0" class="active" aria-current="true"
-                                        aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
+                            <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
+                                
                                 <div class="carousel-inner">
+                                    {{--بداية الصور--}}
+                                    {{-- بس أول صور بدا كلاس active --}}
                                     <div class="carousel-item active">
                                         <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
                                             alt="">
                                     </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
-                                            alt="">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
-                                            alt="">
-                                    </div>
+                                    {{-- نهاية الصور --}}
+                                    
                                 </div>
                                 <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
                                 <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
                                 </button>
@@ -333,8 +321,7 @@
                             <!-- نهاية صور أماكن الرحلة -->
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <small class="m-0"><i
-                                            class="fa fa-map-marker-alt text-primary mr-2"></i>دمشق</small>
+                                    
                                     <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3
                                         أيام</small>
                                 </div>
@@ -343,8 +330,7 @@
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between align-items-baseline">
                                         <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                        <h6><button class="btn btn-primary" style="border-radius:3px;">
-                                                المزيد من التفاصيل للحجز</button></h6>
+                                        <h6><a class="btn btn-primary"  href="{{route('tripmore-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -358,12 +344,9 @@
     </div>
     </div>
     </div>
-    <div class="text-center">
-        <a href="{{ route('trip-ar') }}" style="font-size: 25px; color:var(--bambi);"><img src="img/menu.png"
-                width="20px" height="20px"> عرض المزيد <img src="img/menu.png" width="20px" height="20px"></a>
-    </div>
+    
 
-    <!-- Packages End -->
+    <!-- trips End -->
     <!-- Gallery -->
     <div id="Gallery" class="filterGallery">
         <div class="container">
@@ -460,9 +443,9 @@
         <!-- Registration Start -->
         <div class="container-fluid bg-registration py-5" style="margin: 90px 0; height:700px;">
             <div class="container py-5">
-                <div class="row align-items-center" style="flex-wrap:nowrap; width:700px;">
-                    <div class="col-lg-7"
-                        style="margin-bottom:170px; margin-left:300px; background-color:#ffffff10; backdrop-filter:blur(15px); padding:50px; border-radius:3px;">
+                <div class="row align-items-center" style="flex-wrap:nowrap;">
+                    <div class="col-lg-5"
+                        style="margin-bottom:170px; background-color:#ffffff10; backdrop-filter:blur(15px); padding:50px; border-radius:3px;">
                         <div class="mb-4">
                             <h6 class="text-primary text-uppercase">عروض المسافر</h6>
                             <h1 class="text-white"><span class="text-primary">30% حسم</span> من أجل شهر العسل</h1>
@@ -481,12 +464,12 @@
                         </ul>
                     </div>
                     @if (!Auth::check())
-                        <div class="d-md-flex half">
+                        <div class="d-md-flex half col-lg-8">
 
                             <div class="contents" style="background-color:#0d6dfd00;">
-                                <div class="container">
+                              
 
-                                    <div style="width:500px; margin-left:400px;"
+                                    <div
                                         class="align-items-center justify-content-center">
                                         <div class="form-block mx-auto">
 
@@ -502,7 +485,7 @@
 
                                                     <div class="form-group d-flex mb-3 first align-items-center">
                                                         <label for="user_name"
-                                                            class="col-md-4 col-form-label text-md-start">{{ __('اسم المستخدم') }}</label>
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('اسم المستخدم') }}</label>
 
                                                         <div class="d-flex  w-100" style="flex-direction: column;">
                                                             <input id="user_name" placeholder="اسم المستخدم"
@@ -522,7 +505,7 @@
 
                                                     <div class="form-group mb-3 d-flex align-items-center">
                                                         <label for="email"
-                                                            class="col-md-4 col-form-label text-md-start">{{ __('الايميل') }}</label>
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('الايميل') }}</label>
 
                                                         <div class="d-flex w-100" style="flex-direction: column;">
                                                             <input id="email" placeholder="example@example.com"
@@ -543,7 +526,7 @@
 
                                                     <div class="form-group mb-3 d-flex align-items-center">
                                                         <label for="password"
-                                                            class="col-md-4 col-form-label text-md-start">{{ __('كلمة السر') }}</label>
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('كلمة السر') }}</label>
 
                                                         <div class="d-flex w-100" style="flex-direction: column;">
                                                             <input id="password" placeholder="********" type="password"
@@ -560,7 +543,7 @@
 
                                                     <div class="form-group  mb-3 last d-flex align-items-center">
                                                         <label for="password-confirm"
-                                                            class="col-md-4 col-form-label text-md-start">{{ __('تأكيد كلمة السر') }}</label>
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('تأكيد كلمة السر') }}</label>
 
                                                         <input id="password-confirm" type="password" class="form-control"
                                                             name="password_confirmation" required
@@ -584,7 +567,7 @@
                                     </div>
 
                                 </div>
-                            </div>
+                         
                         </div>
                     @endif
                 </div>

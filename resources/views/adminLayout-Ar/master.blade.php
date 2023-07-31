@@ -302,42 +302,7 @@
         }
 
 
-        // إضافة خدمة جديدة لمكان للجروبات
-        function addserv() {
-            $(document).ready(function() {
-                $('[ data-bs-toggle="popover"]').popover();
-            });
-            var table = document.getElementById("tablePlace");
-            var newRow = document.createElement("tr");
-            var cell1 = document.createElement("td");
-            var cell2 = document.createElement("td");
-            var cell3 = document.createElement("td");
-            cell2.innerHTML = `<div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-<!--lable disabled هي الجملة منعرضا بحال كان المكان مالو خدمات ومنعمل ال  -->
-            <!-- there is no services in this place -->
-          </label>
-          <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-          <ul>
-    <li>
-    <div class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-           data-bs-content='cost : (12)  description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .'>
-          <a class="dropdown-item" href="#">خدمة1</a>
-    </div>
-    </li>
-  </ul>
-   
-          </div>
-        </div>`;
-            cell3.innerHTML = `<button type="button" class="btn-close m-0 close pl-2 pb-2" onclick="removeRow()">
-        <span  aria-hidden="true">&times;</span>
-        </button>`;
-            newRow.appendChild(cell1);
-            newRow.appendChild(cell2);
-            newRow.appendChild(cell3);
-            table.appendChild(newRow);
-        }
+     
 
         // حذف سطر من جدول
         function removeRow() {

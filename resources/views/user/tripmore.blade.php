@@ -6,7 +6,7 @@
         <div style="width: 45%; height: 540px;">
             <img src="img/440px-Aleppo_Citadel_02_-_Bastion.jpg" width="100%" height="100%">
             <button
-                style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
+                style="position: relative; left:150%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
                 data-bs-toggle="modal" data-bs-target="#exampleModal">View all photos</button>
 
             {{-- picturs modal --}}

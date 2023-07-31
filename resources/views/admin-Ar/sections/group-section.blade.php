@@ -216,38 +216,40 @@
                                 </div>
                                 <div class="modal-body">
                                     <!-- !!!بيان انتبهي  -->
-                                    <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
+                                    <!-- هاد الشكل بحال كان لسا مالو ضايف وجهات  -->
                                     @if ($group->places->count() == 0)
                                         <img src="../img/destination.png" class="m-3"
                                             style="width:150px; height:150px; opacity:0.5;">
                                         <p class="text-body mb-4">لا توجد وجهات مضافة بعد</p>
                                     @else
-                                        <!-- هاد الشكل بحال كان ضايف وسائل -->
+                                        <!-- هاد الشكل بحال كان ضايف وجهات -->
                                         <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
                                             class="table-striped table-hover table-bordered m-auto text-primary myTable">
                                             <tr>
+                                                <td class="text-center">المحافظة</td>
+                                                <td class="text-center">الناحية</td>
                                                 <td class="text-center">لمكان</td>
                                                 <td class="text-center">الخدمة</td>
-                                                <td class="text-center">الناحية</td>
                                                 <td class="text-center" style="width:140px;">الكلفة</td>
-                                                <td class="text-center" style="width:290px;">وصف</td>
+
 
                                                 <td style="width:40px;"></td>
                                             </tr>
+                                            {{-- عرض الوجهات للجروب --}}
                                             <tr>
-                                                <td class="text-center">shahbarows</td>
-                                                <td class="text-center">shahbarows</td>
-                                                <td class="text-center">alsaha</td>
+                                                <td class="text-center">حلب</td>
+                                                <td class="text-center">الساحة</td>
+                                                <td class="text-center">شهباروز</td>
+                                                <td class="text-center">الالعاب</td>
                                                 <td class="text-center">120000</td>
-                                                <td class="text-center">Lorem ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Eaque nihil dolores totam eum cum,
-                                                    ipsum perspiciatis debitis .</td>
 
                                                 <td> <a href="#" class="delete  ml-1" style="font-size:14px;"
                                                         title="Delete" data-toggle="tooltip"><i
-                                                            class="fas fa-trash"></i></a></td>
+                                                            class="fas fa-trash"></i></a>
+                                                </td>
 
                                             </tr>
+                                            {{-- نهاية عرض الوجهات للجرب  --}}
                                         </table>
                                     @endif
 
@@ -285,26 +287,32 @@
                                         style="width:150px; height:150px; opacity:0.5;">
                                     <p class="text-body mb-4">لا يوجد بعد وسائل نقل مضافة </p>
                                     <!-- هاد الشكل بحال كان ضايف وسائل -->
-                                    <!-- <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
-    <tr>
-      <td class="text-center">شركة النقل</td>
-      <td class="text-center">وسيلة النقل</td>
-      <td class="text-center" style="width:90px;">عدد الركاب</td>
-      <td class="text-center" style="width:290px;">المواصفات</td>
-      <td>في تاريخ</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="text-center">شركة الأمير</td>
-      <td class="text-center">6913 حلب</td>
-      <td class="text-center">12</td>
-      <td class="text-center" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-         ipsum perspiciatis.</td>
-         <td>11-11-2023</td>
-       <td> <a href="#" class="delete ml-2 mr-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
-      
-         
-    </tr> -->
+                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
+                                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                                        <tr>
+                                            <td class="text-center">شركة النقل</td>
+                                            <td class="text-center">وسيلة النقل</td>
+                                            <td class="text-center" style="width:90px;">عدد الركاب</td>
+                                            <td class="text-center" style="width:290px;">المواصفات</td>
+                                            <td>في تاريخ</td>
+                                            <td></td>
+                                        </tr>
+                                        {{-- عرض وسائل النقل لهي الرحلة --}}
+                                        <tr>
+                                            <td class="text-center">شركة الأمير</td>
+                                            <td class="text-center">6913 حلب</td>
+                                            <td class="text-center">12</td>
+                                            <td class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Eaque nihil dolores totam eum cum,
+                                                ipsum perspiciatis.</td>
+                                            <td>11-11-2023</td>
+                                            <td> <a href="#" class="delete ml-2 mr-2" style="font-size:14px;"
+                                                    title="Delete" data-toggle="tooltip"><i
+                                                        class="fas fa-trash"></i></a></td>
+
+
+                                        </tr>
+                                        {{-- نهاية عرض وسائل النقل لهي الرحلة --}}
                                     </table>
                                 </div>
                                 <div class="modal-footer">
@@ -481,7 +489,8 @@
 
                                     <label class="dropdown-toggle" type="button" id="dropdownMenuButtonService"
                                         data-toggle="dropdown" aria-expanded="false">
-
+                                        <!--  هي الجملة منعرضا بحال كان المكان مالو خدمات    -->
+                                        there is no services in this place
                                     </label>
                                     <span id="service-name"></span>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonService">
@@ -507,8 +516,7 @@
                             </td>
                         </tr>
                     </table>
-                    <button class="app-content-headerButton m-3" style="float:left;" onclick="addserv()">إضافة خدمة
-                        أخرى </button>
+
                 </form>
             </div>
 
