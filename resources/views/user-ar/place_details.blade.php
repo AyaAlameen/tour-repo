@@ -2,16 +2,16 @@
 @section('content')
     <div class="d-flex" style="justify-content: space-around; align-items: center;">
 
-        <h2 class="p-5" style="text-align: right;"> (اسم المكان) </h2>
+        <h2 class="p-5" style="text-align: right;"> ({{$place->translations()->where('locale', 'ar')->first()->name}}) </h2>
         <div class="contact_place_info">
-            <p> <i class="fas fa-phone"></i> 0949049912</p>
-            <p> <i class="fas fa-envelope"></i> aleppo-palace-hotel@gmail.com</p>
+            <p> <i class="fas fa-phone"></i> {{$place->phone}}</p>
+            <p> <i class="fas fa-envelope"></i> {{$place->email}}</p>
         </div>
     </div>
     {{-- Gallery --}}
     <div class="d-flex container mt-2 justify-content-center">
         <div style="width: 45%; height: 540px;">
-            <img src="img/440px-Aleppo_Citadel_02_-_Bastion.jpg" width="100%" height="100%">
+            <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}" width="100%" height="100%">
             <button
                 style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
                 data-bs-toggle="modal" data-bs-target="#exampleModal">عرض
@@ -37,18 +37,13 @@
                                 data-bs-ride="carousel">
 
                                 <div class="carousel-inner">
-                                    <div class="carousel-item active">
+                                    @foreach($place->images as $image)
+                                    <div @if ($loop->first) class="carousel-item active" @else class="carousel-item" @endif>
                                         <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
+                                            src="{{ asset(str_replace(app_path(), '', $image->image)) }}" alt="">
                                     </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                    </div>
+                                    @endforeach
+                                    
                                 </div>
                                 <button class="carousel-control-prev" type="button"
                                     data-bs-target="#carouselExample2Indicators" data-bs-slide="prev">
@@ -73,8 +68,8 @@
             {{-- end pic modal --}}
         </div>
         <div style="width: 35%; height: 540px;">
-            <img src="img/caption.jpg" width="100%" height="60%">
-            <img src="img/ALEPPO458976.gif" width="100%" height="40%">
+            <img src="{{ asset(str_replace(app_path(), '', $place->images()->skip(1)->take(1)->get()->first()->image)) }}" width="100%" height="60%">
+            <img src="{{ asset(str_replace(app_path(), '', $place->images()->skip(2)->take(1)->get()->first()->image)) }}" width="100%" height="40%">
         </div>
     </div>
     {{-- end Gallery --}}
@@ -82,14 +77,12 @@
     <div class="container-fluid w-75 m-auto">
         <div class="d-flex" style="justify-content: space-around; align-items: start;">
             <div class="w-50">
-                <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن (اسم المكان ) </h4>
-                <p style="text-align: right;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Ea sed voluptas fuga modi. Voluptatem distinctio debitis tenetur quos unde nostrum,
-                    omnis, expedita, maxime maiores ipsam exercitationem itaque! Atque, voluptates iste!</p>
+                <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن ({{$place->translations()->where('locale', 'ar')->first()->name}}) </h4>
+                <p style="text-align: right;">{{$place->translations()->where('locale', 'ar')->first()->description}}</p>
             </div>
             <div class="d-flex pt-5 pb-3" style="flex-direction: column; align-items: center;">
                 <img class="m-3" data-bs-toggle="modal" id="editmapimg" data-bs-target="#exampleModal9"
-                    style="cursor:pointer; border-radius:6px;" src="img/sy.jpg" width="200px" height="120px">
+                    style="cursor:pointer; border-radius:6px;" src="{{asset('img/sy.jpg')}}" width="200px" height="120px">
                 <p>شاهد على الخريطة</p>
                 {{-- مودل عرض الموقع على الخريطة الخريطة --}}
                 <div class="modal bg-light" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModal9Label"

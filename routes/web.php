@@ -440,9 +440,11 @@ Route::get('/contact-en', function () {
 Route::get('/user_city_en/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsEn'])-> name('user-city-en');
 
 
-Route::get('/place_details_en', function () {
-    return view('user.place_details');
-})-> name('place_details_en');
+// Route::get('/place_details_en/{id}', function () {
+//     return view('user.place_details');
+// })-> name('place_details_en');
+
+Route::get('/place_details_en/{id}', [App\Http\Controllers\PlaceController::class, 'placeDetailsEn'])-> name('place_details_en');
 
 Route::get('/transport', function () {
     return view('user.transport');
@@ -515,9 +517,12 @@ Route::get('/tripmore-ar', function () {
 
 Route::get('/user_city_ar/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsAr'])-> name('user-city-ar');
 
-Route::get('/place_details_ar', function () {
-    return view('user-ar.place_details');
-})-> name('place_details_ar');
+// Route::get('/place_details_ar', function () {
+//     return view('user-ar.place_details');
+// })-> name('place_details_ar');
+
+Route::get('/place_details_ar/{id}', [App\Http\Controllers\PlaceController::class, 'placeDetailsAr'])-> name('place_details_ar');
+
 
 Auth::routes();
 

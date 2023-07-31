@@ -213,4 +213,11 @@ class PlaceController extends Controller
     {
         //
     }
+
+    public function placeDetailsAr($id){
+        $place = Place::with('translations', 'services', 'images')->find($id);
+
+        return view('user-ar.place_details')->with(['place' => $place]);
+
+    }
 }

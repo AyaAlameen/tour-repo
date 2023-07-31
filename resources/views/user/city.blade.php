@@ -87,7 +87,7 @@
                     <button class="m-2 btn btn-primary"
                         style="width: 70%; margin-left: 15% !important ; margin-bottom: 35px !important;"><a
                             style="color: #fff; width: 100%; display: inline-block;"
-                            href="{{ route('place_details_en') }}">
+                            href="{{ route('place_details_en', ['id' => $place->id]) }}">
                             more details about place name for booking </a>
                     </button>
 
