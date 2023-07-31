@@ -12,6 +12,9 @@
             <div class="product-cell">
                 <span class="search-value">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>
             </div>
+            <div class="product-cell" >
+                <img style="height: 75px !important;" src="{{ asset(str_replace(app_path(),'',$company -> image))}}" alt="product">
+            </div>
             <div class="product-cell">
                 {{$company->email}}
             </div>
@@ -65,7 +68,13 @@
                                                     <input type="number" name="phone" class="toggle text-primary in" value="{{$company->phone}}">
                                                 </td>  
                                                 <td>الهاتف</td>
-                                            </tr>     
+                                            </tr>  
+                                            <tr>
+                                       
+                                                <td ><input type="file" name="image" id="img"> 
+                                                <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$company -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
+                                             <td>الصورة</td>
+                                            </tr>    
                                         </table>
                                     </div>
                                 </form>
@@ -119,6 +128,9 @@
             <div class="product-cell">
                 <span class="search-value">{{$company->translations()->where('locale', 'ar')->first()->name}}</span>
             </div>
+            <div class="product-cell" >
+                <img style="height: 75px !important;" src="{{ asset(str_replace(app_path(),'',$company -> image))}}" alt="product">
+            </div>
             <div class="product-cell">
                 {{$company->email}}
             </div>
@@ -170,7 +182,13 @@
                                                     <input type="number" name="phone" class="toggle text-primary in" value="{{$company->phone}}">
                                                 </td>  
                                                 <td>الهاتف</td>
-                                            </tr>     
+                                            </tr>  
+                                            <tr>
+                                       
+                                                <td ><input type="file" name="image" id="img"> 
+                                                <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$company -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
+                                             <td>الصورة</td>
+                                            </tr>    
                                         </table>
                                     </div>
                                 </form>

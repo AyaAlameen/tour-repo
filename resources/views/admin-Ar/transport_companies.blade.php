@@ -43,6 +43,16 @@
                   <td ><input class="toggle text-primary in" type="number" name="phone" required style="width: 100%;"></th>   
                   <td>الهاتف</td>   
               </tr> 
+              <tr>
+
+                <td><input type="file" multiple id="image" class="toggle text-primary in"
+                        name="image" required style="width: 100%;"></td>
+                <td>الصورة </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
+                </td>
+            </tr>
       </table>
       </div>
       </form>
@@ -90,6 +100,7 @@
       <div class="products-header">
         <div class="product-cell">#</div>
         <div class="product-cell">الاسم</div>
+        <div class="product-cell">الصورة</div>
         <div class="product-cell">الايميل</div>
         <div class="product-cell">الهاتف</div>
         <div class="product-cell">وسائل النقل</div>

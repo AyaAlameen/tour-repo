@@ -12,7 +12,7 @@ use App\Models\Transportation;
 class TransportCompany extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['email', 'phone'];
+    protected $fillable = ['image', 'email', 'phone'];
 
     public function translations()
     {

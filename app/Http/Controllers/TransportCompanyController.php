@@ -49,11 +49,24 @@ class TransportCompanyController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:transport_companies'],
-            'phone' => ['required', 'numeric', 'digits:10']
+            'phone' => ['required', 'numeric', 'digits:10'],
+            'image' => 'required',
         ]);
         // $company = new TransportCompany;
-        $company = TransportCompany::create($request->input());
-        // $category->save();
+        // $company = TransportCompany::create($request->input());
+        // $company->save();
+
+        $company = new TransportCompany;
+
+        $company->email = $request->input('email');
+        $company->phone = $request->input('phone');
+        if($request->has('image')){
+            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move('uploads/companyImage', $upload_image_name);
+            $company->image = 'uploads/companyImage/'.$upload_image_name;
+        }
+        $company->save();
+        
 
         $company->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
         $company->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
@@ -72,11 +85,23 @@ class TransportCompanyController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:transport_companies'],
-            'phone' => ['required', 'numeric', 'digits:10']
+            'phone' => ['required', 'numeric', 'digits:10'],
+            'image' => 'required',
         ]);
         // $company = new TransportCompany;
-        $company = TransportCompany::create($request->input());
-        // $category->save();
+        // $company = TransportCompany::create($request->input());
+        // $company->save();
+
+        $company = new TransportCompany;
+
+        $company->email = $request->input('email');
+        $company->phone = $request->input('phone');
+        if($request->has('image')){
+            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move('uploads/companyImage', $upload_image_name);
+            $company->image = 'uploads/companyImage/'.$upload_image_name;
+        }
+        $company->save();
 
         $company->translations()->create(['name'=>$request->input('name_en'), 'locale' => 'en']);
         $company->translations()->create(['name'=>$request->input('name_ar'), 'locale' => 'ar']);
@@ -126,7 +151,7 @@ class TransportCompanyController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'email' => ['required', 'string', 'email', 'max:255'],
-            'phone' => ['required', 'numeric', 'digits:10']
+            'phone' => ['required', 'numeric', 'digits:10'],
         ]);
 
         $company = TransportCompany::find($data['id']);
@@ -139,7 +164,17 @@ class TransportCompanyController extends Controller
             'name'=>  $data['name_ar']
         ]);
 
-        $company->fill($request->input())->save();
+        $company->email = $request->input('email');
+        $company->phone = $request->input('phone');
+        if($request->files->has('image')){
+            $image_name = $request->files->get('image');
+            $org_name = $image_name->getClientOriginalName();
+            $upload_image_name = time().'_'.$org_name;
+            $image_name->move('uploads/companyImage', $upload_image_name);
+            $company->image = 'uploads/companyImage/'.$upload_image_name;
+        }
+        $company->update();
+        // $company->fill($request->input())->save();
 
         
         $companies = TransportCompany::with('translations')->get();
@@ -156,7 +191,8 @@ class TransportCompanyController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'email' => ['required', 'string', 'email', 'max:255'],
-            'phone' => ['required', 'numeric', 'digits:10']
+            'phone' => ['required', 'numeric', 'digits:10'],
+
         ]);
 
         $company = TransportCompany::find($data['id']);
@@ -169,7 +205,18 @@ class TransportCompanyController extends Controller
             'name'=>  $data['name_ar']
         ]);
 
-        $company->fill($request->input())->save();
+        $company->email = $request->input('email');
+        $company->phone = $request->input('phone');
+        if($request->files->has('image')){
+            $image_name = $request->files->get('image');
+            $org_name = $image_name->getClientOriginalName();
+            $upload_image_name = time().'_'.$org_name;
+            $image_name->move('uploads/companyImage', $upload_image_name);
+            $company->image = 'uploads/companyImage/'.$upload_image_name;
+        }
+        $company->update();
+
+        // $company->fill($request->input())->save();
 
         
         $companies = TransportCompany::with('translations')->get();
