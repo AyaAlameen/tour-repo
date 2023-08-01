@@ -13,7 +13,7 @@ class Offer extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['service_id', 'place_id', 'cost', 'start_date', 'end_date'];
+    protected $fillable = ['image', 'service_id', 'place_id', 'cost', 'start_date', 'end_date'];
 
     public function service() {
         return $this->belongsTo(Service::class);

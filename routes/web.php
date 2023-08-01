@@ -18,6 +18,7 @@ use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\OfferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -170,14 +171,24 @@ Route::middleware(['place'])->group(function(){
 Route::middleware(['offer'])->group(function(){
     
     //en
-    Route::get('/offers_en', function () {
-        return view('admin-En.offers');
-    }) -> name('offer_en');
+    // Route::get('/offers_en', function () {
+    //     return view('admin-En.offers');
+    // }) -> name('offer_en');
+
+    Route::get('/offers_en', [OfferController::class, 'indexEn']) -> name('offer_en');
+    Route::post('/offers_en', [OfferController::class, 'storeEn']) -> name('addOfferEn');
+    Route::post('/offers_en/edit', [OfferController::class, 'updateEn']) -> name('editOfferEn');
+    Route::post('/offers_en/delete', [OfferController::class, 'destroyEn']) -> name('deleteOfferEn');
 
     //ar
-    Route::get('/offers_ar', function () {
-        return view('admin-Ar.offers');
-    }) -> name('offer_ar');
+    // Route::get('/offers_ar', function () {
+    //     return view('admin-Ar.offers');
+    // }) -> name('offer_ar');
+
+    Route::get('/offers_ar', [OfferController::class, 'indexAr']) -> name('offer_ar');
+    Route::post('/offers_ar', [OfferController::class, 'storeAr']) -> name('addOfferAr');
+    Route::post('/offers_ar/edit', [OfferController::class, 'updateAr']) -> name('editOfferAr');
+    Route::post('/offers_ar/delete', [OfferController::class, 'destroyAr']) -> name('deleteOfferAr');
 });
 
 Route::middleware(['service'])->group(function(){
