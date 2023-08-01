@@ -77,12 +77,12 @@
     <div class="container-fluid w-75 m-auto">
         <div class="d-flex" style="justify-content: space-around; align-items: start;">
             <div class="w-50">
-                <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن ({{$place->translations()->where('locale', 'ar')->first()->name}}) </h4>
+                <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن {{$place->translations()->where('locale', 'ar')->first()->name}} </h4>
                 <p style="text-align: right;">{{$place->translations()->where('locale', 'ar')->first()->description}}</p>
             </div>
             <div class="d-flex pt-5 pb-3" style="flex-direction: column; align-items: center;">
                 <img class="m-3" data-bs-toggle="modal" id="editmapimg" data-bs-target="#exampleModal9"
-                    style="cursor:pointer; border-radius:6px;" src="{{asset('img/sy.jpg')}}" width="200px" height="120px">
+                    style="cursor:pointer; border-radius:6px;" src="../img/sy.jpg" width="200px" height="120px">
                 <p>شاهد على الخريطة</p>
                 {{-- مودل عرض الموقع على الخريطة الخريطة --}}
                 <div class="modal bg-light" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModal9Label"
@@ -184,13 +184,13 @@
     </div>
     {{-- comments --}}
     <div class="container m-5" style="text-align: end;">
-        <h3>تعليقات حول اسم المكان</h3>
+        <h3>تعليقات حول {{$place->translations()->where('locale', 'ar')->first()->name}}</h3>
         <div class="d-flex align-items-center">
             <div>
                 {{-- بداية التعليق --}}
                 <div class="m-5">
                     <div class=" d-flex align-items-center">
-                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                        <img src="../img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
                             width="70px" height="70px">
                         <h5>اسم المستخدم</h5>
                     </div>
@@ -203,7 +203,7 @@
                 {{-- بداية التعليق --}}
                 <div class="m-5">
                     <div class=" d-flex align-items-center">
-                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                        <img src="../img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
                             width="70px" height="70px">
                         <h5>اسم المستخدم</h5>
                     </div>
@@ -215,7 +215,7 @@
                 {{-- بداية التعليق --}}
                 <div class="m-5">
                     <div class=" d-flex align-items-center">
-                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
+                        <img src="../img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
                             width="70px" height="70px">
                         <h5>اسم المستخدم</h5>
                     </div>
@@ -226,11 +226,33 @@
                 {{-- نهاية التعليق --}}
             </div>
             <div class="w-50">
-                <img src="img/popularity.png" width="300px" height="300px">
+                <img src="../img/popularity.png" width="300px" height="300px">
             </div>
         </div>
       
     </div>
+    {{-- ادخال التعليق --}}
+    <div class="container text-end">
+        <h3>شاركنا أيضا تعليقاتك حول {{$place->translations()->where('locale', 'ar')->first()->name}}</h3>
+        @isset(Auth::user()->id)
+        <div class="w-75 =pr-3 m-auto d-flex align-items-center">
+            <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-left:10px;" width="40px"
+            height="40px">
+                <textarea style="direction: rtl; width: 77%;" placeholder="اترك تعليق"></textarea>
+                <input type="submit" value="إرسال" class="m-2 btn btn-primary"
+                style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
+        </div>
+    @else
+        <div class="w-75 pr-3 m-auto d-flex align-items-center"> 
+            <img src="{{ asset('img/1656869576_personalimg.jpg') }}" style="border-radius: 50%;  margin-left:10px;"
+                width="40px" height="40px">
+                <textarea style="direction: rtl; width: 77%;" placeholder="اترك تعليق"></textarea>
+                <input type="submit" value="إرسال" onClick="loginBefore()" class="m-2 btn btn-primary"
+                style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
+        </div>
+    @endisset
+    </div>
+  {{-- نهاية ادخال التعليق --}}
     {{-- end comments --}}
     {{-- الخدمات --}}
     <div class="serv d-flex" style="flex-direction: row; align-items: center;">
@@ -304,15 +326,13 @@
         {{-- الخدمات --}}
         <div class="pr-5">
 
-            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الأساسية المقدمة في (اسم
-                المكان )
-            </h4>
+            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الأساسية المقدمة في{{$place->translations()->where('locale', 'ar')->first()->name}}</h4>
 
             {{-- بداسة كارد الخدمات الغير إضافية--}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
-                        <img src="img/aleppo-palace-hotel.jpg"
+                        <img src="../img/aleppo-palace-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
                       
@@ -346,15 +366,13 @@
             {{-- نهاية كارد الخدمات الغير إضافية --}}
 
 
-            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الإضافية المقدمة في (اسم
-                المكان )
-            </h4>
+            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الإضافية المقدمة في{{$place->translations()->where('locale', 'ar')->first()->name}} </h4>
     
             {{-- بداسة كارد الخدمات  الإضافية--}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
-                        <img src="img/aleppo-palace-hotel.jpg"
+                        <img src="../img/aleppo-palace-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
                       

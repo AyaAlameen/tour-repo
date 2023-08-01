@@ -18,7 +18,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/loginstyle.css">
-    <link href="css/style-En.css" rel="stylesheet">
+    <link href="../css/style-En.css" rel="stylesheet">
 
 </head>
 
@@ -50,7 +50,10 @@
 
             let origin = window.location.href;
             console.log(origin)
-            if (origin == "http://127.0.0.1:8000/user_home_arabic" || origin == "http://127.0.0.1:8000/about-ar" || origin == "http://127.0.0.1:8000/contact-ar" || origin == "http://127.0.0.1:8000/transport-ar" || origin =="http://127.0.0.1:8000/travelguides-ar" || origin == "http://127.0.0.1:8000/travelguidesformore-ar" || origin == "http://127.0.0.1:8000/trip-ar" || origin == "http://127.0.0.1:8000/tripmore-ar") {
+            if (origin == "http://127.0.0.1:8000/user_home_arabic" || origin == "http://127.0.0.1:8000/about-ar" ||
+                origin == "http://127.0.0.1:8000/contact-ar" || origin == "http://127.0.0.1:8000/transport-ar" || origin ==
+                "http://127.0.0.1:8000/travelguides-ar" || origin == "http://127.0.0.1:8000/travelguidesformore-ar" ||
+                origin == "http://127.0.0.1:8000/trip-ar" || origin == "http://127.0.0.1:8000/tripmore-ar") {
                 console.log('aborted');
                 event.preventDefault();
 
@@ -112,36 +115,52 @@
 
             }
             if (origin == "http://127.0.0.1:8000/offer-en") {
-              event.target.href="http://127.0.0.1:8000/offer-ar"
-                
+                event.target.href = "http://127.0.0.1:8000/offer-ar"
+
             }
             if (origin == "http://127.0.0.1:8000/offer_details-en") {
-              event.target.href="http://127.0.0.1:8000/offer_details-ar"
-                
+                event.target.href = "http://127.0.0.1:8000/offer_details-ar"
+
             }
             if (origin == "http://127.0.0.1:8000/event-en") {
-              event.target.href="http://127.0.0.1:8000/event-ar"
-                
+                event.target.href = "http://127.0.0.1:8000/event-ar"
+
             }
             if (origin == "http://127.0.0.1:8000/event_details-en") {
-              event.target.href="http://127.0.0.1:8000/event_details-ar"
-                
+                event.target.href = "http://127.0.0.1:8000/event_details-ar"
+
             }
-            if (origin == "http://127.0.0.1:8000/place_details_en") {
-              event.target.href="http://127.0.0.1:8000/place_details_ar"
-                
+          
+            var city_index = [];
+            for (var i = 1; i <= 1000; i++) {
+                city_index.push(i);
             }
-            if (origin == "http://127.0.0.1:8000/user_city_en") {
-              event.target.href="http://127.0.0.1:8000/user_city_ar"
-                
+
+            for (let i = 0; i < city_index.length; i++) {
+                if (origin == "http://127.0.0.1:8000/user_city_en/" + city_index[i]) {
+                    event.target.href = "http://127.0.0.1:8000/user_city_ar/" + city_index[i]
+
+                }
+
+            }
+            for (let i = 0; i < city_index.length; i++) {
+            if (origin == "http://127.0.0.1:8000/place_details_en/" + city_index[1]) {
+                event.target.href = "http://127.0.0.1:8000/place_details_ar/"+ city_index[i]
+
             }
         }
+    }
 
 
 
         function getURLEn() {
 
-            if (origin == "http://127.0.0.1:8000/home" || origin == "http://127.0.0.1:8000/" || origin =="http://127.0.0.1:8000/#" || origin == "http://127.0.0.1:8000/about" || origin =="http://127.0.0.1:8000/contact-en" || origin == "http://127.0.0.1:8000/transport" || origin =="http://127.0.0.1:8000/travelguides" || origin == "http://127.0.0.1:8000/travelguidesformore" || origin =="http://127.0.0.1:8000/trips" || origin == "http://127.0.0.1:8000/tripmore" || origin =="http://127.0.0.1:8000/place_details_en" || origin== "http://127.0.0.1:8000/user_city_en")  {
+            if (origin == "http://127.0.0.1:8000/home" || origin == "http://127.0.0.1:8000/" || origin ==
+                "http://127.0.0.1:8000/#" || origin == "http://127.0.0.1:8000/about" || origin ==
+                "http://127.0.0.1:8000/contact-en" || origin == "http://127.0.0.1:8000/transport" || origin ==
+                "http://127.0.0.1:8000/travelguides" || origin == "http://127.0.0.1:8000/travelguidesformore" || origin ==
+                "http://127.0.0.1:8000/trips" || origin == "http://127.0.0.1:8000/tripmore" || origin ==
+                "http://127.0.0.1:8000/place_details_en" || origin == "http://127.0.0.1:8000/user_city_en") {
                 console.log('aborted');
                 event.preventDefault();
             }
@@ -196,15 +215,23 @@
                 event.target.href = "http://127.0.0.1:8000/event_details-en"
 
             }
-            if (origin == "http://127.0.0.1:8000/place_details_ar") {
-                event.target.href = "http://127.0.0.1:8000/place_details_en"
+           
+            var city_index = [];
+            for (var i = 1; i <= 1000; i++) {
+                city_index.push(i);
+            }
+            for (let i = 0; i < city_index.length; i++) {
+                if (origin == "http://127.0.0.1:8000/user_city_ar/" + city_index[i]) {
+                    event.target.href = "http://127.0.0.1:8000/user_city_en/" + city_index[i];
+
+                }
+            }
+            for (let i = 0; i < city_index.length; i++) {
+            if (origin == "http://127.0.0.1:8000/place_details_ar/"+ city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/place_details_en/" + city_index[i];
 
             }
-            if (origin == "http://127.0.0.1:8000/user_city_ar") {
-                event.target.href = "http://127.0.0.1:8000/user_city_en"
-
-            }
-
+        }
         }
 
         function loginBefore() {
@@ -225,9 +252,9 @@
             $('.parent').attr("hidden", true);
             $('.parenttrue').attr("hidden", true);
         }
-          // عرض الصور بدل الأسماء
+        // عرض الصور بدل الأسماء
 
-          function previewImage(input, previewId) {
+        function previewImage(input, previewId) {
             const previewImage = document.getElementById(previewId);
             const file = input.files[0];
             const reader = new FileReader();

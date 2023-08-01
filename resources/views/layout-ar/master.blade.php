@@ -127,14 +127,24 @@
               event.target.href="http://127.0.0.1:8000/tripmore-ar"
                 
             }
-            if (origin == "http://127.0.0.1:8000/place_details_en") {
-              event.target.href="http://127.0.0.1:8000/place_details_ar"
-                
+           
+            var city_index = [];
+            for (var i = 1; i <= 1000; i++) {
+                city_index.push(i);
             }
-            if (origin == "http://127.0.0.1:8000/user_city_en") {
-              event.target.href="http://127.0.0.1:8000/user_city_ar"
-                
+
+            for (let i = 0; i < city_index.length; i++) {
+                if (origin == "http://127.0.0.1:8000/user_city_en/" + city_index[i]) {
+                    event.target.href = "http://127.0.0.1:8000/user_city_ar/" + city_index[i]
+
+                }
             }
+            for (let i = 0; i < city_index.length; i++) {
+            if (origin == "http://127.0.0.1:8000/place_details_en/" + city_index[1]) {
+                event.target.href = "http://127.0.0.1:8000/place_details_ar/"+ city_index[i]
+
+            }
+        }
         }
 
 
@@ -213,14 +223,23 @@
               event.target.href="http://127.0.0.1:8000/tripmore"
                 
             }
-              if (origin == "http://127.0.0.1:8000/place_details_ar") {
-              event.target.href="http://127.0.0.1:8000/place_details_en"
-                
+            
+            var city_index = [];
+            for (var i = 1; i <= 1000; i++) {
+                city_index.push(i);
             }
-            if (origin == "http://127.0.0.1:8000/user_city_ar") {
-              event.target.href="http://127.0.0.1:8000/user_city_en"
-                
+            for (let i = 0; i < city_index.length; i++) {
+            if (origin == "http://127.0.0.1:8000/user_city_ar/" + city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/user_city_en/"+ city_index[i];
+
             }
+             }
+             for (let i = 0; i < city_index.length; i++) {
+            if (origin == "http://127.0.0.1:8000/place_details_ar/"+ city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/place_details_en/" + city_index[i];
+
+            }
+        }
          }
         
 

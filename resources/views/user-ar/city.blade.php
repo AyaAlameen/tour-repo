@@ -56,24 +56,7 @@
                         <p class="text-right pr-2">{{$place->translations()->where('locale', 'ar')->first()->description}}</p>
                     </div>
                 </div>
-                @isset(Auth::user()->id)
-                    <div class="w-100 text-right pr-3 m-auto">
-                        <input type="submit" value="إرسال" class="m-2 btn btn-primary"
-                            style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
-                        <input type="text" style="direction: rtl; width: 77%;" placeholder="اترك تعليق">
-                        <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-left:4px;" width="40px"
-                        height="40px">
-                        
-                    </div>
-                @else
-                    <div class="w-100 text-right pr-3 m-auto">
-                        <input type="submit" value="إرسال" onClick="loginBefore()" class="m-2 btn btn-primary"
-                            style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
-                        <input type="text" style="direction: rtl; width: 77%;" placeholder="اترك تعليق">
-                        <img src="{{ asset('img/1656869576_personalimg.jpg') }}" style="border-radius: 50%;  margin-left:4px;"
-                            width="40px" height="40px">
-                    </div>
-                @endisset
+              
 
             </div>
             <button class="m-2 btn btn-primary"

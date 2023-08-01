@@ -235,6 +235,28 @@
         </div>
       
     </div>
+ {{-- ادخال التعليق --}}
+ <div class="container">
+    <h3>Share us your comments about{{$place->translations()->where('locale', 'en')->first()->name}}</h3>
+    @isset(Auth::user()->id)
+    <div class="w-75 =pr-3 m-auto d-flex align-items-center">
+        <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-left:10px;" width="40px"
+        height="40px">
+            <textarea style="direction: rtl; width: 77%;" placeholder="leave a comment"></textarea>
+            <input type="submit" value="Send" class="m-2 btn btn-primary"
+            style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
+    </div>
+@else
+    <div class="w-75 pr-3 m-auto d-flex align-items-center"> 
+        <img src="{{ asset('img/1656869576_personalimg.jpg') }}" style="border-radius: 50%;  margin-left:10px;"
+            width="40px" height="40px">
+            <textarea style="direction: rtl; width: 77%;" placeholder="leave a comment"></textarea>
+            <input type="submit" value="Send" onClick="loginBefore()" class="m-2 btn btn-primary"
+            style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
+    </div>
+@endisset
+</div>
+{{-- نهاية ادخال التعليق --}}
     {{-- end comments --}}
     {{-- الخدمات --}}
     <div class="serv d-flex" style="flex-direction: row; align-items: center;">
