@@ -54,11 +54,8 @@ class EventController extends Controller
      */
     public function storeAr(Request $request)
     {
-        
-        // dd('hb');
         $data=$request->input();
         //validation:
-        // dd($request);
         $request->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
@@ -101,8 +98,6 @@ class EventController extends Controller
         //     }
         // }
 
-        
-// dd($place);
         $event->translations()->create(['name'=>$request->input('name_en'), 'description'=>$request->input('description_en'), 'locale' => 'en']);
         $event->translations()->create(['name'=>$request->input('name_ar'), 'description'=>$request->input('description_ar'), 'locale' => 'ar']);
         
