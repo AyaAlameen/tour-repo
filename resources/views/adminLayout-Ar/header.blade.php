@@ -45,7 +45,7 @@
                              style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
                              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i></a>
                      {{-- ticket --}}
-                     <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
+                     <a class="nav-item nav-link"> <i class="fa fa-ticket-alt" title="حجوزاتك"
                         style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
  <!-- Authentication Links -->

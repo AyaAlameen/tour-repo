@@ -118,18 +118,12 @@
                 event.target.href = "http://127.0.0.1:8000/offer-ar"
 
             }
-            if (origin == "http://127.0.0.1:8000/offer_details-en") {
-                event.target.href = "http://127.0.0.1:8000/offer_details-ar"
-
-            }
+          
             if (origin == "http://127.0.0.1:8000/event-en") {
                 event.target.href = "http://127.0.0.1:8000/event-ar"
 
             }
-            if (origin == "http://127.0.0.1:8000/event_details-en") {
-                event.target.href = "http://127.0.0.1:8000/event_details-ar"
-
-            }
+           
           
             var city_index = [];
             for (var i = 1; i <= 1000; i++) {
@@ -144,8 +138,20 @@
 
             }
             for (let i = 0; i < city_index.length; i++) {
-            if (origin == "http://127.0.0.1:8000/place_details_en/" + city_index[1]) {
+            if (origin == "http://127.0.0.1:8000/place_details_en/" + city_index[i]) {
                 event.target.href = "http://127.0.0.1:8000/place_details_ar/"+ city_index[i]
+
+            }
+        }
+        for (let i = 0; i < city_index.length; i++) {
+            if (origin == "http://127.0.0.1:8000/offer_details-en/" + city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/offer_details-en/"+ city_index[i]
+
+            }
+        }
+        for (let i = 0; i < city_index.length; i++) {
+            if (origin == "http://127.0.0.1:8000/event_details-en/" + city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/event_details-en/"+ city_index[i]
 
             }
         }
@@ -203,18 +209,12 @@
                 event.target.href = "http://127.0.0.1:8000/offer-en"
 
             }
-            if (origin == "http://127.0.0.1:8000/offer_details-ar") {
-                event.target.href = "http://127.0.0.1:8000/offer_details-en"
-
-            }
+            
             if (origin == "http://127.0.0.1:8000/event-ar") {
                 event.target.href = "http://127.0.0.1:8000/event-en"
 
             }
-            if (origin == "http://127.0.0.1:8000/event_details-ar") {
-                event.target.href = "http://127.0.0.1:8000/event_details-en"
-
-            }
+            
            
             var city_index = [];
             for (var i = 1; i <= 1000; i++) {
@@ -229,6 +229,18 @@
             for (let i = 0; i < city_index.length; i++) {
             if (origin == "http://127.0.0.1:8000/place_details_ar/"+ city_index[i]) {
                 event.target.href = "http://127.0.0.1:8000/place_details_en/" + city_index[i];
+
+            }
+        }
+        for (let i = 0; i < city_index.length; i++) {
+        if (origin == "http://127.0.0.1:8000/event_details-ar/"+ city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/event_details-en/" + city_index[i]
+
+            }
+        }
+        for (let i = 0; i < city_index.length; i++) {
+        if (origin == "http://127.0.0.1:8000/offer_details-ar/"+ city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/offer_details-en/" + city_index[i]
 
             }
         }

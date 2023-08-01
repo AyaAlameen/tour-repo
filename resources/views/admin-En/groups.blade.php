@@ -230,7 +230,22 @@ Add Group
       </div>
       <div class="modal-body">
       <table style="color: rgb(22, 22, 22); width: 450px;" class="table-striped table-hover table-bordered m-auto text-primary myTable" >
-      
+        <tr>
+          <td>district</td>
+          <td style="width:340px;" ><div class="dropdown toggle text-primary in" style="display:inline-block;">
+          <label  class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">  
+            
+          </label>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Alamir</a>
+            <a class="dropdown-item" href="#">Alkadmous</a>
+
+         
+       
+          </div>
+        </div></td>   
+   
+      </tr>  
       <tr>
           <td>district</td>
           <td style="width:340px;" ><div class="dropdown toggle text-primary in" style="display:inline-block;">
@@ -296,7 +311,7 @@ Add Group
         </button></td>
       </tr>
       </table>
-      <button class="app-content-headerButton m-3" style="float:right;" onclick="addPlace()">Add Another service</button>
+     
 
       </div>
       <div class="modal-footer">
