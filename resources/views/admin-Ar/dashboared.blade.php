@@ -30,7 +30,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" style="min-height: 200px;">
                                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
                                     data-bs-interval="false">
                                     <div class="carousel-inner" id="messages-data">

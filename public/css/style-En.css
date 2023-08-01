@@ -3054,13 +3054,13 @@ input[type="button"].btn-block {
 }
 
 .dropdown-menu {
-  position: absolute;
+  /* position: absolute; */
   top: 100%;
   right: 10px ;
   inset: unset !important;
   z-index: 1000;
   display: none;
-  float: right;
+  /* float: right; */
   min-width: 10rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
@@ -3074,7 +3074,7 @@ input[type="button"].btn-block {
   transform: none !important;
 }
 .dropdown-menu {
-  right:6px !important;
+  /* right:6px !important; */
 }
 
 .dropdown-menu-left {
