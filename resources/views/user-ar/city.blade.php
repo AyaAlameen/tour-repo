@@ -22,13 +22,11 @@
         <div class="container">
             
             <div class="container d-flex justify-content-center m-3">
-                <button class="m-2 btn btn-primary">الكل</button>
-                <button class="m-2 btn btn-primary">صنف فرعي 1</button>
-                <button class="m-2 btn btn-primary">صنف فرعي 6</button>
-                <button class="m-2 btn btn-primary">صنف فرعي 5</button>
-                <button class="m-2 btn btn-primary">صنف فرعي 4</button>
-                <button class="m-2 btn btn-primary">صنف فرعي 3</button>
-                <button class="m-2 btn btn-primary">صنف فرعي 2</button>
+                <button class="m-2 btn btn-primary" onclick="filterPlaces('all')">الكل</button>
+                @foreach ($category[0]->subCategory()->first()->category()->first()->subCategories as $subCategory)
+                    <button class="m-2 btn btn-primary" onclick="filterPlaces({{$subCategory->id}})">{{ $subCategory->translations()->where('locale', 'ar')->first()->name }}</button>
+                @endforeach
+                
             </div>
             @foreach($category as $place)
             
@@ -75,3 +73,27 @@
     </div>
     {{-- نهاية أشهر الأماكن --}}
 @endsection
+
+
+<script>
+    function filterPlaces(sub){
+        console.log(sub);
+        var url = '{{ route("getSubCategoryPlaceAr", ":sub") }}';
+        url = url.replace(':sub', sub);
+        $.ajax({
+                url: url,
+                type: "GET",
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#places-data").append(data);
+            })
+            .fail(function() {
+                $('.parent').attr("hidden", false);
+
+
+            });
+    }
+</script>

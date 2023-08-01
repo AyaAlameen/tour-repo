@@ -11,7 +11,9 @@
     {{-- Gallery --}}
     <div class="d-flex container mt-2 justify-content-center">
         <div style="width: 45%; height: 540px;">
+            @if($place->images()->count() == 1)
             <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}" width="100%" height="100%">
+            @endif
             <button
                 style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
                 data-bs-toggle="modal" data-bs-target="#exampleModal">عرض
@@ -68,8 +70,12 @@
             {{-- end pic modal --}}
         </div>
         <div style="width: 35%; height: 540px;">
+            @if($place->images()->skip(1)->take(1)->get()->count() == 1)
             <img src="{{ asset(str_replace(app_path(), '', $place->images()->skip(1)->take(1)->get()->first()->image)) }}" width="100%" height="60%">
+            @endif
+            @if($place->images()->skip(2)->take(1)->get()->count() == 1)
             <img src="{{ asset(str_replace(app_path(), '', $place->images()->skip(2)->take(1)->get()->first()->image)) }}" width="100%" height="40%">
+            @endif
         </div>
     </div>
     {{-- end Gallery --}}

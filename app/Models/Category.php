@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Translation;
+use App\Models\SubCategory;
 
 class Category extends Model
 {
@@ -15,5 +16,8 @@ class Category extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'model');
+    }
+    public function subCategories() {
+        return $this->hasMany(SubCategory::class);
     }
 }

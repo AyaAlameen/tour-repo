@@ -527,6 +527,7 @@ Route::get('/tripmore-ar', function () {
 
 
 Route::get('/user_city_ar/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsAr'])-> name('user-city-ar');
+Route::get('/ar/city/places/{id}', [CityController::class, 'getSubCategoryPlaceAr']) -> name('getSubCategoryPlaceAr');
 
 // Route::get('/place_details_ar', function () {
 //     return view('user-ar.place_details');

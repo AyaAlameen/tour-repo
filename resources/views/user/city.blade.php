@@ -14,22 +14,20 @@
 
     {{-- أشهر الأماكن بالتصنيفات --}}
     <h4 class="p-5" style=" padding-bottom:5px !important;">The most famous places in  
-        {{ $city->translations()->where('locale', 'en')->first()->name }}
+        ({{ $city->translations()->where('locale', 'en')->first()->name }})
     </h4>
     <div class="container">
         @foreach ($Category_places as $category)
             {{-- الأصناف --}}
             <div class="container">
                 <h4 class="p-5"> Places
-                    {{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'en')->first()->name }}
+                    ({{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'en')->first()->name }})
                 </h4>
                 <div class="container d-flex justify-content-center m-3">
-                    <button class="m-2 btn btn-primary">صنف فرعي 1</button>
-                    <button class="m-2 btn btn-primary">صنف فرعي 6</button>
-                    <button class="m-2 btn btn-primary">صنف فرعي 5</button>
-                    <button class="m-2 btn btn-primary">صنف فرعي 4</button>
-                    <button class="m-2 btn btn-primary">صنف فرعي 3</button>
-                    <button class="m-2 btn btn-primary">صنف فرعي 2</button>
+                    <button class="m-2 btn btn-primary">All</button>
+                    @foreach ($category[0]->subCategory()->first()->category()->first()->subCategories as $item)
+                        <button class="m-2 btn btn-primary">{{ $item->translations()->where('locale', 'en')->first()->name }}</button>
+                    @endforeach
                 </div>
                 @foreach ($category as $place)
                     {{-- بداسة كارد المكان --}}

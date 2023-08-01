@@ -260,11 +260,18 @@ class CityController extends Controller
         //     $q->whereIn('district_id', $districts_ids);
         // })->get()->groupBy('district_id');
 
-        $Category_places = place::with('subCategory.category')->whereHas('district', function($q) use($districts_ids){
+        // $Category_places = place::with('subCategory.category')->whereHas('district', function($q) use($districts_ids){
+        //     $q->whereIn('district_id', $districts_ids);
+        // })->get()->groupBy('subCategory.category.id');
+
+        $Category_places = place::with(['subCategory.category' => function($query) {
+            $query->with('subCategories');
+        }])->whereHas('district', function($q) use($districts_ids){
             $q->whereIn('district_id', $districts_ids);
         })->get()->groupBy('subCategory.category.id');
 
 
+        // dd($Category_places);
         // dd($Category_places);
 
         return view('user-ar.city')->with(['city' => $city, 'Category_places' => $Category_places]);
@@ -278,7 +285,9 @@ class CityController extends Controller
         //     $q->whereIn('district_id', $districts_ids);
         // })->get()->groupBy('district_id');
 
-        $Category_places = place::with('subCategory.category')->whereHas('district', function($q) use($districts_ids){
+        $Category_places = place::with(['subCategory.category' => function($query) {
+            $query->with('subCategories');
+        }])->whereHas('district', function($q) use($districts_ids){
             $q->whereIn('district_id', $districts_ids);
         })->get()->groupBy('subCategory.category.id');
 
@@ -286,5 +295,15 @@ class CityController extends Controller
         // dd($Category_places);
 
         return view('user.city')->with(['city' => $city, 'Category_places' => $Category_places]);
+    }
+
+    public function getSubCategoryPlaceAr($id){
+        if($id === 'all'){
+            $places = Place::all();
+        }
+        else{
+            $places = Place::where('sub_category_id', $id)->get();
+        }
+
     }
 }
