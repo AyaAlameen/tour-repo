@@ -374,9 +374,9 @@
                                 <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
                             </tr>
                             <tr>
-                                <td class="text-center"> مدة الحجز (من الساعة كذا إلى الساعة كذا)</td>
+                                <td class="text-center">مدة الحجز (من الساعة - إلى الساعة -)</td>
                                 <td>
-                                    <div class="dropdown toggle text-primary in"
+                                    <div class="dropdown toggle text-primary"
                                         style="display:inline-block;">
                                         <lable class="dropdown-toggle" type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown"

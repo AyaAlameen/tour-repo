@@ -285,7 +285,7 @@
             </div>
 
             <!-- end action -->
-
+        </div>
 
         </div>
         @else
@@ -573,7 +573,7 @@
 
                     <!-- end action -->
 
-
+                </div>
                 </div>
     @endif
 @endforeach

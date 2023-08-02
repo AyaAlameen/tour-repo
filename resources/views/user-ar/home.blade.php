@@ -65,8 +65,7 @@
                                 <img class="img-fluid" src="img/latakia.jpg" alt="">
                             </div>
                         </div>
-                        <div class="d-flex justify-content-start"><a href="" class="btn btn-primary mt-1">احجز
-                                الآن</a></div>
+                        
 
                     </div>
                 </div>

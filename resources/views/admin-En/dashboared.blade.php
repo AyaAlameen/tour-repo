@@ -11,17 +11,16 @@
             <input class="search-bar" placeholder="Search..." type="text">
             <div class="app-content-actions-wrapper">
 
-                <button type="button" class="btn position-relative action-button mr-3" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    Messages
-                    <span class="position-absolute btn-primary top-0 start-100 translate-middle badge rounded-pill mr-3">
-                        {{ $messages->count() }}+
-
-                    </span>
+                <button class="mode-switch" id="mode" title="Switch Theme">
+                    <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                        <defs></defs>
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
                 </button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog" style="max-width:none;">
+                    <div class="modal-dialog" style="max-width:none; height: fit-content;">
                         <div class="modal-content m-auto h-100" style="width: 600px;  background-color:var(--header);">
                             <div class="modal-header">
                                 <h5 class="modal-title" style="color:var(--title-color);" id="exampleModalLabel">Messages
@@ -31,7 +30,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" style="min-height: 200px;">
                                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
                                     data-bs-interval="false">
                                     <div class="carousel-inner" id="messages-data">
@@ -169,16 +168,75 @@
 
                     </div>
                 </div>
-                <button class="mode-switch" id="mode" title="Switch Theme">
-                    <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
-                        <defs></defs>
-                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                    </svg>
-                </button>
+                
+                <button type="button" class="btn position-relative action-button mr-3" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Messages
+                <span class="position-absolute btn-primary top-0 start-100 translate-middle badge rounded-pill mr-3">
+                    {{ $messages->count() }}+
+
+                </span>
+            </button>
             </div>
         </div>
-
+    {{-- الاحصائيات --}}
+    <div class="p-5 row" style="flex-direction: row; justify-content: center">
+        {{-- card --}}
+        <div class="service-item m-3" style="width: 18rem;">
+            <img src="img/undraw_Pie_chart_re_bgs8.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center"> number of users</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+         {{-- card --}}
+         <div class="service-item  m-3" style="width: 18rem;">
+            <img src="img/undraw_Pie_graph_re_fvol.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center">number of users</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+         {{-- card --}}
+         <div class="service-item  m-3" style="width: 18rem;">
+            <img src="img/undraw_Personal_goals_re_iow7.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center"> number of users</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+         {{-- card --}}
+         <div class="service-item  m-3" style="width: 18rem;">
+            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center"> number of users</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+         {{-- card --}}
+         <div class="service-item  m-3" style="width: 18rem;">
+            <img src="img/undraw_Investment_data_re_sh9x (1).png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center">number of users</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+         {{-- card --}}
+         <div class="service-item  m-3" style="width: 18rem;">
+            <img src="img/undraw_Analytics_re_dkf8.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center">number of users</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+    </div>
+    {{-- نهاية الاحصائيات --}}
     </div>
     </div>
 @endsection

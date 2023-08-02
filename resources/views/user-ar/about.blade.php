@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
-                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
+                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5"  style="box-shadow: #64686c33 3px -3px 6px 0.5px;" >
                         <h6 class="text-primary text-uppercase">حولنا</h6>
                         <h1 class="mb-3"> نقدم أفضل البرامج السياحية و أفضل الرحلات</h1>
                         <p>موقع إلكتروني متخصص في مساعدتك في حجز فندقك وجولتك السياحية وتأجير السيارات ومعلومات سياحية عن
@@ -37,9 +37,7 @@
                             <div class="col-6">
                                 <img class="img-fluid" src="img/d90d3ccf930b10d60f4d7cc7e96c342c.jpg" alt="">
                             </div>
-                        </div>
-                        <a href="" style="float: left" class="btn btn-primary mt-1">احجز الآن</a>
-                    </div>
+                        
                 </div>
             </div>
         </div>

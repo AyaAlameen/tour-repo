@@ -380,7 +380,7 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
-  color: #212121;
+  color: var(--navi);
 }
 
 h1, .h1 {
@@ -3042,8 +3042,8 @@ input[type="button"].btn-block {
 }
 
 .dropdown-menu {
-  position: absolute;
-  top: 100%;
+  /* position: absolute; */
+  top: 100% !important;
   right: 0 !important;
   z-index: 1000;
   display: none;
@@ -3059,6 +3059,7 @@ input[type="button"].btn-block {
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   transform: none !important;
+  left: 100% !important;
   
 }
 

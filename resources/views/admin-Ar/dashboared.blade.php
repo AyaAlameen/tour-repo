@@ -30,7 +30,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" style="min-height: 200px;">
                                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
                                     data-bs-interval="false">
                                     <div class="carousel-inner" id="messages-data">
@@ -187,7 +187,64 @@
                 </button>
             </div>
         </div>
-
+        {{-- الاحصائيات --}}
+        <div class="p-5 row" style="flex-direction: row; justify-content: center">
+            {{-- card --}}
+            <div class="service-item m-3" style="width: 18rem;">
+                <img src="img/undraw_Pie_chart_re_bgs8.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-text text-center">عدد المستخدمين</h5>
+                    <h4 class="text-center">200</h4>
+                </div>
+            </div>
+            {{-- end card --}}
+             {{-- card --}}
+             <div class="service-item  m-3" style="width: 18rem;">
+                <img src="img/undraw_Pie_graph_re_fvol.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-text text-center">عدد المستخدمين</h5>
+                    <h4 class="text-center">200</h4>
+                </div>
+            </div>
+            {{-- end card --}}
+             {{-- card --}}
+             <div class="service-item  m-3" style="width: 18rem;">
+                <img src="img/undraw_Personal_goals_re_iow7.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-text text-center">عدد المستخدمين</h5>
+                    <h4 class="text-center">200</h4>
+                </div>
+            </div>
+            {{-- end card --}}
+             {{-- card --}}
+             <div class="service-item  m-3" style="width: 18rem;">
+                <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-text text-center">عدد المستخدمين</h5>
+                    <h4 class="text-center">200</h4>
+                </div>
+            </div>
+            {{-- end card --}}
+             {{-- card --}}
+             <div class="service-item  m-3" style="width: 18rem;">
+                <img src="img/undraw_Investment_data_re_sh9x (1).png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-text text-center">عدد المستخدمين</h5>
+                    <h4 class="text-center">200</h4>
+                </div>
+            </div>
+            {{-- end card --}}
+             {{-- card --}}
+             <div class="service-item  m-3" style="width: 18rem;">
+                <img src="img/undraw_Analytics_re_dkf8.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-text text-center">عدد المستخدمين</h5>
+                    <h4 class="text-center">200</h4>
+                </div>
+            </div>
+            {{-- end card --}}
+        </div>
+        {{-- نهاية الاحصائيات --}}
     </div>
     </div>
 @endsection

@@ -8,15 +8,15 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+<!-- Font Awesome -->
+<link href="../css/all.min.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="../img/favicon.ico" rel="icon">
+    {{-- <link href="../img/favicon.ico" rel="icon"> --}}
     <!-- bootstrap -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
 
-    <!-- Font Awesome -->
-    <link href="../css/all.min.css" rel="stylesheet">
-
+    
     <!-- Libraries Stylesheet -->
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />

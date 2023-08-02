@@ -41,33 +41,30 @@
 
 
 
-    <!-- About Start -->
-    <div class="container-fluid py-5 ">
+     <!-- About Start -->
+     <div class="container-fluid py-5">
         <div class="container pt-5">
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/caption (4).jpg" style="object-fit: cover;">
+                        <img class=" w-100 h-100" src="../img/ياسمين دمشقي بالطول.jpg" style="object-fit: cover;">
                     </div>
                 </div>
-                <div class="col-lg-6 pt-5 pb-lg-5">
-                    <div style="box-shadow:#64686c33  3px -3px 6px 0.5px;" class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
+                <div class="col-lg-6 pt-5 pb-lg-5" style="position: relative; left: 70px;">
+                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5"  style="box-shadow: #64686c33 3px -3px 6px 0.5px;" >
+                        <h6 class="text-primary text-uppercase">About us</h6>
+                        <h1 class="mb-3"> We Provide Best Tour Packages In Your Budget</h1>
                         <p>A website that specializes in helping you book your hotel, tourist tour, car rental, and tourist
-                            information about all the places, regions, and tourist and archaeological attractions in Syria.
-                        </p>
+                            information about all the places, regions, and tourist and archaeological attractions in Syria.</p>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <img class="img-fluid" src="img/dam.jpg" alt="">
+                                <img class="img-fluid" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
                             </div>
                             <div class="col-6">
-                                <img class="img-fluid" src="img/latakia.jpg" alt="">
+                                <img class="img-fluid" src="img/d90d3ccf930b10d60f4d7cc7e96c342c.jpg" alt="">
                             </div>
                         </div>
-                        <div class="d-flex justify-content-end"><a href="" class="btn btn-primary mt-1">Book Now</a>
-                        </div>
-
+                      
                     </div>
                 </div>
             </div>
