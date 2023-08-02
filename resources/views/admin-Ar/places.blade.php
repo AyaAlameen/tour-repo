@@ -752,7 +752,10 @@
                                                                     title="Add Another Picture"></i>                           
                                                                 <input type="file" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;" hidden disabled myid="first_input_edit"  onchange="previewImage(this, 'first_pic_edit')">    
                                                                            {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
-                                                                <img src="img/sy.jpg" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px" id="first_pic_edit">
+                                                                           @if($place->images()->first()->count() > 0)
+                                                                                <img src="{{ asset(str_replace(app_path(),'',$place->images()->first()->image))}}" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px" id="first_pic_edit">
+
+                                                                           @endif
                                                             </td>
                                                             <td>الصور</td>
                                                         </tr>
@@ -762,7 +765,13 @@
                                                            
                                                             <td>
                                                                  {{-- عرضي هون بقية الصور بحلقة فور   --}}
-                                                                <img src="img/sy.jpg" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px">
+                                                                 {{-- @if($place->images()->skip(1)->get()->count() > 0)
+                                                                    @foreach ($place->images()->skip(1)->get() as $image)
+                                                                        <img src="{{ asset(str_replace(app_path(),'',$image->image))}}" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px">
+
+                                                                    @endforeach
+                                                                 @endif --}}
+                                                                 
                                                             </td>
                                                             <td></td>
                                                         </tr>
