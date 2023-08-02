@@ -17,8 +17,7 @@
         <div class="product-cell ">{{ $employee->phone }} </div>
         <div class="product-cell ">{{ $employee->employeeProfile->salary }}</div>
         <div class="product-cell ">{{ $employee->translations()->where('locale', 'ar')->first()->job }}</div>
-        <div class="product-cell ">{{ $employee->translations()->where('locale', 'ar')->first()->address }}
-        </div>
+        <div class="product-cell ">{{ $employee->translations()->where('locale', 'ar')->first()->address }}</div>
         <div class="product-cell">{{ $employee->employeeProfile->identifier }}</div>
         <div class="product-cell">
             <!-- start action -->
@@ -290,6 +289,7 @@
             </div>
             <!-- end action -->
         </div>
+    </div>
         @else
             <div class="products-row">
                 <div class="product-cell">
@@ -579,5 +579,6 @@
                     </div>
                     <!-- end action -->
                 </div>
+            </div>
     @endif
 @endforeach

@@ -249,7 +249,7 @@ style="width: 21px; height: 21px;"></a> --}}
         </div>
 
         <!-- end action -->
-
+    </div>
 
     </div>
     @else
@@ -502,7 +502,7 @@ style="width: 21px; height: 21px;"></a> --}}
             </div>
 
             <!-- end action -->
-
+        </div>
 
         </div>
     @endif
