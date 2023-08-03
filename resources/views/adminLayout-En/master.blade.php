@@ -105,6 +105,106 @@ else{
 <!-- fontawesome -->
 <script src="../js/all.min.js"></script>
 <script>
+  var map = L.map('add-map').setView([51.505, -0.09], 13); // set the initial view of the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        map.on('click', function(e) {
+            document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng;
+        });
+
+        var markerIcon = L.icon({
+            iconUrl: '{{ asset('img/marker.svg') }}',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+        });
+
+        // add a marker to the map
+        var marker = L.marker([0, 0], {
+            icon: markerIcon
+        });
+
+        map.on('click', function(e) {
+            marker.addTo(map);
+            marker.setLatLng(e.latlng); // move the marker to the clicked location
+            document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng
+                .lng; // update the hidden input field with the coordinates
+        });
+
+
+        // -----------------------------------------------------------------------------
+        // ------------------------ show map------------------------------------
+
+
+        var show_map = L.map('show-map').setView([51.505, -0.09], 13); // set the initial view of the map.
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(show_map);
+        // ------------------------ show edit map------------------------------------
+
+        var place_for_geolocation;
+        var marker_edit_map;
+        var show_edit_map = L.map('show-edit-map').setView([51.505, -0.09], 13); // set the initial view of the map.
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(show_edit_map);
+
+        show_edit_map.on('click', function(e) {
+            marker_edit_map.addTo(show_edit_map);
+            marker_edit_map.setLatLng(e.latlng); // move the marker to the clicked location
+            document.getElementById(`coordinates_${place_for_geolocation}`).value = e.latlng.lat + ',' + e.latlng
+                .lng; // update the hidden input field with the coordinates
+        });
+        // map.on('click', function(e) {
+        //     document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng;
+        // });
+
+        // var markerIcon = L.icon({
+        //     iconUrl: '{{ asset('img/marker.svg') }}',
+        //     iconSize: [25, 41],
+        //     iconAnchor: [12, 41],
+        //     popupAnchor: [1, -34],
+        // });
+
+        // // add a marker to the map
+        // var marker = L.marker([0, 0], {
+        //     icon: markerIcon
+        // });
+
+        // map.on('click', function(e) {
+        //     marker.addTo(map);
+        //     marker.setLatLng(e.latlng); // move the marker to the clicked location
+        //     document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng
+        //         .lng; // update the hidden input field with the coordinates
+        // });
+
+        //--------------------------------------------
+        // var marker = L.marker([51.505, -0.09]).addTo(map); // add a marker to the map
+
+        // map.on('click', function(e) {
+        // 	marker.setLatLng(e.latlng); // move the marker to the clicked location
+        // 	document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng; // update the hidden input field with the coordinates
+        // });
+
+
+        // var map = L.map('map');
+
+        // var syriaBounds = L.latLngBounds([[32.312937, 35.700797], [37.319488, 42.377956]]);
+        // map.fitBounds(syriaBounds);
+
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        //     maxZoom: 18,
+        // }).addTo(map);
+
+        // L.marker([51.5, -0.09]).addTo(map)
+        //     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        //     .openPopup();
   function accordion() {
   var btn = document.getElementById("arrow");
   console.log(btn)
