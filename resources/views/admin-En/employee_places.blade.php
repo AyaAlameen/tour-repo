@@ -1,7 +1,7 @@
 @extends('adminLayout-En.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header w-100">
+        <div class="app-content-header" style="width: 87%;">
             <h1 class="app-content-headerText">Employees</h1>
 
             <!-- add -->
@@ -79,6 +79,11 @@
                                                 id="password_error"></span></td>
                                     </tr>
                                     <tr>
+                                        <td >image </td>
+                                        <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
+                                    </tr> 
+                                    <tr > <td colspan="2"><span class="text-danger p-1" id="image_error"></span></td> </tr>
+                                    <tr>
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -125,7 +130,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions w-100">
+        <div class="app-content-actions" style="width: 87%;">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="search By Full Name... "
                 type="text">
             <div class="app-content-actions-wrapper">
@@ -173,14 +178,15 @@
 
             </div>
         </div>
-
-        <div class="products-area-wrapper tableView" id="employeesTable">
+        <div class="scroll-class" style="width:87%;">
+        <div class="products-area-wrapper tableView " id="employeesTable">
             <div class="products-header">
                 <div class="product-cell">#</div>
                 <div class="product-cell"> Full Name</div>
                 <div class="product-cell "> UserName </div>
-                <div class="product-cell category">Email</div>
-                <div class="product-cell category">Place</div>
+                <div class="product-cell ">Email</div>
+                <div class="product-cell ">Image</div>
+                <div class="product-cell ">Place</div>
                 <div class="product-cell ">Events</div>
             </div>
 
@@ -193,6 +199,7 @@
     </div>
 
     </div>
+</div>
 @endsection
 
 

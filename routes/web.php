@@ -272,6 +272,10 @@ Route::middleware(['tourist_guide'])->group(function(){
         return view('admin-En.offers_bookings');
     }) -> name('offers_booking_en');
     
+    Route::get('/groups_booking_en', function () {
+        return view('admin-En.groups_booking');
+    }) -> name('groups_booking_en');
+
     Route::get('/services_booking_en', function () {
         return view('admin-En.services_bookings');
     }) -> name('services_booking_en');
@@ -358,6 +362,10 @@ Route::middleware(['tourist_guide'])->group(function(){
         return view('admin-Ar.offers_bookings');
     }) -> name('offers_booking_ar');
     
+    Route::get('/groups_booking_ar', function () {
+        return view('admin-Ar.groups_booking');
+    }) -> name('groups_booking_ar');
+
     Route::get('/services_booking_ar', function () {
         return view('admin-Ar.services_bookings');
     }) -> name('services_booking_ar');

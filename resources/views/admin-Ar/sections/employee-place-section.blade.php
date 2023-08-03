@@ -14,6 +14,9 @@
         <div class="product-cell">{{ $employee->user_name }}</div>
         <div class="product-cell ">{{ $employee->email }}</div>
         <div class="product-cell">
+            <img src="{{ asset(str_replace(app_path(), '', $employee->image)) }}" alt="product">
+        </div>
+        <div class="product-cell">
             {{ $employee->permissions()->first()->pivot->place()->first()->translations()->where('locale', 'ar')->first()->name }}
         </div>
         <div class="product-cell">
@@ -89,7 +92,15 @@
                                             <td colspan="2"><span style="color: red"
                                                     class="email_error_edit"></span></td>
                                         </tr>
+                                        <tr>
 
+                                            <td><input type="file" name="image" id="img{{ $employee->id }}" hidden onchange="previewImage(this, 'edit_previewImage_{{ $employee->id }}')" >
+                                                <label for="img{{ $employee->id }}"><img  id="edit_previewImage_{{ $employee->id }}"
+                                                        src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
+                                                        style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
+                                            </td>
+                                            <td>الصورة </td>
+                                        </tr>
                                         <tr>
                                             <td>
                                                 <div class="dropdown toggle text-primary in"
@@ -266,6 +277,9 @@ style="width: 21px; height: 21px;"></a> --}}
             <div class="product-cell">{{ $employee->user_name }}</div>
             <div class="product-cell ">{{ $employee->email }}</div>
             <div class="product-cell">
+                <img src="{{ asset(str_replace(app_path(), '', $employee->image)) }}" alt="product">
+            </div>
+            <div class="product-cell">
                 {{ $employee->permissions()->first()->pivot->place()->first()->translations()->where('locale', 'ar')->first()->name }}
             </div>
             <div class="product-cell">
@@ -341,7 +355,15 @@ style="width: 21px; height: 21px;"></a> --}}
                                                 <td colspan="2"><span style="color: red"
                                                         class="email_error_edit"></span></td>
                                             </tr>
+                                            <tr>
 
+                                            <td><input type="file" name="image" id="img{{ $employee->id }}" hidden onchange="previewImage(this, 'edit_previewImage_{{ $employee->id }}')" >
+                                                <label for="img{{ $employee->id }}"><img  id="edit_previewImage_{{ $employee->id }}"
+                                                        src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
+                                                        style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
+                                            </td>
+                                            <td>الصورة </td>
+                                        </tr>
                                             <tr>
                                                 <td>
                                                     <div class="dropdown toggle text-primary in"

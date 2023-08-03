@@ -14,6 +14,9 @@
         <div class="product-cell">{{ $employee->user_name }}</div>
         <div class="product-cell ">{{ $employee->email }}</div>
         <div class="product-cell">
+            <img src="{{ asset(str_replace(app_path(), '', $employee->image)) }}" alt="product">
+        </div>
+        <div class="product-cell">
             {{ $employee->permissions()->first()->pivot->place()->first()->translations()->where('locale', 'en')->first()->name }}
         </div>
         <div class="product-cell">
@@ -88,6 +91,15 @@
                                         <tr>
                                             <td colspan="2"><span style="color: red"
                                                     class="email_error_edit"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Image </td>
+                                            <td><input type="file" name="image" id="img">
+                                                <label for="img"><img
+                                                        src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
+                                                        style="padding-top: 5px; border-radius: 0px;"
+                                                        width="30px" height="50px"></label>
+                                            </td>
                                         </tr>
 
                                         <tr>
@@ -207,6 +219,9 @@
             <div class="product-cell">{{ $employee->user_name }}</div>
             <div class="product-cell ">{{ $employee->email }}</div>
             <div class="product-cell">
+                <img src="{{ asset(str_replace(app_path(), '', $employee->image)) }}" alt="product">
+            </div>
+            <div class="product-cell">
                 {{ $employee->permissions()->first()->pivot->place()->first()->translations()->where('locale', 'en')->first()->name }}
             </div>
             <div class="product-cell">
@@ -281,6 +296,15 @@
                                             <tr>
                                                 <td colspan="2"><span style="color: red"
                                                         class="email_error_edit"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Image </td>
+                                                <td><input type="file" name="image" id="img">
+                                                    <label for="img"><img
+                                                            src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
+                                                            style="padding-top: 5px; border-radius: 0px;"
+                                                            width="30px" height="50px"></label>
+                                                </td>
                                             </tr>
 
                                             <tr>

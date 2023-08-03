@@ -484,7 +484,13 @@ a.text-primary:hover, a.text-primary:focus {
   text-align: center;
   margin-inline: 16px;
   width: 150px;
+  text-transform: capitalize;
+
 }
+td , button , input{
+  text-transform: capitalize;;
+}
+
 .tableView .product-cell img {
   width: 75px;
   height: 50px;

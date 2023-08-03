@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header w-100">
+        <div class="app-content-header" style="width: 95%">
             <h1 class="app-content-headerText">الموظفين</h1>
 
             <!-- add -->
@@ -79,6 +79,17 @@
                                                 id="password_error"></span></td>
                                     </tr>
                                     <tr>
+                  
+                                        <td><input type="file" id="add_img"  onchange="previewImage(this, 'add_previewImage_0')" class="toggle text-primary in"  name="image" required style="width: 100%;">
+                                          <label for="add_img"> <img id="add_previewImage_0" width="170px"
+                                            height="90px" style="display: none; padding:6px;"></label>
+                                        </td>  
+                                        <td >الصورة </td>    
+                                    </tr> 
+                                    <tr>       
+                                      <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span></td>                
+                                    </tr> 
+                                    <tr>
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -126,7 +137,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions w-100">
+        <div class="app-content-actions"  style="width: 95%">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
                 type="text">
             <div class="app-content-actions-wrapper">
@@ -180,8 +191,9 @@
                 <div class="product-cell">#</div>
                 <div class="product-cell"> الاسم الكامل</div>
                 <div class="product-cell "> اسم المستخدم</div>
-                <div class="product-cell category">الايميل</div>
-                <div class="product-cell category">مكان العمل</div>
+                <div class="product-cell ">الايميل</div>
+                <div class="product-cell ">الصورة</div>
+                <div class="product-cell ">مكان العمل</div>
                 <div class="product-cell ">الأحداث</div>
             </div>
 

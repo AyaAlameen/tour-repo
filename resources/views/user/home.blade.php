@@ -475,9 +475,10 @@
                                 vero.</li>
                         </ul>
                     </div>
-                <div class="d-md-flex half  col-lg-8">
+                    @if (!Auth::check())
+                <div class="d-md-flex half  col-lg-7">
 
-                    <div class="contents" style="background-color:#0d6dfd00;">
+                    <div class="contents" style="background-color:#0d6dfd00; margin-left: 100px;">
                             <div class="align-items-center justify-content-center">
                                 <div class="form-block mx-auto">
 
@@ -568,6 +569,7 @@
                       
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -629,7 +631,7 @@
                             rrrrrrrrrr rrrrrrrr rrrrrrrrrr rrrr rrrrr rrrrr rrrr rr
                         </p>
 
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
                             <span>cost : 40000</span>
                             <h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
                                     style="border-radius:3px;">book now </a></h6>
@@ -650,10 +652,10 @@
                             eum vel voluptate excepturi veritatis commodi.
                             A unde fuga quas voluptates ab sunt blanditiis eaque! dghld sdkhusd sdfudfus fsuu </p>
 
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
                             <span>cost : 40000</span>
-                            <button class="btn btn-primary app-content-headerButton"
-                                style="float:left; border-radius:3px;">book now</button>
+                            <h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
+                                style="border-radius:3px;">book now </a></h6>
                         </div>
                     </div>
                 </div>
@@ -670,10 +672,10 @@
                             maiores modi iure consequuntur
                             eum vel voluptate ex </p>
 
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
                             <span>cost : 40000</span>
-                            <button class="btn btn-primary app-content-headerButton"
-                                style="float:left; border-radius:3px;">book now</button>
+                            <<h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
+                                style="border-radius:3px;">book now </a></h6>
                         </div>
                     </div>
                 </div>
@@ -691,10 +693,10 @@
                             eum vel voluptate excepturi veritatis commodi.
                             A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
 
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
                             <span>cost : 40000</span>
-                            <button class="btn btn-primary app-content-headerButton"
-                                style="float:left; border-radius:3px;">book now</button>
+                            <h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
+                                style="border-radius:3px;">book now </a></h6>
                         </div>
                     </div>
                 </div>
@@ -713,10 +715,10 @@
                             A unde fuga quas voluptates ab sunt blanditiis eaque! ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd
                             ddd ddd ddd ddd </p>
 
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
                             <span>cost : 40000</span>
-                            <button class="btn btn-primary app-content-headerButton"
-                                style="float:left; border-radius:3px;">book now</button>
+                            <h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
+                                style="border-radius:3px;">book now </a></h6>
                         </div>
                     </div>
                 </div>
