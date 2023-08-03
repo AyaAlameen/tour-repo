@@ -306,7 +306,8 @@
         <!-- end add -->
 
         <div class="app-content-actions" style="width:46%;">
-            <input class="search-bar" placeholder="...ابحث" type="text">
+            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
+                type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
                 <div class="filter-button-wrapper">
@@ -395,7 +396,7 @@
             </div>
         </div>
         <div class="scroll-class" style="width:47%;">
-            <div class="products-area-wrapper tableView">
+            <div class="products-area-wrapper tableView" id="placesTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
                     <div class="product-cell">الاسم</div>
@@ -422,7 +423,8 @@
                                 <span>{{ $i++ }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>{{ $place->translations()->where('locale', 'ar')->first()->name }}</span>
+                                <span
+                                    class="search-value">{{ $place->translations()->where('locale', 'ar')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
                                 <span>{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</span>
@@ -482,306 +484,342 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <table id="editTable"
-                                                        class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                                        style="direction:ltr !important;">
-                                                        <tr>
-                                                            <td></td>
-                                                            <td><input type="text" class="toggle text-primary in"
-                                                                    name="name_ar" required style="width: 100%;"
-                                                                    value="{{ $place->translations()->where('locale', 'ar')->first()->name }}">
-                                                                </th>
-                                                            <td>الاسم(العربية)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="name_ar_error_edit"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td><input type="text" class="toggle text-primary in"
-                                                                    name="name_en" required style="width: 100%;"
-                                                                    value="{{ $place->translations()->where('locale', 'en')->first()->name }}">
-                                                                </th>
-                                                            <td>(الانكليزية)الاسم </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="name_en_error_edit"></span></td>
-                                                        </tr>
+                                                <form id="edit-form-{{ $place->id }}" action="" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <table id="editTable"
+                                                            class="table-striped table-hover table-bordered m-auto text-primary myTable"
+                                                            style="direction:ltr !important;">
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="text" class="toggle text-primary in"
+                                                                        name="name_ar" required style="width: 100%;"
+                                                                        value="{{ $place->translations()->where('locale', 'ar')->first()->name }}">
+                                                                    </th>
+                                                                <td>الاسم(العربية)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="name_ar_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="text" class="toggle text-primary in"
+                                                                        name="name_en" required style="width: 100%;"
+                                                                        value="{{ $place->translations()->where('locale', 'en')->first()->name }}">
+                                                                    </th>
+                                                                <td>(الانكليزية)الاسم </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="name_en_error_edit"></span></td>
+                                                            </tr>
 
-                                                        <tr>
-                                                            <td></td>
-                                                            <td>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
 
-                                                                <div class="dropdown toggle text-primary in"
-                                                                    style="display:inline-block; ;">
+                                                                    <div class="dropdown toggle text-primary in"
+                                                                        style="display:inline-block; ;">
 
-                                                                    <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButtonEdit{{ $place->id }}"
-                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <label class="dropdown-toggle" type="button"
+                                                                            id="dropdownMenuButtonEdit{{ $place->id }}"
+                                                                            data-toggle="dropdown" aria-expanded="false">
 
-                                                                    </label>
+                                                                        </label>
 
-                                                                    <span
-                                                                        id="city-name-{{ $place->id }}">{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</span>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
-                                                                        @foreach ($cities as $city)
-                                                                            <option
-                                                                                style="cursor: pointer; @if ($city->id == $place->district->city_id) color: #90aaf8 !important; @endif"
-                                                                                class="dropdown-item"
-                                                                                value="{{ $city->id }}"
-                                                                                id="edit_city_{{ $place->id }}_{{ $city->id }}"
-                                                                                onclick="setEditCity({{ $city->id }}, {{ $place->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'edit_city_{{ $place->id }}_{{ $city->id }}'), filterEditDistricts({{ $city->id }}, {{ $place->id }})"
-                                                                                href="#">
-                                                                                {{ $city->translations()->where('locale', 'ar')->first()->name }}
-                                                                            </option>
-                                                                        @endforeach
-                                                                        <input type="text"
-                                                                            id="edit_city_id_{{ $place->id }}"
-                                                                            name="city_id"
-                                                                            value="{{ $place->district->city_id }}"
-                                                                            hidden>
+                                                                        <span
+                                                                            id="city-name-{{ $place->id }}">{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
+                                                                            @foreach ($cities as $city)
+                                                                                <option
+                                                                                    style="cursor: pointer; @if ($city->id == $place->district->city_id) color: #90aaf8 !important; @endif"
+                                                                                    class="dropdown-item"
+                                                                                    value="{{ $city->id }}"
+                                                                                    id="edit_city_{{ $place->id }}_{{ $city->id }}"
+                                                                                    onclick="setEditCity({{ $city->id }}, {{ $place->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'edit_city_{{ $place->id }}_{{ $city->id }}'), filterEditDistricts({{ $city->id }}, {{ $place->id }})"
+                                                                                    href="#">
+                                                                                    {{ $city->translations()->where('locale', 'ar')->first()->name }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                            <input type="text"
+                                                                                id="edit_city_id_{{ $place->id }}"
+                                                                                name="city_id"
+                                                                                value="{{ $place->district->city_id }}"
+                                                                                hidden>
 
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>المحافظة</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="city_error_edit"></span></td>
-                                                        </tr>
+                                                                </td>
+                                                                <td>المحافظة</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="city_error_edit"></span></td>
+                                                            </tr>
 
-                                                        <tr>
-                                                            <td></td>
-                                                            <td>
-                                                                <div class="dropdown toggle text-primary in"
-                                                                    style="display:inline-block; ;">
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="dropdown toggle text-primary in"
+                                                                        style="display:inline-block; ;">
 
-                                                                    <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButtonEdit{{ $place->id }}"
-                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <label class="dropdown-toggle" type="button"
+                                                                            id="dropdownMenuButtonEdit{{ $place->id }}"
+                                                                            data-toggle="dropdown" aria-expanded="false">
 
-                                                                    </label>
-                                                                    <span
-                                                                        id="district-name-{{ $place->id }}">{{ $place->district->translations()->where('locale', 'ar')->first()->name }}</span>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
-                                                                        @foreach ($districts as $district)
-                                                                            <option
-                                                                                style="cursor: pointer; @if ($district->id == $place->district_id) color: #90aaf8 !important; @endif"
-                                                                                class="dropdown-item edit_district_filter_option edit_district_city_{{ $district->city->id }}"
-                                                                                value="{{ $district->id }}"
-                                                                                id="edit_district_{{ $place->id }}_{{ $district->id }}"
-                                                                                onclick="setEditDistrict({{ $district->id }}, {{ $place->id }}, '{{ $district->translations()->where('locale', 'ar')->first()->name }}', 'edit_district_{{ $place->id }}_{{ $district->id }}')"
-                                                                                href="#">
-                                                                                {{ $district->translations()->where('locale', 'ar')->first()->name }}
-                                                                            </option>
-                                                                        @endforeach
-                                                                        <input type="text"
-                                                                            id="edit_district_id_{{ $place->id }}"
-                                                                            name="district_id"
-                                                                            value="{{ $place->district_id }}" hidden>
+                                                                        </label>
+                                                                        <span
+                                                                            id="district-name-{{ $place->id }}">{{ $place->district->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
+                                                                            @foreach ($districts as $district)
+                                                                                <option
+                                                                                    style="cursor: pointer; @if ($district->id == $place->district_id) color: #90aaf8 !important; @endif"
+                                                                                    class="dropdown-item edit_district_filter_option edit_district_city_{{ $district->city->id }}"
+                                                                                    value="{{ $district->id }}"
+                                                                                    id="edit_district_{{ $place->id }}_{{ $district->id }}"
+                                                                                    onclick="setEditDistrict({{ $district->id }}, {{ $place->id }}, '{{ $district->translations()->where('locale', 'ar')->first()->name }}', 'edit_district_{{ $place->id }}_{{ $district->id }}')"
+                                                                                    href="#">
+                                                                                    {{ $district->translations()->where('locale', 'ar')->first()->name }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                            <input type="text"
+                                                                                id="edit_district_id_{{ $place->id }}"
+                                                                                name="district_id"
+                                                                                value="{{ $place->district_id }}" hidden>
 
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>الناحية</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="district_error_edit"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td>
-                                                                <div class="dropdown toggle text-primary in"
-                                                                    style="display:inline-block; ;">
+                                                                </td>
+                                                                <td>الناحية</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="district_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="dropdown toggle text-primary in"
+                                                                        style="display:inline-block; ;">
 
-                                                                    <label class="dropdown-toggle" type="button"
-                                                                        id="dropdownMenuButtonEdit{{ $place->id }}"
-                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <label class="dropdown-toggle" type="button"
+                                                                            id="dropdownMenuButtonEdit{{ $place->id }}"
+                                                                            data-toggle="dropdown" aria-expanded="false">
 
-                                                                    </label>
-                                                                    <span
-                                                                        id="sub-cat-name-{{ $place->id }}">{{ $place->subCategory->translations()->where('locale', 'ar')->first()->name }}</span>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
-                                                                        @foreach ($sub_categories as $sub_category)
-                                                                            <option
-                                                                                style="cursor: pointer; @if ($sub_category->id == $place->sub_category_id) color: #90aaf8 !important; @endif"
-                                                                                class="dropdown-item"
-                                                                                value="{{ $sub_category->id }}"
-                                                                                id="edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}"
-                                                                                onclick="setEditSubCategory({{ $sub_category->id }}, {{ $place->id }}, '{{ $sub_category->translations()->where('locale', 'ar')->first()->name }}', 'edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}')"
-                                                                                href="#">
-                                                                                {{ $sub_category->translations()->where('locale', 'ar')->first()->name }}
-                                                                            </option>
-                                                                        @endforeach
-                                                                        <input type="text"
-                                                                            id="edit_sub_category_id_{{ $place->id }}"
-                                                                            name="sub_category_id"
-                                                                            value="{{ $place->sub_category_id }}" hidden>
+                                                                        </label>
+                                                                        <span
+                                                                            id="sub-cat-name-{{ $place->id }}">{{ $place->subCategory->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
+                                                                            @foreach ($sub_categories as $sub_category)
+                                                                                <option
+                                                                                    style="cursor: pointer; @if ($sub_category->id == $place->sub_category_id) color: #90aaf8 !important; @endif"
+                                                                                    class="dropdown-item"
+                                                                                    value="{{ $sub_category->id }}"
+                                                                                    id="edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}"
+                                                                                    onclick="setEditSubCategory({{ $sub_category->id }}, {{ $place->id }}, '{{ $sub_category->translations()->where('locale', 'ar')->first()->name }}', 'edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}')"
+                                                                                    href="#">
+                                                                                    {{ $sub_category->translations()->where('locale', 'ar')->first()->name }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                            <input type="text"
+                                                                                id="edit_sub_category_id_{{ $place->id }}"
+                                                                                name="sub_category_id"
+                                                                                value="{{ $place->sub_category_id }}"
+                                                                                hidden>
 
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>الصنف الفرعي</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="sub_cat_error_edit"></span></td>
-                                                        </tr>
+                                                                </td>
+                                                                <td>الصنف الفرعي</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="sub_cat_error_edit"></span></td>
+                                                            </tr>
 
-                                                        <tr>
-                                                            <td></td>
-                                                            <td><input class="toggle text-primary in" type="text"
-                                                                    name="description_ar" required
-                                                                    value="{{ $place->translations()->where('locale', 'ar')->first()->description }}"
-                                                                    style="width: 100%;"></td>
-                                                            <td>وصف(العربية)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td><input class="toggle text-primary in" type="text"
-                                                                    name="description_en" required
-                                                                    value="{{ $place->translations()->where('locale', 'en')->first()->description }}"
-                                                                    style="width: 100%;"></th>
-                                                            <td>(الانكليزية)وصف</td>
-                                                        </tr>
-                                                        <tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input class="toggle text-primary in" type="text"
+                                                                        name="description_ar" required
+                                                                        value="{{ $place->translations()->where('locale', 'ar')->first()->description }}"
+                                                                        style="width: 100%;"></td>
+                                                                <td>وصف(العربية)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="des_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input class="toggle text-primary in" type="text"
+                                                                        name="description_en" required
+                                                                        value="{{ $place->translations()->where('locale', 'en')->first()->description }}"
+                                                                        style="width: 100%;"></th>
+                                                                <td>(الانكليزية)وصف</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="des_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
 
-                                                            <td></td>
-                                                            <td><input type="email" class="toggle text-primary in"
-                                                                    name="email" value="{{ $place->email }}">
-                                                            </td>
-                                                            <td>الايميل</td>
+                                                                <td></td>
+                                                                <td><input type="email" class="toggle text-primary in"
+                                                                        name="email" value="{{ $place->email }}">
+                                                                </td>
+                                                                <td>الايميل</td>
 
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="email_error_edit"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td><input type="number" class="toggle text-primary in"
-                                                                    name="phone" value="{{ $place->phone }}">
-                                                            </td>
-                                                            <td>الهاتف</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="phone_error_edit"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td><input type="number" class="toggle text-primary in"
-                                                                    name="cost" value="{{ $place->cost }}">
-                                                            </td>
-                                                            <td>الكلفة</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="cost_error_edit"></span></td>
-                                                        </tr>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="email_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" class="toggle text-primary in"
+                                                                        name="phone" value="{{ $place->phone }}">
+                                                                </td>
+                                                                <td>الهاتف</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="phone_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" class="toggle text-primary in"
+                                                                        name="cost" value="{{ $place->cost }}">
+                                                                </td>
+                                                                <td>الكلفة</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="cost_error_edit"></span></td>
+                                                            </tr>
 
-                                                        <tr>
-                                                            <td></td>
-                                                            <td><input type="number" class="toggle text-primary in"
-                                                                    name="profit_ratio_1"
-                                                                    value="{{ $place->profit_ratio_1 }}">
-                                                            </td>
-                                                            <td>نسبة الأرباح الخارجية</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="profit_ratio_1_error_edit"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td><input type="number" class="toggle text-primary in"
-                                                                    name="profit_ratio_2"
-                                                                    value="{{ $place->profit_ratio_2 }}">
-                                                            </td>
-                                                            <td>نسبة الأرباح الداخلية</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="profit_ratio_2_error_edit"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td class="text-center"><img
-                                                                    onclick="setEditGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }}, {{ $place->id }})"
-                                                                    class="m-3" data-toggle="modal"
-                                                                    id="edit_location_img" data-target="#exampleModal9"
-                                                                    style="cursor:pointer; border-radius:6px; width:150px; height:70px"
-                                                                    src="img/sy.jpg"></td>
-                                                            <td>الموقع</td>
-                                                            <input type="hidden" name="geolocation"
-                                                                id="coordinates_{{ $place->id }}"
-                                                                value="{{ $place->geolocation }}">
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" class="toggle text-primary in"
+                                                                        name="profit_ratio_1"
+                                                                        value="{{ $place->profit_ratio_1 }}">
+                                                                </td>
+                                                                <td>نسبة الأرباح الخارجية</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="profit_ratio_1_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="number" class="toggle text-primary in"
+                                                                        name="profit_ratio_2"
+                                                                        value="{{ $place->profit_ratio_2 }}">
+                                                                </td>
+                                                                <td>نسبة الأرباح الداخلية</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="profit_ratio_2_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td class="text-center"><img
+                                                                        onclick="setEditGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }}, {{ $place->id }})"
+                                                                        class="m-3" data-toggle="modal"
+                                                                        id="edit_location_img"
+                                                                        data-target="#exampleModal9"
+                                                                        style="cursor:pointer; border-radius:6px; width:150px; height:70px"
+                                                                        src="img/sy.jpg"></td>
+                                                                <td>الموقع</td>
+                                                                <input type="hidden" name="geolocation"
+                                                                    id="coordinates_{{ $place->id }}"
+                                                                    value="{{ $place->geolocation }}">
 
 
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td colspan="2"><span style="color: red"
-                                                                    class="geolocation_error_edit"></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td onclick="removePic()"><i
-                                                                    class="fas fa-close text-body"></i></td>
-                                                            <td class="d-flex align-items-center" style="justify-content: space-between;">
-                                                                <i class="fas fa-plus text-body"
-                                                                    style="text-align: center; font-size:15px;  cursor:pointer;" onclick="editPic()"
-                                                                    id="edit-pic-input" data-picid="1"
-                                                                    title="Add Another Picture"></i>                           
-                                                                <input type="file" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;" hidden disabled myid="first_input_edit"  onchange="previewImage(this, 'first_pic_edit')">    
-                                                                           {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
-                                                                           @if($place->images()->first()->count() > 0)
-                                                                                <img src="{{ asset(str_replace(app_path(),'',$place->images()->first()->image))}}" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px" id="first_pic_edit">
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="geolocation_error_edit"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td onclick="removePic()"><i
+                                                                        class="fas fa-close text-body"></i></td>
+                                                                <td class="d-flex align-items-center"
+                                                                    style="justify-content: space-between;">
+                                                                    <i class="fas fa-plus text-body"
+                                                                        style="text-align: center; font-size:15px;  cursor:pointer;"
+                                                                        onclick="editPic()" id="edit-pic-input"
+                                                                        data-picid="1" title="Add Another Picture"></i>
+                                                                    <input type="file" name="image"
+                                                                        class="toggle text-primary in" required
+                                                                        style="width:75% !important; font-size:16px;"
+                                                                        hidden disabled myid="first_input_edit"
+                                                                        onchange="previewImage(this, 'first_pic_edit')">
+                                                                    {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
+                                                                    @if ($place->images->count() > 0)
+                                                                        @if ($place->images()->first()->count() > 0)
+                                                                            <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                                                                class="m-3" alt=""
+                                                                                style="cursor:pointer; width:150px; height:70px"
+                                                                                id="first_pic_edit">
+                                                                        @else
+                                                                            <input type="file">
+                                                                        @endif
+                                                                    @endif
+                                                                </td>
+                                                                <td>الصور</td>
+                                                            </tr>
+                                                            @if ($place->images->count() > 0)
+                                                                @foreach ($place->images as $image)
+                                                                    @if ($loop->first)
+                                                                    @else
+                                                                        <tr>
+                                                                            <td><i onclick="removeRow()"
+                                                                                    class="fas fa-close text-body pl-1"></i>
+                                                                            </td>
 
-                                                                           @endif
-                                                            </td>
-                                                            <td>الصور</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><i onclick="removeRow()"
-                                                                    class="fas fa-close text-body pl-1"></i></td>
-                                                           
-                                                            <td>
-                                                                 {{-- عرضي هون بقية الصور بحلقة فور   --}}
-                                                                 {{-- @if($place->images()->skip(1)->get()->count() > 0)
-                                                                    @foreach ($place->images()->skip(1)->get() as $image)
-                                                                        <img src="{{ asset(str_replace(app_path(),'',$image->image))}}" class="m-3" alt="" style="cursor:pointer; width:150px; height:70px">
+                                                                            <td>
+                                                                                {{-- عرضي هون بقية الصور بحلقة فور   --}}
 
-                                                                    @endforeach
-                                                                 @endif --}}
-                                                                 
-                                                            </td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
+                                                                                <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}"
+                                                                                    class="m-3" alt=""
+                                                                                    style="cursor:pointer; width:150px; height:70px">
 
-                                                </div>
+
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
+                                                        </table>
+
+                                                    </div>
+                                                </form>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="action-button active"
+                                                    <button type="button" class="action-button active close"
                                                         data-dismiss="modal">إغلاق</button>
-                                                    <button type="submit" class="app-content-headerButton">حفظ
+                                                    <button type="submit" id="edit-place-btn-{{ $place->id }}"
+                                                        onclick="editPlace('edit-form-{{ $place->id }}', {{ $place->id }})"
+                                                        class="app-content-headerButton">حفظ
                                                         التغييرات</button>
                                                 </div>
                                             </div>
@@ -791,11 +829,13 @@
                                     <!-- end edit -->
 
                                     <!-- delete -->
-                                    <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2"
-                                        title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                                    <a href="#" class="delete" data-toggle="modal"
+                                        data-target="#deletePlace{{ $place->id }}" title="Delete"
+                                        data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                    <div class="modal fade" id="deletePlace{{ $place->id }}" tabindex="-1"
                                         aria-labelledby="exampleModal2Label" aria-hidden="true">
+
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="direction:ltr;">
                                                 <div class="modal-header">
@@ -804,14 +844,23 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body" style="direction:rtl;">
-                                                    هل أنت متأكد من أنك تريد حذف هذا المكان؟
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="action-button active"
-                                                        data-dismiss="modal">إغلاق</button>
-                                                    <button type="submit" class="app-content-headerButton">نعم</button>
-                                                </div>
+                                                <form id="delete-form-{{ $place->id }}" action=""
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="text" name="id" value="{{ $place->id }}"
+                                                        hidden>
+                                                    <div class="modal-body" style="direction:rtl;">
+                                                        هل أنت متأكد من أنك تريد حذف هذا المكان (<span
+                                                            style="color: #90aaf8;">{{ $place->translations()->where('locale', 'ar')->first()->name }}</span>)
+                                                        ؟ </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="action-button active close"
+                                                            data-dismiss="modal">إغلاق</button>
+                                                        <button type="submit" id="delete-place-btn-{{ $place->id }}"
+                                                            onclick="deletePlace(`delete-form-{{ $place->id }}`, {{ $place->id }})"
+                                                            class="app-content-headerButton">نعم</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -981,13 +1030,13 @@
     }
     //----------------------------------------------------------
 
-    function editCategory(formId, id) {
+    function editPlace(formId, id) {
 
-        $("#edit-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        $("#edit-place-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
         var formData = new FormData(document.getElementById(formId));
         formData.append('id', id);
         $.ajax({
-                url: `{{ route('editCategoryAr') }}`,
+                url: `{{ route('editPlaceAr') }}`,
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -996,8 +1045,8 @@
             })
             .done(function(data) {
 
-                $("#categories-data").empty();
-                $("#categories-data").append(data);
+                $("#places-data").empty();
+                $("#places-data").append(data);
                 $('.close').click();
                 $('.parenttrue').attr("hidden", false);
                 // clearInput();
@@ -1009,30 +1058,78 @@
                 if (data.responseJSON.errors.name_ar) {
                     document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors
                         .name_ar[0];
-
                 }
-                if (data.responseJSON.errors.name_en) {
-                    console.log(document.querySelector(`#${formId} .name_en_error_edit`));
 
+                if (data.responseJSON.errors.name_en) {
                     document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors
                         .name_en[0];
+                }
 
+
+                if (data.responseJSON.errors.city_id) {
+                    document.querySelector(`#${formId} .city_error_edit`).innerHTML = data.responseJSON.errors
+                        .city_id[
+                            0];
+                }
+
+                if (data.responseJSON.errors.district_id) {
+                    document.querySelector(`#${formId} .district_error_edit`).innerHTML = data.responseJSON.errors
+                        .district_id[0];
+                }
+
+                if (data.responseJSON.errors.sub_category_id) {
+                    document.querySelector(`#${formId} .sub_category_error_edit`).innerHTML = data.responseJSON
+                        .errors
+                        .sub_category_id[0];
+                }
+
+                if (data.responseJSON.errors.email) {
+                    document.querySelector(`#${formId} .email_error_edit`).innerHTML = data.responseJSON.errors
+                        .email[0];
+                }
+
+                if (data.responseJSON.errors.phone) {
+                    document.querySelector(`#${formId} .phone_error_edit`).innerHTML = data.responseJSON.errors
+                        .phone[0];
+                }
+
+                if (data.responseJSON.errors.cost) {
+                    document.querySelector(`#${formId} .cost_error_edit`).innerHTML = data.responseJSON.errors.cost[
+                        0];
+                }
+
+                if (data.responseJSON.errors.profit_ratio_1) {
+                    document.querySelector(`#${formId} .profit_ratio_1_error_edit`).innerHTML = data.responseJSON
+                        .errors
+                        .profit_ratio_1[0];
+                }
+
+                if (data.responseJSON.errors.profit_ratio_2) {
+                    document.querySelector(`#${formId} .profit_ratio_2_error_edit`).innerHTML = data.responseJSON
+                        .errors
+                        .profit_ratio_2[0];
+                }
+
+                if (data.responseJSON.errors.geolocation) {
+                    document.querySelector(`#${formId} .geolocation_error_edit`).innerHTML = data.responseJSON
+                        .errors
+                        .geolocation[0];
                 }
 
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#edit-category-btn-" + id).attr("disabled", false).html('حفظ');
+                $("#edit-place-btn-" + id).attr("disabled", false).html('حفظ');
             });
     }
 
     //---------------------------------------------------------------
-    function deleteCategory(formId, id) {
-        $("#delete-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+    function deletePlace(formId, id) {
+        $("#delete-place-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
         var formData = new FormData(document.getElementById(formId));
         $.ajax({
-                url: `{{ route('deleteCategoryAr') }}`,
+                url: `{{ route('deletePlaceAr') }}`,
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -1040,8 +1137,8 @@
                 contentType: false,
             })
             .done(function(data) {
-                $("#categories-data").empty();
-                $("#categories-data").append(data);
+                $("#places-data").empty();
+                $("#places-data").append(data);
                 $('.close').click();
                 $('.parenttrue').attr("hidden", false);
                 // clearInput();
@@ -1053,7 +1150,7 @@
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#delete-category-btn-" + id).attr("disabled", false).html('نعم');
+                $("#delete-place-btn-" + id).attr("disabled", false).html('نعم');
             });
     }
 
@@ -1083,7 +1180,7 @@
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("search");
         filter = input.value;
-        table = document.getElementById("categoriesTable");
+        table = document.getElementById("placesTable");
         // tr = table.getElementsByTagName("tr");
         tr = table.getElementsByClassName("products-row");
         // Loop through all table rows, and hide those who don't match the search query
@@ -1287,12 +1384,12 @@
         });
 
         // add a marker to the map
-        var marker_map = L.marker([0, 0], {
+        marker_edit_map = L.marker([0, 0], {
             icon: marker_icon
         });
 
-        marker_map.addTo(show_edit_map);
-        marker_map.setLatLng(geolocation); // move the marker to the clicked location
+        marker_edit_map.addTo(show_edit_map);
+        marker_edit_map.setLatLng(geolocation); // move the marker to the clicked location
         place_for_geolocation = place_id;
     }
 </script>

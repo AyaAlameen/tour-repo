@@ -153,10 +153,13 @@ Route::middleware(['admin'])->group(function(){
 Route::middleware(['place'])->group(function(){
 
     //en
-    Route::get('/place_en', function () {
-        return view('admin-En.places');
-    }) -> name('place_en');
-
+    // Route::get('/place_en', function () {
+    //     return view('admin-En.places');
+    // }) -> name('place_en');
+    Route::get('/place_en', [PlaceController::class, 'indexEn']) -> name('place_en');
+    Route::post('/place_en', [PlaceController::class, 'storeEn']) -> name('addPlaceEn');
+    Route::post('/place_en/edit', [PlaceController::class, 'updateEn']) -> name('editPlaceEn');
+    Route::post('/place_en/delete', [PlaceController::class, 'destroyEn']) -> name('deletePlaceEn');
     //ar
     
     // Route::get('/place_ar', function () {

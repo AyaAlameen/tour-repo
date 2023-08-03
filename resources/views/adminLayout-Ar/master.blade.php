@@ -8,15 +8,15 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-<!-- Font Awesome -->
-<link href="../css/all.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../css/all.min.css" rel="stylesheet">
 
     <!-- Favicon -->
     {{-- <link href="../img/favicon.ico" rel="icon"> --}}
     <!-- bootstrap -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
 
-    
+
     <!-- Libraries Stylesheet -->
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
@@ -169,7 +169,7 @@
         // ------------------------ show edit map------------------------------------
 
         var place_for_geolocation;
-
+        var marker_edit_map;
         var show_edit_map = L.map('show-edit-map').setView([51.505, -0.09], 13); // set the initial view of the map.
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
             maxZoom: 18,
@@ -177,8 +177,8 @@
         }).addTo(show_edit_map);
 
         show_edit_map.on('click', function(e) {
-            marker.addTo(show_edit_map);
-            marker.setLatLng(e.latlng); // move the marker to the clicked location
+            marker_edit_map.addTo(show_edit_map);
+            marker_edit_map.setLatLng(e.latlng); // move the marker to the clicked location
             document.getElementById(`coordinates_${place_for_geolocation}`).value = e.latlng.lat + ',' + e.latlng
                 .lng; // update the hidden input field with the coordinates
         });
@@ -302,7 +302,7 @@
         }
 
 
-     
+
 
         // حذف سطر من جدول
         function removeRow() {
@@ -316,13 +316,13 @@
             document.querySelector('[myid="first_input_edit"]').removeAttribute('hidden');
             document.querySelector('[myid="first_input_edit"]').removeAttribute('disabled');
             document.querySelector('[myid="first_input_edit"]').style.display = "block";
-            document.querySelector('[myid="first_input_edit"]').setAttribute('value',null);
+            document.querySelector('[myid="first_input_edit"]').setAttribute('value', null);
             var myimg = document.getElementById('first_pic_edit');
             myimg.style.display = "none";
             myimg.src = "";
-           myimg.removeAttribute('src');
-           console.log(myimg)
-            
+            myimg.removeAttribute('src');
+            console.log(myimg)
+
         }
         //  إخفاء مودل الخريطة 
         function hidemap(modal_id) {
@@ -398,7 +398,7 @@
             cell2.innerHTML =
                 ` <input type="file" onchange="previewImage(this, 'edit_previewImage_${Param_id}')" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;">
                   <img id="edit_previewImage_${Param_id}" cllass="m-3"  style="display: none; padding:6px;width:170px; height:90px;">`;
-           cell1.innerHTML='<i onclick="removeRow()" class="fas fa-close text-body"></i>';
+            cell1.innerHTML = '<i onclick="removeRow()" class="fas fa-close text-body"></i>';
             newRow.appendChild(cell1);
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
@@ -422,7 +422,7 @@
                 reader.readAsDataURL(file);
             }
         }
-// عرض الصور بدل الاسماء في تعديل الصور للأماكن
+        // عرض الصور بدل الاسماء في تعديل الصور للأماكن
         function previewImage(input, previewId) {
             const previewImage = document.getElementById(previewId);
             const file = input.files[0];
