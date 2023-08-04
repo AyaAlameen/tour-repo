@@ -277,11 +277,6 @@
                 });
             }
         });
-        // لإظهار البوبأوفر
-        $(document).ready(function() {
-            $('[ data-bs-toggle="popover"]').popover();
-        });
-
         // إضافة تاريخ جديد لمواصلات الجروبات
         function addDate() {
             var table = document.getElementById("tableDate");
@@ -312,18 +307,20 @@
         }
 
         function removePic() {
-            console.log(document.querySelector('[myid="first_input_edit"]'))
-            document.querySelector('[myid="first_input_edit"]').removeAttribute('hidden');
-            document.querySelector('[myid="first_input_edit"]').removeAttribute('disabled');
-            document.querySelector('[myid="first_input_edit"]').style.display = "block";
-            document.querySelector('[myid="first_input_edit"]').setAttribute('value', null);
-            var myimg = document.getElementById('first_pic_edit');
+            console.log(event.target.getAttribute('id'))
+            var clicked_item_id = event.target.getAttribute('id');
+            var clicked_item = document.getElementById('first_input_edit'+clicked_item_id);
+            clicked_item.removeAttribute('hidden');
+            clicked_item.removeAttribute('disabled');
+            clicked_item.style.display = "block";
+            clicked_item.setAttribute('value', null);
+            var myimg = document.getElementById('first_pic_edit'+clicked_item_id);
             myimg.style.display = "none";
             myimg.src = "";
             myimg.removeAttribute('src');
             console.log(myimg)
-
         }
+
         //  إخفاء مودل الخريطة 
         function hidemap(modal_id) {
             $('#' + modal_id).hide();
@@ -386,19 +383,30 @@
         }
         // تعديل الصور
         function editPic() {
-            console.log('huhuh')
-            var Param_id = document.getElementById('edit-pic-input').getAttribute('data-picid');
+          
+        var clicked_item_id  =  event.target.getAttribute('id')
+        console.log(clicked_item_id)
+            var Param_id = document.getElementById(clicked_item_id).getAttribute('data-picid');
             console.log(Param_id)
             var table = document.getElementById("editTable");
             var newRow = document.createElement("tr");
             var cell1 = document.createElement("td");
             var cell2 = document.createElement("td");
             var cell3 = document.createElement("td");
-            document.getElementById('edit-pic-input').setAttribute('data-picid', ++Param_id);
+            var close = document.createElement("span");
+            close.classList.add("fas", "fa-close", "text-body", "pt-2", "pl-2");
+            close.title = "delete pic";
+            close.style.fontSize = "15px";
+            close.style.cursor = "pointer";
+            close.id = "close_" + Param_id;
+            document.getElementById(clicked_item_id).setAttribute('data-picid', ++Param_id);
+            cell1.style.width = "25px";
+            cell1.style.textAlign = "center";
+            cell1.appendChild(close);
             cell2.innerHTML =
-                ` <input type="file" onchange="previewImage(this, 'edit_previewImage_${Param_id}')" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;">
-                  <img id="edit_previewImage_${Param_id}" cllass="m-3"  style="display: none; padding:6px;width:170px; height:90px;">`;
-            cell1.innerHTML = '<i onclick="removeRow()" class="fas fa-close text-body"></i>';
+                ` <input type="file" onchange="previewImage(this, 'previewImage_${Param_id}')" class="toggle text-primary in"   required style="width:75% !important; font-size:16px;">
+                  <img id="previewImage_${Param_id}" cllass="m-3"  style="display: none; padding:6px;width:170px; height:90px;">`;
+
             newRow.appendChild(cell1);
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
@@ -422,21 +430,7 @@
                 reader.readAsDataURL(file);
             }
         }
-        // عرض الصور بدل الاسماء في تعديل الصور للأماكن
-        function previewImage(input, previewId) {
-            const previewImage = document.getElementById(previewId);
-            const file = input.files[0];
-            const reader = new FileReader();
-            previewImage.style.display = "inline";
-            input.style.display = "none";
-            reader.addEventListener('load', function() {
-                previewImage.src = reader.result;
-            }, false);
 
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        }
 
         document.querySelector('.is_add').addEventListener('change', function() {
             if (document.querySelector('.is_add').value == "true")

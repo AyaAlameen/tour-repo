@@ -182,55 +182,93 @@
     {{-- الاحصائيات --}}
     <div class="p-5 row" style="flex-direction: row; justify-content: center">
         {{-- card --}}
-        <div class="service-item m-3" style="width: 18rem;">
+        <div class="service-item m-3" style="width: 19rem;">
             <img src="img/undraw_Pie_chart_re_bgs8.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-text text-center"> number of users</h5>
+                <h5 class="card-text text-center"> Users</h5>
                 <h4 class="text-center">200</h4>
             </div>
         </div>
         {{-- end card --}}
          {{-- card --}}
-         <div class="service-item  m-3" style="width: 18rem;">
+         <div class="service-item  m-3" style="width: 19rem;">
             <img src="img/undraw_Pie_graph_re_fvol.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-text text-center">number of users</h5>
+                <h5 class="card-text text-center"> Employees</h5>
                 <h4 class="text-center">200</h4>
             </div>
         </div>
         {{-- end card --}}
          {{-- card --}}
-         <div class="service-item  m-3" style="width: 18rem;">
+         <div class="service-item  m-3" style="width: 19rem;">
             <img src="img/undraw_Personal_goals_re_iow7.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-text text-center"> number of users</h5>
+                <h5 class="card-text text-center"> WebSite Employees</h5>
                 <h4 class="text-center">200</h4>
             </div>
         </div>
         {{-- end card --}}
+       
          {{-- card --}}
-         <div class="service-item  m-3" style="width: 18rem;">
-            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+         <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Investment_data_re_sh9x (1).png" height="215px;" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-text text-center"> number of users</h5>
+                <h5 class="card-text text-center">Bookings in This Year</h5>
                 <h4 class="text-center">200</h4>
             </div>
         </div>
         {{-- end card --}}
          {{-- card --}}
-         <div class="service-item  m-3" style="width: 18rem;">
-            <img src="img/undraw_Investment_data_re_sh9x (1).png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-text text-center">number of users</h5>
-                <h4 class="text-center">200</h4>
-            </div>
-        </div>
-        {{-- end card --}}
-         {{-- card --}}
-         <div class="service-item  m-3" style="width: 18rem;">
+         <div class="service-item  m-3" style="width: 19rem;">
             <img src="img/undraw_Analytics_re_dkf8.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-text text-center">number of users</h5>
+                <h5 class="card-text text-center">Trips in This Month</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+          {{-- card --}}
+          <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center">Bookings in Month</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+          {{-- card --}}
+          <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center" >Offers Bookings in Month</h5>
+                <div class="d-flex justify-content-Between p-3" >
+                    <h4 class="text-end"> <i class="fas fa-home"></i> 200</h4>
+                    <h4 class="text-start"> <i class="fas fa-home"></i> 300</h4>
+                </div>
+                
+            </div>
+        </div>
+        {{-- end card --}}  {{-- card --}}
+         <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center">Trips Bookings in Month</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}  {{-- card --}}
+         <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center">Events Bookings in Month</h5>
+                <h4 class="text-center">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}  {{-- card --}}
+         <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center" >Places Bookings in Month</h5>
                 <h4 class="text-center">200</h4>
             </div>
         </div>
