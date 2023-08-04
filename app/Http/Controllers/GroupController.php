@@ -384,4 +384,35 @@ class GroupController extends Controller
                                                                 'services' => $services
                                                             ]);
     }
+    public function deleteGroupDestinationAr(Request $request){
+        // dd($request);
+        $data=$request->input();
+
+        $request->validate([
+            'id' => 'required',
+            
+        ]);
+
+        $group_place = \DB::table('group_places')
+        ->where('id', $data['id'])
+        ->delete();
+
+        
+
+
+        $groups = Group::with('translations')->get();
+        $guides = TouristGuide::with('translations')->get();
+        $places = Place::with('translations', 'district', 'services')->get();
+        $cities = City::with('translations')->get();
+        $districts = District::with('translations')->get();
+        $services = Service::with('translations')->get();
+        
+        return view("admin-Ar.sections.group-section")->with(['groups' => $groups, 
+                                                                'guides' => $guides, 
+                                                                'places' => $places,
+                                                                'cities' => $cities,
+                                                                'districts' => $districts,
+                                                                'services' => $services
+                                                            ]);
+    }
 }

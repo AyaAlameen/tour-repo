@@ -391,12 +391,12 @@
     }
 
     //---------------------------------------------------------------
-    function deleteCategory(formId, id) {
-        $("#delete-category-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+    function deleteGroup(formId, id) {
+        $("#delete-group-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
         var formData = new FormData(document.getElementById(formId));
         $.ajax({
-                url: `{{ route('deleteCategoryAr') }}`,
+                url: `{{ route('deleteGroupAr') }}`,
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -404,8 +404,8 @@
                 contentType: false,
             })
             .done(function(data) {
-                $("#categories-data").empty();
-                $("#categories-data").append(data);
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
                 $('.close').click();
                 $('.parenttrue').attr("hidden", false);
                 // clearInput();
@@ -417,9 +417,10 @@
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#delete-category-btn-" + id).attr("disabled", false).html('نعم');
+                $("#delete-group-btn-" + id).attr("disabled", false).html('نعم');
             });
     }
+    
 
     //---------------------------------------------------------------
     window.onload = (event) => {
@@ -446,7 +447,7 @@
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("search");
         filter = input.value;
-        table = document.getElementById("categoriesTable");
+        table = document.getElementById("groupsTable");
         // tr = table.getElementsByTagName("tr");
         tr = table.getElementsByClassName("products-row");
         // Loop through all table rows, and hide those who don't match the search query
@@ -697,6 +698,36 @@
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
                 $("#add-dest-btn").attr("disabled", false).html('حفظ');
+            });
+    }
+    //--------------------------------------------
+    function deleteDist(formId, id) {
+        $("#delete-dist-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+                url: `{{ route('deleteDistAr') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function() {
+                $('.close').click();
+                $('.parent').attr("hidden", false);
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#delete-dist-btn-" + id).attr("disabled", false).html('نعم');
             });
     }
     //--------------------------------------------

@@ -1,7 +1,10 @@
 <?php $i = 1; ?>
 @foreach ($groups as $group)
+
     @if ($loop->last)
     @else
+    
+
         <div class="products-row">
             <button class="cell-more-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -236,19 +239,55 @@
                                                 <td style="width:40px;"></td>
                                             </tr>
                                             {{-- عرض الوجهات للجروب --}}
-                                            <tr>
-                                                <td class="text-center">حلب</td>
-                                                <td class="text-center">الساحة</td>
-                                                <td class="text-center">شهباروز</td>
-                                                <td class="text-center">الالعاب</td>
-                                                <td class="text-center">120000</td>
+                                            @foreach($group->places as $place)
+                                            
+                                                <tr>
+                                                    <td class="text-center">{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</td>
+                                                    <td class="text-center">{{ $place->district->translations()->where('locale', 'ar')->first()->name }}</td>
+                                                    <td class="text-center">{{ $place->translations()->where('locale', 'ar')->first()->name }}</td>
+                                                    @if ($place->pivot->service_id)
+                                                        <td class="text-center">{{\App\Models\Service::find($place->pivot->service_id)->translations()->where('locale', 'ar')->first()->name}}</td>
+                                                        <td class="text-center">{{\App\Models\Service::find($place->pivot->service_id)->cost}}</td>
+                                                    @else
+                                                        <td class="text-center">-</td>
+                                                        <td class="text-center">{{$place->cost}}</td>
+                                                    @endif
+                                                    
 
-                                                <td> <a href="#" class="delete  ml-1" style="font-size:14px;"
-                                                        title="Delete" data-toggle="tooltip"><i
-                                                            class="fas fa-trash"></i></a>
-                                                </td>
+                                                    <td> 
+                                                        <a href="#" class="delete  ml-1" style="font-size:14px;" data-toggle="modal" data-target="#delete-dest-{{$place->pivot}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                                                    </td>
+                                                    <div class="modal fade" id="delete-dest-{{$place->pivot}}" tabindex="-1" aria-labelledby="exampleModal2Label"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content" style="direction:ltr;">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <form id="delete-dist-form-{{ $place->pivot->id }}" action=""
+                                                                    method="POST" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    <input type="text" name="id" value="{{ $place->pivot->id }}"
+                                                                        hidden>
+                                                                <div class="modal-body" style="direction:rtl;">
+                                                                    هل أنت متأكد من أنك تريد حذف هذه الوجهة؟
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="action-button active"
+                                                                        data-dismiss="modal">إغلاق</button>
+                                                                    <button type="submit" id="delete-dist-btn-{{ $place->pivot->id }}"
+                                                                        onclick="deleteDist(`delete-dist-form-{{ $place->pivot->id }}`, {{ $place->pivot->id }})" class="app-content-headerButton">نعم</button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                            </tr>
+                                                </tr>
+                                            @endforeach
+                                            
                                             {{-- نهاية عرض الوجهات للجرب  --}}
                                         </table>
                                     @endif
