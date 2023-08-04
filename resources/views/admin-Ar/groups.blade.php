@@ -705,10 +705,15 @@
         $("#delete-dist-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
         var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        console.log(id);
         $.ajax({
                 url: `{{ route('deleteDistAr') }}`,
                 type: "POST",
                 data: formData,
+                headers: {
+                    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                },
                 processData: false,
                 cache: false,
                 contentType: false,
@@ -727,7 +732,7 @@
             })
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#delete-dist-btn-" + id).attr("disabled", false).html('نعم');
+                $("#delete-dist-btn-" + id).attr("disabled", false).html('<i class="fas fa-trash"></i>');
             });
     }
     //--------------------------------------------

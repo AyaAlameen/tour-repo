@@ -385,7 +385,7 @@ class GroupController extends Controller
                                                             ]);
     }
     public function deleteGroupDestinationAr(Request $request){
-        // dd($request);
+        // dd($request->all());
         $data=$request->input();
 
         $request->validate([

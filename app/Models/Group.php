@@ -22,7 +22,7 @@ class Group extends Model
     }
 
     public function places() {
-        return $this->belongsToMany(Place::class, 'group_places', 'group_id', 'place_id')->withPivot('service_id')->using(GroupPlace::class);;
+        return $this->belongsToMany(Place::class, 'group_places', 'group_id', 'place_id')->withPivot('id', 'service_id')->using(GroupPlace::class);;
     }
 
     public function transportCompanies() {

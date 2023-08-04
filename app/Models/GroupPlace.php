@@ -7,6 +7,7 @@ use App\Models\Service;
 
 class GroupPlace extends Pivot
 {
+    public $incrementing = true;
 
     public function service()
     {
