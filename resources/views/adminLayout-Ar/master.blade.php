@@ -323,31 +323,30 @@
 
         //  إخفاء مودل الخريطة 
         function hidemap(modal_id) {
-            $('#' + modal_id).hide();
+            $('#' + modal_id).hide().hide();
             if (modal_id == 'exampleModal9')
                 $('#edit_location_img').click()
             if (modal_id == 'exampleModal8')
                 $('#show_location_img').click()
-
+                if (modal_id == 'exampleModal6')
+                    $('#mapimg').click()
 
         }
         // زر حفظ الخريظة
-        function spinner() {
+        function spinneradd() {
             // للإضافة
             setTimeout(function() {
                 $("#save-map-btn").attr("disabled", false).html('حفظ');
-                $("#exampleModal6").hide();
-                $("#exampleModal7").hide();
-                $("#mapimg").click();
-                $("#editmapimg").click();
-            }, 1000); // 2 seconds delay
+                hidemap('exampleModal6');
+            }, 1000); // 1 seconds delay
             $("#save-map-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-
+        }
+        function spinneredit() {
             //للتعديل
             setTimeout(function() {
                 $("#save-map-btn-edit").attr("disabled", false).html('حفظ');
                 hidemap('exampleModal9');
-            }, 1000); // 2 seconds delay
+            }, 1000); // 1 seconds delay
             $("#save-map-btn-edit").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
 
 

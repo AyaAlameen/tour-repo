@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:45.5%;">
+        <div class="app-content-header" style="width:50.5%;">
             <h1 class="app-content-headerText">الأماكن</h1>
 
             <!-- add -->
@@ -262,7 +262,7 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="action-button active"
                                                         onclick="hidemap('exampleModal6')">إغلاق</button>
-                                                    <button type="button" id="save-map-btn" onclick="spinner()"
+                                                    <button type="button" id="save-map-btn" onclick="spinneradd()"
                                                         class="app-content-headerButton">حفظ</button>
                                                 </div>
                                             </div>
@@ -305,7 +305,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:46%;">
+        <div class="app-content-actions" style="width:51%;">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
                 type="text">
             <div class="app-content-actions-wrapper">
@@ -395,7 +395,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:47%;">
+        <div class="scroll-class" style="width:52%;">
             <div class="products-area-wrapper tableView" id="placesTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
@@ -920,7 +920,7 @@
                                 <div class="modal-footer" style="direction: ltr;">
                                     <button type="button" class="action-button active close"
                                         onclick="hidemap('exampleModal9')">إغلاق</button>
-                                    <button type="button" id="save-map-btn-edit" onclick="spinner()"
+                                    <button type="button" id="save-map-btn-edit" onclick="spinneredit()"
                                         class="app-content-headerButton">حفظ</button>
                                 </div>
                             </div>

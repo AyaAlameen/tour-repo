@@ -181,98 +181,134 @@
         </div>
     {{-- الاحصائيات --}}
     <div class="p-5 row" style="flex-direction: row; justify-content: center">
-        {{-- card --}}
-        <div class="service-item m-3" style="width: 19rem;">
-            <img src="img/undraw_Pie_chart_re_bgs8.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-text text-center"> Users</h5>
-                <h4 class="text-center">200</h4>
-            </div>
-        </div>
-        {{-- end card --}}
          {{-- card --}}
          <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Pie_graph_re_fvol.png" class="card-img-top" alt="...">
+            <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-text text-center"> Employees</h5>
-                <h4 class="text-center">200</h4>
+                <h5 class="card-text text-center">Gains in This Year</h5>
+                <h4 class="text-center p-3">200</h4>
             </div>
         </div>
         {{-- end card --}}
+        
+        
          {{-- card --}}
          <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Personal_goals_re_iow7.png" class="card-img-top" alt="...">
+            <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-text text-center"> WebSite Employees</h5>
-                <h4 class="text-center">200</h4>
+                <h5 class="card-text text-center">Gains in month</h5>
+                <div class="d-flex justify-content-Between p-3" >
+                    <h4 class="text-end"><i title="this month" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                    <h4 class="text-start"> <i title="last month" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                </div>
             </div>
         </div>
         {{-- end card --}}
-       
+          {{-- card --}}
+          <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center">Bookings in Month</h5>
+                <div class="d-flex justify-content-Between p-3" >
+                    <h4 class="text-end"><i title="this month" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                    <h4 class="text-start"> <i title="last month" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                </div>
+            </div>
+        </div>
+        {{-- end card --}}
          {{-- card --}}
          <div class="service-item  m-3" style="width: 19rem;">
             <img src="img/undraw_Investment_data_re_sh9x (1).png" height="215px;" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center">Bookings in This Year</h5>
-                <h4 class="text-center">200</h4>
+                <h4 class="text-center p-3">200</h4>
             </div>
         </div>
         {{-- end card --}}
          {{-- card --}}
          <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Analytics_re_dkf8.png" class="card-img-top" alt="...">
+            <img src="img/undraw_Analytics_re_dkf8.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center">Trips in This Month</h5>
-                <h4 class="text-center">200</h4>
+                <h4 class="text-center p-3">200</h4>
             </div>
         </div>
         {{-- end card --}}
           {{-- card --}}
           <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-text text-center">Bookings in Month</h5>
-                <h4 class="text-center">200</h4>
-            </div>
-        </div>
-        {{-- end card --}}
-          {{-- card --}}
-          <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <img src="img/undraw_online_stats_0g94.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center" >Offers Bookings in Month</h5>
                 <div class="d-flex justify-content-Between p-3" >
-                    <h4 class="text-end"> <i class="fas fa-home"></i> 200</h4>
-                    <h4 class="text-start"> <i class="fas fa-home"></i> 300</h4>
+                    <h4 class="text-end"><i title="this month" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                    <h4 class="text-start"> <i title="last month" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
                 </div>
                 
             </div>
         </div>
         {{-- end card --}}  {{-- card --}}
          <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <img src="img/undraw_Business_plan_re_0v81.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center">Trips Bookings in Month</h5>
-                <h4 class="text-center">200</h4>
+                <div class="d-flex justify-content-Between p-3" >
+                    <h4 class="text-end"><i title="this month" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                    <h4 class="text-start"> <i title="last month" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                </div>
             </div>
         </div>
         {{-- end card --}}  {{-- card --}}
          <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <img src="img/undraw_Calculator_re_alsc.png" class="card-img-top" height="215px" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center">Events Bookings in Month</h5>
-                <h4 class="text-center">200</h4>
+                <div class="d-flex justify-content-Between p-3" >
+                    <h4 class="text-end"><i title="this month" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                    <h4 class="text-start"> <i title="last month" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                </div>
             </div>
         </div>
         {{-- end card --}}  {{-- card --}}
          <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
+            <img src="img/undraw_Statistics_re_kox4.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center" >Places Bookings in Month</h5>
-                <h4 class="text-center">200</h4>
+                <div class="d-flex justify-content-Between p-3" >
+                    <h4 class="text-end"><i title="this month" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                    <h4 class="text-start"> <i title="last month" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                </div>
             </div>
         </div>
         {{-- end card --}}
+        {{-- card --}}
+        <div class="service-item m-3" style="width: 19rem;">
+            <img src="img/undraw_Pie_chart_re_bgs8.png" height="215px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center"> Users</h5>
+                <h4 class="text-center p-3">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+         {{-- card --}}
+         <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Pie_graph_re_fvol.png" height="215px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center"> Employees</h5>
+                <h4 class="text-center p-3">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+         {{-- card --}}
+         <div class="service-item  m-3" style="width: 19rem;">
+            <img src="img/undraw_Personal_goals_re_iow7.png" height="215px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text text-center"> WebSite Employees</h5>
+                <h4 class="text-center p-3">200</h4>
+            </div>
+        </div>
+        {{-- end card --}}
+       
+        
     </div>
     {{-- نهاية الاحصائيات --}}
     </div>
