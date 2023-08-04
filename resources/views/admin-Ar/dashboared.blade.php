@@ -190,60 +190,134 @@
         {{-- الاحصائيات --}}
         <div class="p-5 row" style="flex-direction: row; justify-content: center">
             {{-- card --}}
-            <div class="service-item m-3" style="width: 18rem;">
-                <img src="img/undraw_Pie_chart_re_bgs8.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-text text-center">عدد المستخدمين</h5>
-                    <h4 class="text-center">200</h4>
-                </div>
-            </div>
-            {{-- end card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center">الأرباح في هذه السنة</h5>
+                   <h4 class="text-center p-3">200</h4>
+               </div>
+           </div>
+           {{-- end card --}}
+           
+           
+            {{-- card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center">الأرباح في شهر</h5>
+                   <div class="d-flex justify-content-Between p-3" >
+                       <h4 class="text-end"><i title="الشهر الحالي" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                       <h4 class="text-start"> <i title="الشهر االماضي" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                   </div>
+               </div>
+           </div>
+           {{-- end card --}}
              {{-- card --}}
-             <div class="service-item  m-3" style="width: 18rem;">
-                <img src="img/undraw_Pie_graph_re_fvol.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-text text-center">عدد المستخدمين</h5>
-                    <h4 class="text-center">200</h4>
-                </div>
-            </div>
-            {{-- end card --}}
+             <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center">الحجوزات في شهر</h5>
+                   <div class="d-flex justify-content-Between p-3" >
+                       <h4 class="text-end"><i title="الشهر الحالي" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                       <h4 class="text-start"> <i title="الشهر الماضي" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                   </div>
+               </div>
+           </div>
+           {{-- end card --}}
+            {{-- card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Investment_data_re_sh9x (1).png" height="215px;" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center">الحجوزات في هذه السنة</h5>
+                   <h4 class="text-center p-3">200</h4>
+               </div>
+           </div>
+           {{-- end card --}}
+            {{-- card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Analytics_re_dkf8.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center">الرحلات التي تبدأ هذا الشهر</h5>
+                   <h4 class="text-center p-3">200</h4>
+               </div>
+           </div>
+           {{-- end card --}}
              {{-- card --}}
-             <div class="service-item  m-3" style="width: 18rem;">
-                <img src="img/undraw_Personal_goals_re_iow7.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-text text-center">عدد المستخدمين</h5>
-                    <h4 class="text-center">200</h4>
-                </div>
-            </div>
-            {{-- end card --}}
-             {{-- card --}}
-             <div class="service-item  m-3" style="width: 18rem;">
-                <img src="img/undraw_Percentages_re_a1ao.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-text text-center">عدد المستخدمين</h5>
-                    <h4 class="text-center">200</h4>
-                </div>
-            </div>
-            {{-- end card --}}
-             {{-- card --}}
-             <div class="service-item  m-3" style="width: 18rem;">
-                <img src="img/undraw_Investment_data_re_sh9x (1).png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-text text-center">عدد المستخدمين</h5>
-                    <h4 class="text-center">200</h4>
-                </div>
-            </div>
-            {{-- end card --}}
-             {{-- card --}}
-             <div class="service-item  m-3" style="width: 18rem;">
-                <img src="img/undraw_Analytics_re_dkf8.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-text text-center">عدد المستخدمين</h5>
-                    <h4 class="text-center">200</h4>
-                </div>
-            </div>
-            {{-- end card --}}
-        </div>
+             <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_online_stats_0g94.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center" >حجوزات العروض في شهر</h5>
+                   <div class="d-flex justify-content-Between p-3" >
+                       <h4 class="text-end"><i title="الشهر لحالي" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                       <h4 class="text-start"> <i title="الشهر الماضي" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                   </div>
+                   
+               </div>
+           </div>
+           {{-- end card --}}  {{-- card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Business_plan_re_0v81.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center">حجوزات الرحلات في شهر</h5>
+                   <div class="d-flex justify-content-Between p-3" >
+                       <h4 class="text-end"><i title="الشهر الحالي" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                       <h4 class="text-start"> <i title="الشهر الماضي" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                   </div>
+               </div>
+           </div>
+           {{-- end card --}}  {{-- card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Calculator_re_alsc.png" class="card-img-top" height="215px" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center">حجوزات الفعاليات في شهر</h5>
+                   <div class="d-flex justify-content-Between p-3" >
+                       <h4 class="text-end"><i title="الشهر الحالي" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                       <h4 class="text-start"> <i title="الشهر الماضي" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                   </div>
+               </div>
+           </div>
+           {{-- end card --}}  {{-- card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Statistics_re_kox4.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center" >حجوزت الأماكن في شهر</h5>
+                   <div class="d-flex justify-content-Between p-3" >
+                       <h4 class="text-end"><i title="الشهر الحالي" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
+                       <h4 class="text-start"> <i title="الشهر الماضي" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
+                   </div>
+               </div>
+           </div>
+           {{-- end card --}}
+           {{-- card --}}
+           <div class="service-item m-3" style="width: 19rem;">
+               <img src="img/undraw_Pie_chart_re_bgs8.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center"> المستخدمين</h5>
+                   <h4 class="text-center p-3">200</h4>
+               </div>
+           </div>
+           {{-- end card --}}
+            {{-- card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Pie_graph_re_fvol.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center"> الموظفين</h5>
+                   <h4 class="text-center p-3">200</h4>
+               </div>
+           </div>
+           {{-- end card --}}
+            {{-- card --}}
+            <div class="service-item  m-3" style="width: 19rem;">
+               <img src="img/undraw_Personal_goals_re_iow7.png" height="215px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="card-text text-center">موظفي الموقع</h5>
+                   <h4 class="text-center p-3">200</h4>
+               </div>
+           </div>
+           {{-- end card --}}
+          
+           
+       </div>
         {{-- نهاية الاحصائيات --}}
     </div>
     </div>

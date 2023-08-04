@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:45.5%;">
+        <div class="app-content-header" style="width:50.5%;">
             <h1 class="app-content-headerText">الأماكن</h1>
 
             <!-- add -->
@@ -262,7 +262,7 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="action-button active"
                                                         onclick="hidemap('exampleModal6')">إغلاق</button>
-                                                    <button type="button" id="save-map-btn" onclick="spinner()"
+                                                    <button type="button" id="save-map-btn" onclick="spinneradd()"
                                                         class="app-content-headerButton">حفظ</button>
                                                 </div>
                                             </div>
@@ -305,7 +305,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:46%;">
+        <div class="app-content-actions" style="width:51%;">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
                 type="text">
             <div class="app-content-actions-wrapper">
@@ -395,7 +395,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:47%;">
+        <div class="scroll-class" style="width:52%;">
             <div class="products-area-wrapper tableView" id="placesTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
@@ -760,26 +760,26 @@
                                                                         class="geolocation_error_edit"></span></td>
                                                             </tr>
                                                             <tr>
-                                                                <td onclick="removePic()"><i
+                                                                <td><i onclick="removePic()" id="{{ $place->id }}"
                                                                         class="fas fa-close text-body"></i></td>
                                                                 <td class="d-flex align-items-center"
                                                                     style="justify-content: space-between;">
                                                                     <i class="fas fa-plus text-body"
                                                                         style="text-align: center; font-size:15px;  cursor:pointer;"
-                                                                        onclick="editPic()" id="edit-pic-input"
+                                                                        onclick="editPic()" id="edit-pic-input{{ $place->id }}"
                                                                         data-picid="1" title="Add Another Picture"></i>
                                                                     <input type="file" name="image"
                                                                         class="toggle text-primary in" required
                                                                         style="width:75% !important; font-size:16px;"
-                                                                        hidden disabled myid="first_input_edit"
-                                                                        onchange="previewImage(this, 'first_pic_edit')">
+                                                                        hidden disabled id="first_input_edit{{ $place->id }}"
+                                                                        onchange="previewImage(this, 'first_pic_edit{{ $place->id }}')">
                                                                     {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
                                                                     @if ($place->images->count() > 0)
                                                                         @if ($place->images()->first()->count() > 0)
                                                                             <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
                                                                                 class="m-3" alt=""
                                                                                 style="cursor:pointer; width:150px; height:70px"
-                                                                                id="first_pic_edit">
+                                                                                id="first_pic_edit{{ $place->id }}">
                                                                         @else
                                                                             <input type="file">
                                                                         @endif
@@ -920,7 +920,7 @@
                                 <div class="modal-footer" style="direction: ltr;">
                                     <button type="button" class="action-button active close"
                                         onclick="hidemap('exampleModal9')">إغلاق</button>
-                                    <button type="button" id="save-map-btn-edit" onclick="spinner()"
+                                    <button type="button" id="save-map-btn-edit" onclick="spinneredit()"
                                         class="app-content-headerButton">حفظ</button>
                                 </div>
                             </div>

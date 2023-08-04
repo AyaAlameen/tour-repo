@@ -1,12 +1,12 @@
-@extends('adminLayout-Ar.master')
+@extends('adminLayout-En.master')
 @section('admincontent')
     <div class="app-content">
         <div class="app-content-header" style="width:45.5%;">
-            <h1 class="app-content-headerText">الأماكن</h1>
+            <h1 class="app-content-headerText">Places</h1>
 
             <!-- add -->
             <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                إضافة مكان
+                 add place
             </button>
 
             <!-- Modal -->
@@ -15,7 +15,7 @@
                 <div class="modal-dialog ">
                     <div class="modal-content toggle">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">مكان جديد</h5>
+                            <h5 class="modal-title" id="exampleModal3Label">New place</h5>
                             <button type="button" class="btn-close m-0 close"
                                 onclick="removeMessages(), document.getElementById('add-form').reset()"
                                 data-bs-dismiss="modal" aria-label="Close">
@@ -25,14 +25,14 @@
                         <form id="add-form" action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
-                                <table style=" width: 400px;" id="addTable"
+                                <table style=" width: 400px; direction: rtl;" id="addTable"
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
 
                                     <tr>
                                         <td></td>
                                         <td><input type="text" class="toggle text-primary in" name="name_ar" required
                                                 style="width: 100%;"></th>
-                                        <td>الاسم(العربية)</td>
+                                        <td>name (Arabic)</td>
                                     </tr>
 
                                     <tr>
@@ -45,7 +45,7 @@
                                         <td></td>
                                         <td><input type="text" class="toggle text-primary in" name="name_en" required
                                                 style="width: 100%;"></th>
-                                        <td>(الإنجليزية)الاسم </td>
+                                        <td>name (English)  </td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -67,9 +67,9 @@
                                                     @foreach ($cities as $city)
                                                         <option style="cursor: pointer;" class="dropdown-item"
                                                             value="{{ $city->id }}" id="city_{{ $city->id }}"
-                                                            onclick="setCity({{ $city->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'city_{{ $city->id }}'), filterDistricts({{ $city->id }})"
+                                                            onclick="setCity({{ $city->id }}, '{{ $city->translations()->where('locale', 'en')->first()->name }}', 'city_{{ $city->id }}'), filterDistricts({{ $city->id }})"
                                                             href="#">
-                                                            {{ $city->translations()->where('locale', 'ar')->first()->name }}
+                                                            {{ $city->translations()->where('locale', 'en')->first()->name }}
                                                         </option>
                                                     @endforeach
                                                     <input type="text" id="city_id" name="city_id" hidden>
@@ -77,7 +77,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>المحافظة</td>
+                                        <td>Governorate</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -100,9 +100,9 @@
                                                         <option style="cursor: pointer;"
                                                             class="dropdown-item district_filter_option district_city_{{ $district->city->id }}"
                                                             value="{{ $district->id }}" id="district_{{ $district->id }}"
-                                                            onclick="setDistrict({{ $district->id }}, '{{ $district->translations()->where('locale', 'ar')->first()->name }}', 'district_{{ $district->id }}')"
+                                                            onclick="setDistrict({{ $district->id }}, '{{ $district->translations()->where('locale', 'en')->first()->name }}', 'district_{{ $district->id }}')"
                                                             hidden href="#">
-                                                            {{ $district->translations()->where('locale', 'ar')->first()->name }}
+                                                            {{ $district->translations()->where('locale', 'en')->first()->name }}
                                                         </option>
                                                     @endforeach
                                                     <input type="text" id="district_id" name="district_id" hidden>
@@ -110,7 +110,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>الناحية</td>
+                                        <td>district</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -134,9 +134,9 @@
                                                         <option style="cursor: pointer;" class="dropdown-item"
                                                             value="{{ $sub_category->id }}"
                                                             id="sub_category_{{ $sub_category->id }}"
-                                                            onclick="setSubCategory({{ $sub_category->id }}, '{{ $sub_category->translations()->where('locale', 'ar')->first()->name }}', 'sub_category_{{ $sub_category->id }}')"
+                                                            onclick="setSubCategory({{ $sub_category->id }}, '{{ $sub_category->translations()->where('locale', 'en')->first()->name }}', 'sub_category_{{ $sub_category->id }}')"
                                                             href="#">
-                                                            {{ $sub_category->translations()->where('locale', 'ar')->first()->name }}
+                                                            {{ $sub_category->translations()->where('locale', 'en')->first()->name }}
                                                         </option>
                                                     @endforeach
                                                     <input type="text" id="sub_category_id" name="sub_category_id"
@@ -145,7 +145,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>الصنف الفرعي</td>
+                                        <td> sub category</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -158,21 +158,21 @@
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="text" name="description_ar"
                                                 required style="width: 100%;"></th>
-                                        <td>وصف(العربية)</td>
+                                        <td>description (Arabic)</td>
                                     </tr>
 
                                     <tr>
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></th>
-                                        <td>(الإنجليزية)وصف</td>
+                                        <td>description (English)</td>
                                     </tr>
 
                                     <tr>
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="email" name="email" required
                                                 style="width: 100%;"></th>
-                                        <td>الايميل</td>
+                                        <td>email</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -184,7 +184,7 @@
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="phone" required
                                                 style="width: 100%;"></th>
-                                        <td>الهاتف</td>
+                                        <td>phone</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -196,7 +196,7 @@
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="cost"
                                                 style="width: 100%;"></th>
-                                        <td>التكلفة</td>
+                                        <td>cost</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -207,7 +207,7 @@
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="profit_ratio_1"
                                                 required style="width: 100%;"></th>
-                                        <td style="width: 150px;">نسبة الأرباح الخارجية </td>
+                                        <td style="width: 150px;">external earnings ratio</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -219,7 +219,7 @@
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="number" name="profit_ratio_2"
                                                 required style="width: 100%;"></th>
-                                        <td>نسبة الأرباح الداخلية </td>
+                                        <td>internal earnings ratio</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -236,7 +236,7 @@
                                                 width="150px" height="70px"></td>
                                         <input type="hidden" name="geolocation" id="coordinates">
 
-                                        <td>الموقع</td>
+                                        <td>location</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -249,8 +249,7 @@
                                         <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                                             <div class="modal-content toggle w-100 h-100">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModal6Label">إضافة المكان على
-                                                        الخريطة</h5>
+                                                    <h5 class="modal-title" id="exampleModal6Label">Add the place on the map</h5>
                                                     <button type="button" class="btn-close m-0 close"
                                                         onclick="hidemap('exampleModal6')" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -261,9 +260,9 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="action-button active"
-                                                        onclick="hidemap('exampleModal6')">إغلاق</button>
+                                                        onclick="hidemap('exampleModal6')">close</button>
                                                     <button type="button" id="save-map-btn" onclick="spinner()"
-                                                        class="app-content-headerButton">حفظ</button>
+                                                        class="app-content-headerButton">save</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -272,11 +271,11 @@
                                     <!-- end add map -->
                                     <tr>
                                         <td style="width:25px; text-align:center;"> <i
-                                                class="fas fa-camera text-body pt-2 pl-2"
+                                                class="fas fa-camera text-body pr-2"
                                                 style="font-size:15px; cursor:pointer;"></i></td>
 
                                         <td class="pl-2">
-                                            <i class="fas fa-plus text-body pr-3"
+                                            <i class="fas fa-plus text-body pl-3"
                                                 style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;"onclick="addPic()"
                                                 id="add-pic-input" data-picid="1" title="Add Another Picture"></i>
                                             <input type="file" id="add_input_0"
@@ -286,7 +285,7 @@
                                             <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
                                                     height="90px" style="display: none; padding:6px;"></label>
                                         </td>
-                                        <td>الصور </td>
+                                        <td>images </td>
                                     </tr>
 
                                 </table>
@@ -295,9 +294,9 @@
                         <div class="modal-footer">
                             <button type="button" class="action-button active close"
                                 onclick="removeMessages(), document.getElementById('add-form').reset()"
-                                data-bs-dismiss="modal">إغلاق</button>
+                                data-bs-dismiss="modal">close</button>
                             <button type="button" id="add-place-btn" onclick="addPlace('add-form')"
-                                class="app-content-headerButton">حفظ</button>
+                                class="app-content-headerButton">save</button>
                         </div>
                     </div>
                 </div>
@@ -306,7 +305,7 @@
         <!-- end add -->
 
         <div class="app-content-actions" style="width:46%;">
-            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
+            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="search in name..."
                 type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -318,7 +317,7 @@
                             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                         </svg></button>
                     <div class="filter-menu">
-                        <label>المدينة</label>
+                        <label>city</label>
                         <select>
                             <option>كل المدن</option>
                             <option>حلب</option>
@@ -327,7 +326,7 @@
                             <option>دمشق</option>
                             <option>طرطوس</option>
                         </select>
-                        <label>الصنف الفرعي</label>
+                        <label>sub category</label>
                         <select>
                             <option>كل الأصناف الفرعية</option>
                             <option>مساجد</option>
@@ -336,56 +335,29 @@
                             <option>فنادق</option>
                             <option>ملاهي</option>
                         </select>
-                        <label>النواحي</label>
-                        <select>
-                            <option>All Districts</option>
-                            <option>الفرقان</option>
-                            <option>موكاكبو</option>
-                            <option>حي السبيل</option>
-                        </select>
+                       
                         <div class="filter-menu-buttons">
 
                             <button class="filter-button apply">
-                                أوافق
+                                ok
                             </button>
                         </div>
                     </div>
                 </div>
                 <!-- end filter -->
-                <button class="action-button list" title="عرض جدول">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-list">
-                        <line x1="8" y1="6" x2="21" y2="6" />
-                        <line x1="8" y1="12" x2="21" y2="12" />
-                        <line x1="8" y1="18" x2="21" y2="18" />
-                        <line x1="3" y1="6" x2="3.01" y2="6" />
-                        <line x1="3" y1="12" x2="3.01" y2="12" />
-                        <line x1="3" y1="18" x2="3.01" y2="18" />
-                    </svg>
-                </button>
-                <button class="action-button grid" title="عرض لائحة">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-grid">
-                        <rect x="3" y="3" width="7" height="7" />
-                        <rect x="14" y="3" width="7" height="7" />
-                        <rect x="14" y="14" width="7" height="7" />
-                        <rect x="3" y="14" width="7" height="7" />
-                    </svg>
-                </button>
+                
 
                 <div class="nav-item dropdown">
-                    <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة"> <i
+                    <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="translate"> <i
                             class="fas fa-globe "></i> </button>
 
                     <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
-                        <a href="{{ route('place_ar') }}" class="dropdown-item"> العربية</a>
-                        <a href="{{ route('place_en') }}" class="dropdown-item">الانجليزية </a>
+                        <a href="{{ route('place_ar') }}" class="dropdown-item"> Arabic</a>
+                        <a href="{{ route('place_en') }}" class="dropdown-item">English </a>
 
                     </div>
                 </div>
-                <button class="mode-switch" title="تبديل الثيم" style="margin-left:5px;">
+                <button class="mode-switch" title="switch thim" style="margin-left:5px;">
                     <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                         <defs></defs>
@@ -399,18 +371,18 @@
             <div class="products-area-wrapper tableView" id="placesTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
-                    <div class="product-cell">الاسم</div>
-                    <div class="product-cell">المدينة</div>
-                    <div class="product-cell">الناحية</div>
-                    <div class="product-cell">الصنف الفرعي</div>
-                    <div class="product-cell">وصف</div>
-                    <div class="product-cell">الموقع</div>
-                    <div class="product-cell">الايميل</div>
-                    <div class="product-cell">الهاتف</div>
-                    <div class="product-cell">الكلفة</div>
-                    <div class="product-cell">نسبة الأرباح الداخلية</div>
-                    <div class="product-cell">نسبة الأرباح الخارجية</div>
-                    <div class="product-cell">الأحداث</div>
+                    <div class="product-cell">Name</div>
+                    <div class="product-cell">city</div>
+                    <div class="product-cell">distrect</div>
+                    <div class="product-cell">sub category</div>
+                    <div class="product-cell">description</div>
+                    <div class="product-cell">location</div>
+                    <div class="product-cell">email</div>
+                    <div class="product-cell">phone</div>
+                    <div class="product-cell">cost</div>
+                    <div class="product-cell">internal earnings ratio</div>
+                    <div class="product-cell">external earnings ratio</div>
+                    <div class="product-cell">actions</div>
 
                 </div>
 
@@ -424,19 +396,19 @@
                             </div>
                             <div class="product-cell">
                                 <span
-                                    class="search-value">{{ $place->translations()->where('locale', 'ar')->first()->name }}</span>
+                                    class="search-value">{{ $place->translations()->where('locale', 'en')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</span>
+                                <span>{{ $place->district->city->translations()->where('locale', 'en')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
-                                <span> {{ $place->district->translations()->where('locale', 'ar')->first()->name }}</span>
+                                <span> {{ $place->district->translations()->where('locale', 'en')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>{{ $place->subCategory->translations()->where('locale', 'ar')->first()->name }}</span>
+                                <span>{{ $place->subCategory->translations()->where('locale', 'en')->first()->name }}</span>
                             </div>
                             <div class="product-cell">
-                                <span>{{ $place->translations()->where('locale', 'ar')->first()->description }}</span>
+                                <span>{{ $place->translations()->where('locale', 'en')->first()->description }}</span>
                             </div>
                             {{-- عرض الموقع --}}
                             <div class="product-cell" style="cursor: pointer;">
@@ -490,14 +462,14 @@
                                                     <div class="modal-body">
                                                         <table id="editTable"
                                                             class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                                            style="direction:ltr !important;">
+                                                            style="direction: rtl;">
                                                             <tr>
                                                                 <td></td>
                                                                 <td><input type="text" class="toggle text-primary in"
                                                                         name="name_ar" required style="width: 100%;"
                                                                         value="{{ $place->translations()->where('locale', 'ar')->first()->name }}">
                                                                     </th>
-                                                                <td>الاسم(العربية)</td>
+                                                                <td>Name (Arabic)</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -510,7 +482,7 @@
                                                                         name="name_en" required style="width: 100%;"
                                                                         value="{{ $place->translations()->where('locale', 'en')->first()->name }}">
                                                                     </th>
-                                                                <td>(الانكليزية)الاسم </td>
+                                                                <td>name (English) </td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -532,7 +504,7 @@
                                                                         </label>
 
                                                                         <span
-                                                                            id="city-name-{{ $place->id }}">{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                            id="city-name-{{ $place->id }}">{{ $place->district->city->translations()->where('locale', 'en')->first()->name }}</span>
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
                                                                             @foreach ($cities as $city)
@@ -541,9 +513,9 @@
                                                                                     class="dropdown-item"
                                                                                     value="{{ $city->id }}"
                                                                                     id="edit_city_{{ $place->id }}_{{ $city->id }}"
-                                                                                    onclick="setEditCity({{ $city->id }}, {{ $place->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'edit_city_{{ $place->id }}_{{ $city->id }}'), filterEditDistricts({{ $city->id }}, {{ $place->id }})"
+                                                                                    onclick="setEditCity({{ $city->id }}, {{ $place->id }}, '{{ $city->translations()->where('locale', 'en')->first()->name }}', 'edit_city_{{ $place->id }}_{{ $city->id }}'), filterEditDistricts({{ $city->id }}, {{ $place->id }})"
                                                                                     href="#">
-                                                                                    {{ $city->translations()->where('locale', 'ar')->first()->name }}
+                                                                                    {{ $city->translations()->where('locale', 'en')->first()->name }}
                                                                                 </option>
                                                                             @endforeach
                                                                             <input type="text"
@@ -555,7 +527,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td>المحافظة</td>
+                                                                <td>Governorate</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -575,7 +547,7 @@
 
                                                                         </label>
                                                                         <span
-                                                                            id="district-name-{{ $place->id }}">{{ $place->district->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                            id="district-name-{{ $place->id }}">{{ $place->district->translations()->where('locale', 'en')->first()->name }}</span>
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
                                                                             @foreach ($districts as $district)
@@ -584,9 +556,9 @@
                                                                                     class="dropdown-item edit_district_filter_option edit_district_city_{{ $district->city->id }}"
                                                                                     value="{{ $district->id }}"
                                                                                     id="edit_district_{{ $place->id }}_{{ $district->id }}"
-                                                                                    onclick="setEditDistrict({{ $district->id }}, {{ $place->id }}, '{{ $district->translations()->where('locale', 'ar')->first()->name }}', 'edit_district_{{ $place->id }}_{{ $district->id }}')"
+                                                                                    onclick="setEditDistrict({{ $district->id }}, {{ $place->id }}, '{{ $district->translations()->where('locale', 'en')->first()->name }}', 'edit_district_{{ $place->id }}_{{ $district->id }}')"
                                                                                     href="#">
-                                                                                    {{ $district->translations()->where('locale', 'ar')->first()->name }}
+                                                                                    {{ $district->translations()->where('locale', 'en')->first()->name }}
                                                                                 </option>
                                                                             @endforeach
                                                                             <input type="text"
@@ -597,7 +569,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td>الناحية</td>
+                                                                <td>distrect</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -616,7 +588,7 @@
 
                                                                         </label>
                                                                         <span
-                                                                            id="sub-cat-name-{{ $place->id }}">{{ $place->subCategory->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                            id="sub-cat-name-{{ $place->id }}">{{ $place->subCategory->translations()->where('locale', 'en')->first()->name }}</span>
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenuButtonEdit{{ $place->id }}">
                                                                             @foreach ($sub_categories as $sub_category)
@@ -627,7 +599,7 @@
                                                                                     id="edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}"
                                                                                     onclick="setEditSubCategory({{ $sub_category->id }}, {{ $place->id }}, '{{ $sub_category->translations()->where('locale', 'ar')->first()->name }}', 'edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}')"
                                                                                     href="#">
-                                                                                    {{ $sub_category->translations()->where('locale', 'ar')->first()->name }}
+                                                                                    {{ $sub_category->translations()->where('locale', 'en')->first()->name }}
                                                                                 </option>
                                                                             @endforeach
                                                                             <input type="text"
@@ -639,7 +611,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td>الصنف الفرعي</td>
+                                                                <td>sub category</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -653,7 +625,7 @@
                                                                         name="description_ar" required
                                                                         value="{{ $place->translations()->where('locale', 'ar')->first()->description }}"
                                                                         style="width: 100%;"></td>
-                                                                <td>وصف(العربية)</td>
+                                                                <td>description (Arabic)</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -666,7 +638,7 @@
                                                                         name="description_en" required
                                                                         value="{{ $place->translations()->where('locale', 'en')->first()->description }}"
                                                                         style="width: 100%;"></th>
-                                                                <td>(الانكليزية)وصف</td>
+                                                                <td>description (English)</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -679,7 +651,7 @@
                                                                 <td><input type="email" class="toggle text-primary in"
                                                                         name="email" value="{{ $place->email }}">
                                                                 </td>
-                                                                <td>الايميل</td>
+                                                                <td>email</td>
 
                                                             </tr>
                                                             <tr>
@@ -692,7 +664,7 @@
                                                                 <td><input type="number" class="toggle text-primary in"
                                                                         name="phone" value="{{ $place->phone }}">
                                                                 </td>
-                                                                <td>الهاتف</td>
+                                                                <td>phone</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -704,7 +676,7 @@
                                                                 <td><input type="number" class="toggle text-primary in"
                                                                         name="cost" value="{{ $place->cost }}">
                                                                 </td>
-                                                                <td>الكلفة</td>
+                                                                <td>cost</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -718,7 +690,7 @@
                                                                         name="profit_ratio_1"
                                                                         value="{{ $place->profit_ratio_1 }}">
                                                                 </td>
-                                                                <td>نسبة الأرباح الخارجية</td>
+                                                                <td>external earnings ratio</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -731,7 +703,7 @@
                                                                         name="profit_ratio_2"
                                                                         value="{{ $place->profit_ratio_2 }}">
                                                                 </td>
-                                                                <td>نسبة الأرباح الداخلية</td>
+                                                                <td>internal earnings ratio</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -747,7 +719,7 @@
                                                                         data-target="#exampleModal9"
                                                                         style="cursor:pointer; border-radius:6px; width:150px; height:70px"
                                                                         src="img/sy.jpg"></td>
-                                                                <td>الموقع</td>
+                                                                <td>location</td>
                                                                 <input type="hidden" name="geolocation"
                                                                     id="coordinates_{{ $place->id }}"
                                                                     value="{{ $place->geolocation }}">
@@ -785,7 +757,7 @@
                                                                         @endif
                                                                     @endif
                                                                 </td>
-                                                                <td>الصور</td>
+                                                                <td>images</td>
                                                             </tr>
                                                             @if ($place->images->count() > 0)
                                                                 @foreach ($place->images as $image)
@@ -816,11 +788,10 @@
                                                 </form>
                                                 <div class="modal-footer">
                                                     <button type="button" class="action-button active close"
-                                                        data-dismiss="modal">إغلاق</button>
+                                                        data-dismiss="modal">close</button>
                                                     <button type="submit" id="edit-place-btn-{{ $place->id }}"
                                                         onclick="editPlace('edit-form-{{ $place->id }}', {{ $place->id }})"
-                                                        class="app-content-headerButton">حفظ
-                                                        التغييرات</button>
+                                                        class="app-content-headerButton">save changes</button>
                                                 </div>
                                             </div>
 
@@ -850,15 +821,15 @@
                                                     <input type="text" name="id" value="{{ $place->id }}"
                                                         hidden>
                                                     <div class="modal-body" style="direction:rtl;">
-                                                        هل أنت متأكد من أنك تريد حذف هذا المكان (<span
-                                                            style="color: #90aaf8;">{{ $place->translations()->where('locale', 'ar')->first()->name }}</span>)
+                                                      Are you shure that you want to delete this place ?(<span
+                                                            style="color: #90aaf8;">{{ $place->translations()->where('locale', 'en')->first()->name }}</span>)
                                                         ؟ </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="action-button active close"
-                                                            data-dismiss="modal">إغلاق</button>
+                                                            data-dismiss="modal">close</button>
                                                         <button type="submit" id="delete-place-btn-{{ $place->id }}"
                                                             onclick="deletePlace(`delete-form-{{ $place->id }}`, {{ $place->id }})"
-                                                            class="app-content-headerButton">نعم</button>
+                                                            class="app-content-headerButton">yes</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -906,8 +877,9 @@
                         <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                             <div class="modal-content toggle w-100 h-100">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModal9Label">تعديل الموقع على
-                                        الخريطة</h5>
+                                    <h5 class="modal-title" id="exampleModal9Label">
+                                    edit location on the map                                        
+                                    </h5>
                                     <button type="button" class="btn-close m-0 close"
                                         onclick="hidemap('exampleModal9')">
                                         <span>&times;</span>
@@ -919,9 +891,9 @@
                                 </div>
                                 <div class="modal-footer" style="direction: ltr;">
                                     <button type="button" class="action-button active close"
-                                        onclick="hidemap('exampleModal9')">إغلاق</button>
+                                        onclick="hidemap('exampleModal9')">close</button>
                                     <button type="button" id="save-map-btn-edit" onclick="spinner()"
-                                        class="app-content-headerButton">حفظ</button>
+                                        class="app-content-headerButton">save</button>
                                 </div>
                             </div>
                         </div>
