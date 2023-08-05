@@ -3,8 +3,6 @@
 
     @if ($loop->last)
     @else
-    
-
         <div class="products-row">
             <button class="cell-more-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -239,36 +237,48 @@
                                                 <td style="width:40px;"></td>
                                             </tr>
                                             {{-- عرض الوجهات للجروب --}}
-                                            @foreach($group->places as $place)
-                                            
+                                            @foreach ($group->places as $place)
                                                 <tr>
-                                                    <td class="text-center">{{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}</td>
-                                                    <td class="text-center">{{ $place->district->translations()->where('locale', 'ar')->first()->name }}</td>
-                                                    <td class="text-center">{{ $place->translations()->where('locale', 'ar')->first()->name }}</td>
+                                                    <td class="text-center">
+                                                        {{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{ $place->district->translations()->where('locale', 'ar')->first()->name }}
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{ $place->translations()->where('locale', 'ar')->first()->name }}
+                                                    </td>
                                                     @if ($place->pivot->service_id)
-                                                        <td class="text-center">{{\App\Models\Service::find($place->pivot->service_id)->translations()->where('locale', 'ar')->first()->name}}</td>
-                                                        <td class="text-center">{{\App\Models\Service::find($place->pivot->service_id)->cost}}</td>
+                                                        <td class="text-center">
+                                                            {{ \App\Models\Service::find($place->pivot->service_id)->translations()->where('locale', 'ar')->first()->name }}
+                                                        </td>
+                                                        <td class="text-center">
+                                                            {{ \App\Models\Service::find($place->pivot->service_id)->cost }}
+                                                        </td>
                                                     @else
                                                         <td class="text-center">-</td>
-                                                        <td class="text-center">{{$place->cost}}</td>
+                                                        <td class="text-center">{{ $place->cost }}</td>
                                                     @endif
-                                                    
-                                                    <td> <a href="#" onclick="deleteDist(`delete-dist-form-{{ $place->pivot->id }}`, {{ $place->pivot->id }})" class="delete  ml-1" style="font-size:14px;"
-                                                            title="Delete" data-toggle="tooltip" id="delete-dist-btn-{{ $place->pivot->id }}"><i
+
+                                                    <td> <a href="#"
+                                                            onclick="deleteDist(`delete-dist-form-{{ $place->pivot->id }}`, {{ $place->pivot->id }})"
+                                                            class="delete  ml-1" style="font-size:14px;"
+                                                            title="Delete" data-toggle="tooltip"
+                                                            id="delete-dist-btn-{{ $place->pivot->id }}"><i
                                                                 class="fas fa-trash"></i></a>
                                                     </td>
-                                                   
-                                                                <form id="delete-dist-form-{{ $place->pivot->id }}" action=""
-                                                                    method="POST" enctype="multipart/form-data">
-                                                                    @csrf
-                                                                    {{-- <input type="text" id="delete-dist-input-{{ $place->pivot->id }}" name="id" value="{{ $place->pivot->id }}"
+
+                                                    <form id="delete-dist-form-{{ $place->pivot->id }}"
+                                                        action="" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        {{-- <input type="text" id="delete-dist-input-{{ $place->pivot->id }}" name="id" value="{{ $place->pivot->id }}"
                                                                         hidden> --}}
-                                                                
-                                                                </form>
+
+                                                    </form>
 
                                                 </tr>
                                             @endforeach
-                                            
+
                                             {{-- نهاية عرض الوجهات للجرب  --}}
                                         </table>
                                     @endif
@@ -287,7 +297,8 @@
                     {{-- end dist --}}
                     {{-- trans --}}
                     <a class="delete ml-2" data-bs-toggle="modal" href="#exampleModalToggle"
-                        title="Transportation"><i class="fas fa-bus"></i></a>
+                        onclick="setGroupIdForCompany({{ $group->id }})" title="Transportation"><i
+                            class="fas fa-bus"></i></a>
                     <!-- first form -->
                     <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true"
                         aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -302,44 +313,66 @@
                                 </div>
                                 <div class="modal-body">
                                     <!-- !!!بيان انتبهي  -->
-                                    <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-                                    <img src="../img/vehicles.png" class="m-3"
-                                        style="width:150px; height:150px; opacity:0.5;">
-                                    <p class="text-body mb-4">لا يوجد بعد وسائل نقل مضافة </p>
-                                    <!-- هاد الشكل بحال كان ضايف وسائل -->
-                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
-                                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                        <tr>
-                                            <td class="text-center">شركة النقل</td>
-                                            <td class="text-center">وسيلة النقل</td>
-                                            <td class="text-center" style="width:90px;">عدد الركاب</td>
-                                            <td class="text-center" style="width:290px;">المواصفات</td>
-                                            <td>في تاريخ</td>
-                                            <td></td>
-                                        </tr>
-                                        {{-- عرض وسائل النقل لهي الرحلة --}}
-                                        <tr>
-                                            <td class="text-center">شركة الأمير</td>
-                                            <td class="text-center">6913 حلب</td>
-                                            <td class="text-center">12</td>
-                                            <td class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing
-                                                elit. Eaque nihil dolores totam eum cum,
-                                                ipsum perspiciatis.</td>
-                                            <td>11-11-2023</td>
-                                            <td> <a href="#" class="delete ml-2 mr-2" style="font-size:14px;"
-                                                    title="Delete" data-toggle="tooltip"><i
-                                                        class="fas fa-trash"></i></a></td>
+                                    @if ($group->transportations->count() == 0)
+                                        <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
+                                        <img src="../img/vehicles.png" class="m-3"
+                                            style="width:150px; height:150px; opacity:0.5;">
+                                        <p class="text-body mb-4">لا يوجد بعد وسائل نقل مضافة </p>
+                                    @else
+                                        <!-- هاد الشكل بحال كان ضايف وسائل -->
+                                        <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
+                                            class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                                            <tr>
+                                                <td class="text-center">شركة النقل</td>
+                                                <td class="text-center">وسيلة النقل</td>
+                                                <td class="text-center" style="width:90px;">عدد الركاب</td>
+                                                <td class="text-center" style="width:290px;">المواصفات</td>
+                                                <td>في تاريخ</td>
+                                                <td></td>
+                                            </tr>
+                                            {{-- عرض وسائل النقل لهي الرحلة --}}
+                                            @foreach ($group->transportations as $transportation)
+                                                <tr>
+                                                    <td class="text-center"> {{ $transportation->transportCompany->translations()->where('locale', 'ar')->first()->name }}</td>
+                                                    <td class="text-center">{{ $transportation->city->translations()->where('locale', 'ar')->first()->name }} - {{ $transportation->carId }}</td>
+                                                    <td class="text-center">{{ $transportation->passengers_number }}</td>
+                                                    <td class="text-center">{{ $transportation->translations()->where('locale', 'ar')->first()->description }}.</td>
+                                                    <td style="padding-right: 0px">
+                                                        <ul class="list-group list-group-flush" style="padding-right: 0;">
+                                                            @foreach( $transportation->pivot->dates as $date)
+                                                                <li class="list-group-item" style="padding: 5px; text-align: center;">{{ $date }}</li>
+                                                            @endforeach
+                                                          </ul>
+                                                        
+                                                            
+                                                        
+                                                    </td>
+                                                    <td> <a href="#" class="delete ml-2 mr-2"
+                                                        onclick="deleteTrans(`delete-trans-form-{{ $transportation->pivot->id }}`, {{ $transportation->pivot->id }})"
+                                                            style="font-size:14px;" title="Delete"
+                                                            id="delete-trans-btn-{{ $transportation->pivot->id }}"
+                                                            data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                                                    </td>
+                                                    <form id="delete-trans-form-{{ $transportation->pivot->id }}"
+                                                        action="" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        {{-- <input type="text" id="delete-dist-input-{{ $place->pivot->id }}" name="id" value="{{ $place->pivot->id }}"
+                                                                        hidden> --}}
+                    
+                                                    </form>
 
-
-                                        </tr>
-                                        {{-- نهاية عرض وسائل النقل لهي الرحلة --}}
-                                    </table>
+                                                </tr>
+                                            @endforeach
+                                            {{-- نهاية عرض وسائل النقل لهي الرحلة --}}
+                                        </table>
+                                    @endif
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-primary" style="border-radius:3px;"
                                         data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
                                         data-bs-dismiss="modal">إضافة وسيلة نقل جديدة</button>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -347,10 +380,10 @@
                     {{-- end trans --}}
                     <!-- delete -->
                     <a href="#" class="delete pr-1" style="font-size:14px;" data-toggle="modal"
-                        data-target="#exampleModal2" title="Delete" data-toggle="tooltip"><i
+                        data-target="#deleteGroup{{ $group->id }}" title="Delete" data-toggle="tooltip"><i
                             class="fas fa-trash"></i></a>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label"
+                    <div class="modal fade" id="deleteGroup{{ $group->id }}" tabindex="-1" aria-labelledby="exampleModal2Label"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content" style="direction:ltr;">
@@ -359,14 +392,22 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                <form id="delete-form-{{ $group->id }}" action="" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="text" name="id" value="{{ $group->id }}"
+                                        hidden>
                                 <div class="modal-body" style="direction:rtl;">
-                                    هل أنت متأكد من أنك تريد حذف هذا الجروب؟
-                                </div>
+                                    هل أنت متأكد من أنك تريد حذف هذا الجروب (<span
+                                    style="color: #90aaf8;">{{ $group->translations()->where('locale', 'ar')->first()->name }}</span>)
+                                    </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="action-button active"
+                                    <button type="button" class="action-button active close"
                                         data-dismiss="modal">إغلاق</button>
-                                    <button type="submit" class="app-content-headerButton">نعم</button>
+                                    <button type="submit" id="delete-group-btn-{{ $group->id }}"
+                                        onclick="deleteGroup(`delete-form-{{ $group->id }}`, {{ $group->id }})" class="app-content-headerButton">نعم</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -510,7 +551,7 @@
                                     <label class="dropdown-toggle" type="button" id="dropdownMenuButtonService"
                                         data-toggle="dropdown" aria-expanded="false">
                                         <!--  هي الجملة منعرضا بحال كان المكان مالو خدمات    -->
-                                        there is no services in this place
+                                        {{-- there is no services in this place --}}
                                     </label>
                                     <span id="service-name"></span>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonService">
@@ -571,79 +612,90 @@
                 </button>
             </div>
             <div class="modal-body">
-                <table style="color: rgb(22, 22, 22); width: 500px !important;"
-                    class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                <form id="add-transport-form" action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <table style="color: rgb(22, 22, 22); width: 500px !important;"
+                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                        <input type="text" id="group_id_for_company" name="group_id" hidden>
 
-                    <tr>
-                        <td>
-                            <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-expanded="false">
+                        <tr>
+                            <td style="width:300px;">
+                                <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
-                                </label>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">الأمير</a>
-                                    <a class="dropdown-item" href="#">القدموس</a>
+                                    <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-expanded="false">
+
+                                    </label>
+                                    <span id="company-name"></span>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        @foreach ($companies as $company)
+                                            <option style="cursor: pointer;" class="dropdown-item"
+                                                value="{{ $company->id }}" id="company_{{ $company->id }}"
+                                                onclick="setCompany({{ $company->id }}, '{{ $company->translations()->where('locale', 'ar')->first()->name }}', 'company_{{ $company->id }}'), filterTransportations({{ $company->id }})"
+                                                href="#">
+                                                {{ $company->translations()->where('locale', 'ar')->first()->name }}
+                                            </option>
+                                        @endforeach
+                                        <input type="text" id="company_id" name="company_id" hidden>
+
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td>شركات النقل المتاحة</td>
+                            </td>
+                            <td class="pr-2">شركة النقل</td>
+                        </tr>
+                        <tr>
+                            
+                            <td style="width:300px;">
+                                <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-expanded="false">
+                                    <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-expanded="false">
 
-                                </label>
-                                <div class="dropdown-menu" style="width:200px;" aria-labelledby="dropdownMenuButton">
+                                    </label>
+                                    <span id="transportation-name"></span>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 232px !important;">
+                                        @foreach ($transportations as $transportation)
+                                            <option style="cursor: pointer;"
+                                                class="dropdown-item transportation_filter_option transportation_company_{{ $transportation->transportCompany->id }}"
+                                                value="{{ $transportation->id }}" id="transportation_{{ $transportation->id }}"
+                                                onclick="setTransportation({{ $transportation->id }}, '{{ $transportation->city->translations()->where('locale', 'ar')->first()->name }} - {{$transportation->carId}} / عدد الركاب: {{$transportation->passengers_number}}', 'transportation_{{ $transportation->id }}')"
+                                                hidden href="#">
+                                                
+                                                {{ $transportation->city->translations()->where('locale', 'ar')->first()->name }} - {{$transportation->carId}} / عدد الركاب: {{$transportation->passengers_number}}
+                                            </option>
+                                        @endforeach
+                                        <input type="text" id="transportation_id" name="transportation_id" hidden>
 
-                                    <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover"
-                                        data-bs-trigger="hover focus"
-                                        data-bs-content='عدد الركاب  : (12) --------------------المواصفات : باص مع خدمة التكييف وإتاحة شبكة واي فاي مجانا لجميع الركاب'>
-                                        <a class="dropdown-item" href="#">6913 حلب</a>
-                                    </span>
-
-                                    <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover"
-                                        data-bs-trigger="hover focus"
-                                        data-bs-content='عدد الركاب  : (12) --------------------المواصفات : باص مع خدمة التكييف وإتاحة شبكة واي فاي مجانا لجميع الركاب'>
-                                        <a class="dropdown-item" href="#">6913 حلب</a>
-                                    </span>
-
-                                    <span class="d-inline-block w-100" tabindex="0" data-bs-toggle="popover"
-                                        data-bs-trigger="hover focus"
-                                        data-bs-content='عدد الركاب  : (12) --------------------المواصفات : باص مع خدمة التكييف وإتاحة شبكة واي فاي مجانا لجميع الركاب'>
-                                        <a class="dropdown-item" href="#">6913 حلب</a>
-                                    </span>
-
-
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-
-                        <td>وسائل النقل المتاحة في هذه الشركة</td>
-
-                    </tr>
-                </table>
+                            </td>
+                            <td class="pr-2">وسائل النقل</td>
+                        </tr>
+                    </table>
+                
                 <table id="tableDate"
                     style="color: rgb(22, 22, 22); width: 500px !important; margin-top:20px !important; margin-bottom:15px !important;"
                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
                     <tr>
                         <td></td>
-                        <td><input class="toggle text-primary in" type="date" required style="width: 100%;"></td>
+                        <td><input class="toggle text-primary in" name="dates[]" type="date" required style="width: 100%;"></td>
+                        
                         <td style="width: 330px;"> تواريخ الأيام التي سيتم فيها استخدام هذه الوسيلة
                         </td>
 
                     </tr>
                 </table>
+            </form>
                 <button class="app-content-headerButton m-3" style="float:left;" onclick="addDate()">إضافة تاريخ
                     آخر</button>
             </div>
             <div class="modal-footer">
                 <button class="app-content-headerButton" style="border-radius:3px;"
+                onclick="removeMessages(), document.getElementById('add-transport-form').reset()"
                     data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">عودة</button>
                 <button type="button" class="app-content-headerButton"
+                id="add-transport-btn"
+                    onclick="addTransportation('add-transport-form')"
                     style="background-color:var(--bambi);">حفظ</button>
 
             </div>

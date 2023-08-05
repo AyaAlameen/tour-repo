@@ -740,4 +740,145 @@
         document.getElementById('group_id').value = `${group_id}`;
     }
     //--------------------------------------------
+    function setGroupIdForCompany(group_id){
+        document.getElementById('group_id_for_company').value = `${group_id}`;
+    }
+    //--------------------------------------------
+
+    function setCompany(city_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="company_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('company-name').innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('company_id').value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setTransportation(district_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="transportation_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('transportation-name').innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('transportation_id').value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function filterTransportations(city_id) {
+        var districts = document.querySelectorAll(`.transportation_filter_option`);
+        var city_districts = document.querySelectorAll(`.transportation_company_${city_id}`);
+
+        districts.forEach(district => {
+            district.setAttribute("hidden", true);
+
+        });
+        city_districts.forEach(district => {
+            district.removeAttribute("hidden");
+
+        });
+        document.getElementById('transportation_id').value = "";
+        document.getElementById('transportation-name').innerHTML = '';
+        var districts_options = document.querySelectorAll('[id^="transportation_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+    //--------------------------------------------
+    function addTransportation(formId) {
+        $("#add-transport-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-transport-form'));
+        $.ajax({
+                url: "{{ route('addGroupTransportationAr') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                document.getElementById(formId).reset();
+
+
+            })
+            .fail(function(data) {
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                removeMessages();
+
+                if (data.responseJSON.errors.city_id) {
+                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors
+                        .city_id[0];
+
+                }
+                if (data.responseJSON.errors.district_id) {
+
+                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
+                        .district_id[0];
+
+                }
+                if (data.responseJSON.errors.place_id) {
+
+                    document.querySelector(`#${formId} #place_error`).innerHTML = data.responseJSON.errors
+                        .place_id[0];
+
+                }
+                if (data.responseJSON.errors.service_id) {
+
+                    document.querySelector(`#${formId} #service_id_error`).innerHTML = data.responseJSON.errors
+                        .service_id[0];
+
+                }
+                
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-transport-btn").attr("disabled", false).html('حفظ');
+            });
+    }
+    //--------------------------------------------
+    function deleteTrans(formId, id) {
+        $("#delete-trans-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        console.log(id);
+        $.ajax({
+                url: `{{ route('deleteTransAr') }}`,
+                type: "POST",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                },
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function() {
+                $('.close').click();
+                $('.parent').attr("hidden", false);
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#delete-trans-btn-" + id).attr("disabled", false).html('<i class="fas fa-trash"></i>');
+            });
+    }
+    //--------------------------------------------
 </script>

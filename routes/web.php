@@ -415,6 +415,8 @@ Route::middleware(['tourist_guide'])->group(function(){
     Route::post('/group_ar/delete', [GroupController::class, 'destroyAr']) -> name('deleteGroupAr');
     Route::post('/group_ar/destinations/add', [GroupController::class, 'addGroupDestinationAr']) -> name('addGroupDestinationAr');
     Route::post('/group_ar/destinations/delete', [GroupController::class, 'deleteGroupDestinationAr']) -> name('deleteDistAr');
+    Route::post('/group_ar/transportations/add', [GroupController::class, 'addGroupTransportationAr']) -> name('addGroupTransportationAr');
+    Route::post('/group_ar/transportations/delete', [GroupController::class, 'deleteGroupTransportationAr']) -> name('deleteTransAr');
     
     
 

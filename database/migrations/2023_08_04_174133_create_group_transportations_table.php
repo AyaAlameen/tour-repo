@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGroupTransportCompaniesTable extends Migration
+class CreateGroupTransportationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateGroupTransportCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_transport_companies', function (Blueprint $table) {
+        Schema::create('group_transportations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('group_id');
-            $table->foreignId('transport_company_id');
+            $table->foreignId('transportation_id');
             $table->json('dates');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateGroupTransportCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_transport_companies');
+        Schema::dropIfExists('group_transportations');
     }
 }

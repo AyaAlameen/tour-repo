@@ -285,7 +285,7 @@
             var cell2 = document.createElement("td");
             var cell3 = document.createElement("td");
             cell3.style.textAlign = "center";
-            cell2.innerHTML = '<input class="toggle text-primary in" type="date"  required style="width: 100%;">';
+            cell2.innerHTML = '<input class="toggle text-primary in" type="date" name="dates[]"  required style="width: 100%;">';
             cell1.innerHTML = `<button type="button" class="btn-close m-0 close pl-2 pb-2" onclick="removeRow()">
         <span aria-hidden="true">&times;</span>
         </button>`;

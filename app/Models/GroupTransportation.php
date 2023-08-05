@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class GroupTransportCompany extends Pivot
+class GroupTransportation extends Pivot
 {
+    public $incrementing = true;
 
-    protected $fillable = ['group_id', 'transport_company_id', 'dates'];
+
+    protected $fillable = ['group_id', 'transportation_id', 'dates'];
 
     protected $casts = [
         'dates' => 'array'
