@@ -661,6 +661,7 @@
                 $('.parenttrue').attr("hidden", false);
                 // clearInput();
                 document.getElementById(formId).reset();
+                document.getElementById('group_id').value = '';
 
 
             })
@@ -806,6 +807,7 @@
                 $('.parenttrue').attr("hidden", false);
                 // clearInput();
                 document.getElementById(formId).reset();
+                document.getElementById('group_id_for_company').value = '';
 
 
             })

@@ -505,7 +505,7 @@ class GroupController extends Controller
         // dd($data['dates']);
 
         $group = Group::find($data['group_id']);
-        $group->transportations()->attach($data['transportation_id'], ['dates' => json_encode($data['dates']) ?? null]);
+        $group->transportations()->attach($data['transportation_id'], ['dates' => $data['dates'] ?? null]);
         
 
 
