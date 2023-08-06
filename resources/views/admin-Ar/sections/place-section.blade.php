@@ -343,54 +343,7 @@
                                             <td colspan="2"><span style="color: red"
                                                     class="geolocation_error_edit"></span></td>
                                         </tr>
-                                        <tr>
-                                            <td ><i  onclick="removePic()" id="{{ $place->id }}"
-                                                    class="fas fa-close text-body"></i></td>
-                                            <td class="d-flex align-items-center"
-                                                style="justify-content: space-between;">
-                                                <i class="fas fa-plus text-body"
-                                                    style="text-align: center; font-size:15px;  cursor:pointer;"
-                                                    onclick="editPic()" id="edit-pic-input{{ $place->id }}"
-                                                    data-picid="1" title="Add Another Picture"></i>
-                                                <input type="file" name="image"
-                                                    class="toggle text-primary in" required
-                                                    style="width:75% !important; font-size:16px;"
-                                                    hidden disabled id="first_input_edit{{ $place->id }}"
-                                                    onchange="previewImage(this, 'first_pic_edit{{ $place->id }}')">
-                                                {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
-                                                @if ($place->images->count() > 0)
-                                                    @if ($place->images()->first()->count() > 0)
-                                                        <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
-                                                            class="m-3" alt=""
-                                                            style="cursor:pointer; width:150px; height:70px"
-                                                            id="first_pic_edit{{ $place->id }}">
-                                                    @else
-                                                        <input type="file">
-                                                    @endif
-                                                @endif
-                                            </td>
-                                            <td>الصور</td>
-                                        </tr>
-                                        @if ($place->images->count() > 0)
-                                            @foreach ($place->images as $image)
-                                                @if ($loop->first)
-                                                @else
-                                                    <tr>
-                                                        <td><i onclick="removeRow()"
-                                                                class="fas fa-close text-body pl-1"></i>
-                                                        </td>
-
-                                                        <td>
-                                                            {{-- عرضي هون بقية الصور بحلقة فور   --}}
-
-                                                            <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}"
-                                                                class="m-3" alt=""
-                                                                style="cursor:pointer; width:150px; height:70px">
-
-
-                                                        </td>
-                                                        <td></td>
-                                                    </tr>
+                                        
                                                 @endif
                                             @endforeach
                                         @endif
@@ -450,6 +403,7 @@
                 </div>
             </div>
             <!-- end delete -->
+            <a href="{{route('place_pic_ar')}}" class="text-body" title="Pictures"><i class="fas fa-picture"></i></a>
         </div>
 
         <!-- end action -->
@@ -799,54 +753,7 @@
                                             <td colspan="2"><span style="color: red"
                                                     class="geolocation_error_edit"></span></td>
                                         </tr>
-                                        <tr>
-                                            <td><i  onclick="removePic()" id="{{ $place->id }}"
-                                                    class="fas fa-close text-body"></i></td>
-                                            <td class="d-flex align-items-center"
-                                                style="justify-content: space-between;">
-                                                <i class="fas fa-plus text-body"
-                                                    style="text-align: center; font-size:15px;  cursor:pointer;"
-                                                    onclick="editPic()" id="edit-pic-input{{ $place->id }}"
-                                                    data-picid="1" title="Add Another Picture"></i>
-                                                <input type="file" name="image"
-                                                    class="toggle text-primary in" required
-                                                    style="width:75% !important; font-size:16px;"
-                                                    hidden disabled id="first_input_edit{{ $place->id }}"
-                                                    onchange="previewImage(this, 'first_pic_edit{{ $place->id }}')">
-                                                {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
-                                                @if ($place->images->count() > 0)
-                                                    @if ($place->images()->first()->count() > 0)
-                                                        <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
-                                                            class="m-3" alt=""
-                                                            style="cursor:pointer; width:150px; height:70px"
-                                                            id="first_pic_edit{{ $place->id }}">
-                                                    @else
-                                                        <input type="file">
-                                                    @endif
-                                                @endif
-                                            </td>
-                                            <td>الصور</td>
-                                        </tr>
-                                        @if ($place->images->count() > 0)
-                                            @foreach ($place->images as $image)
-                                                @if ($loop->first)
-                                                @else
-                                                    <tr>
-                                                        <td><i onclick="removeRow()"
-                                                                class="fas fa-close text-body pl-1"></i>
-                                                        </td>
 
-                                                        <td>
-                                                            {{-- عرضي هون بقية الصور بحلقة فور   --}}
-
-                                                            <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}"
-                                                                class="m-3" alt=""
-                                                                style="cursor:pointer; width:150px; height:70px">
-
-
-                                                        </td>
-                                                        <td></td>
-                                                    </tr>
                                                 @endif
                                             @endforeach
                                         @endif
@@ -906,6 +813,7 @@
                 </div>
             </div>
             <!-- end delete -->
+            <a href="{{route('place_pic_ar')}}" class="text-body" title="Pictures"><i class="fas fa-photo-film"></i></a>
         </div>
 
         <!-- end action -->

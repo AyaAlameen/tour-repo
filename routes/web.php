@@ -170,7 +170,13 @@ Route::middleware(['place'])->group(function(){
     Route::post('/place_ar/edit', [PlaceController::class, 'updateAr']) -> name('editPlaceAr');
     Route::post('/place_ar/delete', [PlaceController::class, 'destroyAr']) -> name('deletePlaceAr');
 });
+Route::get('/place_pic_ar', function () {
+        return view('admin-Ar.places_pic');
+    }) -> name('place_pic_ar');
 
+    Route::get('/place_pic_en', function () {
+        return view('admin-En.places_pic');
+    }) -> name('place_pic_en');
 Route::middleware(['offer'])->group(function(){
     
     //en

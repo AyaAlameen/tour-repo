@@ -269,24 +269,7 @@
                                     </div>
 
                                     <!-- end add map -->
-                                    <tr>
-                                        <td style="width:25px; text-align:center;"> <i
-                                                class="fas fa-camera text-body pr-2"
-                                                style="font-size:15px; cursor:pointer;"></i></td>
 
-                                        <td class="pl-2">
-                                            <i class="fas fa-plus text-body pl-3"
-                                                style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;"onclick="addPic()"
-                                                id="add-pic-input" data-picid="1" title="Add Another Picture"></i>
-                                            <input type="file" id="add_input_0"
-                                                onchange="previewImage(this, 'add_previewImage_0')"
-                                                class="toggle text-primary in" name="event_image" required
-                                                style="width:75% !important; font-size:16px;">
-                                            <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
-                                                    height="90px" style="display: none; padding:6px;"></label>
-                                        </td>
-                                        <td>images </td>
-                                    </tr>
 
                                 </table>
                             </div>
@@ -731,57 +714,7 @@
                                                                 <td colspan="2"><span style="color: red"
                                                                         class="geolocation_error_edit"></span></td>
                                                             </tr>
-                                                            <tr>
-                                                                <td onclick="removePic()"><i
-                                                                        class="fas fa-close text-body"></i></td>
-                                                                <td class="d-flex align-items-center"
-                                                                    style="justify-content: space-between;">
-                                                                    <i class="fas fa-plus text-body"
-                                                                        style="text-align: center; font-size:15px;  cursor:pointer;"
-                                                                        onclick="editPic()" id="edit-pic-input"
-                                                                        data-picid="1" title="Add Another Picture"></i>
-                                                                    <input type="file" name="image"
-                                                                        class="toggle text-primary in" required
-                                                                        style="width:75% !important; font-size:16px;"
-                                                                        hidden disabled myid="first_input_edit"
-                                                                        onchange="previewImage(this, 'first_pic_edit')">
-                                                                    {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
-                                                                    @if ($place->images->count() > 0)
-                                                                        @if ($place->images()->first()->count() > 0)
-                                                                            <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
-                                                                                class="m-3" alt=""
-                                                                                style="cursor:pointer; width:150px; height:70px"
-                                                                                id="first_pic_edit">
-                                                                        @else
-                                                                            <input type="file">
-                                                                        @endif
-                                                                    @endif
-                                                                </td>
-                                                                <td>images</td>
-                                                            </tr>
-                                                            @if ($place->images->count() > 0)
-                                                                @foreach ($place->images as $image)
-                                                                    @if ($loop->first)
-                                                                    @else
-                                                                        <tr>
-                                                                            <td><i onclick="removeRow()"
-                                                                                    class="fas fa-close text-body pl-1"></i>
-                                                                            </td>
-
-                                                                            <td>
-                                                                                {{-- عرضي هون بقية الصور بحلقة فور   --}}
-
-                                                                                <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}"
-                                                                                    class="m-3" alt=""
-                                                                                    style="cursor:pointer; width:150px; height:70px">
-
-
-                                                                            </td>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                    @endif
-                                                                @endforeach
-                                                            @endif
+                                                           
                                                         </table>
 
                                                     </div>
@@ -837,6 +770,7 @@
                                     </div>
                                 </div>
                                 <!-- end delete -->
+                                <a href="{{route('place_pic_en')}}" class="text-body" title="Pictures"><i class="fas fa-photo-film"></i></a>
                             </div>
 
                             <!-- end action -->

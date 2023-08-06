@@ -270,24 +270,7 @@
                                     </div>
 
                                     <!-- end add map -->
-                                    <tr>
-                                        <td style="width:25px; text-align:center;"> <i
-                                                class="fas fa-camera text-body pt-2 pl-2"
-                                                style="font-size:15px; cursor:pointer;"></i></td>
-
-                                        <td class="pl-2">
-                                            <i class="fas fa-plus text-body pr-3"
-                                                style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;"onclick="addPic()"
-                                                id="add-pic-input" data-picid="1" title="Add Another Picture"></i>
-                                            <input type="file" id="add_input_0"
-                                                onchange="previewImage(this, 'add_previewImage_0')"
-                                                class="toggle text-primary in" name="event_image" required
-                                                style="width:75% !important; font-size:16px;">
-                                            <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
-                                                    height="90px" style="display: none; padding:6px;"></label>
-                                        </td>
-                                        <td>الصور </td>
-                                    </tr>
+                                   
 
                                 </table>
                             </div>
@@ -759,7 +742,7 @@
                                                                 <td colspan="2"><span style="color: red"
                                                                         class="geolocation_error_edit"></span></td>
                                                             </tr>
-                                                            <tr>
+                                                            {{-- <tr>
                                                                 <td><i onclick="removePic()" id="{{ $place->id }}"
                                                                         class="fas fa-close text-body"></i></td>
                                                                 <td class="d-flex align-items-center"
@@ -772,9 +755,9 @@
                                                                         class="toggle text-primary in" required
                                                                         style="width:75% !important; font-size:16px;"
                                                                         hidden disabled id="first_input_edit{{ $place->id }}"
-                                                                        onchange="previewImage(this, 'first_pic_edit{{ $place->id }}')">
+                                                                        onchange="previewImage(this, 'first_pic_edit{{ $place->id }}')"> --}}
                                                                     {{-- مرري هون أول صورة من الصور مالك ببقية الشغلات --}}
-                                                                    @if ($place->images->count() > 0)
+                                                                    {{-- {{-- @if ($place->images->count() > 0)
                                                                         @if ($place->images()->first()->count() > 0)
                                                                             <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
                                                                                 class="m-3" alt=""
@@ -796,20 +779,20 @@
                                                                                     class="fas fa-close text-body pl-1"></i>
                                                                             </td>
 
-                                                                            <td>
+                                                                            <td> --}}
                                                                                 {{-- عرضي هون بقية الصور بحلقة فور   --}}
 
-                                                                                <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}"
+                                                                                {{-- <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}"
                                                                                     class="m-3" alt=""
                                                                                     style="cursor:pointer; width:150px; height:70px">
 
 
                                                                             </td>
                                                                             <td></td>
-                                                                        </tr>
-                                                                    @endif
-                                                                @endforeach
-                                                            @endif
+                                                                        </tr> --}} 
+                                                                    {{-- @endif --}}
+                                                                {{-- @endforeach --}}
+                                                            {{-- @endif --}}
                                                         </table>
 
                                                     </div>
@@ -866,6 +849,7 @@
                                     </div>
                                 </div>
                                 <!-- end delete -->
+                                <a href="{{route('place_pic_ar')}}" class="text-body" title="Pictures"><i class="fas fa-photo-film"></i></a>
                             </div>
 
                             <!-- end action -->

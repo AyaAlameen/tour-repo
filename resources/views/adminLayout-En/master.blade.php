@@ -236,20 +236,13 @@
             $('.parenttrue').attr("hidden", true);
         }
 
-        // لحذف الصور
-        document.addEventListener('DOMNodeInserted', function(event) {
+       // لحذف الصور
+       document.addEventListener('DOMNodeInserted', function(event) {
+        console.log('hgiug')
             // للإضافة
             const closeElements_add = document.querySelectorAll('[id^="close_"]');
             for (let i = 0; i < closeElements_add.length; i++) {
                 closeElements_add[i].addEventListener('click', function() {
-                    removeRow();
-                });
-            }
-
-            // للتعديل
-            const closeElements = document.querySelectorAll('[id^="edit_picture_"]');
-            for (let i = 0; i < closeElements.length; i++) {
-                closeElements[i].addEventListener('click', function() {
                     removeRow();
                 });
             }
@@ -279,19 +272,7 @@
             row.remove()
         }
 
-        function removePic() {
-            console.log(document.querySelector('[myid="first_input_edit"]'))
-            document.querySelector('[myid="first_input_edit"]').removeAttribute('hidden');
-            document.querySelector('[myid="first_input_edit"]').removeAttribute('disabled');
-            document.querySelector('[myid="first_input_edit"]').style.display = "block";
-            document.querySelector('[myid="first_input_edit"]').setAttribute('value', null);
-            var myimg = document.getElementById('first_pic_edit');
-            myimg.style.display = "none";
-            myimg.src = "";
-            myimg.removeAttribute('src');
-            console.log(myimg)
-
-        }
+       
         //  إخفاء مودل الخريطة 
         function hidemap(modal_id) {
             $('#' + modal_id).hide();
@@ -335,15 +316,10 @@
             var cell2 = document.createElement("td");
             var cell3 = document.createElement("td");
             var close = document.createElement("span");
-            close.classList.add("fas", "fa-close", "text-body", "pr-2");
-            close.title = "delete pic";
-            close.style.fontSize = "15px";
-            close.style.cursor = "pointer";
-            close.id = "close_" + Param_id;
             document.getElementById('add-pic-input').setAttribute('data-picid', ++Param_id);
-            cell1.style.width = "25px";
-            cell1.style.textAlign = "center";
-            cell1.appendChild(close);
+            cell1.innerHTML = `<button type="button" class="btn-close m-0 close pr-2 pb-2" onclick="removeRow()">
+            <span aria-hidden="true">&times;</span>
+            </button>`;
             cell2.innerHTML =
                 ` <input type="file"  onchange="previewImage(this, 'add_previewImage_${Param_id}')" id="add_input_${Param_id}" class="toggle text-primary in"  name="image_${Param_id}" required style="width:75% !important; font-size:16px;">
                 <label for="add_input_${Param_id}"> <img id="add_previewImage_${Param_id}" width="170px"
@@ -369,19 +345,7 @@
                 reader.readAsDataURL(file);
             }
         }
-        function addDate() {
-            var table = document.getElementById("tableDate").innerHTML;
-            console.log(table)
-
-            document.getElementById("tableDate").innerHTML = table + `   <tr>
-           <td>The date of the day the transportation will be used</td>
-           <td><input class="toggle text-primary in" type="date"  required style="width: 100%;"></td> 
-           <td><button type="button" class="btn-close m-0 close" onclick="removeRow()" data-bs-dismiss="transportRow" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button></td>
-      </tr>`
-            console.log(table)
-        }
+    
 
         function showToast(ticId) {
             $('#toast_' + ticId).removeClass('d-none');
