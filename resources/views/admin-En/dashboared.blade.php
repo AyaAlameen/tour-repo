@@ -183,7 +183,7 @@
     <div class="p-5 row" style="flex-direction: row; justify-content: center">
          {{-- card --}}
          <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
+            <img src="img/undraw_All_the_data_re_hh4w.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center">Gains in This Year</h5>
                 <h4 class="text-center p-3">200</h4>
@@ -206,7 +206,7 @@
         {{-- end card --}}
           {{-- card --}}
           <div class="service-item  m-3" style="width: 19rem;">
-            <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
+            <img src="img/undraw_Site_stats_re_ejgy.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center">Bookings in Month</h5>
                 <div class="d-flex justify-content-Between p-3" >
