@@ -37,17 +37,30 @@
                                 <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
                                     style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                                     height="200px">
-                                <i class="fas fa-star p-2"></i>
-                                <i class="fas fa-star p-2 "></i>
-                                <i class="fas fa-star p-2 "></i>
-                                <i class="fas fa-star p-2"></i>
+                                    <div>
+                                        <i class="fas fa-star p-2"></i>
+                                        <i class="fas fa-star p-2 "></i>
+                                        <i class="fas fa-star p-2 "></i>
+                                        <i class="fas fa-star p-2"></i>
+                                    </div>
+                              
                             </div>
-                            <div>
+                            <div style="justify-content: space-between; width: 100%;">
                                 <div class="d-flex " style="justify-content: space-between;">
                                     <h4 class="text-right p-2">
                                         {{ $place->translations()->where('locale', 'en')->first()->name }}</h4>
-                                    <div>
-                                        <h5 class="p-2 pl-4">8.2</h5>
+                                
+                                        <div class="d-flex" style=" align-items: baseline;">
+                                        <h5 class="p-2 pr-4">8.2</h5>
+                                        @isset(Auth::user()->id)
+                                        <i class="far fa-heart pr-4" onclick="switch_heart()" style="font-size: 22px;"></i>
+                                    @else
+                                        <div class="w-75 pr-3 m-auto d-flex align-items-center"> 
+                                            <i class="far fa-heart pr-4" onclick="loginBefore()" style="font-size: 22px;"></i>
+                                            
+                                        </div>
+                                    @endisset
+                                    
                                     </div>
                                 </div>
                                 <h5 class="pl-2">
@@ -77,3 +90,13 @@
     </div>
     {{-- نهاية أشهر الأماكن --}}
 @endsection
+
+<script>
+        function switch_heart(heart_id) {
+        if(event.target.classList.contains('far'))
+        event.target.classList.replace('far','fas')
+        else
+        if(event.target.classList.contains('fas'))
+        event.target.classList.replace('fas','far')
+    }
+</script>
