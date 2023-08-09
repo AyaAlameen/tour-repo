@@ -196,14 +196,21 @@ Route::middleware(['place'])->group(function(){
     Route::post('/place_ar', [PlaceController::class, 'storeAr']) -> name('addPlaceAr');
     Route::post('/place_ar/edit', [PlaceController::class, 'updateAr']) -> name('editPlaceAr');
     Route::post('/place_ar/delete', [PlaceController::class, 'destroyAr']) -> name('deletePlaceAr');
-});
-Route::get('/place_pic_ar', function () {
-        return view('admin-Ar.places_pic');
-    }) -> name('place_pic_ar');
 
-    Route::get('/place_pic_en', function () {
-        return view('admin-En.places_pic');
-    }) -> name('place_pic_en');
+
+    Route::get('/place_pic_ar/{id}', [PlaceController::class, 'placeImagesAr']) -> name('place_pic_ar');
+    Route::post('/place_pic_ar/add', [PlaceController::class, 'addPlaceImagesAr']) -> name('addPlaceImageAr');
+    Route::post('/place_pic_ar/delete', [PlaceController::class, 'deletePlaceImageAr']) -> name('deletePlaceImageAr');
+
+
+
+    Route::get('/place_pic_en/{id}', [PlaceController::class, 'placeImagesEn']) -> name('place_pic_en');
+    Route::post('/place_pic_en/add', [PlaceController::class, 'addPlaceImagesEn']) -> name('addPlaceImageEn');
+    Route::post('/place_pic_en/delete', [PlaceController::class, 'deletePlaceImageEn']) -> name('deletePlaceImageEn');
+
+});
+
+
 Route::middleware(['offer'])->group(function(){
     
     //en
