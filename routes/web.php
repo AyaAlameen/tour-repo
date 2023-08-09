@@ -120,6 +120,33 @@ Route::middleware(['sub_category'])->group(function(){
 
 });
 
+Route::middleware(['group'])->group(function(){
+
+    //en
+    Route::get('/groups_en', [GroupController::class, 'getGuidesEn']) -> name('groupe_en');
+    Route::get('/en/groups', [GroupController::class, 'indexEn']) -> name('getGroupsEn');
+    Route::post('/group_en', [GroupController::class, 'storeEn']) -> name('addGroupEn');
+    Route::post('/group_en/edit', [GroupController::class, 'updateEn']) -> name('editGroupEn');
+    Route::post('/group_en/delete', [GroupController::class, 'destroyEn']) -> name('deleteGroupEn');
+    Route::post('/group_en/destinations/add', [GroupController::class, 'addGroupDestinationEn']) -> name('addGroupDestinationEn');
+    Route::post('/group_en/destinations/delete', [GroupController::class, 'deleteGroupDestinationEn']) -> name('deleteDistEn');
+    Route::post('/group_en/transportations/add', [GroupController::class, 'addGroupTransportationEn']) -> name('addGroupTransportationEn');
+    Route::post('/group_en/transportations/delete', [GroupController::class, 'deleteGroupTransportationEn']) -> name('deleteTransEn');
+    
+
+    //ar
+    Route::get('/groups_ar', [GroupController::class, 'getGuidesAr']) -> name('groupe_ar');    
+    Route::get('/ar/groups', [GroupController::class, 'indexAr']) -> name('getGroupsAr');
+    Route::post('/group_ar', [GroupController::class, 'storeAr']) -> name('addGroupAr');
+    Route::post('/group_ar/edit', [GroupController::class, 'updateAr']) -> name('editGroupAr');
+    Route::post('/group_ar/delete', [GroupController::class, 'destroyAr']) -> name('deleteGroupAr');
+    Route::post('/group_ar/destinations/add', [GroupController::class, 'addGroupDestinationAr']) -> name('addGroupDestinationAr');
+    Route::post('/group_ar/destinations/delete', [GroupController::class, 'deleteGroupDestinationAr']) -> name('deleteDistAr');
+    Route::post('/group_ar/transportations/add', [GroupController::class, 'addGroupTransportationAr']) -> name('addGroupTransportationAr');
+    Route::post('/group_ar/transportations/delete', [GroupController::class, 'deleteGroupTransportationAr']) -> name('deleteTransAr');
+    
+});
+
 Route::middleware(['admin'])->group(function(){
     //en
     Route::get('/message_en', [MessageController::class, 'indexEn']) -> name('message_en');
@@ -316,9 +343,6 @@ Route::middleware(['tourist_guide'])->group(function(){
     Route::post('/transportations_en/delete', [TransportationController::class, 'destroyEn']) -> name('deleteTransportationEn');
     
     
-    Route::get('/groups_en', function () {
-        return view('admin-En.groups');
-    }) -> name('groupe_en');
     
     
     //admin routes part Arabic
@@ -412,17 +436,7 @@ Route::middleware(['tourist_guide'])->group(function(){
     Route::post('/transportations_ar/edit', [TransportationController::class, 'updateAr']) -> name('editTransportationAr');
     Route::post('/transportations_ar/delete', [TransportationController::class, 'destroyAr']) -> name('deleteTransportationAr');
     
-    Route::get('/groups_ar', [GroupController::class, 'getGuidesAr']) -> name('groupe_ar');
-    
-    
-    Route::get('/ar/groups', [GroupController::class, 'indexAr']) -> name('getGroupsAr');
-    Route::post('/group_ar', [GroupController::class, 'storeAr']) -> name('addGroupAr');
-    Route::post('/group_ar/edit', [GroupController::class, 'updateAr']) -> name('editGroupAr');
-    Route::post('/group_ar/delete', [GroupController::class, 'destroyAr']) -> name('deleteGroupAr');
-    Route::post('/group_ar/destinations/add', [GroupController::class, 'addGroupDestinationAr']) -> name('addGroupDestinationAr');
-    Route::post('/group_ar/destinations/delete', [GroupController::class, 'deleteGroupDestinationAr']) -> name('deleteDistAr');
-    Route::post('/group_ar/transportations/add', [GroupController::class, 'addGroupTransportationAr']) -> name('addGroupTransportationAr');
-    Route::post('/group_ar/transportations/delete', [GroupController::class, 'deleteGroupTransportationAr']) -> name('deleteTransAr');
+
     
     
 

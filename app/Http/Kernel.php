@@ -74,5 +74,6 @@ class Kernel extends HttpKernel
         'district' => \App\Http\Middleware\District::class,
         'event' => \App\Http\Middleware\Event::class,
         'tourist_guide' => \App\Http\Middleware\TouristGuide::class,
+        'group' => \App\Http\Middleware\Group::class,
     ];
 }
