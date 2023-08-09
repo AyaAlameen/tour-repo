@@ -14,7 +14,7 @@ class Service extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['place_id', 'cost', 'is_additional'];
+    protected $fillable = ['place_id', 'cost', 'is_additional', 'image'];
 
     public function place() {
         return $this->belongsTo(Place::class);
@@ -29,8 +29,4 @@ class Service extends Model
         return $this->morphMany(Translation::class, 'model');
     }
 
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'model');
-    }
 }

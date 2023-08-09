@@ -142,6 +142,10 @@
                                         </td>
                                         <td>الصورة</td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
+                                        </td>
+                                    </tr>
 
                                 </table>
                             </div>
@@ -268,7 +272,7 @@
                                     {{ $service->translations()->where('locale', 'ar')->first()->name }} </span>
                             </div>
                             <div class="product-cell">
-                                <img src="{{ asset(str_replace(app_path(), '', $service->images()->first()->image)) }}"
+                                <img src="{{ asset(str_replace(app_path(), '', $service->image)) }}"
                                     alt="product">
                             </div>
                             <div class="product-cell">
@@ -279,6 +283,12 @@
                             </div>
                             <div class="product-cell">
                                 <span> {{ $service->cost }} </span>
+                            </div>
+                            <div class="product-cell">
+                                <span> عدد الأشخاص </span>
+                            </div>
+                            <div class="product-cell">
+                                <span> مدة الحجز </span>
                             </div>
                             <div class="product-cell">
                                 <span>
@@ -570,6 +580,10 @@
                 if (data.responseJSON.errors.place_id) {
                     document.querySelector(`#${formId} #place_error`).innerHTML = data.responseJSON.errors
                         .place_id[0];
+                }
+                if (data.responseJSON.errors.image) {
+                    document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors
+                        .image[0];
                 }
 
 

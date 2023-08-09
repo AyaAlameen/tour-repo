@@ -290,6 +290,7 @@
             </div>
             <div class="row">
                 @foreach ($groups as $group)
+                
                     <!-- بداية الكارد -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
@@ -297,12 +298,29 @@
                             <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
                                 
                                 <div class="carousel-inner">
+                                    
                                     {{--بداية الصور--}}
                                     {{-- بس أول صور بدا كلاس active --}}
+                                    @foreach ($group->places as $place)
+                                    @if($place->images()->count()>0)
+                                    @if($loop->first)
                                     <div class="carousel-item active">
-                                        <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
+                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
                                             alt="">
                                     </div>
+                                    @else
+                                    <div class="carousel-item">
+                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                            alt="">
+                                    </div>
+                                    @endif
+                                    @else
+                                    <div class="carousel-item active">
+                                        <img class="img-fluid w-100" src="img/no-group.png"
+                                            alt="">
+                                    </div>
+                                    @endif
+                                    @endforeach
                                     {{-- نهاية الصور --}}
                                     
                                 </div>
@@ -321,15 +339,16 @@
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
                                     
-                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3
-                                        أيام</small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{$group->start_date}}&nbsp; :من</small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{$group->end_date}}&nbsp; :إلى</small>
                                 </div>
                                 <br>
-                                <a class="h5 text-decoration-none" href="">الوصف</a>
+                                <a class="h5 text-decoration-none" href="{{route('tripmore-ar', ['id' => $group->id])}}">{{$group->translations()->where('locale', 'ar')->first()->name}}</a>
+                                <p>{{$group->translations()->where('locale', 'ar')->first()->description}}</p>
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between align-items-baseline">
-                                        <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                        <h6><a class="btn btn-primary"  href="{{route('tripmore-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+                                        <h5 class="m-0" style="direction:rtl;">{{$group->cost}} <small>ل.س</small></h5>
+                                        <h6><a class="btn btn-primary"  href="{{route('tripmore-ar', ['id' => $group->id])}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -600,7 +619,7 @@
                                 <div class="text-center py-4">
                                     <h5 class="text-truncate">
                                         {{ $guide->translations()->where('locale', 'en')->first()->name }}</h5>
-                                    <a class="text-50 mb-2" href="{{ route('travelguidesformore-ar') }}">للمزيد</a>
+                                    <a class="text-50 mb-2" href="{{route('travelguidesformore-ar', ['id'=> $guide->id])}}">للمزيد</a>
                                 </div>
                             </div>
                         </div>

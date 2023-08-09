@@ -19,6 +19,10 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\UserGroupController;
+use App\Http\Controllers\UserTransportCompanyController;
+use App\Http\Controllers\UserGuideController;
+use App\Http\Controllers\UserOfferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -530,9 +534,8 @@ Route::get('/event_details-ar', function () {
     return view('user-ar.event_details');
 })-> name('event_details-ar');
 
-Route::get('/offer-ar', function () {
-    return view('user-ar.offer');
-})-> name('offer-ar');
+
+Route::get('/offer-ar', [UserOfferController::class, 'getOffersAr'])-> name('offer-ar');
 
 Route::get('/offer_details-ar', function () {
     return view('user-ar.offer_details');
@@ -546,25 +549,24 @@ Route::post('/contact', [MessageController::class, 'storeAr'])-> name('submitMes
 
 Route::get('/about-ar', [AboutController::class, 'indexAr'])-> name('about-ar');
 
-Route::get('/transport-ar', function () {
-    return view('user-ar.transport');
-})-> name('transport-ar'); 
-
-Route::get('/travelguides-ar', function () {
-    return view('user-ar.travelguides');
-})-> name('travelguides-ar');
-
-Route::get('/travelguidesformore-ar', function () {
-    return view('user-ar.travelguidesformore');
-})-> name('travelguidesformore-ar');
+Route::get('/transport-ar', [UserTransportCompanyController::class, 'getTransportionCompanyAr'])-> name('transport-ar'); 
 
 
-Route::get('/trip-ar', function () {
-    return view('user-ar.trips');
-})-> name('trip-ar');
-Route::get('/tripmore-ar', function () {
-    return view('user-ar.tripmore');
-})-> name('tripmore-ar');
+Route::get('/travelguides-ar', [UserGuideController::class, 'getGuidesAr'])-> name('travelguides-ar');
+
+// Route::get('/travelguidesformore-ar', function () {
+//     return view('user-ar.travelguidesformore');
+// })-> name('travelguidesformore-ar');
+
+Route::get('/travelguidesformore-ar/{id}', [UserGuideController::class, 'getGuideDetailsAr'])-> name('travelguidesformore-ar');
+
+
+Route::get('/trip-ar', [UserGroupController::class, 'getGroupsAr'])-> name('trip-ar');
+
+// Route::get('/tripmore-ar', function () {
+//     return view('user-ar.tripmore');
+// })-> name('tripmore-ar');
+Route::get('/tripmore-ar/{id}', [UserGroupController::class, 'getGroupDetailsAr'])-> name('tripmore-ar');
 
 
 Route::get('/user_city_ar/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsAr'])-> name('user-city-ar');

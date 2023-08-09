@@ -1,6 +1,5 @@
 @extends('layout-Ar.master')
 @section('content')
-
     <!-- Header Start -->
     <div class="container-fluid trip-page-header">
         <div class="container">
@@ -16,55 +15,77 @@
     </div>
     <!-- Header End -->
     <div class="container mt-5">
+    <div class="row">
 
-         <!-- بداية الكارد -->
-  <div class="col-lg-4 col-md-6 mb-4">
-    <div class="package-item bg-white mb-2">
-        <!-- صور أماكن الرحلة -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            
-            <div class="carousel-inner">
-                {{--بداية الصور--}}
-                {{-- بس أول صور بدا كلاس active --}}
-                <div class="carousel-item active">
-                    <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
-                        alt="">
-                </div>
-                {{-- نهاية الصور --}}
+        <!-- بداية الكارد -->
+        @foreach ($groups as $group)
                 
-            </div>
-            <button class="carousel-control-prev" type="button"
-                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button"
-                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <!-- نهاية صور أماكن الرحلة -->
-        <div class="p-4">
-            <div class="d-flex justify-content-between mb-3">
-                
-                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3
-                    أيام</small>
-            </div>
-            <br>
-            <a class="h5 text-decoration-none" href="">الوصف</a>
-            <div class="border-top mt-4 pt-4">
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                    <h6><a class="btn btn-primary"  href="{{route('tripmore-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
-                </div>
-            </div>
-        </div>
+                    <!-- بداية الكارد -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <!-- صور أماكن الرحلة -->
+                            <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
+                                
+                                <div class="carousel-inner">
+                                    
+                                    {{--بداية الصور--}}
+                                    {{-- بس أول صور بدا كلاس active --}}
+                                    @foreach ($group->places as $place)
+                                    @if($place->images()->count()>0)
+                                    @if($loop->first)
+                                    <div class="carousel-item active">
+                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                            alt="">
+                                    </div>
+                                    @else
+                                    <div class="carousel-item">
+                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                            alt="">
+                                    </div>
+                                    @endif
+                                    @else
+                                    <div class="carousel-item active">
+                                        <img class="img-fluid w-100" src="img/no-group.png"
+                                            alt="">
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                    {{-- نهاية الصور --}}
+                                    
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <!-- نهاية صور أماكن الرحلة -->
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{$group->start_date}}&nbsp; :من</small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{$group->end_date}}&nbsp; :إلى</small>
+                                </div>
+                                <br>
+                                <a class="h5 text-decoration-none" href="{{route('tripmore-ar', ['id' => $group->id])}}">{{$group->translations()->where('locale', 'ar')->first()->name}}</a>
+                                <p>{{$group->translations()->where('locale', 'ar')->first()->description}}</p>
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between align-items-baseline">
+                                        <h5 class="m-0" style="direction:rtl;">{{$group->cost}} <small>ل.س</small></h5>
+                                        <h6><a class="btn btn-primary"  href="{{route('tripmore-ar', ['id' => $group->id])}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- نهاية الكارد -->
+                @endforeach
+        <!-- نهاية الكارد -->
     </div>
-</div>
-<!-- نهاية الكارد -->
     </div>
- 
- 
-    
 @endsection

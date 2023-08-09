@@ -57,6 +57,7 @@ class ServiceController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'place_id' => 'required',
+            'image' => 'required',
             'cost' => 'required|numeric|min:1',
             'is_additional' => 'required|boolean',
             
@@ -64,6 +65,7 @@ class ServiceController extends Controller
             'name_ar.required' => 'حقل الاسم (العربية) مطلوب',
             'name_en.required' => 'حقل الاسم (الإنجليزية) مطلوب',
             'place_id.required' => 'حقل المكان مطلوب',
+            'image.required' => 'حقل الصورة مطلوب',
         
             'cost.required' => 'حقل التكلفة مطلوب',
             'cost.numeric' => 'حقل التكلفة يجب أن يكون رقم',
@@ -81,16 +83,13 @@ class ServiceController extends Controller
         $service->cost = $request->input('cost');
         $service->is_additional = $request->input('is_additional');
 
-        $files = $request->files->all();
-        $service->save();
-        if ($files) {
-            foreach ($files as $name => $file) {
-                // dd($name, $file);
-                $upload_image_name = time().'_'.$file->getClientOriginalName();
-                $file->move('uploads/serviceImage', $upload_image_name);
-                $service->images()->create( ['image' => "uploads/serviceImage/$upload_image_name"]);
-            }
+        if($request->has('image')){
+            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move('uploads/serviceImage', $upload_image_name);
+            $service->image = 'uploads/serviceImage/'.$upload_image_name;
         }
+        $service->save();
+        
 
         
 // dd($place);
@@ -138,17 +137,13 @@ class ServiceController extends Controller
         $service->place_id = $request->input('place_id');
         $service->cost = $request->input('cost');
         $service->is_additional = $request->input('is_additional');
-
-        $files = $request->files->all();
-        $service->save();
-        if ($files) {
-            foreach ($files as $name => $file) {
-                // dd($name, $file);
-                $upload_image_name = time().'_'.$file->getClientOriginalName();
-                $file->move('uploads/serviceImage', $upload_image_name);
-                $service->images()->create( ['image' => "uploads/serviceImage/$upload_image_name"]);
-            }
+        if($request->has('image')){
+            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move('uploads/serviceImage', $upload_image_name);
+            $service->image = 'uploads/serviceImage/'.$upload_image_name;
         }
+        $service->save();
+        
 
         
 // dd($place);
