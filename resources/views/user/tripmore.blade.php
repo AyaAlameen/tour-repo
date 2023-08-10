@@ -1,76 +1,69 @@
 @extends('layout-En.master')
 @section('content')
 
+<style type="text/css">
+   
+  
+    .grid-item {
+     background-color: #f2f2f2;
+     border: 1px solid #ccc;
+     padding: 10px;
+     text-align: center;
+     font-size: 20px;
+     width: 300px;
+     height: 200px;
+transition: all linear 1s;
+
+    }
+  
+    img {
+     max-width:280px ;
+     height: 180px;
+    }
+    .grid-item:hover {
+   background-color: var(--bambi);
+   cursor: pointer;
+}
+   </style>
+
 {{-- Gallery --}}
-    <div class="d-flex container mt-5 justify-content-center">
-        <div style="width: 45%; height: 540px;">
-            <img src="img/440px-Aleppo_Citadel_02_-_Bastion.jpg" width="100%" height="100%">
-            <button
-                style="position: relative; left:150%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
-                data-bs-toggle="modal" data-bs-target="#exampleModal">View all photos</button>
-
-            {{-- picturs modal --}}
-
-            <!-- Modal -->
-            <div class="modal fade " data-bs-backdrop="static" id="exampleModal" tabindex="-1"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog " style="max-width: 800px;">
-                    <div class="modal-content toggle">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">All photos</h5>
-                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                        <div class="modal-body">
-                            <!-- صور المكان -->
-                            <div id="carouselExample2Indicators" class="carousel slide  m-auto w-100"
-                                data-bs-ride="carousel">
-
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExample2Indicators" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"
-                                        style="background-image:url(../img/previous.png); " aria-hidden="false"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExample2Indicators" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" style="background-image:url(../img/next.png);"
-                                        aria-hidden="false"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!-- نهاية صور المكان -->
-                        </div>
-
-
+    <div class="d-flex container mt-5  justify-content-center" style="flex-wrap: wrap;">
+      
+            
+                {{-- @foreach ($group->places as $place)
+                       
+                    @if($place->images()->count() >0)
+                    @forEach($place->images as $image)
+                    <div class="grid-item"> 
+                        <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}">
                     </div>
-                </div>
-            </div>
-            {{-- end pic modal --}}
-        </div>
-        <div style="width: 35%; height: 540px;">
-            <img src="img/caption.jpg" width="100%" height="60%">
-            <img src="img/ALEPPO458976.gif" width="100%" height="40%">
-        </div>
+                @endforeach
+                @endif
+          
+                @endforeach --}}
+                <div class="grid-item">
+                    <img src="../img/sy.jpg" alt="Image 1">
+                   </div>
+               
+                <div class="grid-item">
+                    <img src="../img/sy.jpg" alt="Image 1">
+                   </div>
+               
+                <div class="grid-item">
+                    <img src="../img/sy.jpg" alt="Image 1">
+                   </div>
+                   <div class="grid-item">
+                    <img src="../img/sy.jpg" alt="Image 1">
+                   </div>
+                   <div class="grid-item">
+                    <img src="../img/sy.jpg" alt="Image 1">
+                   </div>
+               
+                 
     </div>
     {{-- end Gallery --}}
-
+             
+               
 
     {{-- بداسة كارد الرحلة --}}
     <div class="mainCard  w-50 m-auto" style="border-radius: 10px; margin-top: 40px !important;"">
