@@ -290,48 +290,65 @@
             </div>
             <div class="row">
                 @foreach ($groups as $group)
-                  
-                        <!-- بداية الكارد -->
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="package-item bg-white mb-2">
-                                <!-- صور أماكن الرحلة -->
-                                <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
+                
+                    <!-- بداية الكارد -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <!-- صور أماكن الرحلة -->
+                            <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
+                                
+                                <div class="carousel-inner">
                                     
-                                    <div class="carousel-inner">
-                                        {{--بداية الصور--}}
-                                        {{-- بس أول صور بدا كلاس active --}}
-                                        <div class="carousel-item active">
-                                            <img class="img-fluid w-100 h-50" src="img/sur-city-tour1.jpg"
-                                                alt="">
-                                        </div>
-                                        {{-- نهاية الصور --}}
-                                        
+                                    {{--بداية الصور--}}
+                                    {{-- بس أول صور بدا كلاس active --}}
+                                    @foreach ($group->places as $place)
+                                    @if($place->images()->count()>0)
+                                    @if($loop->first)
+                                    <div class="carousel-item active">
+                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                            alt="">
                                     </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
+                                    @else
+                                    <div class="carousel-item">
+                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                            alt="">
+                                    </div>
+                                    @endif
+                                    @else
+                                    <div class="carousel-item active">
+                                        <img class="img-fluid w-100" src="img/no-group.png"
+                                            alt="">
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                    {{-- نهاية الصور --}}
+                                    
                                 </div>
-                                <!-- نهاية صور أماكن الرحلة -->
-                                <div class="p-4">
-                                    <div class="d-flex justify-content-between mb-3">
-                                        
-                                        <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1
-                                            أيام</small>
-                                    </div>
-                                   
-                                    <h5 style="color: var(--bambi);">رحلة ليوم واحد للترفيه عن النفس و استغلال كامل اليوم بالفقرات الممتعة </h5>
-                                    <div class="border-top mt-4 pt-4">
-                                        <div class="d-flex justify-content-between align-items-baseline">
-                                            <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                            <h6><a class="btn btn-primary"  href="{{route('tripmore-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
-                                        </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <!-- نهاية صور أماكن الرحلة -->
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{$group->start_date}}&nbsp; :من</small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{$group->end_date}}&nbsp; :إلى</small>
+                                </div>
+                                <br>
+                                <a class="h5 text-decoration-none" href="{{route('tripmore-ar', ['id' => $group->id])}}">{{$group->translations()->where('locale', 'ar')->first()->name}}</a>
+                                <p>{{$group->translations()->where('locale', 'ar')->first()->description}}</p>
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between align-items-baseline">
+                                        <h5 class="m-0" style="direction:rtl;">{{$group->cost}} <small>ل.س</small></h5>
+                                        <h6><a class="btn btn-primary"  href="{{route('tripmore-ar', ['id' => $group->id])}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -602,7 +619,7 @@
                                 <div class="text-center py-4">
                                     <h5 class="text-truncate">
                                         {{ $guide->translations()->where('locale', 'en')->first()->name }}</h5>
-                                    <a class="text-50 mb-2" href="{{ route('travelguidesformore-ar') }}">للمزيد</a>
+                                    <a class="text-50 mb-2" href="{{route('travelguidesformore-ar', ['id'=> $guide->id])}}">للمزيد</a>
                                 </div>
                             </div>
                         </div>

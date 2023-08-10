@@ -1,12 +1,12 @@
-@extends('adminLayout-En.master')
+@extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:78%;">
-            <h1 class="app-content-headerText">Groups</h1>
+        <div class="app-content-header" style="width:64%;">
+            <h1 class="app-content-headerText">الجروبات</h1>
 
             <!-- add -->
             <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                Add Group
+                إضافة جروب
             </button>
 
             <!-- Modal -->
@@ -15,75 +15,129 @@
                 <div class="modal-dialog ">
                     <div class="modal-content toggle">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">New Group</h5>
-                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+                            <h5 class="modal-title" id="exampleModal3Label">جروب جديد</h5>
+                            <button type="button" class="btn-close m-0 close"
+                                onclick="removeMessages(), document.getElementById('add-form').reset()"
+                                data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <table style="color: rgb(22, 22, 22); width: 400px;"
-                                class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                        <form id="add-form" action="" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="modal-body">
+                                <table style="color: rgb(22, 22, 22); width: 400px;"
+                                    class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                                    <tr>
+                                        <td><input class="toggle text-primary in" type="text" name="name_ar" required
+                                                style="width: 100%;"></td>
+                                        <td>الاسم(العربية)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="toggle text-primary in" type="text" name="name_en" required
+                                                style="width: 100%;"></td>
+                                        <td>الاسم(الإنجليزية)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="toggle text-primary in" type="date" name="start_date" required
+                                                style="width: 100%;"></td>
+                                        <td>تاريخ البداية</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="start_date_error"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="toggle text-primary in" type="date" name="end_date" required
+                                                style="width: 100%;"></td>
+                                        <td>تاريخ النهاية</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="end_date_error"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
-                                <tr>
-                                    <td>Group Number</td>
-                                    <td><input type="number" class="toggle text-primary in" name="group_number" required
-                                            style="width: 100%;"></th>
-                                </tr>
-                                <tr>
-                                    <td>Tourist Guide</td>
-                                    <td>
-                                        <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
-                                            <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                                data-toggle="dropdown" aria-expanded="false">
+                                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                                    data-toggle="dropdown" aria-expanded="false">
 
-                                            </label>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">ahmad</a>
-                                                <a class="dropdown-item" href="#">salem</a>
-                                                <a class="dropdown-item" href="#">emad</a>
-                                                <a class="dropdown-item" href="#">basem</a>
+                                                </label>
+                                                <span id="guide-name"></span>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    @foreach ($guides as $guide)
+                                                        <option style="cursor: pointer;" class="dropdown-item"
+                                                            value="{{ $guide->id }}" id="guide_{{ $guide->id }}"
+                                                            onclick="setGuide({{ $guide->id }}, '{{ $guide->translations()->where('locale', 'ar')->first()->name }}', 'guide_{{ $guide->id }}')"
+                                                            href="#">
+                                                            {{ $guide->translations()->where('locale', 'ar')->first()->name }}
+                                                        </option>
+                                                    @endforeach
+                                                    <input type="text" id="guide_id" name="tourist_guide_id" hidden>
 
-
+                                                </div>
                                             </div>
-                                        </div>
-                                        </th>
-                                </tr>
-                                <tr>
-                                    <td>tour Duration</td>
-                                    <td><input class="toggle text-primary in" type="number" required style="width: 100%;">
-                                        </th>
-                                </tr>
+                                        </td>
+                                        <td>الدليل السياحي</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="guide_error"></span>
+                                        </td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Description(Arabic)</td>
-                                    <td>
-                                        <textarea class="toggle text-primary in mt-2" name="_group_description" required style="width: 100%; height:27.5px;"></textarea>
-                                        </th>
-                                </tr>
-                                <tr>
-                                    <td>Description(English)</td>
-                                    <td>
-                                        <textarea class="toggle text-primary in mt-2" name="_group_description" required style="width: 100%; height:27.5px;"></textarea>
-                                        </th>
-                                </tr>
-                                <tr>
-                                    <td>People Count</td>
-                                    <td><input class="toggle text-primary in" type="number" name="people_cont" required
-                                            style="width: 100%;"></th>
-                                </tr>
-                                <tr>
-                                    <td>Cost</td>
-                                    <td><input class="toggle text-primary in" type="number" name="group_cost" required
-                                            style="width: 100%;"></th>
-                                </tr>
+                                    <tr>
+
+                                        <td>
+                                            <textarea class="toggle text-primary in mt-2" name="description_ar" required style="width: 100%; height:27.5px;"></textarea>
+                                        </td>
+                                        <td>وصف(العربية)</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;"></textarea>
+                                        </td>
+                                        <td>(الانكليزية)وصف</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><input class="toggle text-primary in" type="number" name="people_count"
+                                                required style="width: 100%;"></td>
+                                        <td>عدد الأشخاص</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="people_count_error"></span></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><input class="toggle text-primary in" type="number" name="cost" required
+                                                style="width: 100%;"></td>
+                                        <td>التكلفة</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
+                                        </td>
+                                    </tr>
 
 
 
-                            </table>
-                        </div>
+                                </table>
+                            </div>
+                        </form>
                         <div class="modal-footer">
-                            <button type="button" class="action-button active" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="app-content-headerButton">Save</button>
+                            <button type="button" onclick="removeMessages(), document.getElementById('add-form').reset()"
+                                class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+                            <button type="button" id="add-group-btn" onclick="addGroup('add-form')"
+                                class="app-content-headerButton">حفظ</button>
                         </div>
                     </div>
                 </div>
@@ -91,18 +145,19 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:78%;">
-            <input class="search-bar" placeholder="Search..." type="text">
+        <div class="app-content-actions" style="width:65%;">
+            <input class="search-bar" placeholder="...ابحث" type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
                 <div class="filter-button-wrapper">
-                    <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg"
-                            width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter">
+                    <button class="action-button filter jsFilter"><span>Filter</span><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-filter">
                             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                         </svg></button>
                     <div class="filter-menu">
-                        <label>Tourist Guide</label>
+                        <label>الدليل السياحي</label>
                         <select>
                             <option>All</option>
                             <option>Furniture</option>
@@ -114,16 +169,16 @@
                         <div class="filter-menu-buttons">
 
                             <button class="filter-button apply">
-                                Apply
+                                أوافق
                             </button>
                         </div>
                     </div>
                 </div>
                 <!-- end filter -->
-                <button class="action-button list " title="List View">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-list">
+                <button class="action-button list" title="عرض جدول">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-list">
                         <line x1="8" y1="6" x2="21" y2="6" />
                         <line x1="8" y1="12" x2="21" y2="12" />
                         <line x1="8" y1="18" x2="21" y2="18" />
@@ -132,7 +187,7 @@
                         <line x1="3" y1="18" x2="3.01" y2="18" />
                     </svg>
                 </button>
-                <button class="action-button grid" title="Grid View">
+                <button class="action-button grid" title="عرض لائحة">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="feather feather-grid">
@@ -142,532 +197,690 @@
                         <rect x="3" y="14" width="7" height="7" />
                     </svg>
                 </button>
-                <div class="nav-item dropdown ">
-                    <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="Translate"> <i
+
+                <div class="nav-item dropdown">
+                    <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة"> <i
                             class="fas fa-globe "></i> </button>
 
                     <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
-                        <a href="{{ route('groupe_en') }}" class="dropdown-item">English</a>
-                        <a href="{{ route('groupe_ar') }}" class="dropdown-item">Arabic </a>
+                        <a href="{{ route('groupe_ar') }}" class="dropdown-item"> العربية</a>
+                        <a href="{{ route('groupe_en') }}" class="dropdown-item">الانجليزية </a>
 
                     </div>
                 </div>
-                <button class="mode-switch" title="Switch Theme" style="margin-left:5px;">
+                <button class="mode-switch" title="تبديل الثيم" style="margin-left:5px;">
                     <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                         <defs></defs>
                         <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
                     </svg>
                 </button>
-
             </div>
         </div>
-        <div class="scroll-class" style="width:78%;">
+        <div class="scroll-class" style="width:65%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
                     <div class="product-cell">#</div>
-                    <div class="product-cell">Tourist Guide</div>
-                    <div class="product-cell">Tour Duration</div>
-                    <div class="product-cell">Description</div>
-                    <div class="product-cell">People count</div>
-                    <div class="product-cell">cost</div>
-                    <div class="product-cell ">Actions</div>
-
-
-
-
+                    <div class="product-cell">الاسم</div>
+                    <div class="product-cell">الدليل السياحي</div>
+                    <div class="product-cell">تاريخ البداية </div>
+                    <div class="product-cell">تاريخ النهاية </div>
+                    <div class="product-cell"> عدد الأشخاص</div>
+                    <div class="product-cell">التكلفة</div>
+                    <div class="product-cell">وصف</div>
+                    <div class="product-cell ">الأحداث</div>
 
                 </div>
-                <div class="products-row">
-                    <button class="cell-more-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-more-vertical">
-                            <circle cx="12" cy="12" r="1" />
-                            <circle cx="12" cy="5" r="1" />
-                            <circle cx="12" cy="19" r="1" />
-                        </svg>
-                    </button>
-                    <div class="product-cell">
-                        <span>1</span>
-                    </div>
-
-                    <div class="product-cell">
-                        <span>Ahmad</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>4 Days</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>----</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>50</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>200000</span>
-                    </div>
-                    <div class="product-cell">
-                        <!-- start action -->
-                        <div class="p-3">
-                            <!-- destination -->
-                            <!-- dest first form -->
-                            <div class="modal fade" data-bs-backdrop="static" id="exampleModalTogglee"
-                                aria-hidden="true" aria-labelledby="exampleModalToggleeLabel" tabindex="-1">
-                                <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
-                                    <div class="modal-content" style="width:800px;">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalToggleeLabel">Added destinations</h5>
-                                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <!-- !!!بيان انتبهي  -->
-                                            <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-                                            <img src="../img/destination.png" class="m-3"
-                                                style="width:150px; height:150px; opacity:0.5;">
-                                            <p class="text-body mb-4">No destinations has been added yet</p>
-                                            <!-- هاد الشكل بحال كان ضايف وسائل -->
-                                            <!-- <table style="color: rgb(22, 22, 22); width: 700px;" class="table-striped table-hover table-bordered m-auto text-primary myTable">
-            <tr>
-              <td class="text-center">place</td>
-              <td class="text-center">service</td>
-              <td class="text-center">district</td>
-              <td class="text-center" style="width:140px;">cost</td>
-              <td class="text-center" style="width:290px;">description</td>
-        
-              <td style="width:40px;"></td>
-            </tr>
-            <tr>
-              <td class="text-center">shahbarows</td>
-              <td class="text-center">restaurant</td>
-              <td class="text-center">alsaha</td>
-              <td class="text-center">120000</td>
-              <td class="text-center" style="max-width:200px; overflow-x:scroll;"  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-                 ipsum perspiciatis debitis .</td>
-             
-              <td> <a href="#" class="delete mr-3 ml-2" style="font-size:14px;" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
-
-            </tr>
-          </table> -->
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-primary" style="border-radius:3px;"
-                                                data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal"
-                                                data-bs-dismiss="modal">Add new destination</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end dest first form -->
-
-                            <!-- dest second form -->
-                            <div class="modal fade" data-bs-backdrop="static" id="exampleModalTogglee2"
-                                aria-hidden="true" aria-labelledby="exampleModalToggleeLabel2" tabindex="-1">
-                                <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
-                                    <div class="modal-content" style="width:500px;">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalToggleeLabel2">New destination</h5>
-                                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table style="color: rgb(22, 22, 22); width: 450px;"
-                                                class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                                <tr>
-                                                    <td>Governorate</td>
-                                                    <td style="width:340px;">
-                                                        <div class="dropdown toggle text-primary in"
-                                                            style="display:inline-block;">
-                                                            <label class="dropdown-toggle" type="button"
-                                                                id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                                aria-expanded="false">
-
-                                                            </label>
-                                                            <div class="dropdown-menu"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" href="#">Alamir</a>
-                                                                <a class="dropdown-item" href="#">Alkadmous</a>
-
-
-
-                                                            </div>
-                                                        </div>
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>district</td>
-                                                    <td style="width:340px;">
-                                                        <div class="dropdown toggle text-primary in"
-                                                            style="display:inline-block;">
-                                                            <label class="dropdown-toggle" type="button"
-                                                                id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                                aria-expanded="false">
-
-                                                            </label>
-                                                            <div class="dropdown-menu"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" href="#">Alamir</a>
-                                                                <a class="dropdown-item" href="#">Alkadmous</a>
-
-
-
-                                                            </div>
-                                                        </div>
-                                                    </td>
-
-                                                </tr>
-
-                                            </table>
-                                            <table id="tablePlace"
-                                                style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;"
-                                                class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                                <tr>
-                                                    <td class="pr-2">places available in this district</td>
-                                                    <td style="width:300px;">
-                                                        <div class="dropdown toggle text-primary in"
-                                                            style="display:inline-block; ;">
-                                                            <label class="dropdown-toggle" type="button"
-                                                                id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                                aria-expanded="false">
-
-                                                            </label>
-                                                            <div class="dropdown-menu"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                <option class="dropdown-item"> p1</option>
-
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                   
-                                                </tr>
-                                                <tr>
-                                                    <td class="pr-2">services available in this place</td>
-                                                    <td style="width:300px;">
-                                                        <div class="dropdown toggle text-primary in"
-                                                            style="display:inline-block; ;">
-                                                            <label class="dropdown-toggle" type="button"
-                                                                id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                                aria-expanded="false">
-                                                                <!--lable disabled هي الجملة منعرضا بحال كان المكان مالو خدمات ومنعمل ال  -->
-                                                                <!-- there is no services in this place -->
-                                                            </label>
-                                                            <div class="dropdown-menu"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                <option class="dropdown-item"> s1</option>
-
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                   
-                                                </tr>
-                                            </table>
-
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="app-content-headerButton" style="border-radius:3px;"
-                                                data-bs-target="#exampleModalTogglee" data-bs-toggle="modal"
-                                                data-bs-dismiss="modal">Back</button>
-                                            <button type="button" class="app-content-headerButton"
-                                                style="background-color:var(--bambi);">Save</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end dest second form -->
-
-                            <a class="delete mr-2" title="destinations" data-bs-toggle="modal"
-                                href="#exampleModalTogglee"><i class="fas fa-map-location-dot"></i></a>
-
-
-                            <!-- end destination -->
-
-                            <!-- transport -->
-                            <!-- first form -->
-                            <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle" aria-hidden="true"
-                                aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                                <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
-                                    <div class="modal-content" style="width:800px;">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalToggleLabel">Added transportation</h5>
-                                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <!-- !!!بيان انتبهي  -->
-                                            <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
-                                            <img src="../img/vehicles.png" class="m-3"
-                                                style="width:150px; height:150px; opacity:0.5;">
-                                            <p class="text-body mb-4">No transportation has been added yet</p>
-                                            <!-- هاد الشكل بحال كان ضايف وسائل -->
-                                            <table style="color: rgb(22, 22, 22); width: 750px;"
-                                                class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                                <tr>
-                                                    <td class="text-center">transport company</td>
-                                                    <td class="text-center">transportation</td>
-                                                    <td class="text-center">count of passengers</td>
-                                                    <td class="text-center">Specifications</td>
-                                                    <td>in date</td>
-                                                    <td style="width:40px;"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">Alamir company</td>
-                                                    <td class="text-center">6913 حلب</td>
-                                                    <td class="text-center">12</td>
-                                                    <td class="text-center" style="max-width:200px; overflow-x:scroll;">
-                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil
-                                                        dolores totam eum cum,
-                                                        ipsum perspiciatis debitis .</td>
-                                                    <td rowspan="3">11-11-2023</td>
-                                                    <td> <a href="#" class="delete mr-3 ml-2"
-                                                            style="font-size:14px;" title="Delete"
-                                                            data-toggle="tooltip"><i class="fas fa-trash"></i></a></td>
-
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-primary" style="border-radius:3px;"
-                                                data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-                                                data-bs-dismiss="modal">Add new transportation</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end first form -->
-
-                            <!-- second form -->
-                            <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2"
-                                aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                                <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
-                                    <div class="modal-content" style="width:500px;">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalToggleLabel2">New transportation</h5>
-                                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table style="color: rgb(22, 22, 22); width: 450px;"
-                                                class="table-striped table-hover table-bordered m-auto text-primary myTable">
-
-                                                <tr>
-                                                    <td>Transport companies available</td>
-                                                    <td>
-                                                        <div class="dropdown toggle text-primary in"
-                                                            style="display:inline-block; ;">
-                                                            <label class="dropdown-toggle" type="button"
-                                                                id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                                aria-expanded="false">
-
-                                                            </label>
-                                                            <div class="dropdown-menu"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item" href="#">Alamir</a>
-                                                                <a class="dropdown-item" href="#">Alkadmous</a>
-
-
-
-                                                            </div>
-                                                        </div>
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>Transportation available in this company</td>
-                                                    <td>
-                                                        <div class="dropdown toggle text-primary in"
-                                                            style="display:inline-block; ;">
-                                                            <label class="dropdown-toggle" type="button"
-                                                                id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                                aria-expanded="false">
-
-                                                            </label>
-                                                            <div class="dropdown-menu" style="width:200px;"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                <ul>
-                                                                    <li>
-                                                                        <div class="d-inline-block w-100" tabindex="0"
-                                                                            data-bs-toggle="popover"
-                                                                            data-bs-trigger="hover focus"
-                                                                            data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .'>
-                                                                            <a class="dropdown-item" href="#">6913
-                                                                                حلب</a>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div class="d-inline-block w-100" tabindex="0"
-                                                                            data-bs-toggle="popover"
-                                                                            data-bs-trigger="hover focus"
-                                                                            data-bs-content='count of passenger : (12)  Specifications : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil dolores totam eum cum,
-             ipsum perspiciatis debitis .'>
-                                                                            <a class="dropdown-item" href="#">6913
-                                                                                حلب</a>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-
-                                                            </div>
-                                                        </div>
-                                                    </td>
-
-                                                </tr>
-                                            </table>
-                                            <table id="tableDate"
-                                                style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important;"
-                                                class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                                <tr id="transportRow">
-                                                    <td>The date of the day the transportation will be used</td>
-                                                    <td><input class="toggle text-primary in" type="date" required
-                                                            style="width: 100%;"></td>
-                                                    <td><button type="button" class="btn-close m-0 close"
-                                                            onclick="removeRow()">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button></td>
-                                                </tr>
-
-                                            </table>
-
-                                            <button class="app-content-headerButton m-3" style="float:right;"
-                                                onclick="addDate()">Add Another Date</button>
-
-
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="app-content-headerButton" style="border-radius:3px;"
-                                                data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
-                                                data-bs-dismiss="modal">Back</button>
-                                            <button type="button" class="app-content-headerButton"
-                                                style="background-color:var(--bambi);">Save</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end second form -->
-                            <a class="delete mr-2" data-bs-toggle="modal" href="#exampleModalToggle"
-                                title="Transportation"><i class="fas fa-bus"></i></a>
-
-                            <!-- end transort -->
-                            <!-- delete -->
-                            <a href="#" class="delete" data-toggle="modal" data-target="#exampleModal2"
-                                title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
-                            <!-- Modal -->
-                            <div class="modal fade " id="exampleModal2" tabindex="-1"
-                                aria-labelledby="exampleModal2Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Are you shure that you want to delete This Group ?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="action-button active"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="submit" class="app-content-headerButton">Yes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end delete -->
-
-                        <!-- edit -->
-                        <a href="#" class="edit" data-toggle="modal" data-target="#exampleModal"
-                            title="Edit"><i class="fas fa-pen"></i></a>
-
-                        <!-- Modal -->
-                        <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <table class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                            style="width: 400px;">
-                                            <tr>
-                                                <td>Group number</td>
-                                                <td><input type="number" class="toggle text-primary in" value="1">
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Tourist Guide</td>
-                                                <td><input type="text" class="toggle text-primary in" value="ahmad">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tour Duration</td>
-                                                <td><input type="number" class="toggle text-primary in" value="4">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Description(Arabic)</td>
-                                                <td>
-                                                    <textarea class="toggle text-primary in mt-2" name="_group_description" required style="width: 100%; height:27.5px;">---</textarea>
-                                                    </th>
-                                            </tr>
-                                            <tr>
-                                                <td>Description(English)</td>
-                                                <td>
-                                                    <textarea class="toggle text-primary in mt-2" name="_group_description" required style="width: 100%; height:27.5px;">---</textarea>
-                                                    </th>
-                                            </tr>
-                                            <tr>
-                                                <td>People count</td>
-                                                <td><input type="number" class="toggle text-primary in" value="15"
-                                                        style="width: 100%;"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cost</td>
-                                                <td><input type="number" class="toggle text-primary in" value="100000"
-                                                        style="width: 100%;"></td>
-                                            </tr>
-
-
-
-                                        </table>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="action-button active"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="app-content-headerButton">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end edit -->
-
-                    </div>
-                    <!-- end action -->
-
+                <div id="groups-data">
 
                 </div>
             </div>
         </div>
     </div>
     </div>
-    </div>
 @endsection
+
+<script>
+    function addGroup(formId) {
+        $("#add-group-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-form'));
+        $.ajax({
+                url: "{{ route('addGroupEn') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                document.getElementById(formId).reset();
+
+
+            })
+            .fail(function(data) {
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                removeMessages();
+
+                if (data.responseJSON.errors.name_ar) {
+                    document.querySelector(`#${formId} #name_ar_error`).innerHTML = data.responseJSON.errors
+                        .name_ar[0];
+
+                }
+                if (data.responseJSON.errors.name_en) {
+
+                    document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors
+                        .name_en[0];
+
+                }
+                if (data.responseJSON.errors.start_date) {
+
+                    document.querySelector(`#${formId} #start_date_error`).innerHTML = data.responseJSON.errors
+                        .start_date[0];
+
+                }
+                if (data.responseJSON.errors.end_date) {
+
+                    document.querySelector(`#${formId} #end_date_error`).innerHTML = data.responseJSON.errors
+                        .end_date[0];
+
+                }
+                if (data.responseJSON.errors.tourist_guide_id) {
+
+                    document.querySelector(`#${formId} #guide_error`).innerHTML = data.responseJSON.errors
+                        .tourist_guide_id[0];
+
+                }
+                if (data.responseJSON.errors.people_count) {
+
+                    document.querySelector(`#${formId} #people_count_error`).innerHTML = data.responseJSON.errors
+                        .people_count[0];
+
+                }
+                if (data.responseJSON.errors.cost) {
+
+                    document.querySelector(`#${formId} #cost_error`).innerHTML = data.responseJSON.errors.cost[0];
+
+                }
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-group-btn").attr("disabled", false).html('Save');
+            });
+    }
+    //----------------------------------------------------------
+
+    function editGroup(formId, id) {
+
+        $("#edit-group-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        $.ajax({
+                url: `{{ route('editGroupEn') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function(data) {
+                removeMessages();
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                if (data.responseJSON.errors.name_ar) {
+                    document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors
+                        .name_ar[0];
+
+                }
+                if (data.responseJSON.errors.name_en) {
+
+                    document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors
+                        .name_en[0];
+
+                }
+                if (data.responseJSON.errors.start_date) {
+
+                    document.querySelector(`#${formId} .start_date_error_edit`).innerHTML = data.responseJSON.errors
+                        .start_date[0];
+
+                }
+                if (data.responseJSON.errors.end_date) {
+
+                    document.querySelector(`#${formId} .end_date_error_edit`).innerHTML = data.responseJSON.errors
+                        .end_date[0];
+
+                }
+                if (data.responseJSON.errors.tourist_guide_id) {
+
+                    document.querySelector(`#${formId} .guide_error_edit`).innerHTML = data.responseJSON.errors
+                        .tourist_guide_id[0];
+
+                }
+                if (data.responseJSON.errors.people_count) {
+
+                    document.querySelector(`#${formId} .people_count_error_edit`).innerHTML = data.responseJSON
+                        .errors.people_count[0];
+
+                }
+                if (data.responseJSON.errors.cost) {
+
+                    document.querySelector(`#${formId} .cost_error_edit`).innerHTML = data.responseJSON.errors.cost[
+                        0];
+
+                }
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#edit-group-btn-" + id).attr("disabled", false).html('Save Changes');
+            });
+    }
+
+    //---------------------------------------------------------------
+    function deleteGroup(formId, id) {
+        $("#delete-group-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+                url: `{{ route('deleteGroupEn') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function() {
+                $('.close').click();
+                $('.parent').attr("hidden", false);
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#delete-group-btn-" + id).attr("disabled", false).html('Yes');
+            });
+    }
+    
+
+    //---------------------------------------------------------------
+    window.onload = (event) => {
+        $.ajax({
+                url: "{{ route('getGroupsEn') }}",
+                type: "GET",
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").append(data);
+            })
+            .fail(function() {
+                $('.parent').attr("hidden", false);
+
+
+            });
+    };
+    //--------------------------------------------------------
+
+    function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value;
+        table = document.getElementById("groupsTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
+
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                if (txtValue) {
+
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+
+    //----------------------------------------------
+    function removeMessages() {
+        // document.getElementById('name_ar_error').innerHTML = ''; 
+        // document.getElementById('name_en_error').innerHTML = ''; 
+        // document.getElementById('image_error').innerHTML = ''; 
+
+        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        // name_ar.forEach(name => {
+        //   name.innerHTML = '';
+        // });
+
+        // const name_en = document.querySelectorAll('.name_en_error_edit');
+        // name_en.forEach(name => {
+        //   name.innerHTML = '';
+        // });
+
+        // const images = document.querySelectorAll('.image_error_edit');
+        // images.forEach(image => {
+        //   image.innerHTML = '';
+        // });
+    }
+    //--------------------------------------------
+    function setGuide(guide_id, guide, option_id) {
+        var guides_options = document.querySelectorAll('[id^="guide_"]');
+        guides_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('guide-name').innerHTML = guide;
+        document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
+        document.getElementById('guide_id').value = `${guide_id}`;
+    }
+    //--------------------------------------------
+    function setEditGuide(guide_id, group_id, guide, option_id) {
+        var guides_options = document.querySelectorAll('[id^="edit_guide_"]');
+        guides_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('guide-name-' + group_id).innerHTML = guide;
+        document.getElementById(option_id).style.setProperty("color", "#EB455F", "important");
+        document.getElementById('edit_guide_id_' + group_id).value = `${guide_id}`;
+    }
+    //--------------------------------------------
+    function setCity(city_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="city_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('city-name').innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('city_id').value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setEditCity(city_id, transportation_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="edit_city_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('city-name-' + transportation_id).innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_city_id_' + transportation_id).value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setDistrict(district_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('district-name').innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('district_id').value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function setEditDistrict(district_id, place_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="edit_district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('district-name-' + place_id).innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('edit_district_id_' + place_id).value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function setPlace(place_id, place, option_id) {
+        var places_options = document.querySelectorAll('[id^="place_"]');
+        places_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('place-name').innerHTML = place;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('place_id').value = `${place_id}`;
+    }
+    //--------------------------------------------
+
+    function setService(service_id, service, option_id) {
+        var services_options = document.querySelectorAll('[id^="service_"]');
+        services_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('service-name').innerHTML = service;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('service_id').value = `${service_id}`;
+    }
+
+    //--------------------------------------------
+    function filterDistricts(city_id) {
+        var districts = document.querySelectorAll(`.district_filter_option`);
+        var city_districts = document.querySelectorAll(`.district_city_${city_id}`);
+
+        districts.forEach(district => {
+            district.setAttribute("hidden", true);
+
+        });
+        city_districts.forEach(district => {
+            district.removeAttribute("hidden");
+
+        });
+        document.getElementById('district_id').value = "";
+        document.getElementById('district-name').innerHTML = '';
+        var districts_options = document.querySelectorAll('[id^="district_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+    //--------------------------------------------
+    function filterPlaces(district_id) {
+        var places = document.querySelectorAll(`.place_filter_option`);
+        var district_places = document.querySelectorAll(`.place_district_${district_id}`);
+
+        places.forEach(place => {
+            place.setAttribute("hidden", true);
+
+        });
+        district_places.forEach(place => {
+            place.removeAttribute("hidden");
+
+        });
+        document.getElementById('place_id').value = "";
+        document.getElementById('place-name').innerHTML = '';
+        var places_options = document.querySelectorAll('[id^="place_"]');
+        places_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+    //--------------------------------------------
+    function filterServices(place_id) {
+        var services = document.querySelectorAll(`.service_filter_option`);
+        var place_services = document.querySelectorAll(`.service_place_${place_id}`);
+
+        services.forEach(service => {
+            service.setAttribute("hidden", true);
+
+        });
+        place_services.forEach(service => {
+            service.removeAttribute("hidden");
+
+        });
+        document.getElementById('service_id').value = "";
+        document.getElementById('service-name').innerHTML = '';
+        var services_options = document.querySelectorAll('[id^="service_"]');
+        services_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+    //--------------------------------------------
+    function addDestination(formId) {
+        $("#add-dest-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-dest-form'));
+        $.ajax({
+                url: "{{ route('addGroupDestinationEn') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                document.getElementById(formId).reset();
+                document.getElementById('group_id').value = '';
+
+
+            })
+            .fail(function(data) {
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                removeMessages();
+
+                if (data.responseJSON.errors.city_id) {
+                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors
+                        .city_id[0];
+
+                }
+                if (data.responseJSON.errors.district_id) {
+
+                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
+                        .district_id[0];
+
+                }
+                if (data.responseJSON.errors.place_id) {
+
+                    document.querySelector(`#${formId} #place_error`).innerHTML = data.responseJSON.errors
+                        .place_id[0];
+
+                }
+                if (data.responseJSON.errors.service_id) {
+
+                    document.querySelector(`#${formId} #service_id_error`).innerHTML = data.responseJSON.errors
+                        .service_id[0];
+
+                }
+                
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-dest-btn").attr("disabled", false).html('Save');
+            });
+    }
+    //--------------------------------------------
+    function deleteDist(formId, id) {
+        $("#delete-dist-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        console.log(id);
+        $.ajax({
+                url: `{{ route('deleteDistEn') }}`,
+                type: "POST",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                },
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function() {
+                $('.close').click();
+                $('.parent').attr("hidden", false);
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#delete-dist-btn-" + id).attr("disabled", false).html('<i class="fas fa-trash"></i>');
+            });
+    }
+    //--------------------------------------------
+    function setGroupId(group_id){
+        document.getElementById('group_id').value = `${group_id}`;
+    }
+    //--------------------------------------------
+    function setGroupIdForCompany(group_id){
+        document.getElementById('group_id_for_company').value = `${group_id}`;
+    }
+    //--------------------------------------------
+
+    function setCompany(city_id, city, option_id) {
+        var cities_options = document.querySelectorAll('[id^="company_"]');
+        cities_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('company-name').innerHTML = city;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('company_id').value = `${city_id}`;
+    }
+    //--------------------------------------------
+    function setTransportation(district_id, district, option_id) {
+        var districts_options = document.querySelectorAll('[id^="transportation_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('transportation-name').innerHTML = district;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('transportation_id').value = `${district_id}`;
+    }
+    //--------------------------------------------
+    function filterTransportations(city_id) {
+        var districts = document.querySelectorAll(`.transportation_filter_option`);
+        var city_districts = document.querySelectorAll(`.transportation_company_${city_id}`);
+
+        districts.forEach(district => {
+            district.setAttribute("hidden", true);
+
+        });
+        city_districts.forEach(district => {
+            district.removeAttribute("hidden");
+
+        });
+        document.getElementById('transportation_id').value = "";
+        document.getElementById('transportation-name').innerHTML = '';
+        var districts_options = document.querySelectorAll('[id^="transportation_"]');
+        districts_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+    }
+    //--------------------------------------------
+    function addTransportation(formId) {
+        $("#add-transport-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-transport-form'));
+        $.ajax({
+                url: "{{ route('addGroupTransportationEn') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                document.getElementById(formId).reset();
+                document.getElementById('group_id_for_company').value = '';
+
+
+            })
+            .fail(function(data) {
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                removeMessages();
+
+                if (data.responseJSON.errors.city_id) {
+                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors
+                        .city_id[0];
+
+                }
+                if (data.responseJSON.errors.district_id) {
+
+                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
+                        .district_id[0];
+
+                }
+                if (data.responseJSON.errors.place_id) {
+
+                    document.querySelector(`#${formId} #place_error`).innerHTML = data.responseJSON.errors
+                        .place_id[0];
+
+                }
+                if (data.responseJSON.errors.service_id) {
+
+                    document.querySelector(`#${formId} #service_id_error`).innerHTML = data.responseJSON.errors
+                        .service_id[0];
+
+                }
+                
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-transport-btn").attr("disabled", false).html('Save');
+            });
+    }
+    //--------------------------------------------
+    function deleteTrans(formId, id) {
+        $("#delete-trans-btn-" + id).attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+        var formData = new FormData(document.getElementById(formId));
+        formData.append('id', id);
+        console.log(id);
+        $.ajax({
+                url: `{{ route('deleteTransEn') }}`,
+                type: "POST",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                },
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#groups-data").empty();
+                $("#groups-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function() {
+                $('.close').click();
+                $('.parent').attr("hidden", false);
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#delete-trans-btn-" + id).attr("disabled", false).html('<i class="fas fa-trash"></i>');
+            });
+    }
+    //--------------------------------------------
+</script>

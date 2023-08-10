@@ -146,7 +146,7 @@
         <!-- end add -->
 
         <div class="app-content-actions" style="width:65%;">
-            <input class="search-bar" placeholder="...ابحث" type="text">
+            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم " type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
                 <div class="filter-button-wrapper">
@@ -218,7 +218,7 @@
             </div>
         </div>
         <div class="scroll-class" style="width:65%;">
-            <div class="products-area-wrapper tableView">
+            <div class="products-area-wrapper tableView" id="groupsTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
                     <div class="product-cell">الاسم</div>

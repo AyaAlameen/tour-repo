@@ -6,6 +6,7 @@ use App\Models\Place;
 use App\Models\City;
 use App\Models\District;
 use App\Models\SubCategory;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -463,6 +464,99 @@ class PlaceController extends Controller
         $place = Place::with('translations', 'services', 'images')->find($id);
 
         return view('user-ar.place_details')->with(['place' => $place]);
+
+    }
+
+    public function placeImagesAr($id){
+        $place = Place::with('translations')->find($id);
+        $images = $place->images;
+
+        return view('admin-Ar.places_pic')->with(['place' => $place, 'images' => $images]);
+
+    }
+
+    public function placeImagesEn($id){
+        $place = Place::with('translations')->find($id);
+        $images = $place->images;
+
+        return view('admin-En.places_pic')->with(['place' => $place, 'images' => $images]);
+
+    }
+
+    public function addPlaceImagesAr(Request $request){
+        $request->validate([
+            'id' => 'required',
+            'image' => 'required',
+        ], [
+            'image.required' => 'حقل الصورة مطلوب',
+        ]);
+        $place = Place::with('translations')->find($request->input('id'));
+
+        if($request->files->has('image')){
+            $image_name = $request->files->get('image');
+            $org_name = $image_name->getClientOriginalName();
+            $upload_image_name = time().'_'.$org_name;
+            $image_name->move('uploads/placeImage', $upload_image_name);
+            $place->images()->create( ['image' => "uploads/placeImage/$upload_image_name"]);
+
+        }
+        $place = Place::with('translations')->find($request->input('id'));
+        $images = $place->images;
+        return view('admin-Ar.sections.place-images-section')->with(['place' => $place, 'images' => $images]);
+
+    }
+    public function addPlaceImagesEn(Request $request){
+        $request->validate([
+            'id' => 'required',
+            'image' => 'required',
+        ], [
+            'image.required' => 'Image feild is required',
+        ]);
+        $place = Place::with('translations')->find($request->input('id'));
+
+        if($request->files->has('image')){
+            $image_name = $request->files->get('image');
+            $org_name = $image_name->getClientOriginalName();
+            $upload_image_name = time().'_'.$org_name;
+            $image_name->move('uploads/placeImage', $upload_image_name);
+            $place->images()->create( ['image' => "uploads/placeImage/$upload_image_name"]);
+
+        }
+        $place = Place::with('translations')->find($request->input('id'));
+        $images = $place->images;
+        return view('admin-En.sections.place-images-section')->with(['place' => $place, 'images' => $images]);
+
+    }
+
+    public function deletePlaceImageAr(Request $request){
+        $request->validate([
+            'id' => 'required',
+            'image_id' => 'required',
+        ], [
+            'image_id.required' => 'حقل الصورة مطلوب',
+        ]);
+
+        Image::where('id', $request->input('image_id'))->delete();
+
+        $place = Place::with('translations')->find($request->input('id'));
+        $images = $place->images;
+        return view('admin-Ar.sections.place-images-section')->with(['place' => $place, 'images' => $images]);
+
+    }
+
+    public function deletePlaceImageEn(Request $request){
+        $request->validate([
+            'id' => 'required',
+            'image_id' => 'required',
+        ], [
+            'image_id.required' => 'حقل الصورة مطلوب',
+        ]);
+
+        Image::where('id', $request->input('image_id'))->delete();
+
+        $place = Place::with('translations')->find($request->input('id'));
+        $images = $place->images;
+        return view('admin-En.sections.place-images-section')->with(['place' => $place, 'images' => $images]);
 
     }
 }

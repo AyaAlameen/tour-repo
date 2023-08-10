@@ -18,7 +18,7 @@ class CreateServicesTable extends Migration
             // $table->string('name');
             $table->foreignId('place_id');
             $table->decimal('cost', 8, 0);
-            // $table->string('description');
+            $table->string('image');
             $table->boolean('is_additional')->default(false);
             $table->timestamps();
             $table->softDeletes();

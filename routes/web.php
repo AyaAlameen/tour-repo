@@ -19,6 +19,10 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\UserGroupController;
+use App\Http\Controllers\UserTransportCompanyController;
+use App\Http\Controllers\UserGuideController;
+use App\Http\Controllers\UserOfferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,6 +124,33 @@ Route::middleware(['sub_category'])->group(function(){
 
 });
 
+Route::middleware(['group'])->group(function(){
+
+    //en
+    Route::get('/groups_en', [GroupController::class, 'getGuidesEn']) -> name('groupe_en');
+    Route::get('/en/groups', [GroupController::class, 'indexEn']) -> name('getGroupsEn');
+    Route::post('/group_en', [GroupController::class, 'storeEn']) -> name('addGroupEn');
+    Route::post('/group_en/edit', [GroupController::class, 'updateEn']) -> name('editGroupEn');
+    Route::post('/group_en/delete', [GroupController::class, 'destroyEn']) -> name('deleteGroupEn');
+    Route::post('/group_en/destinations/add', [GroupController::class, 'addGroupDestinationEn']) -> name('addGroupDestinationEn');
+    Route::post('/group_en/destinations/delete', [GroupController::class, 'deleteGroupDestinationEn']) -> name('deleteDistEn');
+    Route::post('/group_en/transportations/add', [GroupController::class, 'addGroupTransportationEn']) -> name('addGroupTransportationEn');
+    Route::post('/group_en/transportations/delete', [GroupController::class, 'deleteGroupTransportationEn']) -> name('deleteTransEn');
+    
+
+    //ar
+    Route::get('/groups_ar', [GroupController::class, 'getGuidesAr']) -> name('groupe_ar');    
+    Route::get('/ar/groups', [GroupController::class, 'indexAr']) -> name('getGroupsAr');
+    Route::post('/group_ar', [GroupController::class, 'storeAr']) -> name('addGroupAr');
+    Route::post('/group_ar/edit', [GroupController::class, 'updateAr']) -> name('editGroupAr');
+    Route::post('/group_ar/delete', [GroupController::class, 'destroyAr']) -> name('deleteGroupAr');
+    Route::post('/group_ar/destinations/add', [GroupController::class, 'addGroupDestinationAr']) -> name('addGroupDestinationAr');
+    Route::post('/group_ar/destinations/delete', [GroupController::class, 'deleteGroupDestinationAr']) -> name('deleteDistAr');
+    Route::post('/group_ar/transportations/add', [GroupController::class, 'addGroupTransportationAr']) -> name('addGroupTransportationAr');
+    Route::post('/group_ar/transportations/delete', [GroupController::class, 'deleteGroupTransportationAr']) -> name('deleteTransAr');
+    
+});
+
 Route::middleware(['admin'])->group(function(){
     //en
     Route::get('/message_en', [MessageController::class, 'indexEn']) -> name('message_en');
@@ -169,14 +200,21 @@ Route::middleware(['place'])->group(function(){
     Route::post('/place_ar', [PlaceController::class, 'storeAr']) -> name('addPlaceAr');
     Route::post('/place_ar/edit', [PlaceController::class, 'updateAr']) -> name('editPlaceAr');
     Route::post('/place_ar/delete', [PlaceController::class, 'destroyAr']) -> name('deletePlaceAr');
-});
-Route::get('/place_pic_ar', function () {
-        return view('admin-Ar.places_pic');
-    }) -> name('place_pic_ar');
 
-    Route::get('/place_pic_en', function () {
-        return view('admin-En.places_pic');
-    }) -> name('place_pic_en');
+
+    Route::get('/place_pic_ar/{id}', [PlaceController::class, 'placeImagesAr']) -> name('place_pic_ar');
+    Route::post('/place_pic_ar/add', [PlaceController::class, 'addPlaceImagesAr']) -> name('addPlaceImageAr');
+    Route::post('/place_pic_ar/delete', [PlaceController::class, 'deletePlaceImageAr']) -> name('deletePlaceImageAr');
+
+
+
+    Route::get('/place_pic_en/{id}', [PlaceController::class, 'placeImagesEn']) -> name('place_pic_en');
+    Route::post('/place_pic_en/add', [PlaceController::class, 'addPlaceImagesEn']) -> name('addPlaceImageEn');
+    Route::post('/place_pic_en/delete', [PlaceController::class, 'deletePlaceImageEn']) -> name('deletePlaceImageEn');
+
+});
+
+
 Route::middleware(['offer'])->group(function(){
     
     //en
@@ -316,9 +354,6 @@ Route::middleware(['tourist_guide'])->group(function(){
     Route::post('/transportations_en/delete', [TransportationController::class, 'destroyEn']) -> name('deleteTransportationEn');
     
     
-    Route::get('/groups_en', function () {
-        return view('admin-En.groups');
-    }) -> name('groupe_en');
     
     
     //admin routes part Arabic
@@ -412,17 +447,7 @@ Route::middleware(['tourist_guide'])->group(function(){
     Route::post('/transportations_ar/edit', [TransportationController::class, 'updateAr']) -> name('editTransportationAr');
     Route::post('/transportations_ar/delete', [TransportationController::class, 'destroyAr']) -> name('deleteTransportationAr');
     
-    Route::get('/groups_ar', [GroupController::class, 'getGuidesAr']) -> name('groupe_ar');
-    
-    
-    Route::get('/ar/groups', [GroupController::class, 'indexAr']) -> name('getGroupsAr');
-    Route::post('/group_ar', [GroupController::class, 'storeAr']) -> name('addGroupAr');
-    Route::post('/group_ar/edit', [GroupController::class, 'updateAr']) -> name('editGroupAr');
-    Route::post('/group_ar/delete', [GroupController::class, 'destroyAr']) -> name('deleteGroupAr');
-    Route::post('/group_ar/destinations/add', [GroupController::class, 'addGroupDestinationAr']) -> name('addGroupDestinationAr');
-    Route::post('/group_ar/destinations/delete', [GroupController::class, 'deleteGroupDestinationAr']) -> name('deleteDistAr');
-    Route::post('/group_ar/transportations/add', [GroupController::class, 'addGroupTransportationAr']) -> name('addGroupTransportationAr');
-    Route::post('/group_ar/transportations/delete', [GroupController::class, 'deleteGroupTransportationAr']) -> name('deleteTransAr');
+
     
     
 
@@ -509,9 +534,8 @@ Route::get('/event_details-ar', function () {
     return view('user-ar.event_details');
 })-> name('event_details-ar');
 
-Route::get('/offer-ar', function () {
-    return view('user-ar.offer');
-})-> name('offer-ar');
+
+Route::get('/offer-ar', [UserOfferController::class, 'getOffersAr'])-> name('offer-ar');
 
 Route::get('/offer_details-ar', function () {
     return view('user-ar.offer_details');
@@ -525,25 +549,24 @@ Route::post('/contact', [MessageController::class, 'storeAr'])-> name('submitMes
 
 Route::get('/about-ar', [AboutController::class, 'indexAr'])-> name('about-ar');
 
-Route::get('/transport-ar', function () {
-    return view('user-ar.transport');
-})-> name('transport-ar'); 
-
-Route::get('/travelguides-ar', function () {
-    return view('user-ar.travelguides');
-})-> name('travelguides-ar');
-
-Route::get('/travelguidesformore-ar', function () {
-    return view('user-ar.travelguidesformore');
-})-> name('travelguidesformore-ar');
+Route::get('/transport-ar', [UserTransportCompanyController::class, 'getTransportionCompanyAr'])-> name('transport-ar'); 
 
 
-Route::get('/trip-ar', function () {
-    return view('user-ar.trips');
-})-> name('trip-ar');
-Route::get('/tripmore-ar', function () {
-    return view('user-ar.tripmore');
-})-> name('tripmore-ar');
+Route::get('/travelguides-ar', [UserGuideController::class, 'getGuidesAr'])-> name('travelguides-ar');
+
+// Route::get('/travelguidesformore-ar', function () {
+//     return view('user-ar.travelguidesformore');
+// })-> name('travelguidesformore-ar');
+
+Route::get('/travelguidesformore-ar/{id}', [UserGuideController::class, 'getGuideDetailsAr'])-> name('travelguidesformore-ar');
+
+
+Route::get('/trip-ar', [UserGroupController::class, 'getGroupsAr'])-> name('trip-ar');
+
+// Route::get('/tripmore-ar', function () {
+//     return view('user-ar.tripmore');
+// })-> name('tripmore-ar');
+Route::get('/tripmore-ar/{id}', [UserGroupController::class, 'getGroupDetailsAr'])-> name('tripmore-ar');
 
 
 Route::get('/user_city_ar/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsAr'])-> name('user-city-ar');

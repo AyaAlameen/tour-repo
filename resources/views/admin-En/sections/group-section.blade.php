@@ -17,10 +17,10 @@
         </div>
 
         <div class="product-cell">
-            <span class="search-value">{{ $group->translations()->where('locale', 'ar')->first()->name }}</span>
+            <span class="search-value">{{ $group->translations()->where('locale', 'en')->first()->name }}</span>
         </div>
         <div class="product-cell">
-            <span>{{ $group->touristGuide->translations()->where('locale', 'ar')->first()->name }}</span>
+            <span>{{ $group->touristGuide->translations()->where('locale', 'en')->first()->name }}</span>
         </div>
         <div class="product-cell">
             <span>{{ $group->start_date }}</span>
@@ -35,7 +35,7 @@
             <span>{{ $group->cost }}</span>
         </div>
         <div class="product-cell">
-            <span>{{ $group->translations()->where('locale', 'ar')->first()->description }}</span>
+            <span>{{ $group->translations()->where('locale', 'en')->first()->description }}</span>
         </div>
         <div class="product-cell">
             <!-- start action -->
@@ -116,7 +116,7 @@
 
                                                     </label>
                                                     <span
-                                                        id="guide-name-{{ $group->id }}">{{ $group->touristGuide->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                        id="guide-name-{{ $group->id }}">{{ $group->touristGuide->translations()->where('locale', 'en')->first()->name }}</span>
                                                     <div class="dropdown-menu"
                                                         aria-labelledby="dropdownMenuButtonEdit{{ $group->id }}">
                                                         @foreach ($guides as $guide)
@@ -124,9 +124,9 @@
                                                                 style="cursor: pointer; @if ($guide->id == $group->tourist_guide_id) color: #EB455F !important; @endif"
                                                                 class="dropdown-item" value="{{ $guide->id }}"
                                                                 id="edit_guide_{{ $group->id }}_{{ $guide->id }}"
-                                                                onclick="setEditGuide({{ $guide->id }}, {{ $group->id }}, '{{ $guide->translations()->where('locale', 'ar')->first()->name }}', 'edit_guide_{{ $group->id }}_{{ $guide->id }}')"
+                                                                onclick="setEditGuide({{ $guide->id }}, {{ $group->id }}, '{{ $guide->translations()->where('locale', 'en')->first()->name }}', 'edit_guide_{{ $group->id }}_{{ $guide->id }}')"
                                                                 href="#">
-                                                                {{ $guide->translations()->where('locale', 'ar')->first()->name }}
+                                                                {{ $guide->translations()->where('locale', 'en')->first()->name }}
                                                             </option>
                                                         @endforeach
                                                         <input type="text"
@@ -239,17 +239,17 @@
                                         @foreach ($group->places as $place)
                                             <tr>
                                                 <td class="text-center">
-                                                    {{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $place->district->city->translations()->where('locale', 'en')->first()->name }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $place->district->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $place->district->translations()->where('locale', 'en')->first()->name }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $place->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $place->translations()->where('locale', 'en')->first()->name }}
                                                 </td>
                                                 @if ($place->pivot->service_id)
                                                     <td class="text-center">
-                                                        {{ \App\Models\Service::find($place->pivot->service_id)->translations()->where('locale', 'ar')->first()->name }}
+                                                        {{ \App\Models\Service::find($place->pivot->service_id)->translations()->where('locale', 'en')->first()->name }}
                                                     </td>
                                                     <td class="text-center">
                                                         {{ \App\Models\Service::find($place->pivot->service_id)->cost }}
@@ -334,15 +334,15 @@
                                         @foreach ($group->transportations as $transportation)
                                             <tr>
                                                 <td class="text-center">
-                                                    {{ $transportation->transportCompany->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $transportation->transportCompany->translations()->where('locale', 'en')->first()->name }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $transportation->city->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $transportation->city->translations()->where('locale', 'en')->first()->name }}
                                                     - {{ $transportation->carId }}</td>
                                                 <td class="text-center">{{ $transportation->passengers_number }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $transportation->translations()->where('locale', 'ar')->first()->description }}.
+                                                    {{ $transportation->translations()->where('locale', 'en')->first()->description }}.
                                                 </td>
                                                 <td style="padding-right: 0px">
                                                     <ul class="list-group list-group-flush"
@@ -408,7 +408,7 @@
                                 <input type="text" name="id" value="{{ $group->id }}" hidden>
                                 <div class="modal-body" style="direction:rtl;">
                                     هل أنت متأكد من أنك تريد حذف هذا الجروب (<span
-                                        style="color: #90aaf8;">{{ $group->translations()->where('locale', 'ar')->first()->name }}</span>)
+                                        style="color: #90aaf8;">{{ $group->translations()->where('locale', 'en')->first()->name }}</span>)
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="action-button active close"
@@ -447,10 +447,10 @@
         </div>
 
         <div class="product-cell">
-            <span class="search-value">{{ $group->translations()->where('locale', 'ar')->first()->name }}</span>
+            <span class="search-value">{{ $group->translations()->where('locale', 'en')->first()->name }}</span>
         </div>
         <div class="product-cell">
-            <span>{{ $group->touristGuide->translations()->where('locale', 'ar')->first()->name }}</span>
+            <span>{{ $group->touristGuide->translations()->where('locale', 'en')->first()->name }}</span>
         </div>
         <div class="product-cell">
             <span>{{ $group->start_date }}</span>
@@ -546,7 +546,7 @@
 
                                                     </label>
                                                     <span
-                                                        id="guide-name-{{ $group->id }}">{{ $group->touristGuide->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                        id="guide-name-{{ $group->id }}">{{ $group->touristGuide->translations()->where('locale', 'en')->first()->name }}</span>
                                                     <div class="dropdown-menu"
                                                         aria-labelledby="dropdownMenuButtonEdit{{ $group->id }}">
                                                         @foreach ($guides as $guide)
@@ -554,9 +554,9 @@
                                                                 style="cursor: pointer; @if ($guide->id == $group->tourist_guide_id) color: #EB455F !important; @endif"
                                                                 class="dropdown-item" value="{{ $guide->id }}"
                                                                 id="edit_guide_{{ $group->id }}_{{ $guide->id }}"
-                                                                onclick="setEditGuide({{ $guide->id }}, {{ $group->id }}, '{{ $guide->translations()->where('locale', 'ar')->first()->name }}', 'edit_guide_{{ $group->id }}_{{ $guide->id }}')"
+                                                                onclick="setEditGuide({{ $guide->id }}, {{ $group->id }}, '{{ $guide->translations()->where('locale', 'en')->first()->name }}', 'edit_guide_{{ $group->id }}_{{ $guide->id }}')"
                                                                 href="#">
-                                                                {{ $guide->translations()->where('locale', 'ar')->first()->name }}
+                                                                {{ $guide->translations()->where('locale', 'en')->first()->name }}
                                                             </option>
                                                         @endforeach
                                                         <input type="text"
@@ -669,17 +669,17 @@
                                         @foreach ($group->places as $place)
                                             <tr>
                                                 <td class="text-center">
-                                                    {{ $place->district->city->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $place->district->city->translations()->where('locale', 'en')->first()->name }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $place->district->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $place->district->translations()->where('locale', 'en')->first()->name }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $place->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $place->translations()->where('locale', 'en')->first()->name }}
                                                 </td>
                                                 @if ($place->pivot->service_id)
                                                     <td class="text-center">
-                                                        {{ \App\Models\Service::find($place->pivot->service_id)->translations()->where('locale', 'ar')->first()->name }}
+                                                        {{ \App\Models\Service::find($place->pivot->service_id)->translations()->where('locale', 'en')->first()->name }}
                                                     </td>
                                                     <td class="text-center">
                                                         {{ \App\Models\Service::find($place->pivot->service_id)->cost }}
@@ -764,15 +764,15 @@
                                         @foreach ($group->transportations as $transportation)
                                             <tr>
                                                 <td class="text-center">
-                                                    {{ $transportation->transportCompany->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $transportation->transportCompany->translations()->where('locale', 'en')->first()->name }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $transportation->city->translations()->where('locale', 'ar')->first()->name }}
+                                                    {{ $transportation->city->translations()->where('locale', 'en')->first()->name }}
                                                     - {{ $transportation->carId }}</td>
                                                 <td class="text-center">{{ $transportation->passengers_number }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ $transportation->translations()->where('locale', 'ar')->first()->description }}.
+                                                    {{ $transportation->translations()->where('locale', 'en')->first()->description }}.
                                                 </td>
                                                 <td style="padding-right: 0px">
                                                     <ul class="list-group list-group-flush"
@@ -899,9 +899,9 @@
                                         @foreach ($cities as $city)
                                             <option style="cursor: pointer;" class="dropdown-item"
                                                 value="{{ $city->id }}" id="city_{{ $city->id }}"
-                                                onclick="setCity({{ $city->id }}, '{{ $city->translations()->where('locale', 'ar')->first()->name }}', 'city_{{ $city->id }}'), filterDistricts({{ $city->id }})"
+                                                onclick="setCity({{ $city->id }}, '{{ $city->translations()->where('locale', 'en')->first()->name }}', 'city_{{ $city->id }}'), filterDistricts({{ $city->id }})"
                                                 href="#">
-                                                {{ $city->translations()->where('locale', 'ar')->first()->name }}
+                                                {{ $city->translations()->where('locale', 'en')->first()->name }}
                                             </option>
                                         @endforeach
                                         <input type="text" id="city_id" name="city_id" hidden>
@@ -931,9 +931,9 @@
                                             <option style="cursor: pointer;"
                                                 class="dropdown-item district_filter_option district_city_{{ $district->city->id }}"
                                                 value="{{ $district->id }}" id="district_{{ $district->id }}"
-                                                onclick="setDistrict({{ $district->id }}, '{{ $district->translations()->where('locale', 'ar')->first()->name }}', 'district_{{ $district->id }}'), filterPlaces({{ $district->id }})"
+                                                onclick="setDistrict({{ $district->id }}, '{{ $district->translations()->where('locale', 'en')->first()->name }}', 'district_{{ $district->id }}'), filterPlaces({{ $district->id }})"
                                                 hidden href="#">
-                                                {{ $district->translations()->where('locale', 'ar')->first()->name }}
+                                                {{ $district->translations()->where('locale', 'en')->first()->name }}
                                             </option>
                                         @endforeach
                                         <input type="text" id="district_id" name="district_id" hidden>
@@ -968,9 +968,9 @@
                                             <option style="cursor: pointer;"
                                                 class="dropdown-item place_filter_option place_district_{{ $place->district->id }}"
                                                 value="{{ $place->id }}" id="place_{{ $place->id }}"
-                                                onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'place_{{ $place->id }}'), filterServices({{ $place->id }})"
+                                                onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'en')->first()->name }}', 'place_{{ $place->id }}'), filterServices({{ $place->id }})"
                                                 hidden href="#">
-                                                {{ $place->translations()->where('locale', 'ar')->first()->name }}
+                                                {{ $place->translations()->where('locale', 'en')->first()->name }}
                                             </option>
                                         @endforeach
                                         <input type="text" id="place_id" name="place_id" hidden>
@@ -1000,9 +1000,9 @@
                                             <option style="cursor: pointer;"
                                                 class="dropdown-item service_filter_option service_place_{{ $service->place->id }}"
                                                 value="{{ $service->id }}" id="service_{{ $service->id }}"
-                                                onclick="setService({{ $service->id }}, '{{ $service->translations()->where('locale', 'ar')->first()->name }}', 'service_{{ $service->id }}')"
+                                                onclick="setService({{ $service->id }}, '{{ $service->translations()->where('locale', 'en')->first()->name }}', 'service_{{ $service->id }}')"
                                                 hidden href="#">
-                                                {{ $service->translations()->where('locale', 'ar')->first()->name }}
+                                                {{ $service->translations()->where('locale', 'en')->first()->name }}
                                             </option>
                                         @endforeach
                                         <input type="text" id="service_id" name="service_id" hidden>
@@ -1073,9 +1073,9 @@
                                         @foreach ($companies as $company)
                                             <option style="cursor: pointer;" class="dropdown-item"
                                                 value="{{ $company->id }}" id="company_{{ $company->id }}"
-                                                onclick="setCompany({{ $company->id }}, '{{ $company->translations()->where('locale', 'ar')->first()->name }}', 'company_{{ $company->id }}'), filterTransportations({{ $company->id }})"
+                                                onclick="setCompany({{ $company->id }}, '{{ $company->translations()->where('locale', 'en')->first()->name }}', 'company_{{ $company->id }}'), filterTransportations({{ $company->id }})"
                                                 href="#">
-                                                {{ $company->translations()->where('locale', 'ar')->first()->name }}
+                                                {{ $company->translations()->where('locale', 'en')->first()->name }}
                                             </option>
                                         @endforeach
                                         <input type="text" id="company_id" name="company_id" hidden>
@@ -1102,10 +1102,10 @@
                                                 class="dropdown-item transportation_filter_option transportation_company_{{ $transportation->transportCompany->id }}"
                                                 value="{{ $transportation->id }}"
                                                 id="transportation_{{ $transportation->id }}"
-                                                onclick="setTransportation({{ $transportation->id }}, '{{ $transportation->city->translations()->where('locale', 'ar')->first()->name }} - {{ $transportation->carId }} / عدد الركاب: {{ $transportation->passengers_number }}', 'transportation_{{ $transportation->id }}')"
+                                                onclick="setTransportation({{ $transportation->id }}, '{{ $transportation->city->translations()->where('locale', 'en')->first()->name }} - {{ $transportation->carId }} / عدد الركاب: {{ $transportation->passengers_number }}', 'transportation_{{ $transportation->id }}')"
                                                 hidden href="#">
 
-                                                {{ $transportation->city->translations()->where('locale', 'ar')->first()->name }}
+                                                {{ $transportation->city->translations()->where('locale', 'en')->first()->name }}
                                                 - {{ $transportation->carId }} / عدد الركاب:
                                                 {{ $transportation->passengers_number }}
                                             </option>
