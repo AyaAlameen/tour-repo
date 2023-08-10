@@ -20,7 +20,7 @@
         {{-- الأصناف --}}
         @foreach ($Category_places as $category)
             <h4 class="p-5" style="text-align: right;"> أماكن
-                ({{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'ar')->first()->name }})
+                {{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'ar')->first()->name }}
             </h4>
 
             <div class="container">

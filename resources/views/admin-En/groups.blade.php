@@ -1,12 +1,12 @@
-@extends('adminLayout-Ar.master')
+@extends('adminLayout-En.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:64%;">
-            <h1 class="app-content-headerText">الجروبات</h1>
+        <div class="app-content-header" style="width:68%;">
+            <h1 class="app-content-headerText">Groups</h1>
 
             <!-- add -->
             <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                إضافة جروب
+                 add group
             </button>
 
             <!-- Modal -->
@@ -15,7 +15,7 @@
                 <div class="modal-dialog ">
                     <div class="modal-content toggle">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">جروب جديد</h5>
+                            <h5 class="modal-title" id="exampleModal3Label">New group</h5>
                             <button type="button" class="btn-close m-0 close"
                                 onclick="removeMessages(), document.getElementById('add-form').reset()"
                                 data-bs-dismiss="modal" aria-label="Close">
@@ -25,12 +25,12 @@
                         <form id="add-form" action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
-                                <table style="color: rgb(22, 22, 22); width: 400px;"
+                                <table style="color: rgb(22, 22, 22); width: 400px; direction: rtl;"
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
                                     <tr>
                                         <td><input class="toggle text-primary in" type="text" name="name_ar" required
                                                 style="width: 100%;"></td>
-                                        <td>الاسم(العربية)</td>
+                                        <td>name(Arabic)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span>
@@ -39,7 +39,7 @@
                                     <tr>
                                         <td><input class="toggle text-primary in" type="text" name="name_en" required
                                                 style="width: 100%;"></td>
-                                        <td>الاسم(الإنجليزية)</td>
+                                        <td>name(English)</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
@@ -48,7 +48,7 @@
                                     <tr>
                                         <td><input class="toggle text-primary in" type="date" name="start_date" required
                                                 style="width: 100%;"></td>
-                                        <td>تاريخ البداية</td>
+                                        <td>start date</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span
@@ -57,7 +57,7 @@
                                     <tr>
                                         <td><input class="toggle text-primary in" type="date" name="end_date" required
                                                 style="width: 100%;"></td>
-                                        <td>تاريخ النهاية</td>
+                                        <td>end date</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span
@@ -74,11 +74,11 @@
                                                 <span id="guide-name"></span>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     @foreach ($guides as $guide)
-                                                        <option style="cursor: pointer;" class="dropdown-item"
+                                                        <option style="cursor: pointer; text-align: right;" class="dropdown-item"
                                                             value="{{ $guide->id }}" id="guide_{{ $guide->id }}"
-                                                            onclick="setGuide({{ $guide->id }}, '{{ $guide->translations()->where('locale', 'ar')->first()->name }}', 'guide_{{ $guide->id }}')"
+                                                            onclick="setGuide({{ $guide->id }}, '{{ $guide->translations()->where('locale', 'en')->first()->name }}', 'guide_{{ $guide->id }}')"
                                                             href="#">
-                                                            {{ $guide->translations()->where('locale', 'ar')->first()->name }}
+                                                            {{ $guide->translations()->where('locale', 'en')->first()->name }}
                                                         </option>
                                                     @endforeach
                                                     <input type="text" id="guide_id" name="tourist_guide_id" hidden>
@@ -86,7 +86,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>الدليل السياحي</td>
+                                        <td>tourist guide</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="guide_error"></span>
@@ -98,20 +98,20 @@
                                         <td>
                                             <textarea class="toggle text-primary in mt-2" name="description_ar" required style="width: 100%; height:27.5px;"></textarea>
                                         </td>
-                                        <td>وصف(العربية)</td>
+                                        <td>description (Arabic)</td>
                                     </tr>
                                     <tr>
 
                                         <td>
                                             <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;"></textarea>
                                         </td>
-                                        <td>(الانكليزية)وصف</td>
+                                        <td>description(English)</td>
                                     </tr>
                                     <tr>
 
                                         <td><input class="toggle text-primary in" type="number" name="people_count"
                                                 required style="width: 100%;"></td>
-                                        <td>عدد الأشخاص</td>
+                                        <td> people count</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span
@@ -121,7 +121,7 @@
 
                                         <td><input class="toggle text-primary in" type="number" name="cost" required
                                                 style="width: 100%;"></td>
-                                        <td>التكلفة</td>
+                                        <td>cost</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
@@ -135,9 +135,9 @@
                         </form>
                         <div class="modal-footer">
                             <button type="button" onclick="removeMessages(), document.getElementById('add-form').reset()"
-                                class="action-button active close" data-bs-dismiss="modal">إغلاق</button>
+                                class="action-button active close" data-bs-dismiss="modal">close</button>
                             <button type="button" id="add-group-btn" onclick="addGroup('add-form')"
-                                class="app-content-headerButton">حفظ</button>
+                                class="app-content-headerButton">save</button>
                         </div>
                     </div>
                 </div>
@@ -145,8 +145,8 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:65%;">
-            <input class="search-bar" placeholder="...ابحث" type="text">
+        <div class="app-content-actions" style="width:69%;">
+            <input class="search-bar" placeholder="search..." type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
                 <div class="filter-button-wrapper">
@@ -181,12 +181,12 @@
                             class="fas fa-globe "></i> </button>
 
                     <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
-                        <a href="{{ route('groupe_ar') }}" class="dropdown-item"> العربية</a>
-                        <a href="{{ route('groupe_en') }}" class="dropdown-item">الانجليزية </a>
+                        <a href="{{ route('groupe_ar') }}" class="dropdown-item"> Arabic</a>
+                        <a href="{{ route('groupe_en') }}" class="dropdown-item">English </a>
 
                     </div>
                 </div>
-                <button class="mode-switch" title="تبديل الثيم" style="margin-left:5px;">
+                <button class="mode-switch" title="sitch thim" style="margin-left:5px;">
                     <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                         <defs></defs>
@@ -195,18 +195,18 @@
                 </button>
             </div>
         </div>
-        <div class="scroll-class" style="width:65%;">
+        <div class="scroll-class" style="width:69%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
                     <div class="product-cell">#</div>
-                    <div class="product-cell">الاسم</div>
-                    <div class="product-cell">الدليل السياحي</div>
-                    <div class="product-cell">تاريخ البداية </div>
-                    <div class="product-cell">تاريخ النهاية </div>
-                    <div class="product-cell"> عدد الأشخاص</div>
-                    <div class="product-cell">التكلفة</div>
-                    <div class="product-cell">وصف</div>
-                    <div class="product-cell ">الأحداث</div>
+                    <div class="product-cell">name</div>
+                    <div class="product-cell">tourist guide</div>
+                    <div class="product-cell">start date </div> 
+                    <div class="product-cell">end date </div>
+                    <div class="product-cell">people count</div>
+                    <div class="product-cell">cost</div>
+                    <div class="product-cell">description</div>
+                    <div class="product-cell ">actions</div>
 
                 </div>
                 <div id="groups-data">
