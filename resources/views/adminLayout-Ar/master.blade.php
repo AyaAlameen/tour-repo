@@ -127,7 +127,7 @@
         // }).addTo(map);
 
         //----------------------- add map --------------------------------------
-        var map = L.map('add-map').setView([51.505, -0.09], 13); // set the initial view of the map
+        var map = L.map('add-map').setView([33.5138, 36.2765], 10); // set the initial view of the map
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles
             maxZoom: 18,
             attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -136,7 +136,7 @@
         map.on('click', function(e) {
             document.getElementById('coordinates').value = e.latlng.lat + ',' + e.latlng.lng;
         });
-
+     
         var markerIcon = L.icon({
             iconUrl: '{{ asset('img/marker.svg') }}',
             iconSize: [25, 41],

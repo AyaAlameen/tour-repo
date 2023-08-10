@@ -9,7 +9,7 @@
                         <div class="team-item bg-white mb-4" style="height: 400px;">
                             <div class="team-img position-relative overflow-hidden" style="flex-direction:column;">
                                 <img class="img-fluid p-5" style="width: 150px; height: 150px; box-sizing:content-box;"
-                                    src="img/vehicles.png"alt="">
+                                    src="{{ asset(str_replace(app_path(), '', $company->image)) }}" alt="">
 
                             </div>
                             <div class="text-center py-4" style="margin-top: -20px;">

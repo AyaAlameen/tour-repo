@@ -618,7 +618,7 @@
                                 </div>
                                 <div class="text-center py-4">
                                     <h5 class="text-truncate">
-                                        {{ $guide->translations()->where('locale', 'en')->first()->name }}</h5>
+                                        {{ $guide->translations()->where('locale', 'ar')->first()->name }}</h5>
                                     <a class="text-50 mb-2" href="{{route('travelguidesformore-ar', ['id'=> $guide->id])}}">للمزيد</a>
                                 </div>
                             </div>
