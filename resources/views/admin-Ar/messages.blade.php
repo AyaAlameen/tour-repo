@@ -15,18 +15,21 @@
                        <i class="fas fa-filter"></i>
                        فلترة الرسائل
                 </label>
-                <span id="place-name"></span>
+                <span id="filter-name"></span>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <option style="cursor: pointer;" class="dropdown-item">
+                    <option style="cursor: pointer;" class="dropdown-item" onclick="filterMessages('جميع الرسائل', 'all')">
                         جميع الرسائل
                      </option>
-                        <option style="cursor: pointer;" class="dropdown-item">
+                        <option style="cursor: pointer;" class="dropdown-item" onclick="filterMessages('الرسائل المنشورة', 'published')">
                            الرسائل المنشورة
                         </option>
-                         <option style="cursor: pointer;" class="dropdown-item">
-                            الرسائل التي لم تراها بعد
+                         <option style="cursor: pointer;" class="dropdown-item" onclick="filterMessages('الرسائل التي لم تشاهد بعد', 'seen')">
+                            الرسائل التي لم تشاهد بعد
                          </option>
-                    <input type="text" id="place_id" name="place_id" hidden>
+                         <form id="filter-form" action="" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <input type="text" id="filter_input" name="filter" hidden>
+                         </form>
 
                 </div>
             </div>
@@ -204,6 +207,41 @@
             })
             .fail(function(data) {
                 $('.parent').attr("hidden", false);
+            });
+    }
+
+    function filterMessages(title, type){
+        document.getElementById(`filter-name`).innerHTML = `${title}`;
+        document.getElementById('filter_input').value = `${type}`;
+
+
+
+        var formData = new FormData(document.getElementById('filter-form'));
+        
+        $.ajax({
+                url: `{{ route('filterMessageAr') }}`,
+                type: "POST",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                },
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#messages-data").empty();
+                $("#messages-data").append(data);
+                $('.close').click();
+                // clearInput();
+            })
+            .fail(function() {
+                $('.close').click();
+                $('.parent').attr("hidden", false);
+
+            })
+            .always(function() {
+                
             });
     }
 

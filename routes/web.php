@@ -159,6 +159,8 @@ Route::middleware(['admin'])->group(function(){
     Route::post('/message_en/publish', [MessageController::class, 'publishEn']) -> name('messagePublishEn');
     Route::post('/message_en/delete', [MessageController::class, 'destroyEn']) -> name('deleteMessageEn');
 
+    Route::post('/message_en/filter', [MessageController::class, 'filterMessageEn']) -> name('filterMessageEn');
+
     // Route::get('/home_en', function () {
     //     return view('admin-En.dashboared');
     // })-> name('home_en');
@@ -173,6 +175,8 @@ Route::middleware(['admin'])->group(function(){
     Route::post('/message_ar/seen', [MessageController::class, 'seenAr']) -> name('messageSeenAr');
     Route::post('/message_ar/publish', [MessageController::class, 'publishAr']) -> name('messagePublishAr');
     Route::post('/message_ar/delete', [MessageController::class, 'destroyAr']) -> name('deleteMessageAr');
+
+    Route::post('/message_ar/filter', [MessageController::class, 'filterMessageAr']) -> name('filterMessageAr');
 
     Route::get('/home_ar', [DashboardController::class, 'indexAr'])-> name('home_ar');
     Route::post('/home_ar/message/delete', [DashboardController::class, 'deleteMessageAr'])-> name('deleteMessageDashboardAr');

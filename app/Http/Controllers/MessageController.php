@@ -209,4 +209,32 @@ class MessageController extends Controller
         
         return view("admin-En.sections.message-section")->with(['messages' => $messages]);
     }
+
+    public function filterMessageAr(Request $request){
+        if($request->input('filter') == 'all'){
+            $messages = Message::with('user')->get();
+        }
+        elseif($request->input('filter') == 'published'){
+            $messages = Message::with('user')->where('publish', 1)->get();
+        }
+        elseif($request->input('filter') == 'seen'){
+            $messages = Message::with('user')->where('seen', 0)->get();
+
+        }
+        return view("admin-Ar.sections.message-section")->with(['messages' => $messages]);
+    }
+
+    public function filterMessageEn(Request $request){
+        if($request->input('filter') == 'all'){
+            $messages = Message::with('user')->get();
+        }
+        elseif($request->input('filter') == 'published'){
+            $messages = Message::with('user')->where('publish', 1)->get();
+        }
+        elseif($request->input('filter') == 'seen'){
+            $messages = Message::with('user')->where('seen', 0)->get();
+
+        }
+        return view("admin-En.sections.message-section")->with(['messages' => $messages]);
+    }
 }
