@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Models\Group;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,15 +18,23 @@ class DashboardController extends Controller
     public function indexAr()
     {
         $messages = Message::with('user')->where('seen', 0)->get();
-
-        return view('admin-Ar.dashboared', ['messages' => $messages]);
+        $month_groups = Group::whereMonth('start_date',  Carbon::now()->format('m'))->orwhereMonth('end_date',  Carbon::now()->format('m'))->get();
+        $employee = User::where('is_employee', '1')->get();
+        $place_employee = User::where('is_employee', '2')->get();
+        $users = User::where('is_employee', '0')->get();
+        
+        return view('admin-Ar.dashboared', ['messages' => $messages, 'month_groups' => $month_groups, 'employee' => $employee, 'place_employee' => $place_employee, 'users' => $users]);
 
     }
     public function indexEn()
     {
         $messages = Message::with('user')->where('seen', 0)->get();
-
-        return view('admin-En.dashboared', ['messages' => $messages]);
+        $month_groups = Group::whereMonth('start_date',  Carbon::now()->format('m'))->orwhereMonth('end_date',  Carbon::now()->format('m'))->get();
+        $employee = User::where('is_employee', '1')->get();
+        $place_employee = User::where('is_employee', '2')->get();
+        $users = User::where('is_employee', '0')->get();
+        
+        return view('admin-En.dashboared', ['messages' => $messages, 'month_groups' => $month_groups, 'employee' => $employee, 'place_employee' => $place_employee, 'users' => $users]);
 
     }
 

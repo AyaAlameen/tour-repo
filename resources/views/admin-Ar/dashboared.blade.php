@@ -183,7 +183,7 @@
             <div class="service-item  m-3" style="width: 19rem;">
                <img src="img/undraw_Site_stats_re_ejgy.png" height="215px" class="card-img-top" alt="...">
                <div class="card-body">
-                   <h5 class="card-text text-center">الأرباح في شهر</h5>
+                   <h5 class="card-text text-center">الأرباح في هذا الشهر</h5>
                    <div class="d-flex justify-content-Between p-3" >
                        <h4 class="text-end"><i title="الشهر الحالي" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
                        <h4 class="text-start"> <i title="الشهر االماضي" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
@@ -195,7 +195,7 @@
              <div class="service-item  m-3" style="width: 19rem;">
                <img src="img/undraw_Percentages_re_a1ao.png" height="215px" class="card-img-top" alt="...">
                <div class="card-body">
-                   <h5 class="card-text text-center">الحجوزات في شهر</h5>
+                   <h5 class="card-text text-center">الحجوزات في هذاالشهر</h5>
                    <div class="d-flex justify-content-Between p-3" >
                        <h4 class="text-end"><i title="الشهر الحالي" class="fas fa-calendar-alt" style="color: var(--bambi); font-size: 17px;"></i> 200</h4>
                        <h4 class="text-start"> <i title="الشهر الماضي" class="fas fa-calendar-check" style="color: var(--bambi); font-size: 17px;"></i> 300</h4>
@@ -217,7 +217,7 @@
                <img src="img/undraw_Analytics_re_dkf8.png" height="215px" class="card-img-top" alt="...">
                <div class="card-body">
                    <h5 class="card-text text-center">الرحلات التي تبدأ هذا الشهر</h5>
-                   <h4 class="text-center p-3">200</h4>
+                   <h4 class="text-center p-3">{{$month_groups->count()}}</h4>
                </div>
            </div>
            {{-- end card --}}
@@ -272,7 +272,7 @@
                <img src="img/undraw_Pie_chart_re_bgs8.png" height="215px" class="card-img-top" alt="...">
                <div class="card-body">
                    <h5 class="card-text text-center"> المستخدمين</h5>
-                   <h4 class="text-center p-3">200</h4>
+                   <h4 class="text-center p-3">{{$users->count()}}</h4>
                </div>
            </div>
            {{-- end card --}}
@@ -281,7 +281,7 @@
                <img src="img/undraw_Pie_graph_re_fvol.png" height="215px" class="card-img-top" alt="...">
                <div class="card-body">
                    <h5 class="card-text text-center"> الموظفين</h5>
-                   <h4 class="text-center p-3">200</h4>
+                   <h4 class="text-center p-3">{{$employee->count()}}</h4>
                </div>
            </div>
            {{-- end card --}}
@@ -289,8 +289,8 @@
             <div class="service-item  m-3" style="width: 19rem;">
                <img src="img/undraw_Personal_goals_re_iow7.png" height="215px" class="card-img-top" alt="...">
                <div class="card-body">
-                   <h5 class="card-text text-center">موظفي الموقع</h5>
-                   <h4 class="text-center p-3">200</h4>
+                   <h5 class="card-text text-center">موظفي الأماكن</h5>
+                   <h4 class="text-center p-3">{{$place_employee->count()}}</h4>
                </div>
            </div>
            {{-- end card --}}

@@ -410,6 +410,7 @@
         document.getElementById('user_name_error').innerHTML = '';
         document.getElementById('email_error').innerHTML = '';
         document.getElementById('password_error').innerHTML = '';
+        document.getElementById('place_error').innerHTML = '';
 
 
         const name_ar = document.querySelectorAll('.name_ar_error_edit');

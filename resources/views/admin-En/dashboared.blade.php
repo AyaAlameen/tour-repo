@@ -209,7 +209,7 @@
             <img src="img/undraw_Analytics_re_dkf8.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center">Trips in This Month</h5>
-                <h4 class="text-center p-3">200</h4>
+                <h4 class="text-center p-3">{{$month_groups->count()}}</h4>
             </div>
         </div>
         {{-- end card --}}
@@ -264,7 +264,7 @@
             <img src="img/undraw_Pie_chart_re_bgs8.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center"> Users</h5>
-                <h4 class="text-center p-3">200</h4>
+                <h4 class="text-center p-3">{{$users->count()}}</h4>
             </div>
         </div>
         {{-- end card --}}
@@ -273,7 +273,7 @@
             <img src="img/undraw_Pie_graph_re_fvol.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text text-center"> Employees</h5>
-                <h4 class="text-center p-3">200</h4>
+                <h4 class="text-center p-3">{{$employee->count()}}</h4>
             </div>
         </div>
         {{-- end card --}}
@@ -281,8 +281,8 @@
          <div class="service-item  m-3" style="width: 19rem;">
             <img src="img/undraw_Personal_goals_re_iow7.png" height="215px" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-text text-center"> WebSite Employees</h5>
-                <h4 class="text-center p-3">200</h4>
+                <h5 class="card-text text-center"> Place Employees</h5>
+                <h4 class="text-center p-3">{{$place_employee->count()}}</h4>
             </div>
         </div>
         {{-- end card --}}

@@ -79,9 +79,10 @@
                                                 id="password_error"></span></td>
                                     </tr>
                                     <tr>
-                                        <td >image </td>
+                                        
                                         <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
-                                    </tr> 
+                                            <td >Image </td>
+                                        </tr> 
                                     <tr > <td colspan="2"><span class="text-danger p-1" id="image_error"></span></td> </tr>
                                     <tr>
                                         <td>

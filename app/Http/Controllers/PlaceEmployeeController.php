@@ -69,6 +69,7 @@ class PlaceEmployeeController extends Controller
         $request->validate([
             'full_name_ar' => 'required',
             'full_name_en' => 'required',
+            'place_id' => 'required',
             'user_name' => ['required', 'unique:users'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => [
@@ -80,6 +81,7 @@ class PlaceEmployeeController extends Controller
         ], [
             'full_name_ar.required' => 'حقل الاسم الكامل (العربية) مطلوب',
             'full_name_en.required' => 'حقل الاسم الكامل (الإنجليزية) مطلوب',
+            'place_id.required' => 'حقل المكان مطلوب',
             'user_name.required' => 'حقل اسم المستخدم مطلوب',
             'user_name.unique' => 'اسم المستخدم هذا موجود من قبل',
             'email.required' => 'حقل الإيميل مطلوب',
@@ -99,6 +101,12 @@ class PlaceEmployeeController extends Controller
         $place_employee->email = $request->input('email');
         $place_employee->password = \Hash::make($request->input('password'));
         $place_employee->is_employee = '2';
+
+        if($request->has('image')){
+            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move('uploads/employeeImage', $upload_image_name);
+            $place_employee->image = 'uploads/employeeImage/'.$upload_image_name;
+        }
 
         $place_employee->save();
 
@@ -136,6 +144,7 @@ class PlaceEmployeeController extends Controller
         $request->validate([
             'full_name_ar' => 'required',
             'full_name_en' => 'required',
+            'place_id' => 'required',
             'user_name' => ['required', 'unique:users'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => [
@@ -147,6 +156,7 @@ class PlaceEmployeeController extends Controller
         ], [
             'full_name_ar.required' => 'Full Name(Arabic) feild is required',
             'full_name_en.required' => 'Full Name(English) feild is required',
+            'place_id.required' => 'Place feild is required',
             'user_name.required' => 'Username feild is required',
             'user_name.unique' => 'This user name already has an account',
             'email.required' => 'Email feild is required',
@@ -166,6 +176,11 @@ class PlaceEmployeeController extends Controller
         $place_employee->email = $request->input('email');
         $place_employee->password = \Hash::make($request->input('password'));
         $place_employee->is_employee = '2';
+        if($request->has('image')){
+            $upload_image_name = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move('uploads/employeeImage', $upload_image_name);
+            $place_employee->image = 'uploads/employeeImage/'.$upload_image_name;
+        }
 
         $place_employee->save();
 
@@ -234,6 +249,7 @@ class PlaceEmployeeController extends Controller
             'id' => 'required',
             'full_name_ar' => 'required',
             'full_name_en' => 'required',
+            'place_id' => 'required',
             'user_name' => ['required', 'unique:users,user_name,'.$request->input('id')],
             'email' => ['required', 'email', 'unique:users,email,'.$request->input('id')],
             // 'password' => [
@@ -245,6 +261,7 @@ class PlaceEmployeeController extends Controller
         ], [
             'full_name_ar.required' => 'حقل الاسم الكامل (العربية) مطلوب',
             'full_name_en.required' => 'حقل الاسم الكامل (الإنجليزية) مطلوب',
+            'place_id.required' => 'حقل المكان مطلوب',
             'user_name.required' => 'حقل اسم المستخدم مطلوب',
             'user_name.unique' => 'اسم المستخدم هذا موجود من قبل',
             'email.required' => 'حقل الإيميل مطلوب',
@@ -263,7 +280,13 @@ class PlaceEmployeeController extends Controller
         $place_employee->email = $request->input('email');
         // $place_employee->password = $request->input('password');
         // $place_employee->is_employee = '2';
-
+        if($request->files->has('image')){
+            $image_name = $request->files->get('image');
+            $org_name = $image_name->getClientOriginalName();
+            $upload_image_name = time().'_'.$org_name;
+            $image_name->move('uploads/employeeImage', $upload_image_name);
+            $place_employee->image = 'uploads/employeeImage/'.$upload_image_name;
+        }
         $permission = Permission::where('code', 'Like', 'employee_place')->first();
         $place_employee->permissions()->syncWithPivotValues($permission, ['place_id' => $request->input("place_id")]);
         
@@ -295,6 +318,7 @@ class PlaceEmployeeController extends Controller
             'id' => 'required',
             'full_name_ar' => 'required',
             'full_name_en' => 'required',
+            'place_id' => 'required',
             'user_name' => ['required', 'unique:users,user_name,'.$request->input('id')],
             'email' => ['required', 'email', 'unique:users,email,'.$request->input('id')],
             // 'password' => [
@@ -306,6 +330,7 @@ class PlaceEmployeeController extends Controller
         ], [
             'full_name_ar.required' => 'Full Name(Arabic) feild is required',
             'full_name_en.required' => 'Full Name(English) feild is required',
+            'place_id.required' => 'Place feild is required',
             'user_name.required' => 'Username feild is required',
             'user_name.unique' => 'This user name already has an account',
             'email.required' => 'Email feild is required',
@@ -323,7 +348,13 @@ class PlaceEmployeeController extends Controller
         $place_employee->email = $request->input('email');
         // $place_employee->password = $request->input('password');
         // $place_employee->is_employee = '2';
-
+        if($request->files->has('image')){
+            $image_name = $request->files->get('image');
+            $org_name = $image_name->getClientOriginalName();
+            $upload_image_name = time().'_'.$org_name;
+            $image_name->move('uploads/employeeImage', $upload_image_name);
+            $place_employee->image = 'uploads/employeeImage/'.$upload_image_name;
+        }
         $permission = Permission::where('code', 'Like', 'employee_place')->first();
         $place_employee->permissions()->syncWithPivotValues($permission, ['place_id' => $request->input("place_id")]);
         
