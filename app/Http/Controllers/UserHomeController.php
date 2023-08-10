@@ -24,7 +24,7 @@ class UserHomeController extends Controller
             $query->with(['images' => function($q){
                 $q->first();
             }]);
-        }])->get();
+        }])->take(3)->get();
 // dd($groups);
         return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups]);
 
