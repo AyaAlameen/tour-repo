@@ -118,10 +118,7 @@
                 
             }
            
-            if (origin == "http://127.0.0.1:8000/tripmore") {
-              event.target.href="http://127.0.0.1:8000/tripmore-ar"
-                
-            }
+           
            
             var city_index = [];
             for (var i = 1; i <= 1000; i++) {
@@ -131,6 +128,12 @@
             for (let i = 0; i < city_index.length; i++) {
                 if (origin == "http://127.0.0.1:8000/user_city_en/" + city_index[i]) {
                     event.target.href = "http://127.0.0.1:8000/user_city_ar/" + city_index[i]
+
+                }
+            }
+            for (let i = 0; i < city_index.length; i++) {
+                if (origin == "http://127.0.0.1:8000/tripmore/" + city_index[i]) {
+                    event.target.href = "http://127.0.0.1:8000/tripmore-ar/" + city_index[i]
 
                 }
             }
@@ -220,11 +223,7 @@
               event.target.href="http://127.0.0.1:8000/trips"
                 
             }
-            if (origin == "http://127.0.0.1:8000/tripmore-ar") {
-              event.target.href="http://127.0.0.1:8000/tripmore"
-                
-            }
-            
+                        
             var city_index = [];
             for (var i = 1; i <= 1000; i++) {
                 city_index.push(i);
@@ -232,6 +231,12 @@
             for (let i = 0; i < city_index.length; i++) {
             if (origin == "http://127.0.0.1:8000/user_city_ar/" + city_index[i]) {
                 event.target.href = "http://127.0.0.1:8000/user_city_en/"+ city_index[i];
+
+            }
+             }
+             for (let i = 0; i < city_index.length; i++) {
+            if (origin == "http://127.0.0.1:8000/tripmore-ar/" + city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/tripmore/"+ city_index[i];
 
             }
              }
