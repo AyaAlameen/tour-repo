@@ -461,7 +461,8 @@ Route::middleware(['tourist_guide'])->group(function(){
 //     return view('user.home');
 // })-> name('home');
 
-Route::post('/profile/edit', [UserController::class, 'editProfileAr'])-> name('editProfileAr');
+Route::post('/profile_ar/edit', [UserController::class, 'editProfileAr'])-> name('editProfileAr');
+Route::post('/profile_en/edit', [UserController::class, 'editProfileEn'])-> name('editProfileEn');
 
 
 

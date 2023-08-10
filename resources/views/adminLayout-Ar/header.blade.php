@@ -205,7 +205,9 @@
                                             </div>
                                             <input class="m-auto p-1" type="password" value="" name="old_password"
                                                 style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;" />
-                                                <p id="old_error" class="text-danger"></p>
+                                                
+                                                <p id="old_error" class="m-auto p-1 text-danger" style="text-align: right; margin-left:95px !important;"></p>
+
                                         </div>
 
                                         <div id="NewPassword" hidden="true">
@@ -229,7 +231,8 @@
                                             <input class="m-auto p-1" type="password" value="" name="password_confirmation"
                                                 style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
                                                 value="Aya Alameen" />
-                                                <p id="confirmation_error" class="text-danger"></p>
+                                                <p id="confirmation_error" class="m-auto p-1 text-danger" style="text-align: right; margin-left:95px !important;"></p>
+                                                
                                         </div>
                                     </form>
 
