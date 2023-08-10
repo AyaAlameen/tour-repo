@@ -38,9 +38,12 @@
                     <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                         <div class="d-flex">
                             <div class="text-center ">
+                                @if ($place->images()->count() > 0)
+
                                 <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
                                     style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                                     height="200px">
+                                    @endif
                                 <div>
                                     <i class="fas fa-star p-2"></i>
                                     <i class="fas fa-star p-2 "></i>

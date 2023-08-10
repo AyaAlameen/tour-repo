@@ -467,6 +467,13 @@ class PlaceController extends Controller
 
     }
 
+    public function placeDetailsEn($id){
+        $place = Place::with('translations', 'services', 'images')->find($id);
+
+        return view('user.place_details')->with(['place' => $place]);
+
+    }
+
     public function placeImagesAr($id){
         $place = Place::with('translations')->find($id);
         $images = $place->images;
