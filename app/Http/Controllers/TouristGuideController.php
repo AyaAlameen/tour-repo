@@ -194,6 +194,9 @@ class TouristGuideController extends Controller
             $image_name->move('uploads/touristGuideImage', $upload_image_name);
             $guide->image = 'uploads/touristGuideImage/'.$upload_image_name;
         }
+        $guide->salary = $request->input('salary');
+        $guide->phone = $request->input('phone');
+        $guide->email = $request->input('email');
 
         $guide->translations()->where('locale', 'en')->update([
             'name'=>  $data['name_en'],
@@ -245,6 +248,9 @@ class TouristGuideController extends Controller
             $image_name->move('uploads/touristGuideImage', $upload_image_name);
             $guide->image = 'uploads/touristGuideImage/'.$upload_image_name;
         }
+        $guide->salary = $request->input('salary');
+        $guide->phone = $request->input('phone');
+        $guide->email = $request->input('email');
 
         $guide->translations()->where('locale', 'en')->update([
             'name'=>  $data['name_en'],

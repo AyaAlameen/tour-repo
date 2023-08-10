@@ -23,6 +23,7 @@ use App\Http\Controllers\UserGroupController;
 use App\Http\Controllers\UserTransportCompanyController;
 use App\Http\Controllers\UserGuideController;
 use App\Http\Controllers\UserOfferController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -459,6 +460,10 @@ Route::middleware(['tourist_guide'])->group(function(){
 // Route::get('/', function () {
 //     return view('user.home');
 // })-> name('home');
+
+Route::post('/profile/edit', [UserController::class, 'editProfileAr'])-> name('editProfileAr');
+
+
 
 Route::get('/home-en', [UserHomeController::class, 'indexEn'])-> name('home-en');
 
