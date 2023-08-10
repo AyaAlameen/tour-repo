@@ -290,52 +290,54 @@
             </div>
             <div class="row">
                 @foreach ($groups as $group)
-                    <!-- بداية الكارد -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="package-item bg-white mb-2">
-                            <!-- صور أماكن الرحلة -->
-                            <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
-                                
-                                <div class="carousel-inner">
-                                    {{--بداية الصور--}}
-                                    {{-- بس أول صور بدا كلاس active --}}
-                                    <div class="carousel-item active">
-                                        <img class="img-fluid w-100" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg"
-                                            alt="">
+                  
+                        <!-- بداية الكارد -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="package-item bg-white mb-2">
+                                <!-- صور أماكن الرحلة -->
+                                <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
+                                    
+                                    <div class="carousel-inner">
+                                        {{--بداية الصور--}}
+                                        {{-- بس أول صور بدا كلاس active --}}
+                                        <div class="carousel-item active">
+                                            <img class="img-fluid w-100 h-50" src="img/sur-city-tour1.jpg"
+                                                alt="">
+                                        </div>
+                                        {{-- نهاية الصور --}}
+                                        
                                     </div>
-                                    {{-- نهاية الصور --}}
-                                    
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
                                 </div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!-- نهاية صور أماكن الرحلة -->
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3">
-                                    
-                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3
-                                        أيام</small>
-                                </div>
-                                <br>
-                                <a class="h5 text-decoration-none" href="">الوصف</a>
-                                <div class="border-top mt-4 pt-4">
-                                    <div class="d-flex justify-content-between align-items-baseline">
-                                        <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
-                                        <h6><a class="btn btn-primary"  href="{{route('tripmore-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+                                <!-- نهاية صور أماكن الرحلة -->
+                                <div class="p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        
+                                        <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>1
+                                            أيام</small>
+                                    </div>
+                                   
+                                    <h5 style="color: var(--bambi);">رحلة ليوم واحد للترفيه عن النفس و استغلال كامل اليوم بالفقرات الممتعة </h5>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between align-items-baseline">
+                                            <h5 class="m-0" style="direction:rtl;">500.000 <small>ل.س</small></h5>
+                                            <h6><a class="btn btn-primary"  href="{{route('tripmore-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- نهاية الكارد -->
+                        <!-- نهاية الكارد -->
+                           
                 @endforeach
 
             </div>
@@ -622,105 +624,92 @@
                     <h1>أفضل العروض</h1>
                 </div>
                 <div class="owl-carousel testimonial-carousel">
+                
                     <!-- بداية الكارد -->
                     <div class="text-center pb-4 mb-3" style="direction:rtl;">
                         <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                            <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                                maiores modi iure consequuntur
-                                eum vel voluptate excepturi veritatis commodi.
-                                A unde fuga quas voluptates ab sunt blanditiis eaque!
-                            </p>
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
+                            <h5 class="text-truncate mt-5">فندق زكي</h5>
+                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
+                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40000</span>
+                                <span>الكلفة : 40,000</span>
                                 <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
                     <!-- نهاية الكارد -->
 
-
-                    <!-- بداية الكارد -->
-                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                      <!-- بداية الكارد -->
+                      <div class="text-center pb-4 mb-3" style="direction:rtl;">
                         <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                            <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                                maiores modi iure consequuntur
-                                eum vel voluptate excepturi veritatis commodi.
-                                A unde fuga quas voluptates ab sunt blanditiis eaque! dghld sdkhusd sdfudfus fsuu </p>
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
+                            <h5 class="text-truncate mt-5">فندق زكي</h5>
+                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
+                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40000</span>
+                                <span>الكلفة : 40,000</span>
                                 <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
                     <!-- نهاية الكارد -->
 
-
-                    <!-- بداية الكارد -->
-                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                      <!-- بداية الكارد -->
+                      <div class="text-center pb-4 mb-3" style="direction:rtl;">
                         <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                            <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                                maiores modi iure consequuntur
-                                eum vel voluptate ex </p>
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
+                            <h5 class="text-truncate mt-5">فندق زكي</h5>
+                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
+                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40000</span>
+                                <span>الكلفة : 40,000</span>
                                 <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
                     <!-- نهاية الكارد -->
 
-
-                    <!-- بداية الكارد -->
-                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                      <!-- بداية الكارد -->
+                      <div class="text-center pb-4 mb-3" style="direction:rtl;">
                         <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                            <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                                maiores modi iure consequuntur
-                                eum vel voluptate excepturi veritatis commodi.
-                                A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
+                            <h5 class="text-truncate mt-5">فندق زكي</h5>
+                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
+                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40000</span>
+                                <span>الكلفة : 40,000</span>
                                 <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
                     <!-- نهاية الكارد -->
 
-
-                    <!-- بداية الكارد -->
-                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                      <!-- بداية الكارد -->
+                      <div class="text-center pb-4 mb-3" style="direction:rtl;">
                         <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                            <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                            <h5 class="text-truncate">اسم العرض</h5>
-                            <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                                maiores modi iure consequuntur
-                                eum vel voluptate excepturi veritatis commodi.
-                                A unde fuga quas voluptates ab sunt blanditiis eaque! ddd ddd ddd ddd ddd ddd ddd ddd ddd
-                                ddd ddd ddd ddd ddd </p>
+                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
+                            <h5 class="text-truncate mt-5">فندق زكي</h5>
+                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
+                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
 
                             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40000</span>
+                                <span>الكلفة : 40,000</span>
                                 <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
                             </div>
                         </div>
                     </div>
                     <!-- نهاية الكارد -->
+
+ 
+           
+ 
+
+               
 
 
 
@@ -743,9 +732,9 @@
                     <div class="col-lg-4 col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
+                                <img class="img-fluid w-100" src="img/zaki-hotel-apartments.jpg" alt="">
                                 <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01 / <i class="text-white text-uppercase">7</i></b>
+                                    <h6 class="font-weight-bold mb-n1">15 / <i class="text-white text-uppercase">8</i></b>
                                 </div>
                             </div>
                             <div class="bg-white p-4">
@@ -761,6 +750,9 @@
                     </div>
        
            {{-- نهاية الكارد --}}
+
+           
+   
                 </div>
             </div>
         </div>
