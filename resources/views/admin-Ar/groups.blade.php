@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:64%;">
+        <div class="app-content-header" style="width:74%;">
             <h1 class="app-content-headerText">الجروبات</h1>
 
             <!-- add -->
@@ -145,7 +145,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:65%;">
+        <div class="app-content-actions" style="width:75%;">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم " type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -196,7 +196,7 @@
                 </button>
             </div>
         </div>
-        <div class="scroll-class" style="width:65%;">
+        <div class="scroll-class" style="width:75%;">
             <div class="products-area-wrapper tableView" id="groupsTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>

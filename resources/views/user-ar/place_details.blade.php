@@ -191,17 +191,16 @@
     {{-- comments --}}
     <div class="container m-5" style="text-align: end;">
         <h3>تعليقات حول {{$place->translations()->where('locale', 'ar')->first()->name}}</h3>
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-start">
             <div>
                 {{-- بداية التعليق --}}
                 <div class="m-5">
                     <div class=" d-flex align-items-center">
                         <img src="../img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
                             width="70px" height="70px">
-                        <h5>اسم المستخدم</h5>
+                        <h5>aya_alameen111</h5>
                     </div>
-                    <p class="text-body w-50 text-end" style="margin-left:40%; ">Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+                    <p class="text-body w-50 text-end" style="margin-left:40%; ">يرجى الاهتمام بنظافة الفندق بطريقة أفضل</p>
     
                 </div>
                 {{-- نهاية التعليق --}}
@@ -211,10 +210,9 @@
                     <div class=" d-flex align-items-center">
                         <img src="../img/1656869576_personalimg.jpg" style="border-radius:50%; margin-left: 10px; "
                             width="70px" height="70px">
-                        <h5>اسم المستخدم</h5>
+                        <h5>Khaled_alashkar</h5>
                     </div>
-                    <p class="text-body w-50 text-end" style="margin-left:40%; ">Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
+                    <p class="text-body w-50 text-end" style="margin-left:40%; ">المكان رائع لكنه يحتاج بعض الاهتمام و التصليحات!</p>
     
                 </div>
                 {{-- نهاية التعليق --}}
@@ -332,20 +330,20 @@
         {{-- الخدمات --}}
         <div class="pr-5">
 
-            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الأساسية المقدمة في{{$place->translations()->where('locale', 'ar')->first()->name}}</h4>
+            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الأساسية المقدمة في {{$place->translations()->where('locale', 'ar')->first()->name}}</h4>
 
             {{-- بداسة كارد الخدمات الغير إضافية--}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
-                        <img src="../img/aleppo-palace-hotel.jpg"
+                        <img src="../img/photo0jpg.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
                       
                     </div>
                     <div class="pt-4">
                         <div class="d-flex " style="justify-content: space-between;">
-                            <h4 class="text-right p-2">اسم الخدمة</h4>
+                            <h4 class="text-right p-2">غرفة لشخصين</h4>
                         </div>
                         <p class="text-right pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
                             . Exercitationem, corporis rem culpa perspiciatis
@@ -372,27 +370,26 @@
             {{-- نهاية كارد الخدمات الغير إضافية --}}
 
 
-            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الإضافية المقدمة في{{$place->translations()->where('locale', 'ar')->first()->name}} </h4>
+            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الإضافية المقدمة في {{$place->translations()->where('locale', 'ar')->first()->name}} </h4>
     
             {{-- بداسة كارد الخدمات  الإضافية--}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
-                        <img src="../img/aleppo-palace-hotel.jpg"
+                        <img src="../img/sur-plaza-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
                       
                     </div>
                     <div class="pt-4">
                         <div class="d-flex " style="justify-content: space-between;">
-                            <h4 class="text-right p-2">اسم الخدمة</h4>
+                            <h4 class="text-right p-2">مسبح الفندق</h4>
                         </div>
                         <p class="text-right pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
                             . Exercitationem, corporis rem culpa perspiciatis
-                            odit architecto expedita iure illum error inventore m
-                            inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
+                           </p>
                         <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
-                            <h6 class="d-inline ml-4">التكلفة : 60000</h6>
+                            <h6 class="d-inline ml-4">التكلفة : 20000</h6>
                             @isset(Auth::user()->id)
                                 <button class="btn btn-primary ml-4" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal20">حجز</button>

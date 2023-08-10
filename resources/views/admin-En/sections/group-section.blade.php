@@ -3,15 +3,7 @@
 
     @if ($loop->last)
     <div class="products-row">
-        <button class="cell-more-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="feather feather-more-vertical">
-                <circle cx="12" cy="12" r="1" />
-                <circle cx="12" cy="5" r="1" />
-                <circle cx="12" cy="19" r="1" />
-            </svg>
-        </button>
+       
         <div class="product-cell">
             <span>{{ $i++ }}</span>
         </div>
@@ -68,7 +60,7 @@
                                             <td><input type="text" name="name_ar" class="toggle text-primary in"
                                                     value="{{ $group->translations()->where('locale', 'ar')->first()->name }}">
                                             </td>
-                                            <td>الاسم(العربية)</td>
+                                            <td>name(Arabic)</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -79,7 +71,7 @@
                                             <td><input type="text" name="name_en" class="toggle text-primary in"
                                                     value="{{ $group->translations()->where('locale', 'en')->first()->name }}">
                                             </td>
-                                            <td>الاسم(الإنجليزية)</td>
+                                            <td>name(English)</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -89,7 +81,7 @@
                                             <td><input class="toggle text-primary in" type="date"
                                                     name="start_date" required style="width: 100%;"
                                                     value="{{ $group->start_date }}"></td>
-                                            <td>تاريخ البداية</td>
+                                            <td>start date</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -99,7 +91,7 @@
                                             <td><input class="toggle text-primary in" type="date" name="end_date"
                                                     required style="width: 100%;" value="{{ $group->end_date }}">
                                             </td>
-                                            <td>تاريخ النهاية</td>
+                                            <td>send date</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -137,7 +129,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>الدليل السياحي</td>
+                                            <td>tourist guide</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -148,21 +140,21 @@
                                             <td>
                                                 <textarea class="toggle text-primary in mt-2" name="description_ar" required style="width: 100%; height:27.5px;">{{ $group->translations()->where('locale', 'ar')->first()->description }}</textarea>
                                                 </th>
-                                            <td>وصف(العربية)</td>
+                                            <td>description(Arabic)</td>
                                         </tr>
                                         <tr>
 
                                             <td>
                                                 <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;">{{ $group->translations()->where('locale', 'en')->first()->description }}</textarea>
                                                 </th>
-                                            <td>(الإنجليزية)وصف</td>
+                                            <td>description(English)</td>
                                         </tr>
                                         <tr>
 
                                             <td><input type="number" name="people_count"
                                                     class="toggle text-primary in"
                                                     value="{{ $group->people_count }}"></td>
-                                            <td>عدد الأشخاص</td>
+                                            <td>people count</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -173,7 +165,7 @@
                                             <td><input type="number" name="cost"
                                                     class="toggle text-primary in" value="{{ $group->cost }}">
                                             </td>
-                                            <td>التكلفة</td>
+                                            <td>cost</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -188,10 +180,10 @@
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="action-button active close"
-                                    onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
+                                    onclick="removeMessages()" data-dismiss="modal">close</button>
                                 <button type="submit" id="edit-group-btn-{{ $group->id }}"
                                     onclick="editGroup('edit-form-{{ $group->id }}', {{ $group->id }})"
-                                    class="app-content-headerButton">حفظ التغييرات</button>
+                                    class="app-content-headerButton">save Changes</button>
                             </div>
                         </div>
                     </div>
@@ -208,7 +200,7 @@
                     <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
                         <div class="modal-content" style="width:800px;">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalToggleeLabel">إضافة وجهة</h5>
+                                <h5 class="modal-title" id="exampleModalToggleeLabel">add destination</h5>
                                 <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
                                     aria-label="Close" onclick="document.getElementById('group_id').value = '';">
                                     <span aria-hidden="true">&times;</span>
@@ -220,17 +212,17 @@
                                 @if ($group->places->count() == 0)
                                     <img src="../img/destination.png" class="m-3"
                                         style="width:150px; height:150px; opacity:0.5;">
-                                    <p class="text-body mb-4">لا توجد وجهات مضافة بعد</p>
+                                    <p class="text-body mb-4">there are no added destinations yet</p>
                                 @else
                                     <!-- هاد الشكل بحال كان ضايف وجهات -->
-                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
+                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:ltr;"
                                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                                         <tr>
-                                            <td class="text-center">المحافظة</td>
-                                            <td class="text-center">الناحية</td>
-                                            <td class="text-center">لمكان</td>
-                                            <td class="text-center">الخدمة</td>
-                                            <td class="text-center" style="width:140px;">الكلفة</td>
+                                            <td class="text-center">governates</td>
+                                            <td class="text-center">district</td>
+                                            <td class="text-center">place</td>
+                                            <td class="text-center">service</td>
+                                            <td class="text-center" style="width:140px;">cost</td>
 
 
                                             <td style="width:40px;"></td>
@@ -286,7 +278,7 @@
                             <div class="modal-footer">
                                 <button class="btn btn-primary" style="border-radius:3px;"
                                     data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal"
-                                    data-bs-dismiss="modal">إضافة وجهة جديدة</button>
+                                    data-bs-dismiss="modal">add New destination</button>
                             </div>
                         </div>
                     </div>
@@ -304,7 +296,7 @@
                     <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
                         <div class="modal-content" style="width:800px; direction:ltr;">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalToggleLabel">إضافة وسيلة نقل</h5>
+                                <h5 class="modal-title" id="exampleModalToggleLabel">Add New transportation</h5>
                                 <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
                                     aria-label="Close"
                                     onclick="document.getElementById('group_id_for_company').value = '';">
@@ -317,17 +309,17 @@
                                     <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
                                     <img src="../img/vehicles.png" class="m-3"
                                         style="width:150px; height:150px; opacity:0.5;">
-                                    <p class="text-body mb-4">لا يوجد بعد وسائل نقل مضافة </p>
+                                    <p class="text-body mb-4">there ar no added transportations yet</p>
                                 @else
                                     <!-- هاد الشكل بحال كان ضايف وسائل -->
-                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
+                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:ltr;"
                                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                                         <tr>
-                                            <td class="text-center">شركة النقل</td>
-                                            <td class="text-center">وسيلة النقل</td>
-                                            <td class="text-center" style="width:90px;">عدد الركاب</td>
-                                            <td class="text-center" style="width:290px;">المواصفات</td>
-                                            <td>في تاريخ</td>
+                                            <td class="text-center">transport compaby</td>
+                                            <td class="text-center">transportation</td>
+                                            <td class="text-center" style="width:90px;">passengers count</td>
+                                            <td class="text-center" style="width:290px;">specifications</td>
+                                            <td>in date</td>
                                             <td></td>
                                         </tr>
                                         {{-- عرض وسائل النقل لهي الرحلة --}}
@@ -380,7 +372,7 @@
                             <div class="modal-footer">
                                 <button class="btn btn-primary" style="border-radius:3px;"
                                     data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-                                    data-bs-dismiss="modal">إضافة وسيلة نقل جديدة</button>
+                                    data-bs-dismiss="modal">Add New transportation</button>
                             </div>
 
                         </div>
@@ -407,15 +399,15 @@
                                 @csrf
                                 <input type="text" name="id" value="{{ $group->id }}" hidden>
                                 <div class="modal-body" style="direction:rtl;">
-                                    هل أنت متأكد من أنك تريد حذف هذا الجروب (<span
+                                    are you shure that you want to delete this group (<span
                                         style="color: #90aaf8;">{{ $group->translations()->where('locale', 'en')->first()->name }}</span>)
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="action-button active close"
-                                        data-dismiss="modal">إغلاق</button>
+                                        data-dismiss="modal">close</button>
                                     <button type="submit" id="delete-group-btn-{{ $group->id }}"
                                         onclick="deleteGroup(`delete-form-{{ $group->id }}`, {{ $group->id }})"
-                                        class="app-content-headerButton">نعم</button>
+                                        class="app-content-headerButton">yes</button>
                                 </div>
                             </form>
                         </div>
@@ -433,15 +425,7 @@
     </div>
     @else
     <div class="products-row">
-        <button class="cell-more-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="feather feather-more-vertical">
-                <circle cx="12" cy="12" r="1" />
-                <circle cx="12" cy="5" r="1" />
-                <circle cx="12" cy="19" r="1" />
-            </svg>
-        </button>
+       
         <div class="product-cell">
             <span>{{ $i++ }}</span>
         </div>
@@ -465,7 +449,7 @@
             <span>{{ $group->cost }}</span>
         </div>
         <div class="product-cell">
-            <span>{{ $group->translations()->where('locale', 'ar')->first()->description }}</span>
+            <span>{{ $group->translations()->where('locale', 'en')->first()->description }}</span>
         </div>
         <div class="product-cell">
             <!-- start action -->
@@ -492,13 +476,13 @@
                                 <div class="modal-body">
                                     <table
                                         class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                        style="width: 400px;">
+                                        style="width: 400px; direction: rtl;">
                                         <tr>
 
                                             <td><input type="text" name="name_ar" class="toggle text-primary in"
                                                     value="{{ $group->translations()->where('locale', 'ar')->first()->name }}">
                                             </td>
-                                            <td>الاسم(العربية)</td>
+                                            <td>name(Arabic)</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -509,7 +493,7 @@
                                             <td><input type="text" name="name_en" class="toggle text-primary in"
                                                     value="{{ $group->translations()->where('locale', 'en')->first()->name }}">
                                             </td>
-                                            <td>الاسم(الإنجليزية)</td>
+                                            <td>name(English)</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -519,7 +503,7 @@
                                             <td><input class="toggle text-primary in" type="date"
                                                     name="start_date" required style="width: 100%;"
                                                     value="{{ $group->start_date }}"></td>
-                                            <td>تاريخ البداية</td>
+                                            <td>start date</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -529,7 +513,7 @@
                                             <td><input class="toggle text-primary in" type="date" name="end_date"
                                                     required style="width: 100%;" value="{{ $group->end_date }}">
                                             </td>
-                                            <td>تاريخ النهاية</td>
+                                            <td>send date</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -567,7 +551,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>الدليل السياحي</td>
+                                            <td>tourist guide</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -578,21 +562,21 @@
                                             <td>
                                                 <textarea class="toggle text-primary in mt-2" name="description_ar" required style="width: 100%; height:27.5px;">{{ $group->translations()->where('locale', 'ar')->first()->description }}</textarea>
                                                 </th>
-                                            <td>وصف(العربية)</td>
+                                            <td>description(Arabic)</td>
                                         </tr>
                                         <tr>
 
                                             <td>
                                                 <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;">{{ $group->translations()->where('locale', 'en')->first()->description }}</textarea>
                                                 </th>
-                                            <td>(الإنجليزية)وصف</td>
+                                            <td>description(English)</td>
                                         </tr>
                                         <tr>
 
                                             <td><input type="number" name="people_count"
                                                     class="toggle text-primary in"
                                                     value="{{ $group->people_count }}"></td>
-                                            <td>عدد الأشخاص</td>
+                                            <td>people count</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -603,7 +587,7 @@
                                             <td><input type="number" name="cost"
                                                     class="toggle text-primary in" value="{{ $group->cost }}">
                                             </td>
-                                            <td>التكلفة</td>
+                                            <td>cost</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -618,10 +602,10 @@
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="action-button active close"
-                                    onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
+                                    onclick="removeMessages()" data-dismiss="modal">close</button>
                                 <button type="submit" id="edit-group-btn-{{ $group->id }}"
                                     onclick="editGroup('edit-form-{{ $group->id }}', {{ $group->id }})"
-                                    class="app-content-headerButton">حفظ التغييرات</button>
+                                    class="app-content-headerButton">save Changes</button>
                             </div>
                         </div>
                     </div>
@@ -638,7 +622,7 @@
                     <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
                         <div class="modal-content" style="width:800px;">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalToggleeLabel">إضافة وجهة</h5>
+                                <h5 class="modal-title" id="exampleModalToggleeLabel">add destination</h5>
                                 <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
                                     aria-label="Close" onclick="document.getElementById('group_id').value = '';">
                                     <span aria-hidden="true">&times;</span>
@@ -650,17 +634,17 @@
                                 @if ($group->places->count() == 0)
                                     <img src="../img/destination.png" class="m-3"
                                         style="width:150px; height:150px; opacity:0.5;">
-                                    <p class="text-body mb-4">لا توجد وجهات مضافة بعد</p>
+                                    <p class="text-body mb-4">there are no added destinations yet</p>
                                 @else
                                     <!-- هاد الشكل بحال كان ضايف وجهات -->
-                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
+                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:ltr;"
                                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                                         <tr>
-                                            <td class="text-center">المحافظة</td>
-                                            <td class="text-center">الناحية</td>
-                                            <td class="text-center">لمكان</td>
-                                            <td class="text-center">الخدمة</td>
-                                            <td class="text-center" style="width:140px;">الكلفة</td>
+                                            <td class="text-center">governates</td>
+                                            <td class="text-center">district</td>
+                                            <td class="text-center">place</td>
+                                            <td class="text-center">service</td>
+                                            <td class="text-center" style="width:140px;">cost</td>
 
 
                                             <td style="width:40px;"></td>
@@ -716,7 +700,7 @@
                             <div class="modal-footer">
                                 <button class="btn btn-primary" style="border-radius:3px;"
                                     data-bs-target="#exampleModalTogglee2" data-bs-toggle="modal"
-                                    data-bs-dismiss="modal">إضافة وجهة جديدة</button>
+                                    data-bs-dismiss="modal">add New destination</button>
                             </div>
                         </div>
                     </div>
@@ -734,7 +718,7 @@
                     <div class="modal-dialog" style="max-width:1000px; margin: 5% 20%;">
                         <div class="modal-content" style="width:800px; direction:ltr;">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalToggleLabel">إضافة وسيلة نقل</h5>
+                                <h5 class="modal-title" id="exampleModalToggleLabel">Add New transportation</h5>
                                 <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal"
                                     aria-label="Close"
                                     onclick="document.getElementById('group_id_for_company').value = '';">
@@ -747,17 +731,17 @@
                                     <!-- هاد الشكل بحال كان لسا مالو ضايف وسائل  -->
                                     <img src="../img/vehicles.png" class="m-3"
                                         style="width:150px; height:150px; opacity:0.5;">
-                                    <p class="text-body mb-4">لا يوجد بعد وسائل نقل مضافة </p>
+                                    <p class="text-body mb-4">there ar no added transportations yet</p>
                                 @else
                                     <!-- هاد الشكل بحال كان ضايف وسائل -->
-                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:rtl;"
+                                    <table style="color: rgb(22, 22, 22); width: 700px !important; direction:ltr;"
                                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                                         <tr>
-                                            <td class="text-center">شركة النقل</td>
-                                            <td class="text-center">وسيلة النقل</td>
-                                            <td class="text-center" style="width:90px;">عدد الركاب</td>
-                                            <td class="text-center" style="width:290px;">المواصفات</td>
-                                            <td>في تاريخ</td>
+                                            <td class="text-center">transport compaby</td>
+                                            <td class="text-center">transportation</td>
+                                            <td class="text-center" style="width:90px;">passengers count</td>
+                                            <td class="text-center" style="width:290px;">specifications</td>
+                                            <td>in date</td>
                                             <td></td>
                                         </tr>
                                         {{-- عرض وسائل النقل لهي الرحلة --}}
@@ -810,7 +794,7 @@
                             <div class="modal-footer">
                                 <button class="btn btn-primary" style="border-radius:3px;"
                                     data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-                                    data-bs-dismiss="modal">إضافة وسيلة نقل جديدة</button>
+                                    data-bs-dismiss="modal">Add New transportation</button>
                             </div>
 
                         </div>
@@ -837,15 +821,15 @@
                                 @csrf
                                 <input type="text" name="id" value="{{ $group->id }}" hidden>
                                 <div class="modal-body" style="direction:rtl;">
-                                    هل أنت متأكد من أنك تريد حذف هذا الجروب (<span
-                                        style="color: #90aaf8;">{{ $group->translations()->where('locale', 'ar')->first()->name }}</span>)
+                                    are you shure that you want to delete this group (<span
+                                        style="color: #90aaf8;">{{ $group->translations()->where('locale', 'en')->first()->name }}</span>)
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="action-button active close"
-                                        data-dismiss="modal">إغلاق</button>
+                                        data-dismiss="modal">close</button>
                                     <button type="submit" id="delete-group-btn-{{ $group->id }}"
                                         onclick="deleteGroup(`delete-form-{{ $group->id }}`, {{ $group->id }})"
-                                        class="app-content-headerButton">نعم</button>
+                                        class="app-content-headerButton">yes</button>
                                 </div>
                             </form>
                         </div>
@@ -871,7 +855,7 @@
     <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
         <div class="modal-content" style="width:500px;">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleeLabel2">وجهة جديدة</h5>
+                <h5 class="modal-title" id="exampleModalToggleeLabel2">New destination</h5>
                 <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close"
                     onclick="document.getElementById('group_id').value = '';">
                     <span aria-hidden="true">&times;</span>
@@ -880,13 +864,13 @@
             <div class="modal-body">
                 <form id="add-dest-form" action="" method="post" enctype="multipart/form-data">
                     @csrf
-                    <table style="color: rgb(22, 22, 22); width: 450px; direction:rtl;"
+                    <table style="color: rgb(22, 22, 22); width: 450px; direction:ltr;"
                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
 
                         <input type="text" id="group_id" name="group_id" hidden>
 
                         <tr>
-                            <td class="pr-2">المحافظة</td>
+                            <td class="pr-2">governates</td>
                             <td style="width:300px;">
                                 <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -917,7 +901,7 @@
                         </tr>
 
                         <tr>
-                            <td class="pr-2">الناحية</td>
+                            <td class="pr-2">district</td>
                             <td style="width:300px;">
                                 <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -950,11 +934,10 @@
 
                     </table>
                     <table id="tablePlace"
-                        style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important; direction:rtl;"
+                        style="color: rgb(22, 22, 22); width: 450px; margin-top:20px !important; margin-bottom:15px !important; direction:ltr;"
                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                         <tr>
-                            <td style="width:250px;" class="pr-2">الأماكن المتاحة في هذه الناحية
-                            </td>
+                            <td style="width:250px;" class="pr-2">places available in this district</td>
                             <td style="width:300px;">
                                 <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
@@ -985,14 +968,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="pr-2">الخدمات المتوفرة في هذا المكان</td>
+                            <td class="pr-2">The services available in this place</td>
                             <td style="width:300px;">
                                 <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
 
                                     <label class="dropdown-toggle" type="button" id="dropdownMenuButtonService"
                                         data-toggle="dropdown" aria-expanded="false">
                                         <!--  هي الجملة منعرضا بحال كان المكان مالو خدمات    -->
+
                                         {{-- there is no services in this place --}}
+                                
                                     </label>
                                     <span id="service-name"></span>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonService">
@@ -1026,9 +1011,9 @@
                 <button class="app-content-headerButton"
                     onclick="removeMessages(), document.getElementById('add-dest-form').reset()"
                     style="border-radius:3px;" data-bs-target="#exampleModalTogglee" data-bs-toggle="modal"
-                    data-bs-dismiss="modal">عودة</button>
+                    data-bs-dismiss="modal">back</button>
                 <button type="button" class="app-content-headerButton" id="add-dest-btn"
-                    onclick="addDestination('add-dest-form')" style="background-color:var(--bambi);">حفظ</button>
+                    onclick="addDestination('add-dest-form')" style="background-color:var(--bambi);">save</button>
 
             </div>
         </div>
@@ -1047,7 +1032,7 @@
     <div class="modal-dialog " style="max-width:1000px; margin: 5% 30%;">
         <div class="modal-content" style="width:550px ; direction:ltr;">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleLabel2">وسيلة نقل جديدة</h5>
+                <h5 class="modal-title" id="exampleModalToggleLabel2">New transportation</h5>
                 <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close"
                     onclick="document.getElementById('group_id_for_company').value = '';">
                     <span aria-hidden="true">&times;</span>
@@ -1056,7 +1041,7 @@
             <div class="modal-body">
                 <form id="add-transport-form" action="" method="post" enctype="multipart/form-data">
                     @csrf
-                    <table style="color: rgb(22, 22, 22); width: 500px !important;"
+                    <table style="color: rgb(22, 22, 22); width: 500px !important; direction: rtl;"
                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                         <input type="text" id="group_id_for_company" name="group_id" hidden>
 
@@ -1083,7 +1068,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="pr-2">شركة النقل</td>
+                            <td class="pr-2">transport company</td>
                         </tr>
                         <tr>
 
@@ -1102,11 +1087,11 @@
                                                 class="dropdown-item transportation_filter_option transportation_company_{{ $transportation->transportCompany->id }}"
                                                 value="{{ $transportation->id }}"
                                                 id="transportation_{{ $transportation->id }}"
-                                                onclick="setTransportation({{ $transportation->id }}, '{{ $transportation->city->translations()->where('locale', 'en')->first()->name }} - {{ $transportation->carId }} / عدد الركاب: {{ $transportation->passengers_number }}', 'transportation_{{ $transportation->id }}')"
+                                                onclick="setTransportation({{ $transportation->id }}, '{{ $transportation->city->translations()->where('locale', 'en')->first()->name }} - {{ $transportation->carId }} /number of passengers : {{ $transportation->passengers_number }}', 'transportation_{{ $transportation->id }}')"
                                                 hidden href="#">
 
                                                 {{ $transportation->city->translations()->where('locale', 'en')->first()->name }}
-                                                - {{ $transportation->carId }} / عدد الركاب:
+                                                - {{ $transportation->carId }} /number of passengers :
                                                 {{ $transportation->passengers_number }}
                                             </option>
                                         @endforeach
@@ -1115,34 +1100,35 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="pr-2">وسائل النقل</td>
+                            <td class="pr-2">transportation</td>
                         </tr>
                     </table>
 
                     <table id="tableDate"
-                        style="color: rgb(22, 22, 22); width: 500px !important; margin-top:20px !important; margin-bottom:15px !important;"
+                        style="color: rgb(22, 22, 22); direction: rtl; width: 500px !important; margin-top:20px !important; margin-bottom:15px !important;"
                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                         <tr>
                             <td></td>
                             <td><input class="toggle text-primary in" name="dates[]" type="date" required
                                     style="width: 100%;"></td>
 
-                            <td style="width: 330px;"> تواريخ الأيام التي سيتم فيها استخدام هذه الوسيلة
+                            <td style="width: 330px;"> 
+                                 dates of the days the transportation will be used
                             </td>
 
                         </tr>
                     </table>
                 </form>
-                <button class="app-content-headerButton m-3" style="float:left;" onclick="addDate()">إضافة تاريخ
-                    آخر</button>
+                <button class="app-content-headerButton m-3" style="float: right;" onclick="addDate()"> 
+                    add another date</button>
             </div>
             <div class="modal-footer">
                 <button class="app-content-headerButton" style="border-radius:3px;"
                     onclick="removeMessages(), document.getElementById('add-transport-form').reset()"
-                    data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">عودة</button>
+                    data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
                 <button type="button" class="app-content-headerButton" id="add-transport-btn"
                     onclick="addTransportation('add-transport-form')"
-                    style="background-color:var(--bambi);">حفظ</button>
+                    style="background-color:var(--bambi);">save</button>
 
             </div>
         </div>
