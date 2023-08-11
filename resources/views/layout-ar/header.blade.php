@@ -165,7 +165,7 @@
 
                                             <div id="OldPassword" hidden="true">
                                                 <div class="d-flex pt-5">
-                                                    <i class="fas fa-lock"></i>
+                                                    <i class="fas fa-lock pl-2"></i>
                                                     <h6>كلمة السر القديمة</h6>
                                                 </div>
                                                 <input class="m-auto p-1" type="password" value=""
@@ -179,7 +179,7 @@
 
                                             <div id="NewPassword" hidden="true">
                                                 <div class="d-flex pt-5">
-                                                    <i class="fas fa-lock "></i>
+                                                    <i class="fas fa-lock pl-2 "></i>
                                                     <h6> كلمة السر الجديدة</h6>
                                                 </div>
 
@@ -194,7 +194,7 @@
 
                                             <div id="confirmPassword" hidden="true">
                                                 <div class="d-flex pt-5">
-                                                    <i class="fas fa-lock "></i>
+                                                    <i class="fas fa-lock pl-2"></i>
                                                     <h6>تأكيد كلمة السر</h6>
                                                 </div>
                                                 <input class="m-auto p-1" type="password" value=""
@@ -209,7 +209,7 @@
 
                                     </div>
                                     <div class="modal-footer mt-5" style="direction:ltr;">
-                                        <button type="button" class="action-button close"
+                                        <button type="button" class="action-button close" style="font-size:14px; "
                                             onclick="removeMessages(), document.getElementById('edit-profile-form').reset()"
                                             data-bs-dismiss="modal">إغلاق</button>
                                         <button type="button" id="edit-profile-btn"

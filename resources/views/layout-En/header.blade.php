@@ -160,7 +160,7 @@
                                         @csrf
                                         <div id="OldPassword" hidden="true">
                                             <div class="d-flex pt-5">
-                                                <i class="fas fa-lock"></i>
+                                                <i class="fas fa-lock pr-2"></i>
                                                 <h6>Old Password</h6>
                                             </div>
                                             <input class="m-auto p-1" type="password" value=""
@@ -173,7 +173,7 @@
 
                                         <div id="NewPassword" hidden="true">
                                             <div class="d-flex pt-5">
-                                                <i class="fas fa-lock "></i>
+                                                <i class="fas fa-lock pr-2"></i>
                                                 <h6>New Password</h6>
                                             </div>
                                             <input class="m-auto p-1" type="password" value=""
@@ -186,7 +186,7 @@
 
                                         <div id="confirmPassword" hidden="true">
                                             <div class="d-flex pt-5">
-                                                <i class="fas fa-lock "></i>
+                                                <i class="fas fa-lock pr-2"></i>
                                                 <h6>Confirm Password</h6>
                                             </div>
                                             <input class="m-auto p-1" type="password" value=""
