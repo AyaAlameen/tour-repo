@@ -116,12 +116,14 @@ Route::middleware(['sub_category'])->group(function(){
     Route::post('/sub_category_en', [SubCategoryController::class, 'storeEn']) -> name('addSubCategoryEn');
     Route::post('/sub_category_en/edit', [SubCategoryController::class, 'updateEn']) -> name('editSubCategoryEn');
     Route::post('/sub_category_en/delete', [SubCategoryController::class, 'destroyEn']) -> name('deleteSubCategoryEn');
+    Route::post('/sub_category_en/fields', [SubCategoryController::class, 'fieldsEn']) -> name('fieldsSubCategoryEn');
     
     //ar
     Route::get('/sub_category_ar/{id}', [SubCategoryController::class, 'indexAr']) -> name('getSubCategoriesAr');
     Route::post('/sub_category_ar', [SubCategoryController::class, 'storeAr']) -> name('addSubCategoryAr');
     Route::post('/sub_category_ar/edit', [SubCategoryController::class, 'updateAr']) -> name('editSubCategoryAr');
     Route::post('/sub_category_ar/delete', [SubCategoryController::class, 'destroyAr']) -> name('deleteSubCategoryAr');
+    Route::post('/sub_category_ar/fields', [SubCategoryController::class, 'fieldsAr']) -> name('fieldsSubCategoryAr');
 
 });
 

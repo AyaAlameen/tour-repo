@@ -12,7 +12,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class SubCategory extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['category_id', 'image'];
+    protected $casts = [
+        'additional_fields' => 'array'
+    ];
+    protected $fillable = ['category_id', 'image', 'additional_fields'];
+    
 
     public function category()
     {

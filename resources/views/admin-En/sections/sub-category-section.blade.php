@@ -65,6 +65,133 @@
                        </div>
                      <!-- end edit -->
 
+                     {{-- additionalFields --}}
+
+                     <div class="modal fade" style="direction:ltr;" data-backdrop="static"
+                     id="additionalFields{{ $subCategory->id }}" aria-hidden="true"
+                     aria-labelledby="exampleModalToggleeLabel" tabindex="-1">
+                     <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
+                         <div class="modal-content m-auto" style="width:450px;">
+                             <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalToggleeLabel">Additional Fields
+                                 </h5>
+                                 <button type="button" class="btn-close m-0 close" data-dismiss="modal"
+                                     aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                 </button>
+                             </div>
+                             <form id="fields-form-{{ $subCategory->id }}" action="" method="POST"
+                                 enctype="multipart/form-data">
+                                 @csrf
+                                 <input type="text" name="id" value="{{ $subCategory->id }}"
+                                     hidden>
+                                 <input type="text" name="category_id"
+                                     value="{{ $subCategory->category_id }}" hidden>
+
+                                 <div class="modal-body">
+
+                                     <table
+                                         style="color: rgb(22, 22, 22); width: 400px !important; direction:rtl;"
+                                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                                         <tr>
+                                             <td style="width:40px;"></td>
+
+                                             <th>Fields</th>
+                                         </tr>
+
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('reservation_period', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="reservation_period" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Reservation Period</label>
+                                             </td>
+
+                                         </tr>
+
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('tables_count', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="tables_count" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Tables Count</label>
+                                             </td>
+
+                                         </tr>
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('table_people_count', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="table_people_count" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Number of people at the
+                                                     table</label>
+                                             </td>
+
+                                         </tr>
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('rooms_count', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="rooms_count" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Rooms Count</label>
+                                             </td>
+
+                                         </tr>
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('room_people_count', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="room_people_count" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Number of people in the room</label>
+                                             </td>
+
+                                         </tr>
+
+                                     </table>
+                                 </div>
+                             </form>
+                             <div class="modal-footer">
+                                 <button type="button" class="action-button active close"
+                                     data-dismiss="modal">Close</button>
+                                 <button type="submit" id="fields-btn-{{ $subCategory->id }}"
+                                     onclick="fields(`fields-form-{{ $subCategory->id }}`, {{ $subCategory->id }})"
+                                     class="app-content-headerButton">Save</button>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <a href="#" class="delete text-primary p-2" data-toggle="modal"
+                     data-target="#additionalFields{{ $subCategory->id }}" title="Additional Fields"
+                     data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+
+                 {{-- end additionalFields --}}
+
                      <!-- delete -->
                  <a href="#" class="delete" data-toggle="modal" data-target="#deleteSubCategory{{$subCategory->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                               <!-- Modal -->
@@ -164,6 +291,133 @@
                        </div>
                        </div>
                      <!-- end edit -->
+
+                     {{-- additionalFields --}}
+
+                     <div class="modal fade" style="direction:ltr;" data-backdrop="static"
+                     id="additionalFields{{ $subCategory->id }}" aria-hidden="true"
+                     aria-labelledby="exampleModalToggleeLabel" tabindex="-1">
+                     <div class="modal-dialog" style="max-width:1000px; margin: 5% auto">
+                         <div class="modal-content m-auto" style="width:450px;">
+                             <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalToggleeLabel">Additional Fields
+                                 </h5>
+                                 <button type="button" class="btn-close m-0 close" data-dismiss="modal"
+                                     aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                 </button>
+                             </div>
+                             <form id="fields-form-{{ $subCategory->id }}" action="" method="POST"
+                                 enctype="multipart/form-data">
+                                 @csrf
+                                 <input type="text" name="id" value="{{ $subCategory->id }}"
+                                     hidden>
+                                 <input type="text" name="category_id"
+                                     value="{{ $subCategory->category_id }}" hidden>
+
+                                 <div class="modal-body">
+
+                                     <table
+                                         style="color: rgb(22, 22, 22); width: 400px !important; direction:rtl;"
+                                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                                         <tr>
+                                             <td style="width:40px;"></td>
+
+                                             <th>Fields</th>
+                                         </tr>
+
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('reservation_period', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="reservation_period" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Reservation Period</label>
+                                             </td>
+
+                                         </tr>
+
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('tables_count', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="tables_count" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Tables Count</label>
+                                             </td>
+
+                                         </tr>
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('table_people_count', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="table_people_count" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Number of people at the
+                                                     table</label>
+                                             </td>
+
+                                         </tr>
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('rooms_count', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="rooms_count" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Rooms Count</label>
+                                             </td>
+
+                                         </tr>
+
+                                         <tr>
+                                             <td class="text-center pl-2">
+                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
+                                                 <input
+                                                     @if ($subCategory->additional_fields) @if (in_array('room_people_count', $subCategory->additional_fields)) checked @endif
+                                                     @endif
+                                                 id="p_1" name="additional_fields[]"
+                                                 value="room_people_count" type="checkbox">
+                                             </td>
+                                             <td> <label for="p_1">Number of people in the room</label>
+                                             </td>
+
+                                         </tr>
+
+                                     </table>
+                                 </div>
+                             </form>
+                             <div class="modal-footer">
+                                 <button type="button" class="action-button active close"
+                                     data-dismiss="modal">Close</button>
+                                 <button type="submit" id="fields-btn-{{ $subCategory->id }}"
+                                     onclick="fields(`fields-form-{{ $subCategory->id }}`, {{ $subCategory->id }})"
+                                     class="app-content-headerButton">Save</button>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <a href="#" class="delete text-primary p-2" data-toggle="modal"
+                     data-target="#additionalFields{{ $subCategory->id }}" title="Additional Fields"
+                     data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+
+                 {{-- end additionalFields --}}
 
                      <!-- delete -->
                  <a href="#" class="delete" data-toggle="modal" data-target="#deleteSubCategory{{$subCategory->id}}" title="Delete" data-toggle="tooltip"><i class="fas fa-trash"></i></a>

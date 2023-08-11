@@ -270,4 +270,42 @@ class SubCategoryController extends Controller
         return view("admin-En.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
 
     }
+
+
+    public function fieldsAr(Request $request){
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'category_id' => 'required',
+        ]);
+
+        $subCategory = SubCategory::find($data['id']);
+        $subCategory->additional_fields = $data['additional_fields'];
+        $subCategory->update();
+
+        $subCategories = SubCategory::with('translations')->where('category_id', $request->input('category_id'))->get();
+        $category = Category::find($request->input('category_id'));
+        
+        return view("admin-Ar.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
+
+    }
+    public function fieldsEn(Request $request){
+        $data=$request->input();
+        
+        $request->validate([
+            'id' => 'required',
+            'category_id' => 'required',
+        ]);
+
+        $subCategory = SubCategory::find($data['id']);
+        $subCategory->additional_fields = $data['additional_fields'];
+        $subCategory->update();
+
+        $subCategories = SubCategory::with('translations')->where('category_id', $request->input('category_id'))->get();
+        $category = Category::find($request->input('category_id'));
+        
+        return view("admin-En.sections.sub-category-section")->with(['subCategories' => $subCategories, 'category' => $category]);
+
+    }
 }
