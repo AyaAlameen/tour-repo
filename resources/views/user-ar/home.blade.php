@@ -353,6 +353,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                         <!-- نهاية الكارد -->
                            
                 @endforeach

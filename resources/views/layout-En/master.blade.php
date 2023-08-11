@@ -230,6 +230,7 @@
 
                 }
             }
+            
             for (let i = 0; i < city_index.length; i++) {
                 if (origin == "http://127.0.0.1:8000/tripmore-ar/" + city_index[i]) {
                     event.target.href = "http://127.0.0.1:8000/tripmore/" + city_index[i];
