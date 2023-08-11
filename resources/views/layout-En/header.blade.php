@@ -200,7 +200,7 @@
 
                                 </div>
                                 <div class="modal-footer mt-5">
-                                    <button type="button" class="btn btn-secondary close"
+                                    <button type="button" class="btn btn-secondary close" style="font-size: 14px;"
                                     onclick="removeMessages(), document.getElementById('edit-profile-form').reset()"
                                             data-bs-dismiss="modal">Close</button>
                                     
@@ -342,7 +342,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModaLabel">enter your information for booking</h5>
                 <button type="button" class="btn-close m-0 close"
-                    onclick="removeMessages(), document.getElementById('add-form').reset()" data-bs-dismiss="modal"
+                     data-bs-dismiss="modal"
                     aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -433,8 +433,8 @@
 
 
 <!-- Navbar End -->
-<!-- alert message false-->
-<div id="popup" class="parent" hidden="true">
+  <!-- alert message false-->
+  <div id="popup" class="parent" hidden="true">
     <div class="popup">
         <img src="../img/false.png">
         <h3> Faild</h3>
@@ -455,6 +455,7 @@
     </div>
 </div>
 <!-- end alert message -->
+
 <script>
     function ablePassword() {
         var con = document.getElementById("confirmPassword").hidden;
@@ -497,7 +498,7 @@
             })
             .fail(function(data) {
                 removeMessages();
-
+               
                 if (data.responseJSON.errors.old_password) {
                     document.querySelector(`#${formId} #old_error`).innerHTML = data.responseJSON.errors
                         .old_password[0];
