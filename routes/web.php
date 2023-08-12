@@ -248,9 +248,10 @@ Route::middleware(['offer'])->group(function(){
 Route::middleware(['service'])->group(function(){
 
     //en
-    Route::get('/services_en', function () {
-        return view('admin-En.services');
-    }) -> name('service_en');
+    Route::get('/services_en', [ServiceController::class, 'indexEn']) -> name('service_en');
+    Route::post('/services_en', [ServiceController::class, 'storeEn']) -> name('addServiceEn');
+    Route::post('/services_en/edit', [ServiceController::class, 'updateEn']) -> name('editServiceEn');
+    Route::post('/services_en/delete', [ServiceController::class, 'destroyEn']) -> name('deleteServiceEn');
     
     //ar
         // Route::get('/services_ar', function () {

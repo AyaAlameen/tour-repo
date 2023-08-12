@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:63%;">
+        <div class="app-content-header" style="width:60%;">
             <h1 class="app-content-headerText">الخدمات</h1>
 
             <!-- add -->
@@ -61,7 +61,7 @@
                                                     @foreach ($places as $place)
                                                         <option style="cursor: pointer;" class="dropdown-item"
                                                             value="{{ $place->id }}" id="place_{{ $place->id }}"
-                                                            onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'place_{{ $place->id }}')"
+                                                            onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'place_{{ $place->id }}'), showAdditionalFields({{ collect($place->subCategory->additional_fields) }})"
                                                             href="#">
                                                             {{ $place->translations()->where('locale', 'ar')->first()->name }}
                                                         </option>
@@ -79,9 +79,14 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                       <td><input class="toggle text-primary in" type="text" name="description_ar"
+                                        <td><input class="toggle text-primary in" type="text" name="description_ar"
                                                 required style="width: 100%;"></th>
                                         <td>وصف(العربية)</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="des_error"></span>
+                                        </td>
                                     </tr>
                                     <tr>
 
@@ -89,6 +94,11 @@
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></th>
                                         <td>(الانكليزية)وصف</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="des_error"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><input class="toggle text-primary in" type="number" name="cost" required
@@ -99,27 +109,85 @@
                                         <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><input class="toggle text-primary in" type="number" name="people_count" required
-                                                style="width: 100%;"></th>
-                                        <td>عدد الأشخاص</td>
+                                    <tr hidden id="services_count">
+                                        <td><input class="toggle text-primary in" type="number" name="services_count"
+                                                required style="width: 100%;"></th>
+                                        <td>العدد المتوفر من الخدمة</td>
                                     </tr>
-                                    <tr>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="people_count"></span>
+                                    <tr hidden id="services_count_tr">
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="services_count_error"></span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><input class="toggle text-primary in" type="number" name="booking_period" required
-                                                style="width: 100%;"></th>
+                                    <tr hidden id="people_count">
+                                        <td><input class="toggle text-primary in" type="number" name="people_count"
+                                                required style="width: 100%;"></th>
+                                        <td>عدد الأشخاص</td>
+                                    </tr>
+                                    <tr hidden id="people_count_tr">
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="people_count_error"></span>
+                                        </td>
+                                    </tr>
+                                    <tr hidden id="reservation_period">
+                                        <td>
+                                            <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+
+                                                <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                                    data-toggle="dropdown" aria-expanded="false">
+
+                                                </label>
+                                                <span id="period-name"></span>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <option style="cursor: pointer;" class="dropdown-item"
+                                                        id="period_00:15" value="00:15"
+                                                        onclick="setServiceCount('00:15', 'ربع ساعة')" href="#">
+                                                        ربع ساعة
+                                                    </option>
+                                                    <option style="cursor: pointer;" class="dropdown-item"
+                                                        id="period_00:30" value="00:30"
+                                                        onclick="setServiceCount('00:30', 'نصف ساعة')" href="#">
+                                                        نصف ساعة
+                                                    </option>
+                                                    <option style="cursor: pointer;" class="dropdown-item"
+                                                        id="period_01:00" value="01:00"
+                                                        onclick="setServiceCount('01:00', 'ساعة')" href="#">
+                                                        ساعة
+                                                    </option>
+                                                    <option style="cursor: pointer;" class="dropdown-item"
+                                                        id="period_02:00" value="02:00"
+                                                        onclick="setServiceCount('02:00', 'ساعتين')" href="#">
+                                                        ساعتين
+                                                    </option>
+                                                    <option style="cursor: pointer;" class="dropdown-item"
+                                                        id="period_03:00" value="03:00"
+                                                        onclick="setServiceCount('03:00', 'ثلاث ساعات')" href="#">
+                                                        ثلاث ساعات
+                                                    </option>
+                                                    <option style="cursor: pointer;" class="dropdown-item"
+                                                        id="period_04:00" value="04:00"
+                                                        onclick="setServiceCount('04:00', 'أربع ساعات')" href="#">
+                                                        أربع ساعات
+                                                    </option>
+
+
+                                                    <input type="text" id="reservation_period_input"
+                                                        name="reservation_period" hidden>
+
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>مدة الحجز</td>
                                     </tr>
-                                    <tr>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="booking_period"></span>
+                                    <tr hidden id="reservation_period_tr">
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="reservation_period_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label><input type="radio" name="is_additional" value="1"> إضافية</label>
+                                            <label><input type="radio" name="is_additional" value="1">
+                                                إضافية</label>
                                             <label><input type="radio" name="is_additional" value="0" checked> غير
                                                 إضافية</label>
                                         </td>
@@ -136,14 +204,16 @@
 
                                         <td><input type="file" id="add_img"
                                                 onchange="previewImage(this, 'add_previewImage_0')"
-                                                class="toggle text-primary in" name="image" required style="width: 100%;">
+                                                class="toggle text-primary in" name="image" required
+                                                style="width: 100%;">
                                             <label for="add_img"> <img id="add_previewImage_0" width="170px"
                                                     height="90px" style="display: none; padding:6px;"></label>
                                         </td>
                                         <td>الصورة</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="image_error"></span>
                                         </td>
                                     </tr>
 
@@ -163,7 +233,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions"style="width:63%;">
+        <div class="app-content-actions"style="width:60%;">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
                 type="text">
             <div class="app-content-actions-wrapper">
@@ -193,7 +263,7 @@
                     </div>
                 </div>
                 <!-- end filter -->
-              
+
 
                 <div class="nav-item dropdown">
                     <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة"> <i
@@ -215,7 +285,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:63%;">
+        <div class="scroll-class" style="width:60%;">
             <div class="products-area-wrapper tableView" id="servicesTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
@@ -225,6 +295,7 @@
                     <div class="product-cell">وصف</div>
                     <div class="product-cell">الكلفة</div>
                     <div class="product-cell">عدد الأشخاص</div>
+                    <div class="product-cell">عدد الخدمة</div>
                     <div class="product-cell">مدة الحجز</div>
                     <div class="product-cell">إضافية؟</div>
                     <div class="product-cell ">الأحداث</div>
@@ -251,8 +322,7 @@
                                     {{ $service->translations()->where('locale', 'ar')->first()->name }} </span>
                             </div>
                             <div class="product-cell">
-                                <img src="{{ asset(str_replace(app_path(), '', $service->image)) }}"
-                                    alt="product">
+                                <img src="{{ asset(str_replace(app_path(), '', $service->image)) }}" alt="product">
                             </div>
                             <div class="product-cell">
                                 <span> {{ $service->place->translations()->where('locale', 'ar')->first()->name }} </span>
@@ -264,10 +334,27 @@
                                 <span> {{ $service->cost }} </span>
                             </div>
                             <div class="product-cell">
-                                <span> عدد الأشخاص </span>
+                                <span> {{ $service->people_count }} </span>
                             </div>
                             <div class="product-cell">
-                                <span> مدة الحجز </span>
+                                <span> {{ $service->service_count }} </span>
+                            </div>
+                            <div class="product-cell">
+                                @if ($service->reservation_period == '00:15')
+                                    <span> ربع ساعة </span>
+                                @elseif($service->reservation_period == '00:30')
+                                    <span> نصف ساعة </span>
+                                @elseif($service->reservation_period == '01:00')
+                                    <span>ساعة</span>
+                                @elseif($service->reservation_period == '02:00')
+                                    <span> ساعتين </span>
+                                @elseif($service->reservation_period == '03:00')
+                                    <span> ثلاث ساعات </span>
+                                @elseif($service->reservation_period == '04:00')
+                                    <span> أربع ساعات </span>
+                                @elseif(!$service->reservation_period)
+                                    <span> </span>
+                                @endif
                             </div>
                             <div class="product-cell">
                                 <span>
@@ -307,7 +394,7 @@
                                                             class="table-striped table-hover table-bordered m-auto text-primary myTable"
                                                             id="editTable" style="width: 400px;">
                                                             <tr>
-                                                               
+
                                                                 <td><input type="text" class="toggle text-primary in"
                                                                         name="name_ar"
                                                                         value="{{ $service->translations()->where('locale', 'ar')->first()->name }}"
@@ -316,13 +403,13 @@
                                                                 <td>الاسم(العربية)</td>
                                                             </tr>
                                                             <tr>
-                                                              
+
                                                                 <td colspan="2"><span style="color: red"
                                                                         class="name_ar_error_edit"></span></td>
 
                                                             </tr>
                                                             <tr>
-                                                            
+
                                                                 <td><input type="text" class="toggle text-primary in"
                                                                         name="name_en"
                                                                         value="{{ $service->translations()->where('locale', 'en')->first()->name }}"
@@ -331,13 +418,13 @@
                                                                 <td>(الإنجليزية)الاسم </td>
                                                             </tr>
                                                             <tr>
-                                                              
+
                                                                 <td colspan="2"><span style="color: red"
                                                                         class="name_en_error_edit"></span></td>
 
                                                             </tr>
                                                             <tr>
-                                                        
+
                                                                 <td>
                                                                     <div class="dropdown toggle text-primary in"
                                                                         style="display:inline-block; ;">
@@ -357,7 +444,7 @@
                                                                                     class="dropdown-item"
                                                                                     value="{{ $place->id }}"
                                                                                     id="edit_place_{{ $service->id }}_{{ $place->id }}"
-                                                                                    onclick="setEditPlace({{ $place->id }}, {{ $service->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'edit_place_{{ $service->id }}_{{ $place->id }}')"
+                                                                                    onclick="setEditPlace({{ $place->id }}, {{ $service->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'edit_place_{{ $service->id }}_{{ $place->id }}'), showEditAdditionalFields({{ collect($place->subCategory->additional_fields) }}, {{ $service->id }})"
                                                                                     href="#">
                                                                                     {{ $place->translations()->where('locale', 'ar')->first()->name }}
                                                                                 </option>
@@ -373,14 +460,14 @@
                                                                 <td>المكان</td>
                                                             </tr>
                                                             <tr>
-                                                              
+
                                                                 <td colspan="2"><span style="color: red"
                                                                         class="place_error_edit"></span></td>
 
                                                             </tr>
 
                                                             <tr>
-                                                              
+
                                                                 <td><input class="toggle text-primary in" type="text"
                                                                         name="description_ar"
                                                                         value="{{ $service->translations()->where('locale', 'ar')->first()->description }}"
@@ -389,7 +476,13 @@
                                                                 <td>وصف(العربية)</td>
                                                             </tr>
                                                             <tr>
-                                                               
+
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="des_error_edit"></span></td>
+
+                                                            </tr>
+                                                            <tr>
+
                                                                 <td><input class="toggle text-primary in" type="text"
                                                                         name="description_en"
                                                                         value="{{ $service->translations()->where('locale', 'en')->first()->description }}"
@@ -398,7 +491,13 @@
                                                                 <td>(الإنجليزية)وصف</td>
                                                             </tr>
                                                             <tr>
-                                                               
+
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="des_error_edit"></span></td>
+
+                                                            </tr>
+                                                            <tr>
+
                                                                 <td><input type="number" name="cost"
                                                                         class="toggle text-primary in"
                                                                         value="{{ $service->cost }}">
@@ -406,23 +505,148 @@
                                                                 <td>الكلفة</td>
                                                             </tr>
                                                             <tr>
-                                                               
-                                                                <td><input type="number" name="cost"
-                                                                        class="toggle text-primary in"
-                                                                        value="">
+
+                                                                <td colspan="2"><span style="color: red"
+                                                                        class="cost_error_edit"></span></td>
+
+                                                            </tr>
+                                                            <tr @if (!in_array('services_count', $service->place->subCategory->additional_fields ?? [])) hidden @endif
+                                                                id="services_count_{{ $service->id }}">
+                                                                <td><input class="toggle text-primary in" type="number"
+                                                                        name="services_count" required
+                                                                        value="{{ $service->services_count }}"
+                                                                        style="width: 100%;"></th>
+                                                                <td>العدد المتوفر من الخدمة</td>
+                                                            </tr>
+                                                            <tr @if (!in_array('services_count', $service->place->subCategory->additional_fields ?? [])) hidden @endif
+                                                                id="services_count_tr_{{ $service->id }}">
+                                                                <td colspan="2" class="text-end text-danger p-1"><span
+                                                                        class="services_count_error_edit"></span>
                                                                 </td>
+                                                            </tr>
+                                                            <tr @if (!in_array('people_count', $service->place->subCategory->additional_fields ?? [])) hidden @endif
+                                                                id="people_count_{{ $service->id }}">
+                                                                <td><input class="toggle text-primary in" type="number"
+                                                                        name="people_count" required
+                                                                        value="{{ $service->people_count }}"
+                                                                        style="width: 100%;"></th>
                                                                 <td>عدد الأشخاص</td>
                                                             </tr>
-                                                             <tr>
-                                                               
-                                                                <td><input type="number" name="cost"
-                                                                        class="toggle text-primary in"
-                                                                        value="">
+                                                            <tr @if (!in_array('people_count', $service->place->subCategory->additional_fields ?? [])) hidden @endif
+                                                                id="people_count_tr_{{ $service->id }}">
+                                                                <td colspan="2" class="text-end text-danger p-1"><span
+                                                                        class="people_count_error_edit"></span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr @if (!in_array('reservation_period', $service->place->subCategory->additional_fields ?? [])) hidden @endif
+                                                                id="reservation_period_{{ $service->id }}">
+                                                                <td>
+                                                                    <div class="dropdown toggle text-primary in"
+                                                                        style="display:inline-block; ;">
+
+                                                                        <label class="dropdown-toggle" type="button"
+                                                                            id="dropdownMenuButton" data-toggle="dropdown"
+                                                                            aria-expanded="false">
+
+                                                                        </label>
+                                                                        @if ($service->reservation_period == '00:15')
+                                                                            <span id="period-name-{{ $service->id }}">
+                                                                                ربع ساعة </span>
+                                                                        @elseif($service->reservation_period == '00:30')
+                                                                            <span id="period-name-{{ $service->id }}">
+                                                                                نصف ساعة </span>
+                                                                        @elseif($service->reservation_period == '01:00')
+                                                                            <span
+                                                                                id="period-name-{{ $service->id }}">ساعة</span>
+                                                                        @elseif($service->reservation_period == '02:00')
+                                                                            <span id="period-name-{{ $service->id }}">
+                                                                                ساعتين </span>
+                                                                        @elseif($service->reservation_period == '03:00')
+                                                                            <span id="period-name-{{ $service->id }}">
+                                                                                ثلاث ساعات </span>
+                                                                        @elseif($service->reservation_period == '04:00')
+                                                                            <span id="period-name-{{ $service->id }}">
+                                                                                أربع ساعات </span>
+                                                                        @elseif(!$service->reservation_period)
+                                                                            <span id="period-name-{{ $service->id }}">
+                                                                            </span>
+                                                                        @endif
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($service->reservation_period == '00:15') color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                id="edit_period_00:15_{{ $service->id }}"
+                                                                                value="00:15"
+                                                                                onclick="setEditServiceCount('00:15', 'ربع ساعة', {{ $service->id }})"
+                                                                                href="#">
+                                                                                ربع ساعة
+                                                                            </option>
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($service->reservation_period == '00:30') color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                id="edit_period_00:30_{{ $service->id }}"
+                                                                                value="00:30"
+                                                                                onclick="setEditServiceCount('00:30', 'نصف ساعة', {{ $service->id }}))"
+                                                                                href="#">
+                                                                                نصف ساعة
+                                                                            </option>
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($service->reservation_period == '01:00') color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                id="edit_period_01:00_{{ $service->id }}"
+                                                                                value="01:00"
+                                                                                onclick="setEditServiceCount('01:00', 'ساعة', {{ $service->id }}))"
+                                                                                href="#">
+                                                                                ساعة
+                                                                            </option>
+                                                                            <option
+                                                                                style="cursor: pointer;  @if ($service->reservation_period == '02:00') color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                id="edit_period_02:00_{{ $service->id }}"
+                                                                                value="02:00"
+                                                                                onclick="setEditServiceCount('02:00', 'ساعتين', {{ $service->id }}))"
+                                                                                href="#">
+                                                                                ساعتين
+                                                                            </option>
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($service->reservation_period == '03:00') color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                id="edit_period_03:00_{{ $service->id }}"
+                                                                                value="03:00"
+                                                                                onclick="setEditServiceCount('03:00', 'ثلاث ساعات', {{ $service->id }}))"
+                                                                                href="#">
+                                                                                ثلاث ساعات
+                                                                            </option>
+                                                                            <option
+                                                                                style="cursor: pointer; @if ($service->reservation_period == '04:00') color: #90aaf8 !important; @endif"
+                                                                                class="dropdown-item"
+                                                                                id="edit_period_04:00_{{ $service->id }}"
+                                                                                value="04:00"
+                                                                                onclick="setEditServiceCount('04:00', 'أربع ساعات', {{ $service->id }}))"
+                                                                                href="#">
+                                                                                أربع ساعات
+                                                                            </option>
+
+
+                                                                            <input type="text"
+                                                                                id="edit_reservation_period_input_{{ $service->id }}"
+                                                                                value="{{ $service->reservation_period }}"
+                                                                                name="reservation_period" hidden>
+
+                                                                        </div>
+                                                                    </div>
                                                                 </td>
                                                                 <td>مدة الحجز</td>
                                                             </tr>
+                                                            <tr @if (!in_array('reservation_period', $service->place->subCategory->additional_fields ?? [])) hidden @endif
+                                                                id="reservation_period_tr_{{ $service->id }}">
+                                                                <td colspan="2" class="text-end text-danger p-1"><span
+                                                                        class="reservation_period_error_edit"></span>
+                                                                </td>
+                                                            </tr>
                                                             <tr>
-                                                   
+
                                                                 <td>
 
                                                                     <label><input type="radio" name="is_additional"
@@ -441,11 +665,17 @@
 
 
                                                             <tr>
-                                                                <td ><input type="file" name="image" id="img{{$service->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$service->id}}')">
-                                                                     <label for="img{{$service->id}}" ><img id="edit_previewImage_{{$service->id}}" src="{{ asset(str_replace(app_path(),'',$service -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label></td>      
+                                                                <td><input type="file" name="image"
+                                                                        id="img{{ $service->id }}" hidden
+                                                                        onchange="previewImage(this, 'edit_previewImage_{{ $service->id }}')">
+                                                                    <label for="img{{ $service->id }}"><img
+                                                                            id="edit_previewImage_{{ $service->id }}"
+                                                                            src="{{ asset(str_replace(app_path(), '', $service->image)) }}"
+                                                                            style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
+                                                                </td>
                                                                 <td>الصورة </td>
-                                                                     
-                                                                </tr>  
+
+                                                            </tr>
                                                         </table>
 
                                                     </div>
@@ -573,6 +803,19 @@
                     document.querySelector(`#${formId} #is_additional_error`).innerHTML = data.responseJSON.errors
                         .is_additional[0];
                 }
+                if (data.responseJSON.errors.services_count) {
+                    document.querySelector(`#${formId} #services_count_error`).innerHTML = data.responseJSON.errors
+                        .services_count[0];
+                }
+                if (data.responseJSON.errors.people_count) {
+                    document.querySelector(`#${formId} #people_count_error`).innerHTML = data.responseJSON.errors
+                        .people_count[0];
+                }
+                if (data.responseJSON.errors.reservation_period) {
+                    document.querySelector(`#${formId} #reservation_period_error`).innerHTML = data.responseJSON
+                        .errors
+                        .reservation_period[0];
+                }
 
 
             })
@@ -608,29 +851,44 @@
                 removeMessages();
 
                 if (data.responseJSON.errors.name_ar) {
-                    document.querySelector(`#${formId} #name_ar_error_edit`).innerHTML = data.responseJSON.errors
+                    document.querySelector(`#${formId} .name_ar_error_edit`).innerHTML = data.responseJSON.errors
                         .name_ar[0];
                 }
 
                 if (data.responseJSON.errors.name_en) {
-                    document.querySelector(`#${formId} #name_en_error_edit`).innerHTML = data.responseJSON.errors
+                    document.querySelector(`#${formId} .name_en_error_edit`).innerHTML = data.responseJSON.errors
                         .name_en[0];
                 }
 
                 if (data.responseJSON.errors.place_id) {
-                    document.querySelector(`#${formId} #place_error_edit`).innerHTML = data.responseJSON.errors
+                    document.querySelector(`#${formId} .place_error_edit`).innerHTML = data.responseJSON.errors
                         .place_id[0];
                 }
 
 
                 if (data.responseJSON.errors.cost) {
-                    document.querySelector(`#${formId} #cost_error_edit`).innerHTML = data.responseJSON.errors.cost[
+                    document.querySelector(`#${formId} .cost_error_edit`).innerHTML = data.responseJSON.errors.cost[
                         0];
                 }
                 if (data.responseJSON.errors.is_additional) {
-                    document.querySelector(`#${formId} #is_additional_error_edit`).innerHTML = data.responseJSON
+                    document.querySelector(`#${formId} .is_additional_error_edit`).innerHTML = data.responseJSON
                         .errors
                         .is_additional[0];
+                }
+                if (data.responseJSON.errors.services_count) {
+                    document.querySelector(`#${formId} .services_count_error_edit`).innerHTML = data.responseJSON
+                        .errors
+                        .services_count[0];
+                }
+                if (data.responseJSON.errors.people_count) {
+                    document.querySelector(`#${formId} .people_count_error_edit`).innerHTML = data.responseJSON
+                        .errors
+                        .people_count[0];
+                }
+                if (data.responseJSON.errors.reservation_period) {
+                    document.querySelector(`#${formId} .reservation_period_error_edit`).innerHTML = data
+                        .responseJSON.errors
+                        .reservation_period[0];
                 }
 
             })
@@ -755,6 +1013,7 @@
         document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
         document.getElementById('place_id').value = `${place_id}`;
     }
+
     //--------------------------------------------
     function setEditPlace(place_id, service_id, place, option_id) {
         var places_options = document.querySelectorAll('[id^="edit_place_"]');
@@ -765,5 +1024,66 @@
         document.getElementById('place-name-' + service_id).innerHTML = place;
         document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
         document.getElementById('edit_place_id_' + service_id).value = `${place_id}`;
+    }
+    //----------------------------------------------
+
+    function showAdditionalFields(fields) {
+        document.getElementById('services_count').setAttribute("hidden", true);
+        document.getElementById('people_count').setAttribute("hidden", true);
+        document.getElementById('reservation_period').setAttribute("hidden", true);
+        document.getElementById('services_count_tr').setAttribute("hidden", true);
+        document.getElementById('people_count_tr').setAttribute("hidden", true);
+        document.getElementById('reservation_period_tr').setAttribute("hidden", true);
+
+        if (fields.length > 0) {
+            fields.forEach(field => {
+                document.getElementById(`${field}`).removeAttribute("hidden");
+                document.getElementById(`${field}_tr`).removeAttribute("hidden");
+
+            });
+        }
+    }
+
+    //-----------------------------------------------------
+
+    function showEditAdditionalFields(fields, service_id) {
+        document.getElementById(`services_count_${service_id}`).setAttribute("hidden", true);
+        document.getElementById(`people_count_${service_id}`).setAttribute("hidden", true);
+        document.getElementById(`reservation_period_${service_id}`).setAttribute("hidden", true);
+        document.getElementById(`services_count_tr_${service_id}`).setAttribute("hidden", true);
+        document.getElementById(`people_count_tr_${service_id}`).setAttribute("hidden", true);
+        document.getElementById(`reservation_period_tr_${service_id}`).setAttribute("hidden", true);
+
+        if (fields.length > 0) {
+            fields.forEach(field => {
+                document.getElementById(`${field}_${service_id}`).removeAttribute("hidden");
+                document.getElementById(`${field}_tr_${service_id}`).removeAttribute("hidden");
+
+            });
+        }
+    }
+    //--------------------------------------------
+    function setServiceCount(period_value, option_name) {
+        var places_options = document.querySelectorAll('[id^="period_0"]');
+        places_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        console.log(period_value)
+        document.getElementById('period-name').innerHTML = option_name;
+        document.getElementById(`period_${period_value}`).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('reservation_period_input').value = `${period_value}`;
+    }
+    //-----------------------------------------------------
+    function setEditServiceCount(period_value, option_name, service_id) {
+        var places_options = document.querySelectorAll('[id^="edit_period_0"]');
+        places_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('period-name-' + service_id).innerHTML = option_name;
+        document.getElementById(`edit_period_${period_value}_${service_id}`).style.setProperty("color", "#90aaf8",
+            "important");
+        document.getElementById('edit_reservation_period_input_' + service_id).value = `${period_value}`;
     }
 </script>

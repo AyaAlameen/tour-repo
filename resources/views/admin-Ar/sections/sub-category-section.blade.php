@@ -152,12 +152,13 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <input type="text" name="id" value="{{ $subCategory->id }}" hidden>
-                                <input type="text" name="category_id" value="{{ $subCategory->category_id }}"
-                                    hidden>
+                                <input type="text" name="category_id"
+                                    value="{{ $subCategory->category_id }}" hidden>
 
                                 <div class="modal-body">
 
-                                    <table style="color: rgb(22, 22, 22); width: 400px !important; direction:rtl;"
+                                    <table
+                                        style="color: rgb(22, 22, 22); width: 400px !important; direction:rtl;"
                                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                                         <tr>
                                             <th>الحقول</th>
@@ -182,59 +183,32 @@
 
                                         <tr>
 
-                                            <td> <label for="p_1">عدد الطاولات</label>
+                                            <td> <label for="p_1">العدد المتوفر من هذه الخدمة</label>
                                             </td>
                                             <td class="text-center pl-2">
                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
                                                 <input
-                                                    @if ($subCategory->additional_fields) @if (in_array('tables_count', $subCategory->additional_fields)) checked @endif
+                                                    @if ($subCategory->additional_fields) @if (in_array('service_count', $subCategory->additional_fields)) checked @endif
                                                     @endif
                                                 id="p_1" name="additional_fields[]"
-                                                value="tables_count" type="checkbox">
+                                                value="service_count" type="checkbox">
                                             </td>
                                         </tr>
 
                                         <tr>
 
-                                            <td> <label for="p_1">عدد الأشخاص على الطاولة</label>
+                                            <td> <label for="p_1">عدد الأشخاص</label>
                                             </td>
                                             <td class="text-center pl-2">
                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
                                                 <input
-                                                    @if ($subCategory->additional_fields) @if (in_array('table_people_count', $subCategory->additional_fields)) checked @endif
+                                                    @if ($subCategory->additional_fields) @if (in_array('people_count', $subCategory->additional_fields)) checked @endif
                                                     @endif
                                                 id="p_1" name="additional_fields[]"
-                                                value="table_people_count" type="checkbox">
+                                                value="people_count" type="checkbox">
                                             </td>
                                         </tr>
 
-                                        <tr>
-
-                                            <td> <label for="p_1">عدد الغرف</label>
-                                            </td>
-                                            <td class="text-center pl-2">
-                                                {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
-                                                <input
-                                                    @if ($subCategory->additional_fields) @if (in_array('rooms_count', $subCategory->additional_fields)) checked @endif
-                                                    @endif
-                                                id="p_1" name="additional_fields[]"
-                                                value="rooms_count" type="checkbox">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-
-                                            <td> <label for="p_1">عدد الأشخاص في الغرفة</label>
-                                            </td>
-                                            <td class="text-center pl-2">
-                                                {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
-                                                <input
-                                                    @if ($subCategory->additional_fields) @if (in_array('room_people_count', $subCategory->additional_fields)) checked @endif
-                                                    @endif
-                                                id="p_1" name="additional_fields[]"
-                                                value="room_people_count" type="checkbox">
-                                            </td>
-                                        </tr>
 
                                     </table>
                                 </div>
@@ -413,12 +387,13 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <input type="text" name="id" value="{{ $subCategory->id }}" hidden>
-                                <input type="text" name="category_id" value="{{ $subCategory->category_id }}"
-                                    hidden>
+                                <input type="text" name="category_id"
+                                    value="{{ $subCategory->category_id }}" hidden>
 
                                 <div class="modal-body">
 
-                                    <table style="color: rgb(22, 22, 22); width: 400px !important; direction:rtl;"
+                                    <table
+                                        style="color: rgb(22, 22, 22); width: 400px !important; direction:rtl;"
                                         class="table-striped table-hover table-bordered m-auto text-primary myTable">
                                         <tr>
                                             <th>الحقول</th>
@@ -443,59 +418,32 @@
 
                                         <tr>
 
-                                            <td> <label for="p_1">عدد الطاولات</label>
+                                            <td> <label for="p_1">العدد المتوفر من هذه الخدمة</label>
                                             </td>
                                             <td class="text-center pl-2">
                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
                                                 <input
-                                                    @if ($subCategory->additional_fields) @if (in_array('tables_count', $subCategory->additional_fields)) checked @endif
+                                                    @if ($subCategory->additional_fields) @if (in_array('service_count', $subCategory->additional_fields)) checked @endif
                                                     @endif
                                                 id="p_1" name="additional_fields[]"
-                                                value="tables_count" type="checkbox">
+                                                value="service_count" type="checkbox">
                                             </td>
                                         </tr>
 
                                         <tr>
 
-                                            <td> <label for="p_1">عدد الأشخاص على الطاولة</label>
+                                            <td> <label for="p_1">عدد الأشخاص</label>
                                             </td>
                                             <td class="text-center pl-2">
                                                 {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
                                                 <input
-                                                    @if ($subCategory->additional_fields) @if (in_array('table_people_count', $subCategory->additional_fields)) checked @endif
+                                                    @if ($subCategory->additional_fields) @if (in_array('people_count', $subCategory->additional_fields)) checked @endif
                                                     @endif
                                                 id="p_1" name="additional_fields[]"
-                                                value="table_people_count" type="checkbox">
+                                                value="people_count" type="checkbox">
                                             </td>
                                         </tr>
 
-                                        <tr>
-
-                                            <td> <label for="p_1">عدد الغرف</label>
-                                            </td>
-                                            <td class="text-center pl-2">
-                                                {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
-                                                <input
-                                                    @if ($subCategory->additional_fields) @if (in_array('rooms_count', $subCategory->additional_fields)) checked @endif
-                                                    @endif
-                                                id="p_1" name="additional_fields[]"
-                                                value="rooms_count" type="checkbox">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-
-                                            <td> <label for="p_1">عدد الأشخاص في الغرفة</label>
-                                            </td>
-                                            <td class="text-center pl-2">
-                                                {{-- فحصي اذا مصفوفة الاديشينال فيها قيمة مدة الحجز او لا  --}}
-                                                <input
-                                                    @if ($subCategory->additional_fields) @if (in_array('room_people_count', $subCategory->additional_fields)) checked @endif
-                                                    @endif
-                                                id="p_1" name="additional_fields[]"
-                                                value="room_people_count" type="checkbox">
-                                            </td>
-                                        </tr>
 
                                     </table>
                                 </div>

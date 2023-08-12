@@ -14,7 +14,7 @@ class Service extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['place_id', 'cost', 'is_additional', 'image'];
+    protected $fillable = ['place_id', 'cost', 'is_additional', 'image', 'reservation_period', 'services_count', 'people_count'];
 
     public function place() {
         return $this->belongsTo(Place::class);
