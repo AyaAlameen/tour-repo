@@ -1,6 +1,6 @@
 @extends('layout-Ar.master')
 @section('content')
-    <form id="filter-form" action="" method="get" enctype="multipart/form-data">
+    <form id="filter-form" action="" method="post" enctype="multipart/form-data">
         @csrf
         <input type="text" name="city_id" value="{{ $city->id }}" hidden>
     </form>

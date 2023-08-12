@@ -62,6 +62,7 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     @foreach ($places as $place)
                                                         <option style="cursor: pointer;" class="dropdown-item"
+                                                        id="service_{{ $service->id }}"
                                                             value="{{ $place->id }}" id="place_{{ $place->id }}"
                                                             onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'place_{{ $place->id }}'), filterServices({{ $place->id }})"
                                                             href="#">
