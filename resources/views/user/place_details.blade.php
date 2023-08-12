@@ -1,268 +1,320 @@
 @extends('layout-En.master')
 @section('content')
-    <div class="d-flex" style="justify-content: space-around; align-items: center;">
+<div class="d-flex" style="justify-content: space-around; align-items: center;">
 
-        <h2 class="p-5" style="text-align: right;"> (place name) </h2>
-        <div class="contact_place_info">
-            <p> 0949049912 <i class="fas fa-phone"></i></p>
-            <p> aleppo-palace-hotel@gmail.com <i class="fas fa-envelope"></i></p>
-        </div>
+    <h2 class="p-5" style="text-align: right;"> ({{ $place->translations()->where('locale', 'en')->first()->name }})
+    </h2>
+    <div class="contact_place_info" style="padding-left: 100px;
+    padding-right: 150px;">
+        <p> <i class="fas fa-phone"></i> {{ $place->phone }}</p>
+        <p> <i class="fas fa-envelope"></i> {{ $place->email }}</p>
     </div>
-    {{-- Gallery --}}
-    <div class="d-flex container mt-2 justify-content-center">
-        <div style="width: 45%; height: 540px;">
-            <img src="img/440px-Aleppo_Citadel_02_-_Bastion.jpg" width="100%" height="100%">
-            <button
-                style="position: absolute; left:74%; top: 122%; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
-                data-bs-toggle="modal" data-bs-target="#exampleModal">
-                view all picture</button>
+</div>
+{{-- Gallery --}}
+<div class="d-flex container mt-2 justify-content-center">
+    <div style="width: 45%; height: 540px;">
+        @if ($place->images()->count() > 0)
+            <img src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}" width="100%"
+                height="100%">
+        @endif
+        <button
+            style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
+            data-bs-toggle="modal" data-bs-target="#exampleModal">view all picture</button>
 
-            {{-- picturs modal --}}
-            <!-- Modal -->
-            <div class="modal fade " data-bs-backdrop="static" id="exampleModal" tabindex="-1"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog " style="max-width: 800px;">
-                    <div class="modal-content toggle">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">All picture</h5>
-                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+        {{-- picturs modal --}}
+
+        <!-- Modal -->
+        <div class="modal fade " data-bs-backdrop="static" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog " style="max-width: 800px;">
+                <div class="modal-content toggle">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModal3Label">All picture</h5>
+                        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- صور المكان -->
+                        <div id="carouselExample2Indicators" class="carousel slide  m-auto w-100"
+                            data-bs-ride="carousel">
+
+                            <div class="carousel-inner">
+                                @foreach ($place->images as $image)
+                                    <div
+                                        @if ($loop->first) class="carousel-item active" @else class="carousel-item" @endif>
+                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
+                                            src="{{ asset(str_replace(app_path(), '', $image->image)) }}"
+                                            alt="">
+                                    </div>
+                                @endforeach
+
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExample2Indicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"
+                                    style="background-image:url(../img/previous.png); " aria-hidden="false"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExample2Indicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" style="background-image:url(../img/next.png);"
+                                    aria-hidden="false"></span>
+                                <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-
-                        <div class="modal-body">
-                            <!-- صور المكان -->
-                            <div id="carouselExample2Indicators" class="carousel slide  m-auto w-100"
-                                data-bs-ride="carousel">
-
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" style="padding-inline: 80px;"
-                                            src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExample2Indicators" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"
-                                        style="background-image:url(../img/previous.png); " aria-hidden="false"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExample2Indicators" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" style="background-image:url(../img/next.png);"
-                                        aria-hidden="false"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!-- نهاية صور المكان -->
-                        </div>
-
-
+                        <!-- نهاية صور المكان -->
                     </div>
-                </div>
-            </div>
-            {{-- end pic modal --}}
-        </div>
-        <div style="width: 35%; height: 540px;">
-            <img src="img/caption.jpg" width="100%" height="60%">
-            <img src="img/ALEPPO458976.gif" width="100%" height="40%">
-        </div>
-    </div>
-    {{-- end Gallery --}}
-    {{-- وصف المكان --}}
-    <div class="container-fluid w-75 m-auto">
-        <div class="d-flex" style="justify-content: space-around; align-items: start;">
-            <div class="w-50">
-                <h4 class="pt-5 pb-3" >نبذة عن (اسم المكان ) </h4>
-                <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Ea sed voluptas fuga modi. Voluptatem distinctio debitis tenetur quos unde nostrum,
-                    omnis, expedita, maxime maiores ipsam exercitationem itaque! Atque, voluptates iste!</p>
-            </div>
-            <div class="d-flex pt-5 pb-3" style="flex-direction: column; align-items: center;">
-                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal9" id="edit_location_img"
-                    style="cursor:pointer; border-radius:6px;" src="img/sy.jpg" width="200px" height="120px">
-                <p data-bs-toggle="modal"  style="cursor:pointer;" data-bs-target="#exampleModal9">شاهد على الخريطة</p>
-                {{-- مودل عرض الموقع على الخريطة الخريطة --}}
-                <div class="modal bg-light" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModal9Label"
-                    aria-hidden="true">
-                    <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
-                        <div class="modal-content toggle w-100 h-100">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModal9Label">
-                                    view place name location</h5>
-                                    <button type="button" class="btn-close m-0 close"
-                                    data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                            </div>
-                            <div class="modal-body">
-                                {{-- الخريطة --}}
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                {{-- نهاية مودل عرض الموقع  على الخريطة --}}
 
 
+                </div>
             </div>
         </div>
-
+        {{-- end pic modal --}}
     </div>
-    {{-- نهاية الوصف --}}
-    <div class="m-auto d-flex w-75 justify-content-center">
-        <button class="w-25 rate_btn" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <i
-                class="fas fa-star"></i>
-            Rate <i class="fas fa-star"></i></button>
-        @isset(Auth::user()->id)
-            <!-- Modal -->
-            <div class="modal fade " data-bs-backdrop="static" id="exampleModal1" tabindex="-1"
-                aria-labelledby="exampleModal1Label" aria-hidden="true">
-                <div class="modal-dialog ">
-                    <div class="modal-content toggle">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">شاركنا تقييمك للمكان</h5>
-                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="text-center">
-                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
-
-                            </div>
-                            <p class="text-center">كم نجمة تمنح هذا المكان؟</p>
-                            <div class="text-center mt-4">
-                                <input type="number" class="w-25" pattern="[0-9]+([.,][0-9]+)?">
-                                <h5 class="text-body d-inline">: قيمه أيضا من 10</h5>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" value="حفظ" class="btn btn-primary">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- نهاية المودل --}}
-        @else
-            <!-- Modal -->
-            <div class="modal fade " data-bs-backdrop="static" id="exampleModal1" tabindex="-1"
-                aria-labelledby="exampleModal1Label" aria-hidden="true">
-                <div class="modal-dialog ">
-                    <div class="modal-content toggle">
-                        <div class="modal-header">
-                            <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body text-center p-5">
-                            <h5>قم بتسجيل الدخول للمتابعة <a href="{{ route('login') }}"> من هنا</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- نهاية المودل --}}
-        @endisset
-
-        {{-- بحال المكان ما فيو خدمات ديف كلاس السيرف بكون مخفي وبيطلع هاد الزر للحجز --}}
-        {{-- @isset(Auth::user()->id)
-      <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">book</button
-        @else
-         <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn" >حجز</button>
-        @endisset --}}
+    <div style="width: 35%; height: 540px;">
+        @if ($place->images()->skip(1)->take(1)->get()->count() == 1)
+            <img src="{{ asset(str_replace(app_path(),'',$place->images()->skip(1)->take(1)->get()->first()->image)) }}"
+                width="100%" height="60%">
+        @endif
+        @if ($place->images()->skip(2)->take(1)->get()->count() == 1)
+            <img src="{{ asset(str_replace(app_path(),'',$place->images()->skip(2)->take(1)->get()->first()->image)) }}"
+                width="100%" height="40%">
+        @endif
     </div>
-
-
-    {{-- comments --}}
-    <div class="container m-5">
-        <h3>Comments About place name</h3>
-        <div class="d-flex align-items-center">
-            <div>
-                {{-- بداية التعليق --}}
-                <div class="m-5">
-                    <div class=" d-flex align-items-center">
-                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-right: 10px; "
-                            width="70px" height="70px">
-                        <h5> user name</h5>
-                    </div>
-                    <p class="text-body w-50 " style="margin-left:10%; ">Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
-    
-                </div>
-                {{-- نهاية التعليق --}}
-                {{-- بداية التعليق --}}
-                <div class="m-5">
-                    <div class=" d-flex align-items-center">
-                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-right: 10px; "
-                            width="70px" height="70px">
-                        <h5> user name</h5>
-                    </div>
-                    <p class="text-body w-50 " style="margin-left:10%; ">Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
-    
-                </div>
-                {{-- نهاية التعليق --}}
-                {{-- بداية التعليق --}}
-                <div class="m-5">
-                    <div class=" d-flex align-items-center">
-                        <img src="img/1656869576_personalimg.jpg" style="border-radius:50%; margin-right: 10px; "
-                            width="70px" height="70px">
-                        <h5> user name</h5>
-                    </div>
-                    <p class="text-body w-50" style="margin-left:10%; ">Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Fugit hic fugiat nesciunt modi explicabo aut cupiditate recusandae!</p>
-    
-                </div>
-                {{-- نهاية التعليق --}}
-    
-    
-            </div>
-            <div class="w-25"> 
-            <img src="img/popularity.png" width="300px" height="300px"> 
-            </div>
+</div>
+{{-- end Gallery --}}
+{{-- وصف المكان --}}
+<div class="container-fluid w-75 m-auto">
+    <div class="d-flex" style="justify-content: space-around; align-items: start;">
+        <div class="w-50">
+            <h4 class="pt-5 pb-3">About
+                {{ $place->translations()->where('locale', 'en')->first()->name }} </h4>
+            <p>{{ $place->translations()->where('locale', 'en')->first()->description }}</p>
         </div>
-      
+        <div class="d-flex pt-5 pb-3" style="flex-direction: column; align-items: center;">
+            <img onclick="showGeolocation({{ $place->getGeolocationArray()[0] }}, {{ $place->getGeolocationArray()[1] }})"
+                class="m-3" data-bs-toggle="modal" id="editmapimg" data-bs-target="#exampleModal9"
+                style="cursor:pointer; border-radius:6px;" src="../img/sy.jpg" width="200px" height="120px">
+            <p>See On Map</p>
+
+
+
+        </div>
     </div>
- {{-- ادخال التعليق --}}
- <div class="container">
-    <h3>Share us your comments about{{$place->translations()->where('locale', 'en')->first()->name}}</h3>
+
+</div>
+{{-- نهاية الوصف --}}
+<div class="m-auto d-flex w-75 justify-content-center">
+    <button class="w-25 rate_btn" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <i class="fas fa-star"></i>
+        Rate it now <i class="fas fa-star"></i></button>
     @isset(Auth::user()->id)
-    <div class="w-75 =pr-3 m-auto d-flex align-items-center">
-        <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-left:10px;" width="40px"
-        height="40px">
-            <textarea style="direction: rtl; width: 77%;" placeholder="leave a comment"></textarea>
-            <input type="submit" value="Send" class="m-2 btn btn-primary"
-            style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
+        <!-- Modal -->
+        <div class="modal fade " data-bs-backdrop="static" id="exampleModal1" tabindex="-1"
+            aria-labelledby="exampleModal1Label" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content toggle">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModal3Label">Share your review of the place</h5>
+                        <button type="button" class="btn-close m-0 close close-star-modal" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center stars-rating">
+
+                            @if (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('stars', '!=', null)->first())
+                                @if (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('stars', '!=', null)->first()->stars == 0)
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                @elseif(\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('stars', '!=', null)->first()->stars == 1)
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                @elseif(\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('stars', '!=', null)->first()->stars == 2)
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                @elseif(\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('stars', '!=', null)->first()->stars == 3)
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                @elseif(\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('stars', '!=', null)->first()->stars == 4)
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                @elseif(\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('stars', '!=', null)->first()->stars == 5)
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                    <i class="fas fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                @endif
+                            @else
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                                <i class="far fa-star" onclick="replaceStar()" style="font-size: 22px;"></i>
+                            @endif
+
+
+
+                        </div>
+                        <p class="text-center">How many stars do you give this place?</p>
+
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" id="save-stars-btn" onclick="saveStars({{ $place->id }})"
+                            class="app-content-headerButton">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- نهاية المودل --}}
+    @else
+        <!-- Modal -->
+        <div class="modal fade " data-bs-backdrop="static" id="exampleModal1" tabindex="-1"
+            aria-labelledby="exampleModal1Label" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content toggle">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close m-0 close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-center p-5">
+                        <h5>Log in to continue <a href="{{ route('login') }}"> From Here</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- نهاية المودل --}}
+    @endisset
+
+    {{-- مودل عرض الخريطة بالجدول --}}
+
+    <!-- Modal -->
+
+    <div class="modal fade bg-light" id="exampleModal9" data-bs-backdrop="static" tabindex="-1"
+        aria-labelledby="exampleModal9Label" aria-hidden="true">
+        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+            <div class="modal-content toggle w-100 h-100">
+                <div class="modal-header">
+                    <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="show-map" class="w-100 h-100"></div>
+                </div>
+
+            </div>
+        </div>
     </div>
-@else
-    <div class="w-75 pr-3 m-auto d-flex align-items-center"> 
-        <img src="{{ asset('img/1656869576_personalimg.jpg') }}" style="border-radius: 50%;  margin-left:10px;"
-            width="40px" height="40px">
-            <textarea style="direction: rtl; width: 77%;" placeholder="leave a comment"></textarea>
-            <input type="submit" value="Send" onClick="loginBefore()" class="m-2 btn btn-primary"
-            style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
+    {{-- نهاية مودل عرض الخريطة بالجدول --}}
+
+
+
+
+    {{-- بحال المكان ما فيو خدمات ديف كلاس السيرف بكون مخفي وبيطلع هاد الزر للحجز --}}
+    
+    @if ($place->services->count() < 0)
+        @isset(Auth::user()->id)
+            <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">حجز</button>
+        @else
+            <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn">Booking</button>
+        @endisset
+    @endif
+</div>
+{{-- comments --}}
+<div class="container m-5">
+    <h3>Reviews About {{ $place->translations()->where('locale', 'en')->first()->name }}</h3>
+    <div class="d-flex align-items-start">
+        <div>
+            @if (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('reviews', '!=', null)->get())
+            <div id="comments-data">
+                @foreach (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('reviews', '!=', null)->latest()->take(4)->get() as $comment)
+                {{-- بداية التعليق --}}
+            <div class="m-5">
+                <div class=" d-flex align-items-center">
+                    @if ($comment->user->image)
+                    <img src="{{ asset(str_replace(app_path(), '', $comment->user->image)) }}" style="border-radius:50%; margin-right: 10px; "
+                    width="70px" height="70px">
+                    @else
+                    <img src="../img/1656869576_personalimg.jpg" style="border-radius:50%; margin-right: 10px; "
+                    width="70px" height="70px">
+                    @endif
+                    
+                    <h5>{{$comment->user->user_name}}</h5>
+                </div>
+                <p class="text-body w-50 text-end" style="margin-left:10%; ">{{$comment->reviews}}
+                </p>
+
+            </div>
+            {{-- نهاية التعليق --}}
+            @endforeach
+            </div>
+            
+            @endif
+
+        </div>
+        <div class="w-50">
+            <img src="../img/popularity.png" width="300px" height="300px">
+        </div>
     </div>
-@endisset
+
+</div>
+{{-- ادخال التعليق --}}
+<div class="container m-5">
+    <h3>Also share your comments about {{ $place->translations()->where('locale', 'en')->first()->name }}</h3>
+    @isset(Auth::user()->id)
+    <form id="comment-form" action="" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="text" name="place_id" value="{{ $place->id }}" hidden>
+        <div class="w-75 =pr-3 m-auto d-flex align-items-center">
+            <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-right:10px;" width="40px"
+                height="40px">
+            <textarea style="direction: ltr; width: 77%;" name="reviews" id="comment-content" placeholder="Leave your comment"></textarea>
+            
+                <button type="button" id="save-comment-btn" onclick="saveComment({{ $place->id }})"
+                    class="m-2 btn btn-primary" style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">Send</button>
+        </div>
+    </form>
+    @else
+        <div class="w-75 pr-3 m-auto d-flex align-items-center">
+            <img src="{{ asset('img/1656869576_personalimg.jpg') }}" style="border-radius: 50%;  margin-left:10px;"
+                width="40px" height="40px">
+            <textarea style="direction: rtl; width: 77%;" placeholder="Leave your comment"></textarea>
+            <input type="submit" value="إرسال" onClick="loginBefore()" class="m-2 btn btn-primary"
+                style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">
+        </div>
+    @endisset
 </div>
 {{-- نهاية ادخال التعليق --}}
-    {{-- end comments --}}
-    {{-- الخدمات --}}
+{{-- end comments --}}
+{{-- الخدمات --}}
+@if ($place->services->count() > 0)
     <div class="serv d-flex" style="flex-direction: row; align-items: center;">
 
-        <div class="user-sidebar">
-            <div class="user-sidebar-header">
+        <div class="sidebar">
+            <div class="sidebar-header">
                 <div class="app-icon">
                     <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                         <path fill="currentColor"
@@ -270,27 +322,28 @@
                     </svg>
                 </div>
             </div>
-            <ul class="user-sidebar-list">
-                <li class="user-sidebar-list-item">
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
                     <a>
-                        <span>Filter </span>
                         <i class="fas fa-filter"></i>
+                        <span>فلتر </span>
                     </a>
                 </li>
-                <li class="user-sidebar-list-item ">
+                <li class="sidebar-list-item ">
                     <a>
-                        <span>:people count</span>
                         <i class="fas fa-users"></i>
+
+                        <span> عدد الأشخاص :</span>
                     </a>
                 </li>
 
-                <li class="user-sidebar-list-item">
+                <li class="sidebar-list-item">
 
-                    <input type="number" class="w-100" style="margin-left: 20px;">
+                    <input type="number" class="w-100" style="margin-right: 20px;">
 
                 </li>
 
-                <li class="user-sidebar-list-item">
+                <li class="sidebar-list-item">
                     <a>
                         <i class="fas fa-dolar"></i>
                         <span>السعر بالليرة السوري:</span>
@@ -298,29 +351,29 @@
                 </li>
 
 
-                <li class="user-sidebar-list-item ">
+                <li class="sidebar-list-item ">
                     <a>
                         <label for="rang1" style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
-                            1000-2000
                             <input type="radio" name="option" id="rang1">
+                            1000-2000
                         </label>
                     </a>
                 </li>
 
-                <li class="user-sidebar-list-item ">
+                <li class="sidebar-list-item ">
                     <a>
                         <label for="rang2" style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
-                            1500-1800
                             <input type="radio" name="option" id="rang2">
+                            1500-1800
                         </label>
                     </a>
                 </li>
 
-                <li class="user-sidebar-list-item ">
+                <li class="sidebar-list-item ">
                     <a>
                         <label for="rang3" style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
-                            133300-200333
                             <input type="radio" name="option" id="rang3">
+                            133300-200333
                         </label>
                     </a>
                 </li>
@@ -329,33 +382,33 @@
         {{-- الخدمات --}}
         <div class="pr-5">
 
-            <h4 class="p-5" style=" padding-bottom:5px !important;"> the main services in (اسم
-                المكان )
-            </h4>
+            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الأساسية المقدمة في
+                {{ $place->translations()->where('locale', 'en')->first()->name }}</h4>
 
-            {{-- بداسة كارد الخدمات الغير إضافية--}}
+            {{-- بداسة كارد الخدمات الغير إضافية --}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
-                        <img src="img/aleppo-palace-hotel.jpg"
+                        <img src="../img/photo0jpg.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
+
                     </div>
                     <div class="pt-4">
                         <div class="d-flex " style="justify-content: space-between;">
-                            <h4 class=" p-2">Service name</h4>
+                            <h4 class="text-right p-2">غرفة لشخصين</h4>
                         </div>
-                        <p class="text-left pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
+                        <p class="text-right pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
                             . Exercitationem, corporis rem culpa perspiciatis
                             odit architecto expedita iure illum error inventore m
                             inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
                         <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
-                            <h6 class="d-inline ml-4">cost : 60000</h6>
+                            <h6 class="d-inline ml-4">التكلفة : 60000</h6>
                             @isset(Auth::user()->id)
                                 <button class="btn btn-primary ml-4" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal20">book</button>
+                                    data-bs-target="#exampleModal20">حجز</button>
                             @else
-                                <button onclick="loginBefore()" class="btn btn-primary ml-4">book</button>
+                                <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
                             @endisset
                         </div>
                     </div>
@@ -369,33 +422,33 @@
 
             {{-- نهاية كارد الخدمات الغير إضافية --}}
 
-            <h4 class="p-5" style=" padding-bottom:5px !important;"> the additional services in (اسم
-                المكان )
-            </h4>
 
-            {{-- بداسة كارد الخدمات  الإضافية--}}
+            <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الإضافية المقدمة في
+                {{ $place->translations()->where('locale', 'en')->first()->name }} </h4>
+
+            {{-- بداسة كارد الخدمات  الإضافية --}}
             <div class="mainCard  w-75 m-auto " style="border-radius: 10px;">
                 <div class="d-flex">
                     <div class="text-center ">
-                        <img src="img/aleppo-palace-hotel.jpg"
+                        <img src="../img/sur-plaza-hotel.jpg"
                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px"
                             height="200px">
+
                     </div>
                     <div class="pt-4">
                         <div class="d-flex " style="justify-content: space-between;">
-                            <h4 class=" p-2">Service name</h4>
+                            <h4 class="text-right p-2">مسبح الفندق</h4>
                         </div>
-                        <p class="text-left pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
+                        <p class="text-right pr-2 pl-2">Lorem ipsum dolor sit amet consectetur adipisicing elit
                             . Exercitationem, corporis rem culpa perspiciatis
-                            odit architecto expedita iure illum error inventore m
-                            inus molestias eaque dolorem blanditiis aperiam recusandae quaerat? Minus, ducimus!</p>
+                        </p>
                         <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
-                            <h6 class="d-inline ml-4">cost : 60000</h6>
+                            <h6 class="d-inline ml-4">التكلفة : 20000</h6>
                             @isset(Auth::user()->id)
                                 <button class="btn btn-primary ml-4" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal20">book</button>
+                                    data-bs-target="#exampleModal20">حجز</button>
                             @else
-                                <button onclick="loginBefore()" class="btn btn-primary ml-4">book</button>
+                                <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
                             @endisset
                         </div>
                     </div>
@@ -407,34 +460,138 @@
             </div>
 
 
-            {{-- نهاية كارد الخدمات الإضافية --}}
-       
+            {{-- نهاية كارد الخدمات  الإضافية --}}
         </div>
 
 
 
 
+
     </div>
-    {{-- نهاية  الخدمات --}}
+@endif
+{{-- نهاية  الخدمات --}}
 @endsection
 <script>
-    function replaceStar() {
-        var element = event.target; // العنصر الحالي
-        var previousSibling = element.previousElementSibling; // الشقيق السابق
-        var nextSibling = element.nextElementSibling; //الشقيق التالي
-        if (previousSibling == null || previousSibling.classList.contains("fas")) {
-            // console.log(nextSibling)
-            if (nextSibling == null || nextSibling.classList.contains('far'))
-                if (event.target.classList.contains("fas")) {
-                    event.target.classList.remove("fas", "fa-star")
-                    event.target.classList.add("far", "fa-star")
-                } else
-            if (event.target.classList.contains("far")) {
-                event.target.classList.remove("far", "fa-star")
-                event.target.classList.add("fas", "fa-star")
-            }
+function replaceStar() {
+    var element = event.target; // العنصر الحالي
+    var previousSibling = element.previousElementSibling; // الشقيق السابق
+    var nextSibling = element.nextElementSibling; //الشقيق التالي
+    if (previousSibling == null || previousSibling.classList.contains("fas")) {
+        // console.log(nextSibling)
+        if (nextSibling == null || nextSibling.classList.contains('far'))
+            if (event.target.classList.contains("fas")) {
+                event.target.classList.remove("fas", "fa-star")
+                event.target.classList.add("far", "fa-star")
+            } else
+        if (event.target.classList.contains("far")) {
+            event.target.classList.remove("far", "fa-star")
+            event.target.classList.add("fas", "fa-star")
         }
-
-
     }
+
+
+}
+
+
+//--------------------------------------------
+
+function saveStars(place_id) {
+    $("#save-stars-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+
+    var stars = document.querySelectorAll('.stars-rating .fas');
+    console.log(stars.length);
+    var formData = new FormData();
+    formData.append('place_id', place_id);
+    formData.append('stars', stars.length);
+    $.ajax({
+            url: `{{ route('startsPlaceAr') }}`,
+            type: "POST",
+            data: formData,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            processData: false,
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data) {
+            // $(`#places-category-${category_id}`).empty();
+            // $(`#places-category-${category_id}`).append(data);
+            $('.close-star-modal').click();
+            $('.parenttrue').attr("hidden", false);
+
+        })
+        .fail(function() {
+            $('.parent').attr("hidden", false);
+
+
+        }).always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#save-stars-btn").attr("disabled", false).html('Save');
+        });
+}
+
+//--------------------------------------------
+
+function saveComment(place_id) {
+    $("#save-comment-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+    var formData = new FormData(document.getElementById('comment-form'));
+
+   
+    $.ajax({
+            url: `{{ route('reviewsPlaceEn') }}`,
+            type: "POST",
+            data: formData,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            processData: false,
+            cache: false,
+            contentType: false,
+        })
+        .done(function(data) {
+            console.log(data);
+            $(`#comments-data`).empty();
+            $(`#comments-data`).append(data);
+            // $('.close-comment-modal').click();
+            $('.parenttrue').attr("hidden", false);
+            document.getElementById('comment-content').value = '';
+
+        })
+        .fail(function() {
+            $('.parent').attr("hidden", false);
+
+
+        }).always(function() {
+            // Re-enable the submit button and hide the loading spinner
+            $("#save-comment-btn").attr("disabled", false).html('Send');
+        });
+}
+//--------------------------------------------
+function showGeolocation(lat, lng) {
+    // iterate over the map's layers
+    show_map.eachLayer(function(layer) {
+        // check if the layer is a marker
+        if (layer instanceof L.Marker) {
+            // remove the marker from the map
+            show_map.removeLayer(layer);
+        }
+    });
+    var geolocation = [lat, lng];
+
+    var marker_icon = L.icon({
+        iconUrl: '{{ asset('img/marker.svg') }}',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+    });
+
+    // add a marker to the map
+    var marker_map = L.marker([0, 0], {
+        icon: marker_icon
+    });
+
+    marker_map.addTo(show_map);
+    marker_map.setLatLng(geolocation); // move the marker to the clicked location
+}
 </script>

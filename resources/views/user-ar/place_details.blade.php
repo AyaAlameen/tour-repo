@@ -250,7 +250,8 @@
         <div class="d-flex align-items-start">
             <div>
                 @if (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('reviews', '!=', null)->get())
-                @foreach (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('reviews', '!=', null)->get() as $comment)
+                <div id="comments-data">
+                    @foreach (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('reviews', '!=', null)->latest()->take(4)->get() as $comment)
                     {{-- بداية التعليق --}}
                 <div class="m-5">
                     <div class=" d-flex align-items-center">
@@ -270,6 +271,7 @@
                 </div>
                 {{-- نهاية التعليق --}}
                 @endforeach
+                </div>
                 
                 @endif
 
@@ -290,7 +292,7 @@
             <div class="w-75 =pr-3 m-auto d-flex align-items-center">
                 <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-left:10px;" width="40px"
                     height="40px">
-                <textarea style="direction: rtl; width: 77%;" name="reviews" placeholder="اترك تعليق"></textarea>
+                <textarea style="direction: rtl; width: 77%;" name="reviews" id="comment-content" placeholder="اترك تعليق"></textarea>
                 
                     <button type="button" id="save-comment-btn" onclick="saveComment({{ $place->id }})"
                         class="m-2 btn btn-primary" style="font-size: 14px; height: 30px;  width: 12%; padding:3px;">إرسال</button>
@@ -533,11 +535,12 @@
     //--------------------------------------------
 
     function saveComment(place_id) {
-        $("#save-stars-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        $("#save-comment-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('comment-form'));
 
        
         $.ajax({
-                url: `{{ route('startsPlaceAr') }}`,
+                url: `{{ route('reviewsPlaceAr') }}`,
                 type: "POST",
                 data: formData,
                 headers: {
@@ -548,10 +551,12 @@
                 contentType: false,
             })
             .done(function(data) {
-                // $(`#places-category-${category_id}`).empty();
-                // $(`#places-category-${category_id}`).append(data);
-                $('.close-star-modal').click();
+                console.log(data);
+                $(`#comments-data`).empty();
+                $(`#comments-data`).append(data);
+                // $('.close-comment-modal').click();
                 $('.parenttrue').attr("hidden", false);
+                document.getElementById('comment-content').value = '';
 
             })
             .fail(function() {
@@ -560,7 +565,7 @@
 
             }).always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#save-stars-btn").attr("disabled", false).html('حفظ');
+                $("#save-comment-btn").attr("disabled", false).html('إرسال');
             });
     }
     //--------------------------------------------

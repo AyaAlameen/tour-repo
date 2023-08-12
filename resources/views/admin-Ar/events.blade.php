@@ -62,7 +62,6 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     @foreach ($places as $place)
                                                         <option style="cursor: pointer;" class="dropdown-item"
-                                                        id="service_{{ $service->id }}"
                                                             value="{{ $place->id }}" id="place_{{ $place->id }}"
                                                             onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'place_{{ $place->id }}'), filterServices({{ $place->id }})"
                                                             href="#">
@@ -94,7 +93,8 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     @foreach ($services as $service)
                                                         <option style="cursor: pointer;"
-                                                            class="dropdown-item service_filter_option service_place_{{ $service->place->id }}"
+                                                        id="service_{{ $service->id }}"
+                                                        class="dropdown-item service_filter_option service_place_{{ $service->place->id }}"
                                                             value="{{ $service->id }}" id="dservice_{{ $service->id }}"
                                                             onclick="setService({{ $service->id }}, '{{ $service->translations()->where('locale', 'ar')->first()->name }}', 'service_{{ $service->id }}')"
                                                             hidden href="#">
