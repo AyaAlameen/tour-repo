@@ -24,6 +24,7 @@ use App\Http\Controllers\UserTransportCompanyController;
 use App\Http\Controllers\UserGuideController;
 use App\Http\Controllers\UserOfferController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -583,7 +584,10 @@ Route::get('/tripmore-ar/{id}', [UserGroupController::class, 'getGroupDetailsAr'
 
 
 Route::get('/user_city_ar/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsAr'])-> name('user-city-ar');
-Route::get('/ar/city/places/{id}', [CityController::class, 'getSubCategoryPlaceAr']) -> name('getSubCategoryPlaceAr');
+Route::post('/ar/city/places', [CityController::class, 'getSubCategoryPlaceAr']) -> name('getSubCategoryPlaceAr');
+Route::post('/en/city/places', [CityController::class, 'getSubCategoryPlaceEn']) -> name('getSubCategoryPlaceEn');
+
+Route::post('/ar/place/favorite', [FavoriteController::class, 'favoritePlaceAr']) -> name('favoritePlaceAr');
 
 // Route::get('/place_details_ar', function () {
 //     return view('user-ar.place_details');

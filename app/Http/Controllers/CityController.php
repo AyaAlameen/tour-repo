@@ -256,13 +256,7 @@ class CityController extends Controller
     {
         $city = City::find($id);
         $districts_ids = District::where('city_id', $id)->get()->pluck('id');
-        // $places = place::whereHas('district', function($q) use($districts_ids){
-        //     $q->whereIn('district_id', $districts_ids);
-        // })->get()->groupBy('district_id');
-
-        // $Category_places = place::with('subCategory.category')->whereHas('district', function($q) use($districts_ids){
-        //     $q->whereIn('district_id', $districts_ids);
-        // })->get()->groupBy('subCategory.category.id');
+        
 
         $Category_places = place::with(['subCategory.category' => function($query) {
             $query->with('subCategories');
@@ -270,9 +264,6 @@ class CityController extends Controller
             $q->whereIn('district_id', $districts_ids);
         })->get()->groupBy('subCategory.category.id');
 
-
-        // dd($Category_places);
-        // dd($Category_places);
 
         return view('user-ar.city')->with(['city' => $city, 'Category_places' => $Category_places]);
     }
@@ -281,9 +272,7 @@ class CityController extends Controller
     {
         $city = City::find($id);
         $districts_ids = District::where('city_id', $id)->get()->pluck('id');
-        // $places = place::whereHas('district', function($q) use($districts_ids){
-        //     $q->whereIn('district_id', $districts_ids);
-        // })->get()->groupBy('district_id');
+        
 
         $Category_places = place::with(['subCategory.category' => function($query) {
             $query->with('subCategories');
@@ -292,18 +281,60 @@ class CityController extends Controller
         })->get()->groupBy('subCategory.category.id');
 
 
-        // dd($Category_places);
-
         return view('user.city')->with(['city' => $city, 'Category_places' => $Category_places]);
     }
 
-    public function getSubCategoryPlaceAr($id){
-        if($id === 'all'){
-            $places = Place::all();
+    public function getSubCategoryPlaceAr(Request $request){
+        // dd($request->all());
+        if($request->input('sub_category_id') === 'all'){
+            $places = Place::whereHas('district', function($query) use($request){
+                    $query->where('city_id', $request->input('city_id'));
+                } 
+            )->whereHas('subCategory', function($query) use($request){
+                    $query->where('category_id', $request->input('category_id'));
+                }  
+            )->get();
         }
         else{
-            $places = Place::where('sub_category_id', $id)->get();
+            $places = Place::where('sub_category_id', $request->input('sub_category_id'))->whereHas('district', function($query) use($request){
+                    $query->where('city_id', $request->input('city_id'));
+                } 
+            )->whereHas('subCategory', function($query) use($request){
+                    $query->where('category_id', $request->input('category_id'));
+                } 
+            )->get();
         }
+        
+        $city = City::find($request->input('city_id'));
+        return view("user-ar.sections.city-places")->with(['places' => $places, 'city' => $places]);
+
+
+    }
+
+    public function getSubCategoryPlaceEn(Request $request){
+        // dd($request->all());
+        if($request->input('sub_category_id') === 'all'){
+            $places = Place::whereHas('district', function($query) use($request){
+                    $query->where('city_id', $request->input('city_id'));
+                } 
+            )->whereHas('subCategory', function($query) use($request){
+                    $query->where('category_id', $request->input('category_id'));
+                }  
+            )->get();
+        }
+        else{
+            $places = Place::where('sub_category_id', $request->input('sub_category_id'))->whereHas('district', function($query) use($request){
+                    $query->where('city_id', $request->input('city_id'));
+                } 
+            )->whereHas('subCategory', function($query) use($request){
+                    $query->where('category_id', $request->input('category_id'));
+                } 
+            )->get();
+        }
+        
+        $city = City::find($request->input('city_id'));
+        return view("user.sections.city-places")->with(['places' => $places, 'city' => $places]);
+
 
     }
 }
