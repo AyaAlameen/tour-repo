@@ -25,6 +25,7 @@ use App\Http\Controllers\UserGuideController;
 use App\Http\Controllers\UserOfferController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -588,6 +589,7 @@ Route::post('/ar/city/places', [CityController::class, 'getSubCategoryPlaceAr'])
 Route::post('/en/city/places', [CityController::class, 'getSubCategoryPlaceEn']) -> name('getSubCategoryPlaceEn');
 
 Route::post('/ar/place/favorite', [FavoriteController::class, 'favoritePlaceAr']) -> name('favoritePlaceAr');
+Route::post('/ar/place/stars', [RatingController::class, 'startsPlaceAr']) -> name('startsPlaceAr');
 
 // Route::get('/place_details_ar', function () {
 //     return view('user-ar.place_details');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rating;
+use Auth;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
@@ -12,6 +13,23 @@ class RatingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function startsPlaceAr(Request $request)
+    {
+        // dd($request->all());
+        $star = Rating::where('user_id', Auth::user()->id)->where('place_id', $request->input('place_id'))->first();
+        if($star) {
+            $star->stars = $request->input('stars');
+            $star->update();
+        }
+        else{
+            $star = new Rating;
+            $star->place_id = $request->input('place_id');
+            $star->user_id = Auth::user()->id;
+            $star->stars = $request->input('stars');
+            $star->save();
+        }
+    }
+
     public function index()
     {
         //
