@@ -24,6 +24,13 @@ class UserGuideController extends Controller
         return view('user-ar.travelguidesformore', ['guide' => $guide]);
     }
 
+
+    public function getGuideDetailsEn($id)
+    {
+        $guide = TouristGuide::find($id);
+        return view('user.travelguidesformore', ['guide' => $guide]);
+    }
+
     public function index()
     {
         //

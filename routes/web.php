@@ -525,9 +525,11 @@ Route::get('/travelguides', function () {
     return view('user.travelguides');
 })-> name('travelguides');
 
-Route::get('/travelguidesformore', function () {
-    return view('user.travelguidesformore');
-})-> name('travelguidesformore');
+// Route::get('/travelguidesformore', function () {
+//     return view('user.travelguidesformore');
+// })-> name('travelguidesformore');
+Route::get('/travelguidesformore/{id}', [UserGuideController::class, 'getGuideDetailsEn'])-> name('travelguidesformore');
+
 Route::get('/trips', function () {
     return view('user.trips');
 })-> name('trips');
