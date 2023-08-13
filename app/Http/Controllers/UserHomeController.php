@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\TouristGuide;
 use App\Models\Offer;
 use App\Models\Group;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class UserHomeController extends Controller
@@ -20,23 +21,32 @@ class UserHomeController extends Controller
         $cities = City::with('translations')->get();
         $guides = TouristGuide::with('translations')->get();
         $offers = Offer::with('translations')->get();
+        $events = Event::with('translations')->take(3)->get();
         $groups = Group::with(['translations', 'touristGuide', 'places' => function($query){
             $query->with(['images' => function($q){
                 $q->first();
             }]);
         }])->take(3)->get();
 // dd($groups);
-        return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups]);
+        return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups, 'offers' => $offers, 'events' => $events]);
 
     }
 
 
     public function indexEn()
     {
-        // dd('jkdck');
         $cities = City::with('translations')->get();
-        return view('user.home', ['cities' => $cities]);
-    }
+        $guides = TouristGuide::with('translations')->get();
+        $offers = Offer::with('translations')->get();
+        $events = Event::with('translations')->take(3)->get();
+        $groups = Group::with(['translations', 'touristGuide', 'places' => function($query){
+            $query->with(['images' => function($q){
+                $q->first();
+            }]);
+        }])->take(3)->get();
+        // dd($groups);
+        return view('user.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups, 'offers' => $offers, 'events' => $events]);
+}
 
     /**
      * Show the form for creating a new resource.

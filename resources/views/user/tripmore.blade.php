@@ -41,23 +41,17 @@ transition: all linear 1s;
                 @endif
           
                 @endforeach --}}
-                <div class="grid-item">
-                    <img src="../img/sy.jpg" alt="Image 1">
-                   </div>
-               
-                <div class="grid-item">
-                    <img src="../img/sy.jpg" alt="Image 1">
-                   </div>
-               
-                <div class="grid-item">
-                    <img src="../img/sy.jpg" alt="Image 1">
-                   </div>
-                   <div class="grid-item">
-                    <img src="../img/sy.jpg" alt="Image 1">
-                   </div>
-                   <div class="grid-item">
-                    <img src="../img/sy.jpg" alt="Image 1">
-                   </div>
+                @foreach ($group->places as $place)
+                    @if($place->images()->count() >0)
+                        @forEach($place->images as $image)
+                            <div class="grid-item"> 
+                                <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}">
+                            </div>
+                        @endforeach
+                    @endif
+
+                @endforeach
+    
                
                  
     </div>
@@ -71,34 +65,32 @@ transition: all linear 1s;
            
             <div class="p-4">
                 <div class="d-flex " style="justify-content: space-between;">
-                    <h4 class=" p-2 pl-2">Trip Information</h4>
+                    <h4 class=" p-2 pl-2">Trip Information: ({{$group->translations()->where('locale', 'en')->first()->name}})</h4>
                 </div>
-                <p class="pr-2 pl-2 text-body" >Descriptiin: Lorem ipsum dolor sit a
-                    met consectetur adipisicing elit. Commodi nulla, dolor quidem, aspernatur adipisci voluptatem magnam inventore
-                     assumenda accusantium ipsum est possimus minus saepe ad, ullam dolore facere vel optio?</p>
+                <p class="pr-2 pl-2 text-body" >{{$group->translations()->where('locale', 'en')->first()->description}}</p>
                     
-                    <h5 class=" p-2 pl-2">With TravelGuide: Mohamed</h5>
+                    <h5 class=" p-2 pl-2">With Guide: {{$group->touristGuide->translations()->where('locale', 'en')->first()->name}}</h5>
                  
                   <div style="display: flex; align-items: baseline; ">
                     <i class="fa fa-calendar-alt"></i>
-                    <h5 class=" p-2 pl-2">From :12-4-2023</h5>
+                    <h5 class=" p-2 pl-2">From :{{$group->start_date}}</h5>
                   </div>
                      <div style="display: flex; align-items: baseline; ">
                     <i class="fa fa-calendar-alt"></i>
-                    <h5 class=" p-2 pl-2">To :13-4-2023</h5>
+                    <h5 class=" p-2 pl-2">To :{{$group->end_date}}</h5>
                   </div>
-                  <div style="display: flex; align-items: baseline;">
+                  {{-- <div style="display: flex; align-items: baseline;">
                     <i class="fa fa-car-alt"></i>
                     <h5 class=" p-2 pl-2">In cooperation with the transportation company : alrawda</h5>
-                  </div>
+                  </div> --}}
                   <div style="display: flex; align-items: baseline; ">
                     <i class="fas fa-location-dot"></i>
-                    <h5 class=" p-2 pl-2">The places to go</h5>
+                    <h5 class=" p-2 pl-2">Destinations: </h5>
                   </div>
                   <ul >
-                    <li><p class="text-body">place1</p></li>
-                    <li><p class="text-body">place2</p></li>
-                    <li><p class="text-body">place3</p></li>
+                    @foreach($group->places as $place)
+                    <li><p class="text-body">{{$place->translations()->where('locale', 'en')->first()->name}}</p></li>
+                    @endforeach
 
                     
                 </ul>
@@ -107,7 +99,7 @@ transition: all linear 1s;
        
 
                 <div class="d-flex" style="justify-content: flex-end; align-items: baseline;">
-                    <h6 class="d-inline ml-4">cost : 60000</h6>
+                    <h6 class="d-inline ml-4">Cost : {{$group->cost}}</h6>
                     @isset(Auth::user()->id)
                     <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">book</button>
                     @else

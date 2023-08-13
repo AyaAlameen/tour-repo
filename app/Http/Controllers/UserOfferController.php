@@ -19,6 +19,16 @@ class UserOfferController extends Controller
 
     }
 
+    public function offerDetailsAr($id){
+        $offer = Offer::find($id);
+        return view('user-ar.offer_details', ['offer' => $offer]);
+    }
+
+    public function offerDetailsEn($id){
+        $offer = Offer::find($id);
+        return view('user.offer_details', ['offer' => $offer]);
+    }
+
     public function index()
     {
         //

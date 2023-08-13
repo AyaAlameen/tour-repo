@@ -26,6 +26,7 @@ use App\Http\Controllers\UserOfferController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\UserEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -488,17 +489,21 @@ Route::get('/event-en', function () {
     return view('user.event');
 })-> name('event-en');
 
-Route::get('/event_details-en', function () {
-    return view('user.event_details');
-})-> name('event_details-en');
+// Route::get('/event_details-en', function () {
+//     return view('user.event_details');
+// })-> name('event_details-en');
+Route::get('/event_details-en/{id}', [UserEventController::class, 'eventDetailsEn'])-> name('event_details-en');
+
 
 Route::get('/offer-en', function () {
     return view('user.offer');
 })-> name('offer-en');
 
-Route::get('/offer_details-en', function () {
-    return view('user.offer_details');
-})-> name('offer_details-en');
+// Route::get('/offer_details-en', function () {
+//     return view('user.offer_details');
+// })-> name('offer_details-en');
+Route::get('/offer_details-en/{id}', [UserOfferController::class, 'offerDetailsEn'])-> name('offer_details-en');
+
 
 Route::get('/contact-en', function () {
     return view('user.contact');
@@ -525,15 +530,19 @@ Route::get('/travelguides', function () {
     return view('user.travelguides');
 })-> name('travelguides');
 
-Route::get('/travelguidesformore', function () {
-    return view('user.travelguidesformore');
-})-> name('travelguidesformore');
+// Route::get('/travelguidesformore', function () {
+//     return view('user.travelguidesformore');
+// })-> name('travelguidesformore');
+Route::get('/travelguidesformore/{id}', [UserGuideController::class, 'getGuideDetailsEn'])-> name('travelguidesformore');
+
 Route::get('/trips', function () {
     return view('user.trips');
 })-> name('trips');
-Route::get('/tripmore', function () {
-    return view('user.tripmore');
-})-> name('tripmore');
+// Route::get('/tripmore', function () {
+//     return view('user.tripmore');
+// })-> name('tripmore');
+Route::get('/tripmore-en/{id}', [UserGroupController::class, 'getGroupDetailsEn'])-> name('tripmore');
+
 
 //user routes part Arabic
 
@@ -545,16 +554,19 @@ Route::get('/event-ar', function () {
     return view('user-ar.event');
 })-> name('event-ar');
 
-Route::get('/event_details-ar', function () {
-    return view('user-ar.event_details');
-})-> name('event_details-ar');
+// Route::get('/event_details-ar', function () {
+//     return view('user-ar.event_details');
+// })-> name('event_details-ar');
+
+Route::get('/event_details-ar/{id}', [UserEventController::class, 'eventDetailsAr'])-> name('event_details-ar');
 
 
 Route::get('/offer-ar', [UserOfferController::class, 'getOffersAr'])-> name('offer-ar');
 
-Route::get('/offer_details-ar', function () {
-    return view('user-ar.offer_details');
-})-> name('offer_details-ar');
+// Route::get('/offer_details-ar', function () {
+//     return view('user-ar.offer_details');
+// })-> name('offer_details-ar');
+Route::get('/offer_details-ar/{id}', [UserOfferController::class, 'offerDetailsAr'])-> name('offer_details-ar');
 
 // Route::get('/user_home_arabic', function () {
 //     return view('user-ar.home');

@@ -32,6 +32,16 @@ class UserGroupController extends Controller
         return view('user-ar.tripmore', ['group' => $group]);
 
     }
+    public function getGroupDetailsEn($id)
+    {
+        $group = Group::with(['translations', 'touristGuide', 'places' => function($query){
+            $query->with(['images' => function($q){
+                $q->first();
+            }]);
+        }])->find($id);
+        return view('user.tripmore', ['group' => $group]);
+
+    }
     public function index()
     {
         //

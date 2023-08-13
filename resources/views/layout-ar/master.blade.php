@@ -317,13 +317,43 @@
 
         // ------------------------ show map------------------------------------
 
+                if(document.getElementById('show-map')){
+                    var show_map = L.map('show-map').setView([51.505, -0.09], 13); // set the initial view of the map.
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
+                            maxZoom: 18,
+                            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+                        }).addTo(show_map);
+                }
+        
 
-        var show_map = L.map('show-map').setView([51.505, -0.09], 13); // set the initial view of the map.
+        //--------------------------------------------------
+        // ------------------------ show-nearest-map------------------------------------
+        if(document.getElementById('show-nearest-map')){
+            // Create a new map instance
+            var show_nearst_map = L.map('show-nearest-map');
+            // console.log(show_nearst_map);
+
+            // Use the Geolocation API to get the user's current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                // Get the latitude and longitude from the position object
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+                console.log(lat);
+                console.log(lng);
+
+                // Create a new marker at the user's location
+                var marker = L.marker([lat, lng]).addTo(show_nearst_map);
+
+                // Center the map on the user's location
+                show_nearst_map.setView([lat, lng], 13);
+            });
+
+        // var show_nearst_map = L.map('show-nearest-map').setView([51.505, -0.09], 13); // set the initial view of the map.
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
             maxZoom: 18,
             attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-        }).addTo(show_map);
-
+        }).addTo(show_nearst_map);
+        }
         //--------------------------------------------------
     </script>
 

@@ -2,33 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TouristGuide;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
-class UserGuideController extends Controller
+class UserEventController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getGuidesAr()
+    public function eventDetailsAr($id)
     {
-        $guides = TouristGuide::all();
-        return view('user-ar.travelguides', ['guides' => $guides]);
-
-    }
-    public function getGuideDetailsAr($id)
-    {
-        $guide = TouristGuide::find($id);
-        return view('user-ar.travelguidesformore', ['guide' => $guide]);
+        $event = Event::find($id);
+        return view('user-ar.event_details', ['event' => $event]);
     }
 
-
-    public function getGuideDetailsEn($id)
+    public function eventDetailsEn($id)
     {
-        $guide = TouristGuide::find($id);
-        return view('user.travelguidesformore', ['guide' => $guide]);
+        $event = Event::find($id);
+        return view('user.event_details', ['event' => $event]);
     }
 
     public function index()
