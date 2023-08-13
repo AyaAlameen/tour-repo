@@ -495,9 +495,11 @@ Route::get('/event-en', function () {
 Route::get('/event_details-en/{id}', [UserEventController::class, 'eventDetailsEn'])-> name('event_details-en');
 
 
-Route::get('/offer-en', function () {
-    return view('user.offer');
-})-> name('offer-en');
+// Route::get('/offer-en', function () {
+//     return view('user.offer');
+// })-> name('offer-en');
+Route::get('/offer-en', [UserOfferController::class, 'getOffersEn'])-> name('offer-en');
+
 
 // Route::get('/offer_details-en', function () {
 //     return view('user.offer_details');

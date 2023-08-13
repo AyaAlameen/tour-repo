@@ -19,6 +19,13 @@ class UserOfferController extends Controller
 
     }
 
+    public function getOffersEn()
+    {
+        $offers = Offer::where('end_date', '>', now()->format('Y-m-d'))->get();
+        return view('user.offer', ['offers' => $offers]);
+
+    }
+
     public function offerDetailsAr($id){
         $offer = Offer::find($id);
         return view('user-ar.offer_details', ['offer' => $offer]);
