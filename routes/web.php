@@ -592,7 +592,10 @@ Route::post('/ar/place/favorite', [FavoriteController::class, 'favoritePlaceAr']
 Route::post('/ar/place/stars', [RatingController::class, 'startsPlaceAr']) -> name('startsPlaceAr');
 Route::post('/ar/place/reviews', [RatingController::class, 'reviewsPlaceAr']) -> name('reviewsPlaceAr');
 Route::post('/en/place/reviews', [RatingController::class, 'reviewsPlaceEn']) -> name('reviewsPlaceEn');
-Route::post('/en/service/filter', [ServiceController::class, 'filterServicesAr']) -> name('filterServicesAr');
+
+
+Route::post('/ar/service/filter', [ServiceController::class, 'filterServicesAr']) -> name('filterServicesAr');
+Route::post('/en/service/filter', [ServiceController::class, 'filterServicesEn']) -> name('filterServicesEn');
 
 // Route::get('/place_details_ar', function () {
 //     return view('user-ar.place_details');
