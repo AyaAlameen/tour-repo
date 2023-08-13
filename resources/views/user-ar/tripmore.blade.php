@@ -27,11 +27,11 @@
 {{-- Gallery --}}
 <div class="d-flex container mt-5  justify-content-center" style="flex-wrap: wrap;">
       
+    
             
     @foreach ($group->places as $place)
-           
         @if($place->images()->count() >0)
-        @forEach($place->images as $image)
+        @forEach($place->images()->get() as $image)
         <div class="grid-item"> 
             <img src="{{ asset(str_replace(app_path(), '', $image->image)) }}">
         </div>

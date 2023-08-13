@@ -522,25 +522,28 @@ Route::get('/user_city_en/{id}', [App\Http\Controllers\CityController::class, 'c
 
 Route::get('/place_details_en/{id}', [App\Http\Controllers\PlaceController::class, 'placeDetailsEn'])-> name('place_details_en');
 
-Route::get('/transport', function () {
-    return view('user.transport');
-})-> name('transport');
+// Route::get('/transport', function () {
+//     return view('user.transport');
+// })-> name('transport');
+Route::get('/transport', [UserTransportCompanyController::class, 'getTransportionCompanyEn'])-> name('transport'); 
 
-Route::get('/travelguides', function () {
-    return view('user.travelguides');
-})-> name('travelguides');
+// Route::get('/travelguides', function () {
+//     return view('user.travelguides');
+// })-> name('travelguides');
+
+Route::get('/travelguides', [UserGuideController::class, 'getGuidesEn'])-> name('travelguides');
+
 
 // Route::get('/travelguidesformore', function () {
 //     return view('user.travelguidesformore');
 // })-> name('travelguidesformore');
 Route::get('/travelguidesformore/{id}', [UserGuideController::class, 'getGuideDetailsEn'])-> name('travelguidesformore');
 
-Route::get('/trips', function () {
-    return view('user.trips');
-})-> name('trips');
-// Route::get('/tripmore', function () {
-//     return view('user.tripmore');
-// })-> name('tripmore');
+// Route::get('/trips', function () {
+//     return view('user.trips');
+// })-> name('trips');
+Route::get('/trips', [UserGroupController::class, 'getGroupsEn'])-> name('trips');
+
 Route::get('/tripmore-en/{id}', [UserGroupController::class, 'getGroupDetailsEn'])-> name('tripmore');
 
 

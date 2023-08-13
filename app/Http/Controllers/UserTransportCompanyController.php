@@ -19,6 +19,13 @@ class UserTransportCompanyController extends Controller
 
     }
 
+    public function getTransportionCompanyEn()
+    {
+        $companies = TransportCompany::all();
+        return view('user.transport', ['companies' => $companies]);
+
+    }
+
     
 
     public function index()

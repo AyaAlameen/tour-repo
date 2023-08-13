@@ -22,6 +22,17 @@ class UserGroupController extends Controller
         return view('user-ar.trips', ['groups' => $groups]);
 
     }
+    public function getGroupsEn()
+    {
+        $groups = Group::with(['translations', 'touristGuide', 'places' => function($query){
+            $query->with(['images' => function($q){
+                $q->first();
+            }]);
+        }])->get();
+        
+        return view('user.trips', ['groups' => $groups]);
+
+    }
     public function getGroupDetailsAr($id)
     {
         $group = Group::with(['translations', 'touristGuide', 'places' => function($query){
