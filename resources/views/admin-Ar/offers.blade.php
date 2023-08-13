@@ -860,7 +860,7 @@
     //--------------------------------------------
     function setEditService(service_id, place_id, service, option_id) {
         var services_options = document.querySelectorAll('[id^="edit_service_"]');
-        districts_options.forEach(option => {
+        services_options.forEach(option => {
             option.style.setProperty("color", "#1f1c2e", "important");
 
         });
