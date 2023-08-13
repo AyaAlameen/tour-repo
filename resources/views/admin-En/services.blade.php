@@ -1,12 +1,12 @@
-@extends('adminLayout-Ar.master')
+@extends('adminLayout-En.master')
 @section('admincontent')
     <div class="app-content">
         <div class="app-content-header" style="width:60%;">
-            <h1 class="app-content-headerText">الخدمات</h1>
+            <h1 class="app-content-headerText">services</h1>
 
             <!-- add -->
             <button type="button" class="app-content-headerButton" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                إضافة خدمة
+               Add service
             </button>
 
             <!-- Modal -->
@@ -15,7 +15,7 @@
                 <div class="modal-dialog ">
                     <div class="modal-content toggle">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal3Label">خدمة جديدة</h5>
+                            <h5 class="modal-title" id="exampleModal3Label">New service</h5>
                             <button type="button" class="btn-close m-0 close"
                                 onclick="removeMessages(), document.getElementById('add-form').reset()"
                                 data-bs-dismiss="modal" aria-label="Close">
@@ -25,13 +25,13 @@
                         <form id="add-form" action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
-                                <table style="color: rgb(22, 22, 22); width: 400px;" id="addTable"
+                                <table style="color: rgb(22, 22, 22); width: 400px; direction: rtl;" id="addTable"
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
 
                                     <tr>
                                         <td><input type="text" class="toggle text-primary in" name="name_ar" required
                                                 style="width: 100%;"></th>
-                                        <td>الاسم(العربية)</td>
+                                        <td>name(Arabic)</td>
                                     </tr>
                                     <tr>
 
@@ -42,7 +42,7 @@
 
                                         <td><input type="text" class="toggle text-primary in" name="name_en" required
                                                 style="width: 100%;"></th>
-                                        <td>(الإنجليزية)الاسم </td>
+                                        <td>name (English) </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
@@ -61,9 +61,9 @@
                                                     @foreach ($places as $place)
                                                         <option style="cursor: pointer;" class="dropdown-item"
                                                             value="{{ $place->id }}" id="place_{{ $place->id }}"
-                                                            onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'place_{{ $place->id }}'), showAdditionalFields({{collect($place->subCategory->additional_fields)}})"
+                                                            onclick="setPlace({{ $place->id }}, '{{ $place->translations()->where('locale', 'en')->first()->name }}', 'place_{{ $place->id }}'), showAdditionalFields({{collect($place->subCategory->additional_fields)}})"
                                                             href="#">
-                                                            {{ $place->translations()->where('locale', 'ar')->first()->name }}
+                                                            {{ $place->translations()->where('locale', 'en')->first()->name }}
                                                         </option>
                                                     @endforeach
                                                     <input type="text" id="place_id" name="place_id" hidden>
@@ -71,7 +71,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>المكان</td>
+                                        <td>place</td>
                                     </tr>
                                     <tr>
 
@@ -81,7 +81,7 @@
                                     <tr>
                                        <td><input class="toggle text-primary in" type="text" name="description_ar"
                                                 required style="width: 100%;"></th>
-                                        <td>وصف(العربية)</td>
+                                        <td>description(Arabic)</td>
                                     </tr>
                                     <tr>
 
@@ -93,7 +93,7 @@
 
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></th>
-                                        <td>(الانكليزية)وصف</td>
+                                        <td>description (English)</td>
                                     </tr>
                                     <tr>
 
@@ -103,7 +103,7 @@
                                     <tr>
                                         <td><input class="toggle text-primary in" type="number" name="cost" required
                                                 style="width: 100%;"></th>
-                                        <td>الكلفة</td>
+                                        <td>cost</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
@@ -112,7 +112,7 @@
                                     <tr hidden id="services_count">
                                         <td><input class="toggle text-primary in" type="number" name="services_count" required
                                                 style="width: 100%;"></th>
-                                        <td>العدد المتوفر من الخدمة</td>
+                                        <td>the available number of service</td>
                                     </tr>
                                     <tr hidden id="services_count_tr">
                                         <td colspan="2" class="text-end text-danger p-1"><span id="services_count_error"></span>
@@ -121,7 +121,7 @@
                                     <tr hidden id="people_count">
                                         <td><input class="toggle text-primary in"  type="number" name="people_count" required
                                                 style="width: 100%;"></th>
-                                        <td>عدد الأشخاص</td>
+                                        <td>Number of people</td>
                                     </tr>
                                     <tr hidden id="people_count_tr">
                                         <td colspan="2" class="text-end text-danger p-1"><span id="people_count_error"></span>
@@ -186,7 +186,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>مدة الحجز</td>
+                                        <td>reservation period</td>
                                     </tr>
                                     <tr hidden id="reservation_period_tr">
                                         <td colspan="2" class="text-end text-danger p-1"><span id="reservation_period_error"></span>
@@ -194,11 +194,10 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label><input type="radio" name="is_additional" value="1"> إضافية</label>
-                                            <label><input type="radio" name="is_additional" value="0" checked> غير
-                                                إضافية</label>
+                                            <label><input type="radio" name="is_additional" value="1"> additional</label>
+                                            <label><input type="radio" name="is_additional" value="0" checked>Not additional </label>
                                         </td>
-                                        <td>إضافية؟</td>
+                                        <td>additional?</td>
                                     </tr>
                                     <tr>
 
@@ -215,7 +214,7 @@
                                             <label for="add_img"> <img id="add_previewImage_0" width="170px"
                                                     height="90px" style="display: none; padding:6px;"></label>
                                         </td>
-                                        <td>الصورة</td>
+                                        <td>image</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
@@ -228,9 +227,9 @@
                         <div class="modal-footer">
                             <button type="button" class="action-button active close"
                                 onclick="removeMessages(), document.getElementById('add-form').reset()"
-                                data-bs-dismiss="modal">إغلاق</button>
+                                data-bs-dismiss="modal">close</button>
                             <button type="button" id="add-service-btn" onclick="addService('add-form')"
-                                class="app-content-headerButton">حفظ</button>
+                                class="app-content-headerButton">save</button>
                         </div>
                     </div>
                 </div>
@@ -239,7 +238,7 @@
         <!-- end add -->
 
         <div class="app-content-actions"style="width:60%;">
-            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
+            <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="search with name... "
                 type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
@@ -275,12 +274,12 @@
                             class="fas fa-globe "></i> </button>
 
                     <div class="dropdown-menu border-0 rounded-0 m-0 toggle">
-                        <a href="{{ route('service_ar') }}" class="dropdown-item"> العربية</a>
-                        <a href="{{ route('service_en') }}" class="dropdown-item">الانجليزية </a>
+                        <a href="{{ route('service_ar') }}" class="dropdown-item"> Arabic</a>
+                        <a href="{{ route('service_en') }}" class="dropdown-item">English </a>
 
                     </div>
                 </div>
-                <button class="mode-switch" title="تبديل الثيم" style="margin-left:5px;">
+                <button class="mode-switch" title="switch thim" style="margin-left:5px;">
                     <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                         <defs></defs>
@@ -294,16 +293,16 @@
             <div class="products-area-wrapper tableView" id="servicesTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
-                    <div class="product-cell">الاسم</div>
-                    <div class="product-cell image ">الصورة</div>
-                    <div class="product-cell">المكان</div>
-                    <div class="product-cell">وصف</div>
-                    <div class="product-cell">الكلفة</div>
-                    <div class="product-cell">عدد الأشخاص</div>
-                    <div class="product-cell">عدد الخدمة</div>
-                    <div class="product-cell">مدة الحجز</div>
-                    <div class="product-cell">إضافية؟</div>
-                    <div class="product-cell ">الأحداث</div>
+                    <div class="product-cell">name</div>
+                    <div class="product-cell image ">image</div>
+                    <div class="product-cell">place</div>
+                    <div class="product-cell">description</div>
+                    <div class="product-cell">cost</div>
+                    <div class="product-cell">number of people</div>
+                    <div class="product-cell">number of service</div>
+                    <div class="product-cell">reservation period</div>
+                    <div class="product-cell">additional?</div>
+                    <div class="product-cell ">actions</div>
 
                 </div>
                 <div id="services-data">
@@ -324,17 +323,17 @@
                             </div>
                             <div class="product-cell">
                                 <span class="search-value">
-                                    {{ $service->translations()->where('locale', 'ar')->first()->name }} </span>
+                                    {{ $service->translations()->where('locale', 'en')->first()->name }} </span>
                             </div>
                             <div class="product-cell">
                                 <img src="{{ asset(str_replace(app_path(), '', $service->image)) }}"
                                     alt="product">
                             </div>
                             <div class="product-cell">
-                                <span> {{ $service->place->translations()->where('locale', 'ar')->first()->name }} </span>
+                                <span> {{ $service->place->translations()->where('locale', 'en')->first()->name }} </span>
                             </div>
                             <div class="product-cell">
-                                <span> {{ $service->translations()->where('locale', 'ar')->first()->description }} </span>
+                                <span> {{ $service->translations()->where('locale', 'en')->first()->description }} </span>
                             </div>
                             <div class="product-cell">
                                 <span> {{ $service->cost }} </span>
@@ -399,7 +398,7 @@
                                                     <div class="modal-body">
                                                         <table
                                                             class="table-striped table-hover table-bordered m-auto text-primary myTable"
-                                                            id="editTable" style="width: 400px;">
+                                                            id="editTable" style="width: 400px; direction: rtl;">
                                                             <tr>
                                                                
                                                                 <td><input type="text" class="toggle text-primary in"
@@ -407,7 +406,7 @@
                                                                         value="{{ $service->translations()->where('locale', 'ar')->first()->name }}"
                                                                         required style="width: 100%;">
                                                                 </td>
-                                                                <td>الاسم(العربية)</td>
+                                                                <td>name(Arabic)</td>
                                                             </tr>
                                                             <tr>
                                                               
@@ -422,7 +421,7 @@
                                                                         value="{{ $service->translations()->where('locale', 'en')->first()->name }}"
                                                                         required style="width: 100%;">
                                                                     </th>
-                                                                <td>(الإنجليزية)الاسم </td>
+                                                                <td>name(English) </td>
                                                             </tr>
                                                             <tr>
                                                               
@@ -442,7 +441,7 @@
 
                                                                         </label>
                                                                         <span
-                                                                            id="place-name-{{ $service->id }}">{{ $service->place->translations()->where('locale', 'ar')->first()->name }}</span>
+                                                                            id="place-name-{{ $service->id }}">{{ $service->place->translations()->where('locale', 'en')->first()->name }}</span>
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenuButtonEdit{{ $service->id }}">
                                                                             @foreach ($places as $place)
@@ -451,9 +450,9 @@
                                                                                     class="dropdown-item"
                                                                                     value="{{ $place->id }}"
                                                                                     id="edit_place_{{ $service->id }}_{{ $place->id }}"
-                                                                                    onclick="setEditPlace({{ $place->id }}, {{ $service->id }}, '{{ $place->translations()->where('locale', 'ar')->first()->name }}', 'edit_place_{{ $service->id }}_{{ $place->id }}'), showEditAdditionalFields({{collect($place->subCategory->additional_fields)}}, {{$service->id}})"
+                                                                                    onclick="setEditPlace({{ $place->id }}, {{ $service->id }}, '{{ $place->translations()->where('locale', 'en')->first()->name }}', 'edit_place_{{ $service->id }}_{{ $place->id }}'), showEditAdditionalFields({{collect($place->subCategory->additional_fields)}}, {{$service->id}})"
                                                                                     href="#">
-                                                                                    {{ $place->translations()->where('locale', 'ar')->first()->name }}
+                                                                                    {{ $place->translations()->where('locale', 'en')->first()->name }}
                                                                                 </option>
                                                                             @endforeach
                                                                             <input type="text"
@@ -464,7 +463,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td>المكان</td>
+                                                                <td>place</td>
                                                             </tr>
                                                             <tr>
                                                               
@@ -480,7 +479,7 @@
                                                                         value="{{ $service->translations()->where('locale', 'ar')->first()->description }}"
                                                                         required style="width: 100%;">
                                                                     </th>
-                                                                <td>وصف(العربية)</td>
+                                                                <td>description(Arabic)</td>
                                                             </tr>
                                                             <tr>
                                                               
@@ -495,7 +494,7 @@
                                                                         value="{{ $service->translations()->where('locale', 'en')->first()->description }}"
                                                                         required style="width: 100%;">
                                                                     </th>
-                                                                <td>(الإنجليزية)وصف</td>
+                                                                <td>description(English)</td>
                                                             </tr>
                                                             <tr>
                                                               
@@ -509,7 +508,7 @@
                                                                         class="toggle text-primary in"
                                                                         value="{{ $service->cost }}">
                                                                 </td>
-                                                                <td>الكلفة</td>
+                                                                <td>cost</td>
                                                             </tr>
                                                             <tr>
                                                               
@@ -520,7 +519,7 @@
                                                             <tr @if(!in_array('services_count', $service->place->subCategory->additional_fields ?? [])) hidden @endif id="services_count_{{$service->id}}">
                                         <td><input class="toggle text-primary in" type="number" name="services_count" required value="{{$service->services_count}}"
                                                 style="width: 100%;"></th>
-                                        <td>العدد المتوفر من الخدمة</td>
+                                        <td>the available number of service</td>
                                     </tr>
                                     <tr @if(!in_array('services_count', $service->place->subCategory->additional_fields ?? [])) hidden @endif id="services_count_tr_{{$service->id}}">
                                         <td colspan="2" class="text-end text-danger p-1"><span class="services_count_error_edit"></span>
@@ -529,7 +528,7 @@
                                     <tr @if(!in_array('people_count', $service->place->subCategory->additional_fields ?? [])) hidden @endif id="people_count_{{$service->id}}">
                                         <td><input class="toggle text-primary in"  type="number" name="people_count" required value="{{$service->people_count}}"
                                                 style="width: 100%;"></th>
-                                        <td>عدد الأشخاص</td>
+                                        <td>number of people</td>
                                     </tr>
                                     <tr @if(!in_array('people_count', $service->place->subCategory->additional_fields ?? [])) hidden @endif id="people_count_tr_{{$service->id}}">
                                         <td colspan="2" class="text-end text-danger p-1"><span class="people_count_error_edit"></span>
@@ -615,7 +614,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>مدة الحجز</td>
+                                        <td>reservation period</td>
                                     </tr>
                                     <tr @if(!in_array('reservation_period', $service->place->subCategory->additional_fields ?? [])) hidden @endif id="reservation_period_tr_{{$service->id}}">
                                         <td colspan="2" class="text-end text-danger p-1"><span class="reservation_period_error_edit"></span>
@@ -628,14 +627,13 @@
                                                                     <label><input type="radio" name="is_additional"
                                                                             value="1"
                                                                             @if ($service->is_additional) checked @endif>
-                                                                        إضافية</label>
+                                                                        additional</label>
                                                                     <label><input type="radio" name="is_additional"
                                                                             value="0"
                                                                             @if (!$service->is_additional) checked @endif>
-                                                                        غير
-                                                                        إضافية</label>
+                                                                        Not additional</label>
                                                                 </td>
-                                                                <td>إضافية؟</td>
+                                                                <td>additional?</td>
 
                                                             </tr>
 
@@ -643,7 +641,7 @@
                                                             <tr>
                                                                 <td ><input type="file" name="image" id="img{{$service->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$service->id}}')">
                                                                      <label for="img{{$service->id}}" ><img id="edit_previewImage_{{$service->id}}" src="{{ asset(str_replace(app_path(),'',$service -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label></td>      
-                                                                <td>الصورة </td>
+                                                                <td>image </td>
                                                                      
                                                                 </tr>  
                                                         </table>
@@ -652,11 +650,11 @@
                                                 </form>
                                                 <div class="modal-footer">
                                                     <button type="button" class="action-button active close"
-                                                        onclick="removeMessages()" data-dismiss="modal">إغلاق</button>
+                                                        onclick="removeMessages()" data-dismiss="modal">close</button>
                                                     <button type="submit" id="edit-service-btn-{{ $service->id }}"
                                                         onclick="editService('edit-form-{{ $service->id }}', {{ $service->id }})"
-                                                        class="app-content-headerButton">حفظ
-                                                        التغييرات</button>
+                                                        class="app-content-headerButton">save changes
+                                                        </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -684,16 +682,16 @@
                                                     <input type="text" name="id" value="{{ $service->id }}"
                                                         hidden>
                                                     <div class="modal-body" style="direction:rtl;">
-                                                        هل أنت متأكد من أنك تريد حذف هذه الخدمة (<span
-                                                            style="color: #90aaf8;">{{ $service->translations()->where('locale', 'ar')->first()->name }}</span>)
-                                                        ؟ </div>
+                                                      are you shure that you want to delet this service? (<span
+                                                            style="color: #90aaf8;">{{ $service->translations()->where('locale', 'en')->first()->name }}</span>)
+                                                         </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="action-button active close"
-                                                            data-dismiss="modal">إغلاق</button>
+                                                            data-dismiss="modal">close</button>
                                                         <button type="submit"
                                                             id="delete-service-btn-{{ $service->id }}"
                                                             onclick="deleteService(`delete-form-{{ $service->id }}`, {{ $service->id }})"
-                                                            class="app-content-headerButton">نعم</button>
+                                                            class="app-content-headerButton">yes</button>
                                                     </div>
                                                 </form>
                                             </div>

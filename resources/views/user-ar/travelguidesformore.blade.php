@@ -5,7 +5,7 @@
         <div class="container pt-5 pb-3 ">
             <div class=" m-auto" style="width:800px ; box-shadow: 0 0 30px #CCCCCC;">
                 <div class="position-relative p-3 d-flex justify-content-center">
-                    <img src="{{ asset(str_replace(app_path(), '', $guide->image)) }}" alt="" style="width:500px;">
+                    <img src="{{ asset(str_replace(app_path(), '', $guide->image)) }}" alt="" style="width:300px;">
                 </div>
                 <div  >
                     <div class="mb-2 p-3" >
