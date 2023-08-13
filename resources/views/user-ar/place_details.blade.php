@@ -249,9 +249,9 @@
         <h3>تعليقات حول {{ $place->translations()->where('locale', 'ar')->first()->name }}</h3>
         <div class="d-flex align-items-start">
             <div>
-                @if (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('reviews', '!=', null)->get())
+                @if (\App\Models\Rating::where('place_id', $place->id)->where('reviews', '!=', null)->get())
                 <div id="comments-data">
-                    @foreach (\App\Models\Rating::where('user_id', Auth::user()->id)->where('place_id', $place->id)->where('reviews', '!=', null)->latest()->take(4)->get() as $comment)
+                    @foreach (\App\Models\Rating::where('place_id', $place->id)->where('reviews', '!=', null)->latest()->take(4)->get() as $comment)
                     {{-- بداية التعليق --}}
                 <div class="m-5">
                     <div class=" d-flex align-items-center">
