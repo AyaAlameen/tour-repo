@@ -390,7 +390,7 @@
             </div>
             {{-- الخدمات --}}
             
-                <div class="services-data pr-5 w-75">
+                <div id="services-data" class="pr-5 w-75">
 
                     <h4 class="p-5 " style="text-align: right; padding-bottom:5px !important;"> الخدمات الأساسية المقدمة
                         في
@@ -651,7 +651,7 @@
                 $(`#services-data`).append(data);
                 // $('.close-comment-modal').click();
                 // $('.parenttrue').attr("hidden", false);
-                document.getElementById('comment-content').value = '';
+                // document.getElementById('comment-content').value = '';
 
             })
             .fail(function() {
@@ -660,7 +660,7 @@
 
             }).always(function() {
                 // Re-enable the submit button and hide the loading spinner
-                $("#save-comment-btn").attr("disabled", false).html('إرسال');
+                // $("#save-comment-btn").attr("disabled", false).html('إرسال');
             });
     }
     //--------------------------------------------
