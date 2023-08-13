@@ -27,23 +27,24 @@
                             <div class="modal-body">
                                 <table style="width: 400px;" id="addTable"
                                     class="table-striped table-hover table-bordered m-auto text-primary myTable">
-                                    <input type="text" name="id" value="{{ $place->id }}" hidden>
+                                    <input  type="text" name="id" value="{{ $place->id }}"  hidden>
                                     <tr>
                                         <td style="width:25px; text-align:center;"> <i
                                                 class="fas fa-camera text-body pt-2 pl-2"
                                                 style="font-size:15px; cursor:pointer;"></i></td>
 
                                         <td class="pl-2">
-                                            {{-- <i class="fas fa-plus text-body pr-3"
-                                                style="text-align: center; line-height: 1.5; font-size:15px;  cursor:pointer;"onclick="addPic()"
-                                                id="add-pic-input" data-picid="1" title="Add Another Picture"></i>
+                                            {{-- 
                                             <input type="file" id="add_input_0"
                                                 onchange="previewImage(this, 'add_previewImage_0')"
                                                 class="toggle text-primary in" name="event_image" required
                                                 style="width:75% !important; font-size:16px;">
                                             <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
                                                     height="90px" style="display: none; padding:6px;"></label> --}}
-                                            <input type="file" name="image">
+                                            <input type="file" id="add_input_0"  onchange="previewImage(this, 'add_previewImage_0')" name="image" class="toggle text-primary in" name="event_image" required
+                                            style="width:75% !important; font-size:16px;">
+                                            <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
+                                                height="90px" style="display: none; padding:6px;"></label>
                                         </td>
                                         <td>الصور </td>
                                     </tr>

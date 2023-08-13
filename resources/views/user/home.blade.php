@@ -292,8 +292,8 @@
     <div class="container-fluid py-5" id="Trips">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase">رحلات</h6>
-                <h1>أفضل الرحلات السياحية</h1>
+                <h6 class="text-primary text-uppercase">Trips</h6>
+                <h1>Best Off Our Trips</h1>
             </div>
             <div class="row">
            

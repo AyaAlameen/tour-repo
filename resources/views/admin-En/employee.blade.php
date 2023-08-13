@@ -38,7 +38,12 @@ Add employee
              
               <tr>
                   <td >image </td>
-                  <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
+                  <td><input type="file" id="add_img"
+                    onchange="previewImage(this, 'add_previewImage_0')"
+                    class="toggle text-primary in" name="image" required style="width: 100%;">
+                <label for="add_img"> <img id="add_previewImage_0" width="170px"
+                        height="90px" style="display: none; padding:6px;"></label>
+            </td>     
               </tr> 
               <tr > <td colspan="2"><span class="text-danger p-1" id="image_error"></span></td> </tr>
               <tr>
