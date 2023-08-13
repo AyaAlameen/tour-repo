@@ -20,13 +20,13 @@ class UserHomeController extends Controller
     {
         $cities = City::with('translations')->get();
         $guides = TouristGuide::with('translations')->get();
-        $offers = Offer::with('translations')->get();
-        $events = Event::with('translations')->take(3)->get();
+        $offers = Offer::where('end_date', '>', now()->format('Y-m-d'))->get();
+        $events = Event::where('end_date', '>', now()->format('Y-m-d'))->take(3)->get();
         $groups = Group::with(['translations', 'touristGuide', 'places' => function($query){
             $query->with(['images' => function($q){
                 $q->first();
             }]);
-        }])->take(3)->get();
+        }])->where('end_date', '>', now()->format('Y-m-d'))->take(3)->get();
 // dd($groups);
         return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups, 'offers' => $offers, 'events' => $events]);
 
@@ -37,13 +37,13 @@ class UserHomeController extends Controller
     {
         $cities = City::with('translations')->get();
         $guides = TouristGuide::with('translations')->get();
-        $offers = Offer::with('translations')->get();
-        $events = Event::with('translations')->take(3)->get();
+        $offers = Offer::where('end_date', '>', now()->format('Y-m-d'))->get();
+        $events = Event::where('end_date', '>', now()->format('Y-m-d'))->take(3)->get();
         $groups = Group::with(['translations', 'touristGuide', 'places' => function($query){
             $query->with(['images' => function($q){
                 $q->first();
             }]);
-        }])->take(3)->get();
+        }])->where('end_date', '>', now()->format('Y-m-d'))->take(3)->get();
         // dd($groups);
         return view('user.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups, 'offers' => $offers, 'events' => $events]);
 }

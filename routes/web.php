@@ -485,9 +485,11 @@ Route::get('/contact', function () {
     return view('user.contact');
 })-> name('contact');
 
-Route::get('/event-en', function () {
-    return view('user.event');
-})-> name('event-en');
+// Route::get('/event-en', function () {
+//     return view('user.event');
+// })-> name('event-en');
+Route::get('/event-en', [UserEventController::class, 'getEventsEn'])-> name('event-en');
+
 
 // Route::get('/event_details-en', function () {
 //     return view('user.event_details');
@@ -555,9 +557,7 @@ Route::get('/contact-ar', function () {
     return view('user-ar.contact');
 })-> name('contact-ar');
 
-Route::get('/event-ar', function () {
-    return view('user-ar.event');
-})-> name('event-ar');
+Route::get('/event-ar', [UserEventController::class, 'getEventsAr'])-> name('event-ar');
 
 // Route::get('/event_details-ar', function () {
 //     return view('user-ar.event_details');
