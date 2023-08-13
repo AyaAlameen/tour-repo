@@ -3032,7 +3032,7 @@
     color: #656565;
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: var(--sidebar);
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
   }

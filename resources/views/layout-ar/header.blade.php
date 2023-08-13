@@ -237,9 +237,9 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" title="ترجمة"> <i
                                 class="fas fa-globe " style=" color:var(--bambi);"></i> </a>
                         <div id="langList" class="dropdown-menu border-0 rounded-0 m-0">
-                            <a href="" onclick="getURLAr()" class="dropdown-item" style="cursor:pointer;">
+                            <a  onclick="getURLAr()" class="dropdown-item" style="cursor:pointer;">
                                 العربية</a>
-                            <a href="" onclick="getURLEn()" class="dropdown-item"
+                            <a onclick="getURLEn()" class="dropdown-item"
                                 style="cursor:pointer;">الانجليزية </a>
 
                         </div>

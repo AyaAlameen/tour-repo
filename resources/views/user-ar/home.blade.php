@@ -190,7 +190,7 @@
             {{-- الخريطة --}}
             <div class="d-flex pt-3 bg-light"
                 style="flex-direction: column; width: 30%; height: 90%;  backdrop-filter:blur(15px);  align-items: center; border-radius: 5px;">
-                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal6"
+                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal6"  id="map_div"
                     style="cursor:pointer; border-radius:6px;" src="img/zgj3ryuyqrz-w1920.jpg" width="90%"
                     height="220px">
                 <h2 style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal6">شاهد على الخريطة</h2>
@@ -202,7 +202,7 @@
                 <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
                     <div class="modal-content toggle w-100 h-100">
                         <div class="modal-header">
-                            <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
+                            <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal6')"
                                 aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -704,19 +704,19 @@
                 <div class="row pb-3">
                     @foreach ($events as $event)
                         {{-- بداية الكارد --}}
-                        <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                            <div class="blog-item">
-                                <div class="position-relative">
+                        <div class="col-lg-4 col-md-6 mb-4 pb-2" style="height: 300px;">
+                            <div class="blog-item h-100">
+                                <div class="position-relative h-100">
                                     @if ($event->service_id)
-                                        <img class="img-fluid w-100"
+                                        <img class="img-fluid w-100 h-100"
                                             src="{{ asset(str_replace(app_path(), '', $event->service->image)) }}"
                                             alt="">
                                     @elseif($event->place->images()->count() > 0)
-                                        <img class="img-fluid w-100"
+                                        <img class="img-fluid w-100 h-100"
                                             src="{{ asset(str_replace(app_path(), '', $event->place->images()->first()->image)) }}"
                                             alt="">
                                     @else
-                                        <img class="img-fluid w-100" src="img/event.png" alt="">
+                                        <img class="img-fluid w-100 h-100" src="img/event.png" alt="">
                                     @endif
                                     <div class="blog-date" style="width: 87px;">
                                         <h6 class="font-weight-bold mb-n1">{{ date('y', strtotime($event->start_date)) }}
@@ -724,7 +724,7 @@
                                                 class="text-white text-uppercase">{{ date('d', strtotime($event->start_date)) }}</i></b>
                                     </div>
                                 </div>
-                                <div class="bg-white p-4">
+                                <div class="bg-white p-4 h-25">
                                     <div class="d-flex mb-2">
                                         <a class="text-primary text-uppercase text-decoration-none"
                                             href="">{{ $event->place->translations()->where('locale', 'ar')->first()->name }}</a>
@@ -743,9 +743,6 @@
                         {{-- نهاية الكارد --}}
                     @endforeach
 
-
-                    <h6 class="d-flex justify-content-center"><a class="btn btn-primary" href="{{ route('event-ar') }}"
-                            style="border-radius:3px;">رؤية جميع الفعاليات</a></h6>
 
                 </div>
             </div>

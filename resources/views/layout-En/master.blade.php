@@ -160,6 +160,12 @@
 
             }
         }
+        for (let i = 0; i < city_index.length; i++) {
+        if (origin == "http://127.0.0.1:8000/travelguidesformore/"+ city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/travelguidesformore-ar/" + city_index[i]
+
+            }
+        }
     }
 
 
@@ -256,12 +262,25 @@
 
             }
         }
-        }
+        for (let i = 0; i < city_index.length; i++) {
+        if (origin == "http://127.0.0.1:8000/travelguidesformore-ar/"+ city_index[i]) {
+                event.target.href = "http://127.0.0.1:8000/travelguidesformore/" + city_index[i]
 
+            }
+        }
+        }
+        
         function loginBefore() {
             window.location = "/login";
         }
 
+//  إخفاء مودل الخريطة 
+function hidemap(modal_id) {
+            $('#' + modal_id).hide();
+            $('#editmapimg').click();
+            $('#map_div').click();
+
+        }
 
         function showToast(ticId) {
             $('#toast_' + ticId).removeClass('d-none');

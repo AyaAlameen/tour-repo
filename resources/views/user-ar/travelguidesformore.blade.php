@@ -12,7 +12,7 @@
                         <h5 style="color: var(--navi); margin-bottom: 1rem; text-align: center;" >{{$guide->translations()->where('locale', 'ar')->first()->name}}</h5>
                         <h6 style="color: var(--navi); margin-bottom: 1rem; text-align: center;" class="text-body"><i class="fas fa-phone"></i> : {{$guide->phone}}</h6>
                         <h6 style="color: var(--navi); margin-bottom: 1rem; text-align: center;" class="text-body" ><i class="fas fa-envelope"></i> : {{$guide->email}}</h6>
-                        <div class="pr-5 pl-5 text-end">
+                        <div class="pr-5 pl-5 text-center">
                             <p style="color: var(--navi);">  حول : {{$guide->translations()->where('locale', 'ar')->first()->description}}</p>
                             <p style="color: var(--navi);">الشهادات : {{$guide->translations()->where('locale', 'ar')->first()->certificates}} </p>
                         </div>
