@@ -578,6 +578,7 @@ Route::get('/offer_details-ar/{id}', [UserOfferController::class, 'offerDetailsA
 // })-> name('userhome-ar');
 Route::get('/user_home_arabic', [UserHomeController::class, 'indexAr'])-> name('userhome-ar');
 Route::post('/contact', [MessageController::class, 'storeAr'])-> name('submitMessageAr');
+Route::post('/contact/en', [MessageController::class, 'storeEn'])-> name('submitMessageEn');
 
 Route::get('/about-ar', [AboutController::class, 'indexAr'])-> name('about-ar');
 
