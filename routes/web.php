@@ -531,9 +531,11 @@ Route::get('/travelguidesformore', function () {
 Route::get('/trips', function () {
     return view('user.trips');
 })-> name('trips');
-Route::get('/tripmore', function () {
-    return view('user.tripmore');
-})-> name('tripmore');
+// Route::get('/tripmore', function () {
+//     return view('user.tripmore');
+// })-> name('tripmore');
+Route::get('/tripmore-en/{id}', [UserGroupController::class, 'getGroupDetailsEn'])-> name('tripmore');
+
 
 //user routes part Arabic
 

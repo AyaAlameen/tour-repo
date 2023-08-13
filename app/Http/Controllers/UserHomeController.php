@@ -33,9 +33,16 @@ class UserHomeController extends Controller
 
     public function indexEn()
     {
-        // dd('jkdck');
         $cities = City::with('translations')->get();
-        return view('user.home', ['cities' => $cities]);
+        $guides = TouristGuide::with('translations')->get();
+        $offers = Offer::with('translations')->get();
+        $groups = Group::with(['translations', 'touristGuide', 'places' => function($query){
+            $query->with(['images' => function($q){
+                $q->first();
+            }]);
+        }])->take(3)->get();
+// dd($groups);
+        return view('user.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups]);
     }
 
     /**
