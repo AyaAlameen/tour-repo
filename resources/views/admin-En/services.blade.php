@@ -572,7 +572,7 @@
                                                          
                                                             id="edit_period_00:30_{{$service->id}}"
                                                             value="00:30"
-                                                            onclick="setEditServiceCount('00:30', 'Half Hour', {{$service->id}}))"
+                                                            onclick="setEditServiceCount('00:30', 'Half Hour', {{$service->id}})"
                                                             href="#">
                                                             Half Hour
                                                         </option>
@@ -580,7 +580,7 @@
                                                          
                                                             id="edit_period_01:00_{{$service->id}}"
                                                             value="01:00"
-                                                            onclick="setEditServiceCount('01:00', 'One Hour', {{$service->id}}))"
+                                                            onclick="setEditServiceCount('01:00', 'One Hour', {{$service->id}})"
                                                             href="#">
                                                             One Hour
                                                         </option>
@@ -588,7 +588,7 @@
                                                         
                                                             id="edit_period_02:00_{{$service->id}}"
                                                             value="02:00"
-                                                            onclick="setEditServiceCount('02:00', 'Two Hours', {{$service->id}}))"
+                                                            onclick="setEditServiceCount('02:00', 'Two Hours', {{$service->id}})"
                                                             href="#">
                                                             Two Hours
                                                         </option>
@@ -596,7 +596,7 @@
                                                          
                                                             id="edit_period_03:00_{{$service->id}}"
                                                             value="03:00"
-                                                            onclick="setEditServiceCount('03:00', 'Three Hours', {{$service->id}}))"
+                                                            onclick="setEditServiceCount('03:00', 'Three Hours', {{$service->id}})"
                                                             href="#">
                                                             Three Hours
                                                         </option>
@@ -604,7 +604,7 @@
                                                          
                                                             id="edit_period_04:00_{{$service->id}}"
                                                             value="04:00"
-                                                            onclick="setEditServiceCount('04:00', 'Four Hours', {{$service->id}}))"
+                                                            onclick="setEditServiceCount('04:00', 'Four Hours', {{$service->id}})"
                                                             href="#">
                                                             Four Hours
                                                         </option>

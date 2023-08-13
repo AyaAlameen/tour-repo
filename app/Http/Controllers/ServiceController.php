@@ -773,4 +773,53 @@ class ServiceController extends Controller
         return view("admin-En.sections.service-section")->with(['services' => $services, 'places' => $places]);
 
     }
+
+
+
+    public function filterServicesAr(Request $request){
+        // dd($request);
+        if ($request->input('people-count-filter') && $request->input('cost-filter')) {
+            if($request->input('cost-filter') == 'all'){
+                $maxCost = explode('-',$request->input('cost-filter'))[1];
+                $minCost = explode('-',$request->input('cost-filter')) [0];
+                // dd($request, $maxCost, $minCost);
+    
+                $services = Service::where('place_id', $request->input('place_id'))
+                            ->where('people_count', $request->input('people-count-filter'))
+                            ->orWhere('people_count', null)
+                            ->whereBetween('cost', [$minCost, $maxCost])
+                            ->where->get();
+            }
+            else{
+                $services = Service::where('place_id', $request->input('place_id'))
+                            ->where('people_count', $request->input('people-count-filter'))
+                            ->orWhere('people_count', null)
+                            ->where->get();
+            }
+            
+        }
+        elseif($request->input('people-count-filter') && !$request->input('cost-filter')){
+            $services = Service::where('place_id', $request->input('place_id'))
+            ->where('people_count', $request->input('people-count-filter'))
+            ->orWhere('people_count', null)->get();
+        }
+        elseif(!$request->input('people-count-filter') && $request->input('cost-filter')){
+            if($request->input('cost-filter') == 'all'){
+            $maxCost = explode('-',$request->input('cost-filter')) [1];
+            $minCost = explode('-',$request->input('cost-filter')) [0];
+            $services = Service::where('place_id', $request->input('place_id'))
+                        ->whereBetween('cost', [$minCost, $maxCost])->get();
+            }
+            else{
+                $services = Service::where('place_id', $request->input('place_id'))->get();
+            }
+        }
+        elseif(!$request->input('people-count-filter') && !$request->input('cost-filter')){
+            $services = Service::where('place_id', $request->input('place_id'))->get();
+        }
+
+        $place = Place::find($request->input('place_id'));
+        return view("user-ar.sections.service-section")->with(['services' => $services, 'place' => $place]);
+        
+    }
 }
