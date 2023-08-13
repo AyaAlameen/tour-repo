@@ -106,7 +106,7 @@
 
     </div>
     {{-- نهاية الوصف --}}
-    <div class="m-auto d-flex w-75 justify-content-center">
+    <div class="m-auto d-flex w-75" style="justify-content: space-around;">
         <button class="w-25 rate_btn" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <i class="fas fa-star"></i>
             قيمه الآن <i class="fas fa-star"></i></button>
         @isset(Auth::user()->id)
@@ -237,16 +237,16 @@
 
         @if ($place->services->count() == 0)
             @isset(Auth::user()->id)
-                <button class="btn btn-primary ml-4" data-bs-toggle="modal" data-bs-target="#exampleModal20">حجز</button>
+                <button class="btn btn-primary ml-4 w-25 rate_btn"  data-bs-toggle="modal" data-bs-target="#exampleModal20">احجز الآن</button>
             @else
-                <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn">حجز</button>
+                <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn">احجز الآن</button>
             @endisset
         @endif
     </div>
     {{-- comments --}}
     <div class="container m-5" style="text-align: end;">
         <h3>تعليقات حول {{ $place->translations()->where('locale', 'ar')->first()->name }}</h3>
-        <div class="d-flex align-items-start">
+        <div class="d-flex " style="justify-content: space-between;">
             <div>
                 @if (\App\Models\Rating::where('place_id', $place->id)->where('reviews', '!=', null)->get())
                     <div id="comments-data">
