@@ -191,25 +191,25 @@
             <h2 style="cursor:pointer;" data-bs-toggle="modal"  data-bs-target="#exampleModal6">شاهد على الخريطة</h2>
             </div>
             {{-- map modal --}}
-            <div class="modal fade bg-light" id="exampleModal6" data-bs-backdrop="static"
-                                        tabindex="-1" aria-labelledby="exampleModal6Label" aria-hidden="true">
-                                        <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
-                                            <div class="modal-content toggle w-100 h-100">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModal6Label">الأماكن الأقرب إليك 
-                                                        </h5>
-                                                        <button type="button" class="btn-close m-0 close"
-                                                        data-bs-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div id="add-map" class="w-100 h-100"></div>
-                                                </div>
-                                              
-                                            </div>
-                                        </div>
-                                    </div>
+            
+                <div class="modal fade bg-light" id="exampleModal6" data-bs-backdrop="static" tabindex="-1"
+                    aria-labelledby="exampleModal6Label" aria-hidden="true">
+                    <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                        <div class="modal-content toggle w-100 h-100">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="show-nearest-map" class="w-100 h-100"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        {{-- نهاية مودل عرض الخريطة بالجدول --}}
             {{-- end map modal --}}
             {{-- نهاية الخريطة --}}
         </div>
