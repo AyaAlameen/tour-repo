@@ -65,7 +65,7 @@
                                 <img class="img-fluid" src="img/latakia.jpg" alt="">
                             </div>
                         </div>
-                        
+
 
                     </div>
                 </div>
@@ -134,7 +134,8 @@
                         <div class="destination-item position-relative overflow-hidden mb-2">
                             <img width="400px" height="250px"
                                 src="{{ asset(str_replace(app_path(), '', $city->image)) }}" alt="">
-                            <a class="destination-overlay text-white text-decoration-none" href="{{route('user-city-ar', ['id' => $city->id])}}">
+                            <a class="destination-overlay text-white text-decoration-none"
+                                href="{{ route('user-city-ar', ['id' => $city->id]) }}">
                                 <h4 class="text-white">{{ $city->translations()->where('locale', 'ar')->first()->name }}
                                 </h4>
                             </a>
@@ -158,11 +159,12 @@
                     </div>
                     <p class="text-white">تمتع بأفضل تجربة معنا عن طريق مشاهدة مواقع الأماكن الأقرب إليك و الحصول على
                         الحجوزات اللازمة بأقرب وقت وأسرع طريقة</p>
-                        <ul class="d-flex text-white m-0 " style="list-style:none; align-items: center;">
-                            <i class="fa fa-check text-primary mr-3 text-success"></i>
-                            <li class="py-2">  قم بتحديد الصنف الذي ترغب بزيارته و من ثم استعرض الأماكن الأقرب إليك على الخريطة </li>
-                           
-                        </ul>
+                    <ul class="d-flex text-white m-0 " style="list-style:none; align-items: center;">
+                        <i class="fa fa-check text-primary mr-3 text-success"></i>
+                        <li class="py-2"> قم بتحديد الصنف الذي ترغب بزيارته و من ثم استعرض الأماكن الأقرب إليك على
+                            الخريطة </li>
+
+                    </ul>
                     <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
                         <label for="hotel" style="font-weight: bold; font-size:25px; color: #fff; margin-right: 10px;">
                             فنادق
@@ -186,30 +188,33 @@
 
             </div>
             {{-- الخريطة --}}
-            <div class="d-flex pt-3 bg-light" style="flex-direction: column; width: 30%; height: 90%;  backdrop-filter:blur(15px);  align-items: center; border-radius: 5px;">
-                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal6" style="cursor:pointer; border-radius:6px;" src="img/zgj3ryuyqrz-w1920.jpg" width="90%" height="220px">
-            <h2 style="cursor:pointer;" data-bs-toggle="modal"  data-bs-target="#exampleModal6">شاهد على الخريطة</h2>
+            <div class="d-flex pt-3 bg-light"
+                style="flex-direction: column; width: 30%; height: 90%;  backdrop-filter:blur(15px);  align-items: center; border-radius: 5px;">
+                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal6"
+                    style="cursor:pointer; border-radius:6px;" src="img/zgj3ryuyqrz-w1920.jpg" width="90%"
+                    height="220px">
+                <h2 style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal6">شاهد على الخريطة</h2>
             </div>
             {{-- map modal --}}
-            
-                <div class="modal fade bg-light" id="exampleModal6" data-bs-backdrop="static" tabindex="-1"
-                    aria-labelledby="exampleModal6Label" aria-hidden="true">
-                    <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
-                        <div class="modal-content toggle w-100 h-100">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
-                                    aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="show-nearest-map" class="w-100 h-100"></div>
-                            </div>
 
+            <div class="modal fade bg-light" id="exampleModal6" data-bs-backdrop="static" tabindex="-1"
+                aria-labelledby="exampleModal6Label" aria-hidden="true">
+                <div class="modal-dialog h-100" style="margin:0%; max-width:100%; ">
+                    <div class="modal-content toggle w-100 h-100">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close m-0 close" onclick="hidemap('exampleModal9')"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
+                        <div class="modal-body">
+                            <div id="show-nearest-map" class="w-100 h-100"></div>
+                        </div>
+
                     </div>
                 </div>
-        {{-- نهاية مودل عرض الخريطة بالجدول --}}
+            </div>
+            {{-- نهاية مودل عرض الخريطة بالجدول --}}
             {{-- end map modal --}}
             {{-- نهاية الخريطة --}}
         </div>
@@ -290,47 +295,48 @@
             </div>
             <div class="row">
                 @foreach ($groups as $group)
-                
                     <!-- بداية الكارد -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
                             <!-- صور أماكن الرحلة -->
-                            <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
-                                
+                            <div id="carouselExampleIndicators{{ $group->id }}" class="carousel slide"
+                                data-bs-ride="carousel">
+
                                 <div class="carousel-inner">
-                                    
-                                    {{--بداية الصور--}}
+
+                                    {{-- بداية الصور --}}
                                     {{-- بس أول صور بدا كلاس active --}}
                                     @foreach ($group->places as $place)
-                                    @if($place->images()->count()>0)
-                                    @if($loop->first)
-                                    <div class="carousel-item active">
-                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
-                                            alt="">
-                                    </div>
-                                    @else
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
-                                            alt="">
-                                    </div>
-                                    @endif
-                                    @else
-                                    <div class="carousel-item active">
-                                        <img class="img-fluid w-100" src="img/no-group.png"
-                                            alt="">
-                                    </div>
-                                    @endif
+                                        @if ($place->images()->count() > 0)
+                                            @if ($loop->first)
+                                                <div class="carousel-item active">
+                                                    <img class="img-fluid w-100"
+                                                        src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                                        alt="">
+                                                </div>
+                                            @else
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid w-100"
+                                                        src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                                        alt="">
+                                                </div>
+                                            @endif
+                                        @else
+                                            <div class="carousel-item active">
+                                                <img class="img-fluid w-100" src="img/no-group.png" alt="">
+                                            </div>
+                                        @endif
                                     @endforeach
                                     {{-- نهاية الصور --}}
-                                    
+
                                 </div>
                                 <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="prev">
+                                    data-bs-target="#carouselExampleIndicators{{ $group->id }}" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
                                 <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="next">
+                                    data-bs-target="#carouselExampleIndicators{{ $group->id }}" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
                                 </button>
@@ -338,24 +344,31 @@
                             <!-- نهاية صور أماكن الرحلة -->
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
-                                    
-                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{$group->start_date}}&nbsp; :من</small>
-                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{$group->end_date}}&nbsp; :إلى</small>
+
+                                    <small class="m-0"><i
+                                            class="fa fa-calendar-alt text-primary mr-2"></i>{{ $group->start_date }}&nbsp;
+                                        :من</small>
+                                    <small class="m-0"><i
+                                            class="fa fa-calendar-alt text-primary mr-2"></i>{{ $group->end_date }}&nbsp;
+                                        :إلى</small>
                                 </div>
                                 <br>
-                                <a class="h5 text-decoration-none" href="{{route('tripmore-ar', ['id' => $group->id])}}">{{$group->translations()->where('locale', 'ar')->first()->name}}</a>
-                                <p>{{$group->translations()->where('locale', 'ar')->first()->description}}</p>
+                                <a class="h5 text-decoration-none"
+                                    href="{{ route('tripmore-ar', ['id' => $group->id]) }}">{{ $group->translations()->where('locale', 'ar')->first()->name }}</a>
+                                <p>{{ $group->translations()->where('locale', 'ar')->first()->description }}</p>
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between align-items-baseline">
-                                        <h5 class="m-0" style="direction:rtl;">{{$group->cost}} <small>ل.س</small></h5>
-                                        <h6><a class="btn btn-primary"  href="{{route('tripmore-ar', ['id' => $group->id])}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+                                        <h5 class="m-0" style="direction:rtl;">{{ $group->cost }} <small>ل.س</small>
+                                        </h5>
+                                        <h6><a class="btn btn-primary"
+                                                href="{{ route('tripmore-ar', ['id' => $group->id]) }}"
+                                                style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                        <!-- نهاية الكارد -->
-                           
+                    <!-- نهاية الكارد -->
                 @endforeach
 
             </div>
@@ -363,7 +376,7 @@
     </div>
     </div>
     </div>
-    
+
 
     <!-- trips End -->
     <!-- Gallery -->
@@ -486,107 +499,104 @@
                         <div class="d-md-flex half col-lg-8">
 
                             <div class="contents" style="background-color:#0d6dfd00;">
-                              
 
-                                    <div
-                                        class="align-items-center justify-content-center">
-                                        <div class="form-block mx-auto">
 
-                                            <div style="background-color:var(--bambi); width:100%;  height:50px;"
-                                                class="text-center mb-4">
-                                                <h3 style="color:#fff;" class="pt-2"> إنشاء حساب</h3>
-                                            </div>
+                                <div class="align-items-center justify-content-center">
+                                    <div class="form-block mx-auto">
 
-                                            <div class="col-md-12">
-                                                <form method="POST" action="{{ route('register') }}"
-                                                    enctype="multipart/form-data">
-                                                    @csrf
+                                        <div style="background-color:var(--bambi); width:100%;  height:50px;"
+                                            class="text-center mb-4">
+                                            <h3 style="color:#fff;" class="pt-2"> إنشاء حساب</h3>
+                                        </div>
 
-                                                    <div class="form-group d-flex mb-3 first align-items-center">
-                                                        <label for="user_name"
-                                                            class="col-md-4 col-form-label text-md-end">{{ __('اسم المستخدم') }}</label>
+                                        <div class="col-md-12">
+                                            <form method="POST" action="{{ route('register') }}"
+                                                enctype="multipart/form-data">
+                                                @csrf
 
-                                                        <div class="d-flex  w-100" style="flex-direction: column;">
-                                                            <input id="user_name" placeholder="اسم المستخدم"
-                                                                type="text"
-                                                                class="form-control @error('user_name') is-invalid @enderror"
-                                                                name="user_name" value="{{ old('user_name') }}" required
-                                                                autocomplete="user_name">
+                                                <div class="form-group d-flex mb-3 first align-items-center">
+                                                    <label for="user_name"
+                                                        class="col-md-4 col-form-label text-md-end">{{ __('اسم المستخدم') }}</label>
 
-                                                            @error('user_name')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                        </div>
+                                                    <div class="d-flex  w-100" style="flex-direction: column;">
+                                                        <input id="user_name" placeholder="اسم المستخدم" type="text"
+                                                            class="form-control @error('user_name') is-invalid @enderror"
+                                                            name="user_name" value="{{ old('user_name') }}" required
+                                                            autocomplete="user_name">
+
+                                                        @error('user_name')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group mb-3 d-flex align-items-center">
+                                                    <label for="email"
+                                                        class="col-md-4 col-form-label text-md-end">{{ __('الايميل') }}</label>
+
+                                                    <div class="d-flex w-100" style="flex-direction: column;">
+                                                        <input id="email" placeholder="example@example.com"
+                                                            type="email"
+                                                            class="form-control @error('email') is-invalid @enderror"
+                                                            name="email" value="{{ old('email') }}" required
+                                                            autocomplete="email">
+
+                                                        @error('email')
+                                                            <div class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                     </div>
 
 
-                                                    <div class="form-group mb-3 d-flex align-items-center">
-                                                        <label for="email"
-                                                            class="col-md-4 col-form-label text-md-end">{{ __('الايميل') }}</label>
+                                                </div>
 
-                                                        <div class="d-flex w-100" style="flex-direction: column;">
-                                                            <input id="email" placeholder="example@example.com"
-                                                                type="email"
-                                                                class="form-control @error('email') is-invalid @enderror"
-                                                                name="email" value="{{ old('email') }}" required
-                                                                autocomplete="email">
+                                                <div class="form-group mb-3 d-flex align-items-center">
+                                                    <label for="password"
+                                                        class="col-md-4 col-form-label text-md-end">{{ __('كلمة السر') }}</label>
 
-                                                            @error('email')
-                                                                <div class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror
-                                                        </div>
+                                                    <div class="d-flex w-100" style="flex-direction: column;">
+                                                        <input id="password" placeholder="********" type="password"
+                                                            class="form-control @error('password') is-invalid @enderror"
+                                                            name="password" required autocomplete="new-password">
 
-
+                                                        @error('password')
+                                                            <div class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                     </div>
+                                                </div>
 
-                                                    <div class="form-group mb-3 d-flex align-items-center">
-                                                        <label for="password"
-                                                            class="col-md-4 col-form-label text-md-end">{{ __('كلمة السر') }}</label>
+                                                <div class="form-group  mb-3 last d-flex align-items-center">
+                                                    <label for="password-confirm"
+                                                        class="col-md-4 col-form-label text-md-end">{{ __('تأكيد كلمة السر') }}</label>
 
-                                                        <div class="d-flex w-100" style="flex-direction: column;">
-                                                            <input id="password" placeholder="********" type="password"
-                                                                class="form-control @error('password') is-invalid @enderror"
-                                                                name="password" required autocomplete="new-password">
+                                                    <input id="password-confirm" type="password" class="form-control"
+                                                        name="password_confirmation" required autocomplete="new-password">
 
-                                                            @error('password')
-                                                                <div class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror
-                                                        </div>
+                                                </div>
+
+
+                                                <div class="row mb-0 mt-3 justify-content-center">
+                                                    <div class="col-md-6 offset-md-10">
+                                                        <button type="submit" class="btn btn-block text-light"
+                                                            style="background-color:var(--bambi);">
+                                                            {{ __('إنشاء') }}
+                                                        </button>
                                                     </div>
+                                                </div>
+                                            </form>
 
-                                                    <div class="form-group  mb-3 last d-flex align-items-center">
-                                                        <label for="password-confirm"
-                                                            class="col-md-4 col-form-label text-md-end">{{ __('تأكيد كلمة السر') }}</label>
-
-                                                        <input id="password-confirm" type="password" class="form-control"
-                                                            name="password_confirmation" required
-                                                            autocomplete="new-password">
-
-                                                    </div>
-
-
-                                                    <div class="row mb-0 mt-3 justify-content-center">
-                                                        <div class="col-md-6 offset-md-10">
-                                                            <button type="submit" class="btn btn-block text-light"
-                                                                style="background-color:var(--bambi);">
-                                                                {{ __('إنشاء') }}
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-
-                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
-                         
+
+                            </div>
+
                         </div>
                     @endif
                 </div>
@@ -620,7 +630,8 @@
                                 <div class="text-center py-4">
                                     <h5 class="text-truncate">
                                         {{ $guide->translations()->where('locale', 'ar')->first()->name }}</h5>
-                                    <a class="text-50 mb-2" href="{{route('travelguidesformore-ar', ['id'=> $guide->id])}}">للمزيد</a>
+                                    <a class="text-50 mb-2"
+                                        href="{{ route('travelguidesformore-ar', ['id' => $guide->id]) }}">للمزيد</a>
                                 </div>
                             </div>
                         </div>
@@ -642,92 +653,33 @@
                     <h1>أفضل العروض</h1>
                 </div>
                 <div class="owl-carousel testimonial-carousel">
-                
-                    <!-- بداية الكارد -->
-                    <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
-                            <h5 class="text-truncate mt-5">فندق زكي</h5>
-                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
-                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
 
-                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40,000</span>
-                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
+                    @foreach ($offers as $offer)
+                        <!-- بداية الكارد -->
+                        <div class="text-center pb-4 mb-3" style="direction:rtl;">
+                            <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                            <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
+                                <h5 class="text-truncate mt-5">{{ $offer->place->translations()->where('locale', 'ar')->first()->name }}</h5>
+                                <h5 class="text-truncate">{{ $offer->translations()->where('locale', 'ar')->first()->name }}</h5>
+                                <p class="mt-2 h-25">{{ $offer->translations()->where('locale', 'ar')->first()->description }}</p>
+
+                                <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
+                                    <span>الكلفة : {{ $offer->cost }} ل.س</span>
+                                    <h6><a class="btn btn-primary" href="{{ route('offer_details-ar', ['id' => $offer->id]) }}"
+                                            style="border-radius:3px;">احجز الآن</a></h6>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- نهاية الكارد -->
+                        <!-- نهاية الكارد -->
+                    @endforeach
+                    
 
-                      <!-- بداية الكارد -->
-                      <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
-                            <h5 class="text-truncate mt-5">فندق زكي</h5>
-                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
-                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
+                    
 
-                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40,000</span>
-                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- نهاية الكارد -->
 
-                      <!-- بداية الكارد -->
-                      <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
-                            <h5 class="text-truncate mt-5">فندق زكي</h5>
-                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
-                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
 
-                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40,000</span>
-                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- نهاية الكارد -->
 
-                      <!-- بداية الكارد -->
-                      <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
-                            <h5 class="text-truncate mt-5">فندق زكي</h5>
-                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
-                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
 
-                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40,000</span>
-                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- نهاية الكارد -->
-
-                      <!-- بداية الكارد -->
-                      <div class="text-center pb-4 mb-3" style="direction:rtl;">
-                        <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                        <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
-                            <h5 class="text-truncate mt-5">فندق زكي</h5>
-                            <h5 class="text-truncate">عرض الغرف المفردة</h5>
-                            <p class="mt-2 h-25">تحوي الغرفة على براد و تخت مفرد وغاز أرضي للتمتع بأفضل الخدمات </p>
-
-                            <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
-                                <span>الكلفة : 40,000</span>
-                                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- نهاية الكارد -->
-
- 
-           
- 
-
-               
 
 
 
@@ -757,20 +709,24 @@
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">كافيه لايكي</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">كافيه
+                                        لايكي</a>
                                     <span class="text-primary px-2">|</span>
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">كأس العالم</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">كأس
+                                        العالم</a>
                                 </div>
-                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"  href="{{route('event_details-ar')}}" style="border-radius:3px;">المزيد من التفاصيل للحجز</a></h6>
+                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"
+                                        href="{{ route('event_details-ar') }}" style="border-radius:3px;">المزيد من
+                                        التفاصيل للحجز</a></h6>
 
                             </div>
                         </div>
                     </div>
-       
-           {{-- نهاية الكارد --}}
 
-           
-   
+                    {{-- نهاية الكارد --}}
+
+
+
                 </div>
             </div>
         </div>

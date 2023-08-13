@@ -496,9 +496,11 @@ Route::get('/offer-en', function () {
     return view('user.offer');
 })-> name('offer-en');
 
-Route::get('/offer_details-en', function () {
-    return view('user.offer_details');
-})-> name('offer_details-en');
+// Route::get('/offer_details-en', function () {
+//     return view('user.offer_details');
+// })-> name('offer_details-en');
+Route::get('/offer_details-en/{id}', [UserOfferController::class, 'offerDetailsEn'])-> name('offer_details-en');
+
 
 Route::get('/contact-en', function () {
     return view('user.contact');
@@ -556,9 +558,10 @@ Route::get('/event_details-ar', function () {
 
 Route::get('/offer-ar', [UserOfferController::class, 'getOffersAr'])-> name('offer-ar');
 
-Route::get('/offer_details-ar', function () {
-    return view('user-ar.offer_details');
-})-> name('offer_details-ar');
+// Route::get('/offer_details-ar', function () {
+//     return view('user-ar.offer_details');
+// })-> name('offer_details-ar');
+Route::get('/offer_details-ar/{id}', [UserOfferController::class, 'offerDetailsAr'])-> name('offer_details-ar');
 
 // Route::get('/user_home_arabic', function () {
 //     return view('user-ar.home');

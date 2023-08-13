@@ -41,8 +41,8 @@
 
 
 
-     <!-- About Start -->
-     <div class="container-fluid py-5">
+    <!-- About Start -->
+    <div class="container-fluid py-5">
         <div class="container pt-5">
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
@@ -51,11 +51,12 @@
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5" style="position: relative; left: 70px;">
-                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5"  style="box-shadow: #64686c33 3px -3px 6px 0.5px;" >
+                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5" style="box-shadow: #64686c33 3px -3px 6px 0.5px;">
                         <h6 class="text-primary text-uppercase">About us</h6>
                         <h1 class="mb-3"> We Provide Best Tour Packages In Your Budget</h1>
                         <p>A website that specializes in helping you book your hotel, tourist tour, car rental, and tourist
-                            information about all the places, regions, and tourist and archaeological attractions in Syria.</p>
+                            information about all the places, regions, and tourist and archaeological attractions in Syria.
+                        </p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="img/36d7d6476b1b16d50bf45f9bcf19bdcc.jpg" alt="">
@@ -64,7 +65,7 @@
                                 <img class="img-fluid" src="img/d90d3ccf930b10d60f4d7cc7e96c342c.jpg" alt="">
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -133,7 +134,7 @@
                             <img width="400px" height="250px"
                                 src="{{ asset(str_replace(app_path(), '', $city->image)) }}" alt="">
                             <a class="destination-overlay text-white text-decoration-none"
-                                href="{{route('user-city-en', ['id' => $city->id])}}">
+                                href="{{ route('user-city-en', ['id' => $city->id]) }}">
                                 <h4 class="text-white">{{ $city->translations()->where('locale', 'en')->first()->name }}
                                 </h4>
 
@@ -287,7 +288,7 @@
     <!-- Service End -->
 
 
-   
+
     <!-- trips Start -->
     <div class="container-fluid py-5" id="Trips">
         <div class="container pt-5 pb-3">
@@ -296,83 +297,89 @@
                 <h1>Best Off Our Trips</h1>
             </div>
             <div class="row">
-           @foreach($groups as $group)
-           <!-- بداية الكارد -->
-           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="package-item bg-white mb-2">
-                <!-- صور أماكن الرحلة -->
-                <div id="carouselExampleIndicators{{$group->id}}" class="carousel slide" data-bs-ride="carousel">
-                    
-                    <div class="carousel-inner">
-                        {{--بداية الصور--}}
-                        {{-- بس أول صور بدا كلاس active --}}
-                        @foreach ($group->places as $place)
-                                    @if($place->images()->count()>0)
-                                    @if($loop->first)
-                                    <div class="carousel-item active">
-                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
-                                            alt="">
-                                    </div>
-                                    @else
-                                    <div class="carousel-item">
-                                        <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
-                                            alt="">
-                                    </div>
-                                    @endif
-                                    @else
-                                    <div class="carousel-item active">
-                                        <img class="img-fluid w-100" src="img/no-group.png"
-                                            alt="">
-                                    </div>
-                                    
-                                    @endif
+                @foreach ($groups as $group)
+                    <!-- بداية الكارد -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <!-- صور أماكن الرحلة -->
+                            <div id="carouselExampleIndicators{{ $group->id }}" class="carousel slide"
+                                data-bs-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    {{-- بداية الصور --}}
+                                    {{-- بس أول صور بدا كلاس active --}}
+                                    @foreach ($group->places as $place)
+                                        @if ($place->images()->count() > 0)
+                                            @if ($loop->first)
+                                                <div class="carousel-item active">
+                                                    <img class="img-fluid w-100"
+                                                        src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                                        alt="">
+                                                </div>
+                                            @else
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid w-100"
+                                                        src="{{ asset(str_replace(app_path(), '', $place->images()->first()->image)) }}"
+                                                        alt="">
+                                                </div>
+                                            @endif
+                                        @else
+                                            <div class="carousel-item active">
+                                                <img class="img-fluid w-100" src="img/no-group.png" alt="">
+                                            </div>
+                                        @endif
                                     @endforeach
                                     {{-- نهاية الصور --}}
-                                    
-                        
-                    </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleIndicators{{$group->id}}" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                <!-- نهاية صور أماكن الرحلة -->
-                <div class="p-4">
-                    <div class="d-flex justify-content-between mb-3">
-                        
-                        <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>From:&nbsp;{{$group->start_date}}</small>
-                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>To:&nbsp;{{$group->end_date}}&nbsp;</small>
-                    </div>
-                    <br>
-                                <a class="h5 text-decoration-none" href="{{route('tripmore', ['id' => $group->id])}}">{{$group->translations()->where('locale', 'en')->first()->name}}</a>
-                                <p>{{$group->translations()->where('locale', 'en')->first()->description}}</p>
 
-                    <div class="border-top mt-4 pt-4">
-                        <div class="d-flex justify-content-between align-items-baseline">
-                            <h6 class="m-0">{{$group->cost}}  <small>spy</small></h6>
-                            <h6><a class="btn btn-primary"  href="{{route('tripmore', ['id' => $group->id])}}" style="border-radius:3px;">More details for booking</a></h6>
+
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleIndicators{{ $group->id }}" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleIndicators{{ $group->id }}" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <!-- نهاية صور أماكن الرحلة -->
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+
+                                    <small class="m-0"><i
+                                            class="fa fa-calendar-alt text-primary mr-2"></i>From:&nbsp;{{ $group->start_date }}</small>
+                                    <small class="m-0"><i
+                                            class="fa fa-calendar-alt text-primary mr-2"></i>To:&nbsp;{{ $group->end_date }}&nbsp;</small>
+                                </div>
+                                <br>
+                                <a class="h5 text-decoration-none"
+                                    href="{{ route('tripmore', ['id' => $group->id]) }}">{{ $group->translations()->where('locale', 'en')->first()->name }}</a>
+                                <p>{{ $group->translations()->where('locale', 'en')->first()->description }}</p>
+
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between align-items-baseline">
+                                        <h6 class="m-0">{{ $group->cost }} <small>spy</small></h6>
+                                        <h6><a class="btn btn-primary"
+                                                href="{{ route('tripmore', ['id' => $group->id]) }}"
+                                                style="border-radius:3px;">More details for booking</a></h6>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- نهاية الكارد -->
-           @endforeach
-                    
-            
+                    <!-- نهاية الكارد -->
+                @endforeach
+
+
 
             </div>
         </div>
     </div>
     </div>
     </div>
-    
+
 
     <!-- trips End -->
 
@@ -498,302 +505,224 @@
                         </ul>
                     </div>
                     @if (!Auth::check())
-                <div class="d-md-flex half  col-lg-7">
+                        <div class="d-md-flex half  col-lg-7">
 
-                    <div class="contents" style="background-color:#0d6dfd00; margin-left: 100px;">
-                            <div class="align-items-center justify-content-center">
-                                <div class="form-block mx-auto">
+                            <div class="contents" style="background-color:#0d6dfd00; margin-left: 100px;">
+                                <div class="align-items-center justify-content-center">
+                                    <div class="form-block mx-auto">
 
-                                    <div style="background-color:var(--bambi); width:100%;  height:50px;"
-                                        class="text-center mb-4">
-                                        <h3 style="color:#fff;" class="pt-2"> Signup Now !</h3>
-                                    </div>
+                                        <div style="background-color:var(--bambi); width:100%;  height:50px;"
+                                            class="text-center mb-4">
+                                            <h3 style="color:#fff;" class="pt-2"> Signup Now !</h3>
+                                        </div>
 
-                                    <div class="col-md-12">
-                                        <form method="POST" action="{{ route('register') }}">
-                                            @csrf
+                                        <div class="col-md-12">
+                                            <form method="POST" action="{{ route('register') }}">
+                                                @csrf
 
-                                            <div class="form-group d-flex first align-items-center">
-                                                <label for="name"
-                                                    class="col-md-4 text-center col-form-label text-md-end">{{ __('Name') }}</label>
-
-
-                                                <input id="name" placeholder="eg.Aya Alameen" type="text"
-                                                    class="form-control @error('name') is-invalid @enderror"
-                                                    name="name" value="{{ old('name') }}" required
-                                                    autocomplete="name">
-
-                                                @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-
-                                            </div>
-
-                                            <div class="form-group d-flex align-items-center">
-                                                <label for="email"
-                                                    class="col-md-4 text-center col-form-label text-md-end">{{ __('Email') }}</label>
+                                                <div class="form-group d-flex first align-items-center">
+                                                    <label for="name"
+                                                        class="col-md-4 text-center col-form-label text-md-end">{{ __('Name') }}</label>
 
 
-                                                <input id="email" placeholder="your-email@gmail.com" type="email"
-                                                    class="form-control @error('email') is-invalid @enderror"
-                                                    name="email" value="{{ old('email') }}" required
-                                                    autocomplete="email">
+                                                    <input id="name" placeholder="eg.Aya Alameen" type="text"
+                                                        class="form-control @error('name') is-invalid @enderror"
+                                                        name="name" value="{{ old('name') }}" required
+                                                        autocomplete="name">
 
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                                    @error('name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
 
-                                            </div>
-
-                                            <div class="form-group d-flex align-items-center">
-                                                <label for="password"
-                                                    class="col-md-4 text-center col-form-label text-md-end">{{ __('Password') }}</label>
-
-
-                                                <input id="password" placeholder="Your Password" type="password"
-                                                    class="form-control @error('password') is-invalid @enderror"
-                                                    name="password" required autocomplete="new-password">
-
-                                                @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-
-                                            </div>
-
-                                            <div class="form-group last d-flex align-items-center">
-                                                <label for="password-confirm"
-                                                    class="col-md-4 text-center col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                                                <input id="password-confirm" type="password" class="form-control"
-                                                    name="password_confirmation" required autocomplete="new-password">
-
-                                            </div>
-
-                                            <div class="row mb-0 mt-3 justify-content-center">
-                                                <div class="col-md-6 offset-md-4">
-                                                    <button type="submit" class="btn btn-block btn-primary">
-                                                        {{ __('Signup') }}
-                                                    </button>
                                                 </div>
-                                            </div>
-                                        </form>
 
+                                                <div class="form-group d-flex align-items-center">
+                                                    <label for="email"
+                                                        class="col-md-4 text-center col-form-label text-md-end">{{ __('Email') }}</label>
+
+
+                                                    <input id="email" placeholder="your-email@gmail.com"
+                                                        type="email"
+                                                        class="form-control @error('email') is-invalid @enderror"
+                                                        name="email" value="{{ old('email') }}" required
+                                                        autocomplete="email">
+
+                                                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
+                                                </div>
+
+                                                <div class="form-group d-flex align-items-center">
+                                                    <label for="password"
+                                                        class="col-md-4 text-center col-form-label text-md-end">{{ __('Password') }}</label>
+
+
+                                                    <input id="password" placeholder="Your Password" type="password"
+                                                        class="form-control @error('password') is-invalid @enderror"
+                                                        name="password" required autocomplete="new-password">
+
+                                                    @error('password')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
+                                                </div>
+
+                                                <div class="form-group last d-flex align-items-center">
+                                                    <label for="password-confirm"
+                                                        class="col-md-4 text-center col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                                                    <input id="password-confirm" type="password" class="form-control"
+                                                        name="password_confirmation" required autocomplete="new-password">
+
+                                                </div>
+
+                                                <div class="row mb-0 mt-3 justify-content-center">
+                                                    <div class="col-md-6 offset-md-4">
+                                                        <button type="submit" class="btn btn-block btn-primary">
+                                                            {{ __('Signup') }}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                      
-                    </div>
+
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                @endif
             </div>
         </div>
-    </div>
-    <!-- Registration End -->
+        <!-- Registration End -->
 
 
-    <!-- Team Start -->
-    <div class="container-fluid py-5" id="Guids">
-        <div class="container pt-5 pb-3">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guides</h6>
-                <h1>Our Travel Guides</h1>
-            </div>
-            <div class="row">
+        <!-- Team Start -->
+        <div class="container-fluid py-5" id="Guids">
+            <div class="container pt-5 pb-3">
+                <div class="text-center mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guides</h6>
+                    <h1>Our Travel Guides</h1>
+                </div>
+                <div class="row">
 
-                @foreach ($guides as $guide)
+                    @foreach ($guides as $guide)
+                        <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                            <div class="team-item bg-white mb-4">
+                                <div class="team-img position-relative overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="{{ asset(str_replace(app_path(), '', $guide->image)) }}" alt="">
+                                    <div class="team-social">
+                                        <a class="btn btn-outline-primary btn-square" type="button"
+                                            title="{{ $guide->phone }}"><i class="fa fa-phone"></i></a>
+                                        <a class="btn btn-outline-primary btn-square"
+                                            href="mailto: {{ $guide->email }}"><i class="far fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                                <div class="text-center py-4">
+                                    <h5 class="text-truncate">
+                                        {{ $guide->translations()->where('locale', 'en')->first()->name }}</h5>
+                                    {{-- <p class="m-0">Designation</p> --}}
+                                    <a class="text-50 mb-2"
+                                        href="{{ route('travelguidesformore', ['id' => $guide->id]) }}">For More</a>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                        <div class="team-item bg-white mb-4">
-                            <div class="team-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="{{ asset(str_replace(app_path(), '', $guide->image)) }}" alt="">
-                                <div class="team-social">
-                                    <a class="btn btn-outline-primary btn-square" type="button"
-                                                title="{{ $guide->phone }}"><i class="fa fa-phone"></i></a>
-                                            <a class="btn btn-outline-primary btn-square"
-                                                href="mailto: {{ $guide->email }}"><i class="far fa-envelope"></i></a>
                                 </div>
                             </div>
-                            <div class="text-center py-4">
-                                <h5 class="text-truncate">{{ $guide->translations()->where('locale', 'en')->first()->name }}</h5>
-                                {{-- <p class="m-0">Designation</p> --}}
-                                <a class="text-50 mb-2" href="{{route('travelguidesformore', ['id'=> $guide->id])}}">For More</a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+
+        <!-- offers Start -->
+        <div class="container-fluid py-5" id="Offers">
+            <div class="container py-5">
+                <div class="text-center mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase">offers</h6>
+                    <h1>Best of our offers</h1>
+                </div>
+                <div class="owl-carousel testimonial-carousel">
+                    @foreach ($offers as $offer)
+                        <!-- بداية الكارد -->
+                        <div class="text-center pb-4 mb-3">
+                            <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
+                            <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
+                                <h5 class="text-truncate mt-5">{{ $offer->place->translations()->where('locale', 'en')->first()->name }}</h5>
+                                <h5 class="text-truncate">{{ $offer->translations()->where('locale', 'en')->first()->name }}</h5>
+                                <p class="mt-2 h-50">{{ $offer->translations()->where('locale', 'en')->first()->description }}
+                                </p>
+
+                                <div class="d-flex h-25"
+                                    style="flex-direction:row; justify-content:space-around; align-items: baseline;">
+                                    <span>cost : {{ $offer->cost }} S.P</span>
+                                    <h6><a class="btn btn-primary" href="{{ route('offer_details-en', ['id' => $offer->id]) }}"
+                                            style="border-radius:3px;">Book Now </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- نهاية الكارد -->
+                    @endforeach
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- offers End -->
+
+
+
+        <!-- events Start -->
+        <div class="container-fluid py-5" id="Events">
+            <div class="container pt-5 pb-3">
+                <div class="text-center mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase">events</h6>
+                    <h1>Best of our events</h1>
+                </div>
+                <div class="row pb-3">
+                    {{-- بداية الكارد --}}
+                    <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                        <div class="blog-item">
+                            <div class="position-relative">
+                                <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
+                                <div class="blog-date">
+                                    <h6 class="font-weight-bold mb-n1">01 / <i class="text-white text-uppercase">7</i></b>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4">
+                                <div class="d-flex mb-2">
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">liki
+                                        cafee</a>
+                                    <span class="text-primary px-2">|</span>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">champion
+                                        chip</a>
+                                </div>
+                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"
+                                        href="{{ route('event_details-en') }}" style="border-radius:3px;">More details
+                                        for
+                                        Booking</a></h6>
 
                             </div>
                         </div>
                     </div>
-                @endforeach
+
+                    {{-- نهاية الكارد --}}
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Team End -->
-
-
-    <!-- offers Start -->
-    <div class="container-fluid py-5" id="Offers">
-        <div class="container py-5">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase">offers</h6>
-                <h1>Best of our offers</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel">
-                <!-- بداية الكارد -->
-                <div class="text-center pb-4 mb-3">
-                    <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                        <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                        <h5 class="text-truncate">اسم العرض</h5>
-                        <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate excepturi veritatis commodi.
-                            A unde fuga quas voluptates ab sunt blanditiis eaque! rrrrrrrrr rrrrrrrrrrr rrrrrrrrrrrrrrrrr
-                            rrrrrrrrrr rrrrrrrr rrrrrrrrrr rrrr rrrrr rrrrr rrrr rr
-                        </p>
-
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
-                            <span>cost : 40000</span>
-                            <h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
-                                    style="border-radius:3px;">book now </a></h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- نهاية الكارد -->
-
-
-                <!-- بداية الكارد -->
-                <div class="text-center pb-4 mb-3">
-                    <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                        <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                        <h5 class="text-truncate">اسم العرض</h5>
-                        <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate excepturi veritatis commodi.
-                            A unde fuga quas voluptates ab sunt blanditiis eaque! dghld sdkhusd sdfudfus fsuu </p>
-
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
-                            <span>cost : 40000</span>
-                            <h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
-                                style="border-radius:3px;">book now </a></h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- نهاية الكارد -->
-
-
-                <!-- بداية الكارد -->
-                <div class="text-center pb-4 mb-3">
-                    <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                        <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                        <h5 class="text-truncate">اسم العرض</h5>
-                        <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate ex </p>
-
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
-                            <span>cost : 40000</span>
-                            <<h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
-                                style="border-radius:3px;">book now </a></h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- نهاية الكارد -->
-
-
-                <!-- بداية الكارد -->
-                <div class="text-center pb-4 mb-3">
-                    <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                        <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                        <h5 class="text-truncate">اسم العرض</h5>
-                        <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate excepturi veritatis commodi.
-                            A unde fuga quas voluptates ab sunt blanditiis eaque! </p>
-
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
-                            <span>cost : 40000</span>
-                            <h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
-                                style="border-radius:3px;">book now </a></h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- نهاية الكارد -->
-
-
-                <!-- بداية الكارد -->
-                <div class="text-center pb-4 mb-3">
-                    <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5" style="height: 400px;">
-                        <h5 class="text-truncate mt-5">اسم المكان أو الخدمة</h5>
-                        <h5 class="text-truncate">اسم العرض</h5>
-                        <p class="mt-2 h-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi, tempore
-                            maiores modi iure consequuntur
-                            eum vel voluptate excepturi veritatis commodi.
-                            A unde fuga quas voluptates ab sunt blanditiis eaque! ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd
-                            ddd ddd ddd ddd </p>
-
-                        <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around; align-items: baseline;">
-                            <span>cost : 40000</span>
-                            <h6><a class="btn btn-primary" href="{{ route('offer_details-en') }}"
-                                style="border-radius:3px;">book now </a></h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- نهاية الكارد -->
-
-
-
-
-            </div>
-        </div>
-    </div>
-    <!-- offers End -->
-
-
-
-    <!-- events Start -->
-    <div class="container-fluid py-5" id="Events">
-        <div class="container pt-5 pb-3">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase">events</h6>
-                <h1>Best of our events</h1>
-            </div>
-            <div class="row pb-3">
-                {{-- بداية الكارد --}}
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
-                            <div class="blog-date">
-                                <h6 class="font-weight-bold mb-n1">01 / <i class="text-white text-uppercase">7</i></b>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <div class="d-flex mb-2">
-                                <a class="text-primary text-uppercase text-decoration-none" href="">liki cafee</a>
-                                <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">champion
-                                    chip</a>
-                            </div>
-                            <h6 class="d-flex justify-content-end"><a class="btn btn-primary"
-                                    href="{{ route('event_details-en') }}" style="border-radius:3px;">More details for
-                                    Booking</a></h6>
-
-                        </div>
-                    </div>
-                </div>
-
-                {{-- نهاية الكارد --}}
-            </div>
-        </div>
-    </div>
-    <!-- events End -->
-@endsection
+        <!-- events End -->
+    @endsection

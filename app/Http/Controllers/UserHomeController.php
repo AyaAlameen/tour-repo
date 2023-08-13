@@ -26,7 +26,7 @@ class UserHomeController extends Controller
             }]);
         }])->take(3)->get();
 // dd($groups);
-        return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups]);
+        return view('user-ar.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups, 'offers' => $offers]);
 
     }
 
@@ -41,9 +41,9 @@ class UserHomeController extends Controller
                 $q->first();
             }]);
         }])->take(3)->get();
-// dd($groups);
-        return view('user.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups]);
-    }
+        // dd($groups);
+        return view('user.home', ['cities' => $cities, 'guides' => $guides, 'groups' => $groups, 'offers' => $offers]);
+}
 
     /**
      * Show the form for creating a new resource.
