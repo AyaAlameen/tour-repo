@@ -17,7 +17,7 @@
 
             <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                 <span>الكلفة : {{$offer->cost}}</span>
-                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar')}}" style="border-radius:3px;">احجز الآن</a></h6>
+                <h6><a class="btn btn-primary"  href="{{route('offer_details-ar', ['id' => $offer->id])}}" style="border-radius:3px;">احجز الآن</a></h6>
             </div>
         </div>
     </div>

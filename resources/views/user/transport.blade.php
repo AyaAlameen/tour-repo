@@ -5,62 +5,22 @@
         <div class="container pt-5 pb-3">
             
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2 w-25" >
-                    <div class="team-item bg-white mb-4 " style="height: 400px;">
-                        <div class="team-img d-flex overflow-hidden" style="flex-direction:column;">
-                            <img class="img-fluid p-5" style="width: 150px; height: 150px; box-sizing:content-box;" src="img/vehicles.png" alt="">
-                            
-                        </div>
-                        <div class="text-center py-4" style="margin-top: -20px;">
-                            <h5 class="text-truncate">name</h5>
-                            <h6 class="text-truncate">Email : magd@gmail.com</h6>
-                            <h6 class="text-truncate">Phone : 0987654321</h6>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2 w-25" >
-                    <div class="team-item bg-white mb-4 " style="height: 400px;">
-                        <div class="team-img d-flex overflow-hidden" style="flex-direction:column;">
-                            <img class="img-fluid p-5" style="width: 150px; height: 150px; box-sizing:content-box;" src="img/vehicles.png" alt="">
-                            
-                        </div>
-                        <div class="text-center py-4" style="margin-top: -20px;">
-                            <h5 class="text-truncate">name</h5>
-                            <h6 class="text-truncate">Email : magd@gmail.com</h6>
-                            <h6 class="text-truncate">Phone : 0987654321</h6>
-                            
+                @foreach ($companies as $company)
+                    <div class="col-lg-3 col-md-4 col-sm-6 pb-2 w-25" >
+                        <div class="team-item bg-white mb-4 " style="height: 400px;">
+                            <div class="team-img d-flex overflow-hidden" style="flex-direction:column;">
+                                <img class="img-fluid p-5" style="width: 150px; height: 150px; box-sizing:content-box;" src="{{ asset(str_replace(app_path(), '', $company->image)) }}" alt="">
+                                
+                            </div>
+                            <div class="text-center py-4" style="margin-top: -20px;">
+                                <h5 class="text-truncate">{{$company->translations()->where('locale', 'en')->first()->name}}</h5>
+                                <h6 class="text-truncate">Email : {{$company->email}}</h6>
+                                <h6 class="text-truncate">Phone : {{$company->phone}}</h6>
+                                
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2 w-25" >
-                    <div class="team-item bg-white mb-4 " style="height: 400px;">
-                        <div class="team-img d-flex overflow-hidden" style="flex-direction:column;">
-                            <img class="img-fluid p-5" style="width: 150px; height: 150px; box-sizing:content-box;" src="img/vehicles.png" alt="">
-                            
-                        </div>
-                        <div class="text-center py-4" style="margin-top: -20px;">
-                            <h5 class="text-truncate">name</h5>
-                            <h6 class="text-truncate">Email : magd@gmail.com</h6>
-                            <h6 class="text-truncate">Phone : 0987654321</h6>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2 w-25" >
-                    <div class="team-item bg-white mb-4 " style="height: 400px;">
-                        <div class="team-img d-flex overflow-hidden" style="flex-direction:column;">
-                            <img class="img-fluid p-5" style="width: 150px; height: 150px; box-sizing:content-box;" src="img/vehicles.png" alt="">
-                            
-                        </div>
-                        <div class="text-center py-4" style="margin-top: -20px;">
-                            <h5 class="text-truncate">name</h5>
-                            <h6 class="text-truncate">Email : magd@gmail.com</h6>
-                            <h6 class="text-truncate">Phone : 0987654321</h6>
-                            
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
