@@ -587,7 +587,7 @@
                                                                                 class="dropdown-item"
                                                                                 id="edit_period_00:30_{{ $service->id }}"
                                                                                 value="00:30"
-                                                                                onclick="setEditServiceCount('00:30', 'نصف ساعة', {{ $service->id }}))"
+                                                                                onclick="setEditServiceCount('00:30', 'نصف ساعة', {{ $service->id }})"
                                                                                 href="#">
                                                                                 نصف ساعة
                                                                             </option>
@@ -596,7 +596,7 @@
                                                                                 class="dropdown-item"
                                                                                 id="edit_period_01:00_{{ $service->id }}"
                                                                                 value="01:00"
-                                                                                onclick="setEditServiceCount('01:00', 'ساعة', {{ $service->id }}))"
+                                                                                onclick="setEditServiceCount('01:00', 'ساعة', {{ $service->id }})"
                                                                                 href="#">
                                                                                 ساعة
                                                                             </option>
@@ -605,7 +605,7 @@
                                                                                 class="dropdown-item"
                                                                                 id="edit_period_02:00_{{ $service->id }}"
                                                                                 value="02:00"
-                                                                                onclick="setEditServiceCount('02:00', 'ساعتين', {{ $service->id }}))"
+                                                                                onclick="setEditServiceCount('02:00', 'ساعتين', {{ $service->id }})"
                                                                                 href="#">
                                                                                 ساعتين
                                                                             </option>
@@ -614,7 +614,7 @@
                                                                                 class="dropdown-item"
                                                                                 id="edit_period_03:00_{{ $service->id }}"
                                                                                 value="03:00"
-                                                                                onclick="setEditServiceCount('03:00', 'ثلاث ساعات', {{ $service->id }}))"
+                                                                                onclick="setEditServiceCount('03:00', 'ثلاث ساعات', {{ $service->id }})"
                                                                                 href="#">
                                                                                 ثلاث ساعات
                                                                             </option>
@@ -623,7 +623,7 @@
                                                                                 class="dropdown-item"
                                                                                 id="edit_period_04:00_{{ $service->id }}"
                                                                                 value="04:00"
-                                                                                onclick="setEditServiceCount('04:00', 'أربع ساعات', {{ $service->id }}))"
+                                                                                onclick="setEditServiceCount('04:00', 'أربع ساعات', {{ $service->id }})"
                                                                                 href="#">
                                                                                 أربع ساعات
                                                                             </option>

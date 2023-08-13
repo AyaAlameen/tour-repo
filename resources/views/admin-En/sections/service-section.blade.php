@@ -1,5 +1,5 @@
 <?php $i = 1; ?>
-@foreach($services as $event)
+@foreach($services as $service)
     @if($loop->last)
     <div class="products-row">
         <button class="cell-more-button">
@@ -234,21 +234,85 @@
                             <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-expanded="false">
 
-                            </label>
-                            @if ($service->reservation_period == '00:15')
-                                <span id="period-name-{{$service->id}}"> Quarter Hour </span>
-                            @elseif($service->reservation_period == '00:30')
-                                <span id="period-name-{{$service->id}}"> Half Hour </span>
-                            @elseif($service->reservation_period == '01:00')
-                                <span id="period-name-{{$service->id}}">One Hour</span>
-                            @elseif($service->reservation_period == '02:00')
-                                <span id="period-name-{{$service->id}}"> Two Hours </span>
-                            @elseif($service->reservation_period == '03:00')
-                                <span id="period-name-{{$service->id}}"> Three Hours </span>
-                            @elseif($service->reservation_period == '04:00')
-                                <span id="period-name-{{$service->id}}"> Four Hours </span>
-                            @elseif(!$service->reservation_period)
-                                <span id="period-name-{{$service->id}}">  </span>
+                                                    </label>
+                                                    @if ($service->reservation_period == '00:15')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            ربع ساعة </span>
+                                                    @elseif($service->reservation_period == '00:30')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            نصف ساعة </span>
+                                                    @elseif($service->reservation_period == '01:00')
+                                                        <span
+                                                            id="period-name-{{ $service->id }}">ساعة</span>
+                                                    @elseif($service->reservation_period == '02:00')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            ساعتين </span>
+                                                    @elseif($service->reservation_period == '03:00')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            ثلاث ساعات </span>
+                                                    @elseif($service->reservation_period == '04:00')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            أربع ساعات </span>
+                                                    @elseif(!$service->reservation_period)
+                                                        <span id="period-name-{{ $service->id }}">
+                                                        </span>
+                                                    @endif
+                                                    <div class="dropdown-menu"
+                                                        aria-labelledby="dropdownMenuButton">
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '00:15') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_00:15_{{ $service->id }}"
+                                                            value="00:15"
+                                                            onclick="setEditServiceCount('00:15', 'ربع ساعة', {{ $service->id }})"
+                                                            href="#">
+                                                            ربع ساعة
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '00:30') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_00:30_{{ $service->id }}"
+                                                            value="00:30"
+                                                            onclick="setEditServiceCount('00:30', 'نصف ساعة', {{ $service->id }})"
+                                                            href="#">
+                                                            نصف ساعة
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '01:00') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_01:00_{{ $service->id }}"
+                                                            value="01:00"
+                                                            onclick="setEditServiceCount('01:00', 'ساعة', {{ $service->id }})"
+                                                            href="#">
+                                                            ساعة
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer;  @if ($service->reservation_period == '02:00') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_02:00_{{ $service->id }}"
+                                                            value="02:00"
+                                                            onclick="setEditServiceCount('02:00', 'ساعتين', {{ $service->id }})"
+                                                            href="#">
+                                                            ساعتين
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '03:00') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_03:00_{{ $service->id }}"
+                                                            value="03:00"
+                                                            onclick="setEditServiceCount('03:00', 'ثلاث ساعات', {{ $service->id }})"
+                                                            href="#">
+                                                            ثلاث ساعات
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '04:00') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_04:00_{{ $service->id }}"
+                                                            value="04:00"
+                                                            onclick="setEditServiceCount('04:00', 'أربع ساعات', {{ $service->id }})"
+                                                            href="#">
+                                                            أربع ساعات
+                                                        </option>
 
                             @endif
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -633,21 +697,85 @@
                             <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-expanded="false">
 
-                            </label>
-                            @if ($service->reservation_period == '00:15')
-                                <span id="period-name-{{$service->id}}"> Quarter Hour </span>
-                            @elseif($service->reservation_period == '00:30')
-                                <span id="period-name-{{$service->id}}"> Half Hour </span>
-                            @elseif($service->reservation_period == '01:00')
-                                <span id="period-name-{{$service->id}}">One Hour</span>
-                            @elseif($service->reservation_period == '02:00')
-                                <span id="period-name-{{$service->id}}"> Two Hours </span>
-                            @elseif($service->reservation_period == '03:00')
-                                <span id="period-name-{{$service->id}}"> Three Hours </span>
-                            @elseif($service->reservation_period == '04:00')
-                                <span id="period-name-{{$service->id}}"> Four Hours </span>
-                            @elseif(!$service->reservation_period)
-                                <span id="period-name-{{$service->id}}">  </span>
+                                                    </label>
+                                                    @if ($service->reservation_period == '00:15')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            ربع ساعة </span>
+                                                    @elseif($service->reservation_period == '00:30')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            نصف ساعة </span>
+                                                    @elseif($service->reservation_period == '01:00')
+                                                        <span
+                                                            id="period-name-{{ $service->id }}">ساعة</span>
+                                                    @elseif($service->reservation_period == '02:00')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            ساعتين </span>
+                                                    @elseif($service->reservation_period == '03:00')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            ثلاث ساعات </span>
+                                                    @elseif($service->reservation_period == '04:00')
+                                                        <span id="period-name-{{ $service->id }}">
+                                                            أربع ساعات </span>
+                                                    @elseif(!$service->reservation_period)
+                                                        <span id="period-name-{{ $service->id }}">
+                                                        </span>
+                                                    @endif
+                                                    <div class="dropdown-menu"
+                                                        aria-labelledby="dropdownMenuButton">
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '00:15') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_00:15_{{ $service->id }}"
+                                                            value="00:15"
+                                                            onclick="setEditServiceCount('00:15', 'ربع ساعة', {{ $service->id }})"
+                                                            href="#">
+                                                            ربع ساعة
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '00:30') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_00:30_{{ $service->id }}"
+                                                            value="00:30"
+                                                            onclick="setEditServiceCount('00:30', 'نصف ساعة', {{ $service->id }})"
+                                                            href="#">
+                                                            نصف ساعة
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '01:00') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_01:00_{{ $service->id }}"
+                                                            value="01:00"
+                                                            onclick="setEditServiceCount('01:00', 'ساعة', {{ $service->id }})"
+                                                            href="#">
+                                                            ساعة
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer;  @if ($service->reservation_period == '02:00') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_02:00_{{ $service->id }}"
+                                                            value="02:00"
+                                                            onclick="setEditServiceCount('02:00', 'ساعتين', {{ $service->id }})"
+                                                            href="#">
+                                                            ساعتين
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '03:00') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_03:00_{{ $service->id }}"
+                                                            value="03:00"
+                                                            onclick="setEditServiceCount('03:00', 'ثلاث ساعات', {{ $service->id }})"
+                                                            href="#">
+                                                            ثلاث ساعات
+                                                        </option>
+                                                        <option
+                                                            style="cursor: pointer; @if ($service->reservation_period == '04:00') color: #90aaf8 !important; @endif"
+                                                            class="dropdown-item"
+                                                            id="edit_period_04:00_{{ $service->id }}"
+                                                            value="04:00"
+                                                            onclick="setEditServiceCount('04:00', 'أربع ساعات', {{ $service->id }})"
+                                                            href="#">
+                                                            أربع ساعات
+                                                        </option>
 
                             @endif
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
