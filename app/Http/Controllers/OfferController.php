@@ -55,6 +55,7 @@ class OfferController extends Controller
      */
     public function storeAr(Request $request)
     {
+        // dd($request->all());
         $data=$request->input();
         //validation:
         $request->validate([

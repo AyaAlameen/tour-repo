@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Font Awesome -->
     <link href="../css/all.min.css" rel="stylesheet">
@@ -22,7 +23,8 @@
 
     <!-- font -->
     <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=rawy-thin" />
-
+    <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
+    <script src="../js/leaflet.js"></script>
 
 </head>
 
@@ -310,6 +312,19 @@
                 reader.readAsDataURL(file);
             }
         }
+
+
+
+        // ------------------------ show map------------------------------------
+
+
+        var show_map = L.map('show-map').setView([51.505, -0.09], 13); // set the initial view of the map.
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(show_map);
+
+        //--------------------------------------------------
     </script>
 
 </body>

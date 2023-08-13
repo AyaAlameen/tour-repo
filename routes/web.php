@@ -24,6 +24,8 @@ use App\Http\Controllers\UserTransportCompanyController;
 use App\Http\Controllers\UserGuideController;
 use App\Http\Controllers\UserOfferController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -583,7 +585,13 @@ Route::get('/tripmore-ar/{id}', [UserGroupController::class, 'getGroupDetailsAr'
 
 
 Route::get('/user_city_ar/{id}', [App\Http\Controllers\CityController::class, 'cityDetailsAr'])-> name('user-city-ar');
-Route::get('/ar/city/places/{id}', [CityController::class, 'getSubCategoryPlaceAr']) -> name('getSubCategoryPlaceAr');
+Route::post('/ar/city/places', [CityController::class, 'getSubCategoryPlaceAr']) -> name('getSubCategoryPlaceAr');
+Route::post('/en/city/places', [CityController::class, 'getSubCategoryPlaceEn']) -> name('getSubCategoryPlaceEn');
+
+Route::post('/ar/place/favorite', [FavoriteController::class, 'favoritePlaceAr']) -> name('favoritePlaceAr');
+Route::post('/ar/place/stars', [RatingController::class, 'startsPlaceAr']) -> name('startsPlaceAr');
+Route::post('/ar/place/reviews', [RatingController::class, 'reviewsPlaceAr']) -> name('reviewsPlaceAr');
+Route::post('/en/place/reviews', [RatingController::class, 'reviewsPlaceEn']) -> name('reviewsPlaceEn');
 
 // Route::get('/place_details_ar', function () {
 //     return view('user-ar.place_details');

@@ -127,7 +127,10 @@
         // }).addTo(map);
 
         //----------------------- add map --------------------------------------
-        var map = L.map('add-map').setView([33.5138, 36.2765], 10); // set the initial view of the map
+        var map = L.map('add-map', {
+            center: [34.8021, 38.9968], // coordinates for Syria
+            zoom: 7 // adjust zoom level as needed
+            }); // set the initial view of the map
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles
             maxZoom: 18,
             attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'

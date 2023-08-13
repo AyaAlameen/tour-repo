@@ -90,6 +90,7 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     @foreach ($services as $service)
                                                         <option style="cursor: pointer;"
+                                                            id="service_{{ $service->id }}"
                                                             class="dropdown-item service_filter_option service_place_{{ $service->place->id }}"
                                                             value="{{ $service->id }}" id="dservice_{{ $service->id }}"
                                                             onclick="setService({{ $service->id }}, '{{ $service->translations()->where('locale', 'ar')->first()->name }}', 'service_{{ $service->id }}')"
@@ -849,7 +850,8 @@
         document.getElementById('edit_place_id_' + event_id).value = `${place_id}`;
     }
     //---------------------------------------------
-    function setService(service_id, service, option_id) {
+    function setService(service_id, service, option_id) {   
+        console.log(service_id);
         var services_options = document.querySelectorAll('[id^="service_"]');
         services_options.forEach(option => {
             option.style.setProperty("color", "#1f1c2e", "important");
