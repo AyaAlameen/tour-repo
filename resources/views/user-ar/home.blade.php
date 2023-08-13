@@ -659,22 +659,26 @@
                         <div class="text-center pb-4 mb-3" style="direction:rtl;">
                             <img class="img-fluid m-auto" src="img/gift.png" style="width: 100px; height: 100px;">
                             <div class="testimonial-text bg-white p-4 mt-n5" style="height: 300px;">
-                                <h5 class="text-truncate mt-5">{{ $offer->place->translations()->where('locale', 'ar')->first()->name }}</h5>
-                                <h5 class="text-truncate">{{ $offer->translations()->where('locale', 'ar')->first()->name }}</h5>
-                                <p class="mt-2 h-25">{{ $offer->translations()->where('locale', 'ar')->first()->description }}</p>
+                                <h5 class="text-truncate mt-5">
+                                    {{ $offer->place->translations()->where('locale', 'ar')->first()->name }}</h5>
+                                <h5 class="text-truncate">
+                                    {{ $offer->translations()->where('locale', 'ar')->first()->name }}</h5>
+                                <p class="mt-2 h-25">
+                                    {{ $offer->translations()->where('locale', 'ar')->first()->description }}</p>
 
                                 <div class="d-flex h-25" style="flex-direction:row; justify-content:space-around;">
                                     <span>الكلفة : {{ $offer->cost }} ل.س</span>
-                                    <h6><a class="btn btn-primary" href="{{ route('offer_details-ar', ['id' => $offer->id]) }}"
+                                    <h6><a class="btn btn-primary"
+                                            href="{{ route('offer_details-ar', ['id' => $offer->id]) }}"
                                             style="border-radius:3px;">احجز الآن</a></h6>
                                 </div>
                             </div>
                         </div>
                         <!-- نهاية الكارد -->
                     @endforeach
-                    
 
-                    
+
+
 
 
 
@@ -698,34 +702,50 @@
                     <h1>أهم الفعاليات المقامة</h1>
                 </div>
                 <div class="row pb-3">
-                    {{-- بداية الكارد --}}
-                    <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/zaki-hotel-apartments.jpg" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">15 / <i class="text-white text-uppercase">8</i></b>
+                    @foreach ($events as $event)
+                        {{-- بداية الكارد --}}
+                        <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                            <div class="blog-item">
+                                <div class="position-relative">
+                                    @if ($event->service_id)
+                                        <img class="img-fluid w-100"
+                                            src="{{ asset(str_replace(app_path(), '', $event->service->image)) }}"
+                                            alt="">
+                                    @elseif($event->place->images()->count() > 0)
+                                        <img class="img-fluid w-100"
+                                            src="{{ asset(str_replace(app_path(), '', $event->place->images()->first()->image)) }}"
+                                            alt="">
+                                    @else
+                                        <img class="img-fluid w-100" src="img/event.png" alt="">
+                                    @endif
+                                    <div class="blog-date" style="width: 87px;">
+                                        <h6 class="font-weight-bold mb-n1">{{ date('y', strtotime($event->start_date)) }}
+                                            / {{ date('m', strtotime($event->start_date)) }} / <i
+                                                class="text-white text-uppercase">{{ date('d', strtotime($event->start_date)) }}</i></b>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">كافيه
-                                        لايكي</a>
-                                    <span class="text-primary px-2">|</span>
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">كأس
-                                        العالم</a>
-                                </div>
-                                <h6 class="d-flex justify-content-end"><a class="btn btn-primary"
-                                        href="{{ route('event_details-ar') }}" style="border-radius:3px;">المزيد من
-                                        التفاصيل للحجز</a></h6>
+                                <div class="bg-white p-4">
+                                    <div class="d-flex mb-2">
+                                        <a class="text-primary text-uppercase text-decoration-none"
+                                            href="">{{ $event->place->translations()->where('locale', 'ar')->first()->name }}</a>
+                                        <span class="text-primary px-2">|</span>
+                                        <a class="text-primary text-uppercase text-decoration-none"
+                                            href="">{{ $event->translations()->where('locale', 'ar')->first()->name }}</a>
+                                    </div>
+                                    <h6 class="d-flex justify-content-end"><a class="btn btn-primary"
+                                            href="{{ route('event_details-ar', ['id' => $event->id]) }}" style="border-radius:3px;">المزيد من
+                                            التفاصيل للحجز</a></h6>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    {{-- نهاية الكارد --}}
+                        {{-- نهاية الكارد --}}
+                    @endforeach
 
 
+                    <h6 class="d-flex justify-content-center"><a class="btn btn-primary" href="{{ route('event-ar') }}"
+                            style="border-radius:3px;">رؤية جميع الفعاليات</a></h6>
 
                 </div>
             </div>

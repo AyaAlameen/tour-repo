@@ -26,6 +26,7 @@ use App\Http\Controllers\UserOfferController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\UserEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -488,9 +489,11 @@ Route::get('/event-en', function () {
     return view('user.event');
 })-> name('event-en');
 
-Route::get('/event_details-en', function () {
-    return view('user.event_details');
-})-> name('event_details-en');
+// Route::get('/event_details-en', function () {
+//     return view('user.event_details');
+// })-> name('event_details-en');
+Route::get('/event_details-en/{id}', [UserEventController::class, 'eventDetailsEn'])-> name('event_details-en');
+
 
 Route::get('/offer-en', function () {
     return view('user.offer');
@@ -551,9 +554,11 @@ Route::get('/event-ar', function () {
     return view('user-ar.event');
 })-> name('event-ar');
 
-Route::get('/event_details-ar', function () {
-    return view('user-ar.event_details');
-})-> name('event_details-ar');
+// Route::get('/event_details-ar', function () {
+//     return view('user-ar.event_details');
+// })-> name('event_details-ar');
+
+Route::get('/event_details-ar/{id}', [UserEventController::class, 'eventDetailsAr'])-> name('event_details-ar');
 
 
 Route::get('/offer-ar', [UserOfferController::class, 'getOffersAr'])-> name('offer-ar');
