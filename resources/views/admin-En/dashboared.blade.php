@@ -3,7 +3,7 @@
     <div class="app-content">
         <div class="app-content-header">
 
-            <h1 class="app-content-headerText">Home</h1>
+            <h1 class="app-content-headerText">Statistics</h1>
 
 
         </div>

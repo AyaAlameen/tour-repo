@@ -106,7 +106,7 @@
 
                     @if (\Auth::check())
                         @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
-                            <a href="{{ route('home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
+                            <a href="{{ route('welcome_home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
                         @endif
                     @endif
 
@@ -271,11 +271,11 @@
                                 <a href="{{ route('welcome_home_ar') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                                        stroke-linecap="round" stroke-linejoin="round" class="fas fa-home">
                                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                                         <polyline points="9 22 9 12 15 12 15 22" />
                                     </svg>
-                                    <span>2الرئيسة</span>
+                                    <span>الرئيسة</span>
                                 </a>
                             </li>
 
@@ -291,11 +291,11 @@
                                 <a href="{{ route('home_ar') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                                        stroke-linecap="round" stroke-linejoin="round" class="fas fa-chart-pie">
                                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                                         <polyline points="9 22 9 12 15 12 15 22" />
                                     </svg>
-                                    <span>الرئيسة</span>
+                                    <span>إحصائيات</span>
                                 </a>
                             </li>
                         @endif
@@ -314,7 +314,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-shopping-bag">
+                                        class="fas fa-user-alt">
                                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                         <line x1="3" y1="6" x2="21" y2="6" />
                                         <path d="M16 10a4 4 0 0 1-8 0" />
@@ -475,7 +475,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-shopping-bag">
+                                        class="fas fa-city">
                                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                         <line x1="3" y1="6" x2="21" y2="6" />
                                         <path d="M16 10a4 4 0 0 1-8 0" />
@@ -499,7 +499,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-shopping-bag">
+                                        class="fas fa-shapes">
                                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                         <line x1="3" y1="6" x2="21" y2="6" />
                                         <path d="M16 10a4 4 0 0 1-8 0" />
@@ -522,7 +522,7 @@
                             <a href="{{ route('place_ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="fas fa-place-of-worship">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
@@ -546,7 +546,7 @@
                             <a href="{{ route('event_ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="fas fa-birthday-cake">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
@@ -570,7 +570,7 @@
                             <a href="{{ route('service_ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="fab fa-servicestack">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
@@ -594,7 +594,7 @@
                             <a href="{{ route('offer_ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="	fas fa-gift">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
@@ -618,7 +618,7 @@
                             <a href="{{ route('tourist_guide_ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="fas fa-user-tag">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
@@ -642,7 +642,7 @@
                             <a href="{{ route('emp-places-Ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="fas fa-user-tie">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
@@ -666,7 +666,7 @@
                             <a href="{{ route('groupe_ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="fas fa-users">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
@@ -690,7 +690,7 @@
                             <a href="{{ route('transport_company_ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="	fas fa-bus-alt">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
@@ -714,7 +714,7 @@
                             <a href="{{ route('message_ar') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    stroke-linejoin="round" class="fas fa-comment-dots">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                                     <line x1="3" y1="6" x2="21" y2="6" />
                                     <path d="M16 10a4 4 0 0 1-8 0" />
