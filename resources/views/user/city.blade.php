@@ -18,14 +18,14 @@
 
     {{-- أشهر الأماكن بالتصنيفات --}}
     <h4 class="p-5" style=" padding-bottom:5px !important;">The most famous places in
-        ({{ $city->translations()->where('locale', 'en')->first()->name }})
+        {{ $city->translations()->where('locale', 'en')->first()->name }}
     </h4>
     <div class="container">
         @foreach ($Category_places as $category)
             {{-- الأصناف --}}
             <div class="container">
-                <h4 class="p-5"> Places
-                    ({{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'en')->first()->name }})
+                <h4 class="p-5"> 
+                   {{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'en')->first()->name }}
                 </h4>
                 <div class="container d-flex justify-content-center m-3">
                     <button class="m-2 btn btn-primary"
