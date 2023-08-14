@@ -2,7 +2,7 @@
 @section('content')
     <div class="d-flex" style="justify-content: space-around; align-items: center;">
 
-        <h2 class="p-5" style="text-align: right;"> ({{ $place->translations()->where('locale', 'en')->first()->name }})
+        <h2 class="p-5" style="text-align: right;"> {{ $place->translations()->where('locale', 'en')->first()->name }}
         </h2>
         <div class="contact_place_info" style="padding-left: 100px;
     padding-right: 150px;">
@@ -18,7 +18,7 @@
                     height="100%">
             @endif
             <button
-                style="position: relative; left:75%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
+                style="position: relative; left:150%; bottom:35px; border-radius:20px; font-size:14px; border-color:var(--app-bg);"
                 data-bs-toggle="modal" data-bs-target="#exampleModal">view all picture</button>
 
             {{-- picturs modal --}}
@@ -244,15 +244,15 @@
         @endif
     </div>
     {{-- comments --}}
-    <div class="container m-5">
+    <div class="container m-5" style="padding-left: 100px;">
         <h3>Reviews About {{ $place->translations()->where('locale', 'en')->first()->name }}</h3>
-        <div class="d-flex align-items-start">
+        <div class="d-flex align-items-center" style="justify-content: space-between;">
             <div>
                 @if (\App\Models\Rating::where('place_id', $place->id)->where('reviews', '!=', null)->get())
                     <div id="comments-data">
                         @foreach (\App\Models\Rating::where('place_id', $place->id)->where('reviews', '!=', null)->latest()->take(4)->get() as $comment)
                             {{-- بداية التعليق --}}
-                            <div class="m-5">
+                            <div >
                                 <div class=" d-flex align-items-center">
                                     @if ($comment->user->image)
                                         <img src="{{ asset(str_replace(app_path(), '', $comment->user->image)) }}"
@@ -266,7 +266,7 @@
 
                                     <h5>{{ $comment->user->user_name }}</h5>
                                 </div>
-                                <p class="text-body w-50 text-end" style="margin-left:10%; ">{{ $comment->reviews }}
+                                <p class="text-body text-end" style="margin-left:50%; ">{{ $comment->reviews }}
                                 </p>
 
                             </div>
@@ -276,23 +276,23 @@
                 @endif
 
             </div>
-            <div class="w-50">
-                <img src="../img/popularity.png" width="300px" height="300px">
-            </div>
+        
+                <img src="../img/popularity.png" width="200px" height="200px">
+            
         </div>
 
     </div>
     {{-- ادخال التعليق --}}
-    <div class="container m-5">
+    <div class="container m-5"  style="padding-left: 100px;">
         <h3>Also share your comments about {{ $place->translations()->where('locale', 'en')->first()->name }}</h3>
         @isset(Auth::user()->id)
             <form id="comment-form" action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="text" name="place_id" value="{{ $place->id }}" hidden>
-                <div class="w-75 =pr-3 m-auto d-flex align-items-center">
+                <div class="w-100 p-5 m-auto d-flex align-items-center ">
                     <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-right:10px;"
                         width="40px" height="40px">
-                    <textarea style="direction: ltr; width: 77%;" name="reviews" id="comment-content" placeholder="Leave your comment"></textarea>
+                    <textarea style="direction: ltr; width: 85rem; border-radius: 5px;" name="reviews" id="comment-content" placeholder="Leave your comment"></textarea>
 
                     <button type="button" id="save-comment-btn" onclick="saveComment({{ $place->id }})"
                         class="m-2 btn btn-primary"
@@ -313,7 +313,7 @@
     {{-- end comments --}}
     {{-- الخدمات --}}
     @if ($place->services->count() > 0)
-        <div class="serv d-flex" style="flex-direction: row; align-items: center;">
+        <div class="serv d-flex" style="direction: rtl; align-items: center;">
 
             <div class="sidebar">
                 <div class="sidebar-header">
@@ -332,27 +332,29 @@
                         <li onclick="filterServices()" class="sidebar-list-item">
                             <a>
                                 <i class="fas fa-filter"></i>
-                                <span>فلتر </span>
+                                <span>filter </span>
+                               
                             </a>
                         </li>
                         <li class="sidebar-list-item ">
                             <a>
+                               
                                 <i class="fas fa-users"></i>
-
-                                <span> عدد الأشخاص :</span>
+                                <span>Number of people </span>
+                               
                             </a>
                         </li>
 
                         <li class="sidebar-list-item">
 
-                            <input type="number" class="w-100" name="people-count-filter" style="margin-right: 20px;">
+                            <input type="number" class="w-75" name="people-count-filter" style="margin-left: 100px;">
 
                         </li>
 
                         <li class="sidebar-list-item">
                             <a>
-                                <i class="fas fa-dolar"></i>
-                                <span>السعر بالليرة السوري:</span>
+                                <i class="fas fa-money-bill"></i>
+                                <span>Price</span>
 
                             </a>
                         </li>
@@ -367,9 +369,10 @@
                             <a>
                                 <label for="rang1"
                                     style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
+                                    
+                                    All   
                                     <input type="radio" value="all"
                                         name="cost-filter" id="rang1">
-                                    الكل   
                                 </label>
                             </a>
                         </li>
@@ -379,9 +382,10 @@
                                 <a>
                                     <label for="rang1"
                                         style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
+                                        
+                                        {{ $i }} - {{ $i + $step }}
                                         <input type="radio" value="{{ $i }} - {{ $i + $step }}"
                                             name="cost-filter" id="rang1">
-                                        {{ $i }} - {{ $i + $step }}
                                     </label>
                                 </a>
                             </li>
@@ -394,57 +398,56 @@
             
                 <div id="services-data" class="pr-5 w-75">
 
-                    <h4 class="p-5 " style="text-align: right; padding-bottom:5px !important;"> الخدمات الأساسية المقدمة
-                        في
-                        {{ $place->translations()->where('locale', 'ar')->first()->name }}</h4>
+                    <h4 class="p-5 " style="text-align: left; padding-bottom:5px !important;">Main service in
+                        {{ $place->translations()->where('locale', 'en')->first()->name }}</h4>
                     @foreach ($place->services as $service)
                         @if (!$service->is_additional)
                             {{-- بداسة كارد الخدمات الغير إضافية --}}
                             <div class="mainCard  w-75 m-auto " style="border-radius: 10px; ">
-                                <div class="d-flex">
+                                <div class="d-flex" style="flex-direction: row-reverse;">
                                     <div class="text-center ">
                                         <img src="{{ asset(str_replace(app_path(), '', $service->image)) }}"
                                             style="padding: 10px; box-sizing: content-box; border-radius: 20px;"
                                             width="200px" height="200px">
 
                                     </div>
-                                    <div class="pt-4 ">
+                                    <div class="pt-4 w-100" style="direction: ltr;">
                                         <div class="d-flex " style="justify-content: space-between;">
-                                            <h4 class="text-right p-2">
+                                            <h4 class="text-left p-2">
                                                 {{ $service->translations()->where('locale', 'ar')->first()->name }}</h4>
                                         </div>
-                                        <p class="text-right pr-2 pl-2">
+                                        <p class="text-left pr-2 pl-2">
                                             {{ $place->translations()->where('locale', 'ar')->first()->description }}</p>
-                                        <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
-                                            <h6 class="d-inline ml-4">التكلفة : {{ $service->cost }} ل.س</h6>
+                                        <div class="d-flex m-3 w-100 mt-5" style="justify-content: flex-end; align-items: baseline;">
+                                            <h6 class="d-inline mr-4">cost : {{ $service->cost }} spy</h6>
                                             @if ($service->people_count)
                                                 <br>
-                                                <h6 class="d-inline ml-4">عدد الأشخاص : {{ $service->people_count }}</h6>
+                                                <h6 class="d-inline ml-4">Numper of people:{{ $service->people_count }}</h6>
                                             @endif
                                             @if ($service->reservation_period)
                                                 <br>
-                                                <h6 class="d-inline ml-4">مدة الحجز : @if ($service->reservation_period == '00:15')
-                                                        <span> ربع ساعة </span>
+                                                <h6 class="d-inline ml-4">Reservation period: @if ($service->reservation_period == '00:15')
+                                                        <span>quarter houre </span>
                                                     @elseif($service->reservation_period == '00:30')
-                                                        <span> نصف ساعة </span>
+                                                        <span>half houre</span>
                                                     @elseif($service->reservation_period == '01:00')
-                                                        <span>ساعة</span>
+                                                        <span>Houre</span>
                                                     @elseif($service->reservation_period == '02:00')
-                                                        <span> ساعتين </span>
+                                                        <span> two houres </span>
                                                     @elseif($service->reservation_period == '03:00')
-                                                        <span> ثلاث ساعات </span>
+                                                        <span>  three houres </span>
                                                     @elseif($service->reservation_period == '04:00')
-                                                        <span> أربع ساعات </span>
+                                                        <span>foure houres</span>
                                                     @elseif(!$service->reservation_period)
                                                         <span> </span>
                                                     @endif
                                                 </h6>
                                             @endif
                                             @isset(Auth::user()->id)
-                                                <button class="btn btn-primary ml-4" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal20">حجز</button>
+                                                <button class="btn btn-primary mr-4" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal20">book</button>
                                             @else
-                                                <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
+                                                <button onclick="loginBefore()" class="btn btn-primary ml-4">book</button>
                                             @endisset
                                         </div>
                                     </div>
@@ -459,67 +462,67 @@
                     {{-- نهاية كارد الخدمات الغير إضافية --}}
 
 
-                    <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;"> الخدمات الإضافية المقدمة
-                        في
-                        {{ $place->translations()->where('locale', 'ar')->first()->name }} </h4>
+                    <h4 class="p-5" style="text-align: left; padding-bottom:5px !important;"> Additional service in
+                        
+                        {{ $place->translations()->where('locale', 'en')->first()->name }} </h4>
                     @foreach ($place->services as $service)
-                        @if ($service->is_additional)
-                            {{-- بداسة كارد الخدمات  الإضافية --}}
-                            <div class="mainCard  w-75 m-auto " style="border-radius: 10px; ">
-                                <div class="d-flex">
-                                    <div class="text-center ">
-                                        <img src="{{ asset(str_replace(app_path(), '', $service->image)) }}"
-                                            style="padding: 10px; box-sizing: content-box; border-radius: 20px;"
-                                            width="200px" height="200px">
-
-                                    </div>
-                                    <div class="pt-4 ">
-                                        <div class="d-flex " style="justify-content: space-between;">
-                                            <h4 class="text-right p-2">
-                                                {{ $service->translations()->where('locale', 'ar')->first()->name }}</h4>
-                                        </div>
-                                        <p class="text-right pr-2 pl-2">
-                                            {{ $place->translations()->where('locale', 'ar')->first()->description }}</p>
-                                        <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
-                                            <h6 class="d-inline ml-4">التكلفة : {{ $service->cost }} ل.س</h6>
-                                            @if ($service->people_count)
-                                                <br>
-                                                <h6 class="d-inline ml-4">عدد الأشخاص : {{ $service->people_count }}</h6>
-                                            @endif
-                                            @if ($service->reservation_period)
-                                                <br>
-                                                <h6 class="d-inline ml-4">مدة الحجز : @if ($service->reservation_period == '00:15')
-                                                        <span> ربع ساعة </span>
-                                                    @elseif($service->reservation_period == '00:30')
-                                                        <span> نصف ساعة </span>
-                                                    @elseif($service->reservation_period == '01:00')
-                                                        <span>ساعة</span>
-                                                    @elseif($service->reservation_period == '02:00')
-                                                        <span> ساعتين </span>
-                                                    @elseif($service->reservation_period == '03:00')
-                                                        <span> ثلاث ساعات </span>
-                                                    @elseif($service->reservation_period == '04:00')
-                                                        <span> أربع ساعات </span>
-                                                    @elseif(!$service->reservation_period)
-                                                        <span> </span>
-                                                    @endif
-                                                </h6>
-                                            @endif
-                                            @isset(Auth::user()->id)
-                                                <button class="btn btn-primary ml-4" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal20">حجز</button>
-                                            @else
-                                                <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
-                                            @endisset
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
+                    @if ($service->is_additional)
+                    {{-- بداسة كارد الخدمات الغير إضافية --}}
+                    <div class="mainCard  w-75 m-auto " style="border-radius: 10px; ">
+                        <div class="d-flex" style="flex-direction: row-reverse;">
+                            <div class="text-center ">
+                                <img src="{{ asset(str_replace(app_path(), '', $service->image)) }}"
+                                    style="padding: 10px; box-sizing: content-box; border-radius: 20px;"
+                                    width="200px" height="200px">
 
                             </div>
-                        @endif
+                            <div class="pt-4 w-100" style="direction: ltr;">
+                                <div class="d-flex " style="justify-content: space-between;">
+                                    <h4 class="text-left p-2">
+                                        {{ $service->translations()->where('locale', 'ar')->first()->name }}</h4>
+                                </div>
+                                <p class="text-left pr-2 pl-2">
+                                    {{ $place->translations()->where('locale', 'ar')->first()->description }}</p>
+                                <div class="d-flex m-3 w-100 mt-5" style="justify-content: flex-end; align-items: baseline;">
+                                    <h6 class="d-inline mr-4">cost : {{ $service->cost }} spy</h6>
+                                    @if ($service->people_count)
+                                        <br>
+                                        <h6 class="d-inline ml-4">Numper of people:{{ $service->people_count }}</h6>
+                                    @endif
+                                    @if ($service->reservation_period)
+                                        <br>
+                                        <h6 class="d-inline ml-4">Reservation period: @if ($service->reservation_period == '00:15')
+                                                <span>quarter houre </span>
+                                            @elseif($service->reservation_period == '00:30')
+                                                <span>half houre</span>
+                                            @elseif($service->reservation_period == '01:00')
+                                                <span>Houre</span>
+                                            @elseif($service->reservation_period == '02:00')
+                                                <span> two houres </span>
+                                            @elseif($service->reservation_period == '03:00')
+                                                <span>  three houres </span>
+                                            @elseif($service->reservation_period == '04:00')
+                                                <span>foure houres</span>
+                                            @elseif(!$service->reservation_period)
+                                                <span> </span>
+                                            @endif
+                                        </h6>
+                                    @endif
+                                    @isset(Auth::user()->id)
+                                        <button class="btn btn-primary mr-4" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal20">book</button>
+                                    @else
+                                        <button onclick="loginBefore()" class="btn btn-primary ml-4">book</button>
+                                    @endisset
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                @endif
                     @endforeach
                     {{-- نهاية كارد الخدمات  الإضافية --}}
                 </div>

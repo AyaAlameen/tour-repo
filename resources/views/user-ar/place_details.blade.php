@@ -246,13 +246,13 @@
     {{-- comments --}}
     <div class="container m-5" style="text-align: end;">
         <h3>تعليقات حول {{ $place->translations()->where('locale', 'ar')->first()->name }}</h3>
-        <div class="d-flex " style="justify-content: space-between;">
+        <div class="d-flex align-items-center p-5" style="justify-content: space-between;">
             <div>
                 @if (\App\Models\Rating::where('place_id', $place->id)->where('reviews', '!=', null)->get())
                     <div id="comments-data">
                         @foreach (\App\Models\Rating::where('place_id', $place->id)->where('reviews', '!=', null)->latest()->take(4)->get() as $comment)
                             {{-- بداية التعليق --}}
-                            <div class="m-5">
+                            <div >
                                 <div class=" d-flex align-items-center">
                                     @if ($comment->user->image)
                                         <img src="{{ asset(str_replace(app_path(), '', $comment->user->image)) }}"
@@ -264,7 +264,7 @@
 
                                     <h5>{{ $comment->user->user_name }}</h5>
                                 </div>
-                                <p class="text-body w-50 text-end" style="margin-left:40%; ">{{ $comment->reviews }}
+                                <p class="text-body text-end" style="margin-right:50%; ">{{ $comment->reviews }}
                                 </p>
 
                             </div>
@@ -274,9 +274,12 @@
                 @endif
 
             </div>
-            <div class="w-50">
-                <img src="../img/popularity.png" width="300px" height="300px">
+            <div style="padding-left: 100px;">
+                <img src="../img/popularity.png" width="200px" height="200px" >
             </div>
+        </div>
+      
+               
         </div>
 
     </div>
@@ -287,10 +290,10 @@
             <form id="comment-form" action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="text" name="place_id" value="{{ $place->id }}" hidden>
-                <div class="w-75 =pr-3 m-auto d-flex align-items-center">
+                <div class="w-100 p-5 m-auto d-flex align-items-center">
                     <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 50%;  margin-left:10px;"
                         width="40px" height="40px">
-                    <textarea style="direction: rtl; width: 77%;" name="reviews" id="comment-content" placeholder="اترك تعليق"></textarea>
+                    <textarea style="direction: rtl; width: 80%; border-radius: 5px;" name="reviews" id="comment-content" placeholder="اترك تعليق"></textarea>
 
                     <button type="button" id="save-comment-btn" onclick="saveComment({{ $place->id }})"
                         class="m-2 btn btn-primary"
@@ -337,20 +340,21 @@
                             <a>
                                 <i class="fas fa-users"></i>
 
-                                <span> عدد الأشخاص :</span>
+                                <span> عدد الأشخاص </span>
                             </a>
                         </li>
 
                         <li class="sidebar-list-item">
 
-                            <input type="number" class="w-100" name="people-count-filter" style="margin-right: 20px;">
+                            <input type="number" class="w-75" name="people-count-filter" style="margin-right: 20px;">
 
                         </li>
 
                         <li class="sidebar-list-item">
                             <a>
-                                <i class="fas fa-dolar"></i>
-                                <span>السعر بالليرة السوري:</span>
+                                <i class="fas fa-money-bill"></i>
+                                <span>السعر بالليرة السوري</span>
+                               
 
                             </a>
                         </li>
@@ -406,14 +410,14 @@
                                             width="200px" height="200px">
 
                                     </div>
-                                    <div class="pt-4 ">
+                                    <div class="pt-4 w-100 ">
                                         <div class="d-flex " style="justify-content: space-between;">
                                             <h4 class="text-right p-2">
                                                 {{ $service->translations()->where('locale', 'ar')->first()->name }}</h4>
                                         </div>
                                         <p class="text-right pr-2 pl-2">
                                             {{ $place->translations()->where('locale', 'ar')->first()->description }}</p>
-                                        <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
+                                        <div class="d-flex m-3 mt-5 w-100" style="justify-content: flex-end; align-items: baseline;">
                                             <h6 class="d-inline ml-4">التكلفة : {{ $service->cost }} ل.س</h6>
                                             @if ($service->people_count)
                                                 <br>
@@ -471,14 +475,14 @@
                                             width="200px" height="200px">
 
                                     </div>
-                                    <div class="pt-4 ">
+                                    <div class="pt-4 w-100">
                                         <div class="d-flex " style="justify-content: space-between;">
                                             <h4 class="text-right p-2">
                                                 {{ $service->translations()->where('locale', 'ar')->first()->name }}</h4>
                                         </div>
                                         <p class="text-right pr-2 pl-2">
                                             {{ $place->translations()->where('locale', 'ar')->first()->description }}</p>
-                                        <div class="d-flex m-3" style="justify-content: flex-end; align-items: baseline;">
+                                        <div class="d-flex m-3 w-100 mt-5" style="justify-content: flex-end; align-items: baseline;">
                                             <h6 class="d-inline ml-4">التكلفة : {{ $service->cost }} ل.س</h6>
                                             @if ($service->people_count)
                                                 <br>
