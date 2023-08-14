@@ -27,6 +27,17 @@ class FavoriteController extends Controller
             $favorite->save();
         }
     }
+
+
+    public function userFavoritesAr(){
+        $favorites = Favorite::where('user_id', Auth::user()->id)->where('deleted_at', null)->get();
+        return view("user-ar.sections.favorite-section")->with(['favorites' => $favorites]);
+    }
+    public function userFavoritesEn(){
+        $favorites = Favorite::where('user_id', Auth::user()->id)->where('deleted_at', null)->get();
+        return view("user.sections.favorite-section")->with(['favorites' => $favorites]);
+    }
+
     public function index()
     {
         //

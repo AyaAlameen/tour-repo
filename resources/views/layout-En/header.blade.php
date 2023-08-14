@@ -219,10 +219,17 @@
                         style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
                 {{-- fav --}}
+                @isset(Auth::user()->id)
+                    <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite"
+                            onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;" type="button"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                            aria-controls="offcanvasRight"></i></a>
+                @else
                 <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite"
-                        onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;" type="button"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                        aria-controls="offcanvasRight"></i></a>
+                    onClick="loginBefore()" style=" color:var(--bambi);  cursor: pointer;" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target=""
+                    aria-controls="offcanvasRight"></i></a>
+                @endisset
                 <div class="nav-item dropdown ">
                     <a class="action-button list nav-link dropdown-toggle" style="cursor:pointer;"
                         data-toggle="dropdown" title="ترجمة"> <i class="fas fa-globe "
@@ -250,19 +257,8 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="offcanvas-body">
-        {{-- اذا ما اختار مفضلة لسا --}}
-        <img src="img/folder.png" width="130px" height="130px"
-            style="margin-left:125px; margin-top:160px; opacity: 0.5;" />
-        <p class="text-body px-3 text-center mt-4">choose your favorite places</p>
-
-        {{-- اذا اختار أماكن مفضلة  --}}
-
-        {{-- <div class="d-flex" style="flex-direction: column; align-items: center; ">
-            <img src="img/aleppo-palace-hotel.jpg"
-                style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px" height="200px">
-                <h4>فندق قصر حلب</h4>
-        </div> --}}
+    <div id="favorites-data" class="offcanvas-body">
+        
 
     </div>
 </div>
@@ -404,10 +400,10 @@
                             <td class="text-center"> booking period (from clock - to clock)</td>
                             <td>
                                 <div class="dropdown toggle text-primary in" style="display:inline-block;">
-                                    <lable class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-expanded="false">
 
-                                    </lable>
+                                    </label>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">12:00 - 13:00</a>
                                         <a class="dropdown-item" href="#">13:00 - 14:00</a>
@@ -521,6 +517,37 @@
             .always(function() {
                 // Re-enable the submit button and hide the loading spinner
                 $("#edit-profile-btn").attr("disabled", false).html('Save');
+            });
+    }
+
+    function getFavorite() {
+        // $("#edit-profile-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        // var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+                url: `{{ route('userFavoritesEn') }}`,
+                type: "GET",
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                // $('.close').click();
+                // $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                $("#favorites-data").empty();
+                $("#favorites-data").append(data);
+            })
+            .fail(function(data) {
+
+                $('.parent').attr("hidden", false);
+
+
+
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                // $("#edit-profile-btn").attr("disabled", false).html('Save');
             });
     }
 

@@ -606,6 +606,8 @@ Route::get('/user_city_ar/{id}', [App\Http\Controllers\CityController::class, 'c
 Route::post('/ar/city/places', [CityController::class, 'getSubCategoryPlaceAr']) -> name('getSubCategoryPlaceAr');
 Route::post('/en/city/places', [CityController::class, 'getSubCategoryPlaceEn']) -> name('getSubCategoryPlaceEn');
 
+Route::get('/en/user/favorite', [FavoriteController::class, 'userFavoritesEn']) -> name('userFavoritesEn');
+Route::get('/ar/user/favorite', [FavoriteController::class, 'userFavoritesAr']) -> name('userFavoritesAr');
 Route::post('/ar/place/favorite', [FavoriteController::class, 'favoritePlaceAr']) -> name('favoritePlaceAr');
 Route::post('/ar/place/stars', [RatingController::class, 'startsPlaceAr']) -> name('startsPlaceAr');
 Route::post('/ar/place/reviews', [RatingController::class, 'reviewsPlaceAr']) -> name('reviewsPlaceAr');
