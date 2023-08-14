@@ -343,6 +343,27 @@
 
 
             @if (\Auth::user())
+            @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
+
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('welcome_home_en') }}" id="welcome2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-shopping-bag">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Home2</span>
+                                </a>
+                            </li>
+
+
+                @endif
+            @endif
+
+            @if (\Auth::user())
                 @if (\Auth::user()->is_employee == 1)
 
                     @foreach (\Auth::user()->permissions as $permission)
@@ -747,6 +768,7 @@
                 @endif
             @endif
             {{-- </li> --}}
+            
             @if (\Auth::user())
                 @if (\Auth::user()->is_employee == 1)
 
