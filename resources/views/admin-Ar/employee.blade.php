@@ -87,11 +87,19 @@
                   <td ><textarea class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%; height:26.5px;"></textarea></td> 
                   <td>العنوان (العربية)</td>     
               </tr> 
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="address_ar_error"></span></td>                
+              </tr> 
+              
               <tr>
                  
                  <td ><textarea class="toggle text-primary in" type="text" name="address_en" required style="width: 100%; height:26.5px;"></textarea></th> 
                  <td>(الإنجليزية)العنوان</td>     
              </tr> 
+             <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="address_en_error"></span></td>                
+              </tr> 
+             
               <tr>
                  
                   <td ><input class="toggle text-primary in" type="number" name="salary" required style="width: 100%;"></th>  
@@ -105,11 +113,17 @@
                   <td ><textarea class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%; height:26.5px;"></textarea></th>     
                   <td>العمل(العربية)</td> 
               </tr>
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="job_ar_error"></span></td>                
+              </tr> 
               <tr>
                   
                   <td ><textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%; height:26.5px;"></textarea></th>     
                   <td>(اللإنجليزية)العمل</td> 
               </tr>
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="job_en_error"></span></td>                
+              </tr> 
               <tr>
                  
                   <td ><input class="toggle text-primary in" type="number" name="identifier" required style="width: 100%;"></th>   

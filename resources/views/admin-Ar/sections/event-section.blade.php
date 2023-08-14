@@ -171,11 +171,23 @@
                                         </tr>
                                         <tr>
 
+                                         <td colspan="2"><span style="color: red" class="service_error_edit"></span>
+                                          </td>
+
+                                        </tr>
+                                        <tr>
+
                                             <td><input class="toggle text-primary in" type="text"
                                                     name="description_ar" required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
                                             </td>
                                             <td>وصف(العربية)</td>
+                                        </tr>
+                                        <tr>
+
+                                         <td colspan="2"><span style="color: red" class="description_ar_error_edit"></span>
+                                          </td>
+
                                         </tr>
                                         <tr>
                                             <td><input class="toggle text-primary in" type="text"
@@ -184,6 +196,13 @@
                                             </td>
                                             <td>(الانكليزية)وصف</td>
                                         </tr>
+                                        <tr>
+
+                                         <td colspan="2"><span style="color: red" class="description_en_error_edit"></span>
+                                          </td>
+
+                                        </tr>
+                                        
                                         <tr>
 
                                             <td><input type="number" name="cost" class="toggle text-primary in"
@@ -460,6 +479,11 @@
                                         </tr>
                                         <tr>
 
+                                         <td colspan="2"><span style="color: red" class="service_error_edit"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
                                             <td><input class="toggle text-primary in" type="text"
                                                     name="description_ar" required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
@@ -467,11 +491,23 @@
                                             <td>وصف(العربية)</td>
                                         </tr>
                                         <tr>
+
+                                         <td colspan="2"><span style="color: red" class="description_ar_error_edit"></span>
+                                          </td>
+
+                                        </tr>
+                                        <tr>
                                             <td><input class="toggle text-primary in" type="text"
                                                     name="description_en" required style="width: 100%;"
                                                     value="{{ $event->translations()->where('locale', 'en')->first()->description }}">
                                             </td>
                                             <td>(الانكليزية)وصف</td>
+                                        </tr>
+                                        <tr>
+
+                                         <td colspan="2"><span style="color: red" class="description_en_error_edit"></span>
+                                          </td>
+
                                         </tr>
                                         <tr>
 

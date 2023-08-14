@@ -117,6 +117,11 @@
                                                         height="50px"></label>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td><span style="color: red" class="image_error_edit"></span></td>
+                                        </tr>
+
+                                        
 
                                     </table>
 
@@ -353,6 +358,10 @@
                                                         height="50px"></label>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td><span style="color: red" class="image_error_edit"></span></td>
+                                        </tr>
+
 
                                     </table>
 

@@ -88,11 +88,20 @@
                                         <td>المواصفات(العربية)</td>
                                     </tr>
                                     <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="description_ar_error"></span></td>
+                                    </tr>
+                                    <tr>
 
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></td>
                                         <td>(الإنجليزية)المواصفات</td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                                id="description_en_error"></span></td>
+                                    </tr>
+                                    
 
 
 
@@ -271,11 +280,19 @@
                                                             <td>المواصفات(العربية)</td>
                                                         </tr>
                                                         <tr>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="description_ar_error_edit"></span></td>
+                                                        </tr>
+                                                        <tr>
                                                             <td><input class="toggle text-primary in"
                                                                     name="description_en" type="text"
                                                                     value="{{ $transportation->translations()->where('locale', 'en')->first()->description }}"
                                                                     required style="width: 100%;"></th>
                                                             <td>(الانكليزية)المواصفات</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="description_en_error_edit"></span></td>
                                                         </tr>
                                                     </table>
                                                 </div>

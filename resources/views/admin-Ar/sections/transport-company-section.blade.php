@@ -52,17 +52,26 @@
                                                 <td>الاسم(العربية)</td>     
                                             </tr>  
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td >
                                                     <input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$company->translations()->where('locale', 'en')->first()->name}}">
                                                 </td> 
                                                 <td>(الإنجليزية)الاسم </td>     
                                             </tr>
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
+                                              </tr> 
                                             <tr> 
                                                 <td>
                                                     <input type="email" name="email" class="toggle text-primary in" value="{{$company->email}}">
                                                 </td>  
                                                 <td>الايميل</td>
-                                            </tr>     
+                                            </tr>   
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="email_error_edit"></span></td>
+                                              </tr>   
                                             <tr> 
                                                 <td>
                                                     <input type="number" name="phone" class="toggle text-primary in" value="{{$company->phone}}">
@@ -70,11 +79,17 @@
                                                 <td>الهاتف</td>
                                             </tr>  
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="phone_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                        
                                                 <td ><input type="file" name="image" id="img"> 
                                                 <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$company -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                                              <td>الصورة</td>
-                                            </tr>    
+                                            </tr>  
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="image_error_edit"></span></td>
+                                              </tr>   
                                         </table>
                                     </div>
                                 </form>
@@ -166,17 +181,26 @@
                                                 <td>الاسم(العربية)</td>     
                                             </tr>  
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="name_ar_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td >
                                                     <input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;" value="{{$company->translations()->where('locale', 'en')->first()->name}}">
                                                 </td> 
                                                 <td>(الإنجليزية)الاسم </td>     
                                             </tr>
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="name_en_error_edit"></span></td>
+                                              </tr> 
                                             <tr> 
                                                 <td>
                                                     <input type="email" name="email" class="toggle text-primary in" value="{{$company->email}}">
                                                 </td>  
                                                 <td>الايميل</td>
-                                            </tr>     
+                                            </tr>   
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="email_error_edit"></span></td>
+                                              </tr>   
                                             <tr> 
                                                 <td>
                                                     <input type="number" name="phone" class="toggle text-primary in" value="{{$company->phone}}">
@@ -184,11 +208,17 @@
                                                 <td>الهاتف</td>
                                             </tr>  
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="phone_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                        
                                                 <td ><input type="file" name="image" id="img"> 
                                                 <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$company -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                                              <td>الصورة</td>
-                                            </tr>    
+                                            </tr>   
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="image_error_edit"></span></td>
+                                              </tr>  
                                         </table>
                                     </div>
                                 </form>

@@ -80,9 +80,17 @@
                       <td>المواصفات(العربية)</td>    
                     </tr> 
                     <tr>
+                        <td colspan="2"><span style="color: red"
+                        class="description_ar_error_edit"></span></td>
+                     </tr>
+                    <tr>
                       <td ><input class="toggle text-primary in" name="description_en" type="text" value="{{$transportation->translations()->where('locale', 'en')->first()->description}}"  required style="width: 100%;"></th>  
                       <td>(الانكليزية)المواصفات</td>    
                     </tr>
+                    <tr>
+                         <td colspan="2"><span style="color: red"
+                             class="description_en_error_edit"></span></td>
+                      </tr>
                   </table>
                 </div>
                 </form>
@@ -200,14 +208,22 @@
                     <tr>
                       <td colspan="2"><span style="color: red" class="passengers_number_error_edit"></span></td>
                       </tr>  
-                    <tr>
+                      <tr>
                       <td ><input class="toggle text-primary in" name="description_ar" type="text" value="{{$transportation->translations()->where('locale', 'ar')->first()->description}}"  required style="width: 100%;"></th>  
                       <td>المواصفات(العربية)</td>    
                     </tr> 
                     <tr>
+                        <td colspan="2"><span style="color: red"
+                        class="description_ar_error_edit"></span></td>
+                     </tr>
+                    <tr>
                       <td ><input class="toggle text-primary in" name="description_en" type="text" value="{{$transportation->translations()->where('locale', 'en')->first()->description}}"  required style="width: 100%;"></th>  
                       <td>(الانكليزية)المواصفات</td>    
                     </tr>
+                    <tr>
+                         <td colspan="2"><span style="color: red"
+                             class="description_en_error_edit"></span></td>
+                      </tr>
                   </table>
                 </div>
                 </form>

@@ -101,12 +101,21 @@
                                         <td>وصف(العربية)</td>
                                     </tr>
                                     <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="description_ar_error"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
 
                                         <td>
                                             <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;"></textarea>
                                         </td>
                                         <td>(الانكليزية)وصف</td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="description_en_error"></span>
+                                        </td>
+                                    </tr>
+                                    
                                     <tr>
 
                                         <td><input class="toggle text-primary in" type="number" name="people_count"
