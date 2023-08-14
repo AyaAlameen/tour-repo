@@ -124,12 +124,20 @@
                                             <td>العنوان (العربية)</td>
                                         </tr>
                                         <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="address_ar_error_edit"></span></td>
+                                        </tr>
+                                        <tr>
 
                                             <td>
                                                 <textarea class="toggle text-primary in" type="text" name="address_en" required
                                                     style="width: 100%; height:26.5px;">{{ $employee->translations()->where('locale', 'en')->first()->address }}</textarea>
                                                 </th>
                                             <td>(الانكليزية)العنوان</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="address_en_error_edit"></span></td>
                                         </tr>
                                         <tr>
 
@@ -151,11 +159,19 @@
                                             <td>العمل(العربية)</td>
                                         </tr>
                                         <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="job_ar_error_edit"></span></td>
+                                        </tr>
+                                        <tr>
 
                                             <td>
                                                 <textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%; height:26.5px;">{{ $employee->translations()->where('locale', 'en')->first()->job }}</textarea>
                                                 </th>
                                             <td>(الانكليزية)العمل</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="job_en_error_edit"></span></td>
                                         </tr>
                                         <tr>
 
@@ -413,12 +429,20 @@
                                                     <td>العنوان (العربية)</td>
                                                 </tr>
                                                 <tr>
+                                                    <td colspan="2"><span style="color: red"
+                                                            class="address_ar_error_edit"></span></td>
+                                                </tr>
+                                                <tr>
 
                                                     <td>
                                                         <textarea class="toggle text-primary in" type="text" name="address_en" required
                                                             style="width: 100%; height:26.5px;">{{ $employee->translations()->where('locale', 'en')->first()->address }}</textarea>
                                                         </th>
                                                     <td>(الانكليزية)العنوان</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2"><span style="color: red"
+                                                            class="address_en_error_edit"></span></td>
                                                 </tr>
                                                 <tr>
 
@@ -440,11 +464,19 @@
                                                     <td>العمل(العربية)</td>
                                                 </tr>
                                                 <tr>
+                                                    <td colspan="2"><span style="color: red"
+                                                            class="job_ar_error_edit"></span></td>
+                                                </tr>
+                                                <tr>
 
                                                     <td>
                                                         <textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%; height:26.5px;">{{ $employee->translations()->where('locale', 'en')->first()->job }}</textarea>
                                                         </th>
                                                     <td>(الانكليزية)العمل</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2"><span style="color: red"
+                                                            class="job_en_error_edit"></span></td>
                                                 </tr>
                                                 <tr>
 

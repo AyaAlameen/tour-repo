@@ -183,8 +183,7 @@
                                                     <h6> كلمة السر الجديدة</h6>
                                                 </div>
 
-                                                <input class="m-auto p-1" type="password" value=""
-                                                    name="password"
+                                                <input class="m-auto p-1" type="password" value="" name="password"
                                                     style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:95px !important; border-radius:5px;"
                                                     value="Aya Alameen" />
                                                 <p id="new_error" class="m-auto p-1 text-danger"
@@ -224,10 +223,16 @@
 
                     @endguest
                     {{-- heart --}}
-                    <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="المفضلة"
-                            onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;" type="button"
-                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                            aria-controls="offcanvasRight"></i></a>
+                    @isset(Auth::user()->id)
+                        <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="المفضلة"
+                                onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;" type="button"
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight"></i></a>
+                    @else
+                        <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="المفضلة"
+                                onClick="loginBefore()" style=" color:var(--bambi);  cursor: pointer;" type="button"
+                                data-bs-toggle="offcanvas" data-bs-target="" aria-controls="offcanvasRight"></i></a>
+                    @endisset
                     {{-- ticket --}}
                     <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
                             style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
@@ -237,10 +242,9 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" title="ترجمة"> <i
                                 class="fas fa-globe " style=" color:var(--bambi);"></i> </a>
                         <div id="langList" class="dropdown-menu border-0 rounded-0 m-0">
-                            <a  onclick="getURLAr()" class="dropdown-item" style="cursor:pointer;">
+                            <a onclick="getURLAr()" class="dropdown-item" style="cursor:pointer;">
                                 العربية</a>
-                            <a onclick="getURLEn()" class="dropdown-item"
-                                style="cursor:pointer;">الانجليزية </a>
+                            <a onclick="getURLEn()" class="dropdown-item" style="cursor:pointer;">الانجليزية </a>
 
                         </div>
                     </div>
@@ -262,18 +266,8 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="offcanvas-body">
-        {{-- اذا ما اختار اماكن مفضلة لسا --}}
-        <img src="img/folder.png" width="130px" height="130px"
-            style="margin-left:125px; margin-top:160px; opacity: 0.5;" />
-        <p class="text-body px-3 text-center mt-4">اختر أماكنك المفضلة</p>
-        {{-- اذا اختار أماكن مفضلة  --}}
-
-        {{-- <div class="d-flex" style="flex-direction: column; align-items: center; ">
-            <img src="img/aleppo-palace-hotel.jpg"
-                style="padding: 10px; box-sizing: content-box; border-radius: 20px;" width="200px" height="200px">
-                <h4>فندق قصر حلب</h4>
-        </div> --}}
+    <div id="favorites-data" class="offcanvas-body">
+        
 
     </div>
 </div>
@@ -409,10 +403,10 @@
                             <td class="text-center">مدة الحجز (من الساعة - إلى الساعة -)</td>
                             <td>
                                 <div class="dropdown toggle text-primary" style="display:inline-block;">
-                                    <lable class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-expanded="false">
 
-                                    </lable>
+                                    </label>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">12:00 - 13:00</a>
                                         <a class="dropdown-item" href="#">13:00 - 14:00</a>
@@ -486,54 +480,85 @@
 
     function editProfile(formId) {
 
-$("#edit-profile-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-var formData = new FormData(document.getElementById(formId));
-$.ajax({
-        url: `{{ route('editProfileAr') }}`,
-        type: "POST",
-        data: formData,
-        processData: false,
-        cache: false,
-        contentType: false,
-    })
-    .done(function(data) {
-        $('.close').click();
-        $('.parenttrue').attr("hidden", false);
-        // clearInput();
-    })
-    .fail(function(data) {
-        removeMessages();
+        $("#edit-profile-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+                url: `{{ route('editProfileAr') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                // clearInput();
+            })
+            .fail(function(data) {
+                removeMessages();
 
-        if (data.responseJSON.errors.old_password) {
-            document.querySelector(`#${formId} #old_error`).innerHTML = data.responseJSON.errors
-                .old_password[0];
-        }
+                if (data.responseJSON.errors.old_password) {
+                    document.querySelector(`#${formId} #old_error`).innerHTML = data.responseJSON.errors
+                        .old_password[0];
+                }
 
-        if (data.responseJSON.errors.password) {
-            document.querySelector(`#${formId} #new_error`).innerHTML = data.responseJSON.errors
-                .password[0];
-        }
+                if (data.responseJSON.errors.password) {
+                    document.querySelector(`#${formId} #new_error`).innerHTML = data.responseJSON.errors
+                        .password[0];
+                }
 
-        if (data.responseJSON.errors.password_confirmation) {
-            document.querySelector(`#${formId} #confirmation_error`).innerHTML = data.responseJSON.errors
-                .password_confirmation[0];
-        }
+                if (data.responseJSON.errors.password_confirmation) {
+                    document.querySelector(`#${formId} #confirmation_error`).innerHTML = data.responseJSON.errors
+                        .password_confirmation[0];
+                }
 
 
-        
 
-    })
-    .always(function() {
-        // Re-enable the submit button and hide the loading spinner
-        $("#edit-profile-btn").attr("disabled", false).html('حفظ');
-    });
-}
 
-//----------------------------------------------
-function removeMessages() {
-document.getElementById('old_error').innerHTML = '';
-document.getElementById('new_error').innerHTML = '';
-document.getElementById('confirmation_error').innerHTML = '';
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#edit-profile-btn").attr("disabled", false).html('حفظ');
+            });
+    }
 
-}
+    function getFavorite() {
+        // $("#edit-profile-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        // var formData = new FormData(document.getElementById(formId));
+        $.ajax({
+                url: `{{ route('userFavoritesAr') }}`,
+                type: "GET",
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                // $('.close').click();
+                // $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                $("#favorites-data").empty();
+                $("#favorites-data").append(data);
+            })
+            .fail(function(data) {
+
+                $('.parent').attr("hidden", false);
+
+
+
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                // $("#edit-profile-btn").attr("disabled", false).html('Save');
+            });
+    }
+
+    //----------------------------------------------
+    function removeMessages() {
+        document.getElementById('old_error').innerHTML = '';
+        document.getElementById('new_error').innerHTML = '';
+        document.getElementById('confirmation_error').innerHTML = '';
+
+    }
 </script>

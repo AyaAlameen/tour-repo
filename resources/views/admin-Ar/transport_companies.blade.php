@@ -29,19 +29,31 @@
                   <td ><input type="text" class="toggle text-primary in" name="name_ar" required style="width: 100%;"></th> 
                   <td>الاسم(العربية)</td>     
               </tr>  
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span></td>                
+              </tr> 
               <tr>
                   <td ><input type="text" class="toggle text-primary in" name="name_en" required style="width: 100%;"></th> 
                   <td>(الإنجليزية)الاسم </td>     
+              </tr> 
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span></td>                
               </tr> 
               <tr>
                  
                   <td ><input class="toggle text-primary in" type="email" name="email" required style="width: 100%;"></th>
                   <td>الايميل</td>      
-              </tr>     
+              </tr>  
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="email_error"></span></td>                
+              </tr>    
               <tr>
                  
                   <td ><input class="toggle text-primary in" type="number" name="phone" required style="width: 100%;"></th>   
                   <td>الهاتف</td>   
+              </tr> 
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="phone_error"></span></td>                
               </tr> 
               <tr>
 

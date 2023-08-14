@@ -75,5 +75,8 @@ class Kernel extends HttpKernel
         'event' => \App\Http\Middleware\Event::class,
         'tourist_guide' => \App\Http\Middleware\TouristGuide::class,
         'group' => \App\Http\Middleware\Group::class,
+        'transport_company' => \App\Http\Middleware\TransportCompany::class,
+        'message' => \App\Http\Middleware\Message::class,
+        'booking' => \App\Http\Middleware\Booking::class,
     ];
 }

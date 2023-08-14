@@ -81,20 +81,33 @@
                   <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>المهارات(العربية)</td>     
               </tr>
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="description_ar_error"></span></td>                
+              </tr>
 
               <tr>
                   <td ><textarea class="toggle text-primary in mt-2"  name="description_en" style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>(الانكليزية)المهارات</td>     
               </tr>
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="description_en_error"></span></td>                
+              </tr>
+              
 
               <tr>
                   <td ><textarea class="toggle text-primary in mt-2"  name="certificates_ar" style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>(العربية)الشهادات</td>     
               </tr>
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="certificates_ar_error"></span></td>                
+              </tr>
 
               <tr>
                   <td ><textarea class="toggle text-primary in mt-2"  name="certificates_en" style="width: 100%; height:27.5px;"></textarea></th> 
                   <td>(الإنجليزية)الشهادات</td>     
+              </tr>
+              <tr>       
+                <td colspan="2" class="text-end text-danger p-1"><span id="certificates_en_error"></span></td>                
               </tr>
              
       </table>

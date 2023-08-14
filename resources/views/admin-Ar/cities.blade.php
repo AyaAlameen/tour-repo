@@ -174,6 +174,11 @@
               document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
 
             }
+            if(data.responseJSON.errors.description){
+
+             document.querySelector(`#${formId} #des_error`).innerHTML = data.responseJSON.errors.description[0]; 
+
+            }
 
         })
         .always(function() {

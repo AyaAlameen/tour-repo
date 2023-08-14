@@ -662,6 +662,12 @@
                                                                 <td>إضافية؟</td>
 
                                                             </tr>
+                                                            <tr>
+
+                                                             <td colspan="2" class="text-end text-danger p-1"><span
+                                                                  class="is_additional_error_edit"></span>
+                                                              </td>
+                                                            </tr>
 
 
                                                             <tr>
@@ -675,6 +681,12 @@
                                                                 </td>
                                                                 <td>الصورة </td>
 
+                                                            </tr>
+                                                            <tr>
+
+                                                             <td colspan="2" class="text-end text-danger p-1"><span
+                                                                  class="image_error_edit"></span>
+                                                              </td>
                                                             </tr>
                                                         </table>
 

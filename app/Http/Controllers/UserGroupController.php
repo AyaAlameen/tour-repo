@@ -18,7 +18,7 @@ class UserGroupController extends Controller
             $query->with(['images' => function($q){
                 $q->first();
             }]);
-        }])->get();
+        }])->where('end_date', '>', now()->format('Y-m-d'))->get();
         return view('user-ar.trips', ['groups' => $groups]);
 
     }
@@ -28,7 +28,7 @@ class UserGroupController extends Controller
             $query->with(['images' => function($q){
                 $q->first();
             }]);
-        }])->get();
+        }])->where('end_date', '>', now()->format('Y-m-d'))->get();
         
         return view('user.trips', ['groups' => $groups]);
 

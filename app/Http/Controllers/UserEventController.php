@@ -12,6 +12,16 @@ class UserEventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function getEventsAr(){
+        $events = Event::where('end_date', '>', now()->format('Y-m-d'))->get();
+        return view('user-ar.event', ['events' => $events]);
+    }
+
+    public function getEventsEn(){
+        $events = Event::where('end_date', '>', now()->format('Y-m-d'))->get();
+        return view('user.event', ['events' => $events]);
+    }
     public function eventDetailsAr($id)
     {
         $event = Event::find($id);

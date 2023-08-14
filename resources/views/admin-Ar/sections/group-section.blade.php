@@ -151,11 +151,19 @@
                                             <td>وصف(العربية)</td>
                                         </tr>
                                         <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="description_ar_error_edit"></span></td>
+                                        </tr>
+                                        <tr>
 
                                             <td>
                                                 <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;">{{ $group->translations()->where('locale', 'en')->first()->description }}</textarea>
                                                 </th>
                                             <td>(الإنجليزية)وصف</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="description_en_error_edit"></span></td>
                                         </tr>
                                         <tr>
 
@@ -581,11 +589,19 @@
                                             <td>وصف(العربية)</td>
                                         </tr>
                                         <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="description_ar_error_edit"></span></td>
+                                        </tr>
+                                        <tr>
 
                                             <td>
                                                 <textarea class="toggle text-primary in mt-2" name="description_en" required style="width: 100%; height:27.5px;">{{ $group->translations()->where('locale', 'en')->first()->description }}</textarea>
                                                 </th>
                                             <td>(الإنجليزية)وصف</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="description_en_error_edit"></span></td>
                                         </tr>
                                         <tr>
 

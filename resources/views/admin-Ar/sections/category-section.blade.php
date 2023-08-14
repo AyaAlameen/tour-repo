@@ -86,6 +86,10 @@
                                         <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$category -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                                      <td>الصورة</td>
                                     </tr> 
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </form>
@@ -185,6 +189,10 @@
                                         <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$category -> image))}}" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                                      <td>الصورة</td>
                                     </tr> 
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </form>

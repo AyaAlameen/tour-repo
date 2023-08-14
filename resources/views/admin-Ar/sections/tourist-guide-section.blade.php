@@ -124,17 +124,30 @@
                                                 <td>المهارات(العربية)</td>     
                                             </tr>
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="description_ar_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="description_en" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'en')->first()->description}}</textarea></td> 
                                                 <td>(الإنجليزية)المهارات</td>     
                                             </tr>
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="description_en_error_edit"></span></td>
+                                              </tr> 
                                             <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="certificates_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->certificates}}</textarea></td> 
                                                 <td>(العربية)الشهادات</td>     
                                             </tr>
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="certificates_ar_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="certificates_en" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'en')->first()->certificates}}</textarea></td> 
                                                 <td>(الإنجليزية)الشهادات</td>     
                                             </tr>
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="certificates_en_error_edit"></span></td>
+                                              </tr> 
+
                                         </table>
                                     </div>
                                 </form>
@@ -268,22 +281,34 @@
                                             <tr>
                                                 <td colspan="2"><span style="color: red" class="salary_error_edit"></span></td>
                                               </tr>   
-                                            <tr>
+                                              <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->description}}</textarea></td> 
                                                 <td>المهارات(العربية)</td>     
                                             </tr>
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="description_ar_error_edit"></span></td>
+                                              </tr> 
                                             <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="description_en" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'en')->first()->description}}</textarea></td> 
                                                 <td>(الإنجليزية)المهارات</td>     
                                             </tr>
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="description_en_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="certificates_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->certificates}}</textarea></td> 
                                                 <td>(العربية)الشهادات</td>     
                                             </tr>
                                             <tr>
+                                                <td colspan="2"><span style="color: red" class="certificates_ar_error_edit"></span></td>
+                                              </tr> 
+                                            <tr>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="certificates_en" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'en')->first()->certificates}}</textarea></td> 
                                                 <td>(الإنجليزية)الشهادات</td>     
                                             </tr>
+                                            <tr>
+                                                <td colspan="2"><span style="color: red" class="certificates_en_error_edit"></span></td>
+                                              </tr> 
                                         </table>
                                     </div>
                                 </form>

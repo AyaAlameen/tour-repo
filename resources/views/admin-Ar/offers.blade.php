@@ -522,6 +522,12 @@
                                                             <label for="img{{$offer->id}}" ><img id="edit_previewImage_{{$offer->id}}" src="{{ asset(str_replace(app_path(),'',$offer -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label></td>      
                                                             <td>الصورة </td>
                                                         </tr>
+                                                        <tr>
+
+                                                            <td colspan="2"><span style="color: red"
+                                                                    class="image_error_edit"></span></td>
+
+                                                        </tr>
 
                                                     </table>
 

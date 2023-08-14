@@ -64,7 +64,32 @@ class MessageController extends Controller
         $message->save();
 
 
-        return view('user-ar.contact');
+        // return view('user-ar.contact');
+
+
+    }
+    public function storeEn(Request $request)
+    {
+        $data=$request->input();
+        //validation:
+
+        $request->validate([
+            'message' => 'required',
+        ], [
+            'message.required' => 'Please enter the content of the message.',
+        ]);
+        
+
+        $message = new Message;
+
+        
+        $message->user_id = \Auth::id() ?? null;
+        $message->message = $request->input('message');
+        
+        $message->save();
+
+
+        // return view('user-ar.contact');
 
 
     }

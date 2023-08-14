@@ -228,11 +228,7 @@
               document.querySelector(`#${formId} #name_en_error`).innerHTML = data.responseJSON.errors.name_en[0]; 
 
             }
-            if(data.responseJSON.errors.image){
-
-              document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors.image[0]; 
-
-            }
+           
 
         })
         .always(function() {

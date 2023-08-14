@@ -190,7 +190,7 @@
             {{-- الخريطة --}}
             <div class="d-flex pt-3 bg-light"
                 style="flex-direction: column;  width: 30%; height: 90%;  align-items: center; border-radius: 5px;">
-                <img class="m-3" data-bs-toggle="modal" data-bs-target="#exampleModal6"  id="map_div"
+                <img class="m-3" data-bs-toggle="modal" onclick="showNearestPlaces()" data-bs-target="#exampleModal6"  id="map_div"
                     style="cursor:pointer; border-radius:6px;" src="img/zgj3ryuyqrz-w1920.jpg" width="90%"
                     height="220px">
                 <h3 style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal6">See on the Map</h3>

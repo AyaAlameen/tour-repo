@@ -251,6 +251,10 @@
                                                         </td>
                                                         <td>الصورة </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td colspan="2"><span style="color: red"
+                                                                class="image_error_edit"></span></td>
+                                                    </tr>
 
                                                 </table>
 
