@@ -17,7 +17,7 @@
     <!-- Header End -->
 
     <div class="container mt-5 ">
-
+        <div class="row">
         <!-- بداية الكارد -->
         @foreach ($groups as $group)
             <div class="col-lg-4 col-md-6 mb-4">
@@ -91,6 +91,6 @@
         @endforeach
         <!-- نهاية الكارد -->
 
-
+        </div>
     </div>
 @endsection
