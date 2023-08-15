@@ -691,22 +691,45 @@ class GroupController extends Controller
     }
 
     public function addGroupTransportationEn(Request $request){
-        // dd($request);
         $data=$request->input();
-
-        // dd($data['dates']);
+        // dd($request);
         $request->validate([
             'group_id' => 'required',
             'transportation_id' => 'required',
-            'dates' => 'required',
+            'dates.*' => 'required',
             
         ], [
-            'group_id.required' => 'حقل الجروب مطلوب',
-            'transportation_id.required' => 'حقل وسيلة النقل مطلوب',
-            'dates.required' => 'حقل التاريخ مطلوب',
+            'group_id.required' => 'Group feild is required',
+            'transportation_id.required' => 'Transport feild is required',
+            'dates.*.required' => 'date feild is required',
             
         ]);
+
         // dd($data['dates']);
+
+        $transportation_dates = GroupTransportation::where('transportation_id', $data['transportation_id'])->pluck('dates')->toArray();
+        
+        $new_dates = array();
+        // dd( $new_dates);
+        foreach ($transportation_dates as $transport) {
+            foreach ($transport as $date) {
+                array_push($new_dates, $date);
+            }
+        }
+        $request->validate([
+            'dates' => [
+                'exists' =>
+                function ($attribute, $value, $fail) use($request, $new_dates, $data) {
+                    foreach ($new_dates as $date) {
+                        if (in_array($date, $data['dates'])) {
+                                $fail('This transportation was booked on '.$date.' before');
+                            }
+                            
+                        }
+                },
+            ]
+            
+        ]);
 
         $group = Group::find($data['group_id']);
         $group->transportations()->attach($data['transportation_id'], ['dates' => $data['dates'] ?? null]);

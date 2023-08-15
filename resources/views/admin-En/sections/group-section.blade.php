@@ -1019,7 +1019,7 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td colspan="2" class="text-end text-danger p-1"><span id="service_error"></span>
+                            <td colspan="2" class="text-danger p-1"><span id="service_error"></span>
                             </td>
                         </tr>
                     </table>
@@ -1091,6 +1091,11 @@
                             <td class="pr-2">transport company</td>
                         </tr>
                         <tr>
+                            <td colspan="2" class="text-danger p-1"><span id="transport_company_error"></span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
 
                             <td style="width:300px;">
                                 <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
@@ -1101,7 +1106,7 @@
                                     </label>
                                     <span id="transportation-name"></span>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                        style="width: 232px !important;">
+                                        style="width: 367px !important;">
                                         @foreach ($transportations as $transportation)
                                             <option style="cursor: pointer;"
                                                 class="dropdown-item transportation_filter_option transportation_company_{{ $transportation->transportCompany->id }}"
@@ -1122,6 +1127,11 @@
                             </td>
                             <td class="pr-2">transportation</td>
                         </tr>
+                        <tr>
+                            <td colspan="2" class="text-danger p-1"><span id="transportation_error"></span>
+                            </td>
+
+                        </tr>
                     </table>
 
                     <table id="tableDate"
@@ -1137,6 +1147,15 @@
                             </td>
 
                         </tr>
+                    </table>
+                    <table
+                        style="color: rgb(22, 22, 22); width: 500px !important; "
+                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                        <tr>
+                            <td colspan="2" class="text-danger p-1"><span id="dates_error"></span>
+                            </td>
+                        </tr>
+                        
                     </table>
                 </form>
                 <button class="app-content-headerButton m-3" style="float: right;" onclick="addDate()"> 

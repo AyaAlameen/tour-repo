@@ -832,21 +832,20 @@
                         .transportation_id[0];
 
                 }
-                if (data.responseJSON.errors.dates['0']) {
+                if (data.responseJSON.errors['dates.0']) {
                     // console.log(element)
                     // data.responseJSON.errors.dates.forEach(element => {
-                        document.querySelector(`#${formId} #dates_erros`).innerHTML = data.responseJSON.errors
-                        .dates['0'][0];
+                        document.querySelector(`#${formId} #dates_error`).innerHTML = data.responseJSON.errors['dates.0'][0];
                     // });
                     
 
                 }
-                // if (data.responseJSON.errors.dates) {
+                if (data.responseJSON.errors.dates) {
 
-                //     document.querySelector(`#${formId} #dates_erros`).innerHTML = data.responseJSON.errors
-                //         .dates.[0];
+                    document.querySelector(`#${formId} #dates_error`).innerHTML = data.responseJSON.errors
+                        .dates[0];
 
-                // }
+                }
                 
 
             })
