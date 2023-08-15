@@ -42,7 +42,7 @@
                 <div class="navbar-nav ml-auto py-0">
                     @if (\Auth::check())
                         @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
-                            <a href="{{ route('home_en') }}" class="nav-item nav-link active">Dashboard</a>
+                            <a href="{{ route('welcome_home_en') }}" class="nav-item nav-link active">Dashboard</a>
                         @endif
                     @endif
 
@@ -102,17 +102,16 @@
                     <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
                             style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
-                            @isset(Auth::user()->id)
-                            <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite"
-                                    onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;" type="button"
-                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                    aria-controls="offcanvasRight"></i></a>
-                        @else
+                    @isset(Auth::user()->id)
                         <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite"
-                            onClick="loginBefore()" style=" color:var(--bambi);  cursor: pointer;" type="button"
-                            data-bs-toggle="offcanvas" data-bs-target=""
-                            aria-controls="offcanvasRight"></i></a>
-                        @endisset
+                                onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;" type="button"
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight"></i></a>
+                    @else
+                        <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite"
+                                onClick="loginBefore()" style=" color:var(--bambi);  cursor: pointer;" type="button"
+                                data-bs-toggle="offcanvas" data-bs-target="" aria-controls="offcanvasRight"></i></a>
+                    @endisset
 
                 </div>
             </div>
@@ -132,7 +131,7 @@
         </button>
     </div>
     <div id="favorites-data" class="offcanvas-body">
-        
+
 
     </div>
 </div>
@@ -249,9 +248,8 @@
                                 </div>
                                 <div class="acc-pic position-relative m-auto">
                                     <img src="{{ asset(Auth::user()->image) }}"
-                                        id="edit_previewImage_{{ Auth::user()->id }}'" alt="Account"
-                                        width="150px" height="150px"
-                                        style="border-radius:50%; margin:auto; margin-block:40px;">
+                                        id="edit_previewImage_{{ Auth::user()->id }}'" alt="Account" width="150px"
+                                        height="150px" style="border-radius:50%; margin:auto; margin-block:40px;">
                                     <input type="file"
                                         onchange="previewImage(this, 'edit_previewImage_{{ Auth::user()->id }}')"
                                         style="position:absolute; z-index:9999; left:80%; top:63%; opacity:0; width:30px;">
@@ -275,8 +273,7 @@
                                         <i class="fas fa-envelope "></i>
                                         <h6>Email</h6>
                                     </div>
-                                    <input disabled class="m-auto p-1" type="email"
-                                        value={{ Auth::user()->email }}
+                                    <input disabled class="m-auto p-1" type="email" value={{ Auth::user()->email }}
                                         style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" />
 
 
@@ -307,8 +304,7 @@
                                                 <i class="fas fa-lock "></i>
                                                 <h6>New Password</h6>
                                             </div>
-                                            <input class="m-auto p-1" type="password" value=""
-                                                name="password"
+                                            <input class="m-auto p-1" type="password" value="" name="password"
                                                 style="font-size:14px; border:1px solid #0400ff36; width:70%; margin-left:30px !important; border-radius:5px;" />
                                             <p id="new_error" class="m-auto p-1 text-danger"
                                                 style="text-align: left; margin-left:30px !important;"></p>
@@ -345,273 +341,484 @@
                 </span>
             </li>
 
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('home_en') }}" id="sss">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('employee_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Employees</span>
-                </a>
-            </li>
+
+            @if (\Auth::user())
+            @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
+
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('welcome_home_en') }}" id="welcome2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fas fa-home">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Home</span>
+                                </a>
+                            </li>
 
 
-            <li class="accordion accordion-flush sidebar-list-item" id="accordionFlushExample">
-                <div class="accordion-item ">
-                    <h2 class="accordion-header " id="flush-headingOne">
-                        <button class="accordion-button collapsed pl-3 sidebar-list-item" id="accBtn"
-                            onclick="accordion()"
-                            style="flex-direction:row; font-size:14px; outline:none; box-shadow:none;" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOnee"
-                            aria-controls="flush-collapseOnee">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
-                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                                <line x1="3" y1="6" x2="21" y2="6" />
-                                <path d="M16 10a4 4 0 0 1-8 0" />
-                            </svg>
-                            Bookings
-                            <img id="arrow" src="../img/upload.png" width="18" height="18"
-                                class="ml-5">
+                @endif
+            @endif
 
-                        </button>
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
 
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body p-0">
-                            <hr class="m-0">
-                            <ul class="sidebar-list">
-                                <li class="sidebar-list-item" onclick="active_part()">
-                                    <a href="{{ route('offers_booking_en') }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-shopping-bag">
-                                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                                            <line x1="3" y1="6" x2="21" y2="6" />
-                                            <path d="M16 10a4 4 0 0 1-8 0" />
-                                        </svg>
-                                        <span>Offers Bookings</span>
-                                    </a>
-                                </li>
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin')
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('home_en') }}" id="sss">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fas fa-chart-pie">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Statistics</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
 
-                                <li class="sidebar-list-item" onclick="active_part()">
-                                    <a href="{{ route('services_booking_en') }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-shopping-bag">
-                                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                                            <line x1="3" y1="6" x2="21" y2="6" />
-                                            <path d="M16 10a4 4 0 0 1-8 0" />
-                                        </svg>
-                                        <span>Services Bookings</span>
-                                    </a>
-                                </li>
 
-                                <li class="sidebar-list-item" onclick="active_part()">
-                                    <a href="{{ route('groups_booking_en') }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-shopping-bag">
-                                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                                            <line x1="3" y1="6" x2="21" y2="6" />
-                                            <path d="M16 10a4 4 0 0 1-8 0" />
-                                        </svg>
-                                        <span>Groups Bookings</span>
-                                    </a>
-                                </li>
+                @endif
+            @endif
 
-                                <li class="sidebar-list-item" onclick="active_part()">
-                                    <a href="{{ route('places_booking_en') }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-shopping-bag">
-                                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                                            <line x1="3" y1="6" x2="21" y2="6" />
-                                            <path d="M16 10a4 4 0 0 1-8 0" />
-                                        </svg>
-                                        <span>Places Bookings</span>
-                                    </a>
-                                </li>
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
 
-                                <li class="sidebar-list-item" onclick="active_part()">
-                                    <a href="{{ route('events_booking_en') }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-shopping-bag">
-                                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                                            <line x1="3" y1="6" x2="21" y2="6" />
-                                            <path d="M16 10a4 4 0 0 1-8 0" />
-                                        </svg>
-                                        <span>Events Bookings</span>
-                                    </a>
-                                </li>
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'employee')
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('employee_en') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fas fa-user-alt">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Employees</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
 
-                            </ul>
 
-                            <hr class="m-0">
-                        </div>
-                    </div>
-                </div>
-            </li>
+                @endif
+            @endif
 
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('city_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Cities</span>
-                </a>
-            </li>
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
 
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('category_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Categories</span>
-                </a>
-            </li>
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('place_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Places</span>
-                </a>
-            </li>
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'booking')
+                            <li class="accordion accordion-flush sidebar-list-item" id="accordionFlushExample">
+                                <div class="accordion-item ">
+                                    <h2 class="accordion-header " id="flush-headingOne">
+                                        <button class="accordion-button collapsed pl-3 sidebar-list-item"
+                                            id="accBtn" onclick="accordion()"
+                                            style="flex-direction:row; font-size:14px; outline:none; box-shadow:none;"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseOnee" aria-controls="flush-collapseOnee">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-shopping-bag">
+                                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                                <line x1="3" y1="6" x2="21" y2="6" />
+                                                <path d="M16 10a4 4 0 0 1-8 0" />
+                                            </svg>
+                                            Bookings
+                                            <img id="arrow" src="../img/upload.png" width="18"
+                                                height="18" class="ml-5">
 
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('event_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Events</span>
-                </a>
-            </li>
+                                        </button>
 
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('service_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Services</span>
-                </a>
-            </li>
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('offer_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Offers</span>
-                </a>
-            </li>
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('tourist_guide_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Tourist Guide</span>
-                </a>
-            </li>
-            </li>
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('emp-places-En') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Places Employees</span>
-                </a>
-            </li>
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('groupe_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Groups</span>
-                </a>
-            </li>
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('transport_company_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Transport Companies</span>
-                </a>
-            </li>
-            <li class="sidebar-list-item " onclick="active_part()">
-                <a href="{{ route('message_en') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span>Messages received</span>
-                </a>
-            </li>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body p-0">
+                                            <hr class="m-0">
+                                            <ul class="sidebar-list">
+                                                <li class="sidebar-list-item" onclick="active_part()">
+                                                    <a href="{{ route('offers_booking_en') }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                            height="18" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"
+                                                            class="feather feather-shopping-bag">
+                                                            <path
+                                                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                                            <line x1="3" y1="6" x2="21"
+                                                                y2="6" />
+                                                            <path d="M16 10a4 4 0 0 1-8 0" />
+                                                        </svg>
+                                                        <span>Offers Bookings</span>
+                                                    </a>
+                                                </li>
+
+                                                <li class="sidebar-list-item" onclick="active_part()">
+                                                    <a href="{{ route('services_booking_en') }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                            height="18" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"
+                                                            class="feather feather-shopping-bag">
+                                                            <path
+                                                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                                            <line x1="3" y1="6" x2="21"
+                                                                y2="6" />
+                                                            <path d="M16 10a4 4 0 0 1-8 0" />
+                                                        </svg>
+                                                        <span>Services Bookings</span>
+                                                    </a>
+                                                </li>
+
+                                                <li class="sidebar-list-item" onclick="active_part()">
+                                                    <a href="{{ route('groups_booking_en') }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                            height="18" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"
+                                                            class="feather feather-shopping-bag">
+                                                            <path
+                                                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                                            <line x1="3" y1="6" x2="21"
+                                                                y2="6" />
+                                                            <path d="M16 10a4 4 0 0 1-8 0" />
+                                                        </svg>
+                                                        <span>Groups Bookings</span>
+                                                    </a>
+                                                </li>
+
+                                                <li class="sidebar-list-item" onclick="active_part()">
+                                                    <a href="{{ route('places_booking_en') }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                            height="18" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"
+                                                            class="feather feather-shopping-bag">
+                                                            <path
+                                                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                                            <line x1="3" y1="6" x2="21"
+                                                                y2="6" />
+                                                            <path d="M16 10a4 4 0 0 1-8 0" />
+                                                        </svg>
+                                                        <span>Places Bookings</span>
+                                                    </a>
+                                                </li>
+
+                                                <li class="sidebar-list-item" onclick="active_part()">
+                                                    <a href="{{ route('events_booking_en') }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                            height="18" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"
+                                                            class="feather feather-shopping-bag">
+                                                            <path
+                                                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                                            <line x1="3" y1="6" x2="21"
+                                                                y2="6" />
+                                                            <path d="M16 10a4 4 0 0 1-8 0" />
+                                                        </svg>
+                                                        <span>Events Bookings</span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                            <hr class="m-0">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+
+
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'city')
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('city_en') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fas fa-city">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Cities</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'category')
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('category_en') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fas fa-shapes">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Categories</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'place')
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('place_en') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fas fa-place-of-worship">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Places</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'event')
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('event_en') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fas fa-birthday-cake">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Events</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'service')
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('service_en') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fab fa-servicestack">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Services</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'offer')
+                            <li class="sidebar-list-item " onclick="active_part()">
+                                <a href="{{ route('offer_en') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="fas fa-gift">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    <span>Offers</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'tourist_guide')
+                        <li class="sidebar-list-item " onclick="active_part()">
+                            <a href="{{ route('tourist_guide_en') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="fas fa-user-tag">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 0 1-8 0" />
+                                </svg>
+                                <span>Tourist Guide</span>
+                            </a>
+                        </li>
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'employee')
+                        <li class="sidebar-list-item " onclick="active_part()">
+                            <a href="{{ route('emp-places-En') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="fas fa-user-tie">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 0 1-8 0" />
+                                </svg>
+                                <span>Places Employees</span>
+                            </a>
+                        </li>
+            
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'group')
+                        <li class="sidebar-list-item " onclick="active_part()">
+                            <a href="{{ route('groupe_en') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="fas fa-users">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 0 1-8 0" />
+                                </svg>
+                                <span>Groups</span>
+                            </a>
+                        </li>
+            
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+            {{-- </li> --}}
+            
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'transport_company')
+                        <li class="sidebar-list-item " onclick="active_part()">
+                            <a href="{{ route('transport_company_en') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="	fas fa-bus-alt">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 0 1-8 0" />
+                                </svg>
+                                <span>Transport Companies</span>
+                            </a>
+                        </li>
+            
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+            @if (\Auth::user())
+                @if (\Auth::user()->is_employee == 1)
+
+                    @foreach (\Auth::user()->permissions as $permission)
+                        @if ($permission->code == 'admin' || $permission->code == 'message')
+                        <li class="sidebar-list-item " onclick="active_part()">
+                            <a href="{{ route('message_en') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="fas fa-comment-dots">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 0 1-8 0" />
+                                </svg>
+                                <span>Messages received</span>
+                            </a>
+                        </li>
+            
+                        @endif
+                    @endforeach
+
+
+                @endif
+            @endif
+            
+            
 
         </ul>
 
@@ -709,35 +916,35 @@
         }
 
         function getFavorite() {
-        // $("#edit-profile-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
-        // var formData = new FormData(document.getElementById(formId));
-        $.ajax({
-                url: `{{ route('userFavoritesEn') }}`,
-                type: "GET",
-                processData: false,
-                cache: false,
-                contentType: false,
-            })
-            .done(function(data) {
-                // $('.close').click();
-                // $('.parenttrue').attr("hidden", false);
-                // clearInput();
-                $("#favorites-data").empty();
-                $("#favorites-data").append(data);
-            })
-            .fail(function(data) {
+            // $("#edit-profile-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+            // var formData = new FormData(document.getElementById(formId));
+            $.ajax({
+                    url: `{{ route('userFavoritesEn') }}`,
+                    type: "GET",
+                    processData: false,
+                    cache: false,
+                    contentType: false,
+                })
+                .done(function(data) {
+                    // $('.close').click();
+                    // $('.parenttrue').attr("hidden", false);
+                    // clearInput();
+                    $("#favorites-data").empty();
+                    $("#favorites-data").append(data);
+                })
+                .fail(function(data) {
 
-                $('.parent').attr("hidden", false);
-
-
+                    $('.parent').attr("hidden", false);
 
 
-            })
-            .always(function() {
-                // Re-enable the submit button and hide the loading spinner
-                // $("#edit-profile-btn").attr("disabled", false).html('Save');
-            });
-    }
+
+
+                })
+                .always(function() {
+                    // Re-enable the submit button and hide the loading spinner
+                    // $("#edit-profile-btn").attr("disabled", false).html('Save');
+                });
+        }
 
         //----------------------------------------------
         function removeMessagesHeader() {

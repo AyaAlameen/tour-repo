@@ -9950,10 +9950,7 @@
   margin-left: 8px;
   color: var(--bambi);
 }
-.sidebar-list-item:hover {
-  background-color: var(--sidebar-hover-link);
 
-}
 .sidebar-list-item.active {
   background-color: var(--navi);
 }

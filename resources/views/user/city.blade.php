@@ -4,7 +4,7 @@
         @csrf
         <input type="text" name="city_id" value="{{ $city->id }}" hidden>
     </form>
-    <h2 class="p-5"> Discover {{ $city->translations()->where('locale', 'en')->first()->name }} </h2>
+    <h2 class="p-5" style="padding-left: 170px !important;"> Discover {{ $city->translations()->where('locale', 'en')->first()->name }} </h2>
     <div style="width: 400px; height: 300px; margin: auto; text-align: center;">
         <img src="{{ asset(str_replace(app_path(), '', $city->image)) }}" alt="image" style="width: 100%; height: 100%;">
     </div>
@@ -17,15 +17,15 @@
     {{-- نهاية الوصف --}}
 
     {{-- أشهر الأماكن بالتصنيفات --}}
-    <h4 class="p-5" style=" padding-bottom:5px !important;">The most famous places in
-        ({{ $city->translations()->where('locale', 'en')->first()->name }})
+    <h4 class="p-5" style=" padding-bottom:5px !important; padding-left: 170px !important;">The most famous places in
+        {{ $city->translations()->where('locale', 'en')->first()->name }}
     </h4>
     <div class="container">
         @foreach ($Category_places as $category)
             {{-- الأصناف --}}
             <div class="container">
-                <h4 class="p-5"> Places
-                    ({{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'en')->first()->name }})
+                <h4 class="p-5"> 
+                   {{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'en')->first()->name }}
                 </h4>
                 <div class="container d-flex justify-content-center m-3">
                     <button class="m-2 btn btn-primary"

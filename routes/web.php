@@ -377,6 +377,7 @@ Route::middleware(['event'])->group(function(){
 Route::middleware(['tourist_guide'])->group(function(){
 
     //en
+    
     Route::get('/tourist_guide_en', function () {
         return view('admin-En.tourist_guide');
     }) -> name('tourist_guide_en');
@@ -445,6 +446,16 @@ Route::middleware(['tourist_guide'])->group(function(){
         Route::get('/events_booking_ar', function () {
             return view('admin-Ar.events_bookings');
         }) -> name('events_booking_ar');
+    });
+    Route::middleware(['welcome'])->group(function(){
+        Route::get('/welcome_home_en', function () {
+            return view('admin-En.welcome_home');
+        }) -> name('welcome_home_en');
+
+        Route::get('/welcome_home_ar', function () {
+            return view('admin-Ar.welcome_home');
+        }) -> name('welcome_home_ar');
+        
     });
 
     

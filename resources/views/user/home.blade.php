@@ -724,7 +724,7 @@
                                         <a class="text-primary text-uppercase text-decoration-none" href="">{{ $event->place->translations()->where('locale', 'en')->first()->name }}</a>
                                         <span class="text-primary px-2">|</span>
                                         <a class="text-primary text-uppercase text-decoration-none"
-                                            href="">{{ $event->translations()->where('locale', 'ar')->first()->name }}</a>
+                                            href="">{{ $event->translations()->where('locale', 'en')->first()->name }}</a>
                                     </div>
                                     <h6 class="d-flex justify-content-end"><a class="btn btn-primary"
                                             href="{{ route('event_details-en', ['id' => $event->id]) }}" style="border-radius:3px;">More

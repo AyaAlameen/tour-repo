@@ -4,7 +4,7 @@
         @csrf
         <input type="text" name="city_id" value="{{ $city->id }}" hidden>
     </form>
-    <h2 class="p-5" style="text-align: right;"> استكشف ({{ $city->translations()->where('locale', 'ar')->first()->name }})
+    <h2 class="p-5" style="text-align: right; padding-right:170px !important;"> استكشف {{ $city->translations()->where('locale', 'ar')->first()->name }}
     </h2>
     <div style="width: 400px; height: 300px; margin: auto; text-align: center;">
         <img src="{{ asset(str_replace(app_path(), '', $city->image)) }}" alt="image" style="width: 100%; height: 100%;">
@@ -12,18 +12,18 @@
     {{-- وصف المحافظة --}}
     <div class="container w-50 m-auto">
         <h4 class="pt-5 pb-3" style="text-align: right;">نبذة عن
-            ({{ $city->translations()->where('locale', 'ar')->first()->name }}) </h4>
+            {{ $city->translations()->where('locale', 'ar')->first()->name }} </h4>
         <p style="text-align: right;">{{ $city->translations()->where('locale', 'ar')->first()->description }}</p>
     </div>
     {{-- نهاية الوصف --}}
     {{-- أشهر الأماكن بالتصنيفات --}}
     <div class="container">
-        <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;">اشهر الأماكن في
-            ({{ $city->translations()->where('locale', 'ar')->first()->name }})
+        <h4 class="p-5" style="text-align: right; padding-bottom:5px !important;  ">اشهر الأماكن في
+           {{ $city->translations()->where('locale', 'ar')->first()->name }}
         </h4>
         {{-- الأصناف --}}
         @foreach ($Category_places as $category)
-            <h4 class="p-5" style="text-align: right;"> أماكن
+            <h4 class="p-5" style="text-align: right; padding-right:70px !important;"> 
                 {{ $category[0]->subCategory()->first()->category()->first()->translations()->where('locale', 'ar')->first()->name }}
             </h4>
 
