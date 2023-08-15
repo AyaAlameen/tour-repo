@@ -353,7 +353,7 @@
 
                         <tr>
                             <td class="text-center">الاسم بالكامل</td>
-                            <td><input type="text" class="toggle text-primary in" name="full_name" required
+                            <td><input type="text" id="full_name_booking" class="toggle text-primary in" name="full_name" required
                                     style="width: 100%;"></th>
                         </tr>
                         <tr>
@@ -361,14 +361,14 @@
                         </tr>
                         <tr>
                             <td class="text-center">رقم الهاتف</td>
-                            <td><input type="number" class="toggle text-primary in" name="phone" required
+                            <td><input type="number" id="phone_booking" class="toggle text-primary in" name="phone" required
                                     style="width: 100%;"></td>
                         </tr>
                         <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
                         </tr>
                         <tr>
                             <td class="text-center">الرقم الوطني</td>
-                            <td><input type="number" class="toggle text-primary in" name="user_identifire" required
+                            <td><input type="number" id="id_booking" class="toggle text-primary in" name="user_identifire" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
@@ -377,7 +377,7 @@
 
                         <tr>
                             <td class="text-center">عدد الأشخاص</td>
-                            <td><input type="number" class="toggle text-primary in" name="people_count" required
+                            <td><input type="number" id="people_count_booking" class="toggle text-primary in" name="people_count" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
@@ -385,7 +385,7 @@
                         </tr>
                         <tr>
                             <td class="text-center"> تاريخ الوصول</td>
-                            <td><input type="date" class="toggle text-primary in" name="access_date" required
+                            <td><input type="date" id="start_date_booking" class="toggle text-primary in" name="access_date" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
@@ -393,7 +393,7 @@
                         </tr>
                         <tr>
                             <td class="text-center"> تاريخ المغادرة</td>
-                            <td><input type="date" class="toggle text-primary in" name="depart_date" required
+                            <td><input type="date" id="end_date_booking" class="toggle text-primary in" name="depart_date" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>

@@ -10,6 +10,7 @@ use App\Models\Translation;
 use App\Models\GroupPlace;
 use App\Models\Transportation;
 use App\Models\GroupTransportation;
+use App\Models\Booking;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Group extends Model
@@ -33,5 +34,10 @@ class Group extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'model');
+    }
+
+    public function bookings()
+    {
+        return $this->morphMany(Booking::class, 'model');
     }
 }

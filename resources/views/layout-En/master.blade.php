@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/loginstyle.css">
     <link href="../css/style-En.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}">
+    <script src="../js/leaflet.js"></script>
 
 </head>
 
@@ -296,7 +298,18 @@ function hidemap(modal_id) {
             $('.parenttrue').attr("hidden", true);
         }
         // عرض الصور بدل الأسماء
+        // ------------------------ show map------------------------------------
 
+            if (document.getElementById('show-map')) {
+                var show_map = L.map('show-map').setView([34.8021, 38.9968], 7); // set the initial view of the map.
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // add the OpenStreetMap tiles.
+                    maxZoom: 18,
+                    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+                }).addTo(show_map);
+            }
+
+
+        //--------------------------------------------------
 
         // ------------------------ show-nearest-map------------------------------------
         function showNearestPlaces() {

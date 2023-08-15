@@ -947,17 +947,12 @@
         }
 
         //----------------------------------------------
-<<<<<<< HEAD
+
     function removeMessagesHeader() {
         document.getElementById('old_error').innerHTML = '';
         document.getElementById('new_error').innerHTML = '';
         document.getElementById('confirmation_error').innerHTML = '';
-=======
-        function removeMessages() {
-            document.getElementById('old_error').innerHTML = '';
-            document.getElementById('new_error').innerHTML = '';
-            document.getElementById('confirmation_error').innerHTML = '';
->>>>>>> 2f37db6df5c0b577b317b9163b889005bd3ed86d
+
 
         }
     </script>

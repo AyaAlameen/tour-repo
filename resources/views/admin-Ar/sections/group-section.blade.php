@@ -1102,6 +1102,10 @@
                             <td class="pr-2">شركة النقل</td>
                         </tr>
                         <tr>
+                            <td colspan="2" class="text-end text-danger p-1"><span id="transport_company_error"></span>
+                            </td>
+                        </tr>
+                        <tr>
 
                             <td style="width:300px;">
                                 <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
@@ -1133,6 +1137,11 @@
                             </td>
                             <td class="pr-2">وسائل النقل</td>
                         </tr>
+                        <tr>
+                            <td colspan="2" class="text-end text-danger p-1"><span id="transportation_error"></span>
+                            </td>
+
+                        </tr>
                     </table>
 
                     <table id="tableDate"
@@ -1147,6 +1156,16 @@
                             </td>
 
                         </tr>
+                        
+                    </table>
+                    <table
+                        style="color: rgb(22, 22, 22); width: 500px !important; "
+                        class="table-striped table-hover table-bordered m-auto text-primary myTable">
+                        <tr>
+                            <td colspan="2" class="text-end text-danger p-1"><span id="dates_error"></span>
+                            </td>
+                        </tr>
+                        
                     </table>
                 </form>
                 <button class="app-content-headerButton m-3" style="float:left;" onclick="addDate()">إضافة تاريخ

@@ -10,6 +10,7 @@ use App\Models\City;
 use App\Models\Service;
 use App\Models\TransportCompany;
 use App\Models\Transportation;
+use App\Models\GroupTransportation;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -627,16 +628,43 @@ class GroupController extends Controller
         $request->validate([
             'group_id' => 'required',
             'transportation_id' => 'required',
-            'dates' => 'required',
+            'dates.*' => 'required',
             
         ], [
             'group_id.required' => 'حقل الجروب مطلوب',
             'transportation_id.required' => 'حقل وسيلة النقل مطلوب',
-            'dates.required' => 'حقل التاريخ مطلوب',
+            'dates.*.required' => 'حقل التاريخ مطلوب',
             
         ]);
+
         // dd($data['dates']);
 
+        $transportation_dates = GroupTransportation::where('transportation_id', $data['transportation_id'])->pluck('dates')->toArray();
+        
+        $new_dates = array();
+        // dd( $new_dates);
+        foreach ($transportation_dates as $transport) {
+            foreach ($transport as $date) {
+                array_push($new_dates, $date);
+            }
+        }
+        $request->validate([
+            'dates' => [
+                'exists' =>
+                function ($attribute, $value, $fail) use($request, $new_dates, $data) {
+                    foreach ($new_dates as $date) {
+                        if (in_array($date, $data['dates'])) {
+                                $fail(' وسيلة النقل هذه تم حجزها في تاريخ ' .$date.' من قبل ');
+                            }
+                            
+                        }
+                },
+            ]
+            
+        ]);
+            
+
+        // dd($new_dates);
         $group = Group::find($data['group_id']);
         $group->transportations()->attach($data['transportation_id'], ['dates' => $data['dates'] ?? null]);
         

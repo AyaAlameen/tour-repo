@@ -8,6 +8,7 @@ class GroupTransportation extends Pivot
 {
     public $incrementing = true;
 
+    protected $table = 'group_transportations';
 
     protected $fillable = ['group_id', 'transportation_id', 'dates'];
 
