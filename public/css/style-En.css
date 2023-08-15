@@ -3056,7 +3056,7 @@ input[type="button"].btn-block {
 .dropdown-menu {
   /* position: absolute; */
   top: 100%;
-  right: 10px ;
+  right: 0px ;
   inset: unset !important;
   z-index: 1000;
   display: none;
@@ -3072,10 +3072,10 @@ input[type="button"].btn-block {
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   transform: none !important;
+  left: 100%;
+  margin-right: 20px !important;
 }
-.dropdown-menu {
-  /* right:6px !important; */
-}
+
 
 .dropdown-menu-left {
   right: auto;
@@ -3088,7 +3088,7 @@ tr{
   right: 0;
   left: auto;
 }
-.sidebar {
+.user_sidebar {
   flex-basis: 200px;
   max-width: 200px;
   flex-shrink: 0;
@@ -3103,7 +3103,7 @@ tr{
 
   
 }
-.sidebar-header {
+.user_sidebar-header {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -3111,18 +3111,18 @@ tr{
   padding-right: 60px;
   
 }
-.sidebar-list {
+.user_sidebar-list {
   list-style-type: none;
   padding: 0;
 }
-.sidebar-list-item {
+.user_sidebar-list-item {
   position: relative;
   margin-bottom: 4px;
   width: 100%;
  
   
 }
-.sidebar-list-item a {
+.user_sidebar-list-item a {
   display: flex;
   align-items: center;
   width: 100%;
@@ -3135,22 +3135,22 @@ tr{
   text-align: left;
 
 }
-.sidebar-list-item a span{
+.user_sidebar-list-item a span{
   margin-left: 5px;
   white-space: nowrap;
 }
-.sidebar-list-item a:hover{
+.user_sidebar-list-item a:hover{
   text-decoration: none;
 }
-.sidebar-list-item i {
+.user_sidebar-list-item i {
   margin-left: 8px;
   color: var(--bambi);
 }
 
-.sidebar-list-item.active {
+.user_sidebar-list-item.active {
   background-color: var(--navi);
 }
-.sidebar-list-item.active:before {
+.user_sidebar-list-item.active:before {
   content: "";
   position: absolute;
   right: 0;

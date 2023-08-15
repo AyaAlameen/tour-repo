@@ -1,18 +1,11 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
-    <div class="app-content">
+    <div class="app-content d-flex" style="flex-direction: column;" >
         <div class="app-content-header">
-
             <h1 class="app-content-headerText">الرئيسة</h1>
-
-
         </div>
-        <div class="app-content-actions w-100">
+        <div class="app-content-actions w-100" style="justify-content: left;">
            
-                
-
-             
-
                 <div class="nav-item dropdown">
                     <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة"> <i
                             class="fas fa-globe"></i> </button>
@@ -31,9 +24,18 @@
                     </svg>
                 </button>
             </div>
+            <div class="container mt-2">
+                <img src="../img/undraw_Hello_re_3evm.png"  width="100%">
+                <h1 style="text-align: center; direction: rtl;">مرحبا {{ Auth::user()->user_name }}</h1>
+                <h3 class="text-body" style="text-align: center;">استمتع بوقتك</h3>
+    
+            </div>
         </div>
+      
+        
+    
     </div>
-    </div>
+ 
 @endsection
 
 

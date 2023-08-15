@@ -1,7 +1,7 @@
 @extends('adminLayout-En.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header">
+        <div class="app-content-header" style="width: 87%" >
             <h1 class="app-content-headerText">Transport Companies</h1>
 
             <!-- add -->
@@ -32,9 +32,17 @@
                                                 style="width: 100%;"></th>
                                     </tr>
                                     <tr>
+                                        <td colspan="2" class=" text-danger p-1"><span id="name_ar_error"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>Name(English) </td>
                                         <td><input type="text" class="toggle text-primary in" name="name_en" required
                                                 style="width: 100%;"></th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class=" text-danger p-1"><span id="name_en_error"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>email</td>
@@ -42,9 +50,17 @@
                                                 style="width: 100%;"></th>
                                     </tr>
                                     <tr>
+                                        <td colspan="2" class=" text-danger p-1"><span id="email_error"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>phone</td>
                                         <td><input class="toggle text-primary in" type="number" name="phone" required
                                                 style="width: 100%;"></th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="phone_error"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Image </td>
@@ -68,7 +84,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions">
+        <div class="app-content-actions" style="width: 87%">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="Search By Name ..."
                 type="text">
             <div class="app-content-actions-wrapper">
@@ -94,6 +110,7 @@
 
             </div>
         </div>
+        <div class="scroll-class" style="width:88%;">
         <div class="products-area-wrapper tableView" id="companiesTable">
             <div class="products-header">
                 <div class="product-cell">#</div>
@@ -107,6 +124,7 @@
             <div id="companies-data">
 
             </div>
+        </div>
         </div>
     </div>
     </div>

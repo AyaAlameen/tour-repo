@@ -89,18 +89,22 @@
                                                 <td>Description(Arabic)</td>
                                                 <td><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->description}}</textarea></td>      
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 description_ar_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Description(English)</td>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="description_en" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'en')->first()->description}}</textarea></td>      
-                                            </tr>     
+                                            </tr>   
+                                            <tr > <td colspan="2"><span class="text-danger p-1 description_en_error_edit"></span></td> </tr>   
                                             <tr>
                                                 <td>Certificates(Arabic)</td>
                                                 <td><textarea class="toggle text-primary in mt-2"  name="certificates_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->certificates}}</textarea></td>      
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 certificates_ar_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Certificates(English)</td>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="certificates_en" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'en')->first()->certificates}}</textarea></td>      
-                                            </tr>     
+                                            </tr>   
+                                            <tr > <td colspan="2"><span class="text-danger p-1 certificates_en_error_edit"></span></td> </tr>   
                                         </table>
                                     </div>
                                 </form>
@@ -228,18 +232,22 @@
                                                 <td>Description(Arabic)</td>
                                                 <td><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->description}}</textarea></td>      
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 description_ar_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Description(English)</td>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="description_en" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'en')->first()->description}}</textarea></td>      
-                                            </tr>     
+                                            </tr>   
+                                            <tr > <td colspan="2"><span class="text-danger p-1 description_en_error_edit"></span></td> </tr>   
                                             <tr>
                                                 <td>Certificates(Arabic)</td>
                                                 <td><textarea class="toggle text-primary in mt-2"  name="certificates_ar" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'ar')->first()->certificates}}</textarea></td>      
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 certificates_ar_error_edit"></span></td> </tr> 
                                             <tr>
                                                 <td>Certificates(English)</td>
                                                 <td ><textarea class="toggle text-primary in mt-2"  name="certificates_en" required style="width: 100%; height:27.5px;">{{$guide->translations()->where('locale', 'en')->first()->certificates}}</textarea></td>      
-                                            </tr>     
+                                            </tr>   
+                                            <tr > <td colspan="2"><span class="text-danger p-1 certificates_en_error_edit"></span></td> </tr>       
                                         </table>
                                     </div>
                                 </form>

@@ -316,8 +316,8 @@
     @if ($place->services->count() > 0)
         <div class="serv d-flex" style="direction: rtl; align-items: center;">
 
-            <div class="sidebar">
-                <div class="sidebar-header">
+            <div class="user_sidebar">
+                <div class="user_sidebar-header">
                     <div class="app-icon">
                         <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                             <path fill="currentColor"
@@ -328,15 +328,15 @@
                 <form id="filter-service-form" action="" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="text" name="place_id" value="{{ $place->id }}" hidden>
-                    <ul class="sidebar-list">
-                        <li onclick="filterServices()" class="sidebar-list-item">
+                    <ul class="user_sidebar-list">
+                        <li onclick="filterServices()" class="user_sidebar-list-item">
                             <a>
                                 <i class="fas fa-filter"></i>
                                 <span>filter </span>
 
                             </a>
                         </li>
-                        <li class="sidebar-list-item ">
+                        <li class="user_sidebar-list-item ">
                             <a>
 
                                 <i class="fas fa-users"></i>
@@ -345,13 +345,13 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-list-item">
+                        <li class="user_sidebar-list-item">
 
                             <input type="number" class="w-75" name="people-count-filter" style="margin-left: 100px;">
 
                         </li>
 
-                        <li class="sidebar-list-item">
+                        <li class="user_sidebar-list-item">
                             <a>
                                 <i class="fas fa-money-bill"></i>
                                 <span>Price</span>
@@ -365,7 +365,7 @@
                             $min = $place->services->min('cost');
                             $step = ($max + $min) / 4;
                         @endphp
-                        <li class="sidebar-list-item ">
+                        <li class="user_sidebar-list-item ">
                             <a>
                                 <label for="rang1"
                                     style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
@@ -377,7 +377,7 @@
                         </li>
 
                         @for ($i = $min; $i < $max; $i += $step)
-                            <li class="sidebar-list-item ">
+                            <li class="user_sidebar-list-item ">
                                 <a>
                                     <label for="rang1"
                                         style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
@@ -427,17 +427,17 @@
                                         @if ($service->reservation_period)
                                             <br>
                                             <h6 class="d-inline ml-4">Reservation period: @if ($service->reservation_period == '00:15')
-                                                    <span>quarter houre </span>
+                                                    <span>quarter hour </span>
                                                 @elseif($service->reservation_period == '00:30')
-                                                    <span>half houre</span>
+                                                    <span>half hour</span>
                                                 @elseif($service->reservation_period == '01:00')
-                                                    <span>Houre</span>
+                                                    <span>one houre</span>
                                                 @elseif($service->reservation_period == '02:00')
-                                                    <span> two houres </span>
+                                                    <span> two hours </span>
                                                 @elseif($service->reservation_period == '03:00')
-                                                    <span> three houres </span>
+                                                    <span> three hours </span>
                                                 @elseif($service->reservation_period == '04:00')
-                                                    <span>foure houres</span>
+                                                    <span>four hours</span>
                                                 @elseif(!$service->reservation_period)
                                                     <span> </span>
                                                 @endif
@@ -493,17 +493,17 @@
                                         @if ($service->reservation_period)
                                             <br>
                                             <h6 class="d-inline ml-4">Reservation period: @if ($service->reservation_period == '00:15')
-                                                    <span>quarter houre </span>
+                                                    <span>quarter hour </span>
                                                 @elseif($service->reservation_period == '00:30')
-                                                    <span>half houre</span>
+                                                    <span>half hour</span>
                                                 @elseif($service->reservation_period == '01:00')
-                                                    <span>Houre</span>
+                                                    <span>one hour</span>
                                                 @elseif($service->reservation_period == '02:00')
-                                                    <span> two houres </span>
+                                                    <span> two hours </span>
                                                 @elseif($service->reservation_period == '03:00')
-                                                    <span> three houres </span>
+                                                    <span> three hours </span>
                                                 @elseif($service->reservation_period == '04:00')
-                                                    <span>foure houres</span>
+                                                    <span>four hours</span>
                                                 @elseif(!$service->reservation_period)
                                                     <span> </span>
                                                 @endif

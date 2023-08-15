@@ -63,6 +63,7 @@
                                                         value="{{ $company->translations()->where('locale', 'ar')->first()->name }}">
                                                     </th>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr>
                                             <tr>
                                                 <td>Name(English) </td>
                                                 <td><input type="text" class="toggle text-primary in" name="name_en"
@@ -70,16 +71,19 @@
                                                         value="{{ $company->translations()->where('locale', 'en')->first()->name }}">
                                                     </th>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr>
                                             <tr>
                                                 <td>email</td>
                                                 <td><input type="email" class="toggle text-primary in" name="email"
                                                         style="width: 100%;" value="{{ $company->email }}"></td>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 email_error_edit"></span></td> </tr>
                                             <tr>
                                                 <td>Phone</td>
                                                 <td><input type="number" class="toggle text-primary in" name="phone"
                                                         style="width: 100%;" value="{{ $company->phone }}"></td>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 phone_error_edit"></span></td> </tr>
                                             <tr>
                                                 <td>Image </td>
                                                 <td><input type="file" name="image" id="img">
@@ -89,6 +93,7 @@
                                                             width="30px" height="50px"></label>
                                                 </td>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 image_error_edit"></span></td> </tr>
                                         </table>
                                     </div>
                                 </form>
@@ -204,6 +209,7 @@
                                                         value="{{ $company->translations()->where('locale', 'ar')->first()->name }}">
                                                     </th>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 name_ar_error_edit"></span></td> </tr>
                                             <tr>
                                                 <td>Name(English) </td>
                                                 <td><input type="text" class="toggle text-primary in"
@@ -211,18 +217,21 @@
                                                         value="{{ $company->translations()->where('locale', 'en')->first()->name }}">
                                                     </th>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 name_en_error_edit"></span></td> </tr>
                                             <tr>
                                                 <td>email</td>
                                                 <td><input type="email" class="toggle text-primary in"
                                                         name="email" style="width: 100%;"
                                                         value="{{ $company->email }}"></td>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 email_error_edit"></span></td> </tr>
                                             <tr>
                                                 <td>Phone</td>
                                                 <td><input type="number" class="toggle text-primary in"
                                                         name="phone" style="width: 100%;"
                                                         value="{{ $company->phone }}"></td>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 phone_error_edit"></span></td> </tr>
                                             <tr>
                                                 <td>Image </td>
                                                 <td><input type="file" name="image" id="img">
@@ -233,6 +242,7 @@
                                                             width="30px" height="50px"></label>
                                                 </td>
                                             </tr>
+                                            <tr > <td colspan="2"><span class="text-danger p-1 image_error_edit"></span></td> </tr>
                                         </table>
                                     </div>
                                 </form>

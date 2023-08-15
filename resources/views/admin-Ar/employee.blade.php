@@ -2,7 +2,7 @@
 @section('admincontent')
 
 <div class="app-content">
-    <div class="app-content-header">
+    <div class="app-content-header" style="width: 61%">
       <h1 class="app-content-headerText">الموظفين</h1>
      
             <!-- add -->
@@ -145,11 +145,11 @@
     </div>
     <!-- end add -->
   
-    <div class="app-content-actions">
+    <div class="app-content-actions" style="width: 61%">
       <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم " type="text">
       <div class="app-content-actions-wrapper">
         <!-- filter -->
-        <div class="filter-button-wrapper">
+        {{-- <div class="filter-button-wrapper">
           <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
             <label>العمل</label>
@@ -168,7 +168,7 @@
               </button>
             </div>
           </div>
-        </div>
+        </div> --}}
         <!-- end filter -->
         
         <div class="nav-item dropdown" >
@@ -189,7 +189,7 @@
       
       </div>
     </div>
-    <div class="scroll-class">
+    <div class="scroll-class"  style="width: 62%">
     <div class="products-area-wrapper tableView" id="employeesTable">
       <div class="products-header">
         <div class="product-cell">#</div>

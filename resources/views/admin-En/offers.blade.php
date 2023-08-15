@@ -1,7 +1,7 @@
 @extends('adminLayout-En.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:60%;">
+        <div class="app-content-header" style="width:62%;">
             <h1 class="app-content-headerText">Offers</h1>
 
             <!-- add -->
@@ -152,6 +152,9 @@
                                         <td><input type="file" class="toggle text-primary in" name=" image" required
                                                 style="width: 100%;"></th>
                                     </tr>
+                                    <tr>
+                                        <td colspan="2"><span class="text-danger p-1" id="image_error"></span></td>
+                                    </tr>
 
                                 </table>
                             </div>
@@ -170,12 +173,12 @@
         <!-- end add -->
 
 
-        <div class="app-content-actions"style="width:60%;">
+        <div class="app-content-actions"style="width:62%;">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="Search By Name..."
                 type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
-                <div class="filter-button-wrapper">
+                {{-- <div class="filter-button-wrapper">
                     <button class="action-button filter jsFilter"><span>Filter</span><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -199,7 +202,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- end filter -->
              
                 <div class="nav-item dropdown">
@@ -222,7 +225,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:60%;">
+        <div class="scroll-class" style="width:62%;">
             <div class="products-area-wrapper tableView" id="offersTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
@@ -766,29 +769,40 @@
 
     //----------------------------------------------
     function removeMessages() {
-        // document.getElementById('name_ar_error').innerHTML = '';
-        // document.getElementById('name_en_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('city_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
+        document.getElementById('name_ar_error').innerHTML = '';
+        document.getElementById('name_en_error').innerHTML = '';
+        document.getElementById('place_error').innerHTML = '';
+        document.getElementById('cost_error').innerHTML = '';
+        document.getElementById('start_date_error').innerHTML = '';
+        document.getElementById('end_date_error').innerHTML = '';
+       
 
-        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-        // name_ar.forEach(name => {
-        //     name.innerHTML = '';
-        // });
+        const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        name_ar.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const name_en = document.querySelectorAll('.name_en_error_edit');
-        // name_en.forEach(name => {
-        //     name.innerHTML = '';
-        // });
+        const name_en = document.querySelectorAll('.name_en_error_edit');
+        name_en.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const images = document.querySelectorAll('.image_error_edit');
-        // images.forEach(image => {
-        //     image.innerHTML = '';
-        // });
+        const places = document.querySelectorAll('.place_error_edit');
+        places.forEach(place => {
+            place.innerHTML = '';
+        });
+        const costs = document.querySelectorAll('.cost_error_edit');
+        costs.forEach(cost => {
+            cost.innerHTML = '';
+        });
+        const start_date = document.querySelectorAll('.start_date_error_edit');
+        start_date.forEach(start_date => {
+            start_date.innerHTML = '';
+        });
+        const end_date = document.querySelectorAll('.end_date_error_edit');
+        end_date.forEach(end_date => {
+            end_date.innerHTML = '';
+        });
     }
     //--------------------------------------------
     function setPlace(place_id, place, option_id) {

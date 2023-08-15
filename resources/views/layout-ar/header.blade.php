@@ -53,7 +53,7 @@
                 <div class="navbar-nav ml-auto py-0">
                     @if (\Auth::check())
                         @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
-                            <a href="{{ route('home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
+                            <a href="{{ route('welcome_home_ar') }}" class="nav-item nav-link active">لوحة التحكم</a>
                         @endif
                     @endif
                     <a href="{{ route('userhome-ar') }}" class="nav-item nav-link active">الرئيسة</a>

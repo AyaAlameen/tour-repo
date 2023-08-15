@@ -158,7 +158,7 @@
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم " type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
-                <div class="filter-button-wrapper">
+                {{-- <div class="filter-button-wrapper">
                     <button class="action-button filter jsFilter"><span>Filter</span><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -182,7 +182,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- end filter -->
                
 
@@ -458,24 +458,47 @@
 
     //----------------------------------------------
     function removeMessages() {
-        // document.getElementById('name_ar_error').innerHTML = ''; 
-        // document.getElementById('name_en_error').innerHTML = ''; 
-        // document.getElementById('image_error').innerHTML = ''; 
+       
+        document.getElementById('name_ar_error').innerHTML = '';
+        document.getElementById('name_en_error').innerHTML = '';
+        document.getElementById('start_date_error').innerHTML = '';
+        document.getElementById('end_date_error').innerHTML = '';
+        document.getElementById('guide_error').innerHTML = '';
+        document.getElementById('people_count_error').innerHTML = '';
+        document.getElementById('cost_error').innerHTML = '';
+        
 
-        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-        // name_ar.forEach(name => {
-        //   name.innerHTML = '';
-        // });
+        const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        name_ar.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const name_en = document.querySelectorAll('.name_en_error_edit');
-        // name_en.forEach(name => {
-        //   name.innerHTML = '';
-        // });
+        const name_en = document.querySelectorAll('.name_en_error_edit');
+        name_en.forEach(name => {
+            name.innerHTML = '';
+        });
+        const start_dates = document.querySelectorAll('.start_date_error_edit');
+        start_dates.forEach(start_date => {
+            start_date.innerHTML = '';
+        });
+        const end_dates = document.querySelectorAll('.end_date_error_edit');
+        end_dates.forEach(end_date => {
+            end_date.innerHTML = '';
+        });
 
-        // const images = document.querySelectorAll('.image_error_edit');
-        // images.forEach(image => {
-        //   image.innerHTML = '';
-        // });
+        const places = document.querySelectorAll('.guide_error_edit');
+        places.forEach(place => {
+            place.innerHTML = '';
+        });
+        const people_counts = document.querySelectorAll('.people_count_error_edit');
+        people_counts.forEach(people_count => {
+            people_count.innerHTML = '';
+        });
+        const costs = document.querySelectorAll('.cost_error_edit');
+        costs.forEach(cost => {
+            cost.innerHTML = '';
+        });
+        
     }
     //--------------------------------------------
     function setGuide(guide_id, guide, option_id) {

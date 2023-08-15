@@ -137,6 +137,9 @@ a.text-primary:hover, a.text-primary:focus {
   flex-direction: row;
 
 }
+.sidebar-list-item a svg{
+  color: var(--bambi);
+}
 .sidebar-list-item a:hover{
   text-decoration: none;
 }

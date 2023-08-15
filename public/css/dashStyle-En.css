@@ -135,6 +135,9 @@ a.text-primary:hover, a.text-primary:focus {
   
 
 }
+.sidebar-list-item a svg{
+  color: var(--bambi);
+}
 .sidebar-list-item a:hover{
   text-decoration: none;
 }
