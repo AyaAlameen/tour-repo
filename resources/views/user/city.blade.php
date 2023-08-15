@@ -61,8 +61,8 @@
                                         <h4 class="text-right p-2">
                                             {{ $place->translations()->where('locale', 'en')->first()->name }}</h4>
 
-                                        <div class="d-flex" style=" align-items: baseline;">
-                                            <h5 class="p-2 pr-4">8.2</h5>
+                                        <div class="d-flex mt-3" style=" align-items: baseline;">
+                                            
                                             @isset(Auth::user()->id)
                                                 <i class="@if (!\App\Models\Favorite::where('user_id', Auth::user()->id)->where('place_id', $place->id)->first()) far fa-heart @else fas fa-heart @endif pr-4"
                                                     onclick="switch_heart({{$place->id}})" style="font-size: 22px;"></i>

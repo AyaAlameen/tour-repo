@@ -427,17 +427,17 @@
                                         @if ($service->reservation_period)
                                             <br>
                                             <h6 class="d-inline ml-4">Reservation period: @if ($service->reservation_period == '00:15')
-                                                    <span>quarter houre </span>
+                                                    <span>quarter hour </span>
                                                 @elseif($service->reservation_period == '00:30')
-                                                    <span>half houre</span>
+                                                    <span>half hour</span>
                                                 @elseif($service->reservation_period == '01:00')
-                                                    <span>Houre</span>
+                                                    <span>one houre</span>
                                                 @elseif($service->reservation_period == '02:00')
-                                                    <span> two houres </span>
+                                                    <span> two hours </span>
                                                 @elseif($service->reservation_period == '03:00')
-                                                    <span> three houres </span>
+                                                    <span> three hours </span>
                                                 @elseif($service->reservation_period == '04:00')
-                                                    <span>foure houres</span>
+                                                    <span>four hours</span>
                                                 @elseif(!$service->reservation_period)
                                                     <span> </span>
                                                 @endif
@@ -493,17 +493,17 @@
                                         @if ($service->reservation_period)
                                             <br>
                                             <h6 class="d-inline ml-4">Reservation period: @if ($service->reservation_period == '00:15')
-                                                    <span>quarter houre </span>
+                                                    <span>quarter hour </span>
                                                 @elseif($service->reservation_period == '00:30')
-                                                    <span>half houre</span>
+                                                    <span>half hour</span>
                                                 @elseif($service->reservation_period == '01:00')
-                                                    <span>Houre</span>
+                                                    <span>one hour</span>
                                                 @elseif($service->reservation_period == '02:00')
-                                                    <span> two houres </span>
+                                                    <span> two hours </span>
                                                 @elseif($service->reservation_period == '03:00')
-                                                    <span> three houres </span>
+                                                    <span> three hours </span>
                                                 @elseif($service->reservation_period == '04:00')
-                                                    <span>foure houres</span>
+                                                    <span>four hours</span>
                                                 @elseif(!$service->reservation_period)
                                                     <span> </span>
                                                 @endif
