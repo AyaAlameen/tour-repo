@@ -108,11 +108,15 @@
                                                             style="padding-top: 5px; border-radius: 0px;" width="30px"
                                                             height="50px"></label>
                                                 </td>
-                                                <span style="color: red">
+                                                <!-- <span style="color: red">
                                                     @error('image')
                                                         {{ $message }}
                                                     @enderror
-                                                </span>
+                                                </span> -->
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><span class="text-danger p-1 image_error_edit"></span>
+                                                </td>
                                             </tr>
 
                                         </table>
@@ -286,6 +290,10 @@
                                                             width="30px" height="50px"></label>
                                                 </td>
 
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><span class="text-danger p-1 image_error_edit"></span>
+                                                </td>
                                             </tr>
 
                                         </table>

@@ -35,6 +35,7 @@
                                         <td>(العربية) Full Name</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span>
                                         </td>
                                     </tr>
@@ -45,6 +46,7 @@
                                         <td>(الإنجليزية) Full Name</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
                                         </td>
                                     </tr>
@@ -57,15 +59,17 @@
                                         <td> UserName</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
-                                                id="user_name_error"></span></td>
-                                    </tr>
+                                        <td></td>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="user_name_error"></span>
+                                        </td>
+                                    </tr>   
                                     <tr>
                                         <td><input class="toggle text-primary in" type="email" name="email" required
                                                 style="width: 100%;"></th>
                                         <td>Email</td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td colspan="2" class="text-end text-danger p-1"><span id="email_error"></span>
                                         </td>
                                     </tr>
@@ -75,15 +79,20 @@
                                         <td>Password</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
-                                                id="password_error"></span></td>
+                                        <td></td>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="password_error"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         
                                         <td><input type="file" class="toggle text-primary in"  name="image" required style="width: 100%;"></th>      
                                             <td >Image </td>
                                         </tr> 
-                                    <tr > <td colspan="2"><span class="text-danger p-1" id="image_error"></span></td> </tr>
+                                        <tr>
+                                        <td></td>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td>
                                             <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
@@ -244,6 +253,12 @@
                         .place_id[0];
 
                 }
+                if (data.responseJSON.errors.image) {
+
+                       document.querySelector(`#${formId} #image_error`).innerHTML = data.responseJSON.errors
+                                 .image[0];
+
+                      }
 
             })
             .always(function() {
@@ -304,6 +319,12 @@
 
                     document.querySelector(`#${formId} .place_error_edit`).innerHTML = data.responseJSON.errors
                         .place_id[0];
+
+                }
+                if (data.responseJSON.errors.image) {
+
+                   document.querySelector(`#${formId} .image_error_edit`).innerHTML = data.responseJSON.errors
+                        .image[0];
 
                 }
 
@@ -399,6 +420,9 @@
         document.getElementById('user_name_error').innerHTML = '';
         document.getElementById('email_error').innerHTML = '';
         document.getElementById('password_error').innerHTML = '';
+        document.getElementById('image_error').innerHTML = '';
+        document.getElementById('place_error').innerHTML = '';
+
 
 
         const name_ar = document.querySelectorAll('.name_ar_error_edit');
@@ -424,6 +448,10 @@
         const places = document.querySelectorAll('.place_error_edit');
         places.forEach(place => {
             place.innerHTML = '';
+        });
+        const images = document.querySelectorAll('.image_error_edit');
+        images.forEach(image => {
+            image.innerHTML = '';
         });
     }
         //--------------------------------------------

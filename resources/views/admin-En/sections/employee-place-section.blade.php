@@ -101,6 +101,10 @@
                                                         width="30px" height="50px"></label>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="image_error_edit"></span></td>
+                                        </tr>
 
                                         <tr>
                                             <td>
@@ -306,6 +310,10 @@
                                                             width="30px" height="50px"></label>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="image_error_edit"></span></td>
+                                        </tr>
 
                                             <tr>
                                                 <td>

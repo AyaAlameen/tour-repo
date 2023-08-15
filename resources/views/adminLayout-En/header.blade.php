@@ -332,7 +332,7 @@
                                 </div>
                                 <div class="modal-footer mt-5">
                                     <button type="button" class="action-button active close"
-                                        onclick="removeMessages(), document.getElementById('edit-profile-form').reset()"
+                                        onclick="removeMessagesHeader(), document.getElementById('edit-profile-form').reset()"
                                         data-bs-dismiss="modal">Close</button>
                                     <button type="button" id="edit-profile-btn"
                                         onclick="editProfile('edit-profile-form')"
@@ -681,7 +681,7 @@
                     // clearInput();
                 })
                 .fail(function(data) {
-                    removeMessages();
+                    removeMessagesHeader();
 
                     if (data.responseJSON.errors.old_password) {
                         document.querySelector(`#${formId} #old_error`).innerHTML = data.responseJSON.errors
@@ -740,7 +740,7 @@
     }
 
         //----------------------------------------------
-        function removeMessages() {
+        function removeMessagesHeader() {
             document.getElementById('old_error').innerHTML = '';
             document.getElementById('new_error').innerHTML = '';
             document.getElementById('confirmation_error').innerHTML = '';

@@ -57,6 +57,8 @@
                         <td ><input type="file" name="image" id="img"> 
                         <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$category -> image))}}" name="image" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                         </tr>  
+                        <tr > <td colspan="2"><span class="text-danger p-1 image_error_edit"></span></td> </tr> 
+
 
                             </table>
                         
@@ -160,6 +162,8 @@
                         <td ><input type="file" name="image" id="img"> 
                         <label for="img" ><img src="{{ asset(str_replace(app_path(),'',$category -> image))}}" name="image" style="padding-top: 5px; border-radius: 0px;"  width="30px" height="50px"></label></td>      
                         </tr>  
+                        <tr > <td colspan="2"><span class="text-danger p-1 image_error_edit"></span></td> </tr> 
+
 
                             </table>
                         
