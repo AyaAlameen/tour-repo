@@ -415,7 +415,7 @@ class PlaceController extends Controller
         $districts = District::with('translations')->get();
         $sub_categories = SubCategory::with('translations')->get();
         
-        return view("admin-Ar.sections.place-section")->with(['places' => $places, 'cities' => $cities, 'districts' => $districts, 'sub_categories' => $sub_categories]);
+        return view("admin-En.sections.place-section")->with(['places' => $places, 'cities' => $cities, 'districts' => $districts, 'sub_categories' => $sub_categories]);
 
     }
 

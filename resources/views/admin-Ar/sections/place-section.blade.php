@@ -343,10 +343,6 @@
                                             <td colspan="2"><span style="color: red"
                                                     class="geolocation_error_edit"></span></td>
                                         </tr>
-                                        
-                                                @endif
-                                            @endforeach
-                                        @endif
                                     </table>
 
                                 </div>
@@ -403,7 +399,7 @@
                 </div>
             </div>
             <!-- end delete -->
-            <a href="{{route('place_pic_ar')}}" class="text-body" title="Pictures"><i class="fas fa-picture"></i></a>
+            <a href="{{route('place_pic_ar', ['id' => $place->id])}}" class="text-body" title="Pictures"><i class="fas fa-picture"></i></a>
         </div>
 
         <!-- end action -->
@@ -753,10 +749,6 @@
                                             <td colspan="2"><span style="color: red"
                                                     class="geolocation_error_edit"></span></td>
                                         </tr>
-
-                                                @endif
-                                            @endforeach
-                                        @endif
                                     </table>
 
                                 </div>
@@ -813,7 +805,7 @@
                 </div>
             </div>
             <!-- end delete -->
-            <a href="{{route('place_pic_ar')}}" class="text-body" title="Pictures"><i class="fas fa-photo-film"></i></a>
+            <a href="{{route('place_pic_ar', ['id' => $place->id])}}" class="text-body" title="Pictures"><i class="fas fa-photo-film"></i></a>
         </div>
 
         <!-- end action -->

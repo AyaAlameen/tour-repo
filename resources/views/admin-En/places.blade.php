@@ -770,7 +770,7 @@
                                     </div>
                                 </div>
                                 <!-- end delete -->
-                                <a href="{{route('place_pic_en')}}" class="text-body" title="Pictures"><i class="fas fa-photo-film"></i></a>
+                                <a href="{{route('place_pic_en', ['id' => $place->id])}}" class="text-body" title="Pictures"><i class="fas fa-photo-film"></i></a>
                             </div>
 
                             <!-- end action -->

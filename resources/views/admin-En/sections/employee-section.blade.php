@@ -122,6 +122,8 @@
                                                     value="{{ $employee->translations()->where('locale', 'ar')->first()->address }}">
                                                 </th>
                                         </tr>
+                                        <td colspan="2"><span style="color: red"
+                                                class="address_ar_error_edit"></span></td>
                                         <tr>
                                             <td>Address(English)</td>
                                             <td><input class="toggle text-primary in" type="text"
@@ -129,6 +131,8 @@
                                                     value="{{ $employee->translations()->where('locale', 'en')->first()->address }}">
                                                 </th>
                                         </tr>
+                                        <td colspan="2"><span style="color: red"
+                                                class="address_en_error_edit"></span></td>
                                         <tr>
                                             <td>Salary</td>
                                             <td><input type="number" name="salary"
@@ -146,6 +150,8 @@
                                                     value="{{ $employee->translations()->where('locale', 'ar')->first()->job }}">
                                                 </th>
                                         </tr>
+                                        <td colspan="2"><span style="color: red"
+                                                class="job_ar_error_edit"></span></td>
                                         <tr>
                                             <td>job(English)</td>
                                             <td><input class="toggle text-primary in" type="text"
@@ -153,6 +159,8 @@
                                                     value="{{ $employee->translations()->where('locale', 'en')->first()->job }}">
                                                 </th>
                                         </tr>
+                                        <td colspan="2"><span style="color: red"
+                                                class="job_en_error_edit"></span></td>
                                         <tr>
                                             <td>Identifier</td>
                                             <td><input type="number" name="identifier"
@@ -406,6 +414,8 @@
                                                             value="{{ $employee->translations()->where('locale', 'ar')->first()->address }}">
                                                         </th>
                                                 </tr>
+                                                <td colspan="2"><span style="color: red"
+                                                class="address_ar_error_edit"></span></td>
                                                 <tr>
                                                     <td>Address(English)</td>
                                                     <td><input class="toggle text-primary in" type="text"
@@ -413,6 +423,8 @@
                                                             value="{{ $employee->translations()->where('locale', 'en')->first()->address }}">
                                                         </th>
                                                 </tr>
+                                                <td colspan="2"><span style="color: red"
+                                                class="address_en_error_edit"></span></td>
                                                 <tr>
                                                     <td>Salary</td>
                                                     <td><input type="number" name="salary"
@@ -430,6 +442,8 @@
                                                             value="{{ $employee->translations()->where('locale', 'ar')->first()->job }}">
                                                         </th>
                                                 </tr>
+                                                <td colspan="2"><span style="color: red"
+                                                class="job_ar_error_edit"></span></td>
                                                 <tr>
                                                     <td>job(English)</td>
                                                     <td><input class="toggle text-primary in" type="text"
@@ -437,6 +451,8 @@
                                                             value="{{ $employee->translations()->where('locale', 'en')->first()->job }}">
                                                         </th>
                                                 </tr>
+                                                <td colspan="2"><span style="color: red"
+                                                class="job_en_error_edit"></span></td>
                                                 <tr>
                                                     <td>Identifier</td>
                                                     <td><input type="number" name="identifier"

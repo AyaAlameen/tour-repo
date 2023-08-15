@@ -71,10 +71,12 @@ Add employee
                   <td>Address(Arabic)</td>
                   <td ><textarea class="toggle text-primary in" type="text" name="address_ar" required style="width: 100%;"></textarea></th>      
               </tr> 
+              <tr > <td colspan="2"><span class="text-danger p-1" id="address_ar_error"></span></td> </tr>
               <tr>
                   <td>Address(English)</td>
                   <td ><textarea class="toggle text-primary in" type="text" name="address_en" required style="width: 100%;"></textarea></th>      
               </tr> 
+              <tr > <td colspan="2"><span class="text-danger p-1" id="address_en_error"></span></td> </tr>
               <tr>
                   <td>Salary</td>
                   <td ><input class="toggle text-primary in" type="number" name="salary" required style="width: 100%;"></th>      
@@ -84,10 +86,12 @@ Add employee
                   <td>Job(Arabic)</td>
                   <td ><textarea class="toggle text-primary in" type="text" name="job_ar" required style="width: 100%;"></textarea></th>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="job_ar_error"></span></td> </tr>
               <tr>
                   <td>Job(English)</td>
                   <td ><textarea class="toggle text-primary in" type="text" name="job_en" required style="width: 100%;"></textarea></th>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="job_en_error"></span></td> </tr>
               <tr>
                   <td>Identifier</td>
                   <td ><input class="toggle text-primary in" type="number" name="identifier" required style="width: 100%;"></th>      
