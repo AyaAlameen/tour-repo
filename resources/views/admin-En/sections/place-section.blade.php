@@ -139,7 +139,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>Governorate</td>
+                                            <td>City</td>
                                         </tr>
                                         <tr>
                                             <td></td>
@@ -545,7 +545,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>Governorate</td>
+                                            <td>City</td>
                                         </tr>
                                         <tr>
                                             <td></td>

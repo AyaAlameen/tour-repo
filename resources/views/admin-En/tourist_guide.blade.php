@@ -62,18 +62,22 @@ Add Tourist Guide
                   <td>Description(Arabic)</td>
                   <td ><textarea class="toggle text-primary in mt-2"  name="description_ar" required style="width: 100%; height:27.5px;"></textarea></td>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="description_ar_error"></span></td> </tr>
               <tr>
                   <td>Description(English)</td>
                   <td ><textarea class="toggle text-primary in mt-2"  name="description_en" required style="width: 100%; height:27.5px;"></textarea></td>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="description_en_error"></span></td> </tr>
               <tr>
                   <td>Certificates(Arabic)</td>
                   <td ><textarea class="toggle text-primary in mt-2"  name="certificates_ar" required style="width: 100%; height:27.5px;"></textarea></td>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="certificates_ar_error"></span></td> </tr>
               <tr>
                   <td>Certificates(English)</td>
                   <td ><textarea class="toggle text-primary in mt-2"  name="certificates_en" required style="width: 100%; height:27.5px;"></textarea></td>      
               </tr>
+              <tr > <td colspan="2"><span class="text-danger p-1" id="certificates_en_error"></span></td> </tr>
              
       </table>
       </div>

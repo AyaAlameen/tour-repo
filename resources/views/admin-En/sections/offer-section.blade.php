@@ -242,6 +242,11 @@
                                         </td>
 
                                     </tr>
+                                    <tr>
+                                        <td colspan="2"><span
+                                                class="text-danger p-1 image_error_edit"></span>
+                                        </td>
+                                    </tr>
                                 </table>
 
                             </div>
@@ -545,6 +550,11 @@
                                                     style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
                                         </td>
 
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><span
+                                                class="text-danger p-1 image_error_edit"></span>
+                                        </td>
                                     </tr>
                                 </table>
 

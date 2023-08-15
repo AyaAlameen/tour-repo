@@ -32,9 +32,17 @@
                                                 style="width: 100%;"></th>
                                     </tr>
                                     <tr>
+                                        <td colspan="2" class=" text-danger p-1"><span id="name_ar_error"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>Name(English) </td>
                                         <td><input type="text" class="toggle text-primary in" name="name_en" required
                                                 style="width: 100%;"></th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class=" text-danger p-1"><span id="name_en_error"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>email</td>
@@ -42,9 +50,17 @@
                                                 style="width: 100%;"></th>
                                     </tr>
                                     <tr>
+                                        <td colspan="2" class=" text-danger p-1"><span id="email_error"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>phone</td>
                                         <td><input class="toggle text-primary in" type="number" name="phone" required
                                                 style="width: 100%;"></th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end text-danger p-1"><span id="phone_error"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Image </td>

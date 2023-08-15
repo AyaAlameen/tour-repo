@@ -37,7 +37,7 @@
 
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="name_ar_error"></span>
                                         </td>
                                     </tr>
 
@@ -49,7 +49,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="name_en_error"></span>
                                         </td>
                                     </tr>
 
@@ -77,11 +77,11 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>Governorate</td>
+                                        <td>city</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="city_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="city_error"></span>
                                         </td>
                                     </tr>
 
@@ -114,7 +114,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                        <td colspan="2" class=" text-danger p-1"><span
                                                 id="district_error"></span>
                                         </td>
                                     </tr>
@@ -149,7 +149,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                        <td colspan="2" class=" text-danger p-1"><span
                                                 id="sub_category_error"></span>
                                         </td>
                                     </tr>
@@ -160,12 +160,24 @@
                                                 required style="width: 100%;"></th>
                                         <td>description (Arabic)</td>
                                     </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" class=" text-danger p-1"><span
+                                                id="description_ar_error"></span>
+                                        </td>
+                                    </tr>
 
                                     <tr>
                                         <td></td>
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></th>
                                         <td>description (English)</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" class=" text-danger p-1"><span
+                                                id="description_en_error"></span>
+                                        </td>
                                     </tr>
 
                                     <tr>
@@ -176,7 +188,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                        <td colspan="2" class=" text-danger p-1"><span
                                                 id="email_error"></span>
                                         </td>
                                     </tr>
@@ -188,7 +200,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                        <td colspan="2" class=" text-danger p-1"><span
                                                 id="phone_error"></span>
                                         </td>
                                     </tr>
@@ -200,7 +212,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="cost_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -211,7 +223,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                        <td colspan="2" class=" text-danger p-1"><span
                                                 id="profit_ratio_1_error"></span>
                                         </td>
                                     </tr>
@@ -223,7 +235,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                        <td colspan="2" class=" text-danger p-1"><span
                                                 id="profit_ratio_2_error"></span>
                                         </td>
                                     </tr>
@@ -240,7 +252,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                        <td colspan="2" class=" text-danger p-1"><span
                                                 id="geolocation_error"></span>
                                         </td>
                                     </tr>
@@ -510,7 +522,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td>Governorate</td>
+                                                                <td>City</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -1109,30 +1121,66 @@
 
     //----------------------------------------------
     function removeMessages() {
-        // document.getElementById('name_ar_error').innerHTML = '';
-        // document.getElementById('name_en_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('city_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
+        document.getElementById('name_ar_error').innerHTML = '';
+        document.getElementById('name_en_error').innerHTML = '';
+        document.getElementById('city_error').innerHTML = '';
+        document.getElementById('district_error').innerHTML = '';
+        document.getElementById('sub_category_error').innerHTML = '';
+        document.getElementById('email_error').innerHTML = '';
+        document.getElementById('phone_error').innerHTML = '';
+        document.getElementById('cost_error').innerHTML = '';
+        document.getElementById('profit_ratio_1_error').innerHTML = '';
+        document.getElementById('profit_ratio_2_error').innerHTML = '';
+        document.getElementById('geolocation_error').innerHTML = '';
 
-        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-        // name_ar.forEach(name => {
-        //     name.innerHTML = '';
-        // });
+        const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        name_ar.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const name_en = document.querySelectorAll('.name_en_error_edit');
-        // name_en.forEach(name => {
-        //     name.innerHTML = '';
-        // });
+        const name_en = document.querySelectorAll('.name_en_error_edit');
+        name_en.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const images = document.querySelectorAll('.image_error_edit');
-        // images.forEach(image => {
-        //     image.innerHTML = '';
-        // });
+        const citys = document.querySelectorAll('.city_error_edit');
+        citys.forEach(city => {
+            city.innerHTML = '';
+        });
+        const districts = document.querySelectorAll('.district_error_edit');
+        districts.forEach(district => {
+            district.innerHTML = '';
+        });
+        const sub_categorys = document.querySelectorAll('.sub_category_error_edit');
+        sub_categorys.forEach(sub_category => {
+            sub_category.innerHTML = '';
+        });
+        const emails = document.querySelectorAll('.email_error_edit');
+        emails.forEach(email => {
+            email.innerHTML = '';
+        });
+        const phones = document.querySelectorAll('.phone_error_edit');
+        phones.forEach(phone => {
+            phone.innerHTML = '';
+        });
+        const costs = document.querySelectorAll('.cost_error_edit');
+        costs.forEach(cost => {
+            cost.innerHTML = '';
+        });
+        const profit_ratio_1s = document.querySelectorAll('.profit_ratio_1_error_edit');
+        profit_ratio_1s.forEach(profit_ratio_1 => {
+            profit_ratio_1.innerHTML = '';
+        });
+        const profit_ratio_2s = document.querySelectorAll('.profit_ratio_2_error_edit');
+        profit_ratio_2s.forEach(profit_ratio_2 => {
+            profit_ratio_2.innerHTML = '';
+        });
+        const geolocations = document.querySelectorAll('.geolocation_error_edit');
+        geolocations.forEach(geolocation => {
+            geolocation.innerHTML = '';
+        });
     }
+    
     //--------------------------------------------
     function setCity(city_id, city, option_id) {
         var cities_options = document.querySelectorAll('[id^="city_"]');

@@ -102,6 +102,9 @@
                                         </td>
 
                                     </tr>
+                                    <tr>
+                                        <td colspan="2"><span class="text-danger p-1" id="service_id_error"></span></td>
+                                    </tr>
 
                                     <tr>
                                         <td>Description(Arabic)</td>
@@ -109,9 +112,16 @@
                                                 required style="width: 100%;"></th>
                                     </tr>
                                     <tr>
+                                        <td colspan="2"><span class="text-danger p-1" id="description_ar_error"></span></td>
+                                    </tr>
+                                    
+                                    <tr>
                                         <td>Description(English)</td>
                                         <td><input class="toggle text-primary in" type="text" name="description_en"
                                                 required style="width: 100%;"></th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><span class="text-danger p-1" id="description_en_error"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Cost</td>
@@ -734,29 +744,40 @@
 
     //----------------------------------------------
     function removeMessages() {
-        // document.getElementById('name_ar_error').innerHTML = '';
-        // document.getElementById('name_en_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('city_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
+        document.getElementById('name_ar_error').innerHTML = '';
+        document.getElementById('name_en_error').innerHTML = '';
+        document.getElementById('place_error').innerHTML = '';
+        document.getElementById('service_id_error').innerHTML = '';
+        document.getElementById('cost_error').innerHTML = '';
+        document.getElementById('start_date_error').innerHTML = '';
+        document.getElementById('end_date_error').innerHTML = '';
 
-        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-        // name_ar.forEach(name => {
-        //     name.innerHTML = '';
-        // });
+        const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        name_ar.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const name_en = document.querySelectorAll('.name_en_error_edit');
-        // name_en.forEach(name => {
-        //     name.innerHTML = '';
-        // });
+        const name_en = document.querySelectorAll('.name_en_error_edit');
+        name_en.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const images = document.querySelectorAll('.image_error_edit');
-        // images.forEach(image => {
-        //     image.innerHTML = '';
-        // });
+        const places = document.querySelectorAll('.place_error_edit');
+        places.forEach(place => {
+            place.innerHTML = '';
+        });
+        const costs = document.querySelectorAll('.cost_error_edit');
+        costs.forEach(cost => {
+            cost.innerHTML = '';
+        });
+        const start_date = document.querySelectorAll('.start_date_error_edit');
+        start_date.forEach(start_date => {
+            start_date.innerHTML = '';
+        });
+        const end_date = document.querySelectorAll('.end_date_error_edit');
+        end_date.forEach(end_date => {
+            end_date.innerHTML = '';
+        });
     }
     //--------------------------------------------
     function setPlace(place_id, place, option_id) {

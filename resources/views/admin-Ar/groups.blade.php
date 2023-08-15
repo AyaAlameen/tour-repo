@@ -458,24 +458,47 @@
 
     //----------------------------------------------
     function removeMessages() {
-        // document.getElementById('name_ar_error').innerHTML = ''; 
-        // document.getElementById('name_en_error').innerHTML = ''; 
-        // document.getElementById('image_error').innerHTML = ''; 
+       
+        document.getElementById('name_ar_error').innerHTML = '';
+        document.getElementById('name_en_error').innerHTML = '';
+        document.getElementById('start_date_error').innerHTML = '';
+        document.getElementById('end_date_error').innerHTML = '';
+        document.getElementById('guide_error').innerHTML = '';
+        document.getElementById('people_count_error').innerHTML = '';
+        document.getElementById('cost_error').innerHTML = '';
+        
 
-        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-        // name_ar.forEach(name => {
-        //   name.innerHTML = '';
-        // });
+        const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        name_ar.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const name_en = document.querySelectorAll('.name_en_error_edit');
-        // name_en.forEach(name => {
-        //   name.innerHTML = '';
-        // });
+        const name_en = document.querySelectorAll('.name_en_error_edit');
+        name_en.forEach(name => {
+            name.innerHTML = '';
+        });
+        const start_dates = document.querySelectorAll('.start_date_error_edit');
+        start_dates.forEach(start_date => {
+            start_date.innerHTML = '';
+        });
+        const end_dates = document.querySelectorAll('.end_date_error_edit');
+        end_dates.forEach(end_date => {
+            end_date.innerHTML = '';
+        });
 
-        // const images = document.querySelectorAll('.image_error_edit');
-        // images.forEach(image => {
-        //   image.innerHTML = '';
-        // });
+        const places = document.querySelectorAll('.guide_error_edit');
+        places.forEach(place => {
+            place.innerHTML = '';
+        });
+        const people_counts = document.querySelectorAll('.people_count_error_edit');
+        people_counts.forEach(people_count => {
+            people_count.innerHTML = '';
+        });
+        const costs = document.querySelectorAll('.cost_error_edit');
+        costs.forEach(cost => {
+            cost.innerHTML = '';
+        });
+        
     }
     //--------------------------------------------
     function setGuide(guide_id, guide, option_id) {

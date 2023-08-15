@@ -35,7 +35,7 @@
                                     </tr>
                                     <tr>
 
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="name_ar_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="name_ar_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -45,7 +45,7 @@
                                         <td>name (English) </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="name_en_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="name_en_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -75,7 +75,7 @@
                                     </tr>
                                     <tr>
 
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="place_error"></span>
+                                        <td colspan="2" class="text-danger p-1"><span id="place_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -85,7 +85,7 @@
                                     </tr>
                                     <tr>
 
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="des_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="des_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -97,7 +97,7 @@
                                     </tr>
                                     <tr>
 
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="des_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="des_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -106,7 +106,7 @@
                                         <td>cost</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="cost_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="cost_error"></span>
                                         </td>
                                     </tr>
                                     <tr hidden id="services_count">
@@ -115,7 +115,7 @@
                                         <td>the available number of service</td>
                                     </tr>
                                     <tr hidden id="services_count_tr">
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="services_count_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="services_count_error"></span>
                                         </td>
                                     </tr>
                                     <tr hidden id="people_count">
@@ -124,7 +124,7 @@
                                         <td>Number of people</td>
                                     </tr>
                                     <tr hidden id="people_count_tr">
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="people_count_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="people_count_error"></span>
                                         </td>
                                     </tr>
                                     <tr hidden id="reservation_period">
@@ -189,7 +189,7 @@
                                         <td>reservation period</td>
                                     </tr>
                                     <tr hidden id="reservation_period_tr">
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="reservation_period_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="reservation_period_error"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -201,7 +201,7 @@
                                     </tr>
                                     <tr>
 
-                                        <td colspan="2" class="text-end text-danger p-1"><span
+                                        <td colspan="2" class=" text-danger p-1"><span
                                                 id="is_additional_error"></span>
                                         </td>
                                     </tr>
@@ -217,7 +217,7 @@
                                         <td>image</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-end text-danger p-1"><span id="image_error"></span>
+                                        <td colspan="2" class=" text-danger p-1"><span id="image_error"></span>
                                         </td>
                                     </tr>
 
@@ -942,29 +942,49 @@
 
     //----------------------------------------------
     function removeMessages() {
-        // document.getElementById('name_ar_error').innerHTML = '';
-        // document.getElementById('name_en_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('city_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
-        // document.getElementById('image_error').innerHTML = '';
+        document.getElementById('name_ar_error').innerHTML = '';
+        document.getElementById('name_en_error').innerHTML = '';
+        document.getElementById('place_error').innerHTML = '';
+        document.getElementById('cost_error').innerHTML = '';
+        document.getElementById('people_count_error').innerHTML = '';
+        document.getElementById('reservation_period_error').innerHTML = '';
+        document.getElementById('is_additional_error').innerHTML = '';
+        document.getElementById('image_error').innerHTML = '';
 
-        // const name_ar = document.querySelectorAll('.name_ar_error_edit');
-        // name_ar.forEach(name => {
-        //     name.innerHTML = '';
-        // });
+        const name_ar = document.querySelectorAll('.name_ar_error_edit');
+        name_ar.forEach(name => {
+            name.innerHTML = '';
+        });
 
-        // const name_en = document.querySelectorAll('.name_en_error_edit');
-        // name_en.forEach(name => {
-        //     name.innerHTML = '';
-        // });
+        const name_en = document.querySelectorAll('.name_en_error_edit');
+        name_en.forEach(name => {
+            name.innerHTML = '';
+        });
+        const places = document.querySelectorAll('.place_error_edit');
+        places.forEach(place => {
+            place.innerHTML = '';
+        });
+        const costs = document.querySelectorAll('.cost_error_edit');
+        costs.forEach(cost => {
+            cost.innerHTML = '';
+        });
+        const people_counts = document.querySelectorAll('.people_count_error_edit');
+        people_counts.forEach(people_count => {
+            people_count.innerHTML = '';
+        });
+        const reservation_periods = document.querySelectorAll('.reservation_period_error_edit');
+        reservation_periods.forEach(reservation_period => {
+            reservation_period.innerHTML = '';
+        });
+        const is_additionals = document.querySelectorAll('.is_additional_error_edit');
+        is_additionals.forEach(is_additional => {
+            is_additional.innerHTML = '';
+        });
 
-        // const images = document.querySelectorAll('.image_error_edit');
-        // images.forEach(image => {
-        //     image.innerHTML = '';
-        // });
+        const images = document.querySelectorAll('.image_error_edit');
+        images.forEach(image => {
+            image.innerHTML = '';
+        });
     }
     //--------------------------------------------
     function setPlace(place_id, place, option_id) {
