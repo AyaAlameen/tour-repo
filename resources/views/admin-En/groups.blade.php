@@ -158,7 +158,7 @@
             <input class="search-bar" placeholder="search..." type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
-                <div class="filter-button-wrapper">
+                {{-- <div class="filter-button-wrapper">
                     <button class="action-button filter jsFilter"><span>Filter</span><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -182,7 +182,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- end filter -->
               
                 <div class="nav-item dropdown">

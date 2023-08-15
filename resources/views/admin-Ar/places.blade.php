@@ -1,7 +1,7 @@
 @extends('adminLayout-Ar.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:50.5%;">
+        <div class="app-content-header" style="width:51.5%;">
             <h1 class="app-content-headerText">الأماكن</h1>
 
             <!-- add -->
@@ -298,12 +298,12 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:51%;">
+        <div class="app-content-actions" style="width:52%;">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="... ابحث عن طريق الاسم "
                 type="text">
             <div class="app-content-actions-wrapper">
                 <!-- filter -->
-                <div class="filter-button-wrapper">
+                {{-- <div class="filter-button-wrapper">
                     <button class="action-button filter jsFilter"><span>Filter</span><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -343,7 +343,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- end filter -->
                 
                 <div class="nav-item dropdown">
