@@ -915,7 +915,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></td>
                             <td colspan="2" class="text-end text-danger p-1"><span id="city_error"></span>
                             </td>
                         </tr>
@@ -947,7 +946,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></td>
                             <td colspan="2" class="text-end text-danger p-1"><span id="district_error"></span>
                             </td>
                         </tr>
@@ -983,8 +981,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td colspan="2" class="text-end text-danger p-1"><span id="place_error"></span>
+                            <td colspan="2" class="text-danger p-1"><span id="place_error"></span>
                             </td>
                         </tr>
                         <tr>
@@ -1018,7 +1015,6 @@
 
                         </tr>
                         <tr>
-                            <td></td>
                             <td colspan="2" class="text-danger p-1"><span id="service_error"></span>
                             </td>
                         </tr>

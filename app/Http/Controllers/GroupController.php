@@ -514,8 +514,8 @@ class GroupController extends Controller
             'place_id' => 'required',
             
         ], [
-            'group_id.required' => 'حقل الجروب مطلوب',
-            'place_id.required' => 'حقل المكان مطلوب',
+            'group_id.required' => 'Group feild is required',
+            'place_id.required' => 'Place feild is required',
             
         ]);
 
@@ -701,7 +701,7 @@ class GroupController extends Controller
         ], [
             'group_id.required' => 'Group feild is required',
             'transportation_id.required' => 'Transport feild is required',
-            'dates.*.required' => 'date feild is required',
+            'dates.*.required' => 'Date feild is required',
             
         ]);
 
