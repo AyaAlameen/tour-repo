@@ -336,7 +336,7 @@
     <div class="modal-dialog ">
         <div class="modal-content toggle">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModaLabel">enter your information for booking</h5>
+                <h5 class="modal-title" id="exampleModaLabel">Enter your information for booking</h5>
                 <button type="button" class="btn-close m-0 close"
                      data-bs-dismiss="modal"
                     aria-label="Close">
@@ -354,22 +354,22 @@
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">error message</span></td>
+                            <td colspan="2"><span class="text-danger" id="full_name_booking_error"></span></td>
                         <tr>
                             <td class="text-center">Phone</td>
                             <td><input type="number" class="toggle text-primary in" name="phone" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">error message</span></td>
+                            <td colspan="2"><span class="text-danger" id="phone_booking_error"></span></td>
                         </tr>
                         <tr>
-                            <td class="text-center">Identifire</td>
+                            <td class="text-center">Identifier</td>
                             <td><input type="number" class="toggle text-primary in" name="user_identifire" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">error message</span></td>
+                            <td colspan="2"><span class="text-danger" id="id_booking_error"></span></td>
                         </tr>
                         <tr>
                             <td class="text-center">People count</td>
@@ -377,7 +377,7 @@
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">error message</span></td>
+                            <td colspan="2"><span class="text-danger" id="people_count_booking_error"></span></td>
                         </tr>
 
                         <tr>
@@ -386,18 +386,18 @@
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">error message</span></td>
+                            <td colspan="2"><span class="text-danger" id="start_date_booking_error"></span></td>
                         </tr>
-                        <tr>
-                            <td class="text-center">Depart date</td>
+                        <tr id="end_date_booking_tr">
+                            <td class="text-center" >Depart date</td>
                             <td><input type="date" class="toggle text-primary in" name="depart_date" required
                                     style="width: 100%;"></td>
                         </tr>
-                        <tr>
-                            <td colspan="2"><span class="text-danger">error message</span></td>
+                        <tr id="end_date_booking_error_tr">
+                            <td colspan="2"><span class="text-danger" id="end_date_booking_error"></span></td>
                         </tr>
-                        <tr>
-                            <td class="text-center"> booking period (from clock - to clock)</td>
+                        <tr id="reservation_period_booking_tr">
+                            <td class="text-center"> Booking period (from clock - to clock)</td>
                             <td>
                                 <div class="dropdown toggle text-primary in" style="display:inline-block;">
                                     <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -410,11 +410,13 @@
                                     </div>
                                 </div>
                             </td>
+                            <input type="text" hidden id="reservation_period_booking">
                         </tr>
-                        <tr>
-                            <td colspan="2"><span class="text-danger"> error meassage</span></td>
+                        <tr id="reservation_period_booking_error_tr">
+                            <td colspan="2"><span class="text-danger" id="reservation_period_booking_error"></span></td>
 
                         </tr>
+                        <input type="text" hidden  id="booking_type">
                     </table>
                 </div>
             </form>

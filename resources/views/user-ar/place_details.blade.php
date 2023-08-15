@@ -237,7 +237,7 @@
 
         @if ($place->services->count() == 0)
             @isset(Auth::user()->id)
-                <button class="btn btn-primary ml-4 w-25 rate_btn"  data-bs-toggle="modal" data-bs-target="#exampleModal20">احجز الآن</button>
+                <button class="btn btn-primary ml-4 w-25 rate_btn" onclick="preBookingPlace({{$place}})"  data-bs-toggle="modal" data-bs-target="#exampleModal20">احجز الآن</button>
             @else
                 <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn">احجز الآن</button>
             @endisset

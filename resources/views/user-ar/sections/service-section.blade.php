@@ -46,7 +46,7 @@
                         @endif
                         @isset(Auth::user()->id)
                             <button class="btn btn-primary ml-4" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal20">حجز</button>
+                                data-bs-target="#exampleModal20" onclick="preBooking({{$service}})">حجز</button>
                         @else
                             <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
                         @endisset
@@ -111,7 +111,7 @@
                         @endif
                         @isset(Auth::user()->id)
                             <button class="btn btn-primary ml-4" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal20">حجز</button>
+                                data-bs-target="#exampleModal20" onclick="preBooking({{$service}})">حجز</button>
                         @else
                             <button onclick="loginBefore()" class="btn btn-primary ml-4">حجز</button>
                         @endisset

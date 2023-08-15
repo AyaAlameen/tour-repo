@@ -235,11 +235,11 @@
 
         {{-- بحال المكان ما فيو خدمات ديف كلاس السيرف بكون مخفي وبيطلع هاد الزر للحجز --}}
 
-        @if ($place->services->count() < 0)
+        @if ($place->services->count() == 0)
             @isset(Auth::user()->id)
-                <button class="btn btn-primary ml-4" onclick="preBooking($place)" data-bs-toggle="modal" data-bs-target="#exampleModal20">حجز</button>
+                <button class="btn btn-primary ml-4 w-25 rate_btn" onclick="preBookingPlace({{$place}})" data-bs-toggle="modal" data-bs-target="#exampleModal20">Book Now</button>
             @else
-                <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn">Booking</button>
+                <button onClick="loginBefore()" class="btn btn-primary w-25 mr-5 rate_btn">Book Now</button>
             @endisset
         @endif
     </div>

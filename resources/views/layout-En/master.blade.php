@@ -358,6 +358,19 @@ function hidemap(modal_id) {
                 reader.readAsDataURL(file);
             }
         }
+        //----------------------Pre Booking Place-------------------
+        function preBookingPlace(place){
+            console.log(place);
+            if(place.services.length == 0){
+                $('#end_date_booking_tr').attr('hidden', true);
+                $('#end_date_booking_error_tr').attr('hidden', true);
+                $('#reservation_period_booking_tr').attr('hidden', true);
+                $('#reservation_period_booking_error_tr').attr('hidden', true);
+            }
+            
+
+        }
+        //--------------------------------------------------
     </script>
 </body>
 

@@ -19,11 +19,11 @@ class CreateBookingsTable extends Migration
             $table->string('full_name');
             $table->string('identifier');
             $table->string('phone');
-            $table->int('people_count');
+            $table->integer('people_count');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('reservation_period');
-            $table->int('cost');
+            $table->integer('cost');
             $table->foreignId('type_id');
             $table->string('type');
             $table->timestamps();
