@@ -7,7 +7,7 @@
 
 
         </div>
-        <div class="app-content-actions">
+        <div class="app-content-actions w-100" style="justify-content: right; position: relative; right: 100px;">
            
 
                 <button class="mode-switch" id="mode" title="Switch Theme">
@@ -31,9 +31,16 @@
                 
             </button>
             </div>
+            <div class="container mt-2">
+                <img src="../img/undraw_Hello_re_3evm.png"  width="100%">
+                <h1 style="text-align: center; ">Welcome {{ Auth::user()->user_name }}</h1>
+                <h3 class="text-body" style="text-align: center;">Have A Nice Time</h3>
+    
+            </div>
         </div>
+       
     </div>
-    </div>
+    
 @endsection
 
 <script>

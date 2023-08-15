@@ -51,7 +51,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Syria</a>
                         <div class="dropdown-menu border-0 rounded-0 m-0">
-                            a href="#Governorates" class="dropdown-item">Governorates of Syria</a>
+                           <a href="#Governorates" class="dropdown-item" > Governorates of Syria</a>
                             <a href="#Trips" class="dropdown-item">Trip groups</a>
                             <a href="#Offers" class="dropdown-item">Offers</a>
                             <a href="#Events" class="dropdown-item">Events</a>
@@ -427,7 +427,7 @@
                                             type="button" data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapseOnee" aria-controls="flush-collapseOnee">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: var(--bambi);"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-shopping-bag">
                                                 <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
