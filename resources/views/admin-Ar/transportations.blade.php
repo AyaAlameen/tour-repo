@@ -110,7 +110,7 @@
                             </div>
                         </form>
                         <div class="modal-footer">
-                            <button type="button" class="action-button active close"
+                            <button type="button" class="action-button active addclose"
                                 onclick="removeMessages(), document.getElementById('add-form').reset()"
                                 data-bs-dismiss="modal">إغلاق</button>
                             <button type="button" id="add-transportation-btn" onclick="addTransportation('add-form')"
@@ -377,7 +377,7 @@
             .done(function(data) {
                 $("#transportations-data").empty();
                 $("#transportations-data").append(data);
-                $('.close').click();
+                $('.addclose').click();
                 $('.parenttrue').attr("hidden", false);
                 document.getElementById(formId).reset();
 

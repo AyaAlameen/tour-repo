@@ -51,7 +51,7 @@
                                                     name="full_name_ar" required style="width: 100%;"
                                                     value="{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}">
                                                 </th>
-                                            <td>(العربية) Full Name</td>
+                                            <td>Full Name (Arabic)</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -63,7 +63,7 @@
                                                     name="full_name_en" required style="width: 100%;"
                                                     value="{{ $employee->translations()->where('locale', 'en')->first()->full_name }}">
                                             </td>
-                                            <td>(الإنجليزية) Full Name</td>
+                                            <td style="width: 30%;">Full Name (English)</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -93,13 +93,16 @@
                                                     class="email_error_edit"></span></td>
                                         </tr>
                                         <tr>
+                                         
+                                            <td><input type="file" name="image"
+                                                id="img{{ $employee->id }}" hidden
+                                                onchange="previewImage(this, 'edit_previewImage_{{ $employee->id }}')">
+                                            <label for="img{{ $employee->id }}"><img
+                                                    id="edit_previewImage_{{ $employee->id }}"
+                                                    src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
+                                                    style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
+                                        </td>
                                             <td>Image </td>
-                                            <td><input type="file" name="image" id="img">
-                                                <label for="img"><img
-                                                        src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
-                                                        style="padding-top: 5px; border-radius: 0px;"
-                                                        width="30px" height="50px"></label>
-                                            </td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><span style="color: red"
@@ -260,7 +263,7 @@
                                                         name="full_name_ar" required style="width: 100%;"
                                                         value="{{ $employee->translations()->where('locale', 'ar')->first()->full_name }}">
                                                     </th>
-                                                <td>(العربية) Full Name</td>
+                                                <td>Full Name (Arabic)</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><span style="color: red"
@@ -272,7 +275,7 @@
                                                         name="full_name_en" required style="width: 100%;"
                                                         value="{{ $employee->translations()->where('locale', 'en')->first()->full_name }}">
                                                 </td>
-                                                <td>(الإنجليزية) Full Name</td>
+                                                <td>Full Name (English)</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><span style="color: red"
@@ -302,13 +305,16 @@
                                                         class="email_error_edit"></span></td>
                                             </tr>
                                             <tr>
+                                               
+                                                <td><input type="file" name="image"
+                                                    id="img{{ $employee->id }}" hidden
+                                                    onchange="previewImage(this, 'edit_previewImage_{{ $employee->id }}')">
+                                                <label for="img{{ $employee->id }}"><img
+                                                        id="edit_previewImage_{{ $employee->id }}"
+                                                        src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
+                                                        style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
+                                            </td>
                                                 <td>Image </td>
-                                                <td><input type="file" name="image" id="img">
-                                                    <label for="img"><img
-                                                            src="{{ asset(str_replace(app_path(), '', $employee->image)) }}"
-                                                            style="padding-top: 5px; border-radius: 0px;"
-                                                            width="30px" height="50px"></label>
-                                                </td>
                                             </tr>
                                             <tr>
                                             <td colspan="2"><span style="color: red"

@@ -44,7 +44,10 @@
                                                 style="width:75% !important; font-size:16px;">
                                             <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
                                                     height="90px" style="display: none; padding:6px;"></label> --}}
-                                            <input type="file" name="image">
+                                                    <input type="file" id="add_input_0"  onchange="previewImage(this, 'add_previewImage_0')" name="image" class="toggle text-primary in" name="event_image" required
+                                                    style="width:75% !important; font-size:16px;">
+                                                    <label for="add_input_0"> <img id="add_previewImage_0" width="170px"
+                                                        height="90px" style="display: none; padding:6px;"></label>
                                         </td>
                                         <td>images </td>
                                     </tr>
