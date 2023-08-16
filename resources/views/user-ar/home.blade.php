@@ -158,30 +158,7 @@
                     </div>
                     <p class="text-white">تمتع بأفضل تجربة معنا عن طريق مشاهدة مواقع الأماكن الأقرب إليك و الحصول على
                         الحجوزات اللازمة بأقرب وقت وأسرع طريقة</p>
-                    <ul class="d-flex text-white m-0 " style="list-style:none; align-items: center;">
-                        <i class="fa fa-check text-primary mr-3 text-success"></i>
-                        <li class="py-2"> قم بتحديد الصنف الذي ترغب بزيارته و من ثم استعرض الأماكن الأقرب إليك على
-                            الخريطة </li>
-
-                    </ul>
-                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
-                        <label for="hotel" style="font-weight: bold; font-size:25px; color: #fff; margin-right: 10px;">
-                            فنادق
-                        </label>
-                        <input id="hotel" type="radio" name="r">
-                    </div>
-                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
-                        <label for="res" style="font-weight: bold; font-size:25px; color: #fff; margin-right: 10px;">
-                            مطاعم
-                        </label>
-                        <input id="res" type="radio" name="r">
-                    </div>
-                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
-                        <label for="arch" style="font-weight: bold; font-size:25px; color: #fff; margin-right: 10px;">
-                            أماكن أثرية
-                        </label>
-                        <input id="arch" type="radio" name="r">
-                    </div>
+                   
 
                 </div>
 

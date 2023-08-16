@@ -159,30 +159,7 @@
                     </div>
                     <p class="text-white">Enjoy the best experience with us by viewing the locations of the places closest to you and getting
                         The necessary reservations as soon as possible and the fastest way</p>
-                    <ul class="d-flex text-white m-0 " style="list-style:none; align-items: center;">
-                        <i class="fa fa-check text-primary mr-3 text-success"></i>
-                        <li class="py-2">Select the category you want to visit, and then browse the places closest to you on the map</li>
-
-                    </ul>
-                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
-                        <input id="hotel" type="radio" name="r">
-                        <label for="hotel" style="font-weight: bold; font-size:25px; color: #fff; margin-left: 10px;">
-                            Hotels
-                        </label>
-                    </div>
-                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
-                        <input id="res" type="radio" name="r">
-                        <label for="res" style="font-weight: bold; font-size:25px; color: #fff; margin-left: 10px;">
-                            Restaurants
-                        </label>
-                    </div>
-                    <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
-                        <input id="arch" type="radio" name="r">
-                        <label for="arch" style="font-weight: bold; font-size:25px; color: #fff; margin-left: 10px;">
-                            archaeological sites
-                        </label>
-                    </div>
-
+                    
                 </div>
 
             </div>
