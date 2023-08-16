@@ -64,7 +64,7 @@ class EmployeeProfileController extends Controller
                 // 'confirmed'
             ],
             'phone' => ['required', 'numeric', 'digits:10'],
-            'salary' => 'required|numeric',
+            'salary' => ['required', 'numeric', 'min:1'],
             'identifier' => ['required', 'numeric', 'digits:11'],
         ], [
             'full_name_ar.required' => 'حقل الاسم الكامل (العربية) مطلوب',
@@ -82,6 +82,7 @@ class EmployeeProfileController extends Controller
             'phone.digits' => 'حقل الهاتف يجب أن يتكون من 10 خانات',
             'salary.required' => 'حقل الراتب مطلوب',
             'salary.numeric' => 'حقل الراتب يجب أن يتكون من أرقام فقط',
+            'salary.min' => 'حقل الراتب يجب أن يكون أكبر من الصفر',
             'identifier.required' => 'حقل الرقم الوطني مطلوب',
             'identifier.numeric' => 'حقل الرقم الوطني يجب أن يتكون من أرقام فقط',
             'identifier.digits' => 'حقل الرقم الوطني يجب أن يتكون من 11 خانات',
@@ -136,7 +137,7 @@ class EmployeeProfileController extends Controller
     {
         $data=$request->input();
         //validation:
-
+// dd($request);
         $request->validate([
             'full_name_ar' => 'required',
             'full_name_en' => 'required',
@@ -150,7 +151,7 @@ class EmployeeProfileController extends Controller
                 // 'confirmed'
             ],
             'phone' => ['required', 'numeric', 'digits:10'],
-            'salary' => 'required|numeric',
+            'salary' => ['required', 'numeric', 'min:1'],
             'identifier' => ['required', 'numeric', 'digits:11'],
         ], [
             'full_name_ar.required' => 'Full Name(Arabic) feild is required',
@@ -168,6 +169,7 @@ class EmployeeProfileController extends Controller
             'phone.digits' => 'Phone field must contain 10 characters',
             'salary.required' => 'Salary feild is required',
             'salary.numeric' => 'Salary field must consist of numbers only',
+            'salary.min' => 'Salary field must be greater than 0',
             'identifier.required' => 'Identifier feild is required',
             'identifier.numeric' => 'Identifier field must consist of numbers only',
             'identifier.digits' => 'Identifier field must contain 11 characters',
@@ -266,7 +268,7 @@ class EmployeeProfileController extends Controller
             //     // 'confirmed'
             // ],
             'phone' => ['required', 'numeric', 'digits:10'],
-            'salary' => 'required|numeric',
+            'salary' => 'required|numeric|min:1',
             'identifier' => ['required', 'numeric', 'digits:11'],
         ], [
             'full_name_ar.required' => 'حقل الاسم الكامل (العربية) مطلوب',
@@ -282,6 +284,7 @@ class EmployeeProfileController extends Controller
             'phone.numeric' => 'حقل الهاتف يجب أن يتكون من أرقام فقط',
             'phone.digits' => 'حقل الهاتف يجب أن يتكون من 10 خانات',
             'salary.required' => 'حقل الراتب مطلوب',
+            'salary.min' => 'حقل الراتب يجب أن يكون أكبر من الصفر',
             'salary.numeric' => 'حقل الراتب يجب أن يتكون من أرقام فقط',
             'identifier.required' => 'حقل الرقم الوطني مطلوب',
             'identifier.numeric' => 'حقل الرقم الوطني يجب أن يتكون من أرقام فقط',
@@ -346,7 +349,7 @@ class EmployeeProfileController extends Controller
             //     // 'confirmed'
             // ],
             'phone' => ['required', 'numeric', 'digits:10'],
-            'salary' => 'required|numeric',
+            'salary' => 'required|numeric|min:1',
             'identifier' => ['required', 'numeric', 'digits:11'],
         ], [
             'full_name_ar.required' => 'Full Name(Arabic) feild is required',
@@ -363,6 +366,7 @@ class EmployeeProfileController extends Controller
             'phone.digits' => 'Phone field must contain 10 characters',
             'salary.required' => 'Salary feild is required',
             'salary.numeric' => 'Salary field must consist of numbers only',
+            'salary.min' => 'Salary field must be greater than 0',
             'identifier.required' => 'Identifier feild is required',
             'identifier.numeric' => 'Identifier field must consist of numbers only',
             'identifier.digits' => 'Identifier field must contain 11 characters',
