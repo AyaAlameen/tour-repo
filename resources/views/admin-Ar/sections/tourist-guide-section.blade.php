@@ -92,11 +92,12 @@
                                                 <td>
                                                     <input type="file" name="image" id="img{{$guide->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$guide->id}}')">
                                                     <label for="img{{$guide->id}}" ><img id="edit_previewImage_{{$guide->id}}" src="{{ asset(str_replace(app_path(),'',$guide -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
+                                                    <td>الصورة </td>
                                                 </td> 
                                                 <tr>
                                                     <td colspan="2"><span style="color: red" class="image_error_edit"></span></td>
                                                   </tr>      
-                                                <td>الصورة </td>
+                                               
                                             </tr>
                                             <tr>
                                                 <td><input type="number" name="phone" class="toggle text-primary in" value="{{$guide->phone}}"></td>  
@@ -252,14 +253,14 @@
                                               </tr> 
                                             <tr>
                                                 <td>
-                                                    <input type="file" name="image" id="img{{$guide->id}}" hidden onchange="previewImage(this, 'edit_previewImage_{{$guide->id}}')">
+                                                    <input type="file" name="image" id="img{{$guide->id}}"  hidden onchange="previewImage(this, 'edit_previewImage_{{$guide->id}}')">
                                                     <label for="img{{$guide->id}}" ><img id="edit_previewImage_{{$guide->id}}" src="{{ asset(str_replace(app_path(),'',$guide -> image))}}" style="padding-top: 5px; border-radius: 0px; width:170px; height:90px;"></label>
                                                 </td> 
                                                 <td>الصورة </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><span style="color: red" class="image_error_edit"></span></td>
-                                              </tr> 
+                                            </tr> 
                                             <tr>
                                                 <td><input type="number" name="phone" class="toggle text-primary in" value="{{$guide->phone}}"></td>  
                                                 <td>الهاتف</td>

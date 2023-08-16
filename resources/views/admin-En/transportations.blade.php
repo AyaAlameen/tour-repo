@@ -87,10 +87,18 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td colspan="2"><span class="text-danger p-1"
+                                                id="description_ar_error"></span></td>
+                                    </tr>
+                                    <tr>
                                         <td>Description(English) </td>
                                         <td><input type="text" name="description_en" class="toggle text-primary in"
                                                 required style="width: 100%;">
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><span class="text-danger p-1"
+                                                id="description_en_error"></span></td>
                                     </tr>
 
                                 </table>

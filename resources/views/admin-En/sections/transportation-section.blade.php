@@ -129,11 +129,19 @@
                                             <td><input type="text" class="toggle text-primary in" name="description_ar"
                                                     value="{{ $transportation->translations()->where('locale', 'ar')->first()->description }}" required style="width: 100%;"></td>
                                         </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="description_ar_error_edit"></span></td>
+                                        </tr>
 
                                         <tr>
-                                            <td>Specifications(English) </td>
+                                            <td>Description(English) </td>
                                             <td><input type="text" class="toggle text-primary in" name="description_en"
                                                     value="{{ $transportation->translations()->where('locale', 'en')->first()->description }}" required style="width: 100%;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="description_en_error_edit"></span></td>
                                         </tr>
 
 
@@ -322,11 +330,19 @@
                                             <td><input type="text" class="toggle text-primary in" name="description_ar"
                                                     value="{{ $transportation->translations()->where('locale', 'ar')->first()->description }}" required style="width: 100%;"></td>
                                         </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="description_ar_error_edit"></span></td>
+                                        </tr>
 
                                         <tr>
-                                            <td>Specifications(English) </td>
+                                            <td>Description(English) </td>
                                             <td><input type="text" class="toggle text-primary in" name="description_en"
                                                     value="{{ $transportation->translations()->where('locale', 'en')->first()->description }}" required style="width: 100%;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><span style="color: red"
+                                                    class="description_en_error_edit"></span></td>
                                         </tr>
 
 
