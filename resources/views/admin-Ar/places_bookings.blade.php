@@ -160,12 +160,13 @@
                 $('.close').click();
                 $('.parenttrue').attr("hidden", false);
                 document.getElementById(formId).reset();
+                removeMessages();
+
 
             })
             .fail(function(data) {
                 // $('.close').click();
                 // $('.parent').attr("hidden", false);
-                console.log(data.responseJSON.errors.full_name[0]);
                 removeMessages();
 
                 if (data.responseJSON.errors.full_name) {

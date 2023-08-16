@@ -159,6 +159,8 @@
                 $('.close').click();
                 $('.parenttrue').attr("hidden", false);
                 document.getElementById(formId).reset();
+                removeMessages();
+
 
             })
             .fail(function(data) {

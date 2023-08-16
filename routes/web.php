@@ -411,7 +411,7 @@ Route::middleware(['tourist_guide'])->group(function(){
         }) -> name('places_booking_en');
 
         Route::get('/get_places_booking_en', [BookingController::class, 'indexPlaceEn']) -> name('get_places_booking_en');
-        Route::post('/places_booking_en//add', [BookingController::class, 'storePlaceEn']) -> name('addPlaceBookingEn');
+        Route::post('/places_booking_en/add', [BookingController::class, 'storePlaceEn']) -> name('addPlaceBookingEn');
         
 
 
@@ -423,10 +423,20 @@ Route::middleware(['tourist_guide'])->group(function(){
             return view('admin-En.groups_booking');
         }) -> name('groups_booking_en');
     
-        Route::get('/services_booking_en', function () {
-            return view('admin-En.services_bookings');
-        }) -> name('services_booking_en');
+
+
+        // Route::get('/services_booking_en', function () {
+        //     return view('admin-En.services_bookings');
+        // }) -> name('services_booking_en');
         
+        Route::get('/services_booking_en', [BookingController::class, 'getServicesEn']) -> name('services_booking_en');
+
+        Route::get('/get_services_booking_en', [BookingController::class, 'indexServiceEn']) -> name('get_services_booking_en');
+        Route::post('/services_booking_en/add', [BookingController::class, 'storeServiceEn']) -> name('addServiceBookingEn');
+
+
+
+
         Route::get('/events_booking_en', function () {
             return view('admin-En.events_bookings');
         }) -> name('events_booking_en');
@@ -434,7 +444,7 @@ Route::middleware(['tourist_guide'])->group(function(){
     
         //ar
         Route::get('/get_places_booking_ar', [BookingController::class, 'indexPlaceAr']) -> name('get_places_booking_ar');
-        Route::post('/places_booking_ar//add', [BookingController::class, 'storePlaceAr']) -> name('addPlaceBookingAr');
+        Route::post('/places_booking_ar/add', [BookingController::class, 'storePlaceAr']) -> name('addPlaceBookingAr');
         Route::get('/places_booking_ar', function () {
             return view('admin-Ar.places_bookings');
         }) -> name('places_booking_ar');
@@ -447,9 +457,14 @@ Route::middleware(['tourist_guide'])->group(function(){
             return view('admin-Ar.groups_booking');
         }) -> name('groups_booking_ar');
     
-        Route::get('/services_booking_ar', function () {
-            return view('admin-Ar.services_bookings');
-        }) -> name('services_booking_ar');
+
+
+        Route::get('/services_booking_ar', [BookingController::class, 'getServicesAr']) -> name('services_booking_ar');
+
+        Route::get('/get_services_booking_ar', [BookingController::class, 'indexServiceAr']) -> name('get_services_booking_ar');
+        Route::post('/services_booking_ar/add', [BookingController::class, 'storeServiceAr']) -> name('addServiceBookingAr');
+
+
         
         Route::get('/events_booking_ar', function () {
             return view('admin-Ar.events_bookings');
