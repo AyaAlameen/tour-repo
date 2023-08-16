@@ -28,7 +28,7 @@
                 {{ $company->phone }}
             </div>
             <div class="product-cell">
-                <button class="app-content-headerButton"><a href=""
+                <button class="app-content-headerButton"><a href="{{route ('getTransportationsEn', ['id' => $company->id])}}"
                         style="color:var(--title ); text-decoration:none;">Details</a> </button>
             </div>
 
@@ -174,7 +174,7 @@
                 {{ $company->phone }}
             </div>
             <div class="product-cell">
-                <button class="app-content-headerButton"><a href=""
+                <button class="app-content-headerButton"><a href="{{route ('getTransportationsEn', ['id' => $company->id])}}"
                         style="color:var(--title ); text-decoration:none;">Details</a> </button>
             </div>
 

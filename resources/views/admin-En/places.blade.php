@@ -1,7 +1,7 @@
 @extends('adminLayout-En.master')
 @section('admincontent')
     <div class="app-content">
-        <div class="app-content-header" style="width:47.5%;">
+        <div class="app-content-header" style="width:51.5%;">
             <h1 class="app-content-headerText">Places</h1>
 
             <!-- add -->
@@ -299,7 +299,7 @@
         </div>
         <!-- end add -->
 
-        <div class="app-content-actions" style="width:48%;">
+        <div class="app-content-actions" style="width:52%;">
             <input class="search-bar" onkeyup="searchFunction()" id="search" placeholder="search in name..."
                 type="text">
             <div class="app-content-actions-wrapper">
@@ -362,7 +362,7 @@
 
             </div>
         </div>
-        <div class="scroll-class" style="width:47%;">
+        <div class="scroll-class" style="width:51%;">
             <div class="products-area-wrapper tableView" id="placesTable">
                 <div class="products-header">
                     <div class="product-cell">#</div>
