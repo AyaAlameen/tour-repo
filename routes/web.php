@@ -27,6 +27,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserEventController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -408,7 +409,12 @@ Route::middleware(['tourist_guide'])->group(function(){
         Route::get('/places_booking_en', function () {
             return view('admin-En.places_bookings');
         }) -> name('places_booking_en');
+
+        Route::get('/get_places_booking_en', [BookingController::class, 'indexPlaceEn']) -> name('get_places_booking_en');
+        Route::post('/places_booking_en//add', [BookingController::class, 'storePlaceEn']) -> name('addPlaceBookingEn');
         
+
+
         Route::get('/offers_booking_en', function () {
             return view('admin-En.offers_bookings');
         }) -> name('offers_booking_en');
@@ -427,6 +433,8 @@ Route::middleware(['tourist_guide'])->group(function(){
         
     
         //ar
+        Route::get('/get_places_booking_ar', [BookingController::class, 'indexPlaceAr']) -> name('get_places_booking_ar');
+        Route::post('/places_booking_ar//add', [BookingController::class, 'storePlaceAr']) -> name('addPlaceBookingAr');
         Route::get('/places_booking_ar', function () {
             return view('admin-Ar.places_bookings');
         }) -> name('places_booking_ar');
@@ -447,6 +455,8 @@ Route::middleware(['tourist_guide'])->group(function(){
             return view('admin-Ar.events_bookings');
         }) -> name('events_booking_ar');
     });
+
+
     Route::middleware(['welcome'])->group(function(){
         Route::get('/welcome_home_en', function () {
             return view('admin-En.welcome_home');

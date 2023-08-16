@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::post('/pay', [App\Http\Controllers\FatoorahConteroller::class, 'payOrder']);
+Route::post('/payment', [App\Http\Controllers\FatoorahConteroller::class, 'payOrder'])->name('payBooking');
 
 Route::get('/callback', [App\Http\Controllers\FatoorahConteroller::class, 'paymentCallBack']);

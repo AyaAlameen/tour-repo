@@ -21,7 +21,7 @@ class Booking
             if($user->is_employee == 1 || $user->is_employee == 2){ 
 
                 foreach ($user->permissions as $permission) {
-                    if($permission->code == 'admin' || $permission->code == 'booking'){
+                    if($permission->code == 'admin' || $user->is_employee == 2){
                         return $next($request);
                     }
                 }

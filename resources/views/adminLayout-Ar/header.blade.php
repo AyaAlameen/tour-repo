@@ -329,10 +329,10 @@
                 @endif
             @endif
             @if (\Auth::user())
-                @if (\Auth::user()->is_employee == 1)
+                @if (\Auth::user()->is_employee == 1 || \Auth::user()->is_employee == 2)
 
                     @foreach (\Auth::user()->permissions as $permission)
-                        @if ($permission->code == 'admin' || $permission->code == 'booking')
+                        @if ($permission->code == 'admin' || \Auth::user()->is_employee == 2)
                             <li class="accordion accordion-flush sidebar-list-item " id="accordionFlushExample">
                                 <div class="accordion-item ">
                                     <h2 class="accordion-header " id="flush-headingOne">
