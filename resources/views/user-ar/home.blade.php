@@ -54,9 +54,8 @@
                     <div style="box-shadow:#64686c33  3px -3px 6px 0.5px;" class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase">حولنا</h6>
                         <h1 class="mb-3">نعمل على تأمين أفضل الرحلات السياحية بما يتناسب مع ميزانيتك</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit
-                            sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat
-                            sed diam duo</p>
+                        <p>وقع إلكتروني متخصص في مساعدتك في حجز فندقك وجولتك السياحية وتأجير السيارات ومعلومات سياحية عن
+                            جميع الأماكن والمناطق والمعالم السياحية والأثرية في سوريا.</p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="img/dam.jpg" alt="">
@@ -87,7 +86,7 @@
                         </div>
                         <div class="d-flex flex-column">
                             <h5 class="">عروض منافسة</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <p class="m-0">نحن نقدم أفضل الأماكن بأقل تكلفة</p>
                         </div>
                     </div>
                 </div>
@@ -99,7 +98,7 @@
                         </div>
                         <div class="d-flex flex-column">
                             <h5 class="">أفضل الخدمات</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <p class="m-0">نحن نقدم أفضل الخدمات التي تحتاجها في جولتك</p>
                         </div>
                     </div>
                 </div>
@@ -111,7 +110,7 @@
                         </div>
                         <div class="d-flex flex-column">
                             <h5 class="">تغطية شاملة</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <p class="m-0">سوف تتعرف على حضارة سوريا بأكملها وإرثها</p>
                         </div>
                     </div>
                 </div>
@@ -233,24 +232,25 @@
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-route mx-auto mb-4"></i>
                         <h5 class="mb-2">دليل سياحي</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
-                            amet labore</p>
+                        <p class="m-0">الشخص المسؤول عن أخذ السائحين إلى أماكن ومواقع قد لا يعرفونها أو غير مألوفة بالنسبة لهم ويُعرّفهم بها. ويقوم المرشد السياحي بتنظيم
+                             برامجًا وجداولًا يأخذ بها السائحين إلى الأماكن الأثرية والمعالم المهمة في دولة ما    .</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
                         <h5 class="mb-2">بطاقات حجز</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
-                            amet labore</p>
+                        <p class="m-0">ذا حجزت ضيف غرفة لنفسها على موقع الويب الخاص بك ،
+                             فيمكنها إدخال رقم بطاقة الائتمان الخاصة بها على شاشة الخروج الخاصة بك ،
+                              وسيتم تشفير رقم البطاقة هذا وتمريره بأمان إلى نظام معالجة الدفع الخاص بك.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
                         <h5 class="mb-2">حجوزات فنادق</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
-                            amet labore</p>
+                        <p class="m-0">عبارة عن منصة برمجية تتيح لأصحاب الفنادق إدارة وقبول الحجوزات عبر الإنترنت لغرفهم الفندقية.
+                             من المهم أن نفهم أن كلمة "نظام" هي في الواقع مضللة بعض الشيء حيث توجد بالفعل أنظمة متكاملة متعددة مطلوبة لالتقاط حجوزات الفنادق وتسهيلها وإدارتها.</p>
                     </div>
                 </div>
 
@@ -258,8 +258,8 @@
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fas fa-utensils mx-auto mb-4"></i>
                         <h5 class="mb-2">حجوزات مطاعم</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
-                            amet labore</p>
+                        <p class="m-0">عبارة عن منصة برمجية تتيح لأصحاب المطاعم إدارة وقبول الحجوزات عبر الإنترنت لمطاعمهم .
+                             من المهم أن نفهم أن كلمة "نظام" هي في الواقع مضللة بعض الشيء حيث توجد بالفعل أنظمة متكاملة متعددة مطلوبة لالتقاط حجوزات المطاعم وتسهيلها وإدارتها.</p>
                     </div>
                 </div>
 
@@ -267,8 +267,9 @@
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-landmark mx-auto mb-4"></i>
                         <h5 class="mb-2">رحلات لأماكن أثرية </h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
-                            amet labore</p>
+                        <p class="m-0">تهدف إلى زيارة المواقع التراثية والتاريخية حول العالم للتعرف عليها عن قرب 
+                            والإطلاع على تجارب هذه الدول في الحفاظ على تراثها وكيفية استغلاله وتطويره،
+                             بالإضافة إلى تنظيم ندوات علمية بالتعاون مع المؤسسات الرسمية في هذه الدول للتعريف بالتراث العمراني</p>
                     </div>
                 </div>
 
@@ -276,8 +277,9 @@
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-car mx-auto mb-4"></i>
                         <h5 class="mb-2">تأمين المواصلات</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
-                            amet labore</p>
+                        <p class="m-0"> وهو يشمل الوسائل المختلفة المستخدمة في ذلك، 
+                            ويعد مقدار النمو في القدرة على نقل أعداد كبيرة من الناس، وكميات كبيرة من البضائع لمسافات طويلة،
+                             وبسرعات كبيرة براحة وأمان دليلاً على الحضارة والتطوّر التكنولوجي بشكل خاص.</p>
                     </div>
                 </div>
             </div>
@@ -485,10 +487,7 @@
                             <h6 class="text-primary text-uppercase">عروض المسافر</h6>
                             <h1 class="text-white"><span class="text-primary">30% حسم</span> من أجل شهر العسل</h1>
                         </div>
-                        <p class="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem
-                            ipsum ut sed eos,
-                            ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
-                            dolor</p>
+                        <p class="text-white">اغتنم فرصة العمر، يوجد عروض مغرية ولفترة محدودة، ويوجد عروض مميزة ترضي الجميع، كل ما تحتاجه موجود لدينا وبأرخص الأسعار،لا تدع فرصة العرض تفوتك، حسومات تصل إلى 3 بالمئة</p>
                         <ul class="list-inline text-white m-0">
                             <li class="py-2">افضل الخصومات والحسومات لكافة المناسبات <i
                                     class="fa fa-check text-primary mr-3"></i></li>

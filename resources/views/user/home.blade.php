@@ -157,12 +157,11 @@
                     <div class="mb-4">
                         <h1 class="text-white">See <span class="text-primary"> The Nearest Places </span> For You </h1>
                     </div>
-                    <p class="text-white">تمتع بأفضل تجربة معنا عن طريق مشاهدة مواقع الأماكن الأقرب إليك و الحصول على
-                        الحجوزات اللازمة بأقرب وقت وأسرع طريقة</p>
+                    <p class="text-white">Enjoy the best experience with us by viewing the locations of the places closest to you and getting
+                        The necessary reservations as soon as possible and the fastest way</p>
                     <ul class="d-flex text-white m-0 " style="list-style:none; align-items: center;">
                         <i class="fa fa-check text-primary mr-3 text-success"></i>
-                        <li class="py-2"> قم بتحديد الصنف الذي ترغب بزيارته و من ثم استعرض الأماكن الأقرب إليك على
-                            الخريطة </li>
+                        <li class="py-2">Select the category you want to visit, and then browse the places closest to you on the map</li>
 
                     </ul>
                     <div class="d-flex justify-content-center" style="flex-direction: row; align-items: baseline;">
