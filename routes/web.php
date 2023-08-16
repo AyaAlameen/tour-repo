@@ -653,9 +653,12 @@ Route::post('/en/place/reviews', [RatingController::class, 'reviewsPlaceEn']) ->
 Route::post('/ar/service/filter', [ServiceController::class, 'filterServicesAr']) -> name('filterServicesAr');
 Route::post('/en/service/filter', [ServiceController::class, 'filterServicesEn']) -> name('filterServicesEn');
 
-// Route::get('/place_details_ar', function () {
-//     return view('user-ar.place_details');
-// })-> name('place_details_ar');
+Route::get('/success', function () {
+    return view('user-ar.success');
+})-> name('success');
+Route::get('/fail', function () {
+    return view('user-ar.fail');
+})-> name('fail');
 
 Route::get('/place_details_ar/{id}', [App\Http\Controllers\PlaceController::class, 'placeDetailsAr'])-> name('place_details_ar');
 

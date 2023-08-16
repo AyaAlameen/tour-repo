@@ -827,27 +827,23 @@
                 // $('.parent').attr("hidden", false);
                 removeMessages();
 
-                if (data.responseJSON.errors.city_id) {
-                    document.querySelector(`#${formId} #city_error`).innerHTML = data.responseJSON.errors
-                        .city_id[0];
+                if (data.responseJSON.errors.transportation_id) {
+                    document.querySelector(`#${formId} #transportation_error`).innerHTML = data.responseJSON.errors
+                        .transportation_id[0];
 
                 }
-                if (data.responseJSON.errors.district_id) {
-
-                    document.querySelector(`#${formId} #district_error`).innerHTML = data.responseJSON.errors
-                        .district_id[0];
-
-                }
-                if (data.responseJSON.errors.place_id) {
-
-                    document.querySelector(`#${formId} #place_error`).innerHTML = data.responseJSON.errors
-                        .place_id[0];
+                if (data.responseJSON.errors['dates.0']) {
+                    // console.log(element)
+                    // data.responseJSON.errors.dates.forEach(element => {
+                        document.querySelector(`#${formId} #dates_error`).innerHTML = data.responseJSON.errors['dates.0'][0];
+                    // });
+                    
 
                 }
-                if (data.responseJSON.errors.service_id) {
+                if (data.responseJSON.errors.dates) {
 
-                    document.querySelector(`#${formId} #service_id_error`).innerHTML = data.responseJSON.errors
-                        .service_id[0];
+                    document.querySelector(`#${formId} #dates_error`).innerHTML = data.responseJSON.errors
+                        .dates[0];
 
                 }
                 

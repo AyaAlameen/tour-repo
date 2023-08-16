@@ -9,6 +9,7 @@ use App\Models\Place;
 use App\Models\Offer;
 use App\Models\Translation;
 use App\Models\Image;
+use App\Models\Booking;
 
 class Service extends Model
 {
@@ -27,6 +28,11 @@ class Service extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'model');
+    }
+
+    public function bookings()
+    {
+        return $this->morphMany(Booking::class, 'model');
     }
 
 }

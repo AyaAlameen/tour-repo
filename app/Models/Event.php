@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Place;
 use App\Models\Service;
 use App\Models\Translation;
+use App\Models\Booking;
 
 class Event extends Model
 {
@@ -26,5 +27,9 @@ class Event extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'model');
+    }
+    public function bookings()
+    {
+        return $this->morphMany(Booking::class, 'model');
     }
 }

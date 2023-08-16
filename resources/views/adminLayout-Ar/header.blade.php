@@ -900,7 +900,8 @@
     function removeMessagesHeader() {
         document.getElementById('old_error').innerHTML = '';
         document.getElementById('new_error').innerHTML = '';
-        document.getElementById('confirmation_error').innerHTML = '';}
+        document.getElementById('confirmation_error').innerHTML = '';
+    }
 
       
     </script>

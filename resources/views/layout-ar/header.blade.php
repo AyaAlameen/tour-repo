@@ -353,53 +353,53 @@
 
                         <tr>
                             <td class="text-center">الاسم بالكامل</td>
-                            <td><input type="text" class="toggle text-primary in" name="full_name" required
+                            <td><input type="text" id="full_name_booking" class="toggle text-primary in" name="full_name" required
                                     style="width: 100%;"></th>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                            <td colspan="2"><span class="text-danger" id="full_name_booking_error"></span></td>
                         </tr>
                         <tr>
                             <td class="text-center">رقم الهاتف</td>
-                            <td><input type="number" class="toggle text-primary in" name="phone" required
+                            <td><input type="number" id="phone_booking" class="toggle text-primary in" name="phone" required
                                     style="width: 100%;"></td>
                         </tr>
-                        <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                        <td colspan="2"><span class="text-danger" id="phone_booking_error"></span></td>
                         </tr>
                         <tr>
                             <td class="text-center">الرقم الوطني</td>
-                            <td><input type="number" class="toggle text-primary in" name="user_identifire" required
+                            <td><input type="number" id="id_booking" class="toggle text-primary in" name="user_identifire" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                            <td colspan="2"><span class="text-danger" id="id_booking_error"></span></td>
                         </tr>
 
                         <tr>
                             <td class="text-center">عدد الأشخاص</td>
-                            <td><input type="number" class="toggle text-primary in" name="people_count" required
+                            <td><input type="number" id="people_count_booking" class="toggle text-primary in" name="people_count" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                            <td colspan="2"><span class="text-danger" id="people_count_booking_error"></span></td>
                         </tr>
                         <tr>
                             <td class="text-center"> تاريخ الوصول</td>
-                            <td><input type="date" class="toggle text-primary in" name="access_date" required
+                            <td><input type="date" id="start_date_booking" class="toggle text-primary in" name="access_date" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                            <td colspan="2"><span class="text-danger" id="start_date_booking_error"></span></td>
                         </tr>
-                        <tr>
+                        <tr id="end_date_booking_tr">
                             <td class="text-center"> تاريخ المغادرة</td>
-                            <td><input type="date" class="toggle text-primary in" name="depart_date" required
+                            <td><input type="date" id="end_date_booking" class="toggle text-primary in" name="depart_date" required
                                     style="width: 100%;"></td>
                         </tr>
-                        <tr>
-                            <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                        <tr id="end_date_booking_error_tr">
+                            <td colspan="2"><span class="text-danger" id="end_date_booking_error"></span></td>
                         </tr>
-                        <tr>
+                        <tr id="reservation_period_booking_tr">
                             <td class="text-center">مدة الحجز (من الساعة - إلى الساعة -)</td>
                             <td>
                                 <div class="dropdown toggle text-primary" style="display:inline-block;">
@@ -412,18 +412,20 @@
                                         <a class="dropdown-item" href="#">13:00 - 14:00</a>
                                     </div>
                                 </div>
+                                <input type="text" hidden id="reservation_period_booking">
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="2"><span class="text-danger">رسالة الخطأ</span></td>
+                        <tr id="reservation_period_booking_error_tr">
+                            <td colspan="2"><span class="text-danger" id="reservation_period_booking_error"></span></td>
 
                         </tr>
+                        <input type="text" hidden  id="booking_type">
                     </table>
                 </div>
             </form>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                <button type="button" id="add-city-btn" class="app-content-headerButton">تم</button>
+                <button type="button" id="add-city-btn" class="app-content-headerButton">التثبيت والدفع</button>
             </div>
         </div>
     </div>

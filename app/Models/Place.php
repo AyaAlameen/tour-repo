@@ -13,6 +13,7 @@ use App\Models\Service;
 use App\Models\Offer;
 use App\Models\Translation;
 use App\Models\Image;
+use App\Models\Booking;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Place extends Model
@@ -56,6 +57,11 @@ class Place extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'model');
+    }
+
+    public function bookings()
+    {
+        return $this->morphMany(Booking::class, 'model');
     }
 
     public function images()

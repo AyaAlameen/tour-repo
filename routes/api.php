@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::post('/pay', [App\Http\Controllers\FatoorahConteroller::class, 'payOrder']);
+
+Route::get('/callback', [App\Http\Controllers\FatoorahConteroller::class, 'paymentCallBack']);
