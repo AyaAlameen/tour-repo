@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Service;
 use App\Models\Offer;
+use App\Models\Event;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -104,23 +105,64 @@ class BookingController extends Controller
  
     }
     public function indexOfferEn()
-    { if (Auth::user()->is_employee == 2) {
-        $place_id = \App\Models\UserPermission::where('user_id', \Auth::user()->id)->first()->place()->first()->id;
-        $offers_ids = Offer::where('place_id', $place_id)->get()->pluck('id');
+    { 
+        if (Auth::user()->is_employee == 2) {
+            $place_id = \App\Models\UserPermission::where('user_id', \Auth::user()->id)->first()->place()->first()->id;
+            $offers_ids = Offer::where('place_id', $place_id)->get()->pluck('id');
 
-        $bookings = Booking::where('model_type', 'App\Models\Offer')->whereIn('model_id', $offers_ids)->get();
-        // dd($bookings);
-        $offers = Offer::where('place_id', $place_id)->where('end_date','>=', now()->format('Y-m-d'))->get();
+            $bookings = Booking::where('model_type', 'App\Models\Offer')->whereIn('model_id', $offers_ids)->get();
+            // dd($bookings);
+            $offers = Offer::where('place_id', $place_id)->where('end_date','>=', now()->format('Y-m-d'))->get();
+        }
+        elseif(Auth::user()->is_employee == 1){
+            $bookings = Booking::where('model_type', 'App\Models\Offer')->get();
+            $offers = Offer::where('end_date','>=', now()->format('Y-m-d'))->get();
+        }
+
+        
+
+        return view("admin-En.sections.booking-offer-section")->with(['bookings' => $bookings, 'offers' => $offers]);
+
     }
-    elseif(Auth::user()->is_employee == 1){
-        $bookings = Booking::where('model_type', 'App\Models\Offer')->get();
-        $offers = Offer::where('end_date','>=', now()->format('Y-m-d'))->get();
+    public function indexEventAr()
+    {
+        if (Auth::user()->is_employee == 2) {
+            $place_id = \App\Models\UserPermission::where('user_id', \Auth::user()->id)->first()->place()->first()->id;
+            $events_ids = Event::where('place_id', $place_id)->get()->pluck('id');
+
+            $bookings = Booking::where('model_type', 'App\Models\Event')->whereIn('model_id', $events_ids)->get();
+            // dd($bookings);
+            $events = Event::where('place_id', $place_id)->where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+        elseif(Auth::user()->is_employee == 1){
+            $bookings = Booking::where('model_type', 'App\Models\Event')->get();
+            $events = Event::where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+
+        
+
+        return view("admin-Ar.sections.booking-event-section")->with(['bookings' => $bookings, 'events' => $events]);
+ 
     }
+    public function indexEventEn()
+    { 
+        if (Auth::user()->is_employee == 2) {
+            $place_id = \App\Models\UserPermission::where('user_id', \Auth::user()->id)->first()->place()->first()->id;
+            $events_ids = Event::where('place_id', $place_id)->get()->pluck('id');
 
-    
+            $bookings = Booking::where('model_type', 'App\Models\Event')->whereIn('model_id', $events_ids)->get();
+            // dd($bookings);
+            $events = Event::where('place_id', $place_id)->where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+        elseif(Auth::user()->is_employee == 1){
+            $bookings = Booking::where('model_type', 'App\Models\Event')->get();
+            $events = Event::where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
 
-    return view("admin-En.sections.booking-offer-section")->with(['bookings' => $bookings, 'offers' => $offers]);
+        
 
+        return view("admin-En.sections.booking-event-section")->with(['bookings' => $bookings, 'events' => $events]);
+ 
     }
     public function getServicesAr()
     {
@@ -189,6 +231,40 @@ class BookingController extends Controller
         
 
         return view('admin-En.offers_bookings')->with(['offers' => $offers]);
+    }
+    public function getEventsAr()
+    {
+        $events;
+        if (Auth::user()->is_employee == 2) {
+            $place_id = \App\Models\UserPermission::where('user_id', \Auth::user()->id)->first()->place()->first()->id;
+            // dd($bookings);
+            $events = Event::where('place_id', $place_id)->where('start_date','>=', now()->format('Y-m-d'))->get();
+            // dd($services);
+        }
+        elseif(Auth::user()->is_employee == 1){
+            $events = Event::where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+
+        
+
+        return view('admin-Ar.events_bookings')->with(['events' => $events]);
+    }
+    public function getEventsEn()
+    {
+        $events;
+        if (Auth::user()->is_employee == 2) {
+            $place_id = \App\Models\UserPermission::where('user_id', \Auth::user()->id)->first()->place()->first()->id;
+            // dd($bookings);
+            $events = Event::where('place_id', $place_id)->where('start_date','>=', now()->format('Y-m-d'))->get();
+            // dd($services);
+        }
+        elseif(Auth::user()->is_employee == 1){
+            $events = Event::where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+
+        
+
+        return view('admin-En.events_bookings')->with(['events' => $events]);
     }
 
     /**
@@ -431,9 +507,9 @@ class BookingController extends Controller
 
         ]);
 
-//         $bookinOffers = Booking::where('model_id', $request->input('offer_id'))->where('model_type', 'App\Models\Offer')->get('people_count');
-// $offer  = Offer::find($request->input('offer_id'));
-// dd($bookinOffers, $offer);
+        //         $bookinOffers = Booking::where('model_id', $request->input('offer_id'))->where('model_type', 'App\Models\Offer')->get('people_count');
+        // $offer  = Offer::find($request->input('offer_id'));
+        // dd($bookinOffers, $offer);
         $booking = new Booking;
         $booking->user_id = Auth::user()->id;
         $booking->full_name = $request->input('full_name');
@@ -522,6 +598,143 @@ class BookingController extends Controller
         
 
         return view("admin-En.sections.booking-offer-section")->with(['bookings' => $bookings, 'offers' => $offers]);
+ 
+    }
+    public function storeEventAr(Request $request)
+    {
+        $request->validate([
+            'full_name' => 'required',
+            'event_id' => 'required',
+            // 'start_date' => 'required|date|after:today',
+            // 'end_date' => 'required|date|after:today',
+            // 'end_date' => 'required|date|after_or_equal:today',
+            // 'start_time' => 'required|time',
+            'people_count' => ['required', 'numeric', 'min:1'],
+            
+        ], [
+            'full_name.required' => 'حقل الاسم الكامل مطلوب',
+            'event_id.required' => 'حقل الفعالية مطلوب',
+            // 'start_date.required' => 'حقل تاريخ البداية مطلوب',
+            // 'start_date.date' => 'حقل تاريخ البداية يجب أن يكون تاريخ',
+            // 'start_date.after' => 'حقل تاريخ البداية يجب أن يكون بعد تاريخ اليوم',
+            
+            // 'start_time.required' => 'حقل الوقت مطلوب',
+            // 'start_date.date' => 'حقل تاريخ البداية يجب أن يكون تاريخ',
+            // 'start_date.after' => 'حقل تاريخ البداية يجب أن يكون بعد تاريخ اليوم',
+            // 'end_date.required' => 'حقل تاريخ النهاية مطلوب',
+            // 'end_date.date' => 'حقل تاريخ النهاية يجب أن يكون تاريخ',
+            // 'end_date.after_or_equal' => 'حقل تاريخ النهاية يجب أن يكون بتاريخ اليوم أو بعد تاريخ اليوم',
+            'people_count.required' => 'حقل عدد الأشخاص مطلوب',
+            'people_count.numeric' => 'حقل عدد الأشخاص يجب أن يتكون من أرقام فقط',
+            'people_count.min' => 'حقل عدد الأشخاص يجب أن يكون أكبر من الصفر',
+
+        ]);
+
+        //         $bookin_people_count = Booking::where('model_id', $request->input('event_id'))->where('model_type', 'App\Models\Offer')->sum('people_count');
+        // $event  = Event::find($request->input('offer_id'));
+        // // dd($bookinOffers, $offer);
+        // $request->validate([
+        //     'event_id' => [
+        //         'exists' =>
+        //         function ($attribute, $value, $fail) use($request, $bookin_people_count, $event) {
+                    
+        //                 if ($bookin_people_count>=$event->people_count) {
+        //                         $fail(' وسيلة النقل هذه تم حجزها في تاريخ ' .$date.' من قبل ');
+        //                     }
+        //         },
+        //     ]
+            
+        // ]);
+
+        $booking = new Booking;
+        $booking->user_id = Auth::user()->id;
+        $booking->full_name = $request->input('full_name');
+        $booking->people_count = $request->input('people_count');
+        // $booking->start_date = $request->input('start_date');
+        // $booking->end_date = $request->input('end_date');
+        $booking->cost = $request->input('cost');
+        $booking->model_type =  'App\Models\Event';
+        $booking->model_id = $request->input('event_id');
+        $booking->save();
+
+        if (Auth::user()->is_employee == 2) {
+            $place_id = \App\Models\UserPermission::where('user_id', \Auth::user()->id)->first()->place()->first()->id;
+            $events_ids = Event::where('place_id', $place_id)->get()->pluck('id');
+
+            $bookings = Booking::where('model_type', 'App\Models\Event')->whereIn('model_id', $events_ids)->get();
+            // dd($bookings);
+            $events = Event::where('place_id', $place_id)->where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+        elseif(Auth::user()->is_employee == 1){
+            $bookings = Booking::where('model_type', 'App\Models\Event')->get();
+            $events = Event::where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+
+
+        return view("admin-Ar.sections.booking-event-section")->with(['bookings' => $bookings, 'events' => $events]);
+ 
+    }
+
+    public function storeEventEn(Request $request)
+    {
+        $request->validate([
+            'full_name' => 'required',
+            'event_id' => 'required',
+            // 'start_date' => 'required|date|after:today',
+            // 'end_date' => 'required|date|after:today',
+            // 'end_date' => 'required|date|after_or_equal:today',
+            // 'start_time' => 'required|time',
+            'people_count' => ['required', 'numeric', 'min:1'],
+            
+        ], [
+            'full_name.required' => 'Full Name feild is required',
+            'event_id.required' => 'Event feild is required',
+            // 'start_date.required' => 'Start Date feild is required',
+            // 'start_date.date' => 'Start date field Must be a date',
+            // 'start_date.after' => "Start date field must be after today's date",
+            'people_count.required' => 'People Count feild is required',
+            'people_count.numeric' => 'People Count field must consist of numbers only',
+            'people_count.min' => 'People Count field must be greater than 0',
+            
+            // 'start_time.required' => 'حقل الوقت مطلوب',
+            // 'start_date.date' => 'حقل تاريخ البداية يجب أن يكون تاريخ',
+            // 'start_date.after' => 'حقل تاريخ البداية يجب أن يكون بعد تاريخ اليوم',
+            // 'end_date.required' => 'End Date feild is required',
+            // 'end_date.date' => 'End date field Must be a date',
+            // 'end_date.after_or_equal' => "Start date field must be after or equals today's date",
+           
+
+        ]);
+
+        //         $bookinOffers = Booking::where('model_id', $request->input('offer_id'))->where('model_type', 'App\Models\Offer')->get('people_count');
+        // $offer  = Offer::find($request->input('offer_id'));
+        // dd($bookinOffers, $offer);
+        $booking = new Booking;
+        $booking->user_id = Auth::user()->id;
+        $booking->full_name = $request->input('full_name');
+        $booking->people_count = $request->input('people_count');
+        // $booking->start_date = $request->input('start_date');
+        // $booking->end_date = $request->input('end_date');
+        $booking->cost = $request->input('cost');
+        $booking->model_type =  'App\Models\Event';
+        $booking->model_id = $request->input('event_id');
+        $booking->save();
+
+        if (Auth::user()->is_employee == 2) {
+            $place_id = \App\Models\UserPermission::where('user_id', \Auth::user()->id)->first()->place()->first()->id;
+            $events_ids = Event::where('place_id', $place_id)->get()->pluck('id');
+
+            $bookings = Booking::where('model_type', 'App\Models\Event')->whereIn('model_id', $events_ids)->get();
+            // dd($bookings);
+            $events = Event::where('place_id', $place_id)->where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+        elseif(Auth::user()->is_employee == 1){
+            $bookings = Booking::where('model_type', 'App\Models\Event')->get();
+            $events = Event::where('start_date','>=', now()->format('Y-m-d'))->get();
+        }
+
+        
+        return view("admin-En.sections.booking-event-section")->with(['bookings' => $bookings, 'events' => $events]);
  
     }
     /**
