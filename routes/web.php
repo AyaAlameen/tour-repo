@@ -415,19 +415,21 @@ Route::middleware(['tourist_guide'])->group(function(){
         
 
 
-        Route::get('/offers_booking_en', function () {
-            return view('admin-En.offers_bookings');
-        }) -> name('offers_booking_en');
-        
+        // Route::get('/offers_booking_en', function () {
+        //     return view('admin-En.offers_bookings');
+        // }) -> name('offers_booking_en');
+        Route::get('/offers_booking_en', [BookingController::class, 'getOffersEn']) -> name('offers_booking_en');
+
+        Route::get('/get_offers_booking_en', [BookingController::class, 'indexOfferEn']) -> name('get_offers_booking_en');
+        Route::post('/offers_booking_en/add', [BookingController::class, 'storeOfferEn']) -> name('addOfferBookingEn');
+
+
+
         Route::get('/groups_booking_en', function () {
             return view('admin-En.groups_booking');
         }) -> name('groups_booking_en');
     
 
-
-        // Route::get('/services_booking_en', function () {
-        //     return view('admin-En.services_bookings');
-        // }) -> name('services_booking_en');
         
         Route::get('/services_booking_en', [BookingController::class, 'getServicesEn']) -> name('services_booking_en');
 
@@ -449,10 +451,18 @@ Route::middleware(['tourist_guide'])->group(function(){
             return view('admin-Ar.places_bookings');
         }) -> name('places_booking_ar');
         
-        Route::get('/offers_booking_ar', function () {
-            return view('admin-Ar.offers_bookings');
-        }) -> name('offers_booking_ar');
+
+
+        // Route::get('/offers_booking_ar', function () {
+        //     return view('admin-Ar.offers_bookings');
+        // }) -> name('offers_booking_ar');
         
+        Route::get('/offers_booking_ar', [BookingController::class, 'getOffersAr']) -> name('offers_booking_ar');
+
+        Route::get('/get_offers_booking_ar', [BookingController::class, 'indexOfferAr']) -> name('get_offers_booking_ar');
+        Route::post('/offers_booking_ar/add', [BookingController::class, 'storeOfferAr']) -> name('addOfferBookingAr');
+
+
         Route::get('/groups_booking_ar', function () {
             return view('admin-Ar.groups_booking');
         }) -> name('groups_booking_ar');
