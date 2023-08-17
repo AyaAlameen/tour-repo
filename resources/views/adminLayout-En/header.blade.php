@@ -460,12 +460,12 @@
                                                     </a>
                                                 </li>
 
-                                                <li class="sidebar-list-item" onclick="active_part()">
+                                                {{-- <li class="sidebar-list-item" onclick="active_part()">
                                                     <a class="ml-4" href="{{ route('groups_booking_en') }}">
                                                        
                                                         <span>Groups Bookings</span>
                                                     </a>
-                                                </li>
+                                                </li> --}}
 
                                                 <li class="sidebar-list-item" onclick="active_part()">
                                                     <a class="ml-4" href="{{ route('places_booking_en') }}">

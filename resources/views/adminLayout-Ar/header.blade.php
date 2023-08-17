@@ -376,13 +376,13 @@
                                                     </a>
                                                 </li>
 
-                                                <li class="sidebar-list-item" id="serv_booking"
+                                                {{-- <li class="sidebar-list-item" id="serv_booking"
                                                     onclick="active_part(event)">
                                                     <a class="mr-4" href="{{ route('groups_booking_ar') }}">
                                                         
                                                         <span>حجوزات الرحلات</span>
                                                     </a>
-                                                </li>
+                                                </li> --}}
 
                                                 <li class="sidebar-list-item" id="place_booking"
                                                     onclick="active_part(event)">
