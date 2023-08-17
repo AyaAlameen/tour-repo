@@ -51,9 +51,9 @@
                                 data-bs-target="" aria-controls="offcanvasRight"></i></a>
                     @endisset
                     {{-- ticket --}}
-                    <a class="nav-item nav-link"> <i class="fa fa-ticket-alt" title="حجوزاتك"
+                    <!-- <a class="nav-item nav-link"> <i class="fa fa-ticket-alt" title="حجوزاتك"
                             style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
+                            data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a> -->
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
@@ -376,13 +376,13 @@
                                                     </a>
                                                 </li>
 
-                                                <li class="sidebar-list-item" id="serv_booking"
+                                                {{-- <li class="sidebar-list-item" id="serv_booking"
                                                     onclick="active_part(event)">
                                                     <a class="mr-4" href="{{ route('groups_booking_ar') }}">
                                                         
                                                         <span>حجوزات الرحلات</span>
                                                     </a>
-                                                </li>
+                                                </li> --}}
 
                                                 <li class="sidebar-list-item" id="place_booking"
                                                     onclick="active_part(event)">

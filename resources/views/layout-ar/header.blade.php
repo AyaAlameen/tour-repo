@@ -234,9 +234,9 @@
                                 data-bs-toggle="offcanvas" data-bs-target="" aria-controls="offcanvasRight"></i></a>
                     @endisset
                     {{-- ticket --}}
-                    <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
+                    <!-- <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
                             style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
+                            data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a> -->
 
                     <div class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" title="ترجمة"> <i

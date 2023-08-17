@@ -99,9 +99,9 @@
                     @endguest
 
                     {{-- ticket --}}
-                    <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
+                    <!-- <a class="nav-item nav-link"> <i class="fas fa-ticket-alt" title="حجوزاتك"
                             style=" color:var(--bambi);  cursor: pointer;" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a>
+                            data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1"></i></a> -->
                     @isset(Auth::user()->id)
                         <a class="nav-item nav-link"> <i class="fas fa-heart heart" title="favorite"
                                 onClick="getFavorite()" style=" color:var(--bambi);  cursor: pointer;" type="button"
@@ -460,12 +460,12 @@
                                                     </a>
                                                 </li>
 
-                                                <li class="sidebar-list-item" onclick="active_part()">
+                                                {{-- <li class="sidebar-list-item" onclick="active_part()">
                                                     <a class="ml-4" href="{{ route('groups_booking_en') }}">
                                                        
                                                         <span>Groups Bookings</span>
                                                     </a>
-                                                </li>
+                                                </li> --}}
 
                                                 <li class="sidebar-list-item" onclick="active_part()">
                                                     <a class="ml-4" href="{{ route('places_booking_en') }}">
