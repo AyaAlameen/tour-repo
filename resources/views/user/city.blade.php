@@ -49,10 +49,11 @@
                                     @endif
 
                                     <div>
+                                        <?php $random_stars =  rand(1, 5); ?>
+                                        @for ($i = 0; $i < $random_stars; $i++)
                                         <i class="fas fa-star p-2"></i>
-                                        <i class="fas fa-star p-2 "></i>
-                                        <i class="fas fa-star p-2 "></i>
-                                        <i class="fas fa-star p-2"></i>
+                                        @endfor
+                                        
                                     </div>
 
                                 </div>
