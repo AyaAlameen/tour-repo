@@ -267,7 +267,7 @@
         </button>
     </div>
     <div id="favorites-data" class="offcanvas-body">
-        
+
 
     </div>
 </div>
@@ -347,41 +347,42 @@
             </div>
 
             <form action="" id="pay-form" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="modal-body">
                     <table style="width:100%; direction: rtl;"
                         class="table-striped table-bordered m-auto text-primary myTable">
 
                         <tr>
                             <td class="text-center">الاسم بالكامل</td>
-                            <td><input type="text" id="full_name_booking" class="toggle text-primary in" name="full_name" required
-                                    style="width: 100%;"></th>
+                            <td><input type="text" id="full_name_booking" class="toggle text-primary in"
+                                    name="full_name" required style="width: 100%;"></th>
                         </tr>
                         <tr>
                             <td colspan="2"><span class="text-danger" id="full_name_booking_error"></span></td>
                         </tr>
-                        
-                        
+
+
 
                         <tr>
                             <td class="text-center">عدد الأشخاص</td>
-                            <td><input type="number" id="people_count_booking" class="toggle text-primary in" name="people_count" required
-                                    style="width: 100%;"></td>
+                            <td><input type="number" id="people_count_booking" class="toggle text-primary in"
+                                    name="people_count" required style="width: 100%;"></td>
                         </tr>
                         <tr>
                             <td colspan="2"><span class="text-danger" id="people_count_booking_error"></span></td>
                         </tr>
                         <tr>
                             <td class="text-center"> تاريخ الوصول</td>
-                            <td><input type="date" id="start_date_booking" class="toggle text-primary in" name="start_date" required
-                                    style="width: 100%;"></td>
+                            <td><input type="date" id="start_date_booking" class="toggle text-primary in"
+                                    name="start_date" required style="width: 100%;"></td>
                         </tr>
                         <tr>
                             <td colspan="2"><span class="text-danger" id="start_date_booking_error"></span></td>
                         </tr>
                         <tr id="end_date_booking_tr">
                             <td class="text-center"> تاريخ المغادرة</td>
-                            <td><input type="date" id="end_date_booking" class="toggle text-primary in" name="depart_date" required
-                                    style="width: 100%;"></td>
+                            <td><input type="date" id="end_date_booking" class="toggle text-primary in"
+                                    name="depart_date" required style="width: 100%;"></td>
                         </tr>
                         <tr id="end_date_booking_error_tr">
                             <td colspan="2"><span class="text-danger" id="end_date_booking_error"></span></td>
@@ -403,18 +404,25 @@
                             </td>
                         </tr>
                         <tr id="reservation_period_booking_error_tr">
-                            <td colspan="2"><span class="text-danger" id="reservation_period_booking_error"></span></td>
+                            <td colspan="2"><span class="text-danger"
+                                    id="reservation_period_booking_error"></span></td>
 
                         </tr>
-                        <input type="text" hidden  id="booking_type">
-                        <input type="text" hidden  id="booking_type_id">
-                        <input type="text" hidden  id="booking_cost">
+                        <input type="text" hidden name="booking_type" id="booking_type">
+                        <input type="text" hidden name="booking_type_id" id="booking_type_id">
+                        <input type="text" hidden name="booking_cost" id="booking_cost">
+                        @isset(\Auth::user()->id)
+                            <input type="text" hidden name="user_id" value="{{ \Auth::user()->id }}" id="user_id">
+                            <input type="text" hidden name="user_email" value="{{ \Auth::user()->email }}"
+                                id="user_email">
+                        @endisset
                     </table>
                 </div>
             </form>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                <button type="button" id="save-pay-btn" onclick="saveAndPay()"  class="app-content-headerButton">التثبيت والدفع</button>
+                <button type="button" id="save-pay-btn" onclick="saveAndPay()"
+                    class="app-content-headerButton">التثبيت والدفع</button>
             </div>
         </div>
     </div>
@@ -573,25 +581,29 @@
                 // $('.parenttrue').attr("hidden", false);
                 // clearInput();
                 removeMessages();
-                console.log(data);
+                console.log('succes', data);
+                location.href = data['Data']['InvoiceURL'];
             })
             .fail(function(data) {
-                console.log(data);
+                console.log('fail', data);
                 removeMessages();
                 $('.parent').attr("hidden", false);
-                if(data.responseJSON.errors.full_name){
+                if (data.responseJSON.errors.full_name) {
 
-                    document.querySelector(`#${formId} #full_name_booking_error`).innerHTML = data.responseJSON.errors.full_name[0]; 
-
-                }
-                if(data.responseJSON.errors.start_date){
-
-                    document.querySelector(`#${formId} #start_date_booking_error`).innerHTML = data.responseJSON.errors.start_date[0]; 
+                    document.querySelector(`#${formId} #full_name_booking_error`).innerHTML = data.responseJSON
+                        .errors.full_name[0];
 
                 }
-                if(data.responseJSON.errors.people_count){
+                if (data.responseJSON.errors.start_date) {
 
-                    document.querySelector(`#${formId} #people_count_booking_error`).innerHTML = data.responseJSON.errors.people_count[0]; 
+                    document.querySelector(`#${formId} #start_date_booking_error`).innerHTML = data.responseJSON
+                        .errors.start_date[0];
+
+                }
+                if (data.responseJSON.errors.people_count) {
+
+                    document.querySelector(`#${formId} #people_count_booking_error`).innerHTML = data.responseJSON
+                        .errors.people_count[0];
 
                 }
 
