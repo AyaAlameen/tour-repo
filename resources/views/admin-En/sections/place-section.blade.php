@@ -209,7 +209,7 @@
                                                                 class="dropdown-item"
                                                                 value="{{ $sub_category->id }}"
                                                                 id="edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}"
-                                                                onclick="setEditSubCategory({{ $sub_category->id }}, {{ $place->id }}, '{{ $sub_category->translations()->where('locale', 'ar')->first()->name }}', 'edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}')"
+                                                                onclick="setEditSubCategory({{ $sub_category->id }}, {{ $place->id }}, '{{ $sub_category->translations()->where('locale', 'en')->first()->name }}', 'edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}')"
                                                                 href="#">
                                                                 {{ $sub_category->translations()->where('locale', 'en')->first()->name }}
                                                             </option>
@@ -615,7 +615,7 @@
                                                                 class="dropdown-item"
                                                                 value="{{ $sub_category->id }}"
                                                                 id="edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}"
-                                                                onclick="setEditSubCategory({{ $sub_category->id }}, {{ $place->id }}, '{{ $sub_category->translations()->where('locale', 'ar')->first()->name }}', 'edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}')"
+                                                                onclick="setEditSubCategory({{ $sub_category->id }}, {{ $place->id }}, '{{ $sub_category->translations()->where('locale', 'en')->first()->name }}', 'edit_sub_category_{{ $place->id }}_{{ $sub_category->id }}')"
                                                                 href="#">
                                                                 {{ $sub_category->translations()->where('locale', 'en')->first()->name }}
                                                             </option>
