@@ -346,7 +346,7 @@
                 </button>
             </div>
 
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" id="pay-form" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <table style="width:100%; direction: rtl;"
                         class="table-striped table-bordered m-auto text-primary myTable">
@@ -359,21 +359,8 @@
                         <tr>
                             <td colspan="2"><span class="text-danger" id="full_name_booking_error"></span></td>
                         </tr>
-                        <tr>
-                            <td class="text-center">رقم الهاتف</td>
-                            <td><input type="number" id="phone_booking" class="toggle text-primary in" name="phone" required
-                                    style="width: 100%;"></td>
-                        </tr>
-                        <td colspan="2"><span class="text-danger" id="phone_booking_error"></span></td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">الرقم الوطني</td>
-                            <td><input type="number" id="id_booking" class="toggle text-primary in" name="user_identifire" required
-                                    style="width: 100%;"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span class="text-danger" id="id_booking_error"></span></td>
-                        </tr>
+                        
+                        
 
                         <tr>
                             <td class="text-center">عدد الأشخاص</td>
@@ -385,7 +372,7 @@
                         </tr>
                         <tr>
                             <td class="text-center"> تاريخ الوصول</td>
-                            <td><input type="date" id="start_date_booking" class="toggle text-primary in" name="access_date" required
+                            <td><input type="date" id="start_date_booking" class="toggle text-primary in" name="start_date" required
                                     style="width: 100%;"></td>
                         </tr>
                         <tr>
@@ -420,12 +407,14 @@
 
                         </tr>
                         <input type="text" hidden  id="booking_type">
+                        <input type="text" hidden  id="booking_type_id">
+                        <input type="text" hidden  id="booking_cost">
                     </table>
                 </div>
             </form>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                <button type="button" id="add-city-btn" class="app-content-headerButton">التثبيت والدفع</button>
+                <button type="button" id="save-pay-btn" onclick="saveAndPay()"  class="app-content-headerButton">التثبيت والدفع</button>
             </div>
         </div>
     </div>
@@ -561,6 +550,57 @@
         document.getElementById('old_error').innerHTML = '';
         document.getElementById('new_error').innerHTML = '';
         document.getElementById('confirmation_error').innerHTML = '';
+        document.getElementById('full_name_booking_error').innerHTML = '';
+        document.getElementById('start_date_booking_error').innerHTML = '';
+        document.getElementById('people_count_booking_error').innerHTML = '';
 
+    }
+
+    function saveAndPay() {
+        $("#save-pay-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('pay-form'));
+        var formId = 'pay-form';
+        $.ajax({
+                url: `{{ route('payBooking') }}`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                // $('.close').click();
+                // $('.parenttrue').attr("hidden", false);
+                // clearInput();
+                removeMessages();
+                console.log(data);
+            })
+            .fail(function(data) {
+                console.log(data);
+                removeMessages();
+                $('.parent').attr("hidden", false);
+                if(data.responseJSON.errors.full_name){
+
+                    document.querySelector(`#${formId} #full_name_booking_error`).innerHTML = data.responseJSON.errors.full_name[0]; 
+
+                }
+                if(data.responseJSON.errors.start_date){
+
+                    document.querySelector(`#${formId} #start_date_booking_error`).innerHTML = data.responseJSON.errors.start_date[0]; 
+
+                }
+                if(data.responseJSON.errors.people_count){
+
+                    document.querySelector(`#${formId} #people_count_booking_error`).innerHTML = data.responseJSON.errors.people_count[0]; 
+
+                }
+
+
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#save-pay-btn").attr("disabled", false).html('التثبيت والدفع');
+            });
     }
 </script>

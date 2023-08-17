@@ -27,6 +27,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserEventController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -408,45 +409,89 @@ Route::middleware(['tourist_guide'])->group(function(){
         Route::get('/places_booking_en', function () {
             return view('admin-En.places_bookings');
         }) -> name('places_booking_en');
+
+        Route::get('/get_places_booking_en', [BookingController::class, 'indexPlaceEn']) -> name('get_places_booking_en');
+        Route::post('/places_booking_en/add', [BookingController::class, 'storePlaceEn']) -> name('addPlaceBookingEn');
         
-        Route::get('/offers_booking_en', function () {
-            return view('admin-En.offers_bookings');
-        }) -> name('offers_booking_en');
-        
+
+
+        // Route::get('/offers_booking_en', function () {
+        //     return view('admin-En.offers_bookings');
+        // }) -> name('offers_booking_en');
+        Route::get('/offers_booking_en', [BookingController::class, 'getOffersEn']) -> name('offers_booking_en');
+
+        Route::get('/get_offers_booking_en', [BookingController::class, 'indexOfferEn']) -> name('get_offers_booking_en');
+        Route::post('/offers_booking_en/add', [BookingController::class, 'storeOfferEn']) -> name('addOfferBookingEn');
+
+
+
         Route::get('/groups_booking_en', function () {
             return view('admin-En.groups_booking');
         }) -> name('groups_booking_en');
     
-        Route::get('/services_booking_en', function () {
-            return view('admin-En.services_bookings');
-        }) -> name('services_booking_en');
+
         
-        Route::get('/events_booking_en', function () {
-            return view('admin-En.events_bookings');
-        }) -> name('events_booking_en');
-        
+        Route::get('/services_booking_en', [BookingController::class, 'getServicesEn']) -> name('services_booking_en');
+
+        Route::get('/get_services_booking_en', [BookingController::class, 'indexServiceEn']) -> name('get_services_booking_en');
+        Route::post('/services_booking_en/add', [BookingController::class, 'storeServiceEn']) -> name('addServiceBookingEn');
+
+
+
+
+        // Route::get('/events_booking_en', function () {
+        //     return view('admin-En.events_bookings');
+        // }) -> name('events_booking_en');
+        Route::get('/events_booking_en', [BookingController::class, 'getEventsEn']) -> name('events_booking_en');
+
+        Route::get('/get_events_booking_en', [BookingController::class, 'indexEventEn']) -> name('get_events_booking_en');
+        Route::post('/events_booking_en/add', [BookingController::class, 'storeEventEn']) -> name('addEventBookingEn');
+
     
         //ar
+        Route::get('/get_places_booking_ar', [BookingController::class, 'indexPlaceAr']) -> name('get_places_booking_ar');
+        Route::post('/places_booking_ar/add', [BookingController::class, 'storePlaceAr']) -> name('addPlaceBookingAr');
         Route::get('/places_booking_ar', function () {
             return view('admin-Ar.places_bookings');
         }) -> name('places_booking_ar');
         
-        Route::get('/offers_booking_ar', function () {
-            return view('admin-Ar.offers_bookings');
-        }) -> name('offers_booking_ar');
+
+
+        // Route::get('/offers_booking_ar', function () {
+        //     return view('admin-Ar.offers_bookings');
+        // }) -> name('offers_booking_ar');
         
+        Route::get('/offers_booking_ar', [BookingController::class, 'getOffersAr']) -> name('offers_booking_ar');
+
+        Route::get('/get_offers_booking_ar', [BookingController::class, 'indexOfferAr']) -> name('get_offers_booking_ar');
+        Route::post('/offers_booking_ar/add', [BookingController::class, 'storeOfferAr']) -> name('addOfferBookingAr');
+
+
         Route::get('/groups_booking_ar', function () {
             return view('admin-Ar.groups_booking');
         }) -> name('groups_booking_ar');
     
-        Route::get('/services_booking_ar', function () {
-            return view('admin-Ar.services_bookings');
-        }) -> name('services_booking_ar');
+
+
+        Route::get('/services_booking_ar', [BookingController::class, 'getServicesAr']) -> name('services_booking_ar');
+
+        Route::get('/get_services_booking_ar', [BookingController::class, 'indexServiceAr']) -> name('get_services_booking_ar');
+        Route::post('/services_booking_ar/add', [BookingController::class, 'storeServiceAr']) -> name('addServiceBookingAr');
+
+
         
-        Route::get('/events_booking_ar', function () {
-            return view('admin-Ar.events_bookings');
-        }) -> name('events_booking_ar');
+        // Route::get('/events_booking_ar', function () {
+        //     return view('admin-Ar.events_bookings');
+        // }) -> name('events_booking_ar');
+
+        Route::get('/events_booking_ar', [BookingController::class, 'getEventsAr']) -> name('events_booking_ar');
+
+        Route::get('/get_events_booking_ar', [BookingController::class, 'indexEventAr']) -> name('get_events_booking_ar');
+        Route::post('/events_booking_ar/add', [BookingController::class, 'storeEventAr']) -> name('addEventBookingAr');
+
     });
+
+
     Route::middleware(['welcome'])->group(function(){
         Route::get('/welcome_home_en', function () {
             return view('admin-En.welcome_home');

@@ -386,6 +386,8 @@
                 $('#reservation_period_booking_tr').attr('hidden', true);
                 $('#reservation_period_booking_error_tr').attr('hidden', true);
                 $('booking_type').val('place');
+                $('booking_type_id').val(place['id']);
+                $('booking_cost').val(place['cost']);
             }
             
 

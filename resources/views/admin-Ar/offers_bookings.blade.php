@@ -30,127 +30,86 @@
 
                                             <tr>
 
-                                                <td><input type="text" class="toggle text-primary in" name="full_name_ar"
+                                                <td><input type="text" class="toggle text-primary in" name="full_name"
                                                         required style="width: 100%;"></th>
                                                 <td>الاسم الكامل</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="text-end text-danger p-1"><span></span>
+                                                <td colspan="2" class="text-end text-danger p-1"><span id="full_name_error"></span>
                                                 </td>
                                             </tr>
-                                            <tr>
-
-                                                <td><input type="number" class="toggle text-primary in" name="identifire"
-                                                        required style="width: 100%;"></td>
-                                                <td>الرقم الوطني</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" class="text-end text-danger p-1"><span></span>
-                                                </td>
-                                            </tr>
-
-
                                             <tr>
                                                 <td>
-                                                    <div class="dropdown toggle text-primary" style="display:inline-block;">
-                                                        <lable class="dropdown-toggle" type="button"
-                                                            id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-expanded="false">
-
-                                                        </lable>
+                                                    <div class="dropdown toggle text-primary in" style="display:inline-block; ;">
+            
+                                                        <label class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                                            data-toggle="dropdown" aria-expanded="false">
+            
+                                                        </label>
+                                                        <span id="service-name"></span>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="#">عرض الشاورما</a>
-                                                            <a class="dropdown-item" href="#">عرض الكاتو والعصير</a>
+                                                            
+                                                            @foreach ($offers as $offer)
+                                                                <option style="cursor: pointer;"
+                                                                    id="service_{{ $offer->id }}"
+                                                                    class="dropdown-item service_filter_option service_place_{{ $offer->place->id }}"
+                                                                    value="{{ $offer->id }}" id="dservice_{{ $offer->id }}"
+                                                                    onclick="setService({{ $offer->id }}, '{{ $offer->translations()->where('locale', 'ar')->first()->name }} | {{$offer->cost}}', 'service_{{ $offer->id }}', {{$offer->cost}})"
+                                                                    href="#">
+                                                                    {{ $offer->translations()->where('locale', 'ar')->first()->name }} | {{$offer->cost}}
+                                                                </option>
+                                                            @endforeach
+                                                            <input type="text" id="service_id" name="offer_id" hidden>
+                                                            <input type="text" id="cost" name="cost" hidden>
+            
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>العرض</td>
-
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><span class="text-danger"></span></td>
-
+            
+                                                <td colspan="2" class="text-end text-danger p-1"><span id="service_error"></span>
+                                                </td>
                                             </tr>
-                                            {{-- <tr>
-                                              <td>
-                                                  <div class="dropdown toggle text-primary" style="display:inline-block;">
-                                                      <lable class="dropdown-toggle" type="button"
-                                                          id="dropdownMenuButton" data-toggle="dropdown"
-                                                          aria-expanded="false">
 
-                                                      </lable>
-                                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                          <a class="dropdown-item" href="#"> ---</a>
-                                                          <a class="dropdown-item" href="#">---</a>
-                                                      </div>
-                                                  </div>
-                                              </td>
-                                              <td>الخدمة</td>
-
-                                          </tr>
-                                          <tr>
-                                              <td colspan="2"><span class="text-danger"></span></td>
-
-                                          </tr>  --}}
                                             <tr>
 
-                                              <td><input type="number" class="toggle text-primary in" name="people_count"
-                                                      required style="width: 100%;"></td>
-                                              <td>عدد الأشخاص</td>
-                                          </tr>
-                                          <tr>
-                                              <td colspan="2" class="text-end text-danger p-1"><span></span>
-                                              </td>
-                                          </tr>
-                                          <tr>
+                                                <td><input type="number" class="toggle text-primary in" name="people_count"
+                                                        required style="width: 100%;"></td>
+                                                <td>عدد الأشخاص</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="text-end text-danger p-1"><span id="people_count_error"></span>
+                                                </td>
+                                            </tr>
                                             
-                                            <td>
-                                                <div class="dropdown toggle text-primary"
-                                                    style="display:inline-block;">
-                                                    <lable class="dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                        aria-expanded="false">
-                                                        
-                                                    </lable>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">12:00 - 13:00</a>
-                                                        <a class="dropdown-item" href="#">13:00 - 14:00</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>مدة الحجز </td>
-                                         </tr>
-                                         <tr>
-                                            <td colspan="2"><span class="text-danger"></span></td>
-                                        
-                                        </tr>
                                             <tr>
-                                                <td><input class="toggle text-primary in" type="date" name="access_date"
+                                                <td><input class="toggle text-primary in" type="date" name="start_date"
                                                         required style="width: 100%;"></th>
                                                 <td>تاريخ الوصول</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="text-end text-danger p-1"><span
-                                                      ></span>
+                                                <td colspan="2" class="text-end text-danger p-1"><span id="start_date_error"></span>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><input class="toggle text-primary in" type="date" name="depart_date"
+                                                <td><input class="toggle text-primary in" type="date" name="end_date"
                                                         required style="width: 100%;"></th>
                                                 <td>تاريخ المغادرة</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="text-end text-danger p-1"><span></span></td>
+                                                <td colspan="2" class="text-end text-danger p-1"><span id="end_date_error"></span></td>
                                             </tr>
 
-                                           
+
                                         </table>
                                     </div>
                                 </form>
                                 <div class="modal-footer">
                                     <button type="button" class="action-button active close"
                                         data-bs-dismiss="modal">إغلاق</button>
-                                    <button type="button" id="add-employee-btn"
+                                    <button onclick="addBooking('add-form')" type="button" id="add-booking-btn"
                                         class="app-content-headerButton">حفظ</button>
                                 </div>
                             </div>
@@ -164,7 +123,7 @@
             <input class="search-bar" placeholder="... ابحث عن طريق اسم صاحب الحجز" type="text">
             <div class="app-content-actions-wrapper">
 
-             
+
                 <div class="nav-item dropdown">
                     <button class="action-button list dropdown-toggle" data-bs-toggle="dropdown" title="ترجمة"> <i
                             class="fas fa-globe "></i> </button>
@@ -188,13 +147,13 @@
         <div class="scroll-class" style="width:75%;">
             <div class="products-area-wrapper tableView">
                 <div class="products-header">
+                    <div class="product-cell">#</div>
                     <div class="product-cell">العرض</div>
                     <div class="product-cell ">صاحب الحجز</div>
-                    <div class="product-cell">الرقم الوطني</div>
                     <div class="product-cell">عدد الأشخاص</div>
                     <div class="product-cell"> المكان</div>
-                    <div class="product-cell">الخدمة</div>
                     <div class="product-cell">الكلفة</div>
+                    <div class="product-cell">كلفة الحجز</div>
                     <div class="product-cell">تاريخ الوصول</div>
                     <div class="product-cell">تاريخ المغادرة</div>
 
@@ -202,40 +161,145 @@
 
 
                 </div>
-                <div class="products-row">
-                    <!-- بداية البيانات -->
-                    <div class="product-cell">
-                        <span>مسبح البولمان </span>
-                    </div>
-                    <div class="product-cell">
-                        <span>بيان</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>021111111111</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>5</span>
-                    </div>
-                    <div class="product-cell">
-                        <span> بولمان الشهباء</span>
-                    </div>
-                    <div class="product-cell">
-                        <span> المسبح</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>30</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>6-6-2023</span>
-                    </div>
-                    <div class="product-cell">
-                        <span>8-6-2023</span>
-                    </div>
-                    <!-- نهاية البيانات -->
-
-                </div>
+                <div id="bookings-data"></div>
             </div>
         </div>
     </div>
     </div>
 @endsection
+
+
+<script>
+    function addBooking(formId) {
+        $("#add-booking-btn").attr("disabled", true).html('<i class="fa fa-spinner fa-spin"></i>');
+        var formData = new FormData(document.getElementById('add-form'));
+        $.ajax({
+                url: "{{ route('addOfferBookingAr') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                removeMessages();
+
+                $("#bookings-data").empty();
+                $("#bookings-data").append(data);
+                $('.close').click();
+                $('.parenttrue').attr("hidden", false);
+                document.getElementById(formId).reset();
+
+            })
+            .fail(function(data) {
+                // $('.close').click();
+                // $('.parent').attr("hidden", false);
+                removeMessages();
+
+                if (data.responseJSON.errors.full_name) {
+                    document.querySelector(`#${formId} #full_name_error`).innerHTML = data.responseJSON.errors
+                        .full_name[0];
+
+                }
+                if (data.responseJSON.errors.people_count) {
+
+                    document.querySelector(`#${formId} #people_count_error`).innerHTML = data.responseJSON.errors
+                        .people_count[0];
+
+                }
+                if (data.responseJSON.errors.start_date) {
+
+                    document.querySelector(`#${formId} #start_date_error`).innerHTML = data.responseJSON.errors
+                        .start_date[0];
+
+                }
+                if (data.responseJSON.errors.end_date) {
+
+                    document.querySelector(`#${formId} #end_date_error`).innerHTML = data.responseJSON.errors
+                        .end_date[0];
+
+                }
+                if (data.responseJSON.errors.offer_id) {
+
+                    document.querySelector(`#${formId} #service_error`).innerHTML = data.responseJSON.errors
+                        .offer_id[0];
+
+                }
+
+            })
+            .always(function() {
+                // Re-enable the submit button and hide the loading spinner
+                $("#add-booking-btn").attr("disabled", false).html('حفظ');
+            });
+    }
+
+    //---------------------------------------------------------------
+    window.onload = (event) => {
+        $.ajax({
+                url: "{{ route('get_offers_booking_ar') }}",
+                type: "GET",
+                processData: false,
+                cache: false,
+                contentType: false,
+            })
+            .done(function(data) {
+                $("#bookings-data").append(data);
+            })
+            .fail(function() {
+                $('.parent').attr("hidden", false);
+
+            });
+    };
+
+    //--------------------------------------------------------
+
+    function searchFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value;
+        table = document.getElementById("citiesTable");
+        // tr = table.getElementsByTagName("tr");
+        tr = table.getElementsByClassName("products-row");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByClassName("search-value");
+
+            if (td) {
+                txtValue = td[0].textContent || td[0].innerText;
+                if (txtValue) {
+
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+    //--------------------------------------------
+    function removeMessages() {
+        document.getElementById('full_name_error').innerHTML = '';
+        document.getElementById('people_count_error').innerHTML = '';
+        document.getElementById('start_date_error').innerHTML = '';
+        document.getElementById('end_date_error').innerHTML = '';
+        document.getElementById('service_error').innerHTML = '';
+
+
+    }
+    //---------------------------------------------
+    function setService(service_id, service, option_id, cost) {
+        console.log(service_id);
+        var services_options = document.querySelectorAll('[id^="service_"]');
+        services_options.forEach(option => {
+            option.style.setProperty("color", "#1f1c2e", "important");
+
+        });
+        document.getElementById('service-name').innerHTML = service;
+        document.getElementById(option_id).style.setProperty("color", "#90aaf8", "important");
+        document.getElementById('service_id').value = `${service_id}`;
+        document.getElementById('cost').value = `${cost}`;
+    }
+    //--------------------------------------------
+</script>
